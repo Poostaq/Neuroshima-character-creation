@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://icon.png" type="Texture" id=1]
+[ext_resource path="res://EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=1]
+[ext_resource path="res://icon.png" type="Texture" id=2]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -23,11 +24,19 @@ margin_right = 1004.0
 margin_bottom = 580.0
 alignment = 2
 
-[node name="StepContainer" type="CenterContainer" parent="CenterContainer/VBoxContainer"]
+[node name="StepContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
 margin_right = 984.0
 margin_bottom = 512.0
+grow_horizontal = 2
+grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Ethnicity" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 984.0
+margin_bottom = 512.0
 
 [node name="---SPACE---" type="Control" parent="CenterContainer/VBoxContainer"]
 margin_top = 516.0
@@ -64,7 +73,7 @@ material = SubResource( 1 )
 margin_right = 20.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -74,7 +83,7 @@ margin_left = 40.0
 margin_right = 60.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -84,7 +93,7 @@ margin_left = 80.0
 margin_right = 100.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -94,7 +103,7 @@ margin_left = 120.0
 margin_right = 140.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -104,7 +113,7 @@ margin_left = 160.0
 margin_right = 180.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -114,7 +123,7 @@ margin_left = 200.0
 margin_right = 220.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -124,7 +133,7 @@ margin_left = 240.0
 margin_right = 260.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -134,7 +143,7 @@ margin_left = 280.0
 margin_right = 300.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -144,7 +153,7 @@ margin_left = 320.0
 margin_right = 340.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
@@ -154,7 +163,7 @@ margin_left = 360.0
 margin_right = 380.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
-texture_normal = ExtResource( 1 )
+texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
