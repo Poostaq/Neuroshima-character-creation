@@ -8,6 +8,16 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Resource",
+"class": "CharacterStats",
+"language": "GDScript",
+"path": "res://characterStats.gd"
+} ]
+_global_script_class_icons={
+"CharacterStats": ""
+}
+
 [application]
 
 config/name="Neuroshima Character Creation"
@@ -20,6 +30,7 @@ DatabaseOperations="*res://databaseOperations.gd"
 
 [display]
 
+window/size/height=680
 window/stretch/mode="2d"
 window/stretch/aspect="expand"
 

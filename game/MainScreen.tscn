@@ -1,17 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://CharacterSheet/CharacterSheet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MainScreen.gd" type="Script" id=4]
+[ext_resource path="res://CharacterSheet/characterSheetStats.tres" type="Resource" id=5]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 4 )
 
 [node name="CenterContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_constants/margin_right = 20
 custom_constants/margin_top = 20
 custom_constants/margin_left = 20
@@ -21,12 +27,14 @@ custom_constants/margin_bottom = 20
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1004.0
-margin_bottom = 580.0
+margin_bottom = 660.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 alignment = 2
 
 [node name="StepContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
 margin_right = 984.0
-margin_bottom = 512.0
+margin_bottom = 592.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
@@ -36,18 +44,18 @@ size_flags_vertical = 3
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 984.0
-margin_bottom = 512.0
+margin_bottom = 592.0
 
 [node name="---SPACE---" type="Control" parent="CenterContainer/VBoxContainer"]
-margin_top = 516.0
+margin_top = 596.0
 margin_right = 984.0
-margin_bottom = 536.0
+margin_bottom = 616.0
 rect_min_size = Vector2( 100, 20 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
-margin_top = 540.0
+margin_top = 620.0
 margin_right = 984.0
-margin_bottom = 560.0
+margin_bottom = 640.0
 alignment = 1
 
 [node name="Back" type="Button" parent="CenterContainer/VBoxContainer/HBoxContainer"]
@@ -178,3 +186,42 @@ margin_left = 790.0
 margin_right = 832.0
 margin_bottom = 20.0
 text = "Next"
+
+[node name="CardButton" type="Button" parent="."]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -50.0
+margin_right = 20.0
+margin_bottom = 50.0
+
+[node name="CharacterCardButton" type="RichTextLabel" parent="CardButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_rotation = 0.00157754
+mouse_filter = 1
+bbcode_enabled = true
+bbcode_text = "
+[center]K
+A
+R
+T
+A"
+text = "
+K
+A
+R
+T
+A"
+
+[node name="CharacterSheet" parent="." instance=ExtResource( 3 )]
+visible = false
+mouse_filter = 1
+characterStats = ExtResource( 5 )
+
+[node name="TextureRect" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer" index="0"]
+margin_right = 964.0
+
+[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/Ethnicity" to="CharacterSheet" method="_on_Ethnicity_ethnicity_chosen"]
+[connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
+
+[editable path="CharacterSheet"]
