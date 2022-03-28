@@ -1,9 +1,11 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://CharacterSheet/FrontPage.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
 [ext_resource path="res://Neuro Font PL.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://CharacterSheet/CharacterSheet.gd" type="Script" id=4]
+[ext_resource path="res://THEME.tres" type="Theme" id=5]
+[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
 
 [sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0.997151, 1 )
@@ -13,14 +15,14 @@ gradient = SubResource( 7 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 14
-font_data = ExtResource( 3 )
+font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
 size = 14
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=3]
-size = 14
+size = 10
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=4]
@@ -35,6 +37,10 @@ font_data = ExtResource( 3 )
 size = 14
 font_data = ExtResource( 3 )
 
+[sub_resource type="DynamicFont" id=10]
+size = 28
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=9]
 size = 25
 font_data = ExtResource( 3 )
@@ -42,7 +48,48 @@ font_data = ExtResource( 3 )
 [node name="CharacterSheet" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+theme = ExtResource( 5 )
 script = ExtResource( 4 )
+AgilityAttributeValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityAttributeContainer/AgilityAttributeValue")
+AgiEasyValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer/AgiEasy")
+AgiNormalValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer/AgiNormal")
+AgiProblematicValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer/AgiProblematic")
+AgiHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer/AgiHard")
+AgiVeryHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer/AgiVeryHard")
+AgiFuckingHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer/AgiFuckingHard")
+AgiLuckValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer/AgiLuck")
+PerceptionAttributeValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer/PerceptionAttributeValue")
+PerEasyValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer/PerEasy")
+PerNormalValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer/PerNormal")
+PerProblematicValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer/PerProblematic")
+PerHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer/PerHard")
+PerVeryHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer/PerVeryHard")
+PerFuckingHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer/PerFuckingHard")
+PerLuckValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer/PerLuck")
+CharacterAttributeValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer/CharacterAttributeValue")
+ChaEasyValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2/ChaEasy")
+ChaNormalValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2/ChaNormal")
+ChaProblematicValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2/ChaProblematic")
+ChaHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2/ChaHard")
+ChaVeryHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2/ChaVeryHard")
+ChaFuckingHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2/ChaFuckingHard")
+ChaLuckValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2/ChaLuck")
+WitsAttributeValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer/WitsAttributeValue")
+WitEasyValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer/WitsEasy")
+WitNormalValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer/WitsNormal")
+WitProblematicValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer/WitsProblematic")
+WitHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer/WitsHard")
+WitVeryHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer/WitsVeryHard")
+WitFuckingHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer/WitsFuckingHard")
+WitLuckValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer/WitsLuck")
+BodyAttributeValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyAttributeContainer/BodyAttributeValue")
+BodEasyValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyEasy")
+BodNormalValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyNormal")
+BodProblematicValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyProblematic")
+BodHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyHard")
+BodVeryHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyVeryHard")
+BodFuckingHardValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyFuckingHard")
+BodLuckValue = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyLuck")
 
 [node name="PanelContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -60,6 +107,10 @@ expand = true
 [node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 8.0
+margin_right = 15.0
+margin_bottom = 8.0
 custom_constants/margin_right = 30
 custom_constants/margin_top = 30
 custom_constants/margin_left = 30
@@ -99,7 +150,7 @@ margin_bottom = 271.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer"]
+[node name="-----------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer"]
 margin_right = 413.0
 margin_bottom = 16.0
 size_flags_horizontal = 3
@@ -114,7 +165,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.94
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer"]
+[node name="---------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer"]
 margin_right = 14.0
 margin_bottom = 138.0
 size_flags_horizontal = 3
@@ -139,24 +190,24 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 16.76
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="----------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 251.0
-margin_bottom = 8.0
+margin_bottom = 10.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 12.0
+margin_top = 14.0
 margin_right = 251.0
-margin_bottom = 30.0
+margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.14
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="--------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_right = 14.0
-margin_bottom = 18.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.38
@@ -164,7 +215,7 @@ size_flags_stretch_ratio = 0.38
 [node name="Name" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 18.0
 margin_right = 209.0
-margin_bottom = 18.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.06
@@ -174,32 +225,34 @@ custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
 custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
+bbcode_text = "[center]NOT SET[/center]"
+text = "NOT SET"
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+[node name="--------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
 margin_left = 213.0
 margin_right = 251.0
-margin_bottom = 18.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 34.0
+margin_top = 41.0
 margin_right = 251.0
-margin_bottom = 56.0
+margin_bottom = 63.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.32
+size_flags_stretch_ratio = 1.09
 
 [node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 60.0
+margin_top = 67.0
 margin_right = 251.0
-margin_bottom = 76.0
+margin_bottom = 88.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 40.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.65
@@ -207,7 +260,7 @@ size_flags_stretch_ratio = 1.65
 [node name="Ethnicity" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
 margin_left = 44.0
 margin_right = 251.0
-margin_bottom = 16.0
+margin_bottom = 21.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.38
@@ -224,23 +277,24 @@ text = "
 scroll_active = false
 
 [node name="Control4" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 80.0
+margin_top = 92.0
 margin_right = 251.0
-margin_bottom = 103.0
+margin_bottom = 106.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.41
+size_flags_stretch_ratio = 0.72
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 107.0
+margin_top = 110.0
 margin_right = 251.0
-margin_bottom = 124.0
+margin_bottom = 138.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.34
 
 [node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
 margin_right = 26.0
-margin_bottom = 17.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.6
@@ -248,36 +302,27 @@ size_flags_stretch_ratio = 1.6
 [node name="EthnicityTrait" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
 margin_left = 30.0
 margin_right = 230.0
-margin_bottom = 17.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 11.91
 custom_colors/default_color = Color( 0, 0, 0, 1 )
 custom_colors/selection_color = Color( 0, 0, 0, 1 )
 custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
-custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "
-"
-text = "
-"
+bbcode_text = "[center]CECHA Z POCHODZENIA[/center]
+cokolwie"
+text = "CECHA Z POCHODZENIA
+cokolwie"
 scroll_active = false
 
 [node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
 margin_left = 234.0
 margin_right = 251.0
-margin_bottom = 17.0
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-
-[node name="Control5" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 128.0
-margin_right = 251.0
-margin_bottom = 138.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.59
 
 [node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer"]
 margin_left = 407.0
@@ -411,6 +456,951 @@ margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.8
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 104.0
+margin_top = -617.0
+margin_right = 464.0
+margin_bottom = -241.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Attributes" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer"]
+margin_right = 360.0
+margin_bottom = 376.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AgilityContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes"]
+margin_right = 360.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="--------------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer"]
+margin_right = 23.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="AgilityAttributeContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer"]
+margin_left = 27.0
+margin_right = 66.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="-----------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityAttributeContainer"]
+margin_right = 39.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.7
+
+[node name="AgilityAttributeValue" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityAttributeContainer"]
+margin_top = 26.0
+margin_right = 39.0
+margin_bottom = 58.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center]0"
+text = "0"
+
+[node name="------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityAttributeContainer"]
+margin_top = 62.0
+margin_right = 39.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="AgilityModifiersContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer"]
+margin_left = 70.0
+margin_right = 285.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="-------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer"]
+margin_right = 215.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 12.68
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer"]
+margin_top = 44.0
+margin_right = 215.0
+margin_bottom = 63.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.6
+
+[node name="AgiEasy" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer"]
+margin_right = 27.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="AgiNormal" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer"]
+margin_left = 31.0
+margin_right = 58.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="AgiProblematic" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer"]
+margin_left = 62.0
+margin_right = 89.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="AgiHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer"]
+margin_left = 93.0
+margin_right = 121.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="AgiVeryHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer"]
+margin_left = 125.0
+margin_right = 152.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="AgiFuckingHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer"]
+margin_left = 156.0
+margin_right = 183.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="AgiLuck" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer"]
+margin_left = 187.0
+margin_right = 215.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer"]
+margin_top = 67.0
+margin_right = 215.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.53
+
+[node name="---------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer"]
+margin_left = 289.0
+margin_right = 360.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.8
+
+[node name="PerceptionContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes"]
+margin_top = 76.0
+margin_right = 360.0
+margin_bottom = 148.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="----------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer"]
+margin_right = 52.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.38
+
+[node name="PerceptionAttributeContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer"]
+margin_left = 56.0
+margin_right = 94.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer"]
+margin_right = 38.0
+margin_bottom = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.59
+
+[node name="PerceptionAttributeValue" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer"]
+margin_top = 23.0
+margin_right = 38.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center]0"
+text = "0"
+
+[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer"]
+margin_top = 61.0
+margin_right = 38.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="PerceptionModifiersContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer"]
+margin_left = 98.0
+margin_right = 311.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.59
+
+[node name="-----------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer"]
+margin_right = 213.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.13
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer"]
+margin_top = 42.0
+margin_right = 213.0
+margin_bottom = 60.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PerEasy" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer"]
+margin_right = 27.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="PerNormal" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer"]
+margin_left = 31.0
+margin_right = 58.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="PerProblematic" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer"]
+margin_left = 62.0
+margin_right = 89.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="PerHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer"]
+margin_left = 93.0
+margin_right = 120.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="PerVeryHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer"]
+margin_left = 124.0
+margin_right = 151.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="PerFuckingHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer"]
+margin_left = 155.0
+margin_right = 182.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="PerLuck" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer"]
+margin_left = 186.0
+margin_right = 213.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer"]
+margin_top = 64.0
+margin_right = 213.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.41
+
+[node name="----------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer"]
+margin_left = 315.0
+margin_right = 360.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.17
+
+[node name="CharacterContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes"]
+margin_top = 152.0
+margin_right = 360.0
+margin_bottom = 224.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="-----------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer"]
+margin_right = 72.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.14
+
+[node name="CharacterAttributeContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer"]
+margin_left = 76.0
+margin_right = 118.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.23
+
+[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer"]
+margin_right = 42.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="CharacterAttributeValue" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer"]
+margin_top = 21.0
+margin_right = 42.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center]0"
+text = "0"
+
+[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer"]
+margin_top = 61.0
+margin_right = 42.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="CharacterModifiersContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer"]
+margin_left = 122.0
+margin_right = 337.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.29
+
+[node name="------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer"]
+margin_right = 215.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.8
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer"]
+margin_top = 39.0
+margin_right = 215.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ChaEasy" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2"]
+margin_right = 27.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="ChaNormal" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2"]
+margin_left = 31.0
+margin_right = 58.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="ChaProblematic" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2"]
+margin_left = 62.0
+margin_right = 89.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="ChaHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2"]
+margin_left = 93.0
+margin_right = 121.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="ChaVeryHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2"]
+margin_left = 125.0
+margin_right = 152.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="ChaFuckingHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2"]
+margin_left = 156.0
+margin_right = 183.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="ChaLuck" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2"]
+margin_left = 187.0
+margin_right = 215.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="------------------------2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer"]
+margin_top = 63.0
+margin_right = 215.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.41
+
+[node name="Control4" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer"]
+margin_left = 341.0
+margin_right = 360.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+
+[node name="WitsContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes"]
+margin_top = 228.0
+margin_right = 360.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="----------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer"]
+margin_right = 52.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.38
+
+[node name="WitsAttributeContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer"]
+margin_left = 56.0
+margin_right = 94.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer"]
+margin_right = 38.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="WitsAttributeValue" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer"]
+margin_top = 21.0
+margin_right = 38.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center]0"
+text = "0"
+
+[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer"]
+margin_top = 61.0
+margin_right = 38.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="WitsModifiersContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer"]
+margin_left = 98.0
+margin_right = 311.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.59
+
+[node name="-----------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer"]
+margin_right = 213.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.13
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer"]
+margin_top = 40.0
+margin_right = 213.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WitsEasy" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer"]
+margin_right = 27.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="WitsNormal" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer"]
+margin_left = 31.0
+margin_right = 58.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="WitsProblematic" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer"]
+margin_left = 62.0
+margin_right = 89.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="WitsHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer"]
+margin_left = 93.0
+margin_right = 120.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="WitsVeryHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer"]
+margin_left = 124.0
+margin_right = 151.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="WitsFuckingHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer"]
+margin_left = 155.0
+margin_right = 182.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="WitsLuck" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer"]
+margin_left = 186.0
+margin_right = 213.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer"]
+margin_top = 61.0
+margin_right = 213.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.64
+
+[node name="----------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer"]
+margin_left = 315.0
+margin_right = 360.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.17
+
+[node name="BodyContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes"]
+margin_top = 304.0
+margin_right = 360.0
+margin_bottom = 376.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="--------------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer"]
+margin_right = 23.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.6
+
+[node name="BodyAttributeContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer"]
+margin_left = 27.0
+margin_right = 66.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="-----------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyAttributeContainer"]
+margin_right = 39.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="BodyAttributeValue" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyAttributeContainer"]
+margin_top = 21.0
+margin_right = 39.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/normal_font = SubResource( 10 )
+bbcode_enabled = true
+bbcode_text = "[center]0"
+text = "0"
+
+[node name="------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyAttributeContainer"]
+margin_top = 61.0
+margin_right = 39.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="BodyModifiersContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer"]
+margin_left = 70.0
+margin_right = 285.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.5
+
+[node name="-------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer"]
+margin_right = 215.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 11.07
+
+[node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer"]
+margin_top = 37.0
+margin_right = 215.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.6
+
+[node name="BodyEasy" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer"]
+margin_right = 27.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="BodyNormal" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer"]
+margin_left = 31.0
+margin_right = 58.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="BodyProblematic" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer"]
+margin_left = 62.0
+margin_right = 89.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="BodyHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer"]
+margin_left = 93.0
+margin_right = 121.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="BodyVeryHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer"]
+margin_left = 125.0
+margin_right = 152.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="BodyFuckingHard" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer"]
+margin_left = 156.0
+margin_right = 183.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="BodyLuck" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer"]
+margin_left = 187.0
+margin_right = 215.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_colors/selection_color = Color( 0, 0, 0, 1 )
+custom_colors/font_color_selected = Color( 0, 0, 0, 1 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+bbcode_enabled = true
+bbcode_text = "[center]0[/center]"
+text = "0"
+
+[node name="------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer"]
+margin_top = 58.0
+margin_right = 215.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.63
+
+[node name="---------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer"]
+margin_left = 289.0
+margin_right = 360.0
+margin_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.8
 
 [node name="CloseButton" type="Button" parent="PanelContainer"]
 anchor_left = 1.0

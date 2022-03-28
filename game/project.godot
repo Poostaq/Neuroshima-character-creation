@@ -27,6 +27,7 @@ config/icon="res://icon.png"
 [autoload]
 
 DatabaseOperations="*res://databaseOperations.gd"
+GlobalConstants="*res://GlobalConstants.gd"
 
 [display]
 

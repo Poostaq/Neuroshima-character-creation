@@ -18,7 +18,7 @@
 					"display": null
 				},
 				{
-					"typeStr": "5:ANY,AGI,PER,WIT,BOD,CHA",
+					"typeStr": "5:AGI,PER,WIT,BOD,CHA,ANY",
 					"name": "Attribute"
 				},
 				{
@@ -35,7 +35,7 @@
 				{
 					"id": "southern_hegemony",
 					"Description": "W świecie rządzonym przez mordercę, reguły są jasne i proste. Trzeba umieć walczyć, by przeżyć. Jeśli ktoś coś ci ukradł, to znaczy, że źle tego strzegłeś. Jeśli ktoś obił ci mordę, to znaczy, że ci się należało. Nie ma sądów. Nie ma dziesięciu przykazań. Nie ma gadki o nie pożądaniu żony bliźniego swego. Co się tak gapisz?! Tak, pochodzę z Hegemoni i jakoś nie narzekam. To twarda szkoła życia, ale wierz mi, nie chciałbym urodzić się gdzie indziej. Nasz świat jest prosty: albo ktoś mówi ci prawdę, albo strzelasz mu w łeb. Albo potrafisz udowodnić, że jesteś mężczyzną, albo kopiesz w kalendarz nim dożyjesz dwudziestki. Dlatego Hegemonia się rozrasta, a ty szczasz na mój widok i kulisz za każdym razem, kiedy podnoszę głos. Pochodzę z Hegemonii i we mnie jest siła. Jeśli spotkasz kogoś, kto wychował się u nas, nie zadzieraj z nim. Nie próbuj go oszukać, ani okłamać. Nie próbuj być cwany. Nie warto.",
-					"Attribute": 4,
+					"Attribute": 3,
 					"Name": "Południowa Hegemonia",
 					"SplashArtPath": "res://EthnicityPage/southern_hegemony/SplashArt.png",
 					"Traits": [
@@ -59,7 +59,7 @@
 				{
 					"id": "vegas",
 					"Description": "Vegas to mieszanka mafiozów spod ciemnej gwiazdy i świrów. Gdy widzę - bez urazy - takich palantów jak ty, spluwa sama wskakuje mi do ręki. Wszędzie węszycie interes i zysk, a najlepiej, gdy można jeszcze w coś zagrać i zgarnąć podwójną pulę. To jakaś choroba, nie wiem czym pieprznął w was Moloch, ale siadło wam na mózg i zlasowało go bez reszty. Nie potraficie żyć bez ryzyka. No dobra, ale kilku rzeczy nie można wam odmówić. Macie farta, zasrańcy, o tym wiedzą wszyscy. Nie wiem, czy to jakieś promieniowanie, czy inna cholera, ale to działa. Wtedy, dwa lata temu, zanim rozwaliłem tego palanta od drabiny, dwa razy pod rząd zaciął mi się Glock. Chłopcze, to się nie zdarza. No chyba, że akurat walisz do kogoś z Vegas. A nie uważasz tego za śmieszne, że wy wszyscy wierzycie w każdy głupi przesąd i dziecinne opowieści o duchach? A wiesz, co najbardziej mnie wkurza? Brak zasad. Wasze podejście do życia, ciągłe kantowanie i matactwa. Kombinowanie, jak zrobić krzywdę drugiemu, jak podłożyć mu nogę i zająć jego miejsce. Fakt, to daje wam niezłą odporność na działania innych. Fakt, zrobić w wała kogoś z Vegas, to sztuka. Fakt, często wychodzi na twoje, bo potrafisz ściemniać jak nikt inny. Ale nie myśl, że cię za to szanuję. Ani trochę, cholerny, zakłamany, wierzący w duchy, palancie. ",
-					"Attribute": 1,
+					"Attribute": 0,
 					"Name": "Vegas",
 					"SplashArtPath": "res://EthnicityPage/vegas/SplashArt.png",
 					"Traits": [
@@ -83,7 +83,7 @@
 				{
 					"id": "new_york",
 					"Description": "Wszyscy Nowojorczycy, jak jeden mąż, są zawzięci jak diabli, do tego są patetyczni do obrzydliwości. Dziw, że nie łażą ubrani w amerykańską flagę. Trzydzieści lat temu chyba najbardziej oberwał Waszyngton i właśnie Nowy Jork. Dziś Waszyngton to czarna dziura, NJ zaś rozwija się i zadziornie wymachuje flagą w kierunku Molocha. Nowojorczycy jeszcze przed wojną dostali srogo po dupie, bo to zawsze było miasto, w które każdy chciał uderzyć. Kiedy wybuchła wojna, mieszkańcy mieli już serdecznie dość wszelkich ataków. Teraz są świetnie zorganizowani. Ogłosili NJ stolicą Stanów, a ich przywódca mianował się prezydentem. Zbroją się i odbudowują. Nigdzie indziej nie ma takiej mocy i energii, żadne inne miasto nie ma takiej ochoty stanąć na nowo na nogi i skopać dupsko Molochowi. Nowojorczycy zmienili się w niewiarygodnym stopniu. Wzięli na siebie ciężar podniesienia państwa na nogi i harują jak woły, by to się powiodło. Wykopali Tornado z granic miasta, walczą z przestępczością, inwestują w edukację. Uczą o historii Stanów i wielkich bohaterach dawnych dni. Powiem ci, można puścić pawia słuchając tych ich przemów, widząc świętowanie Dnia Niepodległości, race i transparenty. Gdy usłyszałem, że zrobili paradę z jakiejś tam okazji, omal nie padłem. Są naprawdę mocno przejęci swoją rolą i znaczeniem. Oni naprawdę wierzą, że uratują Stany i spuszczą lanie Molochowi. Wiesz, że budują kolej? Uruchomili kilka fabryk, elektrownie, mają nawet szkoły dla dzieciaków! Śmieję się z nich, ale tak szczerze mówiąc, szanuję ich za wolę walki i odwagę. Jeśli ktoś spuści Molochowi wpieprz, to będą to właśnie Nowojorczycy. Nikt inny.",
-					"Attribute": 5,
+					"Attribute": 4,
 					"Name": "Nowy Jork",
 					"SplashArtPath": "res://EthnicityPage/new_york/SplashArt.png",
 					"Traits": [
@@ -108,7 +108,7 @@
 					"id": "not_your_business",
 					"Name": "Nie twój zasrany interes",
 					"Description": "Z nimi jest najgorzej, jeżdżą od miasta do miasta, nie mogąc usiedzieć na dupsku. Nie mają bliskich, rodziny ani przyjaciół. Mają wielu wrogów, bo zawsze, jak się pojawiają w nowym miejscu, to brużdżą, by w końcu się wynieść. Kłopot z nimi polega na tym, że nigdy nie wiesz, czego się po nich spodziewać. Cholerni internacjałowie, jeśli wiesz, co mam na myśli. Szybko się uczą, łapią nawyki, mają dryg do nauki języków i gwar. Wiedzą, co żre się w Vegas, jakie są reguły walk gladiatorów na południu i co to jest Korkcity. Jeżdżą i oglądają. Trzeba przyznać, że ta wieczna podróż hartuje ich jak mało co. Każdy z takich wędrowców wyszedł już z niejednej opresji, każdy z nich ma dom na plecach, w każdej chwili może podnieść dupsko, wyjść z knajpy i ruszyć w dwumiesięczną podróż. To ich styl. Ludzie z nikąd.",
-					"Attribute": 0,
+					"Attribute": 5,
 					"SplashArtPath": "res://EthnicityPage/not_your_business/Splash.png",
 					"Traits": [
 						{
@@ -150,6 +150,22 @@
 					"display": null
 				}
 			]
+		},
+		{
+			"name": "profession",
+			"columns": [
+				{
+					"typeStr": "1",
+					"name": "Name"
+				}
+			],
+			"lines": [
+				{
+					"Name": "Monter"
+				}
+			],
+			"separators": [],
+			"props": {}
 		}
 	],
 	"customTypes": [],
