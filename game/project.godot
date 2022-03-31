@@ -12,7 +12,7 @@ _global_script_classes=[ {
 "base": "Resource",
 "class": "CharacterStats",
 "language": "GDScript",
-"path": "res://characterStats.gd"
+"path": "res://UI_Elements/characterStats.gd"
 } ]
 _global_script_class_icons={
 "CharacterStats": ""
@@ -26,7 +26,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-DatabaseOperations="*res://databaseOperations.gd"
+DatabaseOperations="*res://UI_Elements/databaseOperations.gd"
 GlobalConstants="*res://GlobalConstants.gd"
 
 [display]

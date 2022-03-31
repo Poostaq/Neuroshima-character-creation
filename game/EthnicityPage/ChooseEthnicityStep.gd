@@ -1,11 +1,13 @@
 extends Control
 
+export(ButtonGroup) var traitGroup
+
 onready var picture = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic
-onready var ethnicity_name = $VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/EthnicityName
-onready var ethnicity_description = $VBoxContainer/HBoxContainer/VBoxContainer/EthnicityDescription
+onready var ethnicity_name = $VBoxContainer/HBoxContainer2/HBoxContainer/EthnicityName
+onready var ethnicity_description = $VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/EthnicityDescription
 onready var traitContainer = $VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer
-onready var attributeBonusLabel = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AttributeBonus
-onready var attributeSelector = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/AttributeSelect
+onready var attributeBonusLabel = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeBonus
+onready var attributeSelector = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeSelect
 
 onready var traitButtonScene = preload("res://EthnicityPage/EthnicityTrait.tscn")
 onready var alternateTraitButtonScene = preload("res://EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.tscn")
@@ -25,6 +27,8 @@ func _ready():
 	for attribute in GlobalConstants.attribute_string:
 		attributeSelector.add_item(attribute)
 	fillAttributeBonus(ethnicities[current_ethnicity]["Attribute"])
+	traitGroup = load("res://EthnicityPage/Traits.tres")
+	
 
 func _set_image(path):
 	var image = load(path)
@@ -51,8 +55,11 @@ func load_ethnicity(ethnicity):
 			var traitButtonTraitList = traitButton.get_node("MarginContainer/VBoxContainer/OptionButton")
 			fillTraitButtonTraitList(traitButtonTraitList)
 			traitButton.secondary_trait = traitButton.option_button.get_item_text(0)
+			traitButton.get_node(".").set_button_group(traitGroup)
+			
 		else:
-			createTraitButton(traitButtonScene, trait)
+			var traitButton = createTraitButton(traitButtonScene, trait)
+			traitButton.get_node(".").set_button_group(traitGroup)
 
 func createTraitButton(traitTemplate, traitData):
 	var traitButton = traitTemplate.instance()
@@ -60,10 +67,10 @@ func createTraitButton(traitTemplate, traitData):
 	var traitName = traitButton.get_node("MarginContainer/VBoxContainer/TraitNameLabel")
 	traitName.bbcode_text = "[center]%s[/center]" % traitData["TraitName"]
 	var traitDescription = traitButton.get_node("MarginContainer/VBoxContainer/TraitDescriptionLabel")
-	traitDescription.bbcode_text = "[center]%s[/center]" % traitData["TraitDescription"]
-	traitButton.connect("traitButtonUp", 
+	traitDescription.bbcode_text = "%s" % traitData["TraitDescription"]
+	traitButton.connect("traitButtonPressed", 
 						self, 
-						"_on_Trait_Button_button_up")
+						"_on_Trait_Button_button_pressed")
 	traitButton.ID = traitData["ID"]
 	traitButton.traitName = traitData["TraitName"]
 	traitButton.description = traitData["TraitDescription"]
@@ -86,7 +93,7 @@ func _on_NextEthnicity_button_up():
 	load_ethnicity(ethnicities[current_ethnicity])
 	fillAttributeBonus(ethnicities[current_ethnicity]["Attribute"])
 
-func _on_Trait_Button_button_up(button):
+func _on_Trait_Button_button_pressed(button):
 	var bonusAttribute
 	if ethnicities[current_ethnicity]["Name"] =="Nie twój zasrany interes":
 		bonusAttribute = attributeSelector.selected
@@ -110,5 +117,3 @@ func fillAttributeBonus(attribute):
 	attributeBonusLabel.bbcode_text = "[right]%s +1[/right]" % GlobalConstants.attribute_string[attribute]
 
 
-func _on_AttributeSelect_item_selected(index):
-	pass # Replace with function body.

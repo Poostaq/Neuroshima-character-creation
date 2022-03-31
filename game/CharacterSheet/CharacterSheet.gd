@@ -1,10 +1,9 @@
 extends Control
 
-export var characterStats : Resource
-
 onready var Name = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Name
 onready var Ethnicity = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Ethnicity
 onready var EthnicityTrait = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/EthnicityTrait
+onready var characterStats = $CharacterStats
 
 #AGILITY
 export (NodePath) onready var AgilityAttributeValue = get_node(AgilityAttributeValue) as RichTextLabel
@@ -72,13 +71,18 @@ func _on_CloseButton_button_up():
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
 func updateValues():
-	Ethnicity.text = characterStats.get("Ethnicity")
-	EthnicityTrait.text = characterStats.get("EthnicityTrait")
+	Ethnicity.bbcode_text = characterStats.Ethnicity
+	EthnicityTrait.bbcode_text = characterStats.EthnicityTrait
 
 
 func _on_Ethnicity_ethnicity_chosen(traitButton, ethnicity, attribute):
-	self.characterStats.set("Ethnicity", ethnicity["Name"])
-	self.characterStats.set("EthnicityTrait", traitButton.traitName)
+	var traitName
+	if traitButton.traitName == "Wszechstronność do kwadratu":
+		traitName = traitButton.traitName +" : " + traitButton.secondary_trait
+	else:
+		traitName = traitButton.traitName
+	self.characterStats.Ethnicity = ethnicity["Name"]
+	self.characterStats.EthnicityTrait = traitName
 	self.setBonusAttribute(attribute)
 	for attr in GlobalConstants.attribute:
 		self.updateAttributeValues(GlobalConstants.attribute[attr])
@@ -89,23 +93,28 @@ func updateAttributeValues(attributeEnum):
 	match attributeEnum:
 		GlobalConstants.attribute.AGI:
 			value = getFinalAttributeValue(self.characterStats.agiModifiers)
-			AgilityAttributeValue.bbcode_text = str(value)
+			self.characterStats.agiValue = value
+			AgilityAttributeValue.bbcode_text ="[center]%s[/center]" %  value
 			fillAttributeModifiers(value, AgiModifiersList)
 		GlobalConstants.attribute.BOD:
 			value = getFinalAttributeValue(self.characterStats.bodModifiers)
-			BodyAttributeValue.bbcode_text = str(value)
+			self.characterStats.bodValue = value
+			BodyAttributeValue.bbcode_text ="[center]%s[/center]" %  value
 			fillAttributeModifiers(value, BodModifiersList)
 		GlobalConstants.attribute.CHA:
 			value = getFinalAttributeValue(self.characterStats.chaModifiers)
-			CharacterAttributeValue.bbcode_text = str(value)
+			self.characterStats.chaValue = value
+			CharacterAttributeValue.bbcode_text ="[center]%s[/center]" %  value
 			fillAttributeModifiers(value, ChaModifiersList)
 		GlobalConstants.attribute.PER:
 			value = getFinalAttributeValue(self.characterStats.perModifiers)
-			PerceptionAttributeValue.bbcode_text = str(value)
+			self.characterStats.perValue = value
+			PerceptionAttributeValue.bbcode_text ="[center]%s[/center]" %  value
 			fillAttributeModifiers(value, PerModifiersList)
 		GlobalConstants.attribute.WIT:
 			value = getFinalAttributeValue(self.characterStats.witModifiers)
-			WitsAttributeValue.bbcode_text = str(value)
+			self.characterStats.witValue = value
+			WitsAttributeValue.bbcode_text ="[center]%s[/center]" %  value
 			fillAttributeModifiers(value, WitModifiersList)
 
 func getFinalAttributeValue(attributeModifiers :Dictionary):
@@ -148,23 +157,4 @@ func setBonusAttribute(attribute=null):
 		self.characterStats.chaModifiers["EthnicityAttributeModifier"] = 1
 	else:
 		print("DIDNT MATCH ANYTHING")
-		
-#	match attribute:
-#		0:
-#			print("MATCHED AGI")
-#			self.characterStats.agiModifiers["EthnicityAttributeModifier"] = 1
-#		1:
-#			print("MATCHED PER")
-#			self.characterStats.perModifiers["EthnicityAttributeModifier"] = 1
-#		2:
-#			print("MATCHED WIT")
-#			self.characterStats.witModifiers["EthnicityAttributeModifier"] = 1
-#		3:
-#			print("MATCHED BOD")
-#			self.characterStats.bodModifiers["EthnicityAttributeModifier"] = 1
-#		4:
-#			print("MATCHED CHA")
-#			self.characterStats.chaModifiers["EthnicityAttributeModifier"] = 1
-#		_:
-#			print("DIDNT MATCH %s and %s" % [attribute, GlobalConstants.attribute.BOD])
 		
