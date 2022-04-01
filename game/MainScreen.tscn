@@ -258,7 +258,7 @@ texture_hover = ExtResource( 5 )
 expand = true
 
 [node name="CharacterCardButton" type="RichTextLabel" parent="CardButton"]
-anchor_right = 1.0
+anchor_right = 0.62
 anchor_bottom = 1.0
 margin_left = -1.0
 margin_top = 2.0
@@ -266,32 +266,32 @@ margin_bottom = 2.0
 rect_rotation = 0.00157754
 mouse_filter = 1
 bbcode_enabled = true
-bbcode_text = "  K 
-  A 
-  R 
-  T 
-  A 
+bbcode_text = "[center]K 
+A 
+R 
+T 
+A 
 
-  P
-  O
-  S
-  T
-  A
-  C
-  I "
-text = "  K 
-  A 
-  R 
-  T 
-  A 
+P
+O
+S
+T
+A
+C
+I "
+text = "K 
+A 
+R 
+T 
+A 
 
-  P
-  O
-  S
-  T
-  A
-  C
-  I "
+P
+O
+S
+T
+A
+C
+I "
 
 [node name="CharacterSheet" parent="." instance=ExtResource( 3 )]
 visible = false

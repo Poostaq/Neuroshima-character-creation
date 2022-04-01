@@ -42,7 +42,7 @@ func _set_image(path):
 func load_ethnicity(ethnicity):
 	_set_image(ethnicity["SplashArtPath"])
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["Name"]
-	ethnicity_description.bbcode_text = "%s" % ethnicity["Description"]
+	ethnicity_description.bbcode_text = "%s" % ethnicity["Description"].replace("\\n", "\n")
 	
 	var traitList = ethnicity["Traits"]
 	if traitContainer.get_child_count() > 0:
