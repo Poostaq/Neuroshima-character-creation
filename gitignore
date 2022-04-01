@@ -5,6 +5,8 @@
 ### Godot ###
 # Godot-specific ignores
 .import/
+game/.import/
+
 export.cfg
 export_presets.cfg
 
