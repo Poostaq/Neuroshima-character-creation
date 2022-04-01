@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/next step button.png-bb502db56d200bfea8bebfce34bcf80e.stex"
+path="res://.import/next step button inactive.png-34bd4260a9691e144571336170abb48d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI_Elements/next step button.png"
-dest_files=[ "res://.import/next step button.png-bb502db56d200bfea8bebfce34bcf80e.stex" ]
+source_file="res://UI_Elements/Buttons/next step button inactive.png"
+dest_files=[ "res://.import/next step button inactive.png-34bd4260a9691e144571336170abb48d.stex" ]
 
 [params]
 

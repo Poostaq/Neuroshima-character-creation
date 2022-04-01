@@ -1,4 +1,4 @@
-extends Button
+extends TextureButton
 
 onready var TraitNameLabel = $MarginContainer/VBoxContainer/TraitNameLabel
 signal traitButtonPressed(button)

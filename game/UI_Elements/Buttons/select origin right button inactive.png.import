@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/open character sheet button.png-e374509b6fa2bd8868be034ddcc49472.stex"
+path="res://.import/select origin right button inactive.png-13e49450630d29b2701488cebbd20b57.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI_Elements/open character sheet button.png"
-dest_files=[ "res://.import/open character sheet button.png-e374509b6fa2bd8868be034ddcc49472.stex" ]
+source_file="res://UI_Elements/Buttons/select origin right button inactive.png"
+dest_files=[ "res://.import/select origin right button inactive.png-13e49450630d29b2701488cebbd20b57.stex" ]
 
 [params]
 

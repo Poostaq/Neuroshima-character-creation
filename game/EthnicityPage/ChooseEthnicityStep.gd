@@ -3,7 +3,7 @@ extends Control
 export(ButtonGroup) var traitGroup
 
 onready var picture = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic
-onready var ethnicity_name = $VBoxContainer/HBoxContainer2/HBoxContainer/EthnicityName
+onready var ethnicity_name = $VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName
 onready var ethnicity_description = $VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/EthnicityDescription
 onready var traitContainer = $VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer
 onready var attributeBonusLabel = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeBonus

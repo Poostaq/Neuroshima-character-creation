@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/previous step button.png-3d4fae1bae1dd9d1a48b928ab0fac027.stex"
+path="res://.import/skill inactive.png-18ea5627cb08f1596c56891c4400a69d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI_Elements/previous step button.png"
-dest_files=[ "res://.import/previous step button.png-3d4fae1bae1dd9d1a48b928ab0fac027.stex" ]
+source_file="res://UI_Elements/Buttons/skill inactive.png"
+dest_files=[ "res://.import/skill inactive.png-18ea5627cb08f1596c56891c4400a69d.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/select origin left button.png-7468d72cc276a230fcd268679c882d3d.stex"
+path="res://.import/select origin left button ready.png-17bfeea7af72171d4db2ae8dab7b6f8b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI_Elements/select origin left button.png"
-dest_files=[ "res://.import/select origin left button.png-7468d72cc276a230fcd268679c882d3d.stex" ]
+source_file="res://UI_Elements/Buttons/select origin left button ready.png"
+dest_files=[ "res://.import/select origin left button ready.png-17bfeea7af72171d4db2ae8dab7b6f8b.stex" ]
 
 [params]
 

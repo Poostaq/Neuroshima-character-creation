@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/select origin right button.png-18ab214a11f7115a0db863f8ea6198c7.stex"
+path="res://.import/skil selected.png-5044b5b36d5e7fd8743485a22e46ec45.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://UI_Elements/select origin right button.png"
-dest_files=[ "res://.import/select origin right button.png-18ab214a11f7115a0db863f8ea6198c7.stex" ]
+source_file="res://UI_Elements/Buttons/skil selected.png"
+dest_files=[ "res://.import/skil selected.png-5044b5b36d5e7fd8743485a22e46ec45.stex" ]
 
 [params]
 
