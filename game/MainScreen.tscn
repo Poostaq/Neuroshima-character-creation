@@ -1,0 +1,306 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI_Elements/complete progress indicator.png" type="Texture" id=2]
+[ext_resource path="res://CharacterSheet/CharacterSheet.tscn" type="PackedScene" id=3]
+[ext_resource path="res://MainScreen.gd" type="Script" id=4]
+[ext_resource path="res://UI_Elements/Buttons/open character sheet button ready.png" type="Texture" id=5]
+[ext_resource path="res://THEME.tres" type="Theme" id=6]
+[ext_resource path="res://UI_Elements/base background.png" type="Texture" id=7]
+[ext_resource path="res://UI_Elements/empty progress indicator.png" type="Texture" id=8]
+[ext_resource path="res://UI_Elements/Buttons/next step button.png" type="Texture" id=9]
+[ext_resource path="res://UI_Elements/Buttons/previous step button.png" type="Texture" id=10]
+[ext_resource path="res://UI_Elements/Buttons/open character sheet button.png" type="Texture" id=11]
+[ext_resource path="res://UI_Elements/base frame.png" type="Texture" id=12]
+[ext_resource path="res://UI_Elements/Buttons/open character sheet button inactive.png" type="Texture" id=13]
+[ext_resource path="res://UI_Elements/Buttons/next step button ready.png" type="Texture" id=14]
+[ext_resource path="res://UI_Elements/Buttons/next step button inactive.png" type="Texture" id=15]
+[ext_resource path="res://UI_Elements/Buttons/previous step button inactive.png" type="Texture" id=16]
+[ext_resource path="res://UI_Elements/Buttons/previous step button ready.png" type="Texture" id=17]
+
+[sub_resource type="ButtonGroup" id=2]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 6 )
+script = ExtResource( 4 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 7 )
+expand = true
+
+[node name="CenterContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 660.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+alignment = 2
+
+[node name="StepContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 616.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_editor_description_": "
+"
+}
+
+[node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/StepContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 964.0
+margin_bottom = 596.0
+texture = ExtResource( 12 )
+expand = true
+
+[node name="Ethnicity" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 1 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 964.0
+margin_bottom = 596.0
+traitGroup = SubResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
+margin_top = 620.0
+margin_right = 984.0
+margin_bottom = 640.0
+alignment = 1
+
+[node name="---SPACE---2" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 140.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="Back" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 144.0
+margin_right = 284.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+texture_normal = ExtResource( 16 )
+texture_pressed = ExtResource( 10 )
+texture_hover = ExtResource( 17 )
+expand = true
+stretch_mode = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 288.0
+margin_right = 695.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 11.62
+custom_constants/separation = 20
+alignment = 1
+
+[node name="EthnicityStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 13.0
+margin_right = 33.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 2 )
+expand = true
+stretch_mode = 4
+
+[node name="ProfessionStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 53.0
+margin_right = 73.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="AttributesStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 93.0
+margin_right = 113.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="SpecialisationStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 133.0
+margin_right = 153.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="SkillsStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 173.0
+margin_right = 193.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="TricksStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 213.0
+margin_right = 233.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="TextureButton7" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 253.0
+margin_right = 273.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="TextureButton8" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 293.0
+margin_right = 313.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="TextureButton9" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 333.0
+margin_right = 353.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="TextureButton10" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+material = SubResource( 1 )
+margin_left = 373.0
+margin_right = 393.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 20, 20 )
+texture_normal = ExtResource( 8 )
+expand = true
+stretch_mode = 4
+
+[node name="Next" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 699.0
+margin_right = 839.0
+margin_bottom = 20.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+texture_normal = ExtResource( 15 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 14 )
+expand = true
+stretch_mode = 5
+
+[node name="---SPACE---3" type="Control" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 843.0
+margin_right = 984.0
+margin_bottom = 20.0
+rect_min_size = Vector2( 100, 0 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="CardButton" type="TextureButton" parent="."]
+anchor_top = 0.426
+anchor_right = 0.049
+anchor_bottom = 0.721
+margin_top = -31.68
+margin_right = -0.175999
+margin_bottom = -0.279999
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 5 )
+expand = true
+
+[node name="CharacterCardButton" type="RichTextLabel" parent="CardButton"]
+anchor_right = 0.62
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = 2.0
+margin_bottom = 2.0
+rect_rotation = 0.00157754
+mouse_filter = 1
+bbcode_enabled = true
+bbcode_text = "[center]K 
+A 
+R 
+T 
+A 
+
+P
+O
+S
+T
+A
+C
+I "
+text = "K 
+A 
+R 
+T 
+A 
+
+P
+O
+S
+T
+A
+C
+I "
+
+[node name="CharacterSheet" parent="." instance=ExtResource( 3 )]
+visible = false
+mouse_filter = 1
+
+[node name="TextureRect" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer" index="0"]
+margin_right = 964.0
+
+[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/Ethnicity" to="CharacterSheet" method="_on_Ethnicity_ethnicity_chosen"]
+[connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
+
+[editable path="CharacterSheet"]

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://EthnicityPage/EthnicityTrait.tscn" type="PackedScene" id=1]
+[ext_resource path="res://EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.gd" type="Script" id=2]
+[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://THEME.tres" type="Theme" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 3 )
+
+[node name="Button" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+
+[node name="TraitNameLabel" parent="MarginContainer/VBoxContainer" index="0"]
+margin_bottom = 36.0
+
+[node name="TraitDescriptionLabel" parent="MarginContainer/VBoxContainer" index="1"]
+margin_top = 40.0
+margin_bottom = 149.0
+
+[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer" index="2"]
+margin_top = 153.0
+margin_right = 191.0
+margin_bottom = 175.0
+theme = ExtResource( 4 )
+custom_fonts/font = SubResource( 1 )
+
+[connection signal="item_selected" from="MarginContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
