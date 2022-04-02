@@ -61,6 +61,7 @@ export (NodePath) onready var BodLuckValue = get_node(BodLuckValue) as RichTextL
 onready var BodModifiersList= [BodEasyValue,BodNormalValue,BodProblematicValue,BodHardValue,BodVeryHardValue,BodFuckingHardValue,BodLuckValue]
 
 onready var ATTRIBUTES = GlobalConstants.attribute
+
 func _ready():
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -158,3 +159,9 @@ func setBonusAttribute(attribute=null):
 	else:
 		print("DIDNT MATCH ANYTHING")
 		
+
+
+func _on_Ethnicity_attribute_chosen(bonusAttribute):
+	self.setBonusAttribute(bonusAttribute)
+	for attr in GlobalConstants.attribute:
+		self.updateAttributeValues(GlobalConstants.attribute[attr])

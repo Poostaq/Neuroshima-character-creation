@@ -15,11 +15,10 @@ onready var alternateTraitButtonScene = preload("res://EthnicityPage/EthnicityJa
 onready var database = get_node("/root/DatabaseOperations")
 
 signal ethnicity_chosen(traitElement, currentEthnicity, bonusAttribute)
+signal attribute_chosen(bonusAttribute)
 
 var ethnicities = []
 var current_ethnicity = 0
-
-
 
 func _ready():
 	ethnicities = database.read_table_from_database("ethnicity")
@@ -117,3 +116,5 @@ func fillAttributeBonus(attribute):
 	attributeBonusLabel.bbcode_text = "[right]%s +1[/right]" % GlobalConstants.attribute_string[attribute]
 
 
+func _on_AttributeSelect_item_selected(index):
+	emit_signal("attribute_chosen", index)
