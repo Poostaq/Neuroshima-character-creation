@@ -1,167 +1,173 @@
 extends Control
 
-onready var Name = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Name
-onready var Ethnicity = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Ethnicity
-onready var EthnicityTrait = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/EthnicityTrait
-onready var characterStats = $CharacterStats
-
 #AGILITY
-export (NodePath) onready var AgilityAttributeValue = get_node(AgilityAttributeValue) as RichTextLabel
-export (NodePath) onready var AgiEasyValue = get_node(AgiEasyValue) as RichTextLabel
-export (NodePath) onready var AgiNormalValue = get_node(AgiNormalValue)as RichTextLabel
-export (NodePath) onready var AgiProblematicValue = get_node(AgiProblematicValue)as RichTextLabel
-export (NodePath) onready var AgiHardValue = get_node(AgiHardValue)as RichTextLabel
-export (NodePath) onready var AgiVeryHardValue = get_node(AgiVeryHardValue)as RichTextLabel
-export (NodePath) onready var AgiFuckingHardValue = get_node(AgiFuckingHardValue)as RichTextLabel
-export (NodePath) onready var AgiLuckValue = get_node(AgiLuckValue)as RichTextLabel
-onready var AgiModifiersList = [AgiEasyValue,AgiNormalValue,AgiProblematicValue,AgiHardValue,AgiVeryHardValue,AgiFuckingHardValue,AgiLuckValue]
+export (NodePath) onready var agility_attribute_value = get_node(agility_attribute_value) as RichTextLabel
+export (NodePath) onready var agi_easy_value = get_node(agi_easy_value) as RichTextLabel
+export (NodePath) onready var agi_normal_value = get_node(agi_normal_value)as RichTextLabel
+export (NodePath) onready var agi_problematic_value = get_node(agi_problematic_value)as RichTextLabel
+export (NodePath) onready var agi_hard_value = get_node(agi_hard_value)as RichTextLabel
+export (NodePath) onready var agi_very_hard_value = get_node(agi_very_hard_value)as RichTextLabel
+export (NodePath) onready var agi_fucking_hard_value = get_node(agi_fucking_hard_value)as RichTextLabel
+export (NodePath) onready var agi_luck_value = get_node(agi_luck_value)as RichTextLabel
 
 #PERCEPTION
-export (NodePath) onready var PerceptionAttributeValue = get_node(PerceptionAttributeValue) as RichTextLabel
-export (NodePath) onready var PerEasyValue = get_node(PerEasyValue) as RichTextLabel
-export (NodePath) onready var PerNormalValue = get_node(PerNormalValue) as RichTextLabel
-export (NodePath) onready var PerProblematicValue = get_node(PerProblematicValue) as RichTextLabel
-export (NodePath) onready var PerHardValue = get_node(PerHardValue) as RichTextLabel
-export (NodePath) onready var PerVeryHardValue = get_node(PerVeryHardValue) as RichTextLabel
-export (NodePath) onready var PerFuckingHardValue = get_node(PerFuckingHardValue) as RichTextLabel
-export (NodePath) onready var PerLuckValue = get_node(PerLuckValue) as RichTextLabel
-onready var PerModifiersList = [PerEasyValue,PerNormalValue,PerProblematicValue,PerHardValue,PerVeryHardValue,PerFuckingHardValue,PerLuckValue]
+export (NodePath) onready var perception_attribute_value = get_node(perception_attribute_value) as RichTextLabel
+export (NodePath) onready var per_easy_value = get_node(per_easy_value) as RichTextLabel
+export (NodePath) onready var per_normal_value = get_node(per_normal_value) as RichTextLabel
+export (NodePath) onready var per_problematic_value = get_node(per_problematic_value) as RichTextLabel
+export (NodePath) onready var per_hard_value = get_node(per_hard_value) as RichTextLabel
+export (NodePath) onready var per_very_hard_value = get_node(per_very_hard_value) as RichTextLabel
+export (NodePath) onready var per_fucking_hard_value = get_node(per_fucking_hard_value) as RichTextLabel
+export (NodePath) onready var per_luck_value = get_node(per_luck_value) as RichTextLabel
 
 #CHARACTER
-export (NodePath) onready var CharacterAttributeValue = get_node(CharacterAttributeValue) as RichTextLabel
-export (NodePath) onready var ChaEasyValue = get_node(ChaEasyValue) as RichTextLabel
-export (NodePath) onready var ChaNormalValue = get_node(ChaNormalValue) as RichTextLabel
-export (NodePath) onready var ChaProblematicValue = get_node(ChaProblematicValue) as RichTextLabel
-export (NodePath) onready var ChaHardValue = get_node(ChaHardValue) as RichTextLabel
-export (NodePath) onready var ChaVeryHardValue = get_node(ChaVeryHardValue) as RichTextLabel
-export (NodePath) onready var ChaFuckingHardValue = get_node(ChaFuckingHardValue) as RichTextLabel
-export (NodePath) onready var ChaLuckValue = get_node(ChaLuckValue) as RichTextLabel
-onready var ChaModifiersList = [ChaEasyValue,ChaNormalValue,ChaProblematicValue,ChaHardValue,ChaVeryHardValue,ChaFuckingHardValue,ChaLuckValue]
+export (NodePath) onready var character_attribute_value = get_node(character_attribute_value) as RichTextLabel
+export (NodePath) onready var cha_easy_value = get_node(cha_easy_value) as RichTextLabel
+export (NodePath) onready var cha_normal_value = get_node(cha_normal_value) as RichTextLabel
+export (NodePath) onready var cha_problematic_value = get_node(cha_problematic_value) as RichTextLabel
+export (NodePath) onready var cha_hard_value = get_node(cha_hard_value) as RichTextLabel
+export (NodePath) onready var cha_very_hard_value = get_node(cha_very_hard_value) as RichTextLabel
+export (NodePath) onready var cha_fucking_hard_value = get_node(cha_fucking_hard_value) as RichTextLabel
+export (NodePath) onready var cha_luck_value = get_node(cha_luck_value) as RichTextLabel
 
 #WITS
-export (NodePath) onready var WitsAttributeValue = get_node(WitsAttributeValue) as RichTextLabel
-export (NodePath) onready var WitEasyValue = get_node(WitEasyValue) as RichTextLabel
-export (NodePath) onready var WitNormalValue = get_node(WitNormalValue) as RichTextLabel
-export (NodePath) onready var WitProblematicValue = get_node(WitProblematicValue) as RichTextLabel
-export (NodePath) onready var WitHardValue = get_node(WitHardValue) as RichTextLabel
-export (NodePath) onready var WitVeryHardValue = get_node(WitVeryHardValue) as RichTextLabel
-export (NodePath) onready var WitFuckingHardValue = get_node(WitFuckingHardValue) as RichTextLabel
-export (NodePath) onready var WitLuckValue = get_node(WitLuckValue) as RichTextLabel
-onready var WitModifiersList = [WitEasyValue,WitNormalValue,WitProblematicValue,WitHardValue,WitVeryHardValue,WitFuckingHardValue,WitLuckValue]
+export (NodePath) onready var wits_attribute_value = get_node(wits_attribute_value) as RichTextLabel
+export (NodePath) onready var wit_easy_value = get_node(wit_easy_value) as RichTextLabel
+export (NodePath) onready var wit_normal_value = get_node(wit_normal_value) as RichTextLabel
+export (NodePath) onready var wit_problematic_value = get_node(wit_problematic_value) as RichTextLabel
+export (NodePath) onready var wit_hard_value = get_node(wit_hard_value) as RichTextLabel
+export (NodePath) onready var wit_very_hard_value = get_node(wit_very_hard_value) as RichTextLabel
+export (NodePath) onready var wit_fucking_hard_value = get_node(wit_fucking_hard_value) as RichTextLabel
+export (NodePath) onready var wit_luck_value = get_node(wit_luck_value) as RichTextLabel
 
 #BODY
-export (NodePath) onready var BodyAttributeValue = get_node(BodyAttributeValue) as RichTextLabel
-export (NodePath) onready var BodEasyValue = get_node(BodEasyValue) as RichTextLabel
-export (NodePath) onready var BodNormalValue = get_node(BodNormalValue) as RichTextLabel
-export (NodePath) onready var BodProblematicValue = get_node(BodProblematicValue) as RichTextLabel
-export (NodePath) onready var BodHardValue = get_node(BodHardValue) as RichTextLabel
-export (NodePath) onready var BodVeryHardValue = get_node(BodVeryHardValue) as RichTextLabel
-export (NodePath) onready var BodFuckingHardValue = get_node(BodFuckingHardValue) as RichTextLabel
-export (NodePath) onready var BodLuckValue = get_node(BodLuckValue) as RichTextLabel
-onready var BodModifiersList= [BodEasyValue,BodNormalValue,BodProblematicValue,BodHardValue,BodVeryHardValue,BodFuckingHardValue,BodLuckValue]
+export (NodePath) onready var body_attribute_value = get_node(body_attribute_value) as RichTextLabel
+export (NodePath) onready var bod_easy_value = get_node(bod_easy_value) as RichTextLabel
+export (NodePath) onready var bod_normal_value = get_node(bod_normal_value) as RichTextLabel
+export (NodePath) onready var bod_problematic_value = get_node(bod_problematic_value) as RichTextLabel
+export (NodePath) onready var bod_hard_value = get_node(bod_hard_value) as RichTextLabel
+export (NodePath) onready var bod_very_hard_value = get_node(bod_very_hard_value) as RichTextLabel
+export (NodePath) onready var bod_fucking_hard_value = get_node(bod_fucking_hard_value) as RichTextLabel
+export (NodePath) onready var bod_luck_value = get_node(bod_luck_value) as RichTextLabel
 
-onready var ATTRIBUTES = GlobalConstants.attribute
+onready var per_modifiers_list = [per_easy_value,per_normal_value,per_problematic_value,per_hard_value,per_very_hard_value,per_fucking_hard_value,per_luck_value]
+onready var cha_modifiers_list = [cha_easy_value,cha_normal_value,cha_problematic_value,cha_hard_value,cha_very_hard_value,cha_fucking_hard_value,cha_luck_value]
+onready var wit_modifiers_list = [wit_easy_value,wit_normal_value,wit_problematic_value,wit_hard_value,wit_very_hard_value,wit_fucking_hard_value,wit_luck_value]
+onready var agi_modifiers_list = [agi_easy_value,agi_normal_value,agi_problematic_value,agi_hard_value,agi_very_hard_value,agi_fucking_hard_value,agi_luck_value]
+onready var bod_modifiers_list = [bod_easy_value,bod_normal_value,bod_problematic_value,bod_hard_value,bod_very_hard_value,bod_fucking_hard_value,bod_luck_value]
+
+
+onready var name_element = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Name
+onready var ethnicity_element = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Ethnicity
+onready var ethnicity_trait = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/EthnicityTrait
+onready var character_stats_element = $CharacterStats
 
 func _ready():
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
+func update_values():
+	ethnicity_element.bbcode_text = character_stats_element.ethnicity
+	ethnicity_trait.bbcode_text = character_stats_element.ethnicity_trait
+
+
+func update_attribute_values(attributeEnum):
+	var value
+	match attributeEnum:
+		GlobalConstants.attribute.AGI:
+			value = get_final_attribute_value(self.character_stats_element.agi_modifiers)
+			self.character_stats_element.agi_value = value
+			agility_attribute_value.bbcode_text ="[center]%s[/center]" %  value
+			fill_attribute_modifiers(value, agi_modifiers_list)
+		GlobalConstants.attribute.BOD:
+			value = get_final_attribute_value(self.character_stats_element.bod_modifiers)
+			self.character_stats_element.bod_value = value
+			body_attribute_value.bbcode_text ="[center]%s[/center]" %  value
+			fill_attribute_modifiers(value, bod_modifiers_list)
+		GlobalConstants.attribute.CHA:
+			value = get_final_attribute_value(self.character_stats_element.cha_modifiers)
+			self.character_stats_element.cha_value = value
+			character_attribute_value.bbcode_text ="[center]%s[/center]" %  value
+			fill_attribute_modifiers(value, cha_modifiers_list)
+		GlobalConstants.attribute.PER:
+			value = get_final_attribute_value(self.character_stats_element.per_modifiers)
+			self.character_stats_element.per_value = value
+			perception_attribute_value.bbcode_text ="[center]%s[/center]" %  value
+			fill_attribute_modifiers(value, per_modifiers_list)
+		GlobalConstants.attribute.WIT:
+			value = get_final_attribute_value(self.character_stats_element.wit_modifiers)
+			self.character_stats_element.wit_value = value
+			wits_attribute_value.bbcode_text ="[center]%s[/center]" %  value
+			fill_attribute_modifiers(value, wit_modifiers_list)
+
+
+func get_final_attribute_value(attribute_modifiers :Dictionary):
+	var result = 0
+	for key in attribute_modifiers:
+		result+=attribute_modifiers[key]
+	return result
+
+
+func fill_attribute_modifiers(attribute_value: int, attribute_modifiers_elements: Array):
+	attribute_modifiers_elements[0].bbcode_text = return_modifier_value_or_n(attribute_value+2)
+	attribute_modifiers_elements[1].bbcode_text = return_modifier_value_or_n(attribute_value)
+	attribute_modifiers_elements[2].bbcode_text = return_modifier_value_or_n(attribute_value-2)
+	attribute_modifiers_elements[3].bbcode_text = return_modifier_value_or_n(attribute_value-5)
+	attribute_modifiers_elements[4].bbcode_text = return_modifier_value_or_n(attribute_value-8)
+	attribute_modifiers_elements[5].bbcode_text = return_modifier_value_or_n(attribute_value-11)
+	attribute_modifiers_elements[6].bbcode_text = return_modifier_value_or_n(attribute_value-15)
+
+
+func return_modifier_value_or_n(value):
+	if value < 1:
+		return "[center]N[/center]"
+	return str("[center]%s[/center]" %value)
+
+
+func set_bonus_attribute(attribute=null):
+	#CLEAR PREVIOUS MODIFIER
+	self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 0
+	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 0
+	self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 0
+	self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 0
+	self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 0
+
+	#SET NEW MODIFIER
+	if attribute == 0:
+		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
+	elif attribute == 1:
+		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
+	elif attribute == 2:
+		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
+	elif attribute == 3:
+		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
+	elif attribute == 4:
+		self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
+	else:
+		print("DIDNT MATCH ANYTHING")
+
+
 func _on_CloseButton_button_up():
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
-func updateValues():
-	Ethnicity.bbcode_text = characterStats.Ethnicity
-	EthnicityTrait.bbcode_text = characterStats.EthnicityTrait
 
-
-func _on_Ethnicity_ethnicity_chosen(traitButton, ethnicity, attribute):
+func _on_Ethnicity_ethnicity_chosen(trait_button, ethnicity, attribute):
 	var traitName
-	if traitButton.traitName == "Wszechstronność do kwadratu":
-		traitName = traitButton.traitName +" : " + traitButton.secondary_trait
+	if trait_button.trait_name == "Wszechstronność do kwadratu":
+		traitName = trait_button.trait_name +" : " + trait_button.secondary_trait
 	else:
-		traitName = traitButton.traitName
-	self.characterStats.Ethnicity = ethnicity["Name"]
-	self.characterStats.EthnicityTrait = traitName
-	self.setBonusAttribute(attribute)
+		traitName = trait_button.trait_name
+	self.character_stats_element.ethnicity = ethnicity["Name"]
+	self.character_stats_element.ethnicity_trait = traitName
+	self.set_bonus_attribute(attribute)
 	for attr in GlobalConstants.attribute:
-		self.updateAttributeValues(GlobalConstants.attribute[attr])
-	self.updateValues()
-
-func updateAttributeValues(attributeEnum):
-	var value
-	match attributeEnum:
-		GlobalConstants.attribute.AGI:
-			value = getFinalAttributeValue(self.characterStats.agiModifiers)
-			self.characterStats.agiValue = value
-			AgilityAttributeValue.bbcode_text ="[center]%s[/center]" %  value
-			fillAttributeModifiers(value, AgiModifiersList)
-		GlobalConstants.attribute.BOD:
-			value = getFinalAttributeValue(self.characterStats.bodModifiers)
-			self.characterStats.bodValue = value
-			BodyAttributeValue.bbcode_text ="[center]%s[/center]" %  value
-			fillAttributeModifiers(value, BodModifiersList)
-		GlobalConstants.attribute.CHA:
-			value = getFinalAttributeValue(self.characterStats.chaModifiers)
-			self.characterStats.chaValue = value
-			CharacterAttributeValue.bbcode_text ="[center]%s[/center]" %  value
-			fillAttributeModifiers(value, ChaModifiersList)
-		GlobalConstants.attribute.PER:
-			value = getFinalAttributeValue(self.characterStats.perModifiers)
-			self.characterStats.perValue = value
-			PerceptionAttributeValue.bbcode_text ="[center]%s[/center]" %  value
-			fillAttributeModifiers(value, PerModifiersList)
-		GlobalConstants.attribute.WIT:
-			value = getFinalAttributeValue(self.characterStats.witModifiers)
-			self.characterStats.witValue = value
-			WitsAttributeValue.bbcode_text ="[center]%s[/center]" %  value
-			fillAttributeModifiers(value, WitModifiersList)
-
-func getFinalAttributeValue(attributeModifiers :Dictionary):
-	var result = 0
-	for key in attributeModifiers:
-		result+=attributeModifiers[key]
-	return result
-
-func fillAttributeModifiers(attributeValue: int, attributeModifiersElements: Array):
-	attributeModifiersElements[0].bbcode_text = returnModifierValueOrN(attributeValue+2)
-	attributeModifiersElements[1].bbcode_text = returnModifierValueOrN(attributeValue)
-	attributeModifiersElements[2].bbcode_text = returnModifierValueOrN(attributeValue-2)
-	attributeModifiersElements[3].bbcode_text = returnModifierValueOrN(attributeValue-5)
-	attributeModifiersElements[4].bbcode_text = returnModifierValueOrN(attributeValue-8)
-	attributeModifiersElements[5].bbcode_text = returnModifierValueOrN(attributeValue-11)
-	attributeModifiersElements[6].bbcode_text = returnModifierValueOrN(attributeValue-15)
-
-func returnModifierValueOrN(value):
-	if value < 1:
-		return "[center]N[/center]"
-	return str("[center]%s[/center]" %value)
-func setBonusAttribute(attribute=null):
-	#CLEAR PREVIOUS MODIFIER
-	self.characterStats.agiModifiers["EthnicityAttributeModifier"] = 0
-	self.characterStats.bodModifiers["EthnicityAttributeModifier"] = 0
-	self.characterStats.chaModifiers["EthnicityAttributeModifier"] = 0
-	self.characterStats.perModifiers["EthnicityAttributeModifier"] = 0
-	self.characterStats.witModifiers["EthnicityAttributeModifier"] = 0
-
-	#SET NEW MODIFIER
-	if attribute == 0:
-		self.characterStats.agiModifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 1:
-		self.characterStats.perModifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 2:
-		self.characterStats.witModifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 3:
-		self.characterStats.bodModifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 4:
-		self.characterStats.chaModifiers["EthnicityAttributeModifier"] = 1
-	else:
-		print("DIDNT MATCH ANYTHING")
-		
+		self.update_attribute_values(GlobalConstants.attribute[attr])
+	self.update_values()
 
 
-func _on_Ethnicity_attribute_chosen(bonusAttribute):
-	self.setBonusAttribute(bonusAttribute)
+func _on_Ethnicity_attribute_chosen(bonus_attribute):
+	self.set_bonus_attribute(bonus_attribute)
 	for attr in GlobalConstants.attribute:
-		self.updateAttributeValues(GlobalConstants.attribute[attr])
+		self.update_attribute_values(GlobalConstants.attribute[attr])
