@@ -6,7 +6,7 @@ signal attribute_chosen(bonus_attribute)
 export(ButtonGroup) var trait_group
 
 var ethnicities = []
-var current_ethnicity = 0
+var current_ethnicity = 0 #database.db_sql.query("select ethnicity_id from ethnicities where ethnicity_identifier = 'southern_hegemony';")
 
 onready var picture = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic
 onready var ethnicity_name = $VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName
@@ -37,45 +37,46 @@ func _set_image(path):
 
 
 func load_ethnicity(ethnicity):
-	_set_image(ethnicity["SplashArtPath"])
+	_set_image(ethnicity["SplashArtPath"]) #_set_image(ethnicity["splash_art_path"])
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["Name"]
-	ethnicity_description.bbcode_text = "%s" % ethnicity["Description"].replace("\\n", "\n")
+	ethnicity_description.bbcode_text = "%s" % ethnicity["Description"].replace("\n", "\n")
 	
-	var traitList = ethnicity["Traits"]
+	var trait_list = database.read_traits_for_ethnicity(ethnicities[current_ethnicity]["id"])
+	print(trait_list)
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
 			n.queue_free()
-	for trait in traitList:
-		if trait["TraitName"] == "Wszechstronność do kwadratu":
+	for trait in trait_list:
+		if trait["trait_identifier"] == "versatility_squared":
 			var trait_button = create_trait_button(alternate_trait_button_scene, trait)
 			var trait_button_trait_list = trait_button.get_node("MarginContainer/VBoxContainer/OptionButton")
 			fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
-			trait_button.get_node(".").set_button_group(traitGroup)
+			trait_button.get_node(".").set_button_group(trait_group)
 			
 		else:
 			var trait_button = create_trait_button(trait_button_scene, trait)
-			trait_button.get_node(".").set_button_group(traitGroup)
+			trait_button.get_node(".").set_button_group(trait_group)
 
 
 func create_trait_button(trait_template, trait_data):
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
-	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["TraitName"]
-	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["TraitDescription"]
+	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
+	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["trait_description"]
 	trait_button.connect("trait_button_pressed", 
 						self, 
 						"_on_Trait_Button_button_pressed")
-	trait_button.ID = trait_data["ID"]
-	trait_button.trait_name = trait_data["TraitName"]
-	trait_button.description = trait_data["TraitDescription"]
+	trait_button.ID = trait_data["trait_identifier"]
+	trait_button.trait_name = trait_data["trait_name"]
+	trait_button.description = trait_data["trait_description"]
 	return trait_button
 
 
 func _on_Trait_Button_button_pressed(button):
 	var bonus_attribute
-	if ethnicities[current_ethnicity]["Name"] =="Nie twój zasrany interes":
+	if ethnicities[current_ethnicity]["trait_identifier"] =="versatility_squared":
 		bonus_attribute = attribute_selector.selected
 	else:
 		bonus_attribute = ethnicities[current_ethnicity]["Attribute"]
