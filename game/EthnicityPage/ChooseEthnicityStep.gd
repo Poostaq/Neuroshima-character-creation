@@ -41,22 +41,22 @@ func load_ethnicity(ethnicity):
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["Name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["Description"].replace("\\n", "\n")
 	
-	var traitList = ethnicity["Traits"]
+	var trait_list = ethnicity["Traits"]
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
 			n.queue_free()
-	for trait in traitList:
+	for trait in trait_list:
 		if trait["TraitName"] == "Wszechstronność do kwadratu":
 			var trait_button = create_trait_button(alternate_trait_button_scene, trait)
 			var trait_button_trait_list = trait_button.get_node("MarginContainer/VBoxContainer/OptionButton")
 			fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
-			trait_button.get_node(".").set_button_group(traitGroup)
+			trait_button.get_node(".").set_button_group(trait_group)
 			
 		else:
 			var trait_button = create_trait_button(trait_button_scene, trait)
-			trait_button.get_node(".").set_button_group(traitGroup)
+			trait_button.get_node(".").set_button_group(trait_group)
 
 
 func create_trait_button(trait_template, trait_data):
