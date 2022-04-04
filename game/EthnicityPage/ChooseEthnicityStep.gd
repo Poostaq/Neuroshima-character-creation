@@ -1,9 +1,9 @@
 extends Control
 
-signal ethnicity_chosen(traitElement, currentEthnicity, bonusAttribute)
-signal attribute_chosen(bonusAttribute)
+signal ethnicity_chosen(trait_element, current_ethnicity, bonus_attribute)
+signal attribute_chosen(bonus_attribute)
 
-export(ButtonGroup) var traitGroup
+export(ButtonGroup) var trait_group
 
 var ethnicities = []
 var current_ethnicity = 0
@@ -25,7 +25,7 @@ func _ready():
 	for attribute in GlobalConstants.attribute_string:
 		attribute_selector.add_item(attribute)
 	fill_attribute_bonus(ethnicities[current_ethnicity]["Attribute"])
-	traitGroup = load("res://EthnicityPage/Traits.tres")
+	trait_group = load("res://EthnicityPage/Traits.tres")
 
 
 func _set_image(path):
@@ -49,8 +49,8 @@ func load_ethnicity(ethnicity):
 	for trait in traitList:
 		if trait["TraitName"] == "Wszechstronność do kwadratu":
 			var trait_button = create_trait_button(alternate_trait_button_scene, trait)
-			var traitButtonTraitList = trait_button.get_node("MarginContainer/VBoxContainer/OptionButton")
-			fill_trait_button_trait_list(traitButtonTraitList)
+			var trait_button_trait_list = trait_button.get_node("MarginContainer/VBoxContainer/OptionButton")
+			fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
 			trait_button.get_node(".").set_button_group(traitGroup)
 			
@@ -59,36 +59,34 @@ func load_ethnicity(ethnicity):
 			trait_button.get_node(".").set_button_group(traitGroup)
 
 
-func create_trait_button(traitTemplate, traitData):
-	var trait_button = traitTemplate.instance()
+func create_trait_button(trait_template, trait_data):
+	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
-	var traitName = trait_button.get_node("MarginContainer/VBoxContainer/TraitNameLabel")
-	traitName.bbcode_text = "[center]%s[/center]" % traitData["TraitName"]
-	var traitDescription = trait_button.get_node("MarginContainer/VBoxContainer/TraitDescriptionLabel")
-	traitDescription.bbcode_text = "%s" % traitData["TraitDescription"]
+	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["TraitName"]
+	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["TraitDescription"]
 	trait_button.connect("trait_button_pressed", 
 						self, 
 						"_on_Trait_Button_button_pressed")
-	trait_button.ID = traitData["ID"]
-	trait_button.trait_name = traitData["TraitName"]
-	trait_button.description = traitData["TraitDescription"]
+	trait_button.ID = trait_data["ID"]
+	trait_button.trait_name = trait_data["TraitName"]
+	trait_button.description = trait_data["TraitDescription"]
 	return trait_button
 
 
 func _on_Trait_Button_button_pressed(button):
-	var bonusAttribute
+	var bonus_attribute
 	if ethnicities[current_ethnicity]["Name"] =="Nie twój zasrany interes":
-		bonusAttribute = attribute_selector.selected
+		bonus_attribute = attribute_selector.selected
 	else:
-		bonusAttribute = ethnicities[current_ethnicity]["Attribute"]
-	emit_signal("ethnicity_chosen", button, ethnicities[current_ethnicity], bonusAttribute)
+		bonus_attribute = ethnicities[current_ethnicity]["Attribute"]
+	emit_signal("ethnicity_chosen", button, ethnicities[current_ethnicity], bonus_attribute)
 
 
-func fill_trait_button_trait_list(traitListElement: OptionButton):
+func fill_trait_button_trait_list(trait_list_element: OptionButton):
 	for ethnicity in ethnicities:
 		if !(ethnicity["Name"] == "Nie twój zasrany interes"):
 			for trait in ethnicity["Traits"]:
-				traitListElement.add_item(trait["TraitName"])
+				trait_list_element.add_item(trait["TraitName"])
 
 
 func fill_attribute_bonus(attribute):
