@@ -8,16 +8,6 @@
 
 config_version=4
 
-_global_script_classes=[ {
-"base": "Resource",
-"class": "CharacterStats",
-"language": "GDScript",
-"path": "res://UI_Elements/characterStats.gd"
-} ]
-_global_script_class_icons={
-"CharacterStats": ""
-}
-
 [application]
 
 config/name="Neuroshima Character Creation"

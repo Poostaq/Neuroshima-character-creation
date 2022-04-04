@@ -1,20 +1,20 @@
 extends Node
 
-export var Name : String
-export var Ethnicity : String
-export var EthnicityTrait : String
+export var character_name : String
+export var ethnicity : String
+export var ethnicity_trait : String
 
-export var agiValue : int
-export var agiModifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
+export var agi_value : int
+export var agi_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
 
-export var perValue : int
-export var perModifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
+export var per_value : int
+export var per_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
 
-export var chaValue : int
-export var chaModifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
+export var cha_value : int
+export var cha_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
 
-export var witValue : int
-export var witModifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
+export var wit_value : int
+export var wit_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
 
-export var bodValue : int
-export var bodModifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
+export var bod_value : int
+export var bod_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
