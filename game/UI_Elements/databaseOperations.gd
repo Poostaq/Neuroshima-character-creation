@@ -72,11 +72,31 @@ func cprint(text : String) -> void:
 #	print (selected_array)
 #	return selected_array
 	
-func read_traits_for_ethnicity(ethnicity_identifier):
-	read_from_SQL()
-	db_sql.query("SELECT t.trait_identifier, t.trait_name, t.trait_description " +
-	"from ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id " +
-	"Where e.ethnicity_identifier like '%s';" % ethnicity_identifier)
+#func read_traits_for_ethnicity(ethnicity_identifier):
+#	read_from_SQL()
+#	db_sql = SQLite.new()
+#	db_sql.path = db_name
+#	db_sql.open_db()
+#	db_sql.query("SELECT t.trait_identifier, t.trait_name, t.trait_description " +
+#	"from ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id " +
+#	"Where e.ethnicity_identifier like '%s';" % ethnicity_identifier)
+#	for i in range(0, db_sql.query_result.size()):
+#		var data = db_sql.query_result[i]
+#	db_sql.close_db()
+#	return db_sql.query_result
+
+func _sql_select(sql_query):
+	db_sql = SQLite.new()
+	db_sql.path = db_name
+	db_sql.open_db()
+	db_sql.query(sql_query)
 	for i in range(0, db_sql.query_result.size()):
 		var data = db_sql.query_result[i]
 	return db_sql.query_result
+
+func read_traits_for_ethnicity(ethnicity_identifier):
+	var data = _sql_select("SELECT t.trait_identifier, t.trait_name, t.trait_description " +
+	"from ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id " +
+	"Where e.ethnicity_identifier like '%s';" % ethnicity_identifier)
+	db_sql.close_db()
+	return data

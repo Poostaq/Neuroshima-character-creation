@@ -42,7 +42,6 @@ func load_ethnicity(ethnicity):
 	ethnicity_description.bbcode_text = "%s" % ethnicity["Description"].replace("\n", "\n")
 	
 	var trait_list = database.read_traits_for_ethnicity(ethnicities[current_ethnicity]["id"])
-	print(trait_list)
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
