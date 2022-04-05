@@ -75,7 +75,7 @@ func create_trait_button(trait_template, trait_data):
 
 func _on_Trait_Button_button_pressed(button):
 	var bonus_attribute
-	if ethnicities[current_ethnicity]["trait_identifier"] =="versatility_squared":
+	if ethnicities[current_ethnicity]["Name"] =="Nie twój zasrany interes":
 		bonus_attribute = attribute_selector.selected
 	else:
 		bonus_attribute = ethnicities[current_ethnicity]["Attribute"]
