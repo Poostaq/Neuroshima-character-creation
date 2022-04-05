@@ -35,7 +35,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 script = ExtResource( 4 )
-traitGroup = ExtResource( 5 )
+trait_group = ExtResource( 5 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
