@@ -99,13 +99,15 @@ func read_traits_for_ethnicity(ethnicity_identifier):
 	"FROM ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id " +
 	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	db_sql.close_db()
+	#print (data)
 	return data
 
 func read_attributes_for_ethnicity(ethnicity_identifier):
-	var data = _sql_select("SELECT e.ethnicity_identifier, a.attribute_identifier, a.attribute_name, a.attri " +
+	var data = _sql_select("SELECT e.ethnicity_identifier, a.attri " +
 	"FROM ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id " +
 	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	db_sql.close_db()
+	#print (data)
 	return data
 	
 func read_all_data():
@@ -116,4 +118,20 @@ func read_all_data():
 	"from ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id " +
 	"JOIN traits t on e.ethnicity_id = t.ethnicity_id;")
 	db_sql.close_db()
+	#print (data)
+	return data
+
+func read_ethnicity_identifiers():
+	var data = _sql_select("SELECT ethnicity_identifier FROM ethnicities;")
+	db_sql.close_db()
+	print (data)
+	return data
+
+func read_data_for_etnicity(ethnicity_identifier):
+	var data = _sql_select("SELECT e.ethnicity_identifier, " +
+	"e.ethnicity_name, e.splash_art_path, e.ethnicity_description " +
+	"FROM ethnicities e " +
+	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
+	db_sql.close_db()
+	#print (data)
 	return data
