@@ -107,7 +107,7 @@ func read_attributes_for_ethnicity(ethnicity_identifier):
 	"FROM ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id " +
 	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	db_sql.close_db()
-	#print (data)
+	print (data)
 	return data
 	
 func read_all_data():
@@ -124,7 +124,7 @@ func read_all_data():
 func read_ethnicity_identifiers():
 	var data = _sql_select("SELECT ethnicity_identifier FROM ethnicities;")
 	db_sql.close_db()
-	print (data)
+	#print (data)
 	return data
 
 func read_data_for_etnicity(ethnicity_identifier):
@@ -134,4 +134,4 @@ func read_data_for_etnicity(ethnicity_identifier):
 	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	db_sql.close_db()
 	#print (data)
-	return data
+	return data[0]

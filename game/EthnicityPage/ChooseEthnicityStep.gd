@@ -12,7 +12,6 @@ var current_ethnicity = 0
 var current_ethnicity_identifier = "southern_hegemony"
 var ethnicity = {}
 var attribute = {}
-#var ethnicity_identyfiers = 
 
 onready var picture = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic
 onready var ethnicity_name = $VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName
@@ -28,11 +27,12 @@ onready var database = get_node("/root/DatabaseOperations")
 func _ready():
 	ethnicity_list = database.read_ethnicity_identifiers() # zwraca listę enthnicity_identifier
 	ethnicities = database.read_table_from_database("ethnicity") # dawny odczyt starej bazy
-	ethnicity = database.read_data_for_etnicity(ethnicity_list[0]["ethnicity_identifier"]) #.ethnicity_identifier,ethnicity_name,splash_art_path,ethnicity_description;
-#	attributes_list = 
-	attribute = database.read_attributes_for_ethnicity(ethnicity_list[0]["ethnicity_identifier"]) #ethnicity_identifier, attri
+	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"]) #.ethnicity_identifier,ethnicity_name,splash_art_path,ethnicity_description;
+#	current_ethnicity = current_ethnicity
+	print ("current_ethnicity =" + str(current_ethnicity))
+	attribute = database.read_attributes_for_ethnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"]) #ethnicity_identifier, attri
 	print(attribute)
-	load_ethnicity(ethnicity[0])
+	load_ethnicity(ethnicity)
 	for attribute in GlobalConstants.attribute_string:
 		attribute_selector.add_item(attribute)
 	fill_attribute_bonus(ethnicities[0]["Attribute"])
@@ -51,7 +51,7 @@ func load_ethnicity(ethnicity):
 	_set_image(ethnicity["splash_art_path"]) 
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"].replace("\n", "\n")
-	var trait_list = database.read_traits_for_ethnicity(ethnicity_list[0]["ethnicity_identifier"]) #t.trait_identifier, t.trait_name, t.trait_description
+	var trait_list = database.read_traits_for_ethnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"]) #t.trait_identifier, t.trait_name, t.trait_description
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
@@ -116,11 +116,13 @@ func _on_AttributeSelect_item_selected(index):
 
 
 func _on_PreviousEthnicity_button_up():
+	
 	if current_ethnicity == 0:
 		current_ethnicity = len(ethnicities)-1
 	else:
 		current_ethnicity -= 1
-	load_ethnicity(ethnicities[current_ethnicity])
+	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+	load_ethnicity(ethnicity)
 	fill_attribute_bonus(ethnicities[current_ethnicity]["Attribute"])
 
 
@@ -129,7 +131,8 @@ func _on_NextEthnicity_button_up():
 		current_ethnicity = 0
 	else:
 		current_ethnicity += 1
-	load_ethnicity(ethnicities[current_ethnicity])
+	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+	load_ethnicity(ethnicity)
 	fill_attribute_bonus(ethnicities[current_ethnicity]["Attribute"])
 
 
