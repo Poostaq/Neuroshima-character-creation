@@ -7,9 +7,11 @@ export(ButtonGroup) var trait_group
 
 var ethnicities = []
 var ethnicity_list = []
-var current_ethnicity = 0 #database.db_sql.query("select ethnicity_id from ethnicities where ethnicity_identifier = 'southern_hegemony';")
+var attributes_list = []
+var current_ethnicity = 0
 var current_ethnicity_identifier = "southern_hegemony"
 var ethnicity = {}
+var attribute = {}
 #var ethnicity_identyfiers = 
 
 onready var picture = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic
@@ -24,16 +26,18 @@ onready var database = get_node("/root/DatabaseOperations")
 
 
 func _ready():
-	ethnicity_list = database.read_ethnicity_identifiers()
-	ethnicities = database.read_table_from_database("ethnicity")
-	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
-	print (ethnicity)
+	ethnicity_list = database.read_ethnicity_identifiers() # zwraca listę enthnicity_identifier
+	ethnicities = database.read_table_from_database("ethnicity") # dawny odczyt starej bazy
+	ethnicity = database.read_data_for_etnicity(ethnicity_list[0]["ethnicity_identifier"]) #.ethnicity_identifier,ethnicity_name,splash_art_path,ethnicity_description;
+#	attributes_list = 
+	attribute = database.read_attributes_for_ethnicity(ethnicity_list[0]["ethnicity_identifier"]) #ethnicity_identifier, attri
+	print(attribute)
 	load_ethnicity(ethnicity[0])
 	for attribute in GlobalConstants.attribute_string:
 		attribute_selector.add_item(attribute)
-	fill_attribute_bonus(ethnicities[current_ethnicity]["Attribute"])
+	fill_attribute_bonus(ethnicities[0]["Attribute"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
-
+	
 
 func _set_image(path):
 	var image = load(path)
@@ -47,8 +51,7 @@ func load_ethnicity(ethnicity):
 	_set_image(ethnicity["splash_art_path"]) 
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"].replace("\n", "\n")
-
-	var trait_list = database.read_traits_for_ethnicity(ethnicities[current_ethnicity]["id"])
+	var trait_list = database.read_traits_for_ethnicity(ethnicity_list[0]["ethnicity_identifier"]) #t.trait_identifier, t.trait_name, t.trait_description
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
@@ -82,8 +85,9 @@ func create_trait_button(trait_template, trait_data):
 
 func _on_Trait_Button_button_pressed(button):
 	var bonus_attribute
-	var attributes_list = database.read_attributes_for_ethnicity(ethnicities[current_ethnicity]["id"])
-	if ethnicity[current_ethnicity]["Name"] =="Nie twój zasrany interes":
+	var attributes_list = database.read_attributes_for_ethnicity(ethnicities[0]["ethnicity_identifier"])
+	print(attributes_list)
+	if ethnicities["ethnicity_identifier"] =="not_your_business":
 		bonus_attribute = attribute_selector.selected
 	else:
 		bonus_attribute = ethnicities[current_ethnicity]["Attribute"] #attributes_list["attri"] 
