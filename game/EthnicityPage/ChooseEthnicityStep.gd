@@ -91,7 +91,7 @@ func _on_Trait_Button_button_pressed(button):
 	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="not_your_business":
 		bonus_attribute = attribute_selector.selected
 	else:
-		bonus_attribute = ethnicity["attri"] 
+		bonus_attribute = ethnicities[current_ethnicity]["Attribute"]
 	emit_signal("ethnicity_chosen", button, ethnicities[current_ethnicity], bonus_attribute)
 
 
