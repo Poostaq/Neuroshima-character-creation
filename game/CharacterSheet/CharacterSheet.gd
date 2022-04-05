@@ -134,15 +134,15 @@ func set_bonus_attribute(attribute=null):
 	self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 0
 
 	#SET NEW MODIFIER
-	if attribute == 0:
+	if attribute == 0: #"AGI":
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 1:
+	elif attribute == 1: #"PER":
 		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 2:
+	elif attribute == 2: #"WIT":
 		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 3:
+	elif attribute == 3: #"BOD":
 		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 4:
+	elif attribute == 4: #"CHA":
 		self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
 	else:
 		print("DIDNT MATCH ANYTHING")
@@ -154,13 +154,13 @@ func _on_CloseButton_button_up():
 
 
 func _on_Ethnicity_ethnicity_chosen(trait_button, ethnicity, attribute):
-	var traitName
+	var trait_name
 	if trait_button.trait_name == "Wszechstronność do kwadratu":
-		traitName = trait_button.trait_name +" : " + trait_button.secondary_trait
+		trait_name = trait_button.trait_name +" : " + trait_button.secondary_trait
 	else:
-		traitName = trait_button.trait_name
+		trait_name = trait_button.trait_name
 	self.character_stats_element.ethnicity = ethnicity["Name"]
-	self.character_stats_element.ethnicity_trait = traitName
+	self.character_stats_element.ethnicity_trait = trait_name
 	self.set_bonus_attribute(attribute)
 	for attr in GlobalConstants.attribute:
 		self.update_attribute_values(GlobalConstants.attribute[attr])
