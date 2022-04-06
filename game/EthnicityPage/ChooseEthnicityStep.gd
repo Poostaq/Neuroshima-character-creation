@@ -9,9 +9,9 @@ var ethnicities = []
 var ethnicity_list = []
 var attributes_list = []
 var current_ethnicity = 0
-var current_ethnicity_identifier = "southern_hegemony"
 var ethnicity = {}
 var attribute_string
+var attributes 
 
 onready var picture = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic
 onready var ethnicity_name = $VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName
@@ -28,16 +28,11 @@ func _ready():
 	ethnicity_list = database.read_ethnicity_identifiers() # zwraca listę enthnicity_identifier
 	ethnicities = database.read_table_from_database("ethnicity") # dawny odczyt starej bazy
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"]) #.ethnicity_identifier,ethnicity_name,splash_art_path,ethnicity_description;
-	print ("current_ethnicity =" + str(current_ethnicity))
+	attributes = database.list_of_attributes()
 	load_ethnicity(ethnicity)
-#	var attributes_list = database.read_attributes_name_without_any()
-#	for attribute in attributes_list:
-#		attribute_selector.add_item(attribute["attribute_name"])
-#	fill_attribute_bonus(ethnicity["attribute_identifier"])
-	for attribute in GlobalConstants.attribute_string:
+	for attribute in attributes: #GlobalConstants.attribute_string
 		attribute_selector.add_item(attribute)
-	fill_attribute_bonus(ethnicities[current_ethnicity]["Attribute"])
-	trait_group = load("res://EthnicityPage/Traits.tres")
+	fill_attribute_bonus(ethnicity["attribute_name"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
 	
 
@@ -87,7 +82,6 @@ func create_trait_button(trait_template, trait_data):
 
 func _on_Trait_Button_button_pressed(button):
 	var bonus_attribute
-	
 	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="not_your_business":
 		bonus_attribute = attribute_selector.selected
 	else:
@@ -101,7 +95,6 @@ func fill_trait_button_trait_list(trait_list_element: OptionButton):
 			for trait in ethnicity["Traits"]:
 				trait_list_element.add_item(trait["TraitName"])
 
-
 #func fill_attribute_bonus(attribute_identifier):
 #	if ethnicity["ethnicity_identifier"] =="not_your_business":
 #		attribute_bonus_label.visible = false
@@ -112,15 +105,14 @@ func fill_trait_button_trait_list(trait_list_element: OptionButton):
 #	var attribute_string = database.read_attribute_data(attribute_identifier)
 #	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % attribute_string["attribute_name"]
 
-func fill_attribute_bonus(attribute):
-	if ethnicities[current_ethnicity]["Name"] =="Nie twój zasrany interes":
+func fill_attribute_bonus(attribute): 
+	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="not_your_business":
 		attribute_bonus_label.visible = false
 		attribute_selector.visible = true
 		return
 	attribute_selector.visible = false
 	attribute_bonus_label.visible = true
-	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % GlobalConstants.attribute_string[attribute]
-
+	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % ethnicity["attribute_name"]
 
 func _on_AttributeSelect_item_selected(index):
 	emit_signal("attribute_chosen", index)
@@ -134,8 +126,7 @@ func _on_PreviousEthnicity_button_up():
 		current_ethnicity -= 1
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	load_ethnicity(ethnicity)
-#	fill_attribute_bonus(ethnicity["attri"])
-	fill_attribute_bonus(ethnicities[current_ethnicity]["Attribute"])
+	fill_attribute_bonus(ethnicity["attribute_name"])
 
 func _on_NextEthnicity_button_up():
 	if current_ethnicity == len(ethnicities)-1:
@@ -144,8 +135,7 @@ func _on_NextEthnicity_button_up():
 		current_ethnicity += 1
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	load_ethnicity(ethnicity)
-#	fill_attribute_bonus(ethnicity["attri"])
-	fill_attribute_bonus(ethnicities[current_ethnicity]["Attribute"])
+	fill_attribute_bonus(ethnicity["attribute_name"])
 
 
 

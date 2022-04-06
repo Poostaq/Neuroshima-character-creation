@@ -138,12 +138,12 @@ func set_bonus_attribute(attribute=null):
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
 	elif attribute == 1: #"PER":
 		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 2: #"WIT":
-		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 3: #"BOD":
-		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
-	elif attribute == 4: #"CHA":
+	elif attribute == 2: #"CHA":
 		self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
+	elif attribute == 3: #"WIT":
+		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
+	elif attribute == 4: #"BOD":
+		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
 	else:
 		print("DIDNT MATCH ANYTHING")
 

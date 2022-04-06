@@ -36,14 +36,15 @@ func cprint(text : String) -> void:
 #func test_read_SQL():
 #	read_from_SQL()
 #	db_sql.open_db()
-#	var select_condition : String = "ethnicity_identifier is not null "
-#	select_condition += "AND ethnicity_name not like 'Nie twój zasrany interes'"
-#	var selected_array : Array = db_sql.select_rows(table_name, select_condition, ["ethnicity_identifier","ethnicity_name","splash_art_path" ])
-#	cprint("condition: " + select_condition)
-#	cprint("result: {0}".format([String(selected_array)]))
-#	return db_sql.query_result
-
-
+#	var table_name = "attributes"
+#	var select_condition : String = "attribute_identifier != 'Any';"
+#	var selected_array : Array = db_sql.select_rows(table_name, select_condition, ["attribute_name"])
+##	cprint("condition: " + select_condition)
+##	cprint("result: {0}".format([String(selected_array)]))
+#	for selected_row in selected_array:
+#		var selected_data = selected_row.get("attribute_name", PoolByteArray())
+#		print (selected_data)
+#
 #	db_sql.open_db()
 #	db_sql.query("select * from " + table_name + ";")
 #	for i in range(0, db_sql.query_result.size()):
@@ -103,11 +104,11 @@ func read_traits_for_ethnicity(ethnicity_identifier):
 	return data
 
 func read_attribute_data(attribute_identifier):
-	var data = _sql_select("SELECT attribute_id, attribute_name, attri " +
+	var data = _sql_select("SELECT attribute_id, attribute_name, attri, bonus_value " +
 	"FROM attributes  " +
 	"WHERE attribute_identifier like '%s';" % attribute_identifier)
 	db_sql.close_db()
-	print (data)
+#	print (data)
 	return data[0]
 	
 func read_attributes_name_without_any():
@@ -115,7 +116,7 @@ func read_attributes_name_without_any():
 	"FROM attributes  " +
 	"WHERE attribute_identifier != 'Any';")
 	db_sql.close_db()
-	print (data)
+#	print (data)
 	return data	
 	
 	
@@ -123,7 +124,7 @@ func read_all_data():
 	var data = _sql_select("SELECT e.ethnicity_id _id, e.ethnicity_identifier, " +
 	"e.ethnicity_name, e.splash_art_path, e.ethnicity_description, " +
 	"t.trait_id, t.trait_identifier, t.trait_name, t.trait_description, " +
-	"a.attribute_id, a.attribute_identifier, a.attribute_name, a.attri " +
+	"a.attribute_id, a.attribute_identifier, a.attribute_name, a.attri, a.bonus_value " +
 	"from ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id " +
 	"JOIN traits t on e.ethnicity_id = t.ethnicity_id;")
 	db_sql.close_db()
@@ -139,9 +140,21 @@ func read_ethnicity_identifiers():
 func read_data_for_etnicity(ethnicity_identifier):
 	var data = _sql_select("SELECT e.ethnicity_identifier, " +
 	"e.ethnicity_name, e.splash_art_path, e.ethnicity_description, " +
-	"a.attribute_identifier, a.attribute_name, a.attri " +
+	"a.attribute_identifier, a.attribute_name, a.attri, a.bonus_value " +
 	"from ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id " +
 	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	db_sql.close_db()
 	#print (data)
 	return data[0]
+	
+func list_of_attributes():
+	read_from_SQL()
+	db_sql.open_db()
+	var table_name = "attributes"
+	var attributes = []
+	var select_condition : String = "attribute_identifier != 'Any';"
+	var selected_array : Array = db_sql.select_rows(table_name, select_condition, ["attribute_name"])
+	for selected_row in selected_array:
+		attributes.append(selected_row.get("attribute_name"))
+	print (attributes)
+	return attributes
