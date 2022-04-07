@@ -120,5 +120,5 @@ func list_of_traits():
 	var selected_array : Array = db_sql.select_rows(table_name, select_condition, ["trait_name"])
 	for selected_row in selected_array:
 		traits.append(selected_row.get("trait_name"))
-	print (traits)
+#	print (traits)
 	return traits

@@ -1,5 +1,8 @@
 extends Control
 
+onready var database = get_node("/root/DatabaseOperations")
+onready var CES = get_node("res://EthnicityPage/ChooseEthnicityStep.gd")
+
 #AGILITY
 export (NodePath) onready var agility_attribute_value = get_node(agility_attribute_value) as RichTextLabel
 export (NodePath) onready var agi_easy_value = get_node(agi_easy_value) as RichTextLabel
@@ -173,6 +176,9 @@ func _on_Ethnicity_ethnicity_chosen(trait_button, ethnicity, attribute):
 
 
 func _on_Ethnicity_attribute_chosen(bonus_attribute):
+	
 	self.set_bonus_attribute(bonus_attribute)
 	for attr in GlobalConstants.attribute:
 		self.update_attribute_values(GlobalConstants.attribute[attr])
+#		self.update_attribute_values(ChooseEthnicityStep.ethnicity["attribute_enum"])
+#		self.update_attribute_values(CES.ethnicity["attribute_enum"])
