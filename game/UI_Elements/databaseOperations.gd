@@ -28,35 +28,12 @@ func read_traits_for_ethnicity(ethnicity_identifier):
 	"FROM ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id " +
 	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	db.close_db()
-	#print (data)
 	return data
-
-
-func read_attribute_data(attribute_identifier):
-	var data = _sql_select("SELECT attribute_id, attribute_name, attribute_enum, bonus_value " +
-	"FROM attributes  " +
-	"WHERE attribute_identifier like '%s';" % attribute_identifier)
-	db.close_db()
-#	print (data)
-	return data[0]
 	
-
-func read_all_data():
-	var data = _sql_select("SELECT e.ethnicity_id _id, e.ethnicity_identifier, " +
-	"e.ethnicity_name, e.splash_art_path, e.ethnicity_description, " +
-	"t.trait_id, t.trait_identifier, t.trait_name, t.trait_description, " +
-	"a.attribute_id, a.attribute_identifier, a.attribute_name, a.attribute_enum, a.bonus_value " +
-	"from ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id " +
-	"JOIN traits t on e.ethnicity_id = t.ethnicity_id;")
-	db.close_db()
-	#print (data)
-	return data
-
 
 func read_ethnicity_identifiers():
 	var data = _sql_select("SELECT ethnicity_identifier FROM ethnicities;")
 	db.close_db()
-	#print (data)
 	return data
 
 
@@ -67,7 +44,6 @@ func read_data_for_etnicity(ethnicity_identifier):
 	"from ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id " +
 	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	db.close_db()
-	#print (data)
 	return data[0]
 	
 	
@@ -80,7 +56,6 @@ func read_list_of_attributes_without_any():
 	var selected_array : Array = db.select_rows(table_name, select_condition, ["attribute_name"])
 	for selected_row in selected_array:
 		attributes.append(selected_row.get("attribute_name"))
-#	print (attributes)
 	return attributes
 
 
@@ -93,5 +68,4 @@ func read_list_of_traits_without_versatilities():
 	var selected_array : Array = db.select_rows(table_name, select_condition, ["trait_name"])
 	for selected_row in selected_array:
 		traits.append(selected_row.get("trait_name"))
-#	print (traits)
 	return traits

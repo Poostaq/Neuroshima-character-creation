@@ -137,19 +137,14 @@ func set_bonus_attribute(attribute=null):
 	#SET NEW MODIFIER
 	if attribute == 0:
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
-#		print("0 AGILITY")
 	elif attribute == 1:
 		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
-#		print("1 PERCEPCTION")
 	elif attribute == 2:
 		self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
-#		print("2 CHARACTER")
 	elif attribute == 3:
 		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
-#		print("3 WITS")
 	elif attribute == 4:
 		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
-#		print("4 BODY")
 	else:
 		print("DIDNT MATCH ANYTHING")
 
@@ -178,5 +173,3 @@ func _on_Ethnicity_attribute_chosen(bonus_attribute):
 	self.set_bonus_attribute(bonus_attribute)
 	for attr in GlobalConstants.attribute:
 		self.update_attribute_values(GlobalConstants.attribute[attr])
-#		self.update_attribute_values(ChooseEthnicityStep.ethnicity["attribute_enum"])
-#		self.update_attribute_values(CES.ethnicity["attribute_enum"])

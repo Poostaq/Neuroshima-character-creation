@@ -7,13 +7,9 @@ signal attribute_chosen(bonus_attribute)
 export(ButtonGroup) var trait_group
 
 
-var ethnicities = []
 var ethnicity_list = []
-var attributes_list = []
 var current_ethnicity = 0
 var ethnicity = {}
-var attribute_string
-var attributes 
 
 
 onready var picture = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic
