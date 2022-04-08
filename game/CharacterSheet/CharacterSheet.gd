@@ -1,7 +1,5 @@
 extends Control
 
-onready var database = get_node("/root/DatabaseOperations")
-onready var CES = get_node("res://EthnicityPage/ChooseEthnicityStep.gd")
 
 #AGILITY
 export (NodePath) onready var agility_attribute_value = get_node(agility_attribute_value) as RichTextLabel
@@ -137,21 +135,21 @@ func set_bonus_attribute(attribute=null):
 	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 0
 	
 	#SET NEW MODIFIER
-	if attribute == 0: #"AGI":
+	if attribute == 0:
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
-		print("0 AGILITY")
-	elif attribute == 1: #"PER":
+#		print("0 AGILITY")
+	elif attribute == 1:
 		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
-		print("1 PERCEPCTION")
-	elif attribute == 2: #"CHA":
+#		print("1 PERCEPCTION")
+	elif attribute == 2:
 		self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
-		print("2 CHARACTER")
-	elif attribute == 3: #"WIT":
+#		print("2 CHARACTER")
+	elif attribute == 3:
 		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
-		print("3 WITS")
-	elif attribute == 4: #"BOD":
+#		print("3 WITS")
+	elif attribute == 4:
 		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
-		print("4 BODY")
+#		print("4 BODY")
 	else:
 		print("DIDNT MATCH ANYTHING")
 

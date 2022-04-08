@@ -31,7 +31,7 @@ func _ready():
 	ethnicity_list = database.read_ethnicity_identifiers()
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	load_ethnicity(ethnicity)
-	for attribute in database.list_of_attributes():
+	for attribute in database.read_list_of_attributes_without_any():
 		attribute_selector.add_item(attribute)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
@@ -45,7 +45,7 @@ func _set_image(path):
 		picture.texture = load(path)
 
 
-func load_ethnicity(ethnicity):
+func load_ethnicity(_ethnicity):
 	_set_image(ethnicity["splash_art_path"]) 
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"].replace("\n", "\n")
@@ -90,11 +90,11 @@ func _on_Trait_Button_button_pressed(button):
 
 
 func fill_trait_button_trait_list(trait_list_element: OptionButton):
-	for trait in database.list_of_traits():
+	for trait in database.read_list_of_traits_without_versatilities():
 		trait_list_element.add_item(trait)
 
 
-func fill_attribute_bonus_label(attributes): 
+func fill_attribute_bonus_label(_attributes): 
 	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="not_your_business":
 		attribute_bonus_label.visible = false
 		attribute_selector.visible = true
