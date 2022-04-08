@@ -82,13 +82,6 @@ func _on_Trait_Button_button_pressed(button):
 	emit_signal("ethnicity_chosen", button, ethnicities[current_ethnicity], bonus_attribute)
 
 
-func _on_Trait_Button_ethnicity_secondary_trait_chosen(button):
-	var bonusAttribute = attribute_selector.selected
-	emit_signal("ethnicity_chosen", button, ethnicities[current_ethnicity], bonusAttribute)
-	button.set_pressed(true)
-
-
-
 func fill_trait_button_trait_list(trait_list_element: OptionButton):
 	for ethnicity in ethnicities:
 		if !(ethnicity["Name"] == "Nie twój zasrany interes"):
