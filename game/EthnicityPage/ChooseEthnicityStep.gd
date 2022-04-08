@@ -45,7 +45,7 @@ func load_ethnicity(_ethnicity):
 	_set_image(ethnicity["splash_art_path"]) 
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"].replace("\n", "\n")
-	var trait_list = database.read_traits_for_ethnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"]) #t.trait_identifier, t.trait_name, t.trait_description
+	var trait_list = database.read_traits_for_ethnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
