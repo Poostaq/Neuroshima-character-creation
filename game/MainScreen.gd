@@ -1,6 +1,6 @@
 extends Control
 
-onready var cardButton = $CardButton
+onready var card_button = $CardButton
 onready var character_sheet_panel = $CharacterSheet
 onready var ethnicity_element = $CenterContainer/VBoxContainer/StepContainer/Ethnicity
 onready var database = get_node("/root/DatabaseOperations")
