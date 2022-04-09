@@ -117,11 +117,7 @@ func _on_PreviousEthnicity_button_up():
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	load_ethnicity(ethnicity)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
-	var bonus_attribute = _get_bonus_attribute()
-	print(ethnicity["ethnicity_identifier"])
-	emit_signal("ethnicity_chosen", ethnicity)
-	emit_signal("attribute_chosen", bonus_attribute)
-	emit_signal("clear_trait")
+	_changed_ethnicity()
 
 func _on_NextEthnicity_button_up():
 	if current_ethnicity == len(ethnicity_list)-1:
@@ -131,9 +127,11 @@ func _on_NextEthnicity_button_up():
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	load_ethnicity(ethnicity)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
+	_changed_ethnicity()
+
+
+func _changed_ethnicity():
 	var bonus_attribute = _get_bonus_attribute()
-	print(ethnicity["ethnicity_identifier"])
 	emit_signal("ethnicity_chosen", ethnicity)
 	emit_signal("attribute_chosen", bonus_attribute)
 	emit_signal("clear_trait")
-
