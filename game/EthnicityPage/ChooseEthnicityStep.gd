@@ -12,12 +12,13 @@ var current_ethnicity = 0
 var ethnicity = {}
 
 
-onready var picture = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic
-onready var ethnicity_name = $VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName
-onready var ethnicity_description = $VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/EthnicityDescription
-onready var trait_container = $VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer
-onready var attribute_bonus_label = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeBonus
-onready var attribute_selector = $VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeSelect
+export (NodePath) onready var picture = get_node(picture) as TextureRect
+export (NodePath) onready var ethnicity_name = get_node(ethnicity_name) as RichTextLabel
+export (NodePath) onready var ethnicity_description = get_node(ethnicity_description) as RichTextLabel
+export (NodePath) onready var trait_container =  get_node(trait_container) as HBoxContainer
+export (NodePath) onready var attribute_bonus_label = get_node(attribute_bonus_label) as RichTextLabel
+export (NodePath) onready var attribute_selector = get_node(attribute_selector) as OptionButton
+
 onready var trait_button_scene = preload("res://EthnicityPage/EthnicityTrait.tscn")
 onready var alternate_trait_button_scene = preload("res://EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.tscn")
 onready var database = get_node("/root/DatabaseOperations")

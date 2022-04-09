@@ -25,6 +25,8 @@ texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 6 )
 expand = true
 script = ExtResource( 3 )
+trait_name_label = NodePath("MarginContainer/VBoxContainer/TraitNameLabel")
+trait_description_label = NodePath("MarginContainer/VBoxContainer/TraitDescriptionLabel")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
