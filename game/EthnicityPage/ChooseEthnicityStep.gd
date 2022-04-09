@@ -3,6 +3,7 @@ extends Control
 signal ethnicity_chosen(current_ethnicity)
 signal attribute_chosen(bonus_attribute)
 signal trait_chosen(trait_element)
+signal clear_trait()
 
 
 export(ButtonGroup) var trait_group
@@ -117,7 +118,10 @@ func _on_PreviousEthnicity_button_up():
 	load_ethnicity(ethnicity)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
 	var bonus_attribute = _get_bonus_attribute()
-	emit_signal("ethnicity_chosen", ethnicity, bonus_attribute)
+	print(ethnicity["ethnicity_identifier"])
+	emit_signal("ethnicity_chosen", ethnicity)
+	emit_signal("attribute_chosen", bonus_attribute)
+	emit_signal("clear_trait")
 
 func _on_NextEthnicity_button_up():
 	if current_ethnicity == len(ethnicity_list)-1:
@@ -128,5 +132,8 @@ func _on_NextEthnicity_button_up():
 	load_ethnicity(ethnicity)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
 	var bonus_attribute = _get_bonus_attribute()
-	emit_signal("ethnicity_chosen", ethnicity, bonus_attribute)
+	print(ethnicity["ethnicity_identifier"])
+	emit_signal("ethnicity_chosen", ethnicity)
+	emit_signal("attribute_chosen", bonus_attribute)
+	emit_signal("clear_trait")
 

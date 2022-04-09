@@ -76,8 +76,8 @@ func update_card():
 	self._update_basic_info_values()
 
 func _update_basic_info_values():
-	ethnicity_element.bbcode_text = character_stats_element.ethnicity
-	ethnicity_trait_element.bbcode_text = character_stats_element.ethnicity_trait
+	ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
+	ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
 
 
 func _update_attribute_values(attributeEnum):
@@ -178,3 +178,8 @@ func _on_Ethnicity_attribute_chosen(bonus_attribute):
 
 func _on_Ethnicity_trait_chosen(trait_element):
 	self.character_stats_element.ethnicity_trait = _format_trait_name(trait_element)
+
+
+func _on_Ethnicity_clear_trait():
+	self.character_stats_element.ethnicity_trait = ""
+	self._update_basic_info_values()
