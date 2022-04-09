@@ -31,6 +31,7 @@ func _ready():
 		attribute_selector.add_item(attribute)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
+	database.test_dodanie_wartosci()
 	
 
 func _set_image(path):
