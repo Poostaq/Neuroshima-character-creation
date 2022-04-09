@@ -305,6 +305,7 @@ margin_right = 964.0
 
 [connection signal="attribute_chosen" from="CenterContainer/VBoxContainer/StepContainer/Ethnicity" to="CharacterSheet" method="_on_Ethnicity_attribute_chosen"]
 [connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/Ethnicity" to="CharacterSheet" method="_on_Ethnicity_ethnicity_chosen"]
+[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/Ethnicity" to="CharacterSheet" method="_on_Ethnicity_trait_chosen"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
 [editable path="CharacterSheet"]

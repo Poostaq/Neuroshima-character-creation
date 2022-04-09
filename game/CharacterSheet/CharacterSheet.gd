@@ -161,10 +161,8 @@ func _on_CloseButton_button_up():
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
-func _on_Ethnicity_ethnicity_chosen(trait_button, ethnicity, attribute):
+func _on_Ethnicity_ethnicity_chosen(ethnicity):
 	self.character_stats_element.ethnicity = ethnicity["ethnicity_name"]
-	self.character_stats_element.ethnicity_trait = _format_trait_name(trait_button)
-	self.character_stats_element.attribute_modifier = attribute
 
 
 func _format_trait_name(trait_button):
@@ -176,4 +174,7 @@ func _format_trait_name(trait_button):
 
 func _on_Ethnicity_attribute_chosen(bonus_attribute):
 	self.character_stats_element.attribute_modifier = bonus_attribute
-	self.update_card()
+
+
+func _on_Ethnicity_trait_chosen(trait_element):
+	self.character_stats_element.ethnicity_trait = _format_trait_name(trait_element)

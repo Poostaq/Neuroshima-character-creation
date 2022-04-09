@@ -1,7 +1,8 @@
 extends Control
 
-signal ethnicity_chosen(trait_element, current_ethnicity, bonus_attribute)
+signal ethnicity_chosen(current_ethnicity)
 signal attribute_chosen(bonus_attribute)
+signal trait_chosen(trait_element)
 
 
 export(ButtonGroup) var trait_group
@@ -32,6 +33,10 @@ func _ready():
 		attribute_selector.add_item(attribute)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
+	var bonus_attribute = _get_bonus_attribute()
+	yield(get_tree(), "idle_frame")
+	emit_signal("ethnicity_chosen", ethnicity)
+	emit_signal("attribute_chosen", bonus_attribute)
 	
 
 func _set_image(path):
@@ -57,10 +62,8 @@ func load_ethnicity(_ethnicity):
 			var trait_button_trait_list = trait_button.get_node("MarginContainer/VBoxContainer/OptionButton")
 			fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
-			trait_button.get_node(".").set_button_group(trait_group)			
 		else:
 			var trait_button = create_trait_button(trait_button_scene, trait)
-			trait_button.get_node(".").set_button_group(trait_group)
 
 
 func create_trait_button(trait_template, trait_data):
@@ -74,17 +77,19 @@ func create_trait_button(trait_template, trait_data):
 	trait_button.ID = trait_data["trait_identifier"]
 	trait_button.trait_name = trait_data["trait_name"]
 	trait_button.description = trait_data["trait_description"]
+	trait_button.get_node(".").set_button_group(trait_group)
 	return trait_button
 
 
 func _on_Trait_Button_button_pressed(button):
+	emit_signal("trait_chosen", button)
+
+func _get_bonus_attribute():
 	var bonus_attribute
 	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="not_your_business":
-		bonus_attribute = attribute_selector.selected
+		return attribute_selector.selected
 	else:
-		bonus_attribute = ethnicity["attribute_enum"]
-	emit_signal("ethnicity_chosen", button, ethnicity, bonus_attribute)
-
+		return ethnicity["attribute_enum"]
 
 func fill_trait_button_trait_list(trait_list_element: OptionButton):
 	for trait in database.read_list_of_traits_without_versatilities():
@@ -112,6 +117,8 @@ func _on_PreviousEthnicity_button_up():
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	load_ethnicity(ethnicity)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
+	var bonus_attribute = _get_bonus_attribute()
+	emit_signal("ethnicity_chosen", ethnicity, bonus_attribute)
 
 func _on_NextEthnicity_button_up():
 	if current_ethnicity == len(ethnicity_list)-1:
@@ -121,4 +128,6 @@ func _on_NextEthnicity_button_up():
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	load_ethnicity(ethnicity)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
+	var bonus_attribute = _get_bonus_attribute()
+	emit_signal("ethnicity_chosen", ethnicity, bonus_attribute)
 
