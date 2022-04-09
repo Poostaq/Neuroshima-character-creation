@@ -137,6 +137,7 @@ func set_bonus_attribute(attribute=null):
 	#SET NEW MODIFIER
 	if attribute == 0:
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
+		
 	elif attribute == 1:
 		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
 	elif attribute == 2:
@@ -161,7 +162,9 @@ func _on_Ethnicity_ethnicity_chosen(trait_button, ethnicity, attribute):
 	else:
 		trait_name = trait_button.trait_name
 	self.character_stats_element.ethnicity = ethnicity["ethnicity_name"]
+	DatabaseOperations.db_update_player_ethnicity(ethnicity["ethnicity_name"])
 	self.character_stats_element.ethnicity_trait = trait_name
+	DatabaseOperations.db_update_player_ethnicity_trait(trait_name)
 	self.set_bonus_attribute(attribute)
 	for attr in GlobalConstants.attribute:
 		self.update_attribute_values(GlobalConstants.attribute[attr])

@@ -95,59 +95,30 @@ func read_list_of_ethnicity_traits_without_versatilities():
 
 
 func insert_into_player_info():
-	pass
-
-
-func update_player_info():
-	pass
-
-
-#	var row_array : Array = []
-#	var row_dict : Dictionary = Dictionary()
-#	for i in range(0,ids.size()):
-#		row_dict["id"] = ids[i]
-#		row_dict["name"] = names[i]
-#		row_dict["age"] = ages[i]
-#		row_dict["address"] = addresses[i]
-#		row_dict["salary"] = salaries[i]
-#		row_array.append(row_dict.duplicate())
-#
-#		# Insert a new row in the table
-#		db.insert_row(table_name, row_dict)
-#		row_dict.clear()
-#	cprint(row_array)
-
-
-#func add_item_quantity(amount_to_add):
-#	item_quantity += amount_to_add
-#	$Label.text = String((item_quantity))  
-	
-#func decrease_item_quantity(amount_to_remove):
-#	item_quantity -= amount_to_remove
-#	$Label.text = String(item_quantity)
-
-#func test_dodanie_wartosci():
-#db.update_rows(table_name, "name = 'Amanda'", {"AGE":30, "NAME":"Olga"})
-
-#func test_dodanie_wartosci():
-#	var player_table = "player_info"
-#	read_from_SQL()
-#	db.open_db()
-#	db.update_rows(player_table, "(player_id = SELECT MAX(player_id) FROM player_info)", {"player_name" :"test" })
-#	db.close_db()
-
-func test_dodanie_wartosci():
-	db = SQLite.new()
-	db.path = db_name
-	db.open_db()
-#	db.query("UPDATE player_info SET player_name = 'test2'")
-	db.query("SELECT player_name FROM player_info where player_id = 1;")
-#	db.query("SELECT ethnicity_name FROM ethnicities where ethnicity_id=1;")
-	print (db.query_result)
+	read_from_SQL() 
+#	db.insert_rows("player_info", [{"player_created_date" : datetime('now', 'localtime') }])
+	var data = _sql_select("INSERT INTO player_info (player_created_date) VALUES (datetime('now', 'localtime'))")
 	db.close_db()
-	return db.query_result
-#
-#
-#	read_from_SQL()
-#	db.update_rows(player_table, "(player_id = SELECT MAX(player_id) FROM player_info)", {"player_name" :"test" })
-#	db.close_db()
+	
+	
+func update_player_info(query):
+	pass
+
+
+func test_dodanie_wartosci(value):
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	db.update_rows("player_info", condition, {"player_name" :value})
+	db.close_db()
+
+func db_update_player_ethnicity(value):
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	db.update_rows("player_info", condition, {"player_ethnicity" :value})
+	db.close_db()
+
+func db_update_player_ethnicity_trait(value):
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	db.update_rows("player_info", condition, {"player_ethnicity_trait" :value})
+	db.close_db()
