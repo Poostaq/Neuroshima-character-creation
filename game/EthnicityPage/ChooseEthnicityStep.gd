@@ -63,7 +63,7 @@ func load_ethnicity(_ethnicity):
 			fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
 		else:
-			var trait_button = create_trait_button(trait_button_scene, trait)
+			create_trait_button(trait_button_scene, trait)
 
 
 func create_trait_button(trait_template, trait_data):
@@ -85,7 +85,6 @@ func _on_Trait_Button_button_pressed(button):
 	emit_signal("trait_chosen", button)
 
 func _get_bonus_attribute():
-	var bonus_attribute
 	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="not_your_business":
 		return attribute_selector.selected
 	else:
