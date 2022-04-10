@@ -95,9 +95,10 @@ func read_list_of_ethnicity_traits_without_versatilities():
 
 
 func insert_into_player_info():
-	read_from_SQL() 
-#	db.insert_rows("player_info", [{"player_created_date" : datetime('now', 'localtime') }])
-	var data = _sql_select("INSERT INTO player_info (player_created_date) VALUES (datetime('now', 'localtime'))")
+	read_from_SQL()
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"player_created_date" : sysdate}
+	db.insert_rows("player_info", [rows])
 	db.close_db()
 	
 	
@@ -108,17 +109,84 @@ func update_player_info(query):
 func test_dodanie_wartosci(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	db.update_rows("player_info", condition, {"player_name" :value})
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"player_name" :value, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, rows)
 	db.close_db()
 
 func db_update_player_ethnicity(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	db.update_rows("player_info", condition, {"player_ethnicity" :value})
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"player_ethnicity" :value, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, rows)
 	db.close_db()
 
 func db_update_player_ethnicity_trait(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	db.update_rows("player_info", condition, {"player_ethnicity_trait" :value})
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"player_ethnicity_trait" :value, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, rows)
 	db.close_db()
+
+func db_update_player_agility_bonus():
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"AGILITY" :1, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
+	db.update_rows("player_info", condition, rows)
+	db.close_db()
+	
+func db_update_player_perception_bonus():
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"AGILITY" :0, "PERCEPTION" :1, "CHARACTER":0, "WITS":0, "BODY":0 }
+	db.update_rows("player_info", condition, rows)
+	db.close_db()
+	
+func db_update_player_character_bonus():
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":1, "WITS":0, "BODY":0 }
+	db.update_rows("player_info", condition, rows)
+	db.close_db()
+	
+func db_update_player_wits_bonus():
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":1, "BODY":0 }
+	db.update_rows("player_info", condition, rows)
+	db.close_db()
+	
+func db_update_player_body_bonus():
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var sysdate = datetime_to_string(OS.get_datetime())
+	var rows = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":1 }
+	db.update_rows("player_info", condition, rows)
+	db.close_db()
+
+func datetime_to_string(date):
+	if (
+		date.has("year")
+		and date.has("month")
+		and date.has("day")
+		and date.has("hour")
+		and date.has("minute")
+		and date.has("second")
+	):
+		# Date and time.
+		return "{year}-{month}-{day} {hour}:{minute}:{second}".format({
+			year = str(date.year).pad_zeros(2),
+			month = str(date.month).pad_zeros(2),
+			day = str(date.day).pad_zeros(2),
+			hour = str(date.hour).pad_zeros(2),
+			minute = str(date.minute).pad_zeros(2),
+			second = str(date.second).pad_zeros(2),
+		})
+	else :
+		print ("Bad sysdate")

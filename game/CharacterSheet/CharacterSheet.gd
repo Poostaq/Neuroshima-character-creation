@@ -137,15 +137,19 @@ func set_bonus_attribute(attribute=null):
 	#SET NEW MODIFIER
 	if attribute == 0:
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
-		
+		DatabaseOperations.db_update_player_agility_bonus()
 	elif attribute == 1:
 		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
+		DatabaseOperations.db_update_player_perception_bonus()
 	elif attribute == 2:
 		self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
+		DatabaseOperations.db_update_player_character_bonus()
 	elif attribute == 3:
 		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
+		DatabaseOperations.db_update_player_wits_bonus()
 	elif attribute == 4:
 		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
+		DatabaseOperations.db_update_player_body_bonus()
 	else:
 		print("DIDNT MATCH ANYTHING")
 
