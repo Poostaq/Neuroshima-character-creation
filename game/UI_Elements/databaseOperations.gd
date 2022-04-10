@@ -32,7 +32,8 @@ func read_ethnicity_identifiers():
 func read_traits_for_ethnicity(ethnicity_identifier):
 	var data = _sql_select("SELECT t.trait_identifier, t.trait_name, t.trait_description " +
 	"FROM ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id " +
-	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
+	"WHERE t.ethnicity_id is not null and " +
+	"e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	db.close_db()
 	return data
 	
@@ -56,7 +57,8 @@ func read_profession_identifiers():
 func read_traits_for_profession(profession_identifier):
 	var data = _sql_select("SELECT t.trait_identifier, t.trait_name, t.trait_description " +
 	"FROM professions p JOIN traits t on p.profession_id = t.profession_id " +
-	"WHERE t.profession_identifier like '%s';" % profession_identifier)
+	"WHERE t.profession_id is not null and "+
+	"t.profession_identifier like '%s';" % profession_identifier)
 	db.close_db()
 	return data
 
@@ -86,8 +88,8 @@ func read_list_of_ethnicity_traits_without_versatilities():
 	db.open_db()
 	var table_name = "traits"
 	var traits = []
-	var select_condition : String = "trait_identifier not in ('versatility_squared', 'versatility' " 
-	select_condition += "and ethnicity_id is not null);"
+	var select_condition : String = "trait_identifier not in ('versatility_squared', 'versatility') " 
+	select_condition += "and ethnicity_id is not null;"
 	var selected_array : Array = db.select_rows(table_name, select_condition, ["trait_name"])
 	for selected_row in selected_array:
 		traits.append(selected_row.get("trait_name"))

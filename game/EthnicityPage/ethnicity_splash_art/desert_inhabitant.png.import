@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SplashArt.png-0be9f607a513e71524eeee76eff71804.stex"
+path="res://.import/SplashArt.png-39e25d4460bed47e489f5c5bbd57dca8.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/new_york/SplashArt.png"
-dest_files=[ "res://.import/SplashArt.png-0be9f607a513e71524eeee76eff71804.stex" ]
+source_file="res://EthnicityPage/desert_inhabitant/SplashArt.png"
+dest_files=[ "res://.import/SplashArt.png-39e25d4460bed47e489f5c5bbd57dca8.stex" ]
 
 [params]
 
