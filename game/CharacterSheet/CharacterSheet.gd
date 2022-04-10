@@ -51,90 +51,97 @@ export (NodePath) onready var bod_very_hard_value = get_node(bod_very_hard_value
 export (NodePath) onready var bod_fucking_hard_value = get_node(bod_fucking_hard_value) as RichTextLabel
 export (NodePath) onready var bod_luck_value = get_node(bod_luck_value) as RichTextLabel
 
-onready var agi_modifiers_list = [agi_easy_value,agi_normal_value,agi_problematic_value,agi_hard_value,agi_very_hard_value,agi_fucking_hard_value,agi_luck_value]
-onready var per_modifiers_list = [per_easy_value,per_normal_value,per_problematic_value,per_hard_value,per_very_hard_value,per_fucking_hard_value,per_luck_value]
-onready var cha_modifiers_list = [cha_easy_value,cha_normal_value,cha_problematic_value,cha_hard_value,cha_very_hard_value,cha_fucking_hard_value,cha_luck_value]
-onready var wit_modifiers_list = [wit_easy_value,wit_normal_value,wit_problematic_value,wit_hard_value,wit_very_hard_value,wit_fucking_hard_value,wit_luck_value]
-onready var bod_modifiers_list = [bod_easy_value,bod_normal_value,bod_problematic_value,bod_hard_value,bod_very_hard_value,bod_fucking_hard_value,bod_luck_value]
+onready var agi_modifiers_elements = [agi_easy_value,agi_normal_value,agi_problematic_value,agi_hard_value,agi_very_hard_value,agi_fucking_hard_value,agi_luck_value]
+onready var per_modifiers_elements = [per_easy_value,per_normal_value,per_problematic_value,per_hard_value,per_very_hard_value,per_fucking_hard_value,per_luck_value]
+onready var cha_modifiers_elements = [cha_easy_value,cha_normal_value,cha_problematic_value,cha_hard_value,cha_very_hard_value,cha_fucking_hard_value,cha_luck_value]
+onready var wit_modifiers_elements = [wit_easy_value,wit_normal_value,wit_problematic_value,wit_hard_value,wit_very_hard_value,wit_fucking_hard_value,wit_luck_value]
+onready var bod_modifiers_elements = [bod_easy_value,bod_normal_value,bod_problematic_value,bod_hard_value,bod_very_hard_value,bod_fucking_hard_value,bod_luck_value]
 
 
-onready var name_element = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Name
-onready var ethnicity_element = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Ethnicity
-onready var ethnicity_trait = $PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/EthnicityTrait
+export (NodePath) onready var name_element = get_node(name_element) as RichTextLabel
+export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as RichTextLabel
+export (NodePath) onready var ethnicity_trait_element = get_node(ethnicity_trait_element) as RichTextLabel
+
 onready var character_stats_element = $CharacterStats
 
 func _ready():
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
+func update_card():
+	self._clear_bonus_attribute()
+	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
+	for attr in GlobalConstants.attribute:
+		self._update_attribute_values(GlobalConstants.attribute[attr])
+	self._update_basic_info_values()
 
-func update_values():
-	ethnicity_element.bbcode_text = character_stats_element.ethnicity
-	ethnicity_trait.bbcode_text = character_stats_element.ethnicity_trait
+func _update_basic_info_values():
+	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
+	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
 
 
-func update_attribute_values(attributeEnum):
+func _update_attribute_values(attributeEnum):
 	var value
 	match attributeEnum:
 		GlobalConstants.attribute.AGI:
-			value = get_final_attribute_value(self.character_stats_element.agi_modifiers)
+			value = _get_final_attribute_value(self.character_stats_element.agi_modifiers)
 			self.character_stats_element.agi_value = value
 			agility_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, agi_modifiers_list)
+			_fill_attribute_modifiers(value, agi_modifiers_elements)
 		GlobalConstants.attribute.PER:
-			value = get_final_attribute_value(self.character_stats_element.per_modifiers)
+			value = _get_final_attribute_value(self.character_stats_element.per_modifiers)
 			self.character_stats_element.per_value = value
 			perception_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, per_modifiers_list)
+			_fill_attribute_modifiers(value, per_modifiers_elements)
 		GlobalConstants.attribute.CHA:
-			value = get_final_attribute_value(self.character_stats_element.cha_modifiers)
+			value = _get_final_attribute_value(self.character_stats_element.cha_modifiers)
 			self.character_stats_element.cha_value = value
 			character_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, cha_modifiers_list)
+			_fill_attribute_modifiers(value, cha_modifiers_elements)
 		GlobalConstants.attribute.WIT:
-			value = get_final_attribute_value(self.character_stats_element.wit_modifiers)
+			value = _get_final_attribute_value(self.character_stats_element.wit_modifiers)
 			self.character_stats_element.wit_value = value
 			wits_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, wit_modifiers_list)
+			_fill_attribute_modifiers(value, wit_modifiers_elements)
 		GlobalConstants.attribute.BOD:
-			value = get_final_attribute_value(self.character_stats_element.bod_modifiers)
+			value = _get_final_attribute_value(self.character_stats_element.bod_modifiers)
 			self.character_stats_element.bod_value = value
 			body_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, bod_modifiers_list)
+			_fill_attribute_modifiers(value, bod_modifiers_elements)
 
 
-func get_final_attribute_value(attribute_modifiers :Dictionary):
+func _get_final_attribute_value(attribute_modifiers : Dictionary):
 	var result = 0
 	for key in attribute_modifiers:
 		result+=attribute_modifiers[key]
 	return result
 
 
-func fill_attribute_modifiers(attribute_value: int, attribute_modifiers_elements: Array):
-	attribute_modifiers_elements[0].bbcode_text = return_modifier_value_or_n(attribute_value+2)
-	attribute_modifiers_elements[1].bbcode_text = return_modifier_value_or_n(attribute_value)
-	attribute_modifiers_elements[2].bbcode_text = return_modifier_value_or_n(attribute_value-2)
-	attribute_modifiers_elements[3].bbcode_text = return_modifier_value_or_n(attribute_value-5)
-	attribute_modifiers_elements[4].bbcode_text = return_modifier_value_or_n(attribute_value-8)
-	attribute_modifiers_elements[5].bbcode_text = return_modifier_value_or_n(attribute_value-11)
-	attribute_modifiers_elements[6].bbcode_text = return_modifier_value_or_n(attribute_value-15)
+func _fill_attribute_modifiers(attribute_value: int, attribute_modifiers_elements: Array):
+	attribute_modifiers_elements[0].bbcode_text = _return_modifier_value_or_n(attribute_value+2)
+	attribute_modifiers_elements[1].bbcode_text = _return_modifier_value_or_n(attribute_value)
+	attribute_modifiers_elements[2].bbcode_text = _return_modifier_value_or_n(attribute_value-2)
+	attribute_modifiers_elements[3].bbcode_text = _return_modifier_value_or_n(attribute_value-5)
+	attribute_modifiers_elements[4].bbcode_text = _return_modifier_value_or_n(attribute_value-8)
+	attribute_modifiers_elements[5].bbcode_text = _return_modifier_value_or_n(attribute_value-11)
+	attribute_modifiers_elements[6].bbcode_text = _return_modifier_value_or_n(attribute_value-15)
 
 
-func return_modifier_value_or_n(value):
+func _return_modifier_value_or_n(value):
 	if value < 1:
 		return "[center]N[/center]"
 	return str("[center]%s[/center]" %value)
 
 
-func set_bonus_attribute(attribute=null):
-	#CLEAR PREVIOUS MODIFIER
+func _clear_bonus_attribute():
 	self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 0
 	self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 0
 	self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 0
 	self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 0
 	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 0
-	
-	#SET NEW MODIFIER
+
+
+func _set_bonus_attribute(attribute=null):
 	if attribute == 0:
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
 	elif attribute == 1:
@@ -154,22 +161,25 @@ func _on_CloseButton_button_up():
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
-func _on_Ethnicity_ethnicity_chosen(trait_button, ethnicity, attribute):
-	var trait_name
-	if trait_button.trait_name == "Wszechstronność do kwadratu":
-		trait_name = trait_button.trait_name +" : " + trait_button.secondary_trait
-	else:
-		trait_name = trait_button.trait_name
+func _on_EthnicityStep_ethnicity_chosen(ethnicity):
 	self.character_stats_element.ethnicity = ethnicity["ethnicity_name"]
-	self.character_stats_element.ethnicity_trait = trait_name
-	self.set_bonus_attribute(attribute)
-	for attr in GlobalConstants.attribute:
-		self.update_attribute_values(GlobalConstants.attribute[attr])
-	self.update_values()
 
 
-func _on_Ethnicity_attribute_chosen(bonus_attribute):
-	
-	self.set_bonus_attribute(bonus_attribute)
-	for attr in GlobalConstants.attribute:
-		self.update_attribute_values(GlobalConstants.attribute[attr])
+func _format_ethnicity_trait_name(trait_button):
+	if trait_button.trait_name == "Wszechstronność do kwadratu":
+		return trait_button.trait_name +" : " + trait_button.secondary_trait
+	else:
+		return trait_button.trait_name
+
+
+func _on_EthnicityStep_attribute_chosen(bonus_attribute):
+	self.character_stats_element.attribute_modifier = bonus_attribute
+
+
+func _on_EthnicityStep_trait_chosen(trait_element):
+	self.character_stats_element.ethnicity_trait = _format_ethnicity_trait_name(trait_element)
+
+
+func _on_EthnicityStep_clear_trait():
+	self.character_stats_element.ethnicity_trait = ""
+	self._update_basic_info_values()

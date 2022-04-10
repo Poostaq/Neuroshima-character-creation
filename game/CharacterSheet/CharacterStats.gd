@@ -18,3 +18,5 @@ export var wit_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "Base
 
 export var bod_value : int
 export var bod_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
+
+var attribute_modifier : int

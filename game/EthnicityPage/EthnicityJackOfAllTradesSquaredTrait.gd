@@ -1,7 +1,7 @@
 extends "res://EthnicityPage/EthnicityTrait.gd"
 
 export var secondary_trait: String
-onready var option_button = $MarginContainer/VBoxContainer/OptionButton
+export (NodePath) onready var option_button =  get_node(option_button) as OptionButton
 
 
 func _on_OptionButton_item_selected(index):
