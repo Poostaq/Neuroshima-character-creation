@@ -3,7 +3,6 @@ extends Control
 export (NodePath) onready var card_button = get_node(card_button) as TextureButton
 export (NodePath) onready var character_sheet_panel = get_node(character_sheet_panel) as Control
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
-#onready var database = get_node("/root/DatabaseOperations")
 
 
 func _ready():

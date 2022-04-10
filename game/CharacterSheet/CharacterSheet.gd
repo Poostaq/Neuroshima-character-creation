@@ -69,8 +69,8 @@ func _ready():
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
 func update_card():
-	self.clear_bonus_attribute()
-	self.set_bonus_attribute(self.character_stats_element.attribute_modifier)
+	self._clear_bonus_attribute()
+	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
@@ -87,27 +87,27 @@ func _update_attribute_values(attributeEnum):
 			value = _get_final_attribute_value(self.character_stats_element.agi_modifiers)
 			self.character_stats_element.agi_value = value
 			agility_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, agi_modifiers_elements)
+			_fill_attribute_modifiers(value, agi_modifiers_elements)
 		GlobalConstants.attribute.PER:
 			value = _get_final_attribute_value(self.character_stats_element.per_modifiers)
 			self.character_stats_element.per_value = value
 			perception_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, per_modifiers_elements)
+			_fill_attribute_modifiers(value, per_modifiers_elements)
 		GlobalConstants.attribute.CHA:
 			value = _get_final_attribute_value(self.character_stats_element.cha_modifiers)
 			self.character_stats_element.cha_value = value
 			character_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, cha_modifiers_elements)
+			_fill_attribute_modifiers(value, cha_modifiers_elements)
 		GlobalConstants.attribute.WIT:
 			value = _get_final_attribute_value(self.character_stats_element.wit_modifiers)
 			self.character_stats_element.wit_value = value
 			wits_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, wit_modifiers_elements)
+			_fill_attribute_modifiers(value, wit_modifiers_elements)
 		GlobalConstants.attribute.BOD:
 			value = _get_final_attribute_value(self.character_stats_element.bod_modifiers)
 			self.character_stats_element.bod_value = value
 			body_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			fill_attribute_modifiers(value, bod_modifiers_elements)
+			_fill_attribute_modifiers(value, bod_modifiers_elements)
 
 
 func _get_final_attribute_value(attribute_modifiers : Dictionary):
@@ -117,7 +117,7 @@ func _get_final_attribute_value(attribute_modifiers : Dictionary):
 	return result
 
 
-func fill_attribute_modifiers(attribute_value: int, attribute_modifiers_elements: Array):
+func _fill_attribute_modifiers(attribute_value: int, attribute_modifiers_elements: Array):
 	attribute_modifiers_elements[0].bbcode_text = _return_modifier_value_or_n(attribute_value+2)
 	attribute_modifiers_elements[1].bbcode_text = _return_modifier_value_or_n(attribute_value)
 	attribute_modifiers_elements[2].bbcode_text = _return_modifier_value_or_n(attribute_value-2)
@@ -133,7 +133,7 @@ func _return_modifier_value_or_n(value):
 	return str("[center]%s[/center]" %value)
 
 
-func clear_bonus_attribute():
+func _clear_bonus_attribute():
 	self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 0
 	self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 0
 	self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 0
@@ -141,7 +141,7 @@ func clear_bonus_attribute():
 	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 0
 
 
-func set_bonus_attribute(attribute=null):
+func _set_bonus_attribute(attribute=null):
 	if attribute == 0:
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
 	elif attribute == 1:
