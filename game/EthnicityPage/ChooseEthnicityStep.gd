@@ -28,11 +28,9 @@ func _ready():
 	ethnicity = database.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	load_ethnicity(ethnicity)
 	database.insert_into_player_info()
-	for attribute in database.read_list_of_attributes_without_any():
-		attribute_selector.add_item(attribute)
+	_add_attribute_selector()
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
-	database.test_dodanie_wartosci("Imie1")
 	
 
 func _set_image(path):
@@ -123,3 +121,6 @@ func _on_NextEthnicity_button_up():
 	load_ethnicity(ethnicity)
 	fill_attribute_bonus_label(ethnicity["attribute_name"])
 
+func _add_attribute_selector():
+	for attribute in database.read_list_of_attributes_without_any():
+		attribute_selector.add_item(attribute)

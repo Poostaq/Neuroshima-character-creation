@@ -24,163 +24,162 @@ func _sql_select(query):
 
 
 func read_ethnicity_identifiers():
-	var data = _sql_select("SELECT ethnicity_identifier FROM ethnicities;")
+	var select = "SELECT ethnicity_identifier "
+	var from = "FROM ethnicities;"
+	var selected_array = _sql_select(select+from)
 	db.close_db()
-	return data
+	return selected_array
+
+	
+func read_data_for_etnicity(ethnicity_identifier):
+	var select = "SELECT e.ethnicity_identifier,e.ethnicity_name, " 
+	select += "e.splash_art_path, e.ethnicity_description,a.attribute_identifier, "
+	select += " a.attribute_name, a.attribute_enum, a.bonus_value "
+	var from = "FROM ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id "
+	var where = ("WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
+	var selected_array = _sql_select(select+from+where)
+	db.close_db()
+	return selected_array[0]
 
 
 func read_traits_for_ethnicity(ethnicity_identifier):
-	var data = _sql_select("SELECT t.trait_identifier, t.trait_name, t.trait_description " +
-	"FROM ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id " +
-	"WHERE t.ethnicity_id is not null and " +
-	"e.ethnicity_identifier like '%s';" % ethnicity_identifier)
+	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description "
+	var from = "FROM ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id "
+	var where = ("WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
+	var selected_array = _sql_select(select+from+where)
 	db.close_db()
-	return data
-	
-	
-func read_data_for_etnicity(ethnicity_identifier):
-	var data = _sql_select("SELECT e.ethnicity_identifier, " +
-	"e.ethnicity_name, e.splash_art_path, e.ethnicity_description, " +
-	"a.attribute_identifier, a.attribute_name, a.attribute_enum, a.bonus_value " +
-	"from ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id " +
-	"WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
-	db.close_db()
-	return data[0]
+	return selected_array
 
 
 func read_profession_identifiers():
-	var data = _sql_select("SELECT profession_identifier FROM professions;")
+	var select = "SELECT profession_identifier "
+	var from = "FROM professions;"
+	var selected_array = _sql_select(select+from)
 	db.close_db()
-	return data
-		
-	
-func read_traits_for_profession(profession_identifier):
-	var data = _sql_select("SELECT t.trait_identifier, t.trait_name, t.trait_description " +
-	"FROM professions p JOIN traits t on p.profession_id = t.profession_id " +
-	"WHERE t.profession_id is not null and "+
-	"t.profession_identifier like '%s';" % profession_identifier)
-	db.close_db()
-	return data
+	return selected_array
 
 
 func read_data_for_profession(profession_identifier):
-	var data = _sql_select("SELECT profession_identifier, profession_name, " +
-	"splash_art_path, profession_description from professions " +
-	"WHERE profession_identifier like '%s';" % profession_identifier)
+	var select = "SELECT profession_identifier, profession_name, " 
+	select += "splash_art_path, profession_description "
+	var from = "FROM professions "
+	var where = ("WHERE profession_identifier like '%s';" % profession_identifier)
+	var selected_array = _sql_select(select+from+where)
 	db.close_db()
-	return data[0]
-	
-	
-func read_list_of_attributes_without_any():
-	read_from_SQL()
-	db.open_db()
-	var table_name = "attributes"
-	var attributes = []
-	var select_condition : String = "attribute_identifier != 'Any';"
-	var selected_array : Array = db.select_rows(table_name, select_condition, ["attribute_name"])
-	for selected_row in selected_array:
-		attributes.append(selected_row.get("attribute_name"))
-	return attributes
+	return selected_array[0]
 
+	
+func read_traits_for_profession(profession_identifier):
+	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description "
+	var from = "FROM professions p JOIN traits t on p.profession_id = t.profession_id "
+	var where = "WHERE t.profession_id is not null and "
+	where += ("t.profession_identifier like '%s';" % profession_identifier)
+	var selected_array = _sql_select(select+from+where)
+	db.close_db()
+	return selected_array
+		
 
 func read_list_of_ethnicity_traits_without_versatilities():
 	read_from_SQL()
-	db.open_db()
 	var table_name = "traits"
 	var traits = []
-	var select_condition : String = "trait_identifier not in ('versatility_squared', 'versatility') " 
-	select_condition += "and ethnicity_id is not null;"
+	var select_condition = "trait_identifier not in ('versatility_squared', 'versatility') "
+	select_condition += "AND ethnicity_id is not null;"
 	var selected_array : Array = db.select_rows(table_name, select_condition, ["trait_name"])
 	for selected_row in selected_array:
 		traits.append(selected_row.get("trait_name"))
+	db.close_db()
 	return traits
+	
+
+func read_list_of_attributes_without_any():
+	read_from_SQL()
+	var table_name = "attributes"
+	var attributes = []
+	var select_condition = "attribute_identifier != 'Any';"
+	var selected_array : Array = db.select_rows(table_name, select_condition, ["attribute_name"])
+	for selected_row in selected_array:
+		attributes.append(selected_row.get("attribute_name"))
+	db.close_db()
+	return attributes
 
 
 func insert_into_player_info():
 	read_from_SQL()
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"player_created_date" : sysdate}
-	db.insert_rows("player_info", [rows])
+	var sysdate = _datetime_to_string(OS.get_datetime())
+	var columns = {"player_created_date" : sysdate}
+	db.insert_rows("player_info", [columns])
 	db.close_db()
 	
 	
-func update_player_info(query):
-	pass
-
-
-func test_dodanie_wartosci(value):
+func update_player_info(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"player_name" :value, "player_updated_date" :sysdate}
-	db.update_rows("player_info", condition, rows)
+	var sysdate = _datetime_to_string(OS.get_datetime())
+	var columns = {"player_name" :value, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, columns)
 	db.close_db()
 
 
 func db_update_player_ethnicity(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"player_ethnicity" :value, "player_updated_date" :sysdate}
-	db.update_rows("player_info", condition, rows)
+	var sysdate = _datetime_to_string(OS.get_datetime())
+	var columns = {"player_ethnicity" :value, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, columns)
 	db.close_db()
 
 
 func db_update_player_ethnicity_trait(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"player_ethnicity_trait" :value, "player_updated_date" :sysdate}
-	db.update_rows("player_info", condition, rows)
+	var sysdate = _datetime_to_string(OS.get_datetime())
+	var columns = {"player_ethnicity_trait" :value, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, columns)
 	db.close_db()
 
 
 func db_update_player_agility_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"AGILITY" :1, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
-	db.update_rows("player_info", condition, rows)
+	var columns = {"AGILITY" :1, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
+	db.update_rows("player_info", condition, columns)
 	db.close_db()
 	
 	
 func db_update_player_perception_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"AGILITY" :0, "PERCEPTION" :1, "CHARACTER":0, "WITS":0, "BODY":0 }
-	db.update_rows("player_info", condition, rows)
+	var columns = {"AGILITY" :0, "PERCEPTION" :1, "CHARACTER":0, "WITS":0, "BODY":0 }
+	db.update_rows("player_info", condition, columns)
 	db.close_db()
 	
 	
 func db_update_player_character_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":1, "WITS":0, "BODY":0 }
-	db.update_rows("player_info", condition, rows)
+	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":1, "WITS":0, "BODY":0 }
+	db.update_rows("player_info", condition, columns)
 	db.close_db()
 	
 	
 func db_update_player_wits_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":1, "BODY":0 }
-	db.update_rows("player_info", condition, rows)
+	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":1, "BODY":0 }
+	db.update_rows("player_info", condition, columns)
 	db.close_db()
 	
 	
 func db_update_player_body_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
-	var rows = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":1 }
-	db.update_rows("player_info", condition, rows)
+	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":1 }
+	db.update_rows("player_info", condition, columns)
 	db.close_db()
 
 
-func datetime_to_string(date):
+func _datetime_to_string(date):
 	if (
 		date.has("year")
 		and date.has("month")
