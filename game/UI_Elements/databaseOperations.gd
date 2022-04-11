@@ -116,6 +116,7 @@ func test_dodanie_wartosci(value):
 	db.update_rows("player_info", condition, rows)
 	db.close_db()
 
+
 func db_update_player_ethnicity(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
@@ -123,6 +124,7 @@ func db_update_player_ethnicity(value):
 	var rows = {"player_ethnicity" :value, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, rows)
 	db.close_db()
+
 
 func db_update_player_ethnicity_trait(value):
 	read_from_SQL()
@@ -132,6 +134,7 @@ func db_update_player_ethnicity_trait(value):
 	db.update_rows("player_info", condition, rows)
 	db.close_db()
 
+
 func db_update_player_agility_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
@@ -139,6 +142,7 @@ func db_update_player_agility_bonus():
 	var rows = {"AGILITY" :1, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
 	db.update_rows("player_info", condition, rows)
 	db.close_db()
+	
 	
 func db_update_player_perception_bonus():
 	read_from_SQL()
@@ -148,6 +152,7 @@ func db_update_player_perception_bonus():
 	db.update_rows("player_info", condition, rows)
 	db.close_db()
 	
+	
 func db_update_player_character_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
@@ -155,6 +160,7 @@ func db_update_player_character_bonus():
 	var rows = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":1, "WITS":0, "BODY":0 }
 	db.update_rows("player_info", condition, rows)
 	db.close_db()
+	
 	
 func db_update_player_wits_bonus():
 	read_from_SQL()
@@ -164,6 +170,7 @@ func db_update_player_wits_bonus():
 	db.update_rows("player_info", condition, rows)
 	db.close_db()
 	
+	
 func db_update_player_body_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
@@ -171,6 +178,7 @@ func db_update_player_body_bonus():
 	var rows = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":1 }
 	db.update_rows("player_info", condition, rows)
 	db.close_db()
+
 
 func datetime_to_string(date):
 	if (
