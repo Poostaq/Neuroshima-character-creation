@@ -106,7 +106,7 @@ func read_list_of_attributes_without_any():
 
 func insert_into_player_info():
 	read_from_SQL()
-	var sysdate = datetime_to_string(OS.get_datetime())
+	var sysdate = _datetime_to_string(OS.get_datetime())
 	var columns = {"player_created_date" : sysdate}
 	db.insert_rows("player_info", [columns])
 	db.close_db()
@@ -115,7 +115,7 @@ func insert_into_player_info():
 func update_player_info(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
+	var sysdate = _datetime_to_string(OS.get_datetime())
 	var columns = {"player_name" :value, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
 	db.close_db()
@@ -124,7 +124,7 @@ func update_player_info(value):
 func db_update_player_ethnicity(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
+	var sysdate = _datetime_to_string(OS.get_datetime())
 	var columns = {"player_ethnicity" :value, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
 	db.close_db()
@@ -133,7 +133,7 @@ func db_update_player_ethnicity(value):
 func db_update_player_ethnicity_trait(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = datetime_to_string(OS.get_datetime())
+	var sysdate = _datetime_to_string(OS.get_datetime())
 	var columns = {"player_ethnicity_trait" :value, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
 	db.close_db()
@@ -179,7 +179,7 @@ func db_update_player_body_bonus():
 	db.close_db()
 
 
-func datetime_to_string(date):
+func _datetime_to_string(date):
 	if (
 		date.has("year")
 		and date.has("month")

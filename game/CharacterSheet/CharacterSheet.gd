@@ -74,11 +74,12 @@ func update_card():
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
+	
 
 func _update_basic_info_values():
 	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
 	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
-
+	
 
 func _update_attribute_values(attributeEnum):
 	var value
@@ -176,7 +177,7 @@ func _format_ethnicity_trait_name(trait_button):
 		return trait_button.trait_name +" : " + trait_button.secondary_trait
 	else:
 		return trait_button.trait_name
-
+		
 
 func _on_EthnicityStep_attribute_chosen(bonus_attribute):
 	self.character_stats_element.attribute_modifier = bonus_attribute
@@ -184,7 +185,7 @@ func _on_EthnicityStep_attribute_chosen(bonus_attribute):
 
 func _on_EthnicityStep_trait_chosen(trait_element):
 	self.character_stats_element.ethnicity_trait = _format_ethnicity_trait_name(trait_element)
-#	DatabaseOperations.db_update_player_ethnicity_trait(trait_element)
+	DatabaseOperations.db_update_player_ethnicity_trait(_format_ethnicity_trait_name(trait_element))
 	
 
 func _on_EthnicityStep_clear_trait():
