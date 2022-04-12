@@ -168,7 +168,7 @@ func _on_CloseButton_button_up():
 
 func _on_EthnicityStep_ethnicity_chosen(ethnicity):
 	self.character_stats_element.ethnicity = ethnicity["ethnicity_name"]
-  DatabaseOperations.db_update_player_ethnicity(ethnicity["ethnicity_name"])
+	DatabaseOperations.db_update_player_ethnicity(ethnicity["ethnicity_name"])
 
 
 func _format_ethnicity_trait_name(trait_button):
@@ -184,7 +184,7 @@ func _on_EthnicityStep_attribute_chosen(bonus_attribute):
 
 func _on_EthnicityStep_trait_chosen(trait_element):
 	self.character_stats_element.ethnicity_trait = _format_ethnicity_trait_name(trait_element)
-	DatabaseOperations.db_update_player_ethnicity_trait(trait_name)
+	DatabaseOperations.db_update_player_ethnicity_trait(trait_element)
   
 
 func _on_EthnicityStep_clear_trait():
