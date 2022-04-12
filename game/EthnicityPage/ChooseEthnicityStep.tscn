@@ -26,7 +26,7 @@ font_data = ExtResource( 6 )
 size = 14
 font_data = ExtResource( 6 )
 
-[node name="Ethnicity" type="Control"]
+[node name="EthnicityStep" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -40.0
@@ -36,6 +36,12 @@ size_flags_vertical = 3
 theme = ExtResource( 3 )
 script = ExtResource( 4 )
 trait_group = ExtResource( 5 )
+picture = NodePath("VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic")
+ethnicity_name = NodePath("VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName")
+ethnicity_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/EthnicityDescription")
+trait_container = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer")
+attribute_bonus_label = NodePath("VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeBonus")
+attribute_selector = NodePath("VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeSelect")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0

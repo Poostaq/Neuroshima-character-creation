@@ -89,6 +89,9 @@ bod_hard_value = NodePath("PanelContainer/MarginContainer/ScrollContainer/Textur
 bod_very_hard_value = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyVeryHard")
 bod_fucking_hard_value = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyFuckingHard")
 bod_luck_value = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer/BodyLuck")
+name_element = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/Name")
+ethnicity_element = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2/Ethnicity")
+ethnicity_trait_element = NodePath("PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/EthnicityTrait")
 
 [node name="PanelContainer" type="Control" parent="."]
 anchor_right = 1.0
@@ -123,7 +126,7 @@ margin_bottom = 650.0
 rect_clip_content = false
 
 [node name="TextureRect" type="TextureRect" parent="PanelContainer/MarginContainer/ScrollContainer"]
-margin_right = 952.0
+margin_right = 956.0
 margin_bottom = 1400.0
 rect_min_size = Vector2( 0, 1400 )
 size_flags_horizontal = 7
@@ -232,7 +235,7 @@ margin_bottom = 31.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="--------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 35.0
 margin_right = 251.0
 margin_bottom = 48.0
@@ -247,7 +250,7 @@ margin_bottom = 79.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
+[node name="---------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2"]
 margin_right = 40.0
 margin_bottom = 27.0
 size_flags_horizontal = 3
@@ -273,7 +276,7 @@ text = "
 "
 scroll_active = false
 
-[node name="Control4" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 83.0
 margin_right = 251.0
 margin_bottom = 97.0
@@ -289,7 +292,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.34
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="-------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
 margin_right = 26.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
@@ -311,14 +314,14 @@ custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 scroll_active = false
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
+[node name="----------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3"]
 margin_left = 234.0
 margin_right = 251.0
 margin_bottom = 37.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer"]
+[node name="------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer"]
 margin_left = 407.0
 margin_right = 413.0
 margin_bottom = 138.0
@@ -334,7 +337,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.53
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2"]
+[node name="--------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2"]
 margin_right = 413.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2"]
@@ -345,7 +348,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.14
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="---------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_right = 48.0
 margin_bottom = 41.0
 size_flags_horizontal = 3
@@ -370,7 +373,7 @@ bbcode_text = "
 text = "
 "
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_left = 191.0
 margin_right = 217.0
 margin_bottom = 41.0
@@ -396,7 +399,7 @@ bbcode_text = "
 text = "
 "
 
-[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="-------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_left = 376.0
 margin_right = 413.0
 margin_bottom = 41.0
@@ -411,7 +414,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.04
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer2"]
+[node name="------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer2"]
 margin_right = 119.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
@@ -436,14 +439,14 @@ bbcode_text = "
 text = "
 "
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer2"]
+[node name="---------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer2"]
 margin_left = 356.0
 margin_right = 413.0
 margin_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2"]
+[node name="--------------------------2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2"]
 margin_top = 93.0
 margin_right = 413.0
 margin_bottom = 109.0
@@ -677,7 +680,7 @@ margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer"]
+[node name="----------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer"]
 margin_right = 38.0
 margin_bottom = 19.0
 size_flags_horizontal = 3
@@ -699,7 +702,7 @@ bbcode_enabled = true
 bbcode_text = "[center]0"
 text = "0"
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer"]
+[node name="-----------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer"]
 margin_top = 61.0
 margin_right = 38.0
 margin_bottom = 72.0
@@ -862,7 +865,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.23
 
-[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer"]
+[node name="--------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer"]
 margin_right = 42.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
@@ -884,7 +887,7 @@ bbcode_enabled = true
 bbcode_text = "[center]0"
 text = "0"
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer"]
+[node name="------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer"]
 margin_top = 61.0
 margin_right = 42.0
 margin_bottom = 72.0
@@ -1009,7 +1012,7 @@ bbcode_enabled = true
 bbcode_text = "[center]N[/center]"
 text = "N"
 
-[node name="------------------------2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer"]
+[node name="---------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer"]
 margin_top = 63.0
 margin_right = 215.0
 margin_bottom = 72.0
@@ -1017,7 +1020,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.41
 
-[node name="Control4" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer"]
+[node name="------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer"]
 margin_left = 341.0
 margin_right = 360.0
 margin_bottom = 72.0
@@ -1046,7 +1049,7 @@ margin_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control3" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer"]
+[node name="---------------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer"]
 margin_right = 38.0
 margin_bottom = 17.0
 size_flags_horizontal = 3
@@ -1068,7 +1071,7 @@ bbcode_enabled = true
 bbcode_text = "[center]0"
 text = "0"
 
-[node name="Control2" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer"]
+[node name="---------------------------------" type="Control" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer"]
 margin_top = 61.0
 margin_right = 38.0
 margin_bottom = 72.0

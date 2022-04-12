@@ -10,18 +10,19 @@ font_data = ExtResource( 3 )
 
 [node name="Button" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+option_button = NodePath("MarginContainer/VBoxContainer/OptionButton")
 
 [node name="TraitNameLabel" parent="MarginContainer/VBoxContainer" index="0"]
-margin_bottom = 36.0
+margin_bottom = 37.0
 
 [node name="TraitDescriptionLabel" parent="MarginContainer/VBoxContainer" index="1"]
-margin_top = 40.0
-margin_bottom = 149.0
+margin_top = 41.0
+margin_bottom = 154.0
 
 [node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer" index="2"]
-margin_top = 153.0
-margin_right = 191.0
-margin_bottom = 175.0
+margin_top = 158.0
+margin_right = 200.0
+margin_bottom = 180.0
 theme = ExtResource( 4 )
 custom_fonts/font = SubResource( 1 )
 
