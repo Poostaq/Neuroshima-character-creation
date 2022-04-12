@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=2]
 
+[ext_resource path="res://ProfessionPage/ProfessionTrait.gd" type="Script" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://EthnicityPage/EthnicityTrait.gd" type="Script" id=3]
 [ext_resource path="res://UI_Elements/Buttons/skil selected.png" type="Texture" id=4]
 [ext_resource path="res://UI_Elements/Buttons/skill inactive.png" type="Texture" id=5]
 [ext_resource path="res://UI_Elements/Buttons/skill ready.png" type="Texture" id=6]
@@ -13,7 +13,7 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
 
-[node name="Button" type="TextureButton"]
+[node name="ProfesionTraitButton" type="TextureButton"]
 margin_right = 220.0
 margin_bottom = 200.0
 rect_clip_content = true
@@ -24,7 +24,7 @@ texture_normal = ExtResource( 5 )
 texture_pressed = ExtResource( 4 )
 texture_hover = ExtResource( 6 )
 expand = true
-script = ExtResource( 3 )
+script = ExtResource( 1 )
 trait_name_label = NodePath("MarginContainer/VBoxContainer/TraitNameLabel")
 trait_description_label = NodePath("MarginContainer/VBoxContainer/TraitDescriptionLabel")
 
@@ -69,4 +69,4 @@ bbcode_enabled = true
 bbcode_text = "Trait Description"
 text = "Trait Description"
 
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_ProfesionTraitButton_pressed"]

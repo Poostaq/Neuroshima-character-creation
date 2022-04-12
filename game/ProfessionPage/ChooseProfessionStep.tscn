@@ -33,7 +33,7 @@ script = ExtResource( 4 )
 trait_group = ExtResource( 5 )
 picture = NodePath("VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/ProfessionPic")
 profession_name = NodePath("VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/ProfessionName")
-profession_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/EthnicityDescription")
+profession_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ProfessionDescription")
 trait_container = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
@@ -206,7 +206,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="EthnicityDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="ProfessionDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_top = 16.0
 margin_right = 524.0
 margin_bottom = 324.0

@@ -61,28 +61,34 @@ onready var bod_modifiers_elements = [bod_easy_value,bod_normal_value,bod_proble
 export (NodePath) onready var name_element = get_node(name_element) as RichTextLabel
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as RichTextLabel
 export (NodePath) onready var ethnicity_trait_element = get_node(ethnicity_trait_element) as RichTextLabel
+export (NodePath) onready var profession_element = get_node(profession_element) as RichTextLabel
+export (NodePath) onready var profession_trait_element = get_node(profession_trait_element) as RichTextLabel
 
 onready var character_stats_element = $CharacterStats
+onready var db = get_node("/root/DatabaseOperations")
 
 func _ready():
-	self.visible = false
-	self.mouse_filter = Control.MOUSE_FILTER_STOP
-
+#	self.visible = false
+#	self.mouse_filter = Control.MOUSE_FILTER_STOP
+	pass
 
 func update_card():
 	self._clear_bonus_attribute()
 	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
-	DatabaseOperations.db_update_player_attribute_bonus(_set_bonus_attribute(self.character_stats_element.attribute_modifier))
+	db.db_update_player_attribute_bonus(_set_bonus_attribute(self.character_stats_element.attribute_modifier))
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
-		
+			
 
 func _update_basic_info_values():
 	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
 	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
-	DatabaseOperations.db_update_player_ethnicity(self.character_stats_element.ethnicity)
-	DatabaseOperations.db_update_player_ethnicity_trait(self.character_stats_element.ethnicity_trait)	
+	db.db_update_player_ethnicity(character_stats_element.ethnicity,character_stats_element.ethnicity_trait)
+	self.profession_element.bbcode_text = self.character_stats_element.profession
+	self.profession_trait_element.bbcode_text = self.character_stats_element.profession_trait
+	db.db_update_player_profession(character_stats_element.profession,character_stats_element.profession_trait)	
+	
 
 func _update_attribute_values(attributeEnum):
 	var value
@@ -204,16 +210,14 @@ func _on_ProfessionStep_profession_chosen(profession):
 	
 	
 func _format_profession_trait_name(trait_button):
-	if trait_button.trait_name == "Wszechstronność do kwadratu":
-		return trait_button.trait_name +" : " + trait_button.secondary_trait
-	else:
-		return trait_button.trait_name
-
+	print ("test" + trait_button.trait_name)
+	return trait_button.trait_name
+	
 
 func _on_ProfessionStep_trait_chosen(trait_element):
-		self.character_stats_element.ethnicity_trait = _format_profession_trait_name(trait_element)
+		self.character_stats_element.profession_trait = _format_profession_trait_name(trait_element)
 
 
 func _on_ProfessionStep_clear_trait():
-	self.character_stats_element.profession_trait = ""
+#	self.character_stats_element.profession_trait = ""
 	self._update_basic_info_values()

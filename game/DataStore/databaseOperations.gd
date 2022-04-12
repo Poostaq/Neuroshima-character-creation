@@ -2,6 +2,7 @@ extends Node
 
 const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
 var db
+var sysdate = _datetime_to_string(OS.get_datetime())
 
 var db_name := "res://datastore/neuroshima"
 var packaged_db_name := "res://data_to_be_packaged"
@@ -106,7 +107,6 @@ func read_list_of_attributes_without_any():
 
 func insert_into_player_info():
 	read_from_SQL()
-	var sysdate = _datetime_to_string(OS.get_datetime())
 	var columns = {"player_created_date" : sysdate}
 	db.insert_rows("player_info", [columns])
 	db.close_db()
@@ -115,36 +115,33 @@ func insert_into_player_info():
 func update_player_info(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = _datetime_to_string(OS.get_datetime())
 	var columns = {"player_name" :value, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
 	db.close_db()
 
 
-func db_update_player_ethnicity(value):
+func db_update_player_ethnicity(player_ethnicity, player_ethnicity_trait):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = _datetime_to_string(OS.get_datetime())
-	var columns = {"player_ethnicity" :value, "player_updated_date" :sysdate}
-	db.update_rows("player_info", condition, columns)
-	db.close_db()
-
-
-func db_update_player_ethnicity_trait(value):
-	read_from_SQL()
-	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var sysdate = _datetime_to_string(OS.get_datetime())
-	var columns = {"player_ethnicity_trait" :value, "player_updated_date" :sysdate}
-	db.update_rows("player_info", condition, columns)
+	var col = {"player_updated_date" :sysdate, "player_ethnicity":player_ethnicity,"player_ethnicity_trait":player_ethnicity_trait} 
+	db.update_rows("player_info", condition, col)
 	db.close_db()
 
 
 func db_update_player_attribute_bonus(attribute_name):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
-	columns[attribute_name] = 1
-	db.update_rows("player_info", condition, columns)
+	var col = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
+	col[attribute_name] = 1
+	db.update_rows("player_info", condition, col)
+	db.close_db()
+
+
+func db_update_player_profession(player_profession, player_profession_trait):
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var col = {"player_updated_date" :sysdate, "player_profession":player_profession,"player_profession_trait":player_profession_trait }
+	db.update_rows("player_info", condition, col)
 	db.close_db()
 
 

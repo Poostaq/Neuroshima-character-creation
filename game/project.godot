@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-DatabaseOperations="*res://UI_Elements/databaseOperations.gd"
+DatabaseOperations="*res://DataStore/databaseOperations.gd"
 GlobalConstants="*res://GlobalConstants.gd"
 
 [display]

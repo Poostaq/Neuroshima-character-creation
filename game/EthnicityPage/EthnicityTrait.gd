@@ -13,5 +13,5 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _on_Button_pressed():
+func _on_EthnicityTraitButton_pressed():
 	emit_signal("trait_button_pressed", self)

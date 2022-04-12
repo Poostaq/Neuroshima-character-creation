@@ -156,9 +156,17 @@ margin_left = 53.0
 margin_right = 73.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Wybór Profesji"
+toggle_mode = true
+action_mode = 0
+keep_pressed_outside = true
 texture_normal = ExtResource( 8 )
+texture_pressed = ExtResource( 2 )
 expand = true
 stretch_mode = 4
+__meta__ = {
+"_editor_description_": ""
+}
 
 [node name="AttributesStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
 material = SubResource( 1 )
@@ -321,11 +329,13 @@ margin_right = 964.0
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_clear_trait"]
 [connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_ethnicity_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_trait_chosen"]
-[connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_clear_trait"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_profession_chosen"]
-[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_trait_chosen"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_Back_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer/EthnicityStep" to="." method="_on_EthnicityStep_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer/ProfessionStep" to="." method="_on_ProfessionStep_button_up"]
+[connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer/ProfessionStep" to="." method="_on_ProfessionStep_pressed"]
+[connection signal="toggled" from="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer/ProfessionStep" to="." method="_on_ProfessionStep_toggled"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_button_up"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
 [editable path="CharacterSheet"]

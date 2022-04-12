@@ -13,7 +13,7 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=4]
 font_data = ExtResource( 2 )
 
-[node name="Button" type="TextureButton"]
+[node name="EthnicityTraitButton" type="TextureButton"]
 margin_right = 220.0
 margin_bottom = 200.0
 rect_clip_content = true
@@ -69,4 +69,4 @@ bbcode_enabled = true
 bbcode_text = "Trait Description"
 text = "Trait Description"
 
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="." to="." method="_on_EthnicityTraitButton_pressed"]

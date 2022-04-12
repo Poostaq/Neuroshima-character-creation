@@ -25,3 +25,22 @@ func _on_ProfessionStep_button_up():
 	profession_element.visible = true
 	ethnicity_element.visible = false
 	profession_element.mouse_filter = Control.MOUSE_FILTER_PASS
+	
+
+func _on_ProfessionStep_pressed():
+	pass # Replace with function body.
+#	profession_element
+
+
+func _on_Next_button_up():
+	pass # Replace with function body.
+
+
+func _on_Back_button_up():
+	pass # Replace with function body.
+
+
+func _on_ProfessionStep_toggled(_button_pressed):
+	profession_element.visible = true
+	ethnicity_element.visible = false
+	profession_element.mouse_filter = Control.MOUSE_FILTER_PASS
