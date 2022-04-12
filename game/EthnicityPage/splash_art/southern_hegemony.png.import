@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/vegas.png-c4c76468f1a027ec0a1db25f2ccd0db4.stex"
+path="res://.import/southern_hegemony.png-a5fe34bfe9ccaa4fb8e69e02235658c6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/ethnicity_splash_art/vegas.png"
-dest_files=[ "res://.import/vegas.png-c4c76468f1a027ec0a1db25f2ccd0db4.stex" ]
+source_file="res://EthnicityPage/splash_art/southern_hegemony.png"
+dest_files=[ "res://.import/southern_hegemony.png-a5fe34bfe9ccaa4fb8e69e02235658c6.stex" ]
 
 [params]
 

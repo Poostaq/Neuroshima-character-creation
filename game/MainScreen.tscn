@@ -89,6 +89,22 @@ margin_right = 964.0
 margin_bottom = 596.0
 trait_group = SubResource( 2 )
 
+[node name="ProfessionStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 1 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 964.0
+margin_bottom = 596.0
+trait_group = SubResource( 2 )
+picture = NodePath("../EthnicityStep/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/EthnicityPic")
+ethnicity_name = NodePath("../EthnicityStep/VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName")
+ethnicity_description = NodePath("../EthnicityStep/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/EthnicityDescription")
+trait_container = NodePath("../EthnicityStep/VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer")
+attribute_bonus_label = NodePath("../EthnicityStep/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeBonus")
+attribute_selector = NodePath("../EthnicityStep/VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/AttributeSelect")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 620.0
 margin_right = 984.0
@@ -307,6 +323,10 @@ margin_right = 964.0
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_clear_trait"]
 [connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_ethnicity_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_trait_chosen"]
+[connection signal="attribute_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_EthnicityStep_attribute_chosen"]
+[connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_EthnicityStep_clear_trait"]
+[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_EthnicityStep_ethnicity_chosen"]
+[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_EthnicityStep_trait_chosen"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
 [editable path="CharacterSheet"]

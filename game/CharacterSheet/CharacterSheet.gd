@@ -165,7 +165,6 @@ func _set_bonus_attribute(attribute=null):
 	elif attribute == 4:
 		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
 		var bonus_attribute = "BODY"
-#		DatabaseOperations.db_update_player_attribute_bonus(bonus_attribute)
 		return bonus_attribute
 	else:
 		print("DIDNT MATCH ANYTHING")

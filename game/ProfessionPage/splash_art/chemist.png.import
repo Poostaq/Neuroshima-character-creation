@@ -2,16 +2,11 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/new_york.png-f9dc7dd7f40a09ae03690df4166d45c1.stex"
-metadata={
-"vram_texture": false
-}
+valid=false
 
 [deps]
 
-source_file="res://EthnicityPage/ethnicity_splash_art/new_york.png"
-dest_files=[ "res://.import/new_york.png-f9dc7dd7f40a09ae03690df4166d45c1.stex" ]
-
+source_file="res://ProfessionPage/splash_art/chemist.png"
 [params]
 
 compress/mode=0
