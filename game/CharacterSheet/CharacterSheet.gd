@@ -68,18 +68,21 @@ func _ready():
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
+
 func update_card():
 	self._clear_bonus_attribute()
 	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
+	DatabaseOperations.db_update_player_attribute_bonus(_set_bonus_attribute(self.character_stats_element.attribute_modifier))
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
-	
+		
 
 func _update_basic_info_values():
 	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
 	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
-	
+	DatabaseOperations.db_update_player_ethnicity(self.character_stats_element.ethnicity)
+	DatabaseOperations.db_update_player_ethnicity_trait(self.character_stats_element.ethnicity_trait)	
 
 func _update_attribute_values(attributeEnum):
 	var value
@@ -145,19 +148,25 @@ func _clear_bonus_attribute():
 func _set_bonus_attribute(attribute=null):
 	if attribute == 0:
 		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
-		DatabaseOperations.db_update_player_agility_bonus()
+		var bonus_attribute = "AGILITY"
+		return bonus_attribute
 	elif attribute == 1:
 		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
-		DatabaseOperations.db_update_player_perception_bonus()
+		var bonus_attribute = "PERCEPTION"
+		return bonus_attribute
 	elif attribute == 2:
 		self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
-		DatabaseOperations.db_update_player_character_bonus()
+		var bonus_attribute = "CHARACTER"
+		return bonus_attribute
 	elif attribute == 3:
 		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
-		DatabaseOperations.db_update_player_wits_bonus()
+		var bonus_attribute = "WITS"
+		return bonus_attribute
 	elif attribute == 4:
 		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
-		DatabaseOperations.db_update_player_body_bonus()
+		var bonus_attribute = "BODY"
+#		DatabaseOperations.db_update_player_attribute_bonus(bonus_attribute)
+		return bonus_attribute
 	else:
 		print("DIDNT MATCH ANYTHING")
 
@@ -169,7 +178,6 @@ func _on_CloseButton_button_up():
 
 func _on_EthnicityStep_ethnicity_chosen(ethnicity):
 	self.character_stats_element.ethnicity = ethnicity["ethnicity_name"]
-	DatabaseOperations.db_update_player_ethnicity(ethnicity["ethnicity_name"])
 	
 
 func _format_ethnicity_trait_name(trait_button):
@@ -185,7 +193,6 @@ func _on_EthnicityStep_attribute_chosen(bonus_attribute):
 
 func _on_EthnicityStep_trait_chosen(trait_element):
 	self.character_stats_element.ethnicity_trait = _format_ethnicity_trait_name(trait_element)
-	DatabaseOperations.db_update_player_ethnicity_trait(_format_ethnicity_trait_name(trait_element))
 	
 
 func _on_EthnicityStep_clear_trait():

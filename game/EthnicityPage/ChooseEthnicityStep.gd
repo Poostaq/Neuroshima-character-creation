@@ -91,7 +91,7 @@ func _get_bonus_attribute():
 		return attribute_selector.selected
 	else:
 		return ethnicity["attribute_enum"]
-
+		
 
 func _fill_trait_button_trait_list(trait_list_element: OptionButton):
 	for trait in database.read_list_of_ethnicity_traits_without_versatilities():

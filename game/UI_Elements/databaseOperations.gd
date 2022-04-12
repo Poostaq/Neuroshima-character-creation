@@ -139,6 +139,16 @@ func db_update_player_ethnicity_trait(value):
 	db.close_db()
 
 
+func db_update_player_attribute_bonus(attribute_name):
+	read_from_SQL()
+	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
+	var bonus = {attribute_name :1}
+	db.update_rows("player_info", condition, columns)
+	db.update_rows("player_info", condition, bonus)
+	db.close_db()
+
+
 func db_update_player_agility_bonus():
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
