@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/medic.png-5d4c059cfee4d310ea806634e8d0ff68.stex"
+path="res://.import/texas.png-995573af3f4b1213a2c7336238a573ae.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ProfessionPage/splash_art/medic.png"
-dest_files=[ "res://.import/medic.png-5d4c059cfee4d310ea806634e8d0ff68.stex" ]
+source_file="res://EthnicityPage/splash_art/texas.png"
+dest_files=[ "res://.import/texas.png-995573af3f4b1213a2c7336238a573ae.stex" ]
 
 [params]
 

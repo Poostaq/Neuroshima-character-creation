@@ -3,6 +3,8 @@ extends Node
 export var character_name : String
 export var ethnicity : String
 export var ethnicity_trait : String
+export var profession : String
+export var profession_trait : String
 
 export var agi_value : int
 export var agi_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}

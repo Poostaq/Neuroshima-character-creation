@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/medic.png-5d4c059cfee4d310ea806634e8d0ff68.stex"
+path="res://.import/missisipi.png-e574fa31e38cc6e56848ab70f909f5c2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ProfessionPage/splash_art/medic.png"
-dest_files=[ "res://.import/medic.png-5d4c059cfee4d310ea806634e8d0ff68.stex" ]
+source_file="res://EthnicityPage/splash_art/missisipi.png"
+dest_files=[ "res://.import/missisipi.png-e574fa31e38cc6e56848ab70f909f5c2.stex" ]
 
 [params]
 

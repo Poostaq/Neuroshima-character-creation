@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/medic.png-5d4c059cfee4d310ea806634e8d0ff68.stex"
+path="res://.import/the_outpost.png-71ef747a1c48e1b769b3829a37de110c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ProfessionPage/splash_art/medic.png"
-dest_files=[ "res://.import/medic.png-5d4c059cfee4d310ea806634e8d0ff68.stex" ]
+source_file="res://EthnicityPage/splash_art/the_outpost.png"
+dest_files=[ "res://.import/the_outpost.png-71ef747a1c48e1b769b3829a37de110c.stex" ]
 
 [params]
 

@@ -73,11 +73,11 @@ func read_traits_for_profession(profession_identifier):
 	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description "
 	var from = "FROM professions p JOIN traits t on p.profession_id = t.profession_id "
 	var where = "WHERE t.profession_id is not null and "
-	where += ("t.profession_identifier like '%s';" % profession_identifier)
+	where += ("profession_identifier like '%s';" % profession_identifier)
 	var selected_array = _sql_select(select+from+where)
 	db.close_db()
 	return selected_array
-		
+	
 
 func read_list_of_ethnicity_traits_without_versatilities():
 	read_from_SQL()
@@ -96,7 +96,7 @@ func read_list_of_attributes_without_any():
 	read_from_SQL()
 	var table_name = "attributes"
 	var attributes = []
-	var select_condition = "attribute_identifier != 'Any';"
+	var select_condition = "attribute_identifier != 'any';"
 	var selected_array : Array = db.select_rows(table_name, select_condition, ["attribute_name"])
 	for selected_row in selected_array:
 		attributes.append(selected_row.get("attribute_name"))
@@ -143,50 +143,9 @@ func db_update_player_attribute_bonus(attribute_name):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
-	var bonus = {attribute_name :1}
+	columns[attribute_name] = 1
 	db.update_rows("player_info", condition, columns)
-	db.update_rows("player_info", condition, bonus)
 	db.close_db()
-
-#
-#func db_update_player_agility_bonus():
-#	read_from_SQL()
-#	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-#	var columns = {"AGILITY" :1, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
-#	db.update_rows("player_info", condition, columns)
-#	db.close_db()
-#
-#
-#func db_update_player_perception_bonus():
-#	read_from_SQL()
-#	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-#	var columns = {"AGILITY" :0, "PERCEPTION" :1, "CHARACTER":0, "WITS":0, "BODY":0 }
-#	db.update_rows("player_info", condition, columns)
-#	db.close_db()
-#
-#
-#func db_update_player_character_bonus():
-#	read_from_SQL()
-#	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-#	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":1, "WITS":0, "BODY":0 }
-#	db.update_rows("player_info", condition, columns)
-#	db.close_db()
-#
-#
-#func db_update_player_wits_bonus():
-#	read_from_SQL()
-#	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-#	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":1, "BODY":0 }
-#	db.update_rows("player_info", condition, columns)
-#	db.close_db()
-#
-#
-#func db_update_player_body_bonus():
-#	read_from_SQL()
-#	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
-#	var columns = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":1 }
-#	db.update_rows("player_info", condition, columns)
-#	db.close_db()
 
 
 func _datetime_to_string(date):

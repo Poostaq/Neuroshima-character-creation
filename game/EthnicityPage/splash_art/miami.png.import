@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/medic.png-5d4c059cfee4d310ea806634e8d0ff68.stex"
+path="res://.import/miami.png-84ff09627592926b5a2b3d3cf822d9b7.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://ProfessionPage/splash_art/medic.png"
-dest_files=[ "res://.import/medic.png-5d4c059cfee4d310ea806634e8d0ff68.stex" ]
+source_file="res://EthnicityPage/splash_art/miami.png"
+dest_files=[ "res://.import/miami.png-84ff09627592926b5a2b3d3cf822d9b7.stex" ]
 
 [params]
 
