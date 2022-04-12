@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/SplashArt.png-43e376f8092b6ecbb4403469759f59ec.stex"
+path="res://.import/not_your_business.png-88696b0a7fb6fb79a1de88912ab4b942.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/southern_hegemony/SplashArt.png"
-dest_files=[ "res://.import/SplashArt.png-43e376f8092b6ecbb4403469759f59ec.stex" ]
+source_file="res://EthnicityPage/ethnicity_splash_art/not_your_business.png"
+dest_files=[ "res://.import/not_your_business.png-88696b0a7fb6fb79a1de88912ab4b942.stex" ]
 
 [params]
 

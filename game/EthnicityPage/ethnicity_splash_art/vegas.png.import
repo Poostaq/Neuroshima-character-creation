@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Splash.png-8d543422552533cffc63ba41eeee0eb2.stex"
+path="res://.import/vegas.png-c4c76468f1a027ec0a1db25f2ccd0db4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/not_your_business/Splash.png"
-dest_files=[ "res://.import/Splash.png-8d543422552533cffc63ba41eeee0eb2.stex" ]
+source_file="res://EthnicityPage/ethnicity_splash_art/vegas.png"
+dest_files=[ "res://.import/vegas.png-c4c76468f1a027ec0a1db25f2ccd0db4.stex" ]
 
 [params]
 
