@@ -1,8 +1,8 @@
 extends Control
 
 signal profession_chosen(current_profession)
-signal profession_trait_chosen(profession_trait_element)
-signal clear_profession_trait()
+signal trait_chosen(profession_trait_element)
+signal clear_trait()
 
 
 export(ButtonGroup) var trait_group
@@ -69,7 +69,7 @@ func _create_trait_button(trait_template, trait_data):
 
 
 func _on_Trait_Button_button_pressed(button):
-	emit_signal("profession_trait_chosen", button)
+	emit_signal("trait_chosen", button)
 
 
 func _on_PreviousProfession_button_up():
@@ -93,4 +93,4 @@ func _on_NextProfession_button_up():
 
 func _changed_profession():
 	emit_signal("profession_chosen", profession)
-	emit_signal("clear_profession_trait")
+	emit_signal("clear_trait")

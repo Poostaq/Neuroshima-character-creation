@@ -207,17 +207,12 @@ func _on_EthnicityStep_clear_trait():
 
 func _on_ProfessionStep_profession_chosen(profession):
 	self.character_stats_element.profession = profession["profession_name"]
-	
-	
-func _format_profession_trait_name(trait_button):
-	print ("test" + trait_button.trait_name)
-	return trait_button.trait_name
-	
 
-func _on_ProfessionStep_trait_chosen(trait_element):
-		self.character_stats_element.profession_trait = _format_profession_trait_name(trait_element)
+
+func _on_ProfessionStep_trait_chosen(trait_button):
+	self.character_stats_element.profession_trait = trait_button.trait_name
 
 
 func _on_ProfessionStep_clear_trait():
-#	self.character_stats_element.profession_trait = ""
+	self.character_stats_element.profession_trait = ""
 	self._update_basic_info_values()

@@ -74,7 +74,7 @@ func read_traits_for_profession(profession_identifier):
 	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description "
 	var from = "FROM professions p JOIN traits t on p.profession_id = t.profession_id "
 	var where = "WHERE t.profession_id is not null and "
-	where += ("profession_identifier like '%s';" % profession_identifier)
+	where += ("p.profession_identifier like '%s';" % profession_identifier)
 	var selected_array = _sql_select(select+from+where)
 	db.close_db()
 	return selected_array
