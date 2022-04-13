@@ -14,7 +14,7 @@ var steps_list = []
 var step = {}
 
 func _ready():
-	
+	steps_list = _return_steps_lists()
 	print(steps_list)
 
 
@@ -52,18 +52,19 @@ func _return_steps_lists():
 
 
 func _on_Next_button_up():
-	steps_list = _return_steps_lists()
-	if current_step == 0:
-		print (current_step)
-		current_step = len(steps_list)-1
-		print (current_step)
+	if current_step == len(steps_list)-1:
+		print (len(steps_list))
+		current_step = 0
+		print ("if " + str(current_step))
 	else:
 		current_step += 1
-		print("WTF")
+		print("else " + str(current_step))
+		print (len(steps_list))
+	_load_step()
 	_changed_screen()
 	
 func _changed_screen():
-	emit_signal("step_chosen", step)	
+	pass
 
 
 func _on_Back_button_up():

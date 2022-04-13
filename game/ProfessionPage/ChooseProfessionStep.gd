@@ -83,9 +83,12 @@ func _on_PreviousProfession_button_up():
 
 func _on_NextProfession_button_up():
 	if current_profession == len(profession_list)-1:
+		print (current_profession)
 		current_profession = 0
+		print (current_profession)
 	else:
 		current_profession += 1
+		print ("else " + str(current_profession))
 	profession = db.read_data_for_profession(profession_list[current_profession]["profession_identifier"])
 	_load_profession(profession)
 	_changed_profession()
