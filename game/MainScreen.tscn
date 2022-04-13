@@ -35,6 +35,14 @@ card_button = NodePath("CardButton")
 character_sheet_panel = NodePath("CharacterSheet")
 ethnicity_element = NodePath("CenterContainer/VBoxContainer/StepContainer/EthnicityStep")
 profession_element = NodePath("CenterContainer/VBoxContainer/StepContainer/ProfessionStep")
+attributes_element = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesStep")
+specjalization_element = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SpecialisationStep")
+skills_element = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SkillsStep")
+tricks_element = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TricksStep")
+seven_element = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton7")
+eight_element = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton8")
+nice_element = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton9")
+ten_element = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton10")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -338,6 +346,14 @@ margin_right = 964.0
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionStep" to="." method="_on_ProfessionStep_button_up"]
 [connection signal="pressed" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionStep" to="." method="_on_ProfessionStep_pressed"]
 [connection signal="toggled" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionStep" to="." method="_on_ProfessionStep_toggled"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesStep" to="." method="_on_AttributesStep_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SpecialisationStep" to="." method="_on_SpecialisationStep_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SkillsStep" to="." method="_on_SkillsStep_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TricksStep" to="." method="_on_TricksStep_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton7" to="." method="_on_TextureButton7_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton8" to="." method="_on_TextureButton8_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton9" to="." method="_on_TextureButton9_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton10" to="." method="_on_TextureButton10_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_button_up"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
