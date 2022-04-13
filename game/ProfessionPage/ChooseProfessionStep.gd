@@ -29,7 +29,7 @@ func _ready():
 	_load_profession(profession)
 	trait_group = load("res://ProfessionPage/Traits.tres")
 	yield(get_tree(), "idle_frame")
-#	emit_signal("profession_chosen", profession)
+	emit_signal("profession_chosen", profession)
 
 
 func _set_image(path):

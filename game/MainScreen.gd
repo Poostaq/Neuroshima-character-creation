@@ -1,8 +1,5 @@
 extends Control
 
-#signal step_chosen(current_step)
-
-
 export (NodePath) onready var steps_container =  get_node(steps_container) as HBoxContainer
 export (NodePath) onready var card_button = get_node(card_button) as TextureButton
 export (NodePath) onready var character_sheet_panel = get_node(character_sheet_panel) as Control
@@ -20,7 +17,18 @@ export (NodePath) onready var ten_element = get_node(ten_element) as Control
 var current_step = 0
 var steps_list = []
 var step = {}
-var steps = [ethnicity_element,profession_element]
+onready var steps = [
+					ethnicity_element,
+					profession_element,
+					attributes_element,
+					specjalization_element,
+					skills_element,
+					tricks_element,
+					seven_element,
+					eight_element,
+					nice_element,
+					ten_element
+]
 
 func _ready():
 	steps_list = _return_steps_lists()
@@ -40,7 +48,7 @@ func _return_steps_lists():
 
 func _on_Next_button_up():
 	if current_step == len(steps_list)-1:
-		current_step = 0
+		print("END")
 	else:
 		current_step += 1
 	_screen_change()
@@ -48,93 +56,63 @@ func _on_Next_button_up():
 	
 func _on_Back_button_up():
 	if current_step == 0:
-		current_step = len(steps_list)-1
+		print("CANT GO BACK")
 	else:
 		current_step -= 1
 	_screen_change()
 
 
 func _screen_change():
-	if  current_step == 0:
-		_on_EthnicityStep_button_up()
-		print("ETHNICITY SCREEN")
-	elif current_step == 1:
-		_on_ProfessionStep_button_up()
-		print("PROFESSION SCREEN")
-	elif  current_step == 2:
-		_on_AttributesStep_button_up()
-		print("ATTRIBUTES SCREEN IN PROGRESS")
-	elif  current_step == 3:
-		_on_SpecialisationStep_button_up()
-		print("SPECJALIZATION SCREEN IN PROGRESS")
-	elif  current_step == 4:
-		_on_SkillsStep_button_up()
-		print("SKILLS SCREEN IN PROGRESS")
-	elif  current_step == 5:
-		_on_TricksStep_button_up()
-		print("TRICKS SCREEN IN PROGRESS")
-	elif  current_step == 6:
-		_on_TextureButton7_button_up()
-		print("7 SCREEN IN PROGRESS")
-	elif  current_step == 7:
-		_on_TextureButton8_button_up()
-		print("8 SCREEN IN PROGRESS")
-	elif  current_step == 8:
-		_on_TextureButton9_button_up()
-		print("9 SCREEN IN PROGRESS")
-	elif  current_step == 9:
-		_on_TextureButton10_button_up()
-		print("10 SCREEN IN PROGRESS")
-	
-
-func _on_ProfessionStep_toggled(_button_pressed):
-	profession_element.visible = true
-	ethnicity_element.visible = false
-	profession_element.mouse_filter = Control.MOUSE_FILTER_PASS
+	match current_step :
+		0:	_on_EthnicityStep_button_up()	
+		1:	_on_ProfessionStep_button_up()
+		2:	_on_AttributesStep_button_up() 
+		3:	_on_SpecialisationStep_button_up()
+		4:	_on_SkillsStep_button_up()
+		5:	_on_TricksStep_button_up()
+		6:	_on_TextureButton7_button_up()
+		7:	_on_TextureButton8_button_up()
+		8:	_on_TextureButton9_button_up()
+		9:	_on_TextureButton10_button_up()
 
 
 func _on_EthnicityStep_button_up():
-	_turn_off_screens()
+	character_sheet_panel.update_card()
+	profession_element.visible = false
 	ethnicity_element.visible = true
 	ethnicity_element.mouse_filter = Control.MOUSE_FILTER_PASS
 
 
 func _on_ProfessionStep_button_up():
-	_turn_off_screens()
+	character_sheet_panel.update_card()
+	ethnicity_element.visible = false
 	profession_element.visible = true
 	profession_element.mouse_filter = Control.MOUSE_FILTER_PASS
 
 
 func _on_AttributesStep_button_up():
-	_turn_off_screens()
-
+	print("ATTRIBUTES SCREEN IN PROGRESS")
 
 func _on_SpecialisationStep_button_up():
-	_turn_off_screens()
-
+	print("SPECJALIZATION SCREEN IN PROGRESS")
 
 func _on_SkillsStep_button_up():
-	_turn_off_screens()
-
+	print("SKILLS SCREEN IN PROGRESS")
 
 func _on_TricksStep_button_up():
-	_turn_off_screens()
-
+	print("TRICKS SCREEN IN PROGRESS")
 
 func _on_TextureButton7_button_up():
-	_turn_off_screens()
-
+	print("7 SCREEN IN PROGRESS")
 
 func _on_TextureButton8_button_up():
-	_turn_off_screens()
-
+	print("8 SCREEN IN PROGRESS")
 
 func _on_TextureButton9_button_up():
-	_turn_off_screens()
-
+	print("9 SCREEN IN PROGRESS")
 
 func _on_TextureButton10_button_up():
-	_turn_off_screens()
+	print("10 SCREEN IN PROGRESS")	
 
 
 func _turn_off_screens():
@@ -149,4 +127,4 @@ func _turn_off_screens():
 	nice_element.visible = false
 	ten_element.visible = false
 	
-
+	

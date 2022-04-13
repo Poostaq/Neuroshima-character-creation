@@ -128,11 +128,13 @@ func db_update_player_ethnicity(player_ethnicity, player_ethnicity_trait):
 	db.close_db()
 
 
-func db_update_player_attribute_bonus(attribute_name):
+func db_update_player_attribute_bonus(value):
 	read_from_SQL()
+	var attribute = db.select_rows("attributes", "attribute_enum = " + str(value), ["attribute_identifier"])
+	var uppper_attribute = (attribute[0]["attribute_identifier"].to_upper())
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var col = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
-	col[attribute_name] = 1
+	col[uppper_attribute] = 1
 	db.update_rows("player_info", condition, col)
 	db.close_db()
 

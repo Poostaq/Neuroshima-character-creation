@@ -75,7 +75,7 @@ func _ready():
 func update_card():
 	self._clear_bonus_attribute()
 	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
-	db.db_update_player_attribute_bonus(_set_bonus_attribute(self.character_stats_element.attribute_modifier))
+	db.db_update_player_attribute_bonus(self.character_stats_element.attribute_modifier)
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
@@ -152,28 +152,13 @@ func _clear_bonus_attribute():
 
 
 func _set_bonus_attribute(attribute=null):
-	if attribute == 0:
-		self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
-		var bonus_attribute = "AGILITY"
-		return bonus_attribute
-	elif attribute == 1:
-		self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
-		var bonus_attribute = "PERCEPTION"
-		return bonus_attribute
-	elif attribute == 2:
-		self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
-		var bonus_attribute = "CHARACTER"
-		return bonus_attribute
-	elif attribute == 3:
-		self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
-		var bonus_attribute = "WITS"
-		return bonus_attribute
-	elif attribute == 4:
-		self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
-		var bonus_attribute = "BODY"
-		return bonus_attribute
-	else:
-		print("DIDNT MATCH ANYTHING")
+	match attribute:
+		0:	self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
+		1:	self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
+		2:	self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
+		3:	self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
+		4:	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
+		_:	print("DIDNT MATCH ANYTHING")
 
 
 func _on_CloseButton_button_up():
