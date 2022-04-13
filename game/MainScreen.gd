@@ -88,43 +88,59 @@ func _on_ProfessionStep_button_up():
 	ethnicity_element.visible = false
 	profession_element.visible = true
 	profession_element.mouse_filter = Control.MOUSE_FILTER_PASS
+	"CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionStep"
 
 
 func _on_AttributesStep_button_up():
 	print("ATTRIBUTES SCREEN IN PROGRESS")
+	_turn_off_screens()
+
 
 func _on_SpecialisationStep_button_up():
 	print("SPECJALIZATION SCREEN IN PROGRESS")
+	_turn_off_screens()
+
 
 func _on_SkillsStep_button_up():
 	print("SKILLS SCREEN IN PROGRESS")
+	_turn_off_screens()
+
 
 func _on_TricksStep_button_up():
 	print("TRICKS SCREEN IN PROGRESS")
-
+	_turn_off_screens()
+	
+	
 func _on_TextureButton7_button_up():
 	print("7 SCREEN IN PROGRESS")
-
+	_turn_off_screens()
+	
+	
 func _on_TextureButton8_button_up():
 	print("8 SCREEN IN PROGRESS")
-
+	_turn_off_screens()
+	
+	
 func _on_TextureButton9_button_up():
 	print("9 SCREEN IN PROGRESS")
-
+	_turn_off_screens()
+	
+	
 func _on_TextureButton10_button_up():
 	print("10 SCREEN IN PROGRESS")	
-
+	_turn_off_screens()
+	
 
 func _turn_off_screens():
-	ethnicity_element.visible = false
-	profession_element.visible = false
-	attributes_element.visible = false
-	specjalization_element.visible = false
-	skills_element.visible = false
-	tricks_element.visible = false
-	seven_element.visible = false
-	eight_element.visible = false
-	nice_element.visible = false
-	ten_element.visible = false
+	steps[0].visible = false
+	steps[1].visible = false
+#	attributes_element.visible = false
+#	specjalization_element.visible = false
+#	skills_element.visible = false
+#	tricks_element.visible = false
+#	seven_element.visible = false
+#	eight_element.visible = false
+#	nice_element.visible = false
+#	ten_element.visible = false
 	
 	

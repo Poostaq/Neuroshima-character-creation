@@ -166,11 +166,9 @@ margin_right = 73.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Wybór Profesji"
-toggle_mode = true
 action_mode = 0
 keep_pressed_outside = true
 texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 __meta__ = {
@@ -342,13 +340,6 @@ margin_right = 964.0
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_profession_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_trait_chosen"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_Back_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SpecialisationStep" to="." method="_on_SpecialisationStep_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SkillsStep" to="." method="_on_SkillsStep_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TricksStep" to="." method="_on_TricksStep_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton7" to="." method="_on_TextureButton7_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton8" to="." method="_on_TextureButton8_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton9" to="." method="_on_TextureButton9_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TextureButton10" to="." method="_on_TextureButton10_button_up"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_button_up"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
