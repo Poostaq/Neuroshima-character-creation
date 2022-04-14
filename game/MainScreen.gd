@@ -68,7 +68,7 @@ func _on_CardButton_button_up():
 	character_sheet_panel.update_card()
 
 
-func _on_Next_button_up():
+func _next_step():
 	if current_step == len(buttons)-1:
 		print("The End")
 	else:
@@ -80,7 +80,7 @@ func _on_Next_button_up():
 	character_sheet_panel.update_card()
 	
 	
-func _on_Back_button_up():
+func _prevous_step():
 	if current_step == 0:
 		print("CANT GO BACK")
 	else:

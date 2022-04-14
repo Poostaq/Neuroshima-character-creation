@@ -341,8 +341,8 @@ margin_right = 964.0
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_clear_trait"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_profession_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_trait_chosen"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_on_Back_button_up"]
-[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_on_Next_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_prevous_step"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
 [editable path="CharacterSheet"]
