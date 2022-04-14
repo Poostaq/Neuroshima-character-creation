@@ -11,56 +11,30 @@ export (NodePath) onready var card_button = get_node(card_button) as TextureButt
 export (NodePath) onready var character_sheet_panel = get_node(character_sheet_panel) as Control
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
 export (NodePath) onready var profession_element = get_node(profession_element) as Control
-#export (NodePath) onready var attributes_element = get_node(attributes_element) as Control
-#export (NodePath) onready var specjalization_element = get_node(specjalization_element) as Control
-#export (NodePath) onready var skills_element = get_node(skills_element) as Control
-#export (NodePath) onready var tricks_element = get_node(tricks_element) as Control
-#export (NodePath) onready var seven_element = get_node(seven_element) as Control
-#export (NodePath) onready var eight_element = get_node(eight_element) as Control
-#export (NodePath) onready var nice_element = get_node(nice_element) as Control
-#export (NodePath) onready var ten_element = get_node(ten_element) as Control
 export (NodePath) onready var ethnicity_button = get_node(ethnicity_button) as TextureButton
 export (NodePath) onready var profession_button = get_node(profession_button) as TextureButton
 export (NodePath) onready var attributes_button = get_node(attributes_button) as TextureButton
 export (NodePath) onready var specjalization_button = get_node(specjalization_button) as TextureButton
 export (NodePath) onready var skills_button = get_node(skills_button) as TextureButton
 export (NodePath) onready var tricks_button = get_node(tricks_button) as TextureButton
-export (NodePath) onready var seven_button = get_node(seven_button) as TextureButton
-export (NodePath) onready var eight_button = get_node(eight_button) as TextureButton
-export (NodePath) onready var nice_button = get_node(nice_button) as TextureButton
-export (NodePath) onready var ten_button = get_node(ten_button) as TextureButton
+export (NodePath) onready var diseases_button = get_node(diseases_button) as TextureButton
+export (NodePath) onready var reputation_button = get_node(reputation_button) as TextureButton
+export (NodePath) onready var form_button = get_node(form_button) as TextureButton
+export (NodePath) onready var gear_button = get_node(gear_button) as TextureButton
+export (NodePath) onready var choose_profession_step = get_node(choose_profession_step) as Control
 
 
 var current_step = 0
 onready var steps = [
 					ethnicity_element
 					,profession_element
-#					,attributes_element
-#					,specjalization_element
-#					,skills_element
-#					,tricks_element
-#					,seven_element
-#					,eight_element
-#					,nice_element
-#					,ten_element
 ]
 
 onready var buttons = [
 					ethnicity_button
 					,profession_button
-					,attributes_button
-					,specjalization_button
-					,skills_button
-					,tricks_button
-					,seven_button
-					,eight_button
-					,nice_button
-					,ten_button
 ]
 
-
-func _ready():
-	back_step.disabled = true
 
 func _on_CardButton_button_up():
 	character_sheet_panel.visible = true
@@ -69,83 +43,41 @@ func _on_CardButton_button_up():
 
 
 func _next_step():
-	if current_step == len(buttons)-1:
+	if current_step == len(steps)-1:
 		print("The End")
 	else:
 		current_step += 1
 	back_step.disabled = false
+	match current_step :
+		0:	_EthnicityStep()	
+		1:	_ProfessionStep()
 	_turn_on_step_buttons()
-	_screen_change()
 	_turn_off_screens()	
 	character_sheet_panel.update_card()
 	
 	
-func _prevous_step():
+func _previous_step():
 	if current_step == 0:
 		print("CANT GO BACK")
 	else:
 		current_step -= 1
 	next_step.disabled = false
-	_screen_change()
+	match current_step :
+		0:	_EthnicityStep()	
+		1:	_ProfessionStep()
 	_turn_off_step_buttons()
 	_turn_off_screens()	
-		
-
-func _screen_change():
-	match current_step :
-		0:	_on_EthnicityStep_button_up()	
-		1:	_on_ProfessionStep_button_up()
-		2:	_on_AttributesStep_button_up() 
-		3:	_on_SpecialisationStep_button_up()
-		4:	_on_SkillsStep_button_up()
-		5:	_on_TricksStep_button_up()
-		6:	_on_TextureButton7_button_up()
-		7:	_on_TextureButton8_button_up()
-		8:	_on_TextureButton9_button_up()
-		9:	_on_TextureButton10_button_up()
 
 
-func _on_EthnicityStep_button_up():
+func _EthnicityStep():
 	_turn_off_screens()
 	back_step.disabled = true
-
-
-func _on_ProfessionStep_button_up():
-	pass
-
-	
-func _on_AttributesStep_button_up():
-	print("ATTRIBUTES SCREEN IN PROGRESS")
-
-
-func _on_SpecialisationStep_button_up():
-	print("SPECJALIZATION SCREEN IN PROGRESS")
 	
 
-func _on_SkillsStep_button_up():
-	print("SKILLS SCREEN IN PROGRESS")
-	
-
-func _on_TricksStep_button_up():
-	print("TRICKS SCREEN IN PROGRESS")
-		
-	
-func _on_TextureButton7_button_up():
-	print("7 SCREEN IN PROGRESS")
-	
-	
-func _on_TextureButton8_button_up():
-	print("8 SCREEN IN PROGRESS")
-		
-	
-func _on_TextureButton9_button_up():
-	print("9 SCREEN IN PROGRESS")
-		
-	
-func _on_TextureButton10_button_up():
-	print("10 SCREEN IN PROGRESS")	
+func _ProfessionStep():
 	next_step.disabled = true
-		
+	choose_profession_step._load_profession_screen()
+
 
 func _turn_off_screens():
 	for s in range(0, steps.size()):
@@ -157,13 +89,12 @@ func _turn_off_screens():
 
 
 func _turn_on_step_buttons():
-	for b in range(0, buttons.size()):
+	for b in range(0, steps.size()):
 		if b == current_step:
-				buttons[b].texture_normal = indicator_active
+			buttons[b].texture_normal = indicator_active
 
 
 func _turn_off_step_buttons():
-	for b in range(0, buttons.size()):
+	for b in range(0, steps.size()):
 		if b == current_step:
-				buttons[b+1].texture_normal = indicator_inactive
-
+			buttons[b+1].texture_normal = indicator_inactive

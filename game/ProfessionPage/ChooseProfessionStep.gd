@@ -18,19 +18,17 @@ export (NodePath) onready var picture = get_node(picture) as TextureRect
 export (NodePath) onready var profession_name = get_node(profession_name) as RichTextLabel
 export (NodePath) onready var profession_description = get_node(profession_description) as RichTextLabel
 export (NodePath) onready var trait_container =  get_node(trait_container) as HBoxContainer
-
+export (NodePath) onready var profession_quote = get_node(profession_quote) as RichTextLabel
 
 onready var trait_button_scene = preload("res://ProfessionPage/ProfessionTrait.tscn")
 onready var db = get_node("/root/DatabaseOperations")
 
 
-func _ready():
+func _load_profession_screen():
 	profession_list = db.read_profession_identifiers()
 	profession = db.read_data_for_profession(profession_list[current_profession]["profession_identifier"])
 	_load_profession(profession)
 	trait_group = load("res://ProfessionPage/Traits.tres")
-	yield(get_tree(), "idle_frame")
-	emit_signal("profession_chosen", profession)
 
 
 func _set_image(path):
@@ -44,7 +42,8 @@ func _set_image(path):
 func _load_profession(_profession):
 	_set_image(profession["splash_art_path"]) 
 	profession_name.bbcode_text = "[center]%s[/center]" % profession["profession_name"]
-	profession_description.bbcode_text = "%s" % profession["profession_description"] #.replace("\n", "\n")
+	profession_description.bbcode_text = "%s" % profession["profession_description"]
+	profession_quote.bbcode_text = "[center]%s[/center]" % profession["profession_quote"]
 	var profession_trait_list = db.read_traits_for_profession(profession_list[current_profession]["profession_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():

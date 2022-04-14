@@ -62,7 +62,7 @@ func read_profession_identifiers():
 
 func read_data_for_profession(profession_identifier):
 	var select = "SELECT profession_identifier, profession_name, " 
-	select += "splash_art_path, profession_description "
+	select += "splash_art_path, profession_quote, profession_description "
 	var from = "FROM professions "
 	var where = ("WHERE profession_identifier like '%s';" % profession_identifier)
 	var selected_array = _sql_select(select+from+where)

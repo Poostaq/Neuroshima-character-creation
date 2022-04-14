@@ -67,8 +67,6 @@ export (NodePath) onready var profession_trait_element = get_node(profession_tra
 onready var character_stats_element = $CharacterStats
 onready var db = get_node("/root/DatabaseOperations")
 
-func _ready():
-	pass
 
 func update_card():
 	self._clear_bonus_attribute()

@@ -9,9 +9,5 @@ export (NodePath) onready var trait_name_label = get_node(trait_name_label) as R
 export (NodePath) onready var trait_description_label = get_node(trait_description_label) as RichTextLabel
 
 
-func _ready():
-	pass # Replace with function body.
-
-
 func _on_ProfesionTraitButton_pressed():
 	emit_signal("profession_trait_button_pressed", self)

@@ -357,7 +357,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.31
 
-[node name="Specjalization" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
+[node name="Specialization" type="RichTextLabel" parent="PanelContainer/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer"]
 margin_left = 52.0
 margin_right = 187.0
 margin_bottom = 41.0
