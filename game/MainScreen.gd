@@ -1,8 +1,5 @@
 extends Control
 
-
-onready var next_step_inactive = preload("res://UI_Elements/Buttons/next step button inactive.png")
-onready var back_step_inactive = preload("res://UI_Elements/Buttons/previous step button inactive.png")
 onready var indicator_active = preload("res://UI_Elements/complete progress indicator.png")
 onready var indicator_inactive = preload("res://UI_Elements/empty progress indicator.png")
 
@@ -35,8 +32,6 @@ export (NodePath) onready var ten_button = get_node(ten_button) as TextureButton
 
 
 var current_step = 0
-var steps_list = []
-var step = {}
 onready var steps = [
 					ethnicity_element
 					,profession_element
@@ -65,7 +60,6 @@ onready var buttons = [
 
 
 func _ready():
-	steps_list = _return_steps_lists()
 	back_step.disabled = true
 
 func _on_CardButton_button_up():
@@ -74,14 +68,8 @@ func _on_CardButton_button_up():
 	character_sheet_panel.update_card()
 
 
-func _return_steps_lists():
-	for s in steps_container.get_children():
-		steps_list.append(s.get_name())
-	return (steps_list)
-
-
 func _on_Next_button_up():
-	if current_step == len(steps_list)-1:
+	if current_step == len(buttons)-1:
 		print("The End")
 	else:
 		current_step += 1
@@ -121,6 +109,7 @@ func _on_EthnicityStep_button_up():
 	_turn_off_screens()
 	back_step.disabled = true
 
+
 func _on_ProfessionStep_button_up():
 	pass
 
@@ -131,39 +120,32 @@ func _on_AttributesStep_button_up():
 
 func _on_SpecialisationStep_button_up():
 	print("SPECJALIZATION SCREEN IN PROGRESS")
-	_turn_off_screens()
-
+	
 
 func _on_SkillsStep_button_up():
 	print("SKILLS SCREEN IN PROGRESS")
-	_turn_off_screens()
-
+	
 
 func _on_TricksStep_button_up():
 	print("TRICKS SCREEN IN PROGRESS")
-	_turn_off_screens()
-	
+		
 	
 func _on_TextureButton7_button_up():
 	print("7 SCREEN IN PROGRESS")
-	_turn_off_screens()
 	
 	
 func _on_TextureButton8_button_up():
 	print("8 SCREEN IN PROGRESS")
-	_turn_off_screens()
-	
+		
 	
 func _on_TextureButton9_button_up():
 	print("9 SCREEN IN PROGRESS")
-	_turn_off_screens()
-	
+		
 	
 func _on_TextureButton10_button_up():
 	print("10 SCREEN IN PROGRESS")	
 	next_step.disabled = true
-	_turn_off_screens()
-	
+		
 
 func _turn_off_screens():
 	for s in range(0, steps.size()):
@@ -172,11 +154,13 @@ func _turn_off_screens():
 			steps[s].mouse_filter = Control.MOUSE_FILTER_PASS
 		else:
 			steps[s].visible = false
-			
+
+
 func _turn_on_step_buttons():
 	for b in range(0, buttons.size()):
 		if b == current_step:
 				buttons[b].texture_normal = indicator_active
+
 
 func _turn_off_step_buttons():
 	for b in range(0, buttons.size()):

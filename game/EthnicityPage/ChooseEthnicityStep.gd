@@ -33,7 +33,6 @@ func _ready():
 	db.insert_into_player_info()
 	_fill_attribute_selector_options()
 	_fill_attribute_bonus_label(ethnicity["attribute_name"])
-#	db.test(_get_bonus_attribute())
 	trait_group = load("res://EthnicityPage/Traits.tres")
 	var bonus_attribute = _get_bonus_attribute()
 	yield(get_tree(), "idle_frame")

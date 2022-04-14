@@ -68,8 +68,6 @@ onready var character_stats_element = $CharacterStats
 onready var db = get_node("/root/DatabaseOperations")
 
 func _ready():
-#	self.visible = false
-#	self.mouse_filter = Control.MOUSE_FILTER_STOP
 	pass
 
 func update_card():
