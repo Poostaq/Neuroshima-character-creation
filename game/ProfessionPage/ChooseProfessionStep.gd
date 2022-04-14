@@ -1,4 +1,5 @@
 extends Control
+ 
 
 signal profession_chosen(current_profession)
 signal trait_chosen(profession_trait_element)
