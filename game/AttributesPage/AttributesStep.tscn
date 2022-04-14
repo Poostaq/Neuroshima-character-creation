@@ -1,0 +1,237 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://AttributesPage/AttributesStep.gd" type="Script" id=1]
+[ext_resource path="res://THEME.tres" type="Theme" id=3]
+
+[node name="AttributesStep" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 15.0
+margin_right = -15.0
+margin_bottom = -15.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
+margin_right = 954.0
+margin_bottom = 562.0
+tab_align = 0
+
+[node name="Rolling For Attributes" type="Tabs" parent="MarginContainer/TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 34.0
+margin_right = -4.0
+margin_bottom = -4.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RollContainers" type="VBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer"]
+margin_right = 471.0
+margin_bottom = 524.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers"]
+margin_right = 471.0
+margin_bottom = 390.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Button" type="Button" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/CenterContainer"]
+margin_left = 179.0
+margin_top = 184.0
+margin_right = 291.0
+margin_bottom = 206.0
+text = "ROLL DICES"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers"]
+visible = false
+margin_top = 238.0
+margin_right = 486.0
+margin_bottom = 472.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+text = "TEXT"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers"]
+margin_top = 394.0
+margin_right = 471.0
+margin_bottom = 524.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Roll1" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+margin_right = 91.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Roll2" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+margin_left = 95.0
+margin_right = 186.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Roll3" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+margin_left = 190.0
+margin_right = 281.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Roll4" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+margin_left = 285.0
+margin_right = 376.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Roll5" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+margin_left = 380.0
+margin_right = 471.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AttributesContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer"]
+margin_left = 475.0
+margin_right = 946.0
+margin_bottom = 524.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AgilityContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer"]
+margin_right = 471.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AgilityLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/AgilityContainer"]
+margin_right = 350.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/AgilityContainer"]
+margin_left = 354.0
+margin_right = 471.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PerceptionContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer"]
+margin_top = 105.0
+margin_right = 471.0
+margin_bottom = 207.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PerceptionLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/PerceptionContainer"]
+margin_right = 350.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/PerceptionContainer"]
+margin_left = 354.0
+margin_right = 471.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharacterContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer"]
+margin_top = 211.0
+margin_right = 471.0
+margin_bottom = 312.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/CharacterContainer"]
+margin_right = 350.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/CharacterContainer"]
+margin_left = 354.0
+margin_right = 471.0
+margin_bottom = 101.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WitsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer"]
+margin_top = 316.0
+margin_right = 471.0
+margin_bottom = 418.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WitsLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/WitsContainer"]
+margin_right = 350.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/WitsContainer"]
+margin_left = 354.0
+margin_right = 471.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BodyContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer"]
+margin_top = 422.0
+margin_right = 471.0
+margin_bottom = 524.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BodyLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/BodyContainer"]
+margin_right = 350.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/BodyContainer"]
+margin_left = 354.0
+margin_right = 471.0
+margin_bottom = 102.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Setting Attributes Manually" type="Tabs" parent="MarginContainer/TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 34.0
+margin_right = -4.0
+margin_bottom = -4.0
