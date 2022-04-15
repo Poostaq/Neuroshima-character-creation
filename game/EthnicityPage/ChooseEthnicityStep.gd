@@ -49,6 +49,7 @@ func _set_image(path):
 
 
 func _load_ethnicity(_ethnicity):
+	DatabaseOperations.read_versatility_name_for_button()
 	_set_image(ethnicity["splash_art_path"]) 
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"].replace("\n", "\n")
@@ -87,7 +88,7 @@ func _on_Trait_Button_button_pressed(button):
 
 	
 func _get_bonus_attribute():
-	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="not_your_business":
+	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="none_of_your_fucking_business":
 		return attribute_selector.selected
 	else:
 		return ethnicity["attribute_enum"]
@@ -99,7 +100,7 @@ func _fill_trait_button_trait_list(trait_list_element: OptionButton):
 
 
 func _fill_attribute_bonus_label(_attributes): 
-	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="not_your_business":
+	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="none_of_your_fucking_business":
 		attribute_bonus_label.visible = false
 		attribute_selector.visible = true
 		return

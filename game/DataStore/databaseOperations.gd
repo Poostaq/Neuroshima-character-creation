@@ -93,6 +93,15 @@ func read_list_of_ethnicity_traits_without_versatilities():
 	return traits
 	
 
+func read_versatility_name_for_button():
+	var select = "SELECT trait_name "
+	var from = "FROM traits "
+	var where = "WHERE trait_identifier like 'versatility_squared';"
+	var selected_array = _sql_select(select+from+where)
+	db.close_db()
+	return selected_array
+
+
 func read_list_of_attributes_without_any():
 	read_from_SQL()
 	var table_name = "attributes"

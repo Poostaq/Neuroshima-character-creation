@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/desert_inhabitant.png-73de7abd9bf1b814c74561a3ec7ab1fa.stex"
+path="res://.import/none_of_your_fucking_business.png-f4709fb170a1b80c754ec4f11a0ed59c.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/splash_art/desert_inhabitant.png"
-dest_files=[ "res://.import/desert_inhabitant.png-73de7abd9bf1b814c74561a3ec7ab1fa.stex" ]
+source_file="res://EthnicityPage/splash_art/none_of_your_fucking_business.png"
+dest_files=[ "res://.import/none_of_your_fucking_business.png-f4709fb170a1b80c754ec4f11a0ed59c.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/not_your_business.png-84f9d6bd57bea9ff187d12cea5186f3f.stex"
+path="res://.import/tuareg.png-8d966308092f4ce88f4cd0f0df2fbf96.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/splash_art/not_your_business.png"
-dest_files=[ "res://.import/not_your_business.png-84f9d6bd57bea9ff187d12cea5186f3f.stex" ]
+source_file="res://EthnicityPage/splash_art/tuareg.png"
+dest_files=[ "res://.import/tuareg.png-8d966308092f4ce88f4cd0f0df2fbf96.stex" ]
 
 [params]
 
