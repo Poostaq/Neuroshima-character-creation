@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/desert_inhabitant.png-38c89d25e36c308dbd35b54a6f1333a2.stex"
+path="res://.import/gladiator.png-44a8bb5198e7e8d1fa48298344a89b1a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/ethnicity_splash_art/desert_inhabitant.png"
-dest_files=[ "res://.import/desert_inhabitant.png-38c89d25e36c308dbd35b54a6f1333a2.stex" ]
+source_file="res://ProfessionPage/splash_art/gladiator.png"
+dest_files=[ "res://.import/gladiator.png-44a8bb5198e7e8d1fa48298344a89b1a.stex" ]
 
 [params]
 

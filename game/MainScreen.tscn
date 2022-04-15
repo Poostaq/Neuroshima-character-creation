@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI_Elements/complete progress indicator.png" type="Texture" id=2]
@@ -17,8 +17,11 @@
 [ext_resource path="res://UI_Elements/Buttons/next step button inactive.png" type="Texture" id=15]
 [ext_resource path="res://UI_Elements/Buttons/previous step button inactive.png" type="Texture" id=16]
 [ext_resource path="res://UI_Elements/Buttons/previous step button ready.png" type="Texture" id=17]
+[ext_resource path="res://ProfessionPage/ChooseProfessionStep.tscn" type="PackedScene" id=20]
 
 [sub_resource type="ButtonGroup" id=2]
+
+[sub_resource type="ButtonGroup" id=3]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -27,9 +30,23 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 theme = ExtResource( 6 )
 script = ExtResource( 4 )
+back_step = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Back")
+next_step = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Next")
+steps_container = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer")
 card_button = NodePath("CardButton")
 character_sheet_panel = NodePath("CharacterSheet")
 ethnicity_element = NodePath("CenterContainer/VBoxContainer/StepContainer/EthnicityStep")
+profession_element = NodePath("CenterContainer/VBoxContainer/StepContainer/ProfessionStep")
+ethnicity_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/EthnicityIndicator")
+profession_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionIndicator")
+attributes_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesIndicator")
+specjalization_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SpecialisationIndicator")
+skills_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SkillsIndicator")
+tricks_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TricksIndicator")
+diseases_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/DiseasesIndicator")
+reputation_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ReputationIndicator")
+form_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/FormIndicator")
+gear_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/GearIndicator")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -89,6 +106,16 @@ margin_right = 964.0
 margin_bottom = 596.0
 trait_group = SubResource( 2 )
 
+[node name="ProfessionStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 20 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 964.0
+margin_bottom = 596.0
+trait_group = SubResource( 3 )
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 620.0
 margin_right = 984.0
@@ -116,7 +143,7 @@ texture_hover = ExtResource( 17 )
 expand = true
 stretch_mode = 5
 
-[node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
+[node name="StepsContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer/HBoxContainer"]
 margin_left = 288.0
 margin_right = 695.0
 margin_bottom = 20.0
@@ -126,7 +153,7 @@ size_flags_stretch_ratio = 11.62
 custom_constants/separation = 20
 alignment = 1
 
-[node name="EthnicityStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="EthnicityIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 13.0
 margin_right = 33.0
@@ -136,17 +163,21 @@ texture_normal = ExtResource( 2 )
 expand = true
 stretch_mode = 4
 
-[node name="ProfessionStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="ProfessionIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 53.0
 margin_right = 73.0
 margin_bottom = 20.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Wybór Profesji"
 texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
+__meta__ = {
+"_editor_description_": ""
+}
 
-[node name="AttributesStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="AttributesIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 93.0
 margin_right = 113.0
@@ -156,7 +187,7 @@ texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
 
-[node name="SpecialisationStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="SpecialisationIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 133.0
 margin_right = 153.0
@@ -166,7 +197,7 @@ texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
 
-[node name="SkillsStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="SkillsIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 173.0
 margin_right = 193.0
@@ -176,7 +207,7 @@ texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
 
-[node name="TricksStep" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="TricksIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 213.0
 margin_right = 233.0
@@ -186,7 +217,7 @@ texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
 
-[node name="TextureButton7" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="DiseasesIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 253.0
 margin_right = 273.0
@@ -196,7 +227,7 @@ texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
 
-[node name="TextureButton8" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="ReputationIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 293.0
 margin_right = 313.0
@@ -206,7 +237,7 @@ texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
 
-[node name="TextureButton9" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="FormIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 333.0
 margin_right = 353.0
@@ -216,7 +247,7 @@ texture_normal = ExtResource( 8 )
 expand = true
 stretch_mode = 4
 
-[node name="TextureButton10" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/HBoxContainer"]
+[node name="GearIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
 material = SubResource( 1 )
 margin_left = 373.0
 margin_right = 393.0
@@ -307,6 +338,11 @@ margin_right = 964.0
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_clear_trait"]
 [connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_ethnicity_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_trait_chosen"]
+[connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_clear_trait"]
+[connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_profession_chosen"]
+[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_trait_chosen"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_previous_step"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
 [editable path="CharacterSheet"]

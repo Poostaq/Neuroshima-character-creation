@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/not_your_business.png-88696b0a7fb6fb79a1de88912ab4b942.stex"
+path="res://.import/hunter.png-3c39c43a1c49a59e856b8c3e7e1f5c76.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/ethnicity_splash_art/not_your_business.png"
-dest_files=[ "res://.import/not_your_business.png-88696b0a7fb6fb79a1de88912ab4b942.stex" ]
+source_file="res://ProfessionPage/splash_art/hunter.png"
+dest_files=[ "res://.import/hunter.png-3c39c43a1c49a59e856b8c3e7e1f5c76.stex" ]
 
 [params]
 

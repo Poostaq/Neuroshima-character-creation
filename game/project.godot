@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-DatabaseOperations="*res://UI_Elements/databaseOperations.gd"
+DatabaseOperations="*res://DataStore/databaseOperations.gd"
 GlobalConstants="*res://GlobalConstants.gd"
 
 [display]
@@ -28,6 +28,10 @@ window/stretch/aspect="expand"
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
+
+[logging]
+
+file_logging/max_log_files=8
 
 [physics]
 

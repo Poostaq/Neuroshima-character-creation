@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/new_york.png-f9dc7dd7f40a09ae03690df4166d45c1.stex"
+path="res://.import/mercenary.png-597a7ad50bc6660b81f89ae48c7322c2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/ethnicity_splash_art/new_york.png"
-dest_files=[ "res://.import/new_york.png-f9dc7dd7f40a09ae03690df4166d45c1.stex" ]
+source_file="res://ProfessionPage/splash_art/mercenary.png"
+dest_files=[ "res://.import/mercenary.png-597a7ad50bc6660b81f89ae48c7322c2.stex" ]
 
 [params]
 

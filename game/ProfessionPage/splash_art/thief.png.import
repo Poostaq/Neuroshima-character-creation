@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/southern_hegemony.png-f6c4f187fd71d168f754ccc59133d922.stex"
+path="res://.import/thief.png-0cb5de253a5715af1534719d152f1f3b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://EthnicityPage/ethnicity_splash_art/southern_hegemony.png"
-dest_files=[ "res://.import/southern_hegemony.png-f6c4f187fd71d168f754ccc59133d922.stex" ]
+source_file="res://ProfessionPage/splash_art/thief.png"
+dest_files=[ "res://.import/thief.png-0cb5de253a5715af1534719d152f1f3b.stex" ]
 
 [params]
 
