@@ -167,7 +167,7 @@ func _on_EthnicityStep_ethnicity_chosen(ethnicity):
 	
 
 func _format_ethnicity_trait_name(trait_button):
-	if trait_button.trait_name == DatabaseOperations.read_versatility_name_for_button():
+	if trait_button.identifier == "versatility_squared":
 		return trait_button.trait_name +" : " + trait_button.secondary_trait
 	else:
 		return trait_button.trait_name

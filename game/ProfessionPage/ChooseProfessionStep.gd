@@ -29,6 +29,7 @@ func load_step():
 	profession = db.read_data_for_profession(profession_list[current_profession]["profession_identifier"])
 	_load_profession(profession)
 	trait_group = load("res://ProfessionPage/Traits.tres")
+	emit_signal("profession_chosen", profession)
 
 
 func _set_image(path):
@@ -61,7 +62,7 @@ func _create_trait_button(trait_template, trait_data):
 	trait_button.connect("profession_trait_button_pressed", 
 						self, 
 						"_on_Trait_Button_button_pressed")
-	trait_button.ID = trait_data["trait_identifier"]
+	trait_button.identifier = trait_data["trait_identifier"]
 	trait_button.trait_name = trait_data["trait_name"]
 	trait_button.description = trait_data["trait_description"]
 	trait_button.get_node(".").set_button_group(trait_group)

@@ -52,7 +52,6 @@ func _set_image(path):
 
 
 func _load_ethnicity(_ethnicity):
-	DatabaseOperations.read_versatility_name_for_button()
 	_set_image(ethnicity["splash_art_path"]) 
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"].replace("\n", "\n")
@@ -79,7 +78,7 @@ func _create_trait_button(trait_template, trait_data):
 	trait_button.connect("trait_button_pressed", 
 						self, 
 						"_on_Trait_Button_button_pressed")
-	trait_button.ID = trait_data["trait_identifier"]
+	trait_button.identifier = trait_data["trait_identifier"]
 	trait_button.trait_name = trait_data["trait_name"]
 	trait_button.description = trait_data["trait_description"]
 	trait_button.get_node(".").set_button_group(trait_group)
