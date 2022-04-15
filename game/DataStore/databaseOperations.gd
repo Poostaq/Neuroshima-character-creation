@@ -99,7 +99,7 @@ func read_versatility_name_for_button():
 	var where = "WHERE trait_identifier like 'versatility_squared';"
 	var selected_array = _sql_select(select+from+where)
 	db.close_db()
-	return selected_array
+	return selected_array[0]["trait_name"]
 
 
 func read_list_of_attributes_without_any():
