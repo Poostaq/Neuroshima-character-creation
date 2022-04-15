@@ -13,16 +13,16 @@ export (NodePath) onready var character_sheet_panel = get_node(character_sheet_p
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
 export (NodePath) onready var profession_element = get_node(profession_element) as Control
 
-export (NodePath) onready var ethnicity_button = get_node(ethnicity_button) as TextureButton
-export (NodePath) onready var profession_button = get_node(profession_button) as TextureButton
-export (NodePath) onready var attributes_button = get_node(attributes_button) as TextureButton
-export (NodePath) onready var specjalization_button = get_node(specjalization_button) as TextureButton
-export (NodePath) onready var skills_button = get_node(skills_button) as TextureButton
-export (NodePath) onready var tricks_button = get_node(tricks_button) as TextureButton
-export (NodePath) onready var diseases_button = get_node(diseases_button) as TextureButton
-export (NodePath) onready var reputation_button = get_node(reputation_button) as TextureButton
-export (NodePath) onready var form_button = get_node(form_button) as TextureButton
-export (NodePath) onready var gear_button = get_node(gear_button) as TextureButton
+export (NodePath) onready var ethnicity_indicator = get_node(ethnicity_indicator) as TextureButton
+export (NodePath) onready var profession_indicator = get_node(profession_indicator) as TextureButton
+export (NodePath) onready var attributes_indicator = get_node(attributes_indicator) as TextureButton
+export (NodePath) onready var specjalization_indicator = get_node(specjalization_indicator) as TextureButton
+export (NodePath) onready var skills_indicator = get_node(skills_indicator) as TextureButton
+export (NodePath) onready var tricks_indicator = get_node(tricks_indicator) as TextureButton
+export (NodePath) onready var diseases_indicator = get_node(diseases_indicator) as TextureButton
+export (NodePath) onready var reputation_indicator = get_node(reputation_indicator) as TextureButton
+export (NodePath) onready var form_indicator = get_node(form_indicator) as TextureButton
+export (NodePath) onready var gear_indicator = get_node(gear_indicator) as TextureButton
 
 
 var current_step = 0
@@ -31,21 +31,23 @@ onready var steps = [
 					profession_element,
 ]
 
-onready var buttons = [
-					ethnicity_button,
-					profession_button,
-					attributes_button,
-					specjalization_button,
-					skills_button,
-					tricks_button,
-					diseases_button,
-					reputation_button,
-					form_button,
-					gear_button,
+onready var indicators = [
+					ethnicity_indicator,
+					profession_indicator,
+					attributes_indicator,
+					specjalization_indicator,
+					skills_indicator,
+					tricks_indicator,
+					diseases_indicator,
+					reputation_indicator,
+					form_indicator,
+					gear_indicator,
 ]
+
 
 func _ready():
 	back_step.disabled = true
+
 
 func _on_CardButton_button_up():
 	character_sheet_panel.visible = true
@@ -62,8 +64,8 @@ func _next_step():
 		current_step += 1
 	back_step.disabled = false
 	steps[current_step].load_step()
-	_turn_on_step_buttons()
-	_turn_off_screens()	
+	_turn_on_step_indicators()
+	_turn_off_screens()
 	character_sheet_panel.update_card()
 	
 	
@@ -76,9 +78,9 @@ func _previous_step():
 		current_step -= 1
 	next_step.disabled = false
 	steps[current_step].load_step()
-	_turn_off_step_buttons()
-	_turn_off_screens()	
-
+	_turn_off_step_indicators()
+	_turn_off_screens()
+	
 
 func _EthnicityStep():
 	_turn_off_screens()
@@ -97,13 +99,13 @@ func _turn_off_screens():
 			steps[s].visible = false
 
 
-func _turn_on_step_buttons():
-	for b in range(0, steps.size()):
-		if b == current_step:
-			buttons[b].texture_normal = indicator_active
+func _turn_on_step_indicators():
+	for i in range(0, steps.size()):
+		if i == current_step:
+			indicators[i].texture_normal = indicator_active
 
 
-func _turn_off_step_buttons():
-	for b in range(0, steps.size()):
-		if b == current_step:
-			buttons[b+1].texture_normal = indicator_inactive
+func _turn_off_step_indicators():
+	for i in range(0, steps.size()):
+		if i == current_step:
+			indicators[i+1].texture_normal = indicator_inactive
