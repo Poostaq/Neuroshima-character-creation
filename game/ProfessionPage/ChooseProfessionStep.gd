@@ -24,7 +24,7 @@ onready var trait_button_scene = preload("res://ProfessionPage/ProfessionTrait.t
 onready var db = get_node("/root/DatabaseOperations")
 
 
-func _load_profession_screen():
+func load_step():
 	profession_list = db.read_profession_identifiers()
 	profession = db.read_data_for_profession(profession_list[current_profession]["profession_identifier"])
 	_load_profession(profession)

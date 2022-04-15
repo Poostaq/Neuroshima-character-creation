@@ -27,6 +27,9 @@ onready var db = get_node("/root/DatabaseOperations")
 
 
 func _ready():
+	load_step()
+	
+func load_step():
 	ethnicity_list = db.read_ethnicity_identifiers()
 	ethnicity = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	_load_ethnicity(ethnicity)

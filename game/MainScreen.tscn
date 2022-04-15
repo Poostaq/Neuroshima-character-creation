@@ -47,7 +47,6 @@ diseases_button = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsCon
 reputation_button = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ReputationStep")
 form_button = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/FormStep")
 gear_button = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/GearStep")
-choose_profession_step = NodePath("CenterContainer/VBoxContainer/StepContainer/ProfessionStep")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
