@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://AttributesPage/AttributesStep.gd" type="Script" id=1]
+[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+font_data = ExtResource( 2 )
 
 [node name="AttributesStep" type="Control"]
 anchor_right = 1.0
@@ -15,6 +24,8 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+roll_button = NodePath("MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/CenterContainer/RollButton")
+result_label = NodePath("MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/Result")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -58,58 +69,59 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Button" type="Button" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/CenterContainer"]
+[node name="RollButton" type="Button" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/CenterContainer"]
 margin_left = 179.0
 margin_top = 184.0
 margin_right = 291.0
 margin_bottom = 206.0
 text = "ROLL DICES"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers"]
+[node name="Result" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers"]
 visible = false
-margin_top = 238.0
-margin_right = 486.0
-margin_bottom = 472.0
+margin_top = 225.0
+margin_right = 471.0
+margin_bottom = 446.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
-text = "TEXT"
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers"]
+[node name="RollsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers"]
 margin_top = 394.0
 margin_right = 471.0
 margin_bottom = 524.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Roll1" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+[node name="Roll1" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/RollsContainer"]
 margin_right = 91.0
 margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Roll2" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+[node name="Roll2" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 95.0
 margin_right = 186.0
 margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Roll3" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+[node name="Roll3" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 190.0
 margin_right = 281.0
 margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Roll4" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+[node name="Roll4" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 285.0
 margin_right = 376.0
 margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Roll5" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/HBoxContainer"]
+[node name="Roll5" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 380.0
 margin_right = 471.0
 margin_bottom = 130.0
@@ -135,8 +147,14 @@ margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]ZRĘCZNOŚĆ"
+text = "
+ZRĘCZNOŚĆ"
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/AgilityContainer"]
+[node name="AgilityValue" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/AgilityContainer"]
 margin_left = 354.0
 margin_right = 471.0
 margin_bottom = 101.0
@@ -156,8 +174,16 @@ margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]PERCEPCJA
+"
+text = "
+PERCEPCJA
+"
 
-[node name="RichTextLabel4" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/PerceptionContainer"]
+[node name="PerceptionValue" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/PerceptionContainer"]
 margin_left = 354.0
 margin_right = 471.0
 margin_bottom = 102.0
@@ -177,8 +203,14 @@ margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]CHARAKTER"
+text = "
+CHARAKTER"
 
-[node name="RichTextLabel6" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/CharacterContainer"]
+[node name="CharacterValue" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/CharacterContainer"]
 margin_left = 354.0
 margin_right = 471.0
 margin_bottom = 101.0
@@ -198,8 +230,14 @@ margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]SPRYT"
+text = "
+SPRYT"
 
-[node name="RichTextLabel8" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/WitsContainer"]
+[node name="WitsValue" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/WitsContainer"]
 margin_left = 354.0
 margin_right = 471.0
 margin_bottom = 102.0
@@ -219,8 +257,14 @@ margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "
+[center]BUDOWA"
+text = "
+BUDOWA"
 
-[node name="RichTextLabel10" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/BodyContainer"]
+[node name="BodyValue" type="RichTextLabel" parent="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/AttributesContainer/BodyContainer"]
 margin_left = 354.0
 margin_right = 471.0
 margin_bottom = 102.0
@@ -235,3 +279,5 @@ margin_left = 4.0
 margin_top = 34.0
 margin_right = -4.0
 margin_bottom = -4.0
+
+[connection signal="button_up" from="MarginContainer/TabContainer/Rolling For Attributes/HBoxContainer/RollContainers/CenterContainer/RollButton" to="." method="_on_RollButton_button_up"]
