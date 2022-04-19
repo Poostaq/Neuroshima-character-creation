@@ -109,3 +109,5 @@ func _turn_off_step_indicators():
 	for i in range(0, steps.size()):
 		if i == current_step:
 			indicators[i+1].texture_normal = indicator_inactive
+
+

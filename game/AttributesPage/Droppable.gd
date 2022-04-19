@@ -1,6 +1,7 @@
 extends RichTextLabel
 
 onready var draggable_value = preload("res://AttributesPage/DraggableValue.tscn")
+signal dropped_data
 
 func get_drag_data(_pos):
 	
@@ -14,8 +15,14 @@ func get_drag_data(_pos):
 
 	return data
 
+
 func can_drop_data(_position, _data):
 	return true
-	
-func drop_data(_position, _data):
-	pass
+
+
+func drop_data(_position, data):
+	if self.bbcode_text == "":
+		self.bbcode_text = data["bbcode"]
+		print("ASSIGNED")
+		emit_signal("dropped_data")
+		data["original_object"].bbcode_text = ""

@@ -1,10 +1,12 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
 [ext_resource path="res://AttributesPage/Draggable.gd" type="Script" id=4]
 [ext_resource path="res://UI_Elements/Buttons/skil selected.png" type="Texture" id=5]
+[ext_resource path="res://AttributesPage/Droppable.gd" type="Script" id=6]
+[ext_resource path="res://FONT.tres" type="DynamicFont" id=7]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -44,6 +46,11 @@ roll2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxConta
 roll3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/Roll3")
 roll4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/Roll4")
 roll5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/Roll5")
+agility_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue")
+perception_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue")
+character_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue")
+wits_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue")
+body_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -82,19 +89,20 @@ size_flags_vertical = 3
 
 [node name="RollButtonContainer" type="CenterContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
 margin_right = 471.0
-margin_bottom = 221.0
+margin_bottom = 390.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
 [node name="RollButton" type="Button" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollButtonContainer"]
 margin_left = 171.0
-margin_top = 99.0
+margin_top = 184.0
 margin_right = 300.0
-margin_bottom = 121.0
+margin_bottom = 206.0
 text = "RZUĆ KOŚĆMI"
 
 [node name="ResultContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
+visible = false
 margin_top = 225.0
 margin_right = 471.0
 margin_bottom = 446.0
@@ -126,7 +134,7 @@ fit_content_height = true
 script = ExtResource( 4 )
 
 [node name="RollsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
-margin_top = 450.0
+margin_top = 394.0
 margin_right = 471.0
 margin_bottom = 524.0
 size_flags_horizontal = 3
@@ -134,7 +142,7 @@ size_flags_vertical = 3
 
 [node name="Roll1" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_right = 91.0
-margin_bottom = 74.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
@@ -143,7 +151,7 @@ bbcode_enabled = true
 [node name="Roll2" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 95.0
 margin_right = 186.0
-margin_bottom = 74.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
@@ -152,7 +160,7 @@ bbcode_enabled = true
 [node name="Roll3" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 190.0
 margin_right = 281.0
-margin_bottom = 74.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
@@ -161,7 +169,7 @@ bbcode_enabled = true
 [node name="Roll4" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 285.0
 margin_right = 376.0
-margin_bottom = 74.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
@@ -170,7 +178,7 @@ bbcode_enabled = true
 [node name="Roll5" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 380.0
 margin_right = 471.0
-margin_bottom = 74.0
+margin_bottom = 130.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
@@ -211,12 +219,21 @@ size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
 
-[node name="AgilityValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect"]
-margin_left = -120.0
-margin_right = -4.0
-margin_bottom = 101.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
+[node name="AgilityValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect" groups=["Droppable"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -27.5
+margin_right = 58.5
+margin_bottom = 24.5
+size_flags_horizontal = 5
+size_flags_vertical = 4
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+fit_content_height = true
+script = ExtResource( 6 )
 
 [node name="PerceptionContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
 margin_top = 105.0
@@ -247,12 +264,20 @@ size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
 
-[node name="PerceptionValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2"]
-margin_left = 97.0
-margin_right = 190.0
-margin_bottom = 102.0
+[node name="PerceptionValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2" groups=["Droppable"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -28.0
+margin_right = 58.5
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+script = ExtResource( 6 )
 
 [node name="CharacterContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
 margin_top = 211.0
@@ -283,12 +308,20 @@ size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
 
-[node name="CharacterValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2"]
-margin_left = 97.0
-margin_right = 190.0
-margin_bottom = 101.0
+[node name="CharacterValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2" groups=["Droppable"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -25.5
+margin_right = 58.5
+margin_bottom = 22.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+script = ExtResource( 6 )
 
 [node name="WitsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
 margin_top = 316.0
@@ -319,12 +352,20 @@ size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
 
-[node name="WitsValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3"]
-margin_left = 97.0
-margin_right = 190.0
-margin_bottom = 102.0
+[node name="WitsValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3" groups=["Droppable"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -27.0
+margin_right = 58.5
+margin_bottom = 27.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+script = ExtResource( 6 )
 
 [node name="BodyContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
 margin_top = 422.0
@@ -355,12 +396,20 @@ size_flags_vertical = 3
 texture = ExtResource( 5 )
 expand = true
 
-[node name="BodyValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4"]
-margin_left = 97.0
-margin_right = 190.0
-margin_bottom = 102.0
+[node name="BodyValue" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4" groups=["Droppable"]]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -58.5
+margin_top = -32.0
+margin_right = 58.5
+margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+script = ExtResource( 6 )
 
 [node name="USTAWIANIE ATRYBUTÓW RĘCZNIE" type="Tabs" parent="MarginContainer/TabContainer"]
 visible = false
