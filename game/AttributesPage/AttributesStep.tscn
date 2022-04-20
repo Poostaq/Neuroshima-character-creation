@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://UI_Elements/Buttons/skil selected.png" type="Texture" id=5]
 [ext_resource path="res://AttributesPage/Droppable.gd" type="Script" id=6]
 [ext_resource path="res://FONT.tres" type="DynamicFont" id=7]
+[ext_resource path="res://UI_Elements/Buttons/skill ready.png" type="Texture" id=8]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -36,16 +37,21 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
-roll_button = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollButtonContainer/RollButton")
-math_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/ResultContainer/Math")
-result_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/ResultContainer/DraggableResult")
-result_container = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/ResultContainer")
-roll_button_container = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollButtonContainer")
-roll1_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/Roll1")
-roll2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/Roll2")
-roll3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/Roll3")
-roll4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/Roll4")
-roll5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/Roll5")
+roll_button = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton")
+math_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer/Math")
+result_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer/DraggableResult")
+result_container = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer")
+roll_button_container = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer")
+math1_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult1")
+math2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult2")
+math3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult3")
+math4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult4")
+math5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult5")
+roll1_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect/Roll1")
+roll2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2/Roll2")
+roll3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3/Roll3")
+roll4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4/Roll4")
+roll5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5/Roll5")
 agility_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue")
 perception_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue")
 character_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue")
@@ -82,38 +88,41 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RollContainers" type="VBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer"]
-margin_right = 471.0
+margin_right = 469.0
 margin_bottom = 524.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 10.0
 
-[node name="RollButtonContainer" type="CenterContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
-margin_right = 471.0
-margin_bottom = 390.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
+margin_right = 469.0
+margin_bottom = 22.0
 
-[node name="RollButton" type="Button" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollButtonContainer"]
-margin_left = 171.0
-margin_top = 184.0
-margin_right = 300.0
-margin_bottom = 206.0
+[node name="RollButton" type="Button" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer"]
+margin_right = 469.0
+margin_bottom = 22.0
 text = "RZUĆ KOŚĆMI"
+align = 0
 
-[node name="ResultContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
-visible = false
-margin_top = 225.0
-margin_right = 471.0
-margin_bottom = 446.0
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
+margin_top = 26.0
+margin_right = 469.0
+margin_bottom = 355.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+
+[node name="ResultContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
+margin_right = 469.0
+margin_bottom = 104.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="Math" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/ResultContainer"]
-margin_top = 95.0
-margin_right = 350.0
-margin_bottom = 126.0
+[node name="Math" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer"]
+margin_top = 36.0
+margin_right = 348.0
+margin_bottom = 67.0
 size_flags_horizontal = 7
 size_flags_vertical = 4
 size_flags_stretch_ratio = 3.0
@@ -121,11 +130,11 @@ custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 fit_content_height = true
 
-[node name="DraggableResult" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/ResultContainer"]
-margin_left = 354.0
-margin_top = 86.0
-margin_right = 471.0
-margin_bottom = 134.0
+[node name="DraggableResult" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer"]
+margin_left = 352.0
+margin_top = 28.0
+margin_right = 469.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 4
 custom_fonts/normal_font = SubResource( 4 )
@@ -133,73 +142,228 @@ bbcode_enabled = true
 fit_content_height = true
 script = ExtResource( 4 )
 
+[node name="MathResult1" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
+margin_top = 108.0
+margin_right = 469.0
+margin_bottom = 149.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+fit_content_height = true
+
+[node name="MathResult2" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
+margin_top = 153.0
+margin_right = 469.0
+margin_bottom = 194.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+fit_content_height = true
+
+[node name="MathResult3" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
+margin_top = 198.0
+margin_right = 469.0
+margin_bottom = 239.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+fit_content_height = true
+
+[node name="MathResult4" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
+margin_top = 243.0
+margin_right = 469.0
+margin_bottom = 284.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+fit_content_height = true
+
+[node name="MathResult5" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
+margin_top = 288.0
+margin_right = 469.0
+margin_bottom = 329.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+fit_content_height = true
+
 [node name="RollsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
-margin_top = 394.0
-margin_right = 471.0
+margin_top = 359.0
+margin_right = 469.0
+margin_bottom = 524.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
+margin_top = 74.0
+margin_right = 103.0
+margin_bottom = 91.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 1.5
+bbcode_enabled = true
+bbcode_text = "REZULTATY:"
+text = "REZULTATY:"
+fit_content_height = true
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
+margin_left = 107.0
+margin_top = 52.0
+margin_right = 176.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Roll1" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = -9.0
+margin_bottom = -7.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+fit_content_height = true
+script = ExtResource( 4 )
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
+margin_left = 180.0
+margin_top = 52.0
+margin_right = 249.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Roll2" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = -9.0
+margin_bottom = -7.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+fit_content_height = true
+script = ExtResource( 4 )
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
+margin_left = 253.0
+margin_top = 52.0
+margin_right = 322.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Roll3" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -7.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+fit_content_height = true
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
+margin_left = 326.0
+margin_top = 52.0
+margin_right = 395.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Roll4" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = -9.0
+margin_bottom = -7.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+fit_content_height = true
+script = ExtResource( 4 )
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
+margin_left = 399.0
+margin_top = 52.0
+margin_right = 469.0
+margin_bottom = 112.0
+rect_min_size = Vector2( 0, 60 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Roll5" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -7.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+fit_content_height = true
+script = ExtResource( 4 )
+
+[node name="Control" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer"]
+margin_left = 473.0
+margin_right = 519.0
 margin_bottom = 524.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Roll1" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_right = 91.0
-margin_bottom = 130.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-
-[node name="Roll2" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 95.0
-margin_right = 186.0
-margin_bottom = 130.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-
-[node name="Roll3" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 190.0
-margin_right = 281.0
-margin_bottom = 130.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-
-[node name="Roll4" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 285.0
-margin_right = 376.0
-margin_bottom = 130.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-
-[node name="Roll5" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 380.0
-margin_right = 471.0
-margin_bottom = 130.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-
 [node name="AttributesContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer"]
-margin_left = 475.0
+margin_left = 523.0
 margin_right = 946.0
 margin_bottom = 524.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
 
 [node name="AgilityContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
-margin_right = 471.0
+margin_right = 423.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AgilityLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer"]
 margin_top = 35.0
-margin_right = 350.0
+margin_right = 314.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -211,8 +375,8 @@ text = "ZRĘCZNOŚĆ"
 fit_content_height = true
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_left = 354.0
-margin_right = 471.0
+margin_left = 318.0
+margin_right = 423.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -225,9 +389,9 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -58.5
-margin_top = -27.5
-margin_right = 58.5
-margin_bottom = 24.5
+margin_top = -30.5
+margin_right = 56.5
+margin_bottom = 29.5
 size_flags_horizontal = 5
 size_flags_vertical = 4
 custom_fonts/normal_font = ExtResource( 7 )
@@ -237,14 +401,14 @@ script = ExtResource( 6 )
 
 [node name="PerceptionContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
 margin_top = 105.0
-margin_right = 471.0
+margin_right = 423.0
 margin_bottom = 207.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PerceptionLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer"]
 margin_top = 35.0
-margin_right = 350.0
+margin_right = 314.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -256,8 +420,8 @@ text = "PERCEPCJA"
 fit_content_height = true
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_left = 354.0
-margin_right = 471.0
+margin_left = 318.0
+margin_right = 423.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -271,8 +435,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -58.5
 margin_top = -28.0
-margin_right = 58.5
-margin_bottom = 27.0
+margin_right = 56.5
+margin_bottom = 32.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 7 )
@@ -281,14 +445,14 @@ script = ExtResource( 6 )
 
 [node name="CharacterContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
 margin_top = 211.0
-margin_right = 471.0
+margin_right = 423.0
 margin_bottom = 312.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer"]
 margin_top = 35.0
-margin_right = 350.0
+margin_right = 314.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -300,8 +464,8 @@ text = "CHARAKTER"
 fit_content_height = true
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_left = 354.0
-margin_right = 471.0
+margin_left = 318.0
+margin_right = 423.0
 margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -315,8 +479,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -58.5
 margin_top = -25.5
-margin_right = 58.5
-margin_bottom = 22.5
+margin_right = 56.5
+margin_bottom = 34.5
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 7 )
@@ -325,14 +489,14 @@ script = ExtResource( 6 )
 
 [node name="WitsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
 margin_top = 316.0
-margin_right = 471.0
+margin_right = 423.0
 margin_bottom = 418.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="WitsLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer"]
 margin_top = 35.0
-margin_right = 350.0
+margin_right = 314.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -344,8 +508,8 @@ text = "SPRYT"
 fit_content_height = true
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_left = 354.0
-margin_right = 471.0
+margin_left = 318.0
+margin_right = 423.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -359,8 +523,8 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -58.5
 margin_top = -27.0
-margin_right = 58.5
-margin_bottom = 27.0
+margin_right = 56.5
+margin_bottom = 33.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = ExtResource( 7 )
@@ -369,14 +533,14 @@ script = ExtResource( 6 )
 
 [node name="BodyContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
 margin_top = 422.0
-margin_right = 471.0
+margin_right = 423.0
 margin_bottom = 524.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="BodyLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer"]
 margin_top = 35.0
-margin_right = 350.0
+margin_right = 314.0
 margin_bottom = 66.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -388,8 +552,8 @@ text = "BUDOWA"
 fit_content_height = true
 
 [node name="TextureRect4" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_left = 354.0
-margin_right = 471.0
+margin_left = 318.0
+margin_right = 423.0
 margin_bottom = 102.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -403,7 +567,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 margin_left = -58.5
 margin_top = -32.0
-margin_right = 58.5
+margin_right = 56.5
 margin_bottom = 28.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -420,4 +584,4 @@ margin_top = 34.0
 margin_right = -4.0
 margin_bottom = -4.0
 
-[connection signal="button_up" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollButtonContainer/RollButton" to="." method="_on_RollButton_button_up"]
+[connection signal="button_up" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton" to="." method="_on_RollButton_button_up"]

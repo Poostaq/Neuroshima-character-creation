@@ -38,6 +38,7 @@ card_button = NodePath("CardButton")
 character_sheet_panel = NodePath("CharacterSheet")
 ethnicity_element = NodePath("CenterContainer/VBoxContainer/StepContainer/EthnicityStep")
 profession_element = NodePath("CenterContainer/VBoxContainer/StepContainer/ProfessionStep")
+attributes_element = NodePath("CenterContainer/VBoxContainer/StepContainer/AttributesStep")
 ethnicity_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/EthnicityIndicator")
 profession_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionIndicator")
 attributes_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesIndicator")
@@ -99,7 +100,6 @@ texture = ExtResource( 12 )
 expand = true
 
 [node name="EthnicityStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 1 )]
-visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
@@ -119,6 +119,7 @@ margin_bottom = 596.0
 trait_group = SubResource( 3 )
 
 [node name="AttributesStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 18 )]
+visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0

@@ -12,6 +12,7 @@ export (NodePath) onready var character_sheet_panel = get_node(character_sheet_p
 
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
 export (NodePath) onready var profession_element = get_node(profession_element) as Control
+export (NodePath) onready var attributes_element = get_node(attributes_element) as Control
 
 export (NodePath) onready var ethnicity_indicator = get_node(ethnicity_indicator) as TextureButton
 export (NodePath) onready var profession_indicator = get_node(profession_indicator) as TextureButton
@@ -29,6 +30,7 @@ var current_step = 0
 onready var steps = [
 					ethnicity_element,
 					profession_element,
+					attributes_element,
 ]
 
 onready var indicators = [
