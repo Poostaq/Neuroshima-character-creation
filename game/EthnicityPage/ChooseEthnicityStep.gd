@@ -27,7 +27,6 @@ onready var db = get_node("/root/DatabaseOperations")
 
 
 func _ready():
-	db.insert_into_player_info()
 	load_step()
 	
 	

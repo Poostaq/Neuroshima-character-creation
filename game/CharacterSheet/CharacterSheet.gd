@@ -71,20 +71,17 @@ onready var db = get_node("/root/DatabaseOperations")
 func update_card():
 	self._clear_bonus_attribute()
 	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
-	db.db_update_player_attribute_bonus(self.character_stats_element.attribute_modifier)
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
-			
+
 
 func _update_basic_info_values():
 	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
 	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
-	db.db_update_player_ethnicity(character_stats_element.ethnicity,character_stats_element.ethnicity_trait)
 	self.profession_element.bbcode_text = self.character_stats_element.profession
 	self.profession_trait_element.bbcode_text = self.character_stats_element.profession_trait
-	db.db_update_player_profession(character_stats_element.profession,character_stats_element.profession_trait)	
-	
+
 
 func _update_attribute_values(attributeEnum):
 	var value
