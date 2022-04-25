@@ -2,15 +2,23 @@ extends Node
 
 const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
 var db
+var db_local
 var sysdate = _datetime_to_string(OS.get_datetime())
 
 var db_name := "res://datastore/neuroshima"
+var db_local_name := "res://datastore/local_player"
 var packaged_db_name := "res://data_to_be_packaged"
 var json_name := "res://datastore/neuroshima_backup"
 
 func read_from_SQL():
 	db = SQLite.new()
 	db.path = db_name
+	db.open_db()
+
+
+func read_from_local_db():
+	db = SQLite.new()
+	db.path = db_local_name
 	db.open_db()
 
 
@@ -106,14 +114,14 @@ func read_list_of_attributes_without_any():
 
 
 func insert_into_player_info():
-	read_from_SQL()
+	read_from_local_db()
 	var columns = {"player_created_date" : sysdate}
 	db.insert_rows("player_info", [columns])
 	db.close_db()
 	
 	
 func update_player_info(value):
-	read_from_SQL()
+	read_from_local_db()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var columns = {"player_name" :value, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
@@ -121,7 +129,7 @@ func update_player_info(value):
 
 
 func db_update_player_ethnicity(player_ethnicity, player_ethnicity_trait):
-	read_from_SQL()
+	read_from_local_db()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var col = {"player_updated_date" :sysdate, "player_ethnicity":player_ethnicity,"player_ethnicity_trait":player_ethnicity_trait} 
 	db.update_rows("player_info", condition, col)
@@ -135,12 +143,14 @@ func db_update_player_attribute_bonus(value):
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var col = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
 	col[uppper_attribute] = 1
+	db.close_db()
+	read_from_local_db()
 	db.update_rows("player_info", condition, col)
 	db.close_db()
 
 
 func db_update_player_profession(player_profession, player_profession_trait):
-	read_from_SQL()
+	read_from_local_db()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var col = {"player_updated_date" :sysdate, "player_profession":player_profession,"player_profession_trait":player_profession_trait }
 	db.update_rows("player_info", condition, col)
