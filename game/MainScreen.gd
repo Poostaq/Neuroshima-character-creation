@@ -13,6 +13,7 @@ export (NodePath) onready var character_sheet_panel = get_node(character_sheet_p
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
 export (NodePath) onready var profession_element = get_node(profession_element) as Control
 export (NodePath) onready var attributes_element = get_node(attributes_element) as Control
+export (NodePath) onready var dummy_element = get_node(dummy_element) as Control
 
 export (NodePath) onready var ethnicity_indicator = get_node(ethnicity_indicator) as TextureButton
 export (NodePath) onready var profession_indicator = get_node(profession_indicator) as TextureButton
@@ -31,6 +32,7 @@ onready var steps = [
 					ethnicity_element,
 					profession_element,
 					attributes_element,
+					dummy_element,
 ]
 
 onready var indicators = [
@@ -58,6 +60,8 @@ func _on_CardButton_button_up():
 
 
 func _next_step():
+	if steps[current_step] == attributes_element:
+		attributes_element.save_attributes()
 	if current_step == len(steps)-2:
 		next_step.disabled = true
 	if current_step == len(steps)-1:
@@ -84,12 +88,12 @@ func _previous_step():
 	_turn_off_screens()
 	
 
-func _EthnicityStep():
-	_turn_off_screens()
-	
-
-func _ProfessionStep():
-	next_step.disabled = true
+#func _EthnicityStep():
+#	_turn_off_screens()
+#
+#
+#func _ProfessionStep():
+#	next_step.disabled = true
 
 
 func _turn_off_screens():

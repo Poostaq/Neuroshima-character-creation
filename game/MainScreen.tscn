@@ -39,6 +39,7 @@ character_sheet_panel = NodePath("CharacterSheet")
 ethnicity_element = NodePath("CenterContainer/VBoxContainer/StepContainer/EthnicityStep")
 profession_element = NodePath("CenterContainer/VBoxContainer/StepContainer/ProfessionStep")
 attributes_element = NodePath("CenterContainer/VBoxContainer/StepContainer/AttributesStep")
+dummy_element = NodePath("CenterContainer/VBoxContainer/StepContainer/DummyStep")
 ethnicity_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/EthnicityIndicator")
 profession_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionIndicator")
 attributes_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesIndicator")
@@ -126,6 +127,16 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 964.0
 margin_bottom = 596.0
+
+[node name="DummyStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 20 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 964.0
+margin_bottom = 596.0
+trait_group = SubResource( 3 )
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 620.0
@@ -352,6 +363,10 @@ margin_right = 964.0
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_clear_trait"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_profession_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_trait_chosen"]
+[connection signal="attributes_chosen" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="CharacterSheet" method="_on_AttributesStep_attributes_chosen"]
+[connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/DummyStep" to="CharacterSheet" method="_on_ProfessionStep_clear_trait"]
+[connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/DummyStep" to="CharacterSheet" method="_on_ProfessionStep_profession_chosen"]
+[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/DummyStep" to="CharacterSheet" method="_on_ProfessionStep_trait_chosen"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_previous_step"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]

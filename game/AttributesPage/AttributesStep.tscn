@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://AttributesPage/Droppable.gd" type="Script" id=6]
 [ext_resource path="res://FONT.tres" type="DynamicFont" id=7]
 [ext_resource path="res://UI_Elements/Buttons/skill ready.png" type="Texture" id=8]
+[ext_resource path="res://AttributesPage/Value.gd" type="Script" id=9]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -23,6 +24,10 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=1]
 size = 30
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 48
 font_data = ExtResource( 2 )
 
 [node name="AttributesStep" type="Control"]
@@ -57,6 +62,23 @@ perception_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚ�
 character_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue")
 wits_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue")
 body_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue")
+minus_agi_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/AgiMinus")
+minus_per_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/PerMinus")
+minus_cha_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ChaMinus")
+minus_wit_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/WitMinus")
+minus_bod_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/BodMinus")
+plus_agi_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/AgiPlus")
+plus_per_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/PerPlus")
+plus_cha_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ChaPlus")
+plus_wit_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/WitPlus")
+plus_bod_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/BodPlus")
+agi_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/ValueContainer/Value")
+per_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/ValueContainer/Value")
+cha_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ValueContainer/Value")
+wit_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/ValueContainer/Value")
+bod_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/ValueContainer/Value")
+tab_container = NodePath("MarginContainer/TabContainer")
+remaining_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer/ValueContainer/Value")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
@@ -584,4 +606,436 @@ margin_top = 34.0
 margin_right = -4.0
 margin_bottom = -4.0
 
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer"]
+margin_right = 946.0
+margin_bottom = 433.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Control" type="Control" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
+margin_right = 85.0
+margin_bottom = 433.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AttributesContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
+margin_left = 89.0
+margin_right = 856.0
+margin_bottom = 433.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="AgilityContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
+margin_right = 767.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="AgilityLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
+margin_top = 26.0
+margin_right = 552.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "ZRĘCZNOŚĆ"
+text = "ZRĘCZNOŚĆ"
+fit_content_height = true
+
+[node name="AgiMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
+margin_left = 556.0
+margin_top = 15.0
+margin_right = 611.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "-"
+
+[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
+margin_left = 615.0
+margin_right = 707.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/ValueContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -21.5
+margin_right = 39.0
+margin_bottom = 23.5
+size_flags_horizontal = 5
+size_flags_vertical = 4
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]4"
+text = "4"
+fit_content_height = true
+script = ExtResource( 9 )
+
+[node name="AgiPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
+margin_left = 711.0
+margin_top = 15.0
+margin_right = 767.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "+"
+
+[node name="PerceptionContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
+margin_top = 87.0
+margin_right = 767.0
+margin_bottom = 170.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="PerceptionLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
+margin_top = 26.0
+margin_right = 552.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "PERCEPCJA"
+text = "PERCEPCJA"
+fit_content_height = true
+
+[node name="PerMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
+margin_left = 556.0
+margin_top = 15.0
+margin_right = 611.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( -1047, 53 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "-"
+
+[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
+margin_left = 615.0
+margin_right = 707.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/ValueContainer"]
+anchor_left = 0.489
+anchor_top = 0.5
+anchor_right = 0.489
+anchor_bottom = 0.5
+margin_left = -39.988
+margin_top = -21.5
+margin_right = 40.012
+margin_bottom = 23.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]4"
+text = "4"
+script = ExtResource( 9 )
+stat = 1
+
+[node name="PerPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
+margin_left = 711.0
+margin_top = 15.0
+margin_right = 767.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "+"
+
+[node name="CharacterContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
+margin_top = 174.0
+margin_right = 767.0
+margin_bottom = 258.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
+margin_top = 26.0
+margin_right = 552.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "CHARAKTER"
+text = "CHARAKTER"
+fit_content_height = true
+
+[node name="ChaMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
+margin_left = 556.0
+margin_top = 15.0
+margin_right = 611.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( -1047, 53 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "-"
+
+[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
+margin_left = 615.0
+margin_right = 707.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ValueContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -22.0
+margin_right = 39.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]4"
+text = "4"
+script = ExtResource( 9 )
+stat = 2
+
+[node name="ChaPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
+margin_left = 711.0
+margin_top = 15.0
+margin_right = 767.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "+"
+
+[node name="WitsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
+margin_top = 262.0
+margin_right = 767.0
+margin_bottom = 345.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="WitsLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
+margin_top = 26.0
+margin_right = 552.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "SPRYT"
+text = "SPRYT"
+fit_content_height = true
+
+[node name="WitMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
+margin_left = 556.0
+margin_top = 15.0
+margin_right = 611.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( -1047, 53 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "-"
+
+[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
+margin_left = 615.0
+margin_right = 707.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/ValueContainer"]
+anchor_left = 0.489
+anchor_top = 0.506
+anchor_right = 0.489
+anchor_bottom = 0.506
+margin_left = -39.988
+margin_top = -21.998
+margin_right = 40.012
+margin_bottom = 23.002
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]4"
+text = "4"
+script = ExtResource( 9 )
+stat = 3
+
+[node name="WitPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
+margin_left = 711.0
+margin_top = 15.0
+margin_right = 767.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "+"
+
+[node name="BodyContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
+margin_top = 349.0
+margin_right = 767.0
+margin_bottom = 433.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="BodyLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
+margin_top = 26.0
+margin_right = 552.0
+margin_bottom = 57.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "BUDOWA"
+text = "BUDOWA"
+fit_content_height = true
+
+[node name="BodMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
+margin_left = 556.0
+margin_top = 15.0
+margin_right = 611.0
+margin_bottom = 68.0
+rect_pivot_offset = Vector2( -1047, 53 )
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "-"
+
+[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
+margin_left = 615.0
+margin_right = 707.0
+margin_bottom = 84.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/ValueContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -41.0
+margin_top = -22.0
+margin_right = 39.0
+margin_bottom = 23.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]4"
+text = "4"
+script = ExtResource( 9 )
+stat = 4
+
+[node name="BodPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
+margin_left = 711.0
+margin_top = 15.0
+margin_right = 767.0
+margin_bottom = 68.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 0.3
+custom_fonts/font = SubResource( 5 )
+text = "+"
+
+[node name="Control2" type="Control" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
+margin_left = 860.0
+margin_right = 946.0
+margin_bottom = 433.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RemainingContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer"]
+margin_top = 437.0
+margin_right = 946.0
+margin_bottom = 524.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RemainingLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer"]
+margin_top = 28.0
+margin_right = 824.0
+margin_bottom = 59.0
+size_flags_horizontal = 3
+size_flags_vertical = 6
+size_flags_stretch_ratio = 7.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[right]POZOSTAŁO"
+text = "POZOSTAŁO"
+fit_content_height = true
+
+[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer"]
+margin_left = 828.0
+margin_right = 946.0
+margin_bottom = 87.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer/ValueContainer" groups=["Droppable"]]
+anchor_left = 0.508
+anchor_top = 0.5
+anchor_right = 0.508
+anchor_bottom = 0.5
+margin_left = -44.944
+margin_top = -23.5
+margin_right = 45.056
+margin_bottom = 21.5
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = ExtResource( 7 )
+bbcode_enabled = true
+bbcode_text = "[center]40"
+text = "40"
+script = ExtResource( 6 )
+
+[connection signal="tab_changed" from="MarginContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="button_up" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton" to="." method="_on_RollButton_button_up"]

@@ -21,8 +21,12 @@ func can_drop_data(_position, _data):
 
 
 func drop_data(_position, data):
-	if self.bbcode_text == "":
+	if _can_drop_element():
 		self.bbcode_text = data["bbcode"]
-		print("ASSIGNED")
 		emit_signal("dropped_data")
 		data["original_object"].bbcode_text = ""
+
+func _can_drop_element():
+	if self.bbcode_text == "":
+		return true
+	return false

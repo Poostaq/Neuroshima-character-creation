@@ -71,7 +71,7 @@ onready var db = get_node("/root/DatabaseOperations")
 func update_card():
 	self._clear_bonus_attribute()
 	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
-	db.db_update_player_attribute_bonus(self.character_stats_element.attribute_modifier)
+	#db.db_update_player_attribute_bonus(self.character_stats_element.attribute_modifier)
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
@@ -80,10 +80,10 @@ func update_card():
 func _update_basic_info_values():
 	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
 	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
-	db.db_update_player_ethnicity(character_stats_element.ethnicity,character_stats_element.ethnicity_trait)
+	#db.db_update_player_ethnicity(character_stats_element.ethnicity,character_stats_element.ethnicity_trait)
 	self.profession_element.bbcode_text = self.character_stats_element.profession
 	self.profession_trait_element.bbcode_text = self.character_stats_element.profession_trait
-	db.db_update_player_profession(character_stats_element.profession,character_stats_element.profession_trait)	
+	#db.db_update_player_profession(character_stats_element.profession,character_stats_element.profession_trait)	
 	
 
 func _update_attribute_values(attributeEnum):
@@ -140,22 +140,26 @@ func _return_modifier_value_or_n(value):
 
 
 func _clear_bonus_attribute():
-	self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 0
-	self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 0
-	self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 0
-	self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 0
-	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 0
+	for element in self.character_stats_element.attribute_modifiers_dicts:
+		element["EthnicityAttributeModifier"] = 0
+#	self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 0
+#	self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 0
+#	self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 0
+#	self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 0
+#	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 0
 
+func _clear_base_rolls_attributes():
+	for element in self.character_stats_element.attribute_modifiers_dicts:
+		element["BaseRoll"] = 0
 
 func _set_bonus_attribute(attribute=null):
-	match attribute:
-		0:	self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 1
-		1:	self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 1
-		2:	self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 1
-		3:	self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 1
-		4:	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 1
-		_:	print("DIDNT MATCH ANYTHING")
+	if attribute != null or (attribute <= 4 and attribute >= 0):
+		self.character_stats_element.attribute_modifiers_dicts[attribute]["EthnicityAttributeModifier"] = 1
+		print("MODIFIED")
 
+func _set_base_roll(attribute=null, value=0):
+	if attribute != null or (attribute <= 5 and attribute >= 0):
+		self.character_stats_element.attribute_modifiers_dicts[attribute]["BaseRoll"] = value
 
 func _on_CloseButton_button_up():
 	self.visible = false
@@ -197,3 +201,9 @@ func _on_ProfessionStep_trait_chosen(trait_button):
 func _on_ProfessionStep_clear_trait():
 	self.character_stats_element.profession_trait = ""
 	self._update_basic_info_values()
+
+
+func _on_AttributesStep_attributes_chosen(attribute_list):
+	self._clear_base_rolls_attributes()
+	for x in range(0, len(attribute_list)):
+		_set_base_roll(x, attribute_list[x])

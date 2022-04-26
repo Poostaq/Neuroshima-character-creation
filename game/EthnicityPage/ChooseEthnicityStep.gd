@@ -33,7 +33,7 @@ func load_step():
 	ethnicity_list = db.read_ethnicity_identifiers()
 	ethnicity = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	_load_ethnicity(ethnicity)
-	db.insert_into_player_info()
+	#db.insert_into_player_info()
 	_fill_attribute_selector_options()
 	_fill_attribute_bonus_label(ethnicity["attribute_name"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
