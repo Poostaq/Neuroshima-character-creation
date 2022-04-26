@@ -51,7 +51,7 @@ export (NodePath) onready var remaining_value_label = get_node(remaining_value_l
 
 onready var math_list = [math1_label,math2_label,math3_label,math4_label,math5_label]
 onready var roll_list = [roll1_label,roll2_label,roll3_label,roll4_label,roll5_label]
-onready var attribute_value_list = [
+onready var attribute_attribute_value_list = [
 	agility_attribute_val,
 	perception_attribute_val,
 	character_attribute_val,
@@ -74,7 +74,7 @@ onready var plus_button_list = [plus_agi_button,
 	]
 
 #Attributes on indexes: agi:0, per:1, cha:2, wit:3, bod:4, remaining:5
-onready var value_label_list = [4,
+onready var attribute_value_list = [4,
 	4,
 	4,
 	4,
@@ -82,7 +82,9 @@ onready var value_label_list = [4,
 	40
 	]
 
+
 var current_roll = 0
+
 
 func _ready():
 	agility_attribute_val.connect("dropped_data", self, "on_dropped_data")
@@ -95,8 +97,10 @@ func _ready():
 	for button in plus_button_list:
 		button.connect("button_up", self, "_on_plus_button_up",[button])
 
+
 func load_step():
 	pass
+
 
 func save_attributes():
 	var list = []
@@ -110,9 +114,10 @@ func save_attributes():
 		]
 		print(list)
 	elif tab_container.current_tab == 1:
-		list =  value_label_list.slice(0, 4)
+		list =  attribute_value_list.slice(0, 4)
 		print(list)
 	emit_signal("attributes_chosen", list)
+
 
 func _on_RollButton_button_up():
 	_clear_rolls()
@@ -123,7 +128,8 @@ func _on_RollButton_button_up():
 		math_list[x].bbcode_text = ("[center] (%s+%s+%s)/3= " % result_rolls) + \
 		"%s" % str(final_value)
 		roll_list[x].bbcode_text = "[center]%s" % str(final_value)
-	
+
+
 func _roll_attribute_above_six():
 	var average = 0
 	var results = []
@@ -132,16 +138,20 @@ func _roll_attribute_above_six():
 		average = ceil((results[0]+results[1]+results[2])/3.0)
 	return results
 
+
 func _clear_rolls():
 	for roll in roll_list:
 		roll.bbcode_text = ""
 
+
 func _clear_attribute_values():
-	for attribute in attribute_value_list:
+	for attribute in attribute_attribute_value_list:
 		attribute.bbcode_text = ""
-	
+
+
 func set_roll_label(roll_value):
 	roll_list[current_roll].bbcode_text = "[center]%s" % str(roll_value)
+
 
 func on_dropped_data():
 	result_label.bbcode_text = ""
@@ -151,25 +161,18 @@ func on_dropped_data():
 func _on_minus_button_up(button : BaseButton):
 	var value_element = button.get_node("../ValueContainer/Value") as RichTextLabel
 	var value = value_element.stat
-	if value_label_list[value] > 4:
-		value_label_list[value] -= 1
-		value_element.bbcode_text = "[center]%s" % value_label_list[value]
-		value_label_list[5] += 1
-		remaining_value_label.bbcode_text = "[center]%s" % value_label_list[5]
+	if attribute_value_list[value] > 4:
+		attribute_value_list[value] -= 1
+		value_element.bbcode_text = "[center]%s" % attribute_value_list[value]
+		attribute_value_list[5] += 1
+		remaining_value_label.bbcode_text = "[center]%s" % attribute_value_list[5]
+
 
 func _on_plus_button_up(button : BaseButton):
 	var value_element = button.get_node("../ValueContainer/Value") as RichTextLabel
 	var value = value_element.stat
-	if value_label_list[value] < 19 and value_label_list[5] > 0:
-		value_label_list[value] += 1
-		value_element.bbcode_text = "[center]%s" % value_label_list[value]
-		value_label_list[5] -= 1
-		remaining_value_label.bbcode_text = "[center]%s" % value_label_list[5]
-	
-
-
-#func _on_TabContainer_tab_changed(tab):
-#	if tab_container.current_tab == 0:
-#		for x in range(0, len(attribute_value_list)):
-#			value_label_list[x] = 
-#	elif tab_container.current_tab == 1:
+	if attribute_value_list[value] < 19 and attribute_value_list[5] > 0:
+		attribute_value_list[value] += 1
+		value_element.bbcode_text = "[center]%s" % attribute_value_list[value]
+		attribute_value_list[5] -= 1
+		remaining_value_label.bbcode_text = "[center]%s" % attribute_value_list[5]

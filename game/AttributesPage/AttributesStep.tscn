@@ -1037,5 +1037,4 @@ bbcode_text = "[center]40"
 text = "40"
 script = ExtResource( 6 )
 
-[connection signal="tab_changed" from="MarginContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="button_up" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton" to="." method="_on_RollButton_button_up"]

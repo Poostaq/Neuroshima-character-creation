@@ -57,6 +57,8 @@ onready var cha_modifiers_elements = [cha_easy_value,cha_normal_value,cha_proble
 onready var wit_modifiers_elements = [wit_easy_value,wit_normal_value,wit_problematic_value,wit_hard_value,wit_very_hard_value,wit_fucking_hard_value,wit_luck_value]
 onready var bod_modifiers_elements = [bod_easy_value,bod_normal_value,bod_problematic_value,bod_hard_value,bod_very_hard_value,bod_fucking_hard_value,bod_luck_value]
 
+onready var attribute_modifiers_elements = [agi_modifiers_elements,per_modifiers_elements,cha_modifiers_elements,wit_modifiers_elements,bod_modifiers_elements]
+onready var attribute_value_elements = [agility_attribute_value,perception_attribute_value,character_attribute_value,wits_attribute_value,body_attribute_value]
 
 export (NodePath) onready var name_element = get_node(name_element) as RichTextLabel
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as RichTextLabel
@@ -71,7 +73,6 @@ onready var db = get_node("/root/DatabaseOperations")
 func update_card():
 	self._clear_bonus_attribute()
 	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
-	#db.db_update_player_attribute_bonus(self.character_stats_element.attribute_modifier)
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
@@ -80,40 +81,17 @@ func update_card():
 func _update_basic_info_values():
 	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
 	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
-	#db.db_update_player_ethnicity(character_stats_element.ethnicity,character_stats_element.ethnicity_trait)
 	self.profession_element.bbcode_text = self.character_stats_element.profession
 	self.profession_trait_element.bbcode_text = self.character_stats_element.profession_trait
-	#db.db_update_player_profession(character_stats_element.profession,character_stats_element.profession_trait)	
 	
 
 func _update_attribute_values(attributeEnum):
-	var value
-	match attributeEnum:
-		GlobalConstants.attribute.AGI:
-			value = _get_final_attribute_value(self.character_stats_element.agi_modifiers)
-			self.character_stats_element.agi_value = value
-			agility_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			_fill_attribute_modifiers(value, agi_modifiers_elements)
-		GlobalConstants.attribute.PER:
-			value = _get_final_attribute_value(self.character_stats_element.per_modifiers)
-			self.character_stats_element.per_value = value
-			perception_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			_fill_attribute_modifiers(value, per_modifiers_elements)
-		GlobalConstants.attribute.CHA:
-			value = _get_final_attribute_value(self.character_stats_element.cha_modifiers)
-			self.character_stats_element.cha_value = value
-			character_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			_fill_attribute_modifiers(value, cha_modifiers_elements)
-		GlobalConstants.attribute.WIT:
-			value = _get_final_attribute_value(self.character_stats_element.wit_modifiers)
-			self.character_stats_element.wit_value = value
-			wits_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			_fill_attribute_modifiers(value, wit_modifiers_elements)
-		GlobalConstants.attribute.BOD:
-			value = _get_final_attribute_value(self.character_stats_element.bod_modifiers)
-			self.character_stats_element.bod_value = value
-			body_attribute_value.bbcode_text ="[center]%s[/center]" %  value
-			_fill_attribute_modifiers(value, bod_modifiers_elements)
+	if attributeEnum == GlobalConstants.attribute.ANY:
+		return
+	var value = _get_final_attribute_value(self.character_stats_element.attribute_modifiers_dicts[attributeEnum])
+	self.character_stats_element.attribute_values_list[attributeEnum] = value
+	attribute_value_elements[attributeEnum].bbcode_text ="[center]%s[/center]" %  value
+	_fill_attribute_modifiers(value, attribute_modifiers_elements[attributeEnum])
 
 
 func _get_final_attribute_value(attribute_modifiers : Dictionary):
@@ -142,13 +120,8 @@ func _return_modifier_value_or_n(value):
 func _clear_bonus_attribute():
 	for element in self.character_stats_element.attribute_modifiers_dicts:
 		element["EthnicityAttributeModifier"] = 0
-#	self.character_stats_element.agi_modifiers["EthnicityAttributeModifier"] = 0
-#	self.character_stats_element.per_modifiers["EthnicityAttributeModifier"] = 0
-#	self.character_stats_element.cha_modifiers["EthnicityAttributeModifier"] = 0
-#	self.character_stats_element.wit_modifiers["EthnicityAttributeModifier"] = 0
-#	self.character_stats_element.bod_modifiers["EthnicityAttributeModifier"] = 0
 
-func _clear_base_rolls_attributes():
+func clear_base_rolls_attributes():
 	for element in self.character_stats_element.attribute_modifiers_dicts:
 		element["BaseRoll"] = 0
 
@@ -204,6 +177,6 @@ func _on_ProfessionStep_clear_trait():
 
 
 func _on_AttributesStep_attributes_chosen(attribute_list):
-	self._clear_base_rolls_attributes()
+	self.clear_base_rolls_attributes()
 	for x in range(0, len(attribute_list)):
 		_set_base_roll(x, attribute_list[x])

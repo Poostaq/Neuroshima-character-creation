@@ -76,6 +76,8 @@ func _next_step():
 	
 	
 func _previous_step():
+	if steps[current_step] == attributes_element:
+		character_sheet_panel.clear_base_rolls_attributes()
 	if current_step == 1:
 		back_step.disabled = true
 	if current_step == 0:
