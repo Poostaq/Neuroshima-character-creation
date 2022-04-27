@@ -88,14 +88,6 @@ func _previous_step():
 	steps[current_step].load_step()
 	_turn_off_step_indicators()
 	_turn_off_screens()
-	
-
-#func _EthnicityStep():
-#	_turn_off_screens()
-#
-#
-#func _ProfessionStep():
-#	next_step.disabled = true
 
 
 func _turn_off_screens():
