@@ -88,11 +88,6 @@ var current_roll = 0
 
 
 func _ready():
-	agility_attribute_val.connect("dropped_data", self, "on_dropped_data")
-	perception_attribute_val.connect("dropped_data", self, "on_dropped_data")
-	character_attribute_val.connect("dropped_data", self, "on_dropped_data")
-	wits_attribute_val.connect("dropped_data", self, "on_dropped_data")
-	body_attribute_val.connect("dropped_data", self, "on_dropped_data")
 	for button in minus_button_list:
 		button.connect("button_up", self, "_on_minus_button_up",[button])
 	for button in plus_button_list:
@@ -144,8 +139,7 @@ func _on_RollButton_button_up():
 	final_values_list.pop_at(smallest_value_index)
 	for x in range(0, len(final_values_list)):
 		roll_list[x].bbcode_text = "[center]%s" % str(final_values_list[x])
-		
-	
+
 
 func _roll_attribute_above_six():
 	var average = 0
@@ -165,15 +159,6 @@ func _clear_attribute_values():
 	for attribute in attribute_attribute_value_list:
 		attribute.bbcode_text = ""
 
-
-func set_roll_label(roll_value):
-	roll_list[current_roll].bbcode_text = "[center]%s" % str(roll_value)
-
-
-func on_dropped_data():
-	result_label.bbcode_text = ""
-	math_label.bbcode_text = ""
-	
 
 func _on_minus_button_up(button : BaseButton):
 	var value_element = button.get_node("../ValueContainer/Value") as RichTextLabel

@@ -101,14 +101,14 @@ func _get_final_attribute_value(attribute_modifiers : Dictionary):
 	return result
 
 
-func _fill_attribute_modifiers(attribute_value: int, attribute_modifiers_elements: Array):
-	attribute_modifiers_elements[0].bbcode_text = _return_modifier_value_or_n(attribute_value+2)
-	attribute_modifiers_elements[1].bbcode_text = _return_modifier_value_or_n(attribute_value)
-	attribute_modifiers_elements[2].bbcode_text = _return_modifier_value_or_n(attribute_value-2)
-	attribute_modifiers_elements[3].bbcode_text = _return_modifier_value_or_n(attribute_value-5)
-	attribute_modifiers_elements[4].bbcode_text = _return_modifier_value_or_n(attribute_value-8)
-	attribute_modifiers_elements[5].bbcode_text = _return_modifier_value_or_n(attribute_value-11)
-	attribute_modifiers_elements[6].bbcode_text = _return_modifier_value_or_n(attribute_value-15)
+func _fill_attribute_modifiers(attribute_value: int, attr_mod_elements: Array):
+	attr_mod_elements[0].bbcode_text = _return_modifier_value_or_n(attribute_value+2)
+	attr_mod_elements[1].bbcode_text = _return_modifier_value_or_n(attribute_value)
+	attr_mod_elements[2].bbcode_text = _return_modifier_value_or_n(attribute_value-2)
+	attr_mod_elements[3].bbcode_text = _return_modifier_value_or_n(attribute_value-5)
+	attr_mod_elements[4].bbcode_text = _return_modifier_value_or_n(attribute_value-8)
+	attr_mod_elements[5].bbcode_text = _return_modifier_value_or_n(attribute_value-11)
+	attr_mod_elements[6].bbcode_text = _return_modifier_value_or_n(attribute_value-15)
 
 
 func _return_modifier_value_or_n(value):
@@ -121,13 +121,16 @@ func _clear_bonus_attribute():
 	for element in self.character_stats_element.attribute_modifiers_dicts:
 		element["EthnicityAttributeModifier"] = 0
 
+
 func clear_base_rolls_attributes():
 	for element in self.character_stats_element.attribute_modifiers_dicts:
 		element["BaseRoll"] = 0
 
+
 func _set_bonus_attribute(attribute=null):
 	if attribute != null or (attribute <= 4 and attribute >= 0):
 		self.character_stats_element.attribute_modifiers_dicts[attribute]["EthnicityAttributeModifier"] = 1
+
 
 func _set_base_roll(attribute=null, value=0):
 	if attribute != null or (attribute <= 5 and attribute >= 0):
@@ -179,3 +182,6 @@ func _on_AttributesStep_attributes_chosen(attribute_list):
 	self.clear_base_rolls_attributes()
 	for x in range(0, len(attribute_list)):
 		_set_base_roll(x, attribute_list[x])
+
+func _on_AttributesStep_single_attribute_chosen(attribute, value):
+	_set_base_roll(attribute, value)
