@@ -128,7 +128,6 @@ func clear_base_rolls_attributes():
 func _set_bonus_attribute(attribute=null):
 	if attribute != null or (attribute <= 4 and attribute >= 0):
 		self.character_stats_element.attribute_modifiers_dicts[attribute]["EthnicityAttributeModifier"] = 1
-		print("MODIFIED")
 
 func _set_base_roll(attribute=null, value=0):
 	if attribute != null or (attribute <= 5 and attribute >= 0):

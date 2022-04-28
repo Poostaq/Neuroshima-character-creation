@@ -13,6 +13,7 @@ export (NodePath) onready var math2_label = get_node(math2_label) as RichTextLab
 export (NodePath) onready var math3_label = get_node(math3_label) as RichTextLabel
 export (NodePath) onready var math4_label = get_node(math4_label) as RichTextLabel
 export (NodePath) onready var math5_label = get_node(math5_label) as RichTextLabel
+export (NodePath) onready var math6_label = get_node(math6_label) as RichTextLabel
 
 export (NodePath) onready var roll1_label = get_node(roll1_label) as RichTextLabel
 export (NodePath) onready var roll2_label = get_node(roll2_label) as RichTextLabel
@@ -49,7 +50,7 @@ export (NodePath) onready var tab_container = get_node(tab_container) as TabCont
 
 export (NodePath) onready var remaining_value_label = get_node(remaining_value_label) as RichTextLabel
 
-onready var math_list = [math1_label,math2_label,math3_label,math4_label,math5_label]
+onready var math_list = [math1_label,math2_label,math3_label,math4_label,math5_label,math6_label]
 onready var roll_list = [roll1_label,roll2_label,roll3_label,roll4_label,roll5_label]
 onready var attribute_attribute_value_list = [
 	agility_attribute_val,
@@ -122,18 +123,34 @@ func save_attributes():
 func _on_RollButton_button_up():
 	_clear_rolls()
 	_clear_attribute_values()
-	for x in 5:
+	var result_rolls_list = []
+	var final_values_list = []
+	for x in 6:
 		var result_rolls = _roll_attribute_above_six()
 		var final_value = ceil((result_rolls[0]+result_rolls[1]+result_rolls[2])/3.0)
-		math_list[x].bbcode_text = ("[center] (%s+%s+%s)/3= " % result_rolls) + \
-		"%s" % str(final_value)
-		roll_list[x].bbcode_text = "[center]%s" % str(final_value)
-
+		result_rolls_list.append(result_rolls)
+		final_values_list.append(final_value)
+	var smallest_value_index = final_values_list.find(final_values_list.min())
+	for x in 6:
+		var rolls_text = ""
+		var value_text = ""
+		if x == smallest_value_index:
+			rolls_text = "[s][center] (%s+%s+%s)/3= "
+			value_text = "[s]%s"
+		else:
+			rolls_text = "[center] (%s+%s+%s)/3= "
+			value_text = "%s"
+		math_list[x].bbcode_text = (rolls_text % result_rolls_list[x]) + value_text % str(final_values_list[x])
+	final_values_list.pop_at(smallest_value_index)
+	for x in range(0, len(final_values_list)):
+		roll_list[x].bbcode_text = "[center]%s" % str(final_values_list[x])
+		
+	
 
 func _roll_attribute_above_six():
 	var average = 0
 	var results = []
-	while average <= 6:
+	while average <= 5:
 		results = Dices.roll_dice(3, 20)
 		average = ceil((results[0]+results[1]+results[2])/3.0)
 	return results
