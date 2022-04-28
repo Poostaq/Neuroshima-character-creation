@@ -105,13 +105,25 @@ func read_list_of_attributes_without_any():
 	return attributes
 
 
+func read_list_of_modifiers():
+	read_from_SQL()
+	var table_name = "test_modifiers"
+	var modifiers = []
+	var select_condition = "test_modifier_identifier not like '%master';"
+	var selected_array : Array = db.select_rows(table_name, select_condition, ["modifier_value"])
+	for selected_row in selected_array:
+		modifiers.append(selected_row.get("modifier_value"))
+	db.close_db()
+	return modifiers
+
+
 func insert_into_player_info():
 	read_from_SQL()
 	var columns = {"player_created_date" : sysdate}
 	db.insert_rows("player_info", [columns])
 	db.close_db()
-	
-	
+
+
 func update_player_info(value):
 	read_from_SQL()
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"

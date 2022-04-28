@@ -102,13 +102,9 @@ func _get_final_attribute_value(attribute_modifiers : Dictionary):
 
 
 func _fill_attribute_modifiers(attribute_value: int, attr_mod_elements: Array):
-	attr_mod_elements[0].bbcode_text = _return_modifier_value_or_n(attribute_value+2)
-	attr_mod_elements[1].bbcode_text = _return_modifier_value_or_n(attribute_value)
-	attr_mod_elements[2].bbcode_text = _return_modifier_value_or_n(attribute_value-2)
-	attr_mod_elements[3].bbcode_text = _return_modifier_value_or_n(attribute_value-5)
-	attr_mod_elements[4].bbcode_text = _return_modifier_value_or_n(attribute_value-8)
-	attr_mod_elements[5].bbcode_text = _return_modifier_value_or_n(attribute_value-11)
-	attr_mod_elements[6].bbcode_text = _return_modifier_value_or_n(attribute_value-15)
+	var modifiers = DatabaseOperations.read_list_of_modifiers()
+	for m in range(0, modifiers.size()):
+		attr_mod_elements[m].bbcode_text = _return_modifier_value_or_n(attribute_value + modifiers[m])
 
 
 func _return_modifier_value_or_n(value):
