@@ -108,10 +108,8 @@ func save_attributes():
 			int(wits_attribute_val.text),
 			int(body_attribute_val.text),
 		]
-		print(list)
 	elif tab_container.current_tab == 1:
 		list =  attribute_value_list.slice(0, 4)
-		print(list)
 	emit_signal("attributes_chosen", list)
 
 
