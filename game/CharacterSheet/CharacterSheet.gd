@@ -136,6 +136,7 @@ func _set_base_roll(attribute=null, value=0):
 	if attribute != null or (attribute <= 5 and attribute >= 0):
 		self.character_stats_element.attribute_modifiers_dicts[attribute]["BaseRoll"] = value
 
+
 func _on_CloseButton_button_up():
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
@@ -143,14 +144,14 @@ func _on_CloseButton_button_up():
 
 func _on_EthnicityStep_ethnicity_chosen(ethnicity):
 	self.character_stats_element.ethnicity = ethnicity["ethnicity_name"]
-	
+
 
 func _format_ethnicity_trait_name(trait_button):
 	if trait_button.identifier == "versatility_squared":
 		return trait_button.trait_name +" : " + trait_button.secondary_trait
 	else:
 		return trait_button.trait_name
-		
+
 
 func _on_EthnicityStep_attribute_chosen(bonus_attribute):
 	self.character_stats_element.attribute_modifier = bonus_attribute
@@ -182,6 +183,7 @@ func _on_AttributesStep_attributes_chosen(attribute_list):
 	self.clear_base_rolls_attributes()
 	for x in range(0, len(attribute_list)):
 		_set_base_roll(x, attribute_list[x])
+
 
 func _on_AttributesStep_single_attribute_chosen(attribute, value):
 	_set_base_roll(attribute, value)
