@@ -18,6 +18,7 @@ config/icon="res://icon.png"
 
 DatabaseOperations="*res://DataStore/databaseOperations.gd"
 GlobalConstants="*res://GlobalConstants.gd"
+Dices="*res://Dices.gd"
 
 [display]
 

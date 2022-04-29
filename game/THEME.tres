@@ -5,31 +5,22 @@
 [ext_resource path="res://UI_Elements/slider.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxTexture" id=2]
-content_margin_left = 1.0
-content_margin_right = 1.0
-content_margin_top = 1.0
-content_margin_bottom = 1.0
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
 texture = ExtResource( 2 )
-region_rect = Rect2( 8.55142, 98.523, 14.5458, 32.3716 )
-margin_left = 11.1033
-margin_right = 11.4629
-margin_top = 25.8802
-margin_bottom = 23.9841
-expand_margin_left = 1.0
-expand_margin_right = 1.0
-expand_margin_top = 1.0
-expand_margin_bottom = 1.0
+region_rect = Rect2( 2, 3, 26, 244 )
+margin_top = 25.7825
+margin_bottom = 34.3767
 
 [sub_resource type="StyleBoxTexture" id=3]
-content_margin_left = 0.0
-content_margin_right = 0.0
-content_margin_top = 0.0
-content_margin_bottom = 0.0
+content_margin_left = 5.0
+content_margin_right = 5.0
+content_margin_top = 5.0
+content_margin_bottom = 5.0
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 8, 0 )
-margin_left = 28.6487
-margin_right = 8.66077
-margin_top = 446.919
+region_rect = Rect2( 0, 0, 28, 448 )
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )

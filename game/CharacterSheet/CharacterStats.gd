@@ -21,4 +21,6 @@ export var wit_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "Base
 export var bod_value : int
 export var bod_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
 
+var attribute_modifiers_dicts = [agi_modifiers, per_modifiers, cha_modifiers, wit_modifiers, bod_modifiers]
+var attribute_values_list = [agi_value,per_value,cha_value,wit_value,bod_value]
 var attribute_modifier : int
