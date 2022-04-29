@@ -76,14 +76,14 @@ func update_card():
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
-			
+
 
 func _update_basic_info_values():
 	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
 	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
 	self.profession_element.bbcode_text = self.character_stats_element.profession
 	self.profession_trait_element.bbcode_text = self.character_stats_element.profession_trait
-	
+
 
 func _update_attribute_values(attributeEnum):
 	if attributeEnum == GlobalConstants.attribute.ANY:
