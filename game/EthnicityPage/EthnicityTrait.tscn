@@ -1,11 +1,8 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=6 format=2]
 
+[ext_resource path="res://UI_Elements/skill box.png" type="Texture" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://EthnicityPage/EthnicityTrait.gd" type="Script" id=3]
-[ext_resource path="res://UI_Elements/OLD/Buttons/skil selected.png" type="Texture" id=4]
-[ext_resource path="res://UI_Elements/OLD/Buttons/skill inactive.png" type="Texture" id=5]
-[ext_resource path="res://UI_Elements/OLD/Buttons/skill ready.png" type="Texture" id=6]
-
 
 [sub_resource type="DynamicFont" id=3]
 size = 18
@@ -21,9 +18,7 @@ rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 4 )
-texture_hover = ExtResource( 6 )
+texture_normal = ExtResource( 1 )
 expand = true
 script = ExtResource( 3 )
 trait_name_label = NodePath("MarginContainer/VBoxContainer/TraitNameLabel")
@@ -32,6 +27,10 @@ trait_description_label = NodePath("MarginContainer/VBoxContainer/TraitDescripti
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -25.0
+margin_bottom = -20.0
 mouse_filter = 1
 custom_constants/margin_right = 10
 custom_constants/margin_top = 10
@@ -41,14 +40,14 @@ custom_constants/margin_bottom = 10
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 210.0
-margin_bottom = 190.0
+margin_right = 165.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="TraitNameLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-margin_right = 200.0
-margin_bottom = 44.0
+margin_right = 155.0
+margin_bottom = 34.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -58,9 +57,9 @@ bbcode_text = "[center]Trait 1[/center]"
 text = "Trait 1"
 
 [node name="TraitDescriptionLabel" type="RichTextLabel" parent="MarginContainer/VBoxContainer"]
-margin_top = 48.0
-margin_right = 200.0
-margin_bottom = 180.0
+margin_top = 38.0
+margin_right = 155.0
+margin_bottom = 140.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
