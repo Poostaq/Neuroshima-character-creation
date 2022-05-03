@@ -1,29 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://EthnicityPage/EthnicityTrait.tscn" type="PackedScene" id=1]
 [ext_resource path="res://EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.gd" type="Script" id=2]
-[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=3]
-[ext_resource path="res://THEME.tres" type="Theme" id=4]
-
-[sub_resource type="DynamicFont" id=1]
-font_data = ExtResource( 3 )
 
 [node name="Button" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
-option_button = NodePath("MarginContainer/VBoxContainer/OptionButton")
+option_button = NodePath("HBoxContainer/VBoxContainer/OptionButton")
 
-[node name="TraitNameLabel" parent="MarginContainer/VBoxContainer" index="0"]
-margin_bottom = 37.0
+[node name="Control3" parent="HBoxContainer/VBoxContainer" index="0"]
+margin_bottom = 23.0
 
-[node name="TraitDescriptionLabel" parent="MarginContainer/VBoxContainer" index="1"]
-margin_top = 41.0
-margin_bottom = 154.0
+[node name="TraitNameLabel" parent="HBoxContainer/VBoxContainer" index="1"]
+margin_top = 27.0
+margin_bottom = 54.0
 
-[node name="OptionButton" type="OptionButton" parent="MarginContainer/VBoxContainer" index="2"]
-margin_top = 158.0
-margin_right = 200.0
-margin_bottom = 180.0
-theme = ExtResource( 4 )
-custom_fonts/font = SubResource( 1 )
+[node name="TraitDescriptionLabel" parent="HBoxContainer/VBoxContainer" index="2"]
+margin_top = 58.0
+margin_bottom = 137.0
 
-[connection signal="item_selected" from="MarginContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[node name="OptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainer" index="3"]
+margin_top = 141.0
+margin_right = 163.0
+margin_bottom = 161.0
+
+[node name="Control4" parent="HBoxContainer/VBoxContainer" index="4"]
+margin_top = 165.0
+size_flags_stretch_ratio = 1.3

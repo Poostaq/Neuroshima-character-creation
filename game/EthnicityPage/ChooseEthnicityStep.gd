@@ -63,7 +63,7 @@ func _load_ethnicity(_ethnicity):
 	for trait in trait_list:
 		if trait["trait_identifier"] == "versatility_squared":
 			var trait_button = _create_trait_button(alternate_trait_button_scene, trait)
-			var trait_button_trait_list = trait_button.get_node("MarginContainer/VBoxContainer/OptionButton")
+			var trait_button_trait_list = trait_button.get_node("HBoxContainer/VBoxContainer/OptionButton")
 			_fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
 		else:
