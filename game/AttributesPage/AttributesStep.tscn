@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
@@ -9,6 +9,9 @@
 [ext_resource path="res://FONT.tres" type="DynamicFont" id=7]
 [ext_resource path="res://UI_Elements/Buttons/skill ready.png" type="Texture" id=8]
 [ext_resource path="res://AttributesPage/Value.gd" type="Script" id=9]
+[ext_resource path="res://Tooltip.gd" type="Script" id=10]
+[ext_resource path="res://Tooltip.tscn" type="PackedScene" id=11]
+[ext_resource path="res://AttributesPage/AgilityLabel.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -406,6 +409,12 @@ bbcode_enabled = true
 bbcode_text = "ZRĘCZNOŚĆ"
 text = "ZRĘCZNOŚĆ"
 fit_content_height = true
+script = ExtResource( 12 )
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/AgilityLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer"]
 margin_left = 318.0
