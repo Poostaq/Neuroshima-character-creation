@@ -96,6 +96,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="CenterContainer/VBoxContainer/StepContainer"]
+visible = false
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1860.0
