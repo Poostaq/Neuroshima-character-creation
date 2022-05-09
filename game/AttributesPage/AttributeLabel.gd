@@ -13,6 +13,7 @@ extends Node
 # EXPORT VARIABLES 
 #####################################
 export var tooltip_text : String
+export var attribute : int
 #####################################
 # PUBLIC VARIABLES 
 #####################################
@@ -33,10 +34,10 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	pass
+	tooltip_text = DatabaseOperations.read_list_of_attribute_descriptions_without_any()[attribute]
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
 
 #####################################
