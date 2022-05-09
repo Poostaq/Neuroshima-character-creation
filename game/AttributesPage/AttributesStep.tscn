@@ -11,7 +11,7 @@
 [ext_resource path="res://AttributesPage/Value.gd" type="Script" id=9]
 [ext_resource path="res://Tooltip.gd" type="Script" id=10]
 [ext_resource path="res://Tooltip.tscn" type="PackedScene" id=11]
-[ext_resource path="res://AttributesPage/AgilityLabel.gd" type="Script" id=12]
+[ext_resource path="res://AttributesPage/AttributeLabel.gd" type="Script" id=12]
 
 [sub_resource type="DynamicFont" id=2]
 size = 30
@@ -100,6 +100,7 @@ margin_bottom = 562.0
 tab_align = 0
 
 [node name="RZUCANIE KOŚĆMI" type="Tabs" parent="MarginContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -460,6 +461,13 @@ bbcode_enabled = true
 bbcode_text = "PERCEPCJA"
 text = "PERCEPCJA"
 fit_content_height = true
+script = ExtResource( 12 )
+attribute = 1
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/PerceptionLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer"]
 margin_left = 318.0
@@ -504,6 +512,13 @@ bbcode_enabled = true
 bbcode_text = "CHARAKTER"
 text = "CHARAKTER"
 fit_content_height = true
+script = ExtResource( 12 )
+attribute = 2
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/CharacterLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer"]
 margin_left = 318.0
@@ -548,6 +563,13 @@ bbcode_enabled = true
 bbcode_text = "SPRYT"
 text = "SPRYT"
 fit_content_height = true
+script = ExtResource( 12 )
+attribute = 3
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/WitsLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer"]
 margin_left = 318.0
@@ -592,6 +614,13 @@ bbcode_enabled = true
 bbcode_text = "BUDOWA"
 text = "BUDOWA"
 fit_content_height = true
+script = ExtResource( 12 )
+attribute = 4
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/BodyLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="TextureRect4" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer"]
 margin_left = 318.0
@@ -618,7 +647,6 @@ bbcode_enabled = true
 script = ExtResource( 6 )
 
 [node name="USTAWIANIE ATRYBUTÓW RĘCZNIE" type="Tabs" parent="MarginContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -669,6 +697,12 @@ bbcode_enabled = true
 bbcode_text = "ZRĘCZNOŚĆ"
 text = "ZRĘCZNOŚĆ"
 fit_content_height = true
+script = ExtResource( 12 )
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/AgilityLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="AgiMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
 margin_left = 556.0
@@ -739,6 +773,13 @@ bbcode_enabled = true
 bbcode_text = "PERCEPCJA"
 text = "PERCEPCJA"
 fit_content_height = true
+script = ExtResource( 12 )
+attribute = 1
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/PerceptionLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="PerMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
 margin_left = 556.0
@@ -810,6 +851,13 @@ bbcode_enabled = true
 bbcode_text = "CHARAKTER"
 text = "CHARAKTER"
 fit_content_height = true
+script = ExtResource( 12 )
+attribute = 2
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/CharacterLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="ChaMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
 margin_left = 556.0
@@ -881,6 +929,13 @@ bbcode_enabled = true
 bbcode_text = "SPRYT"
 text = "SPRYT"
 fit_content_height = true
+script = ExtResource( 12 )
+attribute = 3
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/WitsLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="WitMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
 margin_left = 556.0
@@ -952,6 +1007,13 @@ bbcode_enabled = true
 bbcode_text = "BUDOWA"
 text = "BUDOWA"
 fit_content_height = true
+script = ExtResource( 12 )
+attribute = 4
+
+[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/BodyLabel"]
+script = ExtResource( 10 )
+visuals_res = ExtResource( 11 )
+owner_path = NodePath("..")
 
 [node name="BodMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
 margin_left = 556.0

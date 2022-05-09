@@ -62,12 +62,13 @@ func _ready() -> void:
 	# initialize the timer
 	_timer = Timer.new()
 	add_child(_timer)
+# warning-ignore:return_value_discarded
 	_timer.connect("timeout", self, "_custom_show")
 	# default to hide
 	_visuals.hide()
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if _visuals.visible:
 		var border = get_viewport().size - padding
 		extents = _visuals.rect_size

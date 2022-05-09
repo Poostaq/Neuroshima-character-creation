@@ -113,6 +113,18 @@ func read_list_of_attributes_without_any():
 	return attributes
 
 
+func read_list_of_attribute_descriptions_without_any():
+	read_from_SQL()
+	var table_name = "attributes"
+	var attributes = []
+	var select_condition = "attribute_identifier != 'any';"
+	var selected_array : Array = db.select_rows(table_name, select_condition, ["attribute_description"])
+	for selected_row in selected_array:
+		attributes.append(selected_row.get("attribute_description"))
+	db.close_db()
+	return attributes
+
+
 func read_list_of_modifiers():
 	read_from_SQL()
 	var table_name = "test_modifiers"
