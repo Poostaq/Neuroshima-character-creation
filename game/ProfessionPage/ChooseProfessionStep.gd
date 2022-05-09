@@ -77,6 +77,7 @@ func _create_trait_button(trait_template, trait_data):
 	trait_button.identifier = trait_data["trait_identifier"]
 	trait_button.trait_name = trait_data["trait_name"]
 	trait_button.description = trait_data["trait_description"]
+	trait_button.tooltip_text = trait_data["trait_description"]
 	trait_button.get_node(".").set_button_group(trait_group)
 	return trait_button
 
