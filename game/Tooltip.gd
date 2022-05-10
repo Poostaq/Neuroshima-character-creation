@@ -32,7 +32,7 @@ export (float, 0, 100, 1) var padding_y
 #####################################
 var _visuals: Control
 var _timer: Timer
-var _is_shown: bool
+var _is_visuals_shown: bool
 
 
 #####################################
@@ -70,7 +70,7 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	if _visuals.visible:
+	if self._is_visuals_shown:
 		var border = get_viewport().size - padding
 		extents = _visuals.get_node("Text").rect_size
 		var base_pos = _get_screen_pos()
@@ -83,6 +83,7 @@ func _process(_delta: float) -> void:
 		if final_y < padding.y:
 			final_y = base_pos.y + offset.y
 		_visuals.rect_position = Vector2(final_x, final_y)
+		_visuals.show()
 
 
 #####################################
@@ -98,14 +99,15 @@ func _mouse_entered() -> void:
 
 func _mouse_exited() -> void:
 	_timer.stop()
+	_is_visuals_shown = false
 	_visuals.hide()
 
 
 func _custom_show() -> void:
 	_timer.stop()
-	_visuals.show()
 	var text = _visuals.find_node("Text") as RichTextLabel
 	text.bbcode_text = owner_node.tooltip_text
+	_is_visuals_shown = true
 
 
 func _get_screen_pos() -> Vector2:
