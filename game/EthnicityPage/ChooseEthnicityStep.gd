@@ -54,7 +54,7 @@ func _set_image(path):
 func _load_ethnicity(_ethnicity):
 	_set_image(ethnicity["splash_art_path"])
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
-	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"].replace("\n", "\n")
+	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"]
 	var trait_list = db.read_traits_for_ethnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
@@ -74,13 +74,13 @@ func _create_trait_button(trait_template, trait_data):
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
 	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
-	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["trait_description"]
+	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["trait_short_description"]
 	trait_button.connect("trait_button_pressed",
 		self,
 		"_on_Trait_Button_button_pressed")
 	trait_button.identifier = trait_data["trait_identifier"]
 	trait_button.trait_name = trait_data["trait_name"]
-	trait_button.description = trait_data["trait_description"]
+	trait_button.description = trait_data["trait_short_description"]
 	trait_button.tooltip_text = trait_data["trait_description"]
 	trait_button.get_node(".").set_button_group(trait_group)
 	return trait_button
