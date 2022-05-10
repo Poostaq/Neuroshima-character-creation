@@ -32,6 +32,7 @@ export (float, 0, 100, 1) var padding_y
 #####################################
 var _visuals: Control
 var _timer: Timer
+var _is_shown: bool
 
 
 #####################################
@@ -55,7 +56,7 @@ func _ready() -> void:
 	_visuals = visuals_res.instance()
 	add_child(_visuals)
 	# calculate the extents
-	extents = _visuals.rect_size
+	extents = _visuals.get_node("Text").rect_size
 	# connect signals
 	owner_node.connect("mouse_entered", self, "_mouse_entered")
 	owner_node.connect("mouse_exited", self, "_mouse_exited")
@@ -71,7 +72,7 @@ func _ready() -> void:
 func _process(_delta: float) -> void:
 	if _visuals.visible:
 		var border = get_viewport().size - padding
-		extents = _visuals.rect_size
+		extents = _visuals.get_node("Text").rect_size
 		var base_pos = _get_screen_pos()
 		# test if need to display to the left
 		var final_x = base_pos.x + offset.x
