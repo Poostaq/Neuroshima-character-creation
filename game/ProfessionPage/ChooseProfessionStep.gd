@@ -50,8 +50,20 @@ func _load_profession(_profession):
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
 			n.queue_free()
+	if len(profession_trait_list) == 2:
+		var control = Control.new()
+		control.size_flags_horizontal = 3
+		control.size_flags_vertical = 3
+		control.size_flags_stretch_ratio = 0.5
+		trait_container.add_child(control)
 	for trait in profession_trait_list:
 		_create_trait_button(trait_button_scene, trait)
+	if len(profession_trait_list) == 2:
+		var control = Control.new()
+		control.size_flags_horizontal = 3
+		control.size_flags_vertical = 3
+		control.size_flags_stretch_ratio = 0.5
+		trait_container.add_child(control)
 
 
 func _create_trait_button(trait_template, trait_data):

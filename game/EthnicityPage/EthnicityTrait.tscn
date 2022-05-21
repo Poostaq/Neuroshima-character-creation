@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://UI_Elements/skill box.png" type="Texture" id=1]
+[ext_resource path="res://UI_Elements/skill box inactive.png" type="Texture" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://EthnicityPage/EthnicityTrait.gd" type="Script" id=3]
+[ext_resource path="res://UI_Elements/skill box active.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=3]
 size = 22
@@ -19,6 +20,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 toggle_mode = true
 texture_normal = ExtResource( 1 )
+texture_pressed = ExtResource( 4 )
 expand = true
 script = ExtResource( 3 )
 trait_name_label = NodePath("HBoxContainer/VBoxContainer/TraitNameLabel")

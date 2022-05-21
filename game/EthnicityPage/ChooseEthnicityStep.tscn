@@ -7,7 +7,7 @@
 [ext_resource path="res://EthnicityPage/Traits.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=7]
-[ext_resource path="res://UI_Elements/origin_description_box.png" type="Texture" id=9]
+[ext_resource path="res://UI_Elements/origin description box.png" type="Texture" id=8]
 [ext_resource path="res://UI_Elements/origin box.png" type="Texture" id=10]
 [ext_resource path="res://UI_Elements/next origin button on.png" type="Texture" id=11]
 [ext_resource path="res://icon.png" type="Texture" id=12]
@@ -36,7 +36,7 @@ theme = ExtResource( 3 )
 script = ExtResource( 4 )
 trait_group = ExtResource( 5 )
 picture = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/EthnicityPic")
-ethnicity_name = NodePath("VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/VBoxContainer/EthnicityName")
+ethnicity_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName")
 ethnicity_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/EthnicityDescription")
 trait_container = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer")
 attribute_bonus_label = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeBonus")
@@ -48,22 +48,31 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer"]
 margin_right = 1880.0
 margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer2"]
-margin_right = 909.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control3" type="Control" parent="VBoxContainer/Control/HBoxContainer"]
+margin_right = 743.0
 margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 3.4
+size_flags_stretch_ratio = 2.34
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 913.0
-margin_right = 1715.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control/HBoxContainer"]
+margin_left = 747.0
+margin_right = 1701.0
 margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -71,22 +80,41 @@ size_flags_stretch_ratio = 3.0
 texture = ExtResource( 10 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2/TextureRect"]
+[node name="Control4" type="Control" parent="VBoxContainer/Control/HBoxContainer"]
+margin_left = 1705.0
+margin_right = 1880.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -24.0
-margin_right = 19.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_right = 688.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.95
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_left = 692.0
+margin_right = 1752.0
+margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="PreviousEthnicity" type="TextureButton" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
-margin_top = 24.0
-margin_right = 60.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 60, 60 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="PreviousEthnicity" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+margin_right = 105.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture_normal = ExtResource( 2 )
 texture_pressed = ExtResource( 7 )
 texture_hover = ExtResource( 7 )
@@ -96,50 +124,50 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 show_behind_parent = true
-margin_left = 64.0
-margin_right = 781.0
+margin_left = 109.0
+margin_right = 950.0
 margin_bottom = 109.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/VBoxContainer"]
-margin_right = 717.0
+[node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_right = 841.0
 margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="EthnicityName" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="EthnicityName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 22.0
-margin_right = 717.0
+margin_right = 841.0
 margin_bottom = 83.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]NOT SET[/center]"
-text = "NOT SET"
+text = "[center]NOT SET[/center]"
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
 margin_top = 87.0
-margin_right = 717.0
+margin_right = 841.0
 margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="NextEthnicity" type="TextureButton" parent="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer"]
-margin_left = 785.0
-margin_top = 24.0
-margin_right = 845.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 60, 60 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
+[node name="NextEthnicity" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+margin_left = 954.0
+margin_right = 1060.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 11 )
 texture_hover = ExtResource( 11 )
@@ -149,13 +177,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 1719.0
+[node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_left = 1756.0
 margin_right = 1880.0
 margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.6
+size_flags_stretch_ratio = 0.35
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 margin_top = 113.0
@@ -307,7 +335,7 @@ margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
-texture = ExtResource( 9 )
+texture = ExtResource( 8 )
 expand = true
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect"]
@@ -315,31 +343,30 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_right = 254.0
+margin_right = 115.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_left = 258.0
-margin_right = 1104.0
+margin_left = 119.0
+margin_right = 1158.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
-margin_right = 846.0
-margin_bottom = 107.0
+margin_right = 1039.0
+margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 1.5
 
 [node name="EthnicityDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 111.0
-margin_right = 846.0
-margin_bottom = 470.0
+margin_top = 80.0
+margin_right = 1039.0
+margin_bottom = 465.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -349,19 +376,18 @@ bbcode_text = "NOT SET"
 text = "NOT SET"
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
-margin_top = 474.0
-margin_right = 846.0
+margin_top = 469.0
+margin_right = 1039.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_left = 1108.0
+margin_left = 1162.0
 margin_right = 1278.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
 
 [node name="TraitContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 550.0
@@ -371,6 +397,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[connection signal="button_up" from="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/PreviousEthnicity" to="." method="_on_PreviousEthnicity_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer2/TextureRect/HBoxContainer/NextEthnicity" to="." method="_on_NextEthnicity_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousEthnicity" to="." method="_on_PreviousEthnicity_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextEthnicity" to="." method="_on_NextEthnicity_button_up"]
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeSelect" to="." method="_on_AttributeSelect_item_selected"]

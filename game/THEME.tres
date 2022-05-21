@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=7 format=2]
 
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://UI_Elements/OLD/slider button.png" type="Texture" id=2]
-[ext_resource path="res://UI_Elements/OLD/slider.png" type="Texture" id=3]
+[ext_resource path="res://UI_Elements/slider base.png" type="Texture" id=2]
+[ext_resource path="res://UI_Elements/slider grabber.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxTexture" id=2]
 content_margin_left = 5.0
@@ -10,7 +10,7 @@ content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
 texture = ExtResource( 2 )
-region_rect = Rect2( 2, 3, 26, 244 )
+region_rect = Rect2( 0, 0, 45, 724 )
 margin_top = 25.7825
 margin_bottom = 34.3767
 
@@ -20,7 +20,7 @@ content_margin_right = 5.0
 content_margin_top = 5.0
 content_margin_bottom = 5.0
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 28, 448 )
+region_rect = Rect2( 0, 0, 39, 471 )
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
