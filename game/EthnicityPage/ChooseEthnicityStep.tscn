@@ -22,7 +22,7 @@ size = 24
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 20
+size = 24
 font_data = ExtResource( 6 )
 
 [node name="EthnicityStep" type="Control"]
@@ -151,7 +151,7 @@ size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 bbcode_enabled = true
 bbcode_text = "[center]NOT SET[/center]"
-text = "[center]NOT SET[/center]"
+text = "NOT SET"
 
 [node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
 margin_top = 87.0
@@ -343,21 +343,21 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_right = 115.0
+margin_right = 114.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_left = 119.0
-margin_right = 1158.0
+margin_left = 118.0
+margin_right = 1148.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 9.0
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
-margin_right = 1039.0
+margin_right = 1030.0
 margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -365,7 +365,7 @@ size_flags_vertical = 3
 [node name="EthnicityDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 80.0
-margin_right = 1039.0
+margin_right = 1030.0
 margin_bottom = 465.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -377,17 +377,18 @@ text = "NOT SET"
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_top = 469.0
-margin_right = 1039.0
+margin_right = 1030.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_left = 1162.0
+margin_left = 1152.0
 margin_right = 1278.0
 margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.1
 
 [node name="TraitContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 550.0
