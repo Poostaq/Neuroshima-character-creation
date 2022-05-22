@@ -8,21 +8,23 @@ script = ExtResource( 2 )
 option_button = NodePath("HBoxContainer/VBoxContainer/OptionButton")
 
 [node name="Control3" parent="HBoxContainer/VBoxContainer" index="0"]
-margin_bottom = 23.0
+margin_bottom = 34.0
 
 [node name="TraitNameLabel" parent="HBoxContainer/VBoxContainer" index="1"]
-margin_top = 27.0
-margin_bottom = 54.0
+margin_top = 38.0
+margin_bottom = 73.0
 
 [node name="TraitDescriptionLabel" parent="HBoxContainer/VBoxContainer" index="2"]
-margin_top = 58.0
-margin_bottom = 137.0
+margin_top = 77.0
+margin_bottom = 134.0
+size_flags_stretch_ratio = 2.0
 
 [node name="OptionButton" type="OptionButton" parent="HBoxContainer/VBoxContainer" index="3"]
-margin_top = 141.0
-margin_right = 163.0
-margin_bottom = 161.0
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 138.0
+margin_right = 157.0
+margin_bottom = 158.0
 
 [node name="Control4" parent="HBoxContainer/VBoxContainer" index="4"]
-margin_top = 165.0
+margin_top = 162.0
 size_flags_stretch_ratio = 1.3

@@ -354,7 +354,7 @@ T
 A
 C
 I "
-text = "[center]K 
+text = "K 
 A 
 R 
 T 
@@ -378,126 +378,6 @@ margin_bottom = 1050.0
 
 [node name="TextureRect" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer" index="0"]
 margin_right = 1860.0
-
-[node name="AgilityAttributeValue" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityAttributeContainer" index="1"]
-text = "[center]0"
-
-[node name="AgiEasy" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="0"]
-text = "[center]2[/center]"
-
-[node name="AgiNormal" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="1"]
-text = "[center]0[/center]"
-
-[node name="AgiProblematic" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="2"]
-text = "[center]N[/center]"
-
-[node name="AgiHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="3"]
-text = "[center]N[/center]"
-
-[node name="AgiVeryHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="4"]
-text = "[center]N[/center]"
-
-[node name="AgiFuckingHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="5"]
-text = "[center]N[/center]"
-
-[node name="AgiLuck" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="6"]
-text = "[center]N[/center]"
-
-[node name="PerceptionAttributeValue" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer" index="1"]
-text = "[center]0"
-
-[node name="PerEasy" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="0"]
-text = "[center]2[/center]"
-
-[node name="PerNormal" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="1"]
-text = "[center]0[/center]"
-
-[node name="PerProblematic" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="2"]
-text = "[center]N[/center]"
-
-[node name="PerHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="3"]
-text = "[center]N[/center]"
-
-[node name="PerVeryHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="4"]
-text = "[center]N[/center]"
-
-[node name="PerFuckingHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="5"]
-text = "[center]N[/center]"
-
-[node name="PerLuck" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="6"]
-text = "[center]N[/center]"
-
-[node name="CharacterAttributeValue" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer" index="1"]
-text = "[center]0"
-
-[node name="ChaEasy" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="0"]
-text = "[center]2[/center]"
-
-[node name="ChaNormal" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="1"]
-text = "[center]0[/center]"
-
-[node name="ChaProblematic" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="2"]
-text = "[center]N[/center]"
-
-[node name="ChaHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="3"]
-text = "[center]N[/center]"
-
-[node name="ChaVeryHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="4"]
-text = "[center]N[/center]"
-
-[node name="ChaFuckingHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="5"]
-text = "[center]N[/center]"
-
-[node name="ChaLuck" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="6"]
-text = "[center]N[/center]"
-
-[node name="WitsAttributeValue" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer" index="1"]
-text = "[center]0"
-
-[node name="WitsEasy" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="0"]
-text = "[center]2[/center]"
-
-[node name="WitsNormal" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="1"]
-text = "[center]0[/center]"
-
-[node name="WitsProblematic" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="2"]
-text = "[center]N[/center]"
-
-[node name="WitsHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="3"]
-text = "[center]N[/center]"
-
-[node name="WitsVeryHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="4"]
-text = "[center]N[/center]"
-
-[node name="WitsFuckingHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="5"]
-text = "[center]N[/center]"
-
-[node name="WitsLuck" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="6"]
-text = "[center]N[/center]"
-
-[node name="BodyAttributeValue" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyAttributeContainer" index="1"]
-text = "[center]0[/center]"
-
-[node name="BodyEasy" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="0"]
-text = "[center]2[/center]"
-
-[node name="BodyNormal" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="1"]
-text = "[center]0[/center]"
-
-[node name="BodyProblematic" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="2"]
-text = "[center]N[/center]"
-
-[node name="BodyHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="3"]
-text = "[center]N[/center]"
-
-[node name="BodyVeryHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="4"]
-text = "[center]N[/center]"
-
-[node name="BodyFuckingHard" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="5"]
-text = "[center]N[/center]"
-
-[node name="BodyLuck" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="6"]
-text = "[center]N[/center]"
 
 [connection signal="attribute_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_attribute_chosen"]
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_clear_trait"]
