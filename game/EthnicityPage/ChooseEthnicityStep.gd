@@ -60,14 +60,26 @@ func _load_ethnicity(_ethnicity):
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
 			n.queue_free()
+	if len(trait_list) == 2:
+		var control = Control.new()
+		control.size_flags_horizontal = 3
+		control.size_flags_vertical = 3
+		control.size_flags_stretch_ratio = 0.5
+		trait_container.add_child(control)
 	for trait in trait_list:
 		if trait["trait_identifier"] == "versatility_squared":
 			var trait_button = _create_trait_button(alternate_trait_button_scene, trait)
-			var trait_button_trait_list = trait_button.get_node("MarginContainer/VBoxContainer/OptionButton")
+			var trait_button_trait_list = trait_button.get_node("HBoxContainer/VBoxContainer/OptionButton")
 			_fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
 		else:
 			_create_trait_button(trait_button_scene, trait)
+	if len(trait_list) == 2:
+		var control = Control.new()
+		control.size_flags_horizontal = 3
+		control.size_flags_vertical = 3
+		control.size_flags_stretch_ratio = 0.5
+		trait_container.add_child(control)
 
 
 func _create_trait_button(trait_template, trait_data):

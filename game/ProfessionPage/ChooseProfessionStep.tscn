@@ -1,24 +1,24 @@
 [gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
-[ext_resource path="res://UI_Elements/Buttons/select origin left button.png" type="Texture" id=2]
+[ext_resource path="res://UI_Elements/splash_art_box.png" type="Texture" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
 [ext_resource path="res://ProfessionPage/ChooseProfessionStep.gd" type="Script" id=4]
 [ext_resource path="res://ProfessionPage/Traits.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://UI_Elements/Buttons/select origin right button.png" type="Texture" id=7]
-[ext_resource path="res://UI_Elements/description box.png" type="Texture" id=9]
-[ext_resource path="res://UI_Elements/Buttons/select origin left button inactive.png" type="Texture" id=10]
-[ext_resource path="res://UI_Elements/Buttons/select origin right button inactive.png" type="Texture" id=11]
-[ext_resource path="res://UI_Elements/Buttons/select origin right button ready.png" type="Texture" id=12]
-[ext_resource path="res://UI_Elements/Buttons/select origin left button ready.png" type="Texture" id=13]
+[ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=7]
+[ext_resource path="res://UI_Elements/origin box.png" type="Texture" id=8]
+[ext_resource path="res://UI_Elements/next origin button on.png" type="Texture" id=9]
+[ext_resource path="res://UI_Elements/previous origin button off.png" type="Texture" id=10]
+[ext_resource path="res://UI_Elements/origin description box.png" type="Texture" id=11]
+[ext_resource path="res://UI_Elements/next origin button off.png" type="Texture" id=12]
 
 [sub_resource type="DynamicFont" id=1]
-size = 30
+size = 55
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 14
+size = 24
 font_data = ExtResource( 6 )
 
 [node name="ProfessionStep" type="Control"]
@@ -31,11 +31,11 @@ size_flags_vertical = 3
 theme = ExtResource( 3 )
 script = ExtResource( 4 )
 trait_group = ExtResource( 5 )
-picture = NodePath("VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/ProfessionPic")
-profession_name = NodePath("VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer/ProfessionName")
-profession_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ProfessionDescription")
+picture = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/ProfessionPic")
+profession_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/ProfessionName")
+profession_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/ProfessionDescription")
 trait_container = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer")
-profession_quote = NodePath("VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/ProfessionQuote")
+profession_quote = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/ProfessionQuote")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -43,57 +43,96 @@ anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
-margin_right = 984.0
-margin_bottom = 65.0
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_right = 1880.0
+margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer2"]
-margin_right = 390.0
-margin_bottom = 65.0
+[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 394.0
-margin_right = 979.0
-margin_bottom = 65.0
+[node name="Control3" type="Control" parent="VBoxContainer/Control/HBoxContainer3"]
+margin_right = 743.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.34
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control/HBoxContainer3"]
+margin_left = 747.0
+margin_right = 1701.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="Control4" type="Control" parent="VBoxContainer/Control/HBoxContainer3"]
+margin_left = 1705.0
+margin_right = 1880.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_right = 688.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.95
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_left = 692.0
+margin_right = 1752.0
+margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="PreviousProfession" type="TextureButton" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-margin_top = 21.0
-margin_right = 22.0
-margin_bottom = 43.0
-rect_min_size = Vector2( 22, 22 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 13 )
-expand = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 26.0
-margin_right = 559.0
-margin_bottom = 65.0
+[node name="PreviousProfession" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+margin_right = 105.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+expand = true
+stretch_mode = 5
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer"]
-margin_right = 533.0
-margin_bottom = 11.0
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+margin_left = 109.0
+margin_right = 950.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_right = 841.0
+margin_bottom = 20.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="ProfessionName" type="RichTextLabel" parent="VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer"]
-margin_top = 15.0
-margin_right = 533.0
-margin_bottom = 49.0
+[node name="ProfessionName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 24.0
+margin_right = 841.0
+margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
@@ -101,44 +140,55 @@ bbcode_enabled = true
 bbcode_text = "[center]NOT SET[/center]"
 text = "NOT SET"
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer2/HBoxContainer/VBoxContainer"]
-margin_top = 53.0
-margin_right = 533.0
-margin_bottom = 65.0
+[node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 88.0
+margin_right = 841.0
+margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="NextProfession" type="TextureButton" parent="VBoxContainer/HBoxContainer2/HBoxContainer"]
-margin_left = 563.0
-margin_top = 21.0
-margin_right = 585.0
-margin_bottom = 43.0
-rect_min_size = Vector2( 22, 22 )
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 12 )
+[node name="NextProfession" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+margin_left = 954.0
+margin_right = 1060.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
 expand = true
+stretch_mode = 5
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer2"]
-margin_left = 983.0
-margin_right = 983.0
-margin_bottom = 65.0
+[node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_left = 1756.0
+margin_right = 1880.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 69.0
-margin_right = 984.0
-margin_bottom = 592.0
+margin_top = 113.0
+margin_right = 1880.0
+margin_bottom = 992.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
 custom_constants/separation = 20
 
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_right = 51.0
+margin_bottom = 879.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
 [node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
-margin_right = 321.0
-margin_bottom = 523.0
+margin_left = 71.0
+margin_right = 582.0
+margin_bottom = 879.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/margin_right = 10
@@ -146,72 +196,89 @@ custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 311.0
-margin_bottom = 513.0
+margin_right = 501.0
+margin_bottom = 869.0
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 6
 
-[node name="ProfessionPic" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
-margin_right = 301.0
-margin_bottom = 443.0
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
+anchor_left = 0.14053
+anchor_top = 0.104773
+anchor_right = 0.822811
+anchor_bottom = 0.894063
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ProfessionPic" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+self_modulate = Color( 1, 1, 1, 0.380392 )
+margin_right = 335.0
+margin_bottom = 484.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 16.0
+size_flags_stretch_ratio = 6.0
 texture = ExtResource( 1 )
 expand = true
 stretch_mode = 6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer"]
-margin_top = 447.0
-margin_right = 301.0
-margin_bottom = 503.0
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 488.0
+margin_right = 335.0
+margin_bottom = 512.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+margin_top = 516.0
+margin_right = 335.0
+margin_bottom = 678.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_right = 9.0
-margin_bottom = 56.0
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer"]
+margin_right = 10.0
+margin_bottom = 162.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer"]
-margin_left = 13.0
-margin_right = 301.0
-margin_bottom = 56.0
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer"]
+margin_left = 14.0
+margin_right = 335.0
+margin_bottom = 162.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
 expand = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.47
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer"]
-margin_right = 288.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.01
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer"]
-margin_top = 4.0
-margin_right = 288.0
-margin_bottom = 56.0
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer"]
+margin_right = 321.0
+margin_bottom = 162.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
-[node name="ProfessionQuote" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
-margin_right = 279.0
-margin_bottom = 52.0
+[node name="ProfessionQuote" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
+margin_right = 321.0
+margin_bottom = 162.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -221,60 +288,52 @@ bbcode_text = "NOT SET"
 meta_underlined = false
 text = "NOT SET"
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
-margin_left = 283.0
-margin_right = 288.0
-margin_bottom = 52.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.08
-
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 341.0
-margin_right = 984.0
-margin_bottom = 523.0
+margin_left = 602.0
+margin_right = 1880.0
+margin_bottom = 879.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
+size_flags_stretch_ratio = 2.5
 
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 643.0
-margin_bottom = 324.0
+margin_right = 1278.0
+margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
-texture = ExtResource( 9 )
+texture = ExtResource( 11 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_right = 28.0
-margin_bottom = 324.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_left = 32.0
-margin_right = 610.0
-margin_bottom = 324.0
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2"]
+margin_right = 114.0
+margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
-margin_right = 578.0
-margin_bottom = 12.0
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2"]
+margin_left = 118.0
+margin_right = 1148.0
+margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
+size_flags_stretch_ratio = 9.0
 
-[node name="ProfessionDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
-margin_top = 16.0
-margin_right = 578.0
-margin_bottom = 324.0
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
+margin_right = 1030.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ProfessionDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 80.0
+margin_right = 1030.0
+margin_bottom = 465.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -283,21 +342,28 @@ bbcode_enabled = true
 bbcode_text = "NOT SET"
 text = "NOT SET"
 
-[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
-margin_left = 614.0
-margin_right = 643.0
-margin_bottom = 324.0
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
+margin_top = 469.0
+margin_right = 1030.0
+margin_bottom = 546.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.05
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2"]
+margin_left = 1152.0
+margin_right = 1278.0
+margin_bottom = 546.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.1
 
 [node name="TraitContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_top = 328.0
-margin_right = 643.0
-margin_bottom = 523.0
+margin_top = 550.0
+margin_right = 1278.0
+margin_bottom = 879.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[connection signal="button_up" from="VBoxContainer/HBoxContainer2/HBoxContainer/PreviousProfession" to="." method="_on_PreviousProfession_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer2/HBoxContainer/NextProfession" to="." method="_on_NextProfession_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousProfession" to="." method="_on_PreviousProfession_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextProfession" to="." method="_on_NextProfession_button_up"]

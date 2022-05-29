@@ -1,26 +1,42 @@
-[gd_resource type="Theme" load_steps=7 format=2]
+[gd_resource type="Theme" load_steps=8 format=2]
 
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://UI_Elements/slider button.png" type="Texture" id=2]
-[ext_resource path="res://UI_Elements/slider.png" type="Texture" id=3]
+[ext_resource path="res://UI_Elements/slider_grabber.png" type="Texture" id=2]
+[ext_resource path="res://UI_Elements/slider_base.png" type="Texture" id=3]
 
 [sub_resource type="StyleBoxTexture" id=2]
-content_margin_left = 5.0
-content_margin_right = 5.0
-content_margin_top = 5.0
-content_margin_bottom = 5.0
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
 texture = ExtResource( 2 )
-region_rect = Rect2( 2, 3, 26, 244 )
-margin_top = 25.7825
-margin_bottom = 34.3767
+region_rect = Rect2( 2.5, 0, 20, 60 )
+margin_left = 2.42885
+margin_right = 2.42208
+margin_top = 11.4579
+margin_bottom = 12.3619
+modulate_color = Color( 0.878431, 0.878431, 0.878431, 1 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource( 2 )
+region_rect = Rect2( 2.5, 0, 20, 60 )
+margin_left = 7.0
+margin_right = 7.0
+margin_top = 10.0
+margin_bottom = 10.0
+draw_center = false
 
 [sub_resource type="StyleBoxTexture" id=3]
-content_margin_left = 5.0
-content_margin_right = 5.0
-content_margin_top = 5.0
-content_margin_bottom = 5.0
+content_margin_left = 0.0
+content_margin_right = 0.0
+content_margin_top = 0.0
+content_margin_bottom = 0.0
 texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 28, 448 )
+region_rect = Rect2( 0, 0, 15, 150 )
 
 [sub_resource type="DynamicFont" id=1]
 font_data = ExtResource( 1 )
@@ -64,7 +80,7 @@ Tree/styles/title_button_hover = null
 Tree/styles/title_button_normal = null
 Tree/styles/title_button_pressed = null
 VScrollBar/styles/grabber = SubResource( 2 )
-VScrollBar/styles/grabber_highlight = null
+VScrollBar/styles/grabber_highlight = SubResource( 4 )
 VScrollBar/styles/grabber_pressed = null
 VScrollBar/styles/scroll = SubResource( 3 )
 VScrollBar/styles/scroll_focus = null
