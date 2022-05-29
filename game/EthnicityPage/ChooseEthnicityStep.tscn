@@ -37,7 +37,7 @@ script = ExtResource( 4 )
 trait_group = ExtResource( 5 )
 picture = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/EthnicityPic")
 ethnicity_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName")
-ethnicity_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/EthnicityDescription")
+ethnicity_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer/EthnicityDescription")
 trait_container = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer")
 attribute_bonus_label = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeBonus")
 attribute_selector = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeSelect")
@@ -362,11 +362,18 @@ margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="EthnicityDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_top = 80.0
 margin_right = 1030.0
 margin_bottom = 465.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="EthnicityDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_right = 1030.0
+margin_bottom = 385.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
