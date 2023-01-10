@@ -100,6 +100,7 @@ margin_bottom = 962.0
 tab_align = 0
 
 [node name="RZUCANIE KOŚĆMI" type="Tabs" parent="MarginContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -646,7 +647,6 @@ bbcode_enabled = true
 script = ExtResource( 6 )
 
 [node name="USTAWIANIE ATRYBUTÓW RĘCZNIE" type="Tabs" parent="MarginContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
