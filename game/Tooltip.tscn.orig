@@ -1,0 +1,89 @@
+<<<<<<< HEAD
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="AnimatedTexture" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -624.0
+margin_bottom = -380.0
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+expand = true
+=======
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://UI_Elements/Buttons/skil selected.png" type="Texture" id=1]
+[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="AnimatedTexture" id=2]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -724.0
+margin_bottom = -630.0
+size_flags_horizontal = 8
+size_flags_vertical = 8
+>>>>>>> fe3b1458d4cea0274102b143519de668ac056633
+
+[node name="Text" type="RichTextLabel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+<<<<<<< HEAD
+margin_left = 22.0
+margin_top = 20.0
+margin_right = -23.0
+margin_bottom = -16.0
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+=======
+margin_left = 15.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -15.0
+rect_clip_content = false
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+fit_content_height = true
+scroll_active = false
+
+[node name="TextureRect2" type="TextureRect" parent="Text"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -15.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+texture = SubResource( 2 )
+expand = true
+
+[node name="TextureRect" type="TextureRect" parent="Text"]
+show_behind_parent = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -15.0
+margin_top = -10.0
+margin_right = 10.0
+margin_bottom = 10.0
+texture = ExtResource( 1 )
+expand = true
+>>>>>>> fe3b1458d4cea0274102b143519de668ac056633

@@ -54,6 +54,7 @@ func _ready():
 	next_step.disabled = true
 
 
+
 func _on_CardButton_button_up():
 	character_sheet_panel.visible = true
 	character_sheet_panel.mouse_filter = Control.MOUSE_FILTER_PASS
@@ -113,9 +114,9 @@ func _turn_off_step_indicators():
 			indicators[i+1].texture_normal = indicator_inactive
 
 
-func _on_EthnicityStep_ethnicity_chosen(current_ethnicity):
+func _enable_next_step(_argument):
 	next_step.disabled = false
 
 
-func _on_EthnicityStep_ethnicity_changed():
+func _disable_next_step():
 	next_step.disabled = true

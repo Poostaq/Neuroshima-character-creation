@@ -374,6 +374,15 @@ I "
 visible = false
 mouse_filter = 1
 
+[node name="PanelContainer" parent="CharacterSheet" index="0"]
+mouse_filter = 1
+
+[node name="MarginContainer" parent="CharacterSheet/PanelContainer/TextureRect2" index="0"]
+mouse_filter = 1
+
+[node name="ScrollContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer" index="0"]
+mouse_filter = 1
+
 [node name="TextureRect" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer" index="0"]
 margin_right = 815.0
 
@@ -748,13 +757,16 @@ margin_right = 303.0
 
 [connection signal="attribute_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_attribute_chosen"]
 [connection signal="clear_bonus_attribute" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_clear_bonus_attribute"]
+[connection signal="clear_ethnicity" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_disable_next_step"]
 [connection signal="clear_ethnicity" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_clear_ethnicity"]
-[connection signal="ethnicity_changed" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_on_EthnicityStep_ethnicity_changed"]
-[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_on_EthnicityStep_ethnicity_chosen"]
+[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_enable_next_step"]
 [connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_ethnicity_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_trait_chosen"]
+[connection signal="clear_profession" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_disable_next_step"]
+[connection signal="clear_profession" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_clear_profession"]
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_clear_trait"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_profession_chosen"]
+[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_enable_next_step"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_trait_chosen"]
 [connection signal="attributes_chosen" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="CharacterSheet/CharacterStats" method="_on_AttributesStep_attributes_chosen"]
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/DummyStep" to="CharacterSheet" method="_on_ProfessionStep_clear_trait"]

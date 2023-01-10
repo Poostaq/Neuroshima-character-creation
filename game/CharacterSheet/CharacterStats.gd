@@ -58,7 +58,6 @@ func _set_base_roll(attribute=null, value=0):
 func _on_ProfessionStep_clear_trait():
 	profession_trait = ""
 
-
 func _on_ProfessionStep_profession_chosen(chosen_profession):
 	profession = chosen_profession["profession_name"]
 
@@ -94,3 +93,7 @@ func _on_EthnicityStep_clear_ethnicity():
 
 func _on_EthnicityStep_clear_bonus_attribute():
 	_clear_bonus_attribute()
+
+
+func _on_ProfessionStep_clear_profession():
+	profession = ""
