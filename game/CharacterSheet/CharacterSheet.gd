@@ -71,8 +71,6 @@ onready var db = get_node("/root/DatabaseOperations")
 
 
 func update_card():
-	self._clear_bonus_attribute()
-	self._set_bonus_attribute(self.character_stats_element.attribute_modifier)
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
@@ -88,17 +86,10 @@ func _update_basic_info_values():
 func _update_attribute_values(attributeEnum):
 	if attributeEnum == GlobalConstants.attribute.ANY:
 		return
-	var value = _get_final_attribute_value(self.character_stats_element.attribute_modifiers_dicts[attributeEnum])
+	var value = character_stats_element.get_final_attribute_value(self.character_stats_element.attribute_modifiers_dicts[attributeEnum])
 	self.character_stats_element.attribute_values_list[attributeEnum] = value
 	attribute_value_elements[attributeEnum].bbcode_text ="[center]%s[/center]" %  value
 	_fill_attribute_modifiers(value, attribute_modifiers_elements[attributeEnum])
-
-
-func _get_final_attribute_value(attribute_modifiers : Dictionary):
-	var result = 0
-	for key in attribute_modifiers:
-		result+=attribute_modifiers[key]
-	return result
 
 
 func _fill_attribute_modifiers(attribute_value: int, attr_mod_elements: Array):
@@ -113,73 +104,10 @@ func _return_modifier_value_or_n(value):
 	return str("[center]%s[/center]" %value)
 
 
-func _clear_bonus_attribute():
-	for element in self.character_stats_element.attribute_modifiers_dicts:
-		element["EthnicityAttributeModifier"] = 0
-
-
-func clear_base_rolls_attributes():
-	for element in self.character_stats_element.attribute_modifiers_dicts:
-		element["BaseRoll"] = 0
-
-
-func _set_bonus_attribute(attribute=null):
-	if attribute != null or (attribute <= 4 and attribute >= 0):
-		self.character_stats_element.attribute_modifiers_dicts[attribute]["EthnicityAttributeModifier"] = 1
-
-
-func _set_base_roll(attribute=null, value=0):
-	if attribute != null or (attribute <= 5 and attribute >= 0):
-		self.character_stats_element.attribute_modifiers_dicts[attribute]["BaseRoll"] = value
-
-
 func _on_CloseButton_button_up():
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
-func _on_EthnicityStep_ethnicity_chosen(ethnicity):
-	self.character_stats_element.ethnicity = ethnicity["ethnicity_name"]
-
-
-func _format_ethnicity_trait_name(trait_button):
-	if trait_button.identifier == "versatility_squared":
-		return trait_button.trait_name +" : " + trait_button.secondary_trait
-	else:
-		return trait_button.trait_name
-
-
-func _on_EthnicityStep_attribute_chosen(bonus_attribute):
-	self.character_stats_element.attribute_modifier = bonus_attribute
-
-
-func _on_EthnicityStep_trait_chosen(trait_element):
-	self.character_stats_element.ethnicity_trait = _format_ethnicity_trait_name(trait_element)
-	
-
-func _on_EthnicityStep_clear_trait():
-	self.character_stats_element.ethnicity_trait = ""
-	self._update_basic_info_values()
-
-
-func _on_ProfessionStep_profession_chosen(profession):
-	self.character_stats_element.profession = profession["profession_name"]
-
-
-func _on_ProfessionStep_trait_chosen(trait_button):
-	self.character_stats_element.profession_trait = trait_button.trait_name
-
-
-func _on_ProfessionStep_clear_trait():
-	self.character_stats_element.profession_trait = ""
-	self._update_basic_info_values()
-
-
-func _on_AttributesStep_attributes_chosen(attribute_list):
-	self.clear_base_rolls_attributes()
-	for x in range(0, len(attribute_list)):
-		_set_base_roll(x, attribute_list[x])
-
-
-func _on_AttributesStep_single_attribute_chosen(attribute, value):
-	_set_base_roll(attribute, value)
+func _on_EthnicityStep_clear_bonus_attribute():
+	pass # Replace with function body.

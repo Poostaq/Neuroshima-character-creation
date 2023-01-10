@@ -3,7 +3,9 @@ extends Control
 signal ethnicity_chosen(current_ethnicity)
 signal attribute_chosen(bonus_attribute)
 signal trait_chosen(trait_element)
-signal clear_trait()
+signal clear_ethnicity()
+signal ethnicity_changed()
+signal clear_bonus_attribute()
 
 
 export(ButtonGroup) var trait_group
@@ -11,7 +13,9 @@ export(ButtonGroup) var trait_group
 
 var ethnicity_list = []
 var current_ethnicity = 0
-var ethnicity = {}
+var current_ethnicity_data = {}
+var is_trait_chosen = false
+var is_attribute_chosen = false
 
 
 export (NodePath) onready var picture = get_node(picture) as TextureRect
@@ -26,21 +30,18 @@ onready var alternate_trait_button_scene = preload("res://EthnicityPage/Ethnicit
 onready var db = get_node("/root/DatabaseOperations")
 
 
+
 func _ready():
 	load_step()
 	
 	
 func load_step():
 	ethnicity_list = db.read_ethnicity_identifiers()
-	ethnicity = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
-	_load_ethnicity(ethnicity)
+	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_selector_options()
-	_fill_attribute_bonus_label(ethnicity["attribute_name"])
+	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
-	var bonus_attribute = _get_bonus_attribute()
-	yield(get_tree(), "idle_frame")
-	emit_signal("ethnicity_chosen", ethnicity)
-	emit_signal("attribute_chosen", bonus_attribute)
 	
 
 func _set_image(path):
@@ -51,21 +52,17 @@ func _set_image(path):
 		picture.texture = load(path)
 
 
-func _load_ethnicity(_ethnicity):
-	_set_image(ethnicity["splash_art_path"])
-	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
-	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"]
+func _load_ethnicity(ethinicity):
+	_set_image(ethinicity["splash_art_path"])
+	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethinicity["ethnicity_name"]
+	ethnicity_description.bbcode_text = "%s" % ethinicity["ethnicity_description"]
 	var trait_list = db.read_traits_for_ethnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
 			n.queue_free()
 	if len(trait_list) == 2:
-		var control = Control.new()
-		control.size_flags_horizontal = 3
-		control.size_flags_vertical = 3
-		control.size_flags_stretch_ratio = 0.5
-		trait_container.add_child(control)
+		_create_trait_list_filler()
 	for trait in trait_list:
 		if trait["trait_identifier"] == "versatility_squared":
 			var trait_button = _create_trait_button(alternate_trait_button_scene, trait)
@@ -75,13 +72,15 @@ func _load_ethnicity(_ethnicity):
 		else:
 			_create_trait_button(trait_button_scene, trait)
 	if len(trait_list) == 2:
+		_create_trait_list_filler()
+
+func _create_trait_list_filler():
 		var control = Control.new()
 		control.size_flags_horizontal = 3
 		control.size_flags_vertical = 3
 		control.size_flags_stretch_ratio = 0.5
 		trait_container.add_child(control)
-
-
+	
 func _create_trait_button(trait_template, trait_data):
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
@@ -99,14 +98,17 @@ func _create_trait_button(trait_template, trait_data):
 
 
 func _on_Trait_Button_button_pressed(button):
+	var bonus_attribute = _get_bonus_attribute()
 	emit_signal("trait_chosen", button)
-
+	is_trait_chosen = true
+	emit_signal("ethnicity_chosen", current_ethnicity_data)
+	emit_signal("attribute_chosen", bonus_attribute)
 	
 func _get_bonus_attribute():
 	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="none_of_your_fucking_business":
 		return attribute_selector.selected
 	else:
-		return ethnicity["attribute_enum"]
+		return current_ethnicity_data["attribute_enum"]
 		
 
 func _fill_trait_button_trait_list(trait_list_element: OptionButton):
@@ -121,10 +123,11 @@ func _fill_attribute_bonus_label(_attributes):
 		return
 	attribute_selector.visible = false
 	attribute_bonus_label.visible = true
-	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % ethnicity["attribute_name"]
+	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % current_ethnicity_data["attribute_name"]
 
 func _on_AttributeSelect_item_selected(index):
 	emit_signal("attribute_chosen", index)
+	is_attribute_chosen = true
 
 
 func _on_PreviousEthnicity_button_up():
@@ -132,9 +135,9 @@ func _on_PreviousEthnicity_button_up():
 		current_ethnicity = len(ethnicity_list)-1
 	else:
 		current_ethnicity -= 1
-	ethnicity = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
-	_load_ethnicity(ethnicity)
-	_fill_attribute_bonus_label(ethnicity["attribute_name"])
+	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+	_load_ethnicity(current_ethnicity_data)
+	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	_changed_ethnicity()
 
 func _on_NextEthnicity_button_up():
@@ -142,9 +145,9 @@ func _on_NextEthnicity_button_up():
 		current_ethnicity = 0
 	else:
 		current_ethnicity += 1
-	ethnicity = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
-	_load_ethnicity(ethnicity)
-	_fill_attribute_bonus_label(ethnicity["attribute_name"])
+	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+	_load_ethnicity(current_ethnicity_data)
+	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	_changed_ethnicity()
 
 
@@ -154,7 +157,8 @@ func _fill_attribute_selector_options():
 
 
 func _changed_ethnicity():
-	var bonus_attribute = _get_bonus_attribute()
-	emit_signal("ethnicity_chosen", ethnicity)
-	emit_signal("attribute_chosen", bonus_attribute)
-	emit_signal("clear_trait")
+	emit_signal("ethnicity_changed")
+	emit_signal("clear_ethnicity")
+	emit_signal("clear_bonus_attribute")
+	is_attribute_chosen = false
+	is_trait_chosen = false

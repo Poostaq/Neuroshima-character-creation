@@ -51,6 +51,7 @@ onready var indicators = [
 
 func _ready():
 	back_step.disabled = true
+	next_step.disabled = true
 
 
 func _on_CardButton_button_up():
@@ -77,7 +78,8 @@ func _next_step():
 	
 func _previous_step():
 	if steps[current_step] == attributes_element:
-		character_sheet_panel.clear_base_rolls_attributes()
+		var character_stats = character_sheet_panel.find_node("CharacterStats")
+		character_stats.clear_base_rolls_attributes()
 	if current_step == 1:
 		back_step.disabled = true
 	if current_step == 0:
@@ -111,3 +113,9 @@ func _turn_off_step_indicators():
 			indicators[i+1].texture_normal = indicator_inactive
 
 
+func _on_EthnicityStep_ethnicity_chosen(current_ethnicity):
+	next_step.disabled = false
+
+
+func _on_EthnicityStep_ethnicity_changed():
+	next_step.disabled = true

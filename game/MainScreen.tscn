@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI_Elements/character sheet button off.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://UI_Elements/previous origin button off.png" type="Texture" id=10]
 [ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=11]
 [ext_resource path="res://UI_Elements/background.png" type="Texture" id=12]
+[ext_resource path="res://Small_stat_font.tres" type="DynamicFont" id=13]
+[ext_resource path="res://Big_stat_font.tres" type="DynamicFont" id=14]
 [ext_resource path="res://UI_Elements/progress light off.png" type="Texture" id=15]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://AttributesPage/AttributesStep.tscn" type="PackedScene" id=18]
@@ -52,7 +54,7 @@ reputation_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Ste
 form_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/FormIndicator")
 gear_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/GearIndicator")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 texture = ExtResource( 12 )
@@ -372,21 +374,389 @@ I "
 visible = false
 mouse_filter = 1
 
-[node name="ScrollContainer" parent="CharacterSheet/PanelContainer/MarginContainer" index="0"]
-margin_right = 1890.0
-margin_bottom = 1050.0
+[node name="TextureRect" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer" index="0"]
+margin_right = 815.0
 
-[node name="TextureRect" parent="CharacterSheet/PanelContainer/MarginContainer/ScrollContainer" index="0"]
-margin_right = 1860.0
+[node name="VBoxContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel" index="0"]
+margin_right = 341.0
 
-[connection signal="attribute_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_attribute_chosen"]
-[connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_clear_trait"]
-[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_ethnicity_chosen"]
-[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet" method="_on_EthnicityStep_trait_chosen"]
-[connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_clear_trait"]
-[connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_profession_chosen"]
-[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet" method="_on_ProfessionStep_trait_chosen"]
-[connection signal="attributes_chosen" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="CharacterSheet" method="_on_AttributesStep_attributes_chosen"]
+[node name="-----------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer" index="0"]
+margin_right = 341.0
+
+[node name="HBoxContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer" index="1"]
+margin_right = 341.0
+
+[node name="VBoxContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer" index="2"]
+margin_right = 332.0
+
+[node name="HBoxContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
+margin_right = 206.0
+
+[node name="Name" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="1"]
+margin_right = 171.0
+
+[node name="--------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer" index="2"]
+margin_left = 175.0
+margin_right = 206.0
+
+[node name="--------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
+margin_right = 206.0
+
+[node name="HBoxContainer2" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer" index="3"]
+margin_right = 206.0
+
+[node name="Ethnicity" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer2" index="1"]
+margin_right = 206.0
+
+[node name="------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer" index="4"]
+margin_right = 206.0
+
+[node name="HBoxContainer3" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer" index="5"]
+margin_right = 206.0
+
+[node name="EthnicityTrait" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3" index="1"]
+margin_right = 188.0
+
+[node name="----------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3" index="2"]
+margin_left = 192.0
+margin_right = 206.0
+
+[node name="------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer" index="3"]
+margin_left = 336.0
+margin_right = 341.0
+
+[node name="VBoxContainer2" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer" index="2"]
+margin_right = 341.0
+
+[node name="--------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2" index="0"]
+margin_right = 341.0
+
+[node name="HBoxContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2" index="1"]
+margin_right = 341.0
+
+[node name="Profession" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer" index="3"]
+margin_right = 306.0
+
+[node name="-------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer" index="4"]
+margin_left = 310.0
+margin_right = 341.0
+
+[node name="HBoxContainer2" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2" index="2"]
+margin_right = 341.0
+
+[node name="ProfessionTrait" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer2" index="1"]
+margin_right = 290.0
+
+[node name="---------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer2" index="2"]
+margin_left = 294.0
+margin_right = 341.0
+
+[node name="--------------------------2" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2" index="3"]
+margin_right = 341.0
+
+[node name="Attributes" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer" index="0"]
+margin_right = 303.0
+
+[node name="AgilityContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes" index="0"]
+margin_right = 303.0
+
+[node name="-----------------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityAttributeContainer" index="0"]
+margin_bottom = 13.0
+size_flags_stretch_ratio = 0.45
+
+[node name="AgilityAttributeValue" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityAttributeContainer" index="1"]
+margin_top = 17.0
+custom_fonts/normal_font = ExtResource( 14 )
+
+[node name="AgiEasy" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="0"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="AgiNormal" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="1"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="AgiProblematic" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="2"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="AgiHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="3"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="AgiVeryHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="4"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="AgiFuckingHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="5"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="AgiLuck" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer/AgilityModifiersContainer/HBoxContainer" index="6"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="---------------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/AgilityContainer" index="3"]
+margin_right = 303.0
+
+[node name="PerceptionContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes" index="1"]
+margin_right = 303.0
+margin_bottom = 125.0
+
+[node name="----------------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer" index="0"]
+margin_right = 43.0
+margin_bottom = 61.0
+
+[node name="PerceptionAttributeContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer" index="1"]
+margin_left = 47.0
+margin_right = 79.0
+margin_bottom = 61.0
+
+[node name="----------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer" index="0"]
+margin_bottom = 10.0
+size_flags_stretch_ratio = 0.34
+
+[node name="PerceptionAttributeValue" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer" index="1"]
+margin_top = 14.0
+custom_fonts/normal_font = ExtResource( 14 )
+
+[node name="-----------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionAttributeContainer" index="2"]
+margin_bottom = 61.0
+
+[node name="PerceptionModifiersContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer" index="2"]
+margin_left = 83.0
+margin_right = 261.0
+margin_bottom = 61.0
+
+[node name="HBoxContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer" index="1"]
+margin_bottom = 50.0
+
+[node name="PerEasy" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="0"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="PerNormal" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="1"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="PerProblematic" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="2"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="PerHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="3"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="PerVeryHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="4"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="PerFuckingHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="5"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="PerLuck" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer/HBoxContainer" index="6"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer/PerceptionModifiersContainer" index="2"]
+margin_top = 54.0
+margin_bottom = 61.0
+
+[node name="----------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/PerceptionContainer" index="3"]
+margin_left = 265.0
+margin_right = 303.0
+margin_bottom = 61.0
+
+[node name="CharacterContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes" index="2"]
+margin_top = 129.0
+margin_right = 303.0
+
+[node name="-----------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer" index="0"]
+margin_right = 60.0
+margin_bottom = 60.0
+
+[node name="CharacterAttributeContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer" index="1"]
+margin_left = 64.0
+margin_bottom = 60.0
+
+[node name="--------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer" index="0"]
+margin_right = 36.0
+margin_bottom = 8.0
+size_flags_stretch_ratio = 0.25
+
+[node name="CharacterAttributeValue" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer" index="1"]
+margin_top = 12.0
+margin_right = 36.0
+margin_bottom = 45.0
+custom_fonts/normal_font = ExtResource( 14 )
+
+[node name="------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterAttributeContainer" index="2"]
+margin_top = 49.0
+margin_right = 36.0
+margin_bottom = 60.0
+
+[node name="CharacterModifiersContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer" index="2"]
+margin_right = 283.0
+margin_bottom = 60.0
+
+[node name="------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer" index="0"]
+margin_right = 179.0
+size_flags_stretch_ratio = 1.43
+
+[node name="HBoxContainer2" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer" index="1"]
+margin_right = 179.0
+margin_bottom = 53.0
+
+[node name="ChaEasy" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="0"]
+margin_bottom = 20.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="ChaNormal" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="1"]
+margin_bottom = 20.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="ChaProblematic" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="2"]
+margin_bottom = 20.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="ChaHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="3"]
+margin_right = 100.0
+margin_bottom = 20.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="ChaVeryHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="4"]
+margin_left = 104.0
+margin_right = 126.0
+margin_bottom = 20.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="ChaFuckingHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="5"]
+margin_left = 130.0
+margin_right = 152.0
+margin_bottom = 20.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="ChaLuck" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer/HBoxContainer2" index="6"]
+margin_left = 156.0
+margin_right = 179.0
+margin_bottom = 20.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="---------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer/CharacterModifiersContainer" index="2"]
+margin_top = 57.0
+margin_right = 179.0
+margin_bottom = 60.0
+size_flags_stretch_ratio = 0.1
+
+[node name="------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/CharacterContainer" index="3"]
+margin_left = 287.0
+margin_right = 303.0
+margin_bottom = 60.0
+
+[node name="WitsContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes" index="3"]
+margin_right = 303.0
+margin_bottom = 254.0
+
+[node name="----------------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer" index="0"]
+margin_right = 43.0
+margin_bottom = 61.0
+
+[node name="WitsAttributeContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer" index="1"]
+margin_left = 47.0
+margin_right = 79.0
+margin_bottom = 61.0
+
+[node name="---------------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer" index="0"]
+margin_bottom = 10.0
+size_flags_stretch_ratio = 0.31
+
+[node name="WitsAttributeValue" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer" index="1"]
+margin_top = 14.0
+custom_fonts/normal_font = ExtResource( 14 )
+
+[node name="---------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsAttributeContainer" index="2"]
+margin_bottom = 61.0
+
+[node name="WitsModifiersContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer" index="2"]
+margin_left = 83.0
+margin_right = 261.0
+margin_bottom = 61.0
+
+[node name="HBoxContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer" index="1"]
+margin_bottom = 48.0
+
+[node name="WitsEasy" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="0"]
+margin_bottom = 15.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="WitsNormal" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="1"]
+margin_bottom = 15.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="WitsProblematic" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="2"]
+margin_bottom = 15.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="WitsHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="3"]
+margin_bottom = 15.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="WitsVeryHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="4"]
+margin_bottom = 15.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="WitsFuckingHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="5"]
+margin_bottom = 15.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="WitsLuck" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer/HBoxContainer" index="6"]
+margin_bottom = 15.0
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer/WitsModifiersContainer" index="2"]
+margin_top = 52.0
+margin_bottom = 61.0
+
+[node name="----------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/WitsContainer" index="3"]
+margin_left = 265.0
+margin_right = 303.0
+margin_bottom = 61.0
+
+[node name="BodyContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes" index="4"]
+margin_top = 258.0
+margin_right = 303.0
+margin_bottom = 319.0
+
+[node name="-----------------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyAttributeContainer" index="0"]
+margin_bottom = 8.0
+size_flags_stretch_ratio = 0.25
+
+[node name="BodyAttributeValue" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyAttributeContainer" index="1"]
+margin_top = 12.0
+custom_fonts/normal_font = ExtResource( 14 )
+
+[node name="BodyEasy" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="0"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="BodyNormal" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="1"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="BodyProblematic" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="2"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="BodyHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="3"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="BodyVeryHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="4"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="BodyFuckingHard" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="5"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="BodyLuck" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer/BodyModifiersContainer/HBoxContainer" index="6"]
+custom_fonts/normal_font = ExtResource( 13 )
+
+[node name="---------------------------------------" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/MarginContainer/Attributes/BodyContainer" index="3"]
+margin_right = 303.0
+
+[connection signal="attribute_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_attribute_chosen"]
+[connection signal="clear_bonus_attribute" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_clear_bonus_attribute"]
+[connection signal="clear_ethnicity" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_clear_ethnicity"]
+[connection signal="ethnicity_changed" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_on_EthnicityStep_ethnicity_changed"]
+[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_on_EthnicityStep_ethnicity_chosen"]
+[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_ethnicity_chosen"]
+[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_trait_chosen"]
+[connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_clear_trait"]
+[connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_profession_chosen"]
+[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_trait_chosen"]
+[connection signal="attributes_chosen" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="CharacterSheet/CharacterStats" method="_on_AttributesStep_attributes_chosen"]
 [connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/DummyStep" to="CharacterSheet" method="_on_ProfessionStep_clear_trait"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/DummyStep" to="CharacterSheet" method="_on_ProfessionStep_profession_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/DummyStep" to="CharacterSheet" method="_on_ProfessionStep_trait_chosen"]
