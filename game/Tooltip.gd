@@ -52,20 +52,16 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	# create the visuals
 	_visuals = visuals_res.instance()
 	add_child(_visuals)
-	# calculate the extents
 	extents = _visuals.get_node("Text").rect_size
-	# connect signals
+	
 	owner_node.connect("mouse_entered", self, "_mouse_entered")
 	owner_node.connect("mouse_exited", self, "_mouse_exited")
-	# initialize the timer
+	
 	_timer = Timer.new()
 	add_child(_timer)
-# warning-ignore:return_value_discarded
 	_timer.connect("timeout", self, "_custom_show")
-	# default to hide
 	_visuals.hide()
 
 
@@ -106,7 +102,7 @@ func _mouse_exited() -> void:
 func _custom_show() -> void:
 	_timer.stop()
 	var text = _visuals.find_node("Text") as RichTextLabel
-	text.bbcode_text = owner_node.tooltip_text
+	text.bbcode_text = owner_node.get_tooltip_text()
 	_is_visuals_shown = true
 
 

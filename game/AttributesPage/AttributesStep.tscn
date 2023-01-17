@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://AttributesPage/Draggable.gd" type="Script" id=4]
+[ext_resource path="res://AttributesPage/Draggable_v2.gd" type="Script" id=4]
 [ext_resource path="res://UI_Elements/OLD/Buttons/skil selected.png" type="Texture" id=5]
 [ext_resource path="res://AttributesPage/Droppable.gd" type="Script" id=6]
 [ext_resource path="res://FONT.tres" type="DynamicFont" id=7]
@@ -12,14 +12,6 @@
 [ext_resource path="res://Tooltip.gd" type="Script" id=10]
 [ext_resource path="res://Tooltip.tscn" type="PackedScene" id=11]
 [ext_resource path="res://AttributesPage/AttributeLabel.gd" type="Script" id=12]
-
-[sub_resource type="DynamicFont" id=2]
-size = 30
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 48
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 48
@@ -38,6 +30,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -40.0
 margin_bottom = -88.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
@@ -46,9 +39,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 roll_button = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton")
-math_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer/Math")
-result_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer/DraggableResult")
-result_container = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer")
 roll_button_container = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer")
 math1_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult1")
 math2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult2")
@@ -56,11 +46,11 @@ math3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxConta
 math4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult4")
 math5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult5")
 math6_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult6")
-roll1_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect/Roll1")
-roll2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2/Roll2")
-roll3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3/Roll3")
-roll4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4/Roll4")
-roll5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5/Roll5")
+roll1_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect/Control/Roll")
+roll2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2/Control2/Roll")
+roll3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3/Control3/Roll")
+roll4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4/Control4/Roll")
+roll5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5/Control5/Roll")
 agility_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue")
 perception_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue")
 character_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue")
@@ -106,6 +96,7 @@ margin_left = 4.0
 margin_top = 34.0
 margin_right = -4.0
 margin_bottom = -4.0
+mouse_filter = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI"]
 anchor_right = 1.0
@@ -138,50 +129,22 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 
-[node name="ResultContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_right = 917.0
-margin_bottom = 190.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-
-[node name="Math" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer"]
-margin_top = 79.0
-margin_right = 684.0
-margin_bottom = 110.0
-size_flags_horizontal = 7
-size_flags_vertical = 4
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-fit_content_height = true
-
-[node name="DraggableResult" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/ResultContainer"]
-margin_left = 688.0
-margin_top = 71.0
-margin_right = 917.0
-margin_bottom = 119.0
-size_flags_horizontal = 3
-size_flags_vertical = 4
-custom_fonts/normal_font = SubResource( 4 )
-bbcode_enabled = true
-fit_content_height = true
-script = ExtResource( 4 )
-
 [node name="MathResult1" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 205.0
+margin_top = 27.0
 margin_right = 917.0
-margin_bottom = 246.0
+margin_bottom = 68.0
+focus_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/normal_font = ExtResource( 7 )
 bbcode_enabled = true
 fit_content_height = true
+selection_enabled = true
 
 [node name="MathResult2" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 273.0
+margin_top = 127.0
 margin_right = 917.0
-margin_bottom = 314.0
+margin_bottom = 168.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/normal_font = ExtResource( 7 )
@@ -189,9 +152,9 @@ bbcode_enabled = true
 fit_content_height = true
 
 [node name="MathResult3" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 340.0
+margin_top = 227.0
 margin_right = 917.0
-margin_bottom = 381.0
+margin_bottom = 268.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/normal_font = ExtResource( 7 )
@@ -199,9 +162,9 @@ bbcode_enabled = true
 fit_content_height = true
 
 [node name="MathResult4" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 408.0
+margin_top = 327.0
 margin_right = 917.0
-margin_bottom = 449.0
+margin_bottom = 368.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/normal_font = ExtResource( 7 )
@@ -209,9 +172,9 @@ bbcode_enabled = true
 fit_content_height = true
 
 [node name="MathResult5" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 475.0
+margin_top = 427.0
 margin_right = 917.0
-margin_bottom = 516.0
+margin_bottom = 468.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/normal_font = ExtResource( 7 )
@@ -219,9 +182,9 @@ bbcode_enabled = true
 fit_content_height = true
 
 [node name="MathResult6" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 543.0
+margin_top = 527.0
 margin_right = 917.0
-margin_bottom = 584.0
+margin_bottom = 568.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 custom_fonts/normal_font = ExtResource( 7 )
@@ -250,131 +213,164 @@ fit_content_height = true
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 211.0
-margin_top = 119.0
+margin_top = 99.0
 margin_right = 349.0
-margin_bottom = 179.0
-rect_min_size = Vector2( 0, 60 )
+margin_bottom = 199.0
+rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 texture = ExtResource( 8 )
 expand = true
 
-[node name="Roll1" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect"]
+[node name="Control" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 5.0
-margin_right = -8.0
-margin_bottom = -7.0
+margin_bottom = -1.0
+script = ExtResource( 4 )
+
+[node name="Roll" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 37.0
+margin_top = 22.0
+margin_right = -41.0
+margin_bottom = -18.0
+rect_clip_content = false
+mouse_filter = 1
+mouse_default_cursor_shape = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 fit_content_height = true
-script = ExtResource( 4 )
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 353.0
-margin_top = 119.0
+margin_top = 99.0
 margin_right = 491.0
-margin_bottom = 179.0
-rect_min_size = Vector2( 0, 60 )
+margin_bottom = 199.0
+rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 texture = ExtResource( 8 )
 expand = true
 
-[node name="Roll2" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2"]
+[node name="Control2" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 5.0
-margin_right = -8.0
-margin_bottom = -7.0
+margin_bottom = -1.0
+script = ExtResource( 4 )
+
+[node name="Roll" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2/Control2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 37.0
+margin_top = 22.0
+margin_right = -41.0
+margin_bottom = -18.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 fit_content_height = true
-script = ExtResource( 4 )
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 495.0
-margin_top = 119.0
+margin_top = 99.0
 margin_right = 633.0
-margin_bottom = 179.0
-rect_min_size = Vector2( 0, 60 )
+margin_bottom = 199.0
+rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 texture = ExtResource( 8 )
 expand = true
 
-[node name="Roll3" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3"]
+[node name="Control3" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 5.0
-margin_right = -8.0
-margin_bottom = -7.0
+margin_top = 1.0
+script = ExtResource( 4 )
+
+[node name="Roll" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3/Control3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 37.0
+margin_top = 21.0
+margin_right = -41.0
+margin_bottom = -19.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 fit_content_height = true
-script = ExtResource( 4 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="TextureRect4" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 637.0
-margin_top = 119.0
+margin_top = 99.0
 margin_right = 775.0
-margin_bottom = 179.0
-rect_min_size = Vector2( 0, 60 )
+margin_bottom = 199.0
+rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 texture = ExtResource( 8 )
 expand = true
 
-[node name="Roll4" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4"]
+[node name="Control4" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 5.0
-margin_right = -8.0
-margin_bottom = -7.0
+margin_top = 1.0
+script = ExtResource( 4 )
+
+[node name="Roll" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4/Control4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 37.0
+margin_top = 21.0
+margin_right = -41.0
+margin_bottom = -19.0
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 fit_content_height = true
-script = ExtResource( 4 )
 
 [node name="TextureRect5" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 779.0
-margin_top = 119.0
+margin_top = 99.0
 margin_right = 917.0
-margin_bottom = 179.0
-rect_min_size = Vector2( 0, 60 )
+margin_bottom = 199.0
+rect_min_size = Vector2( 0, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
 texture = ExtResource( 8 )
 expand = true
 
-[node name="Roll5" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5"]
+[node name="Control5" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = 8.0
-margin_top = 5.0
-margin_right = -9.0
-margin_bottom = -7.0
+margin_left = 2.0
+margin_top = 1.0
+margin_right = 2.0
+script = ExtResource( 4 )
+
+[node name="Roll" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5/Control5"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 35.0
+margin_top = 21.0
+margin_right = -43.0
+margin_bottom = -19.0
+rect_clip_content = false
+focus_mode = 2
+mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
 fit_content_height = true
-script = ExtResource( 4 )
 
 [node name="Control" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer"]
 margin_left = 921.0
@@ -653,42 +649,43 @@ margin_left = 4.0
 margin_top = 34.0
 margin_right = -4.0
 margin_bottom = -4.0
+mouse_filter = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer"]
-margin_right = 946.0
-margin_bottom = 433.0
+margin_right = 1842.0
+margin_bottom = 766.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
 [node name="Control" type="Control" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
-margin_right = 85.0
-margin_bottom = 433.0
+margin_right = 166.0
+margin_bottom = 766.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AttributesContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
-margin_left = 89.0
-margin_right = 856.0
-margin_bottom = 433.0
+margin_left = 170.0
+margin_right = 1671.0
+margin_bottom = 766.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 9.0
 
 [node name="AgilityContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_right = 767.0
-margin_bottom = 83.0
+margin_right = 1501.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="AgilityLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_top = 26.0
-margin_right = 552.0
-margin_bottom = 57.0
+margin_top = 59.0
+margin_right = 1089.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 3.0
@@ -705,10 +702,10 @@ visuals_res = ExtResource( 11 )
 owner_path = NodePath("..")
 
 [node name="AgiMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_left = 556.0
-margin_top = 15.0
-margin_right = 611.0
-margin_bottom = 68.0
+margin_left = 1093.0
+margin_top = 48.0
+margin_right = 1202.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.3
@@ -716,9 +713,9 @@ custom_fonts/font = SubResource( 5 )
 text = "-"
 
 [node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_left = 615.0
-margin_right = 707.0
-margin_bottom = 83.0
+margin_left = 1206.0
+margin_right = 1388.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -744,10 +741,10 @@ fit_content_height = true
 script = ExtResource( 9 )
 
 [node name="AgiPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_left = 711.0
-margin_top = 15.0
-margin_right = 767.0
-margin_bottom = 68.0
+margin_left = 1392.0
+margin_top = 48.0
+margin_right = 1501.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.3
@@ -755,16 +752,16 @@ custom_fonts/font = SubResource( 5 )
 text = "+"
 
 [node name="PerceptionContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_top = 87.0
-margin_right = 767.0
-margin_bottom = 170.0
+margin_top = 154.0
+margin_right = 1501.0
+margin_bottom = 304.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="PerceptionLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_top = 26.0
-margin_right = 552.0
-margin_bottom = 57.0
+margin_top = 59.0
+margin_right = 1089.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 3.0
@@ -782,10 +779,10 @@ visuals_res = ExtResource( 11 )
 owner_path = NodePath("..")
 
 [node name="PerMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_left = 556.0
-margin_top = 15.0
-margin_right = 611.0
-margin_bottom = 68.0
+margin_left = 1093.0
+margin_top = 48.0
+margin_right = 1202.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( -1047, 53 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -794,9 +791,9 @@ custom_fonts/font = SubResource( 5 )
 text = "-"
 
 [node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_left = 615.0
-margin_right = 707.0
-margin_bottom = 83.0
+margin_left = 1206.0
+margin_right = 1388.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -822,10 +819,10 @@ script = ExtResource( 9 )
 stat = 1
 
 [node name="PerPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_left = 711.0
-margin_top = 15.0
-margin_right = 767.0
-margin_bottom = 68.0
+margin_left = 1392.0
+margin_top = 48.0
+margin_right = 1501.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.3
@@ -833,16 +830,16 @@ custom_fonts/font = SubResource( 5 )
 text = "+"
 
 [node name="CharacterContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_top = 174.0
-margin_right = 767.0
-margin_bottom = 258.0
+margin_top = 308.0
+margin_right = 1501.0
+margin_bottom = 458.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_top = 26.0
-margin_right = 552.0
-margin_bottom = 57.0
+margin_top = 59.0
+margin_right = 1089.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 3.0
@@ -860,10 +857,10 @@ visuals_res = ExtResource( 11 )
 owner_path = NodePath("..")
 
 [node name="ChaMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_left = 556.0
-margin_top = 15.0
-margin_right = 611.0
-margin_bottom = 68.0
+margin_left = 1093.0
+margin_top = 48.0
+margin_right = 1202.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( -1047, 53 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -872,9 +869,9 @@ custom_fonts/font = SubResource( 5 )
 text = "-"
 
 [node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_left = 615.0
-margin_right = 707.0
-margin_bottom = 84.0
+margin_left = 1206.0
+margin_right = 1388.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -900,10 +897,10 @@ script = ExtResource( 9 )
 stat = 2
 
 [node name="ChaPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_left = 711.0
-margin_top = 15.0
-margin_right = 767.0
-margin_bottom = 68.0
+margin_left = 1392.0
+margin_top = 48.0
+margin_right = 1501.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.3
@@ -911,16 +908,16 @@ custom_fonts/font = SubResource( 5 )
 text = "+"
 
 [node name="WitsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_top = 262.0
-margin_right = 767.0
-margin_bottom = 345.0
+margin_top = 462.0
+margin_right = 1501.0
+margin_bottom = 612.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="WitsLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_top = 26.0
-margin_right = 552.0
-margin_bottom = 57.0
+margin_top = 59.0
+margin_right = 1089.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 3.0
@@ -938,10 +935,10 @@ visuals_res = ExtResource( 11 )
 owner_path = NodePath("..")
 
 [node name="WitMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_left = 556.0
-margin_top = 15.0
-margin_right = 611.0
-margin_bottom = 68.0
+margin_left = 1093.0
+margin_top = 48.0
+margin_right = 1202.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( -1047, 53 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -950,9 +947,9 @@ custom_fonts/font = SubResource( 5 )
 text = "-"
 
 [node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_left = 615.0
-margin_right = 707.0
-margin_bottom = 83.0
+margin_left = 1206.0
+margin_right = 1388.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -978,10 +975,10 @@ script = ExtResource( 9 )
 stat = 3
 
 [node name="WitPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_left = 711.0
-margin_top = 15.0
-margin_right = 767.0
-margin_bottom = 68.0
+margin_left = 1392.0
+margin_top = 48.0
+margin_right = 1501.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.3
@@ -989,16 +986,16 @@ custom_fonts/font = SubResource( 5 )
 text = "+"
 
 [node name="BodyContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_top = 349.0
-margin_right = 767.0
-margin_bottom = 433.0
+margin_top = 616.0
+margin_right = 1501.0
+margin_bottom = 766.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="BodyLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_top = 26.0
-margin_right = 552.0
-margin_bottom = 57.0
+margin_top = 59.0
+margin_right = 1089.0
+margin_bottom = 90.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 3.0
@@ -1016,10 +1013,10 @@ visuals_res = ExtResource( 11 )
 owner_path = NodePath("..")
 
 [node name="BodMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_left = 556.0
-margin_top = 15.0
-margin_right = 611.0
-margin_bottom = 68.0
+margin_left = 1093.0
+margin_top = 48.0
+margin_right = 1202.0
+margin_bottom = 101.0
 rect_pivot_offset = Vector2( -1047, 53 )
 size_flags_horizontal = 3
 size_flags_vertical = 6
@@ -1028,9 +1025,9 @@ custom_fonts/font = SubResource( 5 )
 text = "-"
 
 [node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_left = 615.0
-margin_right = 707.0
-margin_bottom = 84.0
+margin_left = 1206.0
+margin_right = 1388.0
+margin_bottom = 150.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.5
@@ -1056,10 +1053,10 @@ script = ExtResource( 9 )
 stat = 4
 
 [node name="BodPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_left = 711.0
-margin_top = 15.0
-margin_right = 767.0
-margin_bottom = 68.0
+margin_left = 1392.0
+margin_top = 48.0
+margin_right = 1501.0
+margin_bottom = 101.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 0.3
@@ -1067,23 +1064,23 @@ custom_fonts/font = SubResource( 5 )
 text = "+"
 
 [node name="Control2" type="Control" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
-margin_left = 860.0
-margin_right = 946.0
-margin_bottom = 433.0
+margin_left = 1675.0
+margin_right = 1842.0
+margin_bottom = 766.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RemainingContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer"]
-margin_top = 437.0
-margin_right = 946.0
-margin_bottom = 524.0
+margin_top = 770.0
+margin_right = 1842.0
+margin_bottom = 924.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RemainingLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer"]
-margin_top = 28.0
-margin_right = 824.0
-margin_bottom = 59.0
+margin_top = 61.0
+margin_right = 1608.0
+margin_bottom = 92.0
 size_flags_horizontal = 3
 size_flags_vertical = 6
 size_flags_stretch_ratio = 7.0
@@ -1094,9 +1091,9 @@ text = "POZOSTAŁO"
 fit_content_height = true
 
 [node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer"]
-margin_left = 828.0
-margin_right = 946.0
-margin_bottom = 87.0
+margin_left = 1612.0
+margin_right = 1842.0
+margin_bottom = 154.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 5 )

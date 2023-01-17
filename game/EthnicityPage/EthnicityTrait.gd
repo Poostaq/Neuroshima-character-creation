@@ -12,3 +12,6 @@ export (NodePath) onready var trait_description_label = get_node(trait_descripti
 
 func _on_EthnicityTraitButton_pressed():
 	emit_signal("trait_button_pressed", self)
+
+func get_tooltip_text():
+	return "%s \n\n %s" % [trait_name, tooltip_text]

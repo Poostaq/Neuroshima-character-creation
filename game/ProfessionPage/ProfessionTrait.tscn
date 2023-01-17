@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://ProfessionPage/ProfessionTrait.gd" type="Script" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://UI_Elements/skill box inactive.png" type="Texture" id=3]
 [ext_resource path="res://UI_Elements/skill box active.png" type="Texture" id=4]
+[ext_resource path="res://Tooltip.gd" type="Script" id=5]
+[ext_resource path="res://TraitTooltip.tscn" type="PackedScene" id=6]
 
 [sub_resource type="DynamicFont" id=1]
 size = 22
@@ -94,5 +96,10 @@ margin_bottom = 200.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.15
+
+[node name="Tooltip" type="Node" parent="."]
+script = ExtResource( 5 )
+visuals_res = ExtResource( 6 )
+owner_path = NodePath("..")
 
 [connection signal="pressed" from="." to="." method="_on_ProfesionTraitButton_pressed"]

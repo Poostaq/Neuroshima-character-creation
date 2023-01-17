@@ -52,7 +52,7 @@ onready var indicators = [
 func _ready():
 	back_step.disabled = true
 	next_step.disabled = true
-
+	
 
 
 func _on_CardButton_button_up():
