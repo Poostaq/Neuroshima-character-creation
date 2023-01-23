@@ -5,7 +5,6 @@ onready var draggable_value = preload("res://AttributesPage/DraggableValue.tscn"
 
 
 func get_drag_data(_pos):
-	print("DRAGGING")
 	var data = {}
 	data["bbcode"] = self.bbcode_text
 	data["original_object"] = self
