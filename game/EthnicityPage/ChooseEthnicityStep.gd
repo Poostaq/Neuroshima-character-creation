@@ -51,10 +51,10 @@ func _set_image(path):
 		picture.texture = load(path)
 
 
-func _load_ethnicity(ethinicity):
-	_set_image(ethinicity["splash_art_path"])
-	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethinicity["ethnicity_name"]
-	ethnicity_description.bbcode_text = "%s" % ethinicity["ethnicity_description"]
+func _load_ethnicity(ethnicity):
+	_set_image(ethnicity["splash_art_path"])
+	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
+	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"]
 	var trait_list = db.read_traits_for_ethnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
