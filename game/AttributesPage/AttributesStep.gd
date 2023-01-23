@@ -3,9 +3,6 @@ extends Control
 signal attributes_chosen(attribute_list)
 
 export (NodePath) onready var roll_button = get_node(roll_button) as Button
-export (NodePath) onready var math_label = get_node(math_label) as RichTextLabel
-export (NodePath) onready var result_label = get_node(result_label) as RichTextLabel
-export (NodePath) onready var result_container = get_node(result_container) as HBoxContainer
 export (NodePath) onready var roll_button_container = get_node(roll_button_container) as CenterContainer
 
 export (NodePath) onready var math1_label = get_node(math1_label) as RichTextLabel

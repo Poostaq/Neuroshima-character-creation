@@ -5,6 +5,7 @@
 
 [node name="Button" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+secondary_trait = ""
 option_button = NodePath("HBoxContainer/VBoxContainer/OptionButton")
 
 [node name="Control3" parent="HBoxContainer/VBoxContainer" index="0"]

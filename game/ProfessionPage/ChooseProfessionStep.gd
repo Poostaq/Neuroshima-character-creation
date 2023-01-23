@@ -4,6 +4,7 @@ extends Control
 signal profession_chosen(current_profession)
 signal trait_chosen(profession_trait_element)
 signal clear_trait()
+signal clear_profession()
 
 
 export(ButtonGroup) var trait_group
@@ -29,8 +30,7 @@ func load_step():
 	profession = db.read_data_for_profession(profession_list[current_profession]["profession_identifier"])
 	_load_profession(profession)
 	trait_group = load("res://ProfessionPage/Traits.tres")
-	emit_signal("profession_chosen", profession)
-
+	_changed_profession()
 
 func _set_image(path):
 	var image = load(path)
@@ -51,14 +51,13 @@ func _load_profession(_profession):
 			trait_container.remove_child(n)
 			n.queue_free()
 	if len(profession_trait_list) == 2:
-		var control = Control.new()
-		control.size_flags_horizontal = 3
-		control.size_flags_vertical = 3
-		control.size_flags_stretch_ratio = 0.5
-		trait_container.add_child(control)
+		_create_trait_list_filler()
 	for trait in profession_trait_list:
 		_create_trait_button(trait_button_scene, trait)
 	if len(profession_trait_list) == 2:
+		_create_trait_list_filler()
+
+func _create_trait_list_filler():
 		var control = Control.new()
 		control.size_flags_horizontal = 3
 		control.size_flags_vertical = 3
@@ -70,19 +69,21 @@ func _create_trait_button(trait_template, trait_data):
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
 	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
-	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["trait_description"]
+	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["trait_short_description"]
 	trait_button.connect("profession_trait_button_pressed", 
 						self, 
 						"_on_Trait_Button_button_pressed")
 	trait_button.identifier = trait_data["trait_identifier"]
 	trait_button.trait_name = trait_data["trait_name"]
-	trait_button.description = trait_data["trait_description"]
+	trait_button.description = trait_data["trait_short_description"]
+	trait_button.tooltip_text = trait_data["trait_description"]
 	trait_button.get_node(".").set_button_group(trait_group)
 	return trait_button
 
 
 func _on_Trait_Button_button_pressed(button):
 	emit_signal("trait_chosen", button)
+	emit_signal("profession_chosen", profession)
 
 
 func _on_PreviousProfession_button_up():
@@ -105,5 +106,5 @@ func _on_NextProfession_button_up():
 
 
 func _changed_profession():
-	emit_signal("profession_chosen", profession)
+	emit_signal("clear_profession")
 	emit_signal("clear_trait")

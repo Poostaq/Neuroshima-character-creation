@@ -52,7 +52,7 @@ func read_data_for_etnicity(ethnicity_identifier):
 
 
 func read_traits_for_ethnicity(ethnicity_identifier):
-	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description "
+	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description, t.trait_short_description "
 	var from = "FROM ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id "
 	var where = ("WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
 	var selected_array = _sql_select(select+from+where)
@@ -79,7 +79,7 @@ func read_data_for_profession(profession_identifier):
 
 	
 func read_traits_for_profession(profession_identifier):
-	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description "
+	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description, t.trait_short_description "
 	var from = "FROM professions p JOIN traits t on p.profession_id = t.profession_id "
 	var where = "WHERE t.profession_id is not null and "
 	where += ("p.profession_identifier like '%s';" % profession_identifier)
@@ -109,6 +109,18 @@ func read_list_of_attributes_without_any():
 	var selected_array : Array = db.select_rows(table_name, select_condition, ["attribute_name"])
 	for selected_row in selected_array:
 		attributes.append(selected_row.get("attribute_name"))
+	db.close_db()
+	return attributes
+
+
+func read_list_of_attribute_descriptions_without_any():
+	read_from_SQL()
+	var table_name = "attributes"
+	var attributes = []
+	var select_condition = "attribute_identifier != 'any';"
+	var selected_array : Array = db.select_rows(table_name, select_condition, ["attribute_description"])
+	for selected_row in selected_array:
+		attributes.append(selected_row.get("attribute_description"))
 	db.close_db()
 	return attributes
 
