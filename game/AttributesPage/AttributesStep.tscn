@@ -3,7 +3,7 @@
 [ext_resource path="res://AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://AttributesPage/Draggable_v2.gd" type="Script" id=4]
+[ext_resource path="res://AttributesPage/Draggable.gd" type="Script" id=4]
 [ext_resource path="res://UI_Elements/OLD/Buttons/skil selected.png" type="Texture" id=5]
 [ext_resource path="res://AttributesPage/Droppable.gd" type="Script" id=6]
 [ext_resource path="res://FONT.tres" type="DynamicFont" id=7]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Tooltip.gd" type="Script" id=10]
 [ext_resource path="res://Tooltip.tscn" type="PackedScene" id=11]
 [ext_resource path="res://AttributesPage/AttributeLabel.gd" type="Script" id=12]
+
 
 [sub_resource type="DynamicFont" id=3]
 size = 48
