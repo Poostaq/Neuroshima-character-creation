@@ -65,6 +65,7 @@ export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as
 export (NodePath) onready var ethnicity_trait_element = get_node(ethnicity_trait_element) as RichTextLabel
 export (NodePath) onready var profession_element = get_node(profession_element) as RichTextLabel
 export (NodePath) onready var profession_trait_element = get_node(profession_trait_element) as RichTextLabel
+export (NodePath) onready var specialization_element = get_node(specialization_element) as RichTextLabel
 
 onready var character_stats_element = $CharacterStats
 onready var db = get_node("/root/DatabaseOperations")
@@ -81,6 +82,7 @@ func _update_basic_info_values():
 	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
 	self.profession_element.bbcode_text = self.character_stats_element.profession
 	self.profession_trait_element.bbcode_text = self.character_stats_element.profession_trait
+	self.specialization_element.bbcode_text = self.character_stats_element.specialization
 
 
 func _update_attribute_values(attributeEnum):

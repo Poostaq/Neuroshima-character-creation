@@ -95,6 +95,7 @@ ethnicity_element = NodePath("PanelContainer/TextureRect2/MarginContainer/Scroll
 ethnicity_trait_element = NodePath("PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer3/EthnicityTrait")
 profession_element = NodePath("PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer/Profession")
 profession_trait_element = NodePath("PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer2/ProfessionTrait")
+specialization_element = NodePath("PanelContainer/TextureRect2/MarginContainer/ScrollContainer/TextureRect/Panel/VBoxContainer/VBoxContainer2/HBoxContainer/Specialization")
 
 [node name="PanelContainer" type="Control" parent="."]
 anchor_right = 1.0

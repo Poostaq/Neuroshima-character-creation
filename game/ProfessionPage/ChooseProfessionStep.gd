@@ -1,8 +1,8 @@
 extends Control
  
 
-signal profession_chosen(current_profession)
-signal trait_chosen(profession_trait_element)
+signal profession_chosen(profession)
+signal trait_chosen(profession_trait)
 signal clear_trait()
 signal clear_profession()
 
@@ -11,7 +11,7 @@ export(ButtonGroup) var trait_group
 
 
 var profession_list = []
-var current_profession = 0
+var current_profession_index = 0
 var profession = {}
 
 
@@ -27,7 +27,7 @@ onready var db = get_node("/root/DatabaseOperations")
 
 func load_step():
 	profession_list = db.read_profession_identifiers()
-	profession = db.read_data_for_profession(profession_list[current_profession]["profession_identifier"])
+	profession = db.read_data_for_profession(profession_list[current_profession_index]["profession_identifier"])
 	_load_profession(profession)
 	trait_group = load("res://ProfessionPage/Traits.tres")
 	_changed_profession()
@@ -45,7 +45,7 @@ func _load_profession(_profession):
 	profession_name.bbcode_text = "[center]%s[/center]" % profession["profession_name"]
 	profession_description.bbcode_text = "%s" % profession["profession_description"]
 	profession_quote.bbcode_text = "[center]%s[/center]" % profession["profession_quote"]
-	var profession_trait_list = db.read_traits_for_profession(profession_list[current_profession]["profession_identifier"])
+	var profession_trait_list = db.read_traits_for_profession(profession_list[current_profession_index]["profession_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
@@ -87,20 +87,20 @@ func _on_Trait_Button_button_pressed(button):
 
 
 func _on_PreviousProfession_button_up():
-	if current_profession == 0:
-		current_profession = len(profession_list)-1
+	if current_profession_index == 0:
+		current_profession_index = len(profession_list)-1
 	else:
-		current_profession -= 1
-	profession = db.read_data_for_profession(profession_list[current_profession]["profession_identifier"])
+		current_profession_index -= 1
+	profession = db.read_data_for_profession(profession_list[current_profession_index]["profession_identifier"])
 	_load_profession(profession)
 	_changed_profession()
 
 func _on_NextProfession_button_up():
-	if current_profession == len(profession_list)-1:
-		current_profession = 0
+	if current_profession_index == len(profession_list)-1:
+		current_profession_index = 0
 	else:
-		current_profession += 1
-	profession = db.read_data_for_profession(profession_list[current_profession]["profession_identifier"])
+		current_profession_index += 1
+	profession = db.read_data_for_profession(profession_list[current_profession_index]["profession_identifier"])
 	_load_profession(profession)
 	_changed_profession()
 

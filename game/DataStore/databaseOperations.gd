@@ -4,31 +4,25 @@ const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
 var db
 var db_local
 var sysdate = _datetime_to_string(OS.get_datetime())
+var error_code:int
 
-var db_name := "res://datastore/neuroshima"
-var db_local_name := "res://datastore/local_player"
-var packaged_db_name := "res://data_to_be_packaged"
+var main_db := "res://datastore/neuroshima"
+var local_player_db := "res://datastore/local_player"
+var packaged_main_db := "res://data_to_be_packaged"
 var json_name := "res://datastore/neuroshima_backup"
 
-func read_from_SQL():
+func open_connection_to(path):
 	db = SQLite.new()
-	db.path = db_name
-	db.open_db()
-
-
-func read_from_local_db():
-	db = SQLite.new()
-	db.path = db_local_name
+	db.path = path
 	db.open_db()
 
 
 func _sql_select(query):
-	db = SQLite.new()
-	db.path = db_name
-	db.open_db()
+	open_connection_to(main_db)
 	db.query(query)
-	for i in range(0, db.query_result.size()):
-		var _data = db.query_result[i]
+#	for i in range(0, db.query_result.size()):
+#		var _data = db.query_result[i]
+#		print(_data)
 	return db.query_result
 
 
@@ -89,7 +83,7 @@ func read_traits_for_profession(profession_identifier):
 	
 
 func read_list_of_ethnicity_traits_without_versatilities():
-	read_from_SQL()
+	open_connection_to(main_db)
 	var table_name = "traits"
 	var traits = []
 	var select_condition = "trait_identifier not in ('versatility_squared', 'versatility') "
@@ -102,7 +96,7 @@ func read_list_of_ethnicity_traits_without_versatilities():
 
 
 func read_list_of_attributes_without_any():
-	read_from_SQL()
+	open_connection_to(main_db)
 	var table_name = "attributes"
 	var attributes = []
 	var select_condition = "attribute_identifier != 'any';"
@@ -114,7 +108,7 @@ func read_list_of_attributes_without_any():
 
 
 func read_list_of_attribute_descriptions_without_any():
-	read_from_SQL()
+	open_connection_to(main_db)
 	var table_name = "attributes"
 	var attributes = []
 	var select_condition = "attribute_identifier != 'any';"
@@ -126,7 +120,7 @@ func read_list_of_attribute_descriptions_without_any():
 
 
 func read_list_of_modifiers():
-	read_from_SQL()
+	open_connection_to(main_db)
 	var table_name = "test_modifiers"
 	var modifiers = []
 	var select_condition = "test_modifier_identifier not like '%master';"
@@ -138,14 +132,14 @@ func read_list_of_modifiers():
 
 
 func insert_into_player_info():
-	read_from_local_db()
+	open_connection_to(local_player_db)
 	var columns = {"player_created_date" : sysdate}
 	db.insert_rows("player_info", [columns])
 	db.close_db()
 
 
 func update_player_info(value):
-	read_from_local_db()
+	open_connection_to(local_player_db)
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var columns = {"player_name" :value, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
@@ -153,7 +147,7 @@ func update_player_info(value):
 
 
 func db_update_player_ethnicity(player_ethnicity, player_ethnicity_trait):
-	read_from_local_db()
+	open_connection_to(local_player_db)
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var col = {"player_updated_date" :sysdate, "player_ethnicity":player_ethnicity,"player_ethnicity_trait":player_ethnicity_trait} 
 	db.update_rows("player_info", condition, col)
@@ -161,20 +155,20 @@ func db_update_player_ethnicity(player_ethnicity, player_ethnicity_trait):
 
 
 func db_update_player_attribute_bonus(value):
-	read_from_SQL()
+	open_connection_to(main_db)
 	var attribute = db.select_rows("attributes", "attribute_enum = " + str(value), ["attribute_identifier"])
 	var uppper_attribute = (attribute[0]["attribute_identifier"].to_upper())
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var col = {"AGILITY" :0, "PERCEPTION" :0, "CHARACTER":0, "WITS":0, "BODY":0 }
 	col[uppper_attribute] = 1
 	db.close_db()
-	read_from_local_db()
+	open_connection_to(local_player_db)
 	db.update_rows("player_info", condition, col)
 	db.close_db()
 
 
 func db_update_player_profession(player_profession, player_profession_trait):
-	read_from_local_db()
+	open_connection_to(local_player_db)
 	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
 	var col = {"player_updated_date" :sysdate, "player_profession":player_profession,"player_profession_trait":player_profession_trait }
 	db.update_rows("player_info", condition, col)
@@ -201,3 +195,57 @@ func _datetime_to_string(date):
 		})
 	else :
 		print ("Bad sysdate")
+
+
+func read_specialisation_identifiers():
+	var select = "SELECT specialization_identifier "
+	var from = "FROM specializations "
+	var where = "WHERE specialization_enum is not null"
+	var selected_array = _sql_select(select+from+where)
+	print(selected_array)
+	db.close_db()
+	return selected_array
+
+
+func read_data_for_specialisation(specialisation_identifier):
+	var select = "SELECT specialization_id , specialization_identifier, " 
+	select += "specialization_name, specialization_description, specialization_enum "
+	var from = "FROM specializations "
+	var where = ("WHERE specialization_identifier like '%s';" % specialisation_identifier)
+	var selected_array = _sql_select(select+from+where)
+	db.close_db()
+	return selected_array[0]
+
+	
+func read_skills_for_specialization(specialization_identifier):
+	var select = "SELECT s.skill_name, sp.skill_pack_name, s2.specialization_name " 
+	var from = "FROM skills s join skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
+	var join = "join specializations s2 on s2.specialization_id = sp.specialization_id "
+	join += ("WHERE s2.specialization_identifier like '%s';" % specialization_identifier)
+	var selected_array = _sql_select(select+from+join);
+	print(selected_array)
+	db.close_db()
+	return selected_array
+
+
+func read_packs_for_specialization(specialization_identifier):
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name " 
+	var from = "FROM skill_packs sp "
+	var join = "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
+	var where = "WHERE spec.specialization_identifier like '%"+specialization_identifier+"%';"
+	print(select+from+join+where)
+	var selected_array = _sql_select(select+from+join+where);
+	db.close_db()
+	return selected_array
+	
+
+func read_skills_for_package(package_identifier):
+	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id " 
+	var from = "FROM skills s "
+	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
+	var where = ("WHERE sp.skill_pack_identifier like '%s';" % package_identifier)
+	print(select+from+join+where)
+	var selected_array = _sql_select(select+from+join+where);
+	db.close_db()
+	return selected_array
+	
