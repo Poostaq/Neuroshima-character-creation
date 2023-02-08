@@ -4,7 +4,6 @@ const SQLite = preload("res://addons/godot-sqlite/bin/gdsqlite.gdns")
 var db
 var db_local
 var sysdate = _datetime_to_string(OS.get_datetime())
-var error_code:int
 
 var main_db := "res://datastore/neuroshima"
 var local_player_db := "res://datastore/local_player"
