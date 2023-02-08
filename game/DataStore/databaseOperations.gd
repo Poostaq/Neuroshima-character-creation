@@ -19,9 +19,6 @@ func open_connection_to(path):
 func _sql_select(query):
 	open_connection_to(main_db)
 	db.query(query)
-#	for i in range(0, db.query_result.size()):
-#		var _data = db.query_result[i]
-#		print(_data)
 	return db.query_result
 
 
