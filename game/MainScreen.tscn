@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=1]
 [ext_resource path="res://UI_Elements/character sheet button off.png" type="Texture" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://SpecialisationPage/ChooseSpecialisationStep.tscn" type="PackedScene" id=17]
 [ext_resource path="res://AttributesPage/AttributesStep.tscn" type="PackedScene" id=18]
+[ext_resource path="res://SkillPointsPage/DistributeSkillPointsStep.tscn" type="PackedScene" id=19]
 [ext_resource path="res://ProfessionPage/ChooseProfessionStep.tscn" type="PackedScene" id=20]
 
 [sub_resource type="ButtonGroup" id=2]
@@ -44,7 +45,7 @@ ethnicity_element = NodePath("CenterContainer/VBoxContainer/StepContainer/Ethnic
 profession_element = NodePath("CenterContainer/VBoxContainer/StepContainer/ProfessionStep")
 attributes_element = NodePath("CenterContainer/VBoxContainer/StepContainer/AttributesStep")
 specialisation_element = NodePath("CenterContainer/VBoxContainer/StepContainer/SpecialisationStep")
-specialisation_element2 = NodePath("CenterContainer/VBoxContainer/StepContainer/SpecialisationStep2")
+distribute_skill_points_element = NodePath("CenterContainer/VBoxContainer/StepContainer/DistributeSkillPointsStep")
 ethnicity_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/EthnicityIndicator")
 profession_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionIndicator")
 attributes_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesIndicator")
@@ -138,7 +139,7 @@ margin_bottom = 952.0
 specialization_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/SpecialisationName")
 specialization_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/SpecialisationDescription")
 
-[node name="SpecialisationStep2" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 17 )]
+[node name="DistributeSkillPointsStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 19 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -146,8 +147,6 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 952.0
-specialization_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/SpecialisationName")
-specialization_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/SpecialisationDescription")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 976.0
@@ -789,5 +788,4 @@ margin_right = 303.0
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
 [editable path="CenterContainer/VBoxContainer/StepContainer/SpecialisationStep"]
-[editable path="CenterContainer/VBoxContainer/StepContainer/SpecialisationStep2"]
 [editable path="CharacterSheet"]

@@ -222,10 +222,18 @@ func read_packs_for_specialization(specialization_identifier):
 	var selected_array = _sql_select(select+from+join+where);
 	db.close_db()
 	return selected_array
-	
+
+func read_all_skill_packs():
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name " 
+	var from = "FROM skill_packs sp "
+	var join = "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
+	print(select+from+join)
+	var selected_array = _sql_select(select+from+join);
+	db.close_db()
+	return selected_array	
 
 func read_skills_for_package(package_identifier):
-	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id " 
+	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description " 
 	var from = "FROM skills s "
 	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
 	var where = ("WHERE sp.skill_pack_identifier like '%s';" % package_identifier)

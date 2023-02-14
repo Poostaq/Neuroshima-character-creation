@@ -1,0 +1,781 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://UI_Elements/splash_art_box.png" type="Texture" id=1]
+[ext_resource path="res://UI_Elements/previous origin button off.png" type="Texture" id=2]
+[ext_resource path="res://THEME.tres" type="Theme" id=3]
+[ext_resource path="res://SkillPointsPage/SkillCard.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SkillPointsPage/DistributeSkillPointsStep.gd" type="Script" id=5]
+[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=7]
+[ext_resource path="res://UI_Elements/origin description box.png" type="Texture" id=8]
+[ext_resource path="res://UI_Elements/light_off.png" type="Texture" id=9]
+[ext_resource path="res://UI_Elements/origin box.png" type="Texture" id=10]
+[ext_resource path="res://UI_Elements/next origin button on.png" type="Texture" id=11]
+[ext_resource path="res://UI_Elements/light_on.png" type="Texture" id=12]
+[ext_resource path="res://UI_Elements/next origin button off.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=3]
+size = 26
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 60
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 26
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 64
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 48
+font_data = ExtResource( 6 )
+
+[node name="DistributeSkillPointsStep" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+script = ExtResource( 5 )
+skill_card1 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1")
+skill_card2 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard2")
+skill_card3 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard3")
+pack_name_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/PackName")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_right = 1880.0
+margin_bottom = 992.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+custom_constants/separation = 20
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_right = 51.0
+margin_bottom = 992.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 71.0
+margin_right = 582.0
+margin_bottom = 992.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 501.0
+margin_bottom = 982.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 54.0
+margin_top = 92.0
+margin_right = -83.0
+margin_bottom = -89.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+margin_right = 354.0
+margin_bottom = 393.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
+margin_right = 354.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 42.0
+margin_right = 354.0
+margin_bottom = 158.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:"
+text = "PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 162.0
+margin_right = 354.0
+margin_bottom = 393.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]30/30"
+text = "30/30"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+margin_top = 397.0
+margin_right = 354.0
+margin_bottom = 791.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_right = 354.0
+margin_bottom = 130.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "PUNKTY DO ROZDANIA NA POZOSTAŁE UMIEJĘTNOŚCI:
+"
+text = "PUNKTY DO ROZDANIA NA POZOSTAŁE UMIEJĘTNOŚCI:
+"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 134.0
+margin_right = 354.0
+margin_bottom = 394.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+custom_fonts/normal_font = SubResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]35/35"
+text = "35/35"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 602.0
+margin_right = 1880.0
+margin_bottom = 992.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 1278.0
+margin_bottom = 262.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
+margin_right = 114.0
+margin_bottom = 262.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
+margin_left = 118.0
+margin_right = 1148.0
+margin_bottom = 262.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+margin_right = 1030.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 1030.0
+margin_bottom = 221.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="Rules" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_right = 1030.0
+margin_bottom = 181.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "REGUŁY:
+5 punkty = kupno całego pakietu na poziom 1.
+3 punkty = kupno pojedynczej umiejętności na poziom 1.
+N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka poziomów, za każdy z nich płacisz z osobna."
+text = "REGUŁY:
+5 punkty = kupno całego pakietu na poziom 1.
+3 punkty = kupno pojedynczej umiejętności na poziom 1.
+N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka poziomów, za każdy z nich płacisz z osobna."
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+margin_top = 225.0
+margin_right = 1030.0
+margin_bottom = 262.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
+margin_left = 1152.0
+margin_right = 1278.0
+margin_bottom = 262.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.1
+
+[node name="Control5" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 266.0
+margin_right = 1278.0
+margin_bottom = 292.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 296.0
+margin_right = 1278.0
+margin_bottom = 428.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
+margin_right = 181.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
+margin_left = 185.0
+margin_right = 1092.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Control4" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer"]
+margin_left = 1096.0
+margin_right = 1278.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2"]
+margin_right = 127.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2"]
+margin_left = 131.0
+margin_right = 1147.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="PreviousPack" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PackName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_left = 104.0
+margin_right = 911.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+custom_fonts/font = SubResource( 6 )
+text = "NOT SET"
+align = 1
+valign = 1
+
+[node name="NextPack" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer"]
+margin_left = 915.0
+margin_right = 1016.0
+margin_bottom = 132.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2"]
+margin_left = 1151.0
+margin_right = 1278.0
+margin_bottom = 132.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MinusButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 235.0
+margin_top = 104.0
+margin_right = -909.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/MinusButton"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -6.0
+margin_right = -1.0
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 7 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="PlusButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 909.0
+margin_top = 104.0
+margin_right = -235.0
+margin_bottom = 17.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 12 )
+texture_hover = ExtResource( 12 )
+expand = true
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/PlusButton"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -1.0
+margin_top = -5.0
+margin_right = -1.0
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 7 )
+text = "+"
+align = 1
+valign = 1
+
+[node name="Control4" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 432.0
+margin_right = 1278.0
+margin_bottom = 458.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="TraitContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 462.0
+margin_right = 1278.0
+margin_bottom = 856.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="SkillCard1" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 423.0
+margin_bottom = 394.0
+
+[node name="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer" index="0"]
+margin_right = 423.0
+margin_bottom = 351.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer" index="0"]
+margin_right = 46.0
+margin_bottom = 351.0
+
+[node name="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer" index="1"]
+margin_left = 50.0
+margin_right = 357.0
+margin_bottom = 351.0
+
+[node name="Control3" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
+margin_right = 307.0
+margin_bottom = 63.0
+
+[node name="SkillName" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer/VBoxContainer" index="1"]
+margin_top = 67.0
+margin_right = 307.0
+margin_bottom = 131.0
+
+[node name="SkillDescription" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer/VBoxContainer" index="2"]
+margin_top = 135.0
+margin_right = 307.0
+margin_bottom = 294.0
+
+[node name="Control4" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer/VBoxContainer" index="3"]
+margin_top = 298.0
+margin_right = 307.0
+margin_bottom = 351.0
+
+[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer" index="2"]
+margin_left = 361.0
+margin_right = 423.0
+margin_bottom = 351.0
+
+[node name="HBoxContainer2" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer" index="1"]
+margin_top = 355.0
+margin_right = 423.0
+margin_bottom = 394.0
+
+[node name="Control4" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2" index="0"]
+margin_right = 138.0
+margin_bottom = 39.0
+
+[node name="MinusButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control4" index="0"]
+margin_right = 138.0
+margin_bottom = 39.0
+
+[node name="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control4" index="1"]
+margin_right = 138.0
+margin_bottom = 39.0
+
+[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control4/HBoxContainer" index="0"]
+margin_right = 14.0
+margin_bottom = 39.0
+
+[node name="MinusLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control4/HBoxContainer" index="1"]
+margin_left = 18.0
+margin_right = 119.0
+margin_bottom = 39.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control4/HBoxContainer" index="2"]
+margin_left = 123.0
+margin_right = 138.0
+margin_bottom = 39.0
+
+[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2" index="1"]
+margin_left = 142.0
+margin_right = 280.0
+margin_bottom = 39.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2" index="2"]
+margin_left = 284.0
+margin_right = 423.0
+margin_bottom = 39.0
+
+[node name="PlusButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control" index="0"]
+margin_right = 139.0
+margin_bottom = 39.0
+
+[node name="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control" index="1"]
+margin_right = 139.0
+margin_bottom = 39.0
+
+[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control/HBoxContainer" index="0"]
+margin_right = 4.0
+margin_bottom = 39.0
+
+[node name="PlusLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control/HBoxContainer" index="1"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_left = 8.0
+margin_right = 130.0
+margin_bottom = 39.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control/HBoxContainer" index="2"]
+margin_left = 134.0
+margin_right = 139.0
+margin_bottom = 39.0
+
+[node name="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="0"]
+margin_right = 71.0
+margin_bottom = 66.0
+
+[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="1"]
+margin_left = 71.0
+margin_right = 142.0
+margin_bottom = 66.0
+
+[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="2"]
+margin_left = 142.0
+margin_right = 213.0
+margin_bottom = 66.0
+
+[node name="Control3" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="3"]
+margin_left = 213.0
+margin_right = 283.0
+margin_bottom = 66.0
+
+[node name="Control4" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="4"]
+margin_left = 283.0
+margin_right = 353.0
+margin_bottom = 66.0
+
+[node name="Control5" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="5"]
+margin_left = 353.0
+margin_right = 423.0
+margin_bottom = 66.0
+
+[node name="Control6" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="6"]
+margin_top = 66.0
+margin_right = 71.0
+margin_bottom = 132.0
+
+[node name="Control7" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="7"]
+margin_left = 71.0
+margin_top = 66.0
+margin_right = 142.0
+margin_bottom = 132.0
+
+[node name="Control8" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="8"]
+margin_left = 142.0
+margin_top = 66.0
+margin_right = 213.0
+margin_bottom = 132.0
+
+[node name="Control9" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="9"]
+margin_left = 213.0
+margin_top = 66.0
+margin_right = 283.0
+margin_bottom = 132.0
+
+[node name="Control10" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="10"]
+margin_left = 283.0
+margin_top = 66.0
+margin_right = 353.0
+margin_bottom = 132.0
+
+[node name="Control11" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="11"]
+margin_left = 353.0
+margin_top = 66.0
+margin_right = 423.0
+margin_bottom = 132.0
+
+[node name="Control12" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="12"]
+margin_top = 132.0
+margin_right = 71.0
+margin_bottom = 198.0
+
+[node name="Control13" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="13"]
+margin_left = 71.0
+margin_top = 132.0
+margin_right = 142.0
+margin_bottom = 198.0
+
+[node name="Control14" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="14"]
+margin_left = 142.0
+margin_top = 132.0
+margin_right = 213.0
+margin_bottom = 198.0
+
+[node name="Control15" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="15"]
+margin_left = 213.0
+margin_top = 132.0
+margin_right = 283.0
+margin_bottom = 198.0
+
+[node name="Control16" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="16"]
+margin_left = 283.0
+margin_top = 132.0
+margin_right = 353.0
+margin_bottom = 198.0
+
+[node name="Control17" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="17"]
+margin_left = 353.0
+margin_top = 132.0
+margin_right = 423.0
+margin_bottom = 198.0
+
+[node name="Control18" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="18"]
+margin_top = 198.0
+margin_right = 71.0
+margin_bottom = 264.0
+
+[node name="Control19" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="19"]
+margin_left = 71.0
+margin_top = 198.0
+margin_right = 142.0
+margin_bottom = 264.0
+
+[node name="Control20" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="20"]
+margin_left = 142.0
+margin_top = 198.0
+margin_right = 213.0
+margin_bottom = 264.0
+
+[node name="Control21" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="21"]
+margin_left = 213.0
+margin_top = 198.0
+margin_right = 283.0
+margin_bottom = 264.0
+
+[node name="Control22" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="22"]
+margin_left = 283.0
+margin_top = 198.0
+margin_right = 353.0
+margin_bottom = 264.0
+
+[node name="Control23" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="23"]
+margin_left = 353.0
+margin_top = 198.0
+margin_right = 423.0
+margin_bottom = 264.0
+
+[node name="Control24" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="24"]
+margin_top = 264.0
+margin_right = 71.0
+margin_bottom = 329.0
+
+[node name="Control25" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="25"]
+margin_left = 71.0
+margin_top = 264.0
+margin_right = 142.0
+margin_bottom = 329.0
+
+[node name="Control26" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="26"]
+margin_left = 142.0
+margin_top = 264.0
+margin_right = 213.0
+margin_bottom = 329.0
+
+[node name="Control27" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="27"]
+margin_left = 213.0
+margin_top = 264.0
+margin_right = 283.0
+margin_bottom = 329.0
+
+[node name="Control28" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="28"]
+margin_left = 283.0
+margin_top = 264.0
+margin_right = 353.0
+margin_bottom = 329.0
+
+[node name="Control29" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="29"]
+margin_left = 353.0
+margin_top = 264.0
+margin_right = 423.0
+margin_bottom = 329.0
+
+[node name="Control30" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="30"]
+margin_top = 329.0
+margin_right = 71.0
+margin_bottom = 394.0
+
+[node name="Control31" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="31"]
+margin_left = 71.0
+margin_top = 329.0
+margin_right = 142.0
+margin_bottom = 394.0
+
+[node name="Control32" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="32"]
+margin_left = 142.0
+margin_top = 329.0
+margin_right = 213.0
+margin_bottom = 394.0
+
+[node name="Control33" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="33"]
+margin_left = 213.0
+margin_top = 329.0
+margin_right = 283.0
+margin_bottom = 394.0
+
+[node name="Control34" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="34"]
+margin_left = 283.0
+margin_top = 329.0
+margin_right = 353.0
+margin_bottom = 394.0
+
+[node name="Control35" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/GridContainer" index="35"]
+margin_left = 353.0
+margin_top = 329.0
+margin_right = 423.0
+margin_bottom = 394.0
+
+[node name="SkillCard2" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 427.0
+margin_right = 850.0
+margin_bottom = 394.0
+
+[node name="SkillCard3" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer" instance=ExtResource( 4 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 854.0
+margin_right = 1278.0
+margin_bottom = 394.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 860.0
+margin_right = 1278.0
+margin_bottom = 992.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/PreviousPack" to="." method="_on_PreviousEthnicity_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/NextPack" to="." method="_on_NextEthnicity_button_up"]
+
+[editable path="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1"]
