@@ -354,5 +354,5 @@ margin_bottom = 879.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialisation" to="." method="_on_PreviousSpecialisation_button_up"]
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialisation" to="." method="_on_NextSpecialisation_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialisation" to="." method="_on_PreviousSpecialization_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialisation" to="." method="_on_NextSpecialization_button_up"]
