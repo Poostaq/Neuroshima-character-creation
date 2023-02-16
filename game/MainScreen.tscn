@@ -16,14 +16,13 @@
 [ext_resource path="res://Big_stat_font.tres" type="DynamicFont" id=14]
 [ext_resource path="res://UI_Elements/progress light off.png" type="Texture" id=15]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://SpecializationPage/ChooseSpecializationStep.tscn" type="PackedScene" id=17]
 [ext_resource path="res://AttributesPage/AttributesStep.tscn" type="PackedScene" id=18]
 [ext_resource path="res://ProfessionPage/ChooseProfessionStep.tscn" type="PackedScene" id=20]
 
 [sub_resource type="ButtonGroup" id=2]
 
 [sub_resource type="ButtonGroup" id=5]
-
-[sub_resource type="ButtonGroup" id=6]
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
@@ -44,7 +43,8 @@ character_sheet_panel = NodePath("CharacterSheet")
 ethnicity_element = NodePath("CenterContainer/VBoxContainer/StepContainer/EthnicityStep")
 profession_element = NodePath("CenterContainer/VBoxContainer/StepContainer/ProfessionStep")
 attributes_element = NodePath("CenterContainer/VBoxContainer/StepContainer/AttributesStep")
-dummy_element = NodePath("CenterContainer/VBoxContainer/StepContainer/DummyStep")
+specialisation_element = NodePath("CenterContainer/VBoxContainer/StepContainer/SpecializationStep")
+specialisation_element2 = NodePath("CenterContainer/VBoxContainer/StepContainer/SkillDistributionStep")
 ethnicity_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/EthnicityIndicator")
 profession_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionIndicator")
 attributes_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesIndicator")
@@ -127,7 +127,7 @@ margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 952.0
 
-[node name="DummyStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 20 )]
+[node name="SpecializationStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 17 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -135,9 +135,21 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 952.0
-mouse_filter = 1
-mouse_default_cursor_shape = 3
-trait_group = SubResource( 6 )
+specialization_skills = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/SpecialisationSkills")
+specialization_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/SpecialisationName")
+specialization_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/SpecialisationDescription")
+
+[node name="SkillDistributionStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 17 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 952.0
+specialization_skills = NodePath("../SpecializationStep/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/SpecialisationSkills")
+specialization_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/SpecialisationName")
+specialization_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/SpecialisationDescription")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="CenterContainer/VBoxContainer"]
 margin_top = 976.0
@@ -767,9 +779,17 @@ margin_right = 303.0
 [connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_enable_next_step"]
 [connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_ethnicity_chosen"]
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="CharacterSheet/CharacterStats" method="_on_EthnicityStep_trait_chosen"]
+[connection signal="clear_profession" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_clear_profession"]
+[connection signal="clear_trait" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_clear_trait"]
+[connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_profession_chosen"]
+[connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterSheet/CharacterStats" method="_on_ProfessionStep_trait_chosen"]
 [connection signal="attributes_chosen" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="CharacterSheet/CharacterStats" method="_on_AttributesStep_attributes_chosen"]
+[connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_enable_next_step"]
+[connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="CharacterSheet/CharacterStats" method="_on_SpecialisationStep_specialization_chosen"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_previous_step"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
 
+[editable path="CenterContainer/VBoxContainer/StepContainer/SpecializationStep"]
+[editable path="CenterContainer/VBoxContainer/StepContainer/SkillDistributionStep"]
 [editable path="CharacterSheet"]

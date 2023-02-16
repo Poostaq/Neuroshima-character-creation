@@ -5,6 +5,7 @@ export var ethnicity : String
 export var ethnicity_trait : String
 export var profession : String
 export var profession_trait : String
+export var specialization : String
 
 export var agi_value : int
 export var agi_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
@@ -41,6 +42,9 @@ func _clear_bonus_attribute():
 		element["EthnicityAttributeModifier"] = 0
 	attribute_modifier = 0
 
+
+func clear_specialization():
+	specialization = ""
 
 func set_bonus_attribute(attribute=null):
 	if attribute != null or (attribute <= 4 and attribute >= 0):
@@ -97,3 +101,7 @@ func _on_EthnicityStep_clear_bonus_attribute():
 
 func _on_ProfessionStep_clear_profession():
 	profession = ""
+
+
+func _on_SpecialisationStep_specialization_chosen(current_specialisation):
+	specialization = current_specialisation["specialization_name"]

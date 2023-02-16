@@ -11,7 +11,7 @@ export(ButtonGroup) var trait_group
 
 
 var ethnicity_list = []
-var current_ethnicity = 0
+var current_ethnicity_index = 0
 var current_ethnicity_data = {}
 
 
@@ -34,7 +34,7 @@ func _ready():
 	
 func load_step():
 	ethnicity_list = db.read_ethnicity_identifiers()
-	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_selector_options()
 	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
@@ -55,7 +55,7 @@ func _load_ethnicity(ethnicity):
 	_set_image(ethnicity["splash_art_path"])
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"]
-	var trait_list = db.read_traits_for_ethnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+	var trait_list = db.read_traits_for_ethnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
@@ -103,7 +103,7 @@ func _on_Trait_Button_button_pressed(button):
 	emit_signal("attribute_chosen", bonus_attribute)
 	
 func _get_bonus_attribute():
-	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="none_of_your_fucking_business":
+	if ethnicity_list[current_ethnicity_index]["ethnicity_identifier"] =="none_of_your_fucking_business":
 		return attribute_selector.selected
 	else:
 		return current_ethnicity_data["attribute_enum"]
@@ -115,7 +115,7 @@ func _fill_trait_button_trait_list(trait_list_element: OptionButton):
 
 
 func _fill_attribute_bonus_label(_attributes):
-	if ethnicity_list[current_ethnicity]["ethnicity_identifier"] =="none_of_your_fucking_business":
+	if ethnicity_list[current_ethnicity_index]["ethnicity_identifier"] =="none_of_your_fucking_business":
 		attribute_bonus_label.visible = false
 		attribute_selector.visible = true
 		return
@@ -128,21 +128,21 @@ func _on_AttributeSelect_item_selected(index):
 
 
 func _on_PreviousEthnicity_button_up():
-	if current_ethnicity == 0:
-		current_ethnicity = len(ethnicity_list)-1
+	if current_ethnicity_index == 0:
+		current_ethnicity_index = len(ethnicity_list)-1
 	else:
-		current_ethnicity -= 1
-	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+		current_ethnicity_index -= 1
+	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	_changed_ethnicity()
 
 func _on_NextEthnicity_button_up():
-	if current_ethnicity == len(ethnicity_list)-1:
-		current_ethnicity = 0
+	if current_ethnicity_index == len(ethnicity_list)-1:
+		current_ethnicity_index = 0
 	else:
-		current_ethnicity += 1
-	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity]["ethnicity_identifier"])
+		current_ethnicity_index += 1
+	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	_changed_ethnicity()
