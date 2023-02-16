@@ -4,7 +4,7 @@ extends Node
 #####################################
 # SIGNALS
 #####################################
-signal specialization_chosen(current_specialisation)
+signal specialization_chosen(current_specialization)
 #####################################
 # CONSTANTS
 #####################################
@@ -12,7 +12,7 @@ signal specialization_chosen(current_specialisation)
 #####################################
 # EXPORT VARIABLES 
 #####################################
-export (NodePath) onready var specialisation_skills = get_node(specialisation_skills) as RichTextLabel
+export (NodePath) onready var specialization_skills = get_node(specialization_skills) as RichTextLabel
 export (NodePath) onready var specialization_name = get_node(specialization_name) as RichTextLabel
 export (NodePath) onready var specialization_description = get_node(specialization_description) as RichTextLabel
 #####################################
@@ -22,8 +22,8 @@ export (NodePath) onready var specialization_description = get_node(specializati
 #####################################
 # PRIVATE VARIABLES
 #####################################
-var _specialisation_list = []
-var _current_specialisation_index = 0
+var _specialization_list = []
+var _current_specialization_index = 0
 var current_specialization = {}
 #####################################
 # ONREADY VARIABLES
@@ -47,10 +47,10 @@ func _process(_delta: float) -> void:
 # API FUNCTIONS
 #####################################
 func load_step() -> void:
-	_specialisation_list = db.read_specialisation_identifiers()
-	var specialisation_id = _specialisation_list[_current_specialisation_index]["specialization_identifier"]
-	current_specialization = db.read_data_for_specialisation(specialisation_id)
-	_load_specialisation(current_specialization)
+	_specialization_list = db.read_specialization_identifiers()
+	var specialization_id = _specialization_list[_current_specialization_index]["specialization_identifier"]
+	current_specialization = db.read_data_for_specialization(specialization_id)
+	_load_specialization(current_specialization)
 	emit_signal("specialization_chosen", current_specialization)
 	
 	
@@ -58,10 +58,10 @@ func load_step() -> void:
 #####################################
 # HELPER FUNCTIONS
 #####################################
-func _load_specialisation(specialization_data):
+func _load_specialization(specialization_data):
 	specialization_name.bbcode_text = "[center]%s[/center]" % specialization_data["specialization_name"]
 	specialization_description.bbcode_text = "%s" % specialization_data["specialization_description"]
-	specialisation_skills.bbcode_text = _prepare_specialization_skills(specialization_data["specialization_identifier"])
+	specialization_skills.bbcode_text = _prepare_specialization_skills(specialization_data["specialization_identifier"])
 
 
 func _prepare_specialization_skills(specialization_data):
@@ -76,16 +76,16 @@ func _prepare_specialization_skills(specialization_data):
 	return bbcode
 
 
-func _on_PreviousSpecialisation_button_up():
-	if _current_specialisation_index == 0:
-		_current_specialisation_index = len(_specialisation_list)-1
+func _on_PreviousSpecialization_button_up():
+	if _current_specialization_index == 0:
+		_current_specialization_index = len(_specialization_list)-1
 	else:
-		_current_specialisation_index -= 1
+		_current_specialization_index -= 1
 	load_step()
 
-func _on_NextSpecialisation_button_up():
-	if _current_specialisation_index == len(_specialisation_list)-1:
-		_current_specialisation_index = 0
+func _on_NextSpecialization_button_up():
+	if _current_specialization_index == len(_specialization_list)-1:
+		_current_specialization_index = 0
 	else:
-		_current_specialisation_index += 1
+		_current_specialization_index += 1
 	load_step()

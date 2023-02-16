@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI_Elements/splash_art_box.png" type="Texture" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://SpecialisationPage/SpecialisationStep.gd" type="Script" id=4]
+[ext_resource path="res://SpecializationPage/SpecializationStep.gd" type="Script" id=4]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/origin box.png" type="Texture" id=8]
@@ -37,7 +37,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 script = ExtResource( 4 )
-specialisation_skills = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/SpecialisationSkills")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0

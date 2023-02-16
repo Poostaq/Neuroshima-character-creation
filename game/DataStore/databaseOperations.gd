@@ -193,7 +193,7 @@ func _datetime_to_string(date):
 		print ("Bad sysdate")
 
 
-func read_specialisation_identifiers():
+func read_specialization_identifiers():
 	var select = "SELECT specialization_identifier "
 	var from = "FROM specializations "
 	var where = "WHERE specialization_enum is not null"
@@ -203,11 +203,11 @@ func read_specialisation_identifiers():
 	return selected_array
 
 
-func read_data_for_specialisation(specialisation_identifier):
+func read_data_for_specialization(specialization_identifier):
 	var select = "SELECT specialization_id , specialization_identifier, " 
 	select += "specialization_name, specialization_description, specialization_enum "
 	var from = "FROM specializations "
-	var where = ("WHERE specialization_identifier like '%s';" % specialisation_identifier)
+	var where = ("WHERE specialization_identifier like '%s';" % specialization_identifier)
 	var selected_array = _sql_select(select+from+where)
 	db.close_db()
 	return selected_array[0]
