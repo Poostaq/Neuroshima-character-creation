@@ -540,7 +540,6 @@ margin_right = 4.0
 margin_bottom = 39.0
 
 [node name="PlusLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1/VBoxContainer/HBoxContainer2/Control/HBoxContainer" index="1"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_left = 8.0
 margin_right = 130.0
 margin_bottom = 39.0
@@ -775,7 +774,7 @@ margin_bottom = 992.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/PreviousPack" to="." method="_on_PreviousEthnicity_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/NextPack" to="." method="_on_NextEthnicity_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/PreviousPack" to="." method="_on_PreviousPack_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/NextPack" to="." method="_on_NextPack_button_up"]
 
 [editable path="VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer/SkillCard1"]

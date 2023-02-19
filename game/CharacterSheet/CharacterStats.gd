@@ -26,8 +26,7 @@ var attribute_modifiers_dicts = [agi_modifiers, per_modifiers, cha_modifiers, wi
 var attribute_values_list = [agi_value,per_value,cha_value,wit_value,bod_value]
 var attribute_modifier : int
 
-var list_of_skills
-var list_of_bough_packs
+
 
 func get_final_attribute_value(attribute_modifiers : Dictionary):
 	var result = 0

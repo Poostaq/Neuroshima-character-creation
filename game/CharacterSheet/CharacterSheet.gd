@@ -67,7 +67,8 @@ export (NodePath) onready var profession_element = get_node(profession_element) 
 export (NodePath) onready var profession_trait_element = get_node(profession_trait_element) as RichTextLabel
 export (NodePath) onready var specialization_element = get_node(specialization_element) as RichTextLabel
 
-onready var character_stats_element = $CharacterStats
+
+onready var character_stats_element = get_node("/root/MainScreen/CharacterStats")
 onready var db = get_node("/root/DatabaseOperations")
 
 
