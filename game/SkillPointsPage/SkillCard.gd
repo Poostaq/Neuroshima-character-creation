@@ -4,7 +4,8 @@ extends Node
 #####################################
 # SIGNALS
 #####################################
-
+signal plus_button_pressed(skill)
+signal minus_button_pressed(skill)
 #####################################
 # CONSTANTS
 #####################################
@@ -49,4 +50,8 @@ func _process(_delta: float) -> void:
 
 
 func _on_PlusButton_pressed():
-	print("PRESSED")
+	emit_signal("plus_button_pressed", self)
+
+
+func _on_MinusButton_button_up():
+	emit_signal("minus_button_pressed", self)

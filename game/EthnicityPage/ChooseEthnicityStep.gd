@@ -24,24 +24,22 @@ export (NodePath) onready var attribute_selector = get_node(attribute_selector) 
 
 onready var trait_button_scene = preload("res://EthnicityPage/EthnicityTrait.tscn")
 onready var alternate_trait_button_scene = preload("res://EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.tscn")
-onready var db = get_node("/root/DatabaseOperations")
-
 
 
 func _ready():
 	load_step()
-	
-	
+
+
 func load_step():
-	ethnicity_list = db.read_ethnicity_identifiers()
-	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
+	ethnicity_list = DatabaseOperations.read_ethnicity_identifiers()
+	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_selector_options()
 	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	trait_group = load("res://EthnicityPage/Traits.tres")
 	yield(get_tree(), "idle_frame")
 	_changed_ethnicity()
-	
+
 
 func _set_image(path):
 	var image = load(path)
@@ -55,7 +53,7 @@ func _load_ethnicity(ethnicity):
 	_set_image(ethnicity["splash_art_path"])
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"]
-	var trait_list = db.read_traits_for_ethnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
+	var trait_list = DatabaseOperations.read_traits_for_ethnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
@@ -110,7 +108,7 @@ func _get_bonus_attribute():
 		
 
 func _fill_trait_button_trait_list(trait_list_element: OptionButton):
-	for trait in db.read_list_of_ethnicity_traits_without_versatilities():
+	for trait in DatabaseOperations.read_list_of_ethnicity_traits_without_versatilities():
 		trait_list_element.add_item(trait)
 
 
@@ -132,7 +130,7 @@ func _on_PreviousEthnicity_button_up():
 		current_ethnicity_index = len(ethnicity_list)-1
 	else:
 		current_ethnicity_index -= 1
-	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
+	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	_changed_ethnicity()
@@ -142,7 +140,7 @@ func _on_NextEthnicity_button_up():
 		current_ethnicity_index = 0
 	else:
 		current_ethnicity_index += 1
-	current_ethnicity_data = db.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
+	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	_changed_ethnicity()
@@ -150,7 +148,7 @@ func _on_NextEthnicity_button_up():
 
 func _fill_attribute_selector_options():
 	attribute_selector.clear()
-	for attribute in db.read_list_of_attributes_without_any():
+	for attribute in DatabaseOperations.read_list_of_attributes_without_any():
 		attribute_selector.add_item(attribute)
 
 

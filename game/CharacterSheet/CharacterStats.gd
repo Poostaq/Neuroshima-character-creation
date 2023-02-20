@@ -25,7 +25,13 @@ export var bod_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "Base
 var attribute_modifiers_dicts = [agi_modifiers, per_modifiers, cha_modifiers, wit_modifiers, bod_modifiers]
 var attribute_values_list = [agi_value,per_value,cha_value,wit_value,bod_value]
 var attribute_modifier : int
+var skill_levels : Dictionary
 
+
+func _init() -> void:
+	var skill_data = DatabaseOperations.read_skills()
+	for skill in skill_data:
+		skill_levels[skill["skill_name"]] = 0
 
 
 func get_final_attribute_value(attribute_modifiers : Dictionary):
