@@ -198,7 +198,6 @@ func read_specialisation_identifiers():
 	var from = "FROM specializations "
 	var where = "WHERE specialization_enum is not null"
 	var selected_array = _sql_select(select+from+where)
-	print(selected_array)
 	db.close_db()
 	return selected_array
 
@@ -226,7 +225,6 @@ func read_all_skill_packs():
 	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name " 
 	var from = "FROM skill_packs sp "
 	var join = "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
-	print(select+from+join)
 	var selected_array = _sql_select(select+from+join);
 	db.close_db()
 	return selected_array	

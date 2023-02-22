@@ -31,7 +31,7 @@ var skill_levels : Dictionary
 func _init() -> void:
 	var skill_data = DatabaseOperations.read_skills()
 	for skill in skill_data:
-		skill_levels[skill["skill_name"]] = 0
+		skill_levels[skill["skill_identifier"]] = 0
 
 
 func get_final_attribute_value(attribute_modifiers : Dictionary):

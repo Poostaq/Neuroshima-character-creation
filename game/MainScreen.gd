@@ -9,6 +9,7 @@ export (NodePath) onready var next_step = get_node(next_step) as TextureButton
 export (NodePath) onready var steps_container =  get_node(steps_container) as HBoxContainer
 export (NodePath) onready var card_button = get_node(card_button) as TextureButton
 export (NodePath) onready var character_sheet_panel = get_node(character_sheet_panel) as Control
+export (NodePath) onready var character_stats = get_node(character_stats) as Node
 
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
 export (NodePath) onready var profession_element = get_node(profession_element) as Control
@@ -26,6 +27,7 @@ export (NodePath) onready var diseases_indicator = get_node(diseases_indicator) 
 export (NodePath) onready var reputation_indicator = get_node(reputation_indicator) as TextureButton
 export (NodePath) onready var form_indicator = get_node(form_indicator) as TextureButton
 export (NodePath) onready var gear_indicator = get_node(gear_indicator) as TextureButton
+
 
 
 var current_step = 0
@@ -68,19 +70,15 @@ func _next_step():
 		attributes_element.save_attributes()
 	if current_step == len(steps)-2:
 		next_step.disabled = true
-	if current_step == len(steps)-1:
-		print("The End")
-	else:
-		current_step += 1
+	current_step += 1
 	back_step.disabled = false
-	steps[current_step].load_step()
+	prepare_step()
 	_turn_on_step_indicators()
 	_turn_off_screens()
 	character_sheet_panel.update_card()
 	
 	
 func _previous_step():
-	var character_stats = character_sheet_panel.find_node("CharacterStats")
 	if steps[current_step] == attributes_element:
 		character_stats.clear_base_rolls_attributes()
 	if steps[current_step] == specialisation_element:
@@ -91,8 +89,8 @@ func _previous_step():
 		print("CANT GO BACK")
 	else:
 		current_step -= 1
-	next_step.disabled = false
-	steps[current_step].load_step()
+	_disable_next_step()
+	prepare_step()
 	_turn_off_step_indicators()
 	_turn_off_screens()
 
@@ -124,3 +122,10 @@ func _enable_next_step(_argument):
 
 func _disable_next_step():
 	next_step.disabled = true
+
+
+func prepare_step():
+	if steps[current_step] == distribute_skill_points_element:
+		steps[current_step].load_step(character_stats.skill_levels)
+	else:
+		steps[current_step].load_step()
