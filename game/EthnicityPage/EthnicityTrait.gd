@@ -15,6 +15,3 @@ func _on_EthnicityTraitButton_pressed():
 
 func get_tooltip_text():
 	return "%s \n\n %s" % [trait_name, tooltip_text]
-
-func _on_PlusButton_pressed():
-	print("PRESSED")
