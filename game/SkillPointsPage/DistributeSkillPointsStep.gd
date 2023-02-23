@@ -17,6 +17,7 @@ export (NodePath) onready var skill_card2 = get_node(skill_card2) as Control
 export (NodePath) onready var skill_card3 = get_node(skill_card3) as Control
 export (NodePath) onready var pack_name_label = get_node(pack_name_label) as Label
 export (NodePath) onready var skill_description = get_node(skill_description) as RichTextLabel
+export (NodePath) onready var skill_name = get_node(skill_name) as Label
 #####################################
 # PUBLIC VARIABLES 
 #####################################
@@ -71,7 +72,7 @@ func _load_package():
 		current_skill_card.level = _skill_levels[skill["skill_identifier"]]
 		current_skill_card.description = skill["skill_description"]
 		current_skill_card.update_skill_card_text()
-	skill_description.bbcode_text = _skill_card_list[0].description
+		
 
 func _on_NextPack_button_up():
 	_current_skill_pack_index += 1
@@ -99,5 +100,5 @@ func _on_SkillCard_plus_button_pressed(skill):
 
 
 func _on_SkillCard_skill_element_pressed(skill):
-	print(skill.description)
+	skill_name.text = skill.skill_name
 	skill_description.bbcode_text = skill.description
