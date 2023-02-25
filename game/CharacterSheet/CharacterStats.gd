@@ -112,4 +112,4 @@ func _on_ProfessionStep_clear_profession():
 
 
 func _on_SpecialisationStep_specialization_chosen(current_specialisation):
-	specialization = current_specialisation["specialization_name"]
+	specialization = current_specialisation["specialization_identifier"]

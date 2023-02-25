@@ -788,6 +788,7 @@ margin_right = 303.0
 [connection signal="trait_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="CharacterStats" method="_on_ProfessionStep_trait_chosen"]
 [connection signal="attributes_chosen" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="CharacterStats" method="_on_AttributesStep_attributes_chosen"]
 [connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecialisationStep" to="." method="_enable_next_step"]
+[connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecialisationStep" to="CharacterStats" method="_on_SpecialisationStep_specialization_chosen"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_previous_step"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]

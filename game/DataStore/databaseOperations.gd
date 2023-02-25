@@ -230,9 +230,10 @@ func read_all_skill_packs():
 	return selected_array	
 
 func read_skills_for_package(package_identifier):
-	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description " 
+	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description, s2.specialization_identifier " 
 	var from = "FROM skills s "
 	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
+	join += "JOIN specializations s2 on sp.specialization_id = s2.specialization_id "
 	var where = "WHERE s.skill_special_rules is null "
 	where += ("AND sp.skill_pack_identifier like '%s';" % package_identifier)
 	var selected_array = _sql_select(select+from+join+where);

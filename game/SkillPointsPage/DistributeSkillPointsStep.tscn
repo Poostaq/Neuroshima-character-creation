@@ -41,11 +41,11 @@ size = 30
 font_data = ExtResource( 15 )
 
 [sub_resource type="DynamicFont" id=9]
-size = 60
+size = 50
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 36
+size = 32
 font_data = ExtResource( 6 )
 
 [node name="DistributeSkillPointsStep" type="Control"]
@@ -63,6 +63,8 @@ skill_card3 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/
 pack_name_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/PackName")
 skill_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer/SkillDescription")
 skill_name = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/SkillName")
+skill_points = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2/SkillPoints")
+specialization_skill_points = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer/SpecializationSkillPoints")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -106,12 +108,14 @@ expand = true
 stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 54.0
-margin_top = 92.0
-margin_right = -83.0
-margin_bottom = -89.0
+anchor_left = 0.11
+anchor_top = 0.095
+anchor_right = 0.831
+anchor_bottom = 0.908
+margin_left = -0.0100021
+margin_top = -0.340004
+margin_right = -0.0210266
+margin_bottom = 0.42395
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 margin_right = 354.0
@@ -138,7 +142,7 @@ bbcode_enabled = true
 bbcode_text = "PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:"
 text = "PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:"
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
+[node name="SpecializationSkillPoints" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 140.0
 margin_right = 354.0
@@ -172,7 +176,7 @@ bbcode_text = "PUNKTY DO ROZDANIA NA POZOSTAŁE UMIEJĘTNOŚCI:
 text = "PUNKTY DO ROZDANIA NA POZOSTAŁE UMIEJĘTNOŚCI:
 "
 
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
+[node name="SkillPoints" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 124.0
 margin_right = 354.0
@@ -321,7 +325,7 @@ margin_bottom = 141.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="MinusButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
+[node name="PackMinusButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
 anchor_left = 0.171
 anchor_top = 0.716
 anchor_right = 0.25
@@ -337,7 +341,7 @@ texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 12 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/MinusButton"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/PackMinusButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -350,7 +354,7 @@ text = "-"
 align = 1
 valign = 1
 
-[node name="PlusButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
+[node name="PackPlusButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
 anchor_left = 0.744
 anchor_top = 0.702
 anchor_right = 0.822
@@ -366,7 +370,7 @@ texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 12 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/PlusButton"]
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3/PackPlusButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -496,15 +500,15 @@ size_flags_stretch_ratio = 9.0
 
 [node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_right = 683.0
-margin_bottom = 89.0
+margin_bottom = 93.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="SkillName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 93.0
+margin_top = 97.0
 margin_right = 683.0
-margin_bottom = 214.0
+margin_bottom = 191.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
@@ -512,9 +516,9 @@ text = "WYBIERZ UMIEJĘTNOŚĆ"
 autowrap = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
-margin_top = 218.0
+margin_top = 195.0
 margin_right = 683.0
-margin_bottom = 668.0
+margin_bottom = 664.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -522,14 +526,14 @@ size_flags_stretch_ratio = 5.0
 [node name="SkillDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 683.0
-margin_bottom = 450.0
+margin_bottom = 469.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
-margin_top = 672.0
+margin_top = 668.0
 margin_right = 683.0
 margin_bottom = 762.0
 size_flags_horizontal = 3
@@ -553,6 +557,8 @@ size_flags_stretch_ratio = 0.1
 
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/PreviousPack" to="." method="_on_PreviousPack_button_up"]
 [connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/HBoxContainer2/HBoxContainer/NextPack" to="." method="_on_NextPack_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/PackMinusButton" to="." method="_on_PackMinusButton_button_up"]
+[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/Control3/PackPlusButton" to="." method="_on_PackPlusButton_button_up"]
 [connection signal="minus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/TraitContainer/SkillCard" to="." method="_on_SkillCard_minus_button_pressed"]
 [connection signal="plus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/TraitContainer/SkillCard" to="." method="_on_SkillCard_plus_button_pressed"]
 [connection signal="skill_element_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/TraitContainer/SkillCard" to="." method="_on_SkillCard_skill_element_pressed"]

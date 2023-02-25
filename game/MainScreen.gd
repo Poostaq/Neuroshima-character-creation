@@ -126,6 +126,6 @@ func _disable_next_step():
 
 func prepare_step():
 	if steps[current_step] == distribute_skill_points_element:
-		steps[current_step].load_step(character_stats.skill_levels)
+		steps[current_step].load_step(character_stats.skill_levels , character_stats.specialization)
 	else:
 		steps[current_step].load_step()

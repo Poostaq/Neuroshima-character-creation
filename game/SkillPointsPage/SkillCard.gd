@@ -17,6 +17,7 @@ signal skill_element_pressed(skill)
 export var level = 0
 export var description = ""
 export var skill_name = ""
+export var specialization = ""
 #####################################
 # PUBLIC VARIABLES 
 #####################################
