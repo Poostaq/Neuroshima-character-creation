@@ -73,6 +73,7 @@ func _prepare_specialization_skills(specialization_data):
 		var skills = db.read_skills_for_package(skill_pack)
 		for y in skills:
 			bbcode += ("- %s \n" % y["skill_name"])
+		bbcode+= "\n"
 	return bbcode
 
 

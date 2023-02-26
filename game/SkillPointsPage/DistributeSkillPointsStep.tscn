@@ -16,6 +16,10 @@
 [ext_resource path="res://SkillPointsPage/skillCardButtonGroup.tres" type="ButtonGroup" id=14]
 [ext_resource path="res://Fonts/Aleo-Bold.otf" type="DynamicFontData" id=15]
 
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 6 )
+
 [sub_resource type="DynamicFont" id=3]
 size = 26
 font_data = ExtResource( 6 )
@@ -26,10 +30,6 @@ font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 26
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 24
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=6]
@@ -103,9 +103,11 @@ margin_left = 10.0
 margin_top = 10.0
 margin_right = 501.0
 margin_bottom = 982.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 texture = ExtResource( 1 )
 expand = true
-stretch_mode = 6
+stretch_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
 anchor_left = 0.11
@@ -117,23 +119,49 @@ margin_top = -0.340004
 margin_right = -0.0210266
 margin_bottom = 0.42395
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
-margin_right = 354.0
-margin_bottom = 223.0
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+margin_right = 353.0
+margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
-margin_right = 354.0
-margin_bottom = 33.0
+[node name="Rules" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 27.0
+margin_right = 353.0
+margin_bottom = 304.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.2
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "REGUŁY:
+5 punkty = kupno całego pakietu na poziom 1.
+3 punkty = kupno pojedynczej umiejętności na poziom 1.
+N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka poziomów, za każdy z nich płacisz z osobna."
+text = "REGUŁY:
+5 punkty = kupno całego pakietu na poziom 1.
+3 punkty = kupno pojedynczej umiejętności na poziom 1.
+N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka poziomów, za każdy z nich płacisz z osobna."
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 308.0
+margin_right = 353.0
+margin_bottom = 312.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+margin_top = 316.0
+margin_right = 353.0
+margin_bottom = 547.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 37.0
-margin_right = 354.0
-margin_bottom = 136.0
+margin_right = 353.0
+margin_bottom = 123.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -144,9 +172,9 @@ text = "PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:"
 
 [node name="SpecializationSkillPoints" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 140.0
-margin_right = 354.0
-margin_bottom = 223.0
+margin_top = 127.0
+margin_right = 353.0
+margin_bottom = 231.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.5
@@ -155,17 +183,23 @@ bbcode_enabled = true
 bbcode_text = "[center]30/30"
 text = "30/30"
 
+[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 551.0
+margin_right = 353.0
+margin_bottom = 555.0
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
-margin_top = 227.0
-margin_right = 354.0
-margin_bottom = 451.0
+margin_top = 559.0
+margin_right = 353.0
+margin_bottom = 790.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_right = 354.0
-margin_bottom = 120.0
+margin_right = 353.0
+margin_bottom = 123.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -178,9 +212,9 @@ text = "PUNKTY DO ROZDANIA NA POZOSTAŁE UMIEJĘTNOŚCI:
 
 [node name="SkillPoints" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 124.0
-margin_right = 354.0
-margin_bottom = 224.0
+margin_top = 127.0
+margin_right = 353.0
+margin_bottom = 231.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.5
@@ -188,25 +222,6 @@ custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "[center]35/35"
 text = "35/35"
-
-[node name="Rules" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 455.0
-margin_right = 354.0
-margin_bottom = 791.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.5
-custom_fonts/normal_font = SubResource( 2 )
-bbcode_enabled = true
-bbcode_text = "REGUŁY:
-5 punkty = kupno całego pakietu na poziom 1.
-3 punkty = kupno pojedynczej umiejętności na poziom 1.
-N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka poziomów, za każdy z nich płacisz z osobna."
-text = "REGUŁY:
-5 punkty = kupno całego pakietu na poziom 1.
-3 punkty = kupno pojedynczej umiejętności na poziom 1.
-N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka poziomów, za każdy z nich płacisz z osobna."
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
 margin_left = 602.0
