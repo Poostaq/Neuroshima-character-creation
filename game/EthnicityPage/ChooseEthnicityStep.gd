@@ -99,6 +99,9 @@ func _on_Trait_Button_button_pressed(button):
 	emit_signal("trait_chosen", button)
 	emit_signal("ethnicity_chosen", current_ethnicity_data)
 	emit_signal("attribute_chosen", bonus_attribute)
+	CharacterStats._on_EthnicityStep_ethnicity_chosen(current_ethnicity_data)
+	CharacterStats._on_EthnicityStep_attribute_chosen(bonus_attribute)
+	CharacterStats._on_EthnicityStep_trait_chosen(button)
 	
 func _get_bonus_attribute():
 	if ethnicity_list[current_ethnicity_index]["ethnicity_identifier"] =="none_of_your_fucking_business":
@@ -155,3 +158,5 @@ func _fill_attribute_selector_options():
 func _changed_ethnicity():
 	emit_signal("clear_ethnicity")
 	emit_signal("clear_bonus_attribute")
+	CharacterStats._on_EthnicityStep_clear_ethnicity()
+	CharacterStats._on_EthnicityStep_clear_bonus_attribute()

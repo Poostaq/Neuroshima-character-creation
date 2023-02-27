@@ -68,7 +68,6 @@ export (NodePath) onready var profession_trait_element = get_node(profession_tra
 export (NodePath) onready var specialization_element = get_node(specialization_element) as RichTextLabel
 
 
-onready var character_stats_element = get_node("/root/MainScreen/CharacterStats")
 onready var db = get_node("/root/DatabaseOperations")
 
 
@@ -79,18 +78,18 @@ func update_card():
 
 
 func _update_basic_info_values():
-	self.ethnicity_element.bbcode_text = self.character_stats_element.ethnicity
-	self.ethnicity_trait_element.bbcode_text = self.character_stats_element.ethnicity_trait
-	self.profession_element.bbcode_text = self.character_stats_element.profession
-	self.profession_trait_element.bbcode_text = self.character_stats_element.profession_trait
-	self.specialization_element.bbcode_text = self.character_stats_element.specialization
+	ethnicity_element.bbcode_text = CharacterStats.ethnicity
+	ethnicity_trait_element.bbcode_text = CharacterStats.ethnicity_trait
+	profession_element.bbcode_text = CharacterStats.profession
+	profession_trait_element.bbcode_text = CharacterStats.profession_trait
+	specialization_element.bbcode_text = CharacterStats.specialization
 
 
 func _update_attribute_values(attributeEnum):
 	if attributeEnum == GlobalConstants.attribute.ANY:
 		return
-	var value = character_stats_element.get_final_attribute_value(self.character_stats_element.attribute_modifiers_dicts[attributeEnum])
-	self.character_stats_element.attribute_values_list[attributeEnum] = value
+	var value = CharacterStats.get_final_attribute_value(CharacterStats.attribute_modifiers_dicts[attributeEnum])
+	CharacterStats.attribute_values_list[attributeEnum] = value
 	attribute_value_elements[attributeEnum].bbcode_text ="[center]%s[/center]" %  value
 	_fill_attribute_modifiers(value, attribute_modifiers_elements[attributeEnum])
 

@@ -108,6 +108,7 @@ func save_attributes():
 	elif tab_container.current_tab == 1:
 		list =  attribute_value_list.slice(0, 4)
 	emit_signal("attributes_chosen", list)
+	CharacterStats._on_AttributesStep_attributes_chosen(list)
 
 
 func _on_RollButton_button_up():

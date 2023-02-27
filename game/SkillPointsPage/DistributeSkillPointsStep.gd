@@ -51,12 +51,14 @@ var _specialization_id = ""
 func _init() -> void:
 	pass
 
-func load_step(skill_level_data, specialization_identifier):
+func load_step():
 	_skill_card_list = [skill_card1,skill_card2,skill_card3]
 	_skill_packs_list = DatabaseOperations.read_all_skill_packs()
-	_initial_skill_levels = skill_level_data
+	_initial_skill_levels = CharacterStats.skill_levels
 	_current_skill_levels = _initial_skill_levels
-	_specialization_id = specialization_identifier
+	_specialization_id = CharacterStats.specialization
+	_initial_packs = CharacterStats.skill_packs
+	_current_packs = _initial_packs
 	_load_package()
 	_update_skill_points()
 
