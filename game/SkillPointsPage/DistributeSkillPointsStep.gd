@@ -20,6 +20,7 @@ export (NodePath) onready var skill_description = get_node(skill_description) as
 export (NodePath) onready var skill_name = get_node(skill_name) as Label
 export (NodePath) onready var skill_points = get_node(skill_points) as RichTextLabel
 export (NodePath) onready var specialization_skill_points = get_node(specialization_skill_points) as RichTextLabel
+export (NodePath) onready var skill_pack_indicator = get_node(skill_pack_indicator) as TextureButton
 #####################################
 # PUBLIC VARIABLES 
 #####################################
@@ -63,12 +64,6 @@ func load_step():
 	_update_skill_points()
 
 
-func _ready() -> void:
-	pass
-
-func _process(_delta: float) -> void:
-	pass
-
 #####################################
 # API FUNCTIONS
 #####################################
@@ -79,7 +74,8 @@ func _process(_delta: float) -> void:
 func _load_package():
 	_current_skill_pack_data = _skill_packs_list[_current_skill_pack_index]
 	var pack_data = DatabaseOperations.read_skills_for_package(_current_skill_pack_data["skill_pack_identifier"])
-	pack_name_label.text = _current_skill_pack_data["skill_pack_name"]
+	pack_name_label.text = _current_skill_pack_data["skill_pack_name"] 
+	print(pack_data)
 	for index in range(0, len(pack_data)):
 		var current_skill_card = _skill_card_list[index]
 		var skill = pack_data[index]
@@ -88,6 +84,8 @@ func _load_package():
 		current_skill_card.description = skill["skill_description"]
 		current_skill_card.specialization = skill["specialization_identifier"]
 		current_skill_card.update_skill_card_text()
+	if _is_pack_bought():
+		skill_pack_indicator.pressed = true
 		
 
 func _on_NextPack_button_up():
@@ -95,6 +93,10 @@ func _on_NextPack_button_up():
 	if _current_skill_pack_index >= len(_skill_packs_list):
 		_current_skill_pack_index = 0
 	_load_package()
+	if _is_pack_bought():
+		skill_pack_indicator.pressed = true
+	else:
+		skill_pack_indicator.pressed = false
 
 
 func _on_PreviousPack_button_up():
@@ -116,6 +118,7 @@ func _on_SkillCard_minus_button_pressed(skill):
 			return
 		_return_points(5)
 		_current_packs[_current_skill_pack_data["skill_pack_identifier"]] = false
+		skill_pack_indicator.pressed = false
 	elif skill.level == 1:
 		_return_points(3)
 	skill.level -= 1
@@ -158,6 +161,7 @@ func _on_PackMinusButton_button_up():
 		return
 	_sell_pack()
 	_update_skill_points()
+	skill_pack_indicator.pressed = false
 
 
 func _on_PackPlusButton_button_up(): 
@@ -169,6 +173,8 @@ func _on_PackPlusButton_button_up():
 		_refund_single_skill_buys()
 		_buy_pack()
 	_update_skill_points()
+	skill_pack_indicator.pressed = true
+	
 
 
 func _is_all_values_n(list, n):
@@ -205,6 +211,8 @@ func _buy_pack():
 		if skill.level < 1:
 			skill.level += 1
 			skill.update_skill_card_text()
+	_pay_points(5)
+	skill_pack_indicator.pressed = true
 
 
 func _sell_pack():
@@ -216,7 +224,7 @@ func _sell_pack():
 			_pay_points(3)
 		skill.update_skill_card_text()
 	_return_points(5)
-
+	skill_pack_indicator.pressed = false
 
 func _refund_single_skill_buys():
 	var levels = _get_list_of_skill_levels()
