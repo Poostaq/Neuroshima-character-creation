@@ -18,6 +18,7 @@ export var level = 0
 export var description = ""
 export var skill_name = ""
 export var specialization = ""
+export var skill_identifier = ""
 #####################################
 # PUBLIC VARIABLES 
 #####################################

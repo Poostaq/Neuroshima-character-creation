@@ -211,7 +211,6 @@ func _buy_pack():
 		if skill.level < 1:
 			skill.level += 1
 			skill.update_skill_card_text()
-	_pay_points(5)
 	skill_pack_indicator.pressed = true
 
 
