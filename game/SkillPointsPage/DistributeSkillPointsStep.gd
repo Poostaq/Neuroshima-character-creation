@@ -57,7 +57,7 @@ func load_step():
 	_skill_packs_list = DatabaseOperations.read_all_skill_packs()
 	_initial_skill_levels = CharacterStats.skill_levels
 	_current_skill_levels = _initial_skill_levels
-	_specialization_id = CharacterStats.specialization
+	_specialization_id = CharacterStats.specialization_identifier
 	_initial_packs = CharacterStats.skill_packs
 	_current_packs = _initial_packs
 	_load_package()

@@ -52,6 +52,7 @@ func load_step() -> void:
 	current_specialization = db.read_data_for_specialisation(specialisation_id)
 	_load_specialisation(current_specialization)
 	emit_signal("specialization_chosen", current_specialization)
+	CharacterStats._on_SpecialisationStep_specialization_chosen(current_specialization)
 	
 	
 
