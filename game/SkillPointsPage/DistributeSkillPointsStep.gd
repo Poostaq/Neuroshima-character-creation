@@ -104,6 +104,10 @@ func _on_PreviousPack_button_up():
 	if _current_skill_pack_index < 0:
 		_current_skill_pack_index = len(_skill_packs_list)-1
 	_load_package()
+	if _is_pack_bought():
+		skill_pack_indicator.pressed = true
+	else:
+		skill_pack_indicator.pressed = false
 
 
 func _on_SkillCard_minus_button_pressed(skill):
@@ -120,6 +124,7 @@ func _on_SkillCard_minus_button_pressed(skill):
 		_current_packs[_current_skill_pack_data["skill_pack_identifier"]] = false
 		skill_pack_indicator.pressed = false
 	elif skill.level == 1:
+		print(_current_skill_pack_data)
 		_return_points(3)
 	skill.level -= 1
 	skill.update_skill_card_text()
@@ -225,31 +230,23 @@ func _sell_pack():
 	_return_points(5)
 	skill_pack_indicator.pressed = false
 
+
 func _refund_single_skill_buys():
 	var levels = _get_list_of_skill_levels()
 	for level in levels:
 		if level > 0:
 			_return_points(3)
 
-func _refund_pack_pay_single_skills():
-	_return_points(5)
-	var levels = _get_list_of_skill_levels()
-	for level in levels:
-		if level > 0:
-			_pay_points(3)
-	
 
 func _pay_points(amount):
 	if not _specialization_id in _skill_card_list[0].specialization:
 		if amount > _current_skill_points:
-			print("ZA MALO PUNKTOW")
 			return false
 		_current_skill_points -= amount
 		return
 	if _current_specialization_skill_points-amount < 0:
 		var remainder = amount-_current_specialization_skill_points
 		if _current_skill_points-remainder < 0:
-			print("ZA MALO PUNKTOW")
 			return false
 		_current_specialization_skill_points = 0
 		_current_skill_points -= remainder
@@ -257,14 +254,37 @@ func _pay_points(amount):
 	_current_specialization_skill_points-=amount
 
 
+#func _return_points(amount):
+#	if not _specialization_id in _skill_card_list[0].specialization:
+#		_current_skill_points += amount
+#		return
+#	if _current_specialization_skill_points+amount > _max_specialization_skill_points:
+#		var remainder = _current_specialization_skill_points+amount-_max_specialization_skill_points
+#		_current_specialization_skill_points = _max_specialization_skill_points
+#		_current_skill_points += remainder
+#		return
+#	_current_specialization_skill_points+=amount
+
 func _return_points(amount):
+	var _spent_spec_points = _max_specialization_skill_points - _current_specialization_skill_points
 	if not _specialization_id in _skill_card_list[0].specialization:
 		_current_skill_points += amount
 		return
-	if _current_specialization_skill_points+amount > _max_specialization_skill_points:
-		var remainder = _current_specialization_skill_points+amount-_max_specialization_skill_points
-		_current_specialization_skill_points = _max_specialization_skill_points
-		_current_skill_points += remainder
+	if _spent_spec_points+amount > _max_specialization_skill_points:
+		var remainder = _spent_spec_points+amount-_max_specialization_skill_points
+		var amount_to_spec = remainder + _current_skill_points - _max_skill_points
+		var amount_to_overall = remainder - amount_to_spec
+		if remainder == amount:
+			if _current_skill_points + remainder <= _max_skill_points:
+				_current_skill_points += remainder
+				return
+			else:
+				_current_specialization_skill_points += amount_to_spec
+				_current_skill_points += amount_to_overall
+				return
+		else:
+			_current_specialization_skill_points+=amount
+			return
 		return
 	_current_specialization_skill_points+=amount
 
@@ -274,6 +294,7 @@ func _get_list_of_skill_levels():
 	for skill in _skill_card_list:
 		levels.append(skill.level)
 	return levels
+
 
 func _is_pack_bought():
 	if _current_packs.has(_current_skill_pack_data["skill_pack_identifier"]):
