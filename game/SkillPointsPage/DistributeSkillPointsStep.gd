@@ -75,14 +75,12 @@ func _load_package():
 	_current_skill_pack_data = _skill_packs_list[_current_skill_pack_index]
 	var pack_data = DatabaseOperations.read_skills_for_package(_current_skill_pack_data["skill_pack_identifier"])
 	pack_name_label.text = _current_skill_pack_data["skill_pack_name"] 
-	print(pack_data)
 	for index in range(0, len(pack_data)):
 		var current_skill_card = _skill_card_list[index]
 		var skill = pack_data[index]
 		current_skill_card.skill_name = skill.skill_name
 		current_skill_card.skill_identifier = skill.skill_identifier
 		current_skill_card.level = _current_skill_levels[skill.skill_identifier]
-		print(current_skill_card.level)
 		current_skill_card.description = skill.skill_description
 		current_skill_card.specialization = skill.specialization_identifier
 		current_skill_card.update_skill_card_text()
