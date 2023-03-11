@@ -113,19 +113,21 @@ func _on_PreviousPack_button_up():
 func _on_SkillCard_minus_button_pressed(skill):
 	skill.emit_signal("button_up")
 	skill.pressed = true
+	
 	if skill.level <= 0:
 		return
 	if skill.level > 1:
 		_return_points(skill.level)
-	if _is_pack_bought():
-		if _pay_points(6) == false:
-			return
-		_return_points(5)
+	
+	if skill.level == 1:
+		if !_is_pack_bought():
+			_return_points(3)
+		else:
+			if _pay_points(6) == false:
+				return
+			_return_points(5)
 		_current_packs[_current_skill_pack_data["skill_pack_identifier"]] = false
 		skill_pack_indicator.pressed = false
-	elif skill.level == 1:
-		print(_current_skill_pack_data)
-		_return_points(3)
 	skill.level -= 1
 	skill.update_skill_card_text()
 	_update_skill_points()
@@ -134,13 +136,14 @@ func _on_SkillCard_minus_button_pressed(skill):
 func _on_SkillCard_plus_button_pressed(skill):
 	skill.emit_signal("button_up")
 	skill.pressed = true
+	
 	if skill.level >= 5:
 		return
-	if skill.level == 0:
-		if _pay_points(3) == false:
-			return
 	if skill.level > 0:
 		if _pay_points(skill.level+1) == false:
+			return
+	if skill.level == 0:
+		if _pay_points(3) == false:
 			return
 	skill.level += 1
 	skill.update_skill_card_text()
@@ -172,11 +175,11 @@ func _on_PackMinusButton_button_up():
 func _on_PackPlusButton_button_up(): 
 	if _is_pack_bought():
 		return
-	if _pay_points(5) != false:
-		_current_packs[_current_skill_pack_data["skill_pack_identifier"]] = true
-		print(_current_packs)
-		_refund_single_skill_buys()
-		_buy_pack()
+	if _pay_points(5) == false:
+		return
+	_current_packs[_current_skill_pack_data["skill_pack_identifier"]] = true
+	_refund_single_skill_buys()
+	_buy_pack()
 	_update_skill_points()
 	skill_pack_indicator.pressed = true
 	
@@ -301,3 +304,4 @@ func _is_pack_bought():
 		if _current_packs[_current_skill_pack_data["skill_pack_identifier"]]:
 			return true
 	return false
+
