@@ -79,10 +79,12 @@ func _load_package():
 	for index in range(0, len(pack_data)):
 		var current_skill_card = _skill_card_list[index]
 		var skill = pack_data[index]
-		current_skill_card.skill_name = skill["skill_name"]
-		current_skill_card.level = _current_skill_levels[skill["skill_identifier"]]
-		current_skill_card.description = skill["skill_description"]
-		current_skill_card.specialization = skill["specialization_identifier"]
+		current_skill_card.skill_name = skill.skill_name
+		current_skill_card.skill_identifier = skill.skill_identifier
+		current_skill_card.level = _current_skill_levels[skill.skill_identifier]
+		print(current_skill_card.level)
+		current_skill_card.description = skill.skill_description
+		current_skill_card.specialization = skill.specialization_identifier
 		current_skill_card.update_skill_card_text()
 	if _is_pack_bought():
 		skill_pack_indicator.pressed = true
@@ -131,6 +133,7 @@ func _on_SkillCard_minus_button_pressed(skill):
 	skill.level -= 1
 	skill.update_skill_card_text()
 	_update_skill_points()
+	_update_skill_levels(skill)
 
 
 func _on_SkillCard_plus_button_pressed(skill):
@@ -148,6 +151,7 @@ func _on_SkillCard_plus_button_pressed(skill):
 	skill.level += 1
 	skill.update_skill_card_text()
 	_update_skill_points()
+	_update_skill_levels(skill)
 
 
 func _on_SkillCard_skill_element_pressed(skill):
@@ -162,6 +166,9 @@ func _update_skill_points():
 	specialization_skill_points.bbcode_text = "[center]%s/%s" % specialization_skillpoint_list
 
 
+func _update_skill_levels(skill):
+	_current_skill_levels[skill.skill_identifier] = skill.level
+
 func _on_PackMinusButton_button_up():
 	if !_current_packs.has(_current_skill_pack_data["skill_pack_identifier"]):
 		return
@@ -169,7 +176,10 @@ func _on_PackMinusButton_button_up():
 		return
 	_sell_pack()
 	_update_skill_points()
+	for skill in _skill_card_list:
+		_update_skill_levels(skill)
 	skill_pack_indicator.pressed = false
+	
 
 
 func _on_PackPlusButton_button_up(): 
@@ -182,6 +192,8 @@ func _on_PackPlusButton_button_up():
 	_buy_pack()
 	_update_skill_points()
 	skill_pack_indicator.pressed = true
+	for skill in _skill_card_list:
+		_update_skill_levels(skill)
 	
 
 
