@@ -66,6 +66,8 @@ skill_name = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/V
 skill_points = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2/SkillPoints")
 specialization_skill_points = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer/SpecializationSkillPoints")
 skill_pack_indicator = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/Control3/PackBoughtIndicator")
+pack_plus_button = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/Control3/PackPlusButton")
+pack_minus_button = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/Control3/PackMinusButton")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -400,14 +402,14 @@ align = 1
 valign = 1
 
 [node name="PackBoughtIndicator" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/Control3"]
-anchor_left = 0.474
-anchor_top = -0.014
-anchor_right = 0.571
-anchor_bottom = 0.234
-margin_left = 0.227966
-margin_top = -0.0259999
-margin_right = 0.261963
-margin_bottom = 0.0059967
+anchor_left = 0.45
+anchor_top = -0.078
+anchor_right = 0.547
+anchor_bottom = 0.17
+margin_left = -0.100037
+margin_top = -0.00199986
+margin_right = -0.0661011
+margin_bottom = 0.0299969
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
