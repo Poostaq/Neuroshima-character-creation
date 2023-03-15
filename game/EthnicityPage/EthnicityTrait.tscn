@@ -54,14 +54,13 @@ size_flags_vertical = 3
 
 [node name="Control3" type="Control" parent="HBoxContainer/VBoxContainer"]
 margin_right = 157.0
-margin_bottom = 44.0
+margin_bottom = 35.0
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 
 [node name="TraitNameLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
-visible = false
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 39.0
 margin_right = 157.0
@@ -77,9 +76,9 @@ text = "Trait 1"
 
 [node name="TraitDescriptionLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 48.0
+margin_top = 78.0
 margin_right = 157.0
-margin_bottom = 159.0
+margin_bottom = 166.0
 mouse_filter = 1
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -90,7 +89,7 @@ bbcode_text = "Trait Description"
 text = "Trait Description"
 
 [node name="Control4" type="Control" parent="HBoxContainer/VBoxContainer"]
-margin_top = 163.0
+margin_top = 170.0
 margin_right = 157.0
 margin_bottom = 200.0
 mouse_filter = 2
