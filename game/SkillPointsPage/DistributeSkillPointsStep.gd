@@ -291,24 +291,6 @@ func _return_points(amount):
 	var points_to_spec = amount - _general_on_spec_skill_points
 	_current_skill_points += _general_on_spec_skill_points
 	_current_specialization_skill_points += points_to_spec
-	
-	
-#	if _spent_spec_points + amount > _max_specialization_skill_points:
-#
-#		var remainder = _spent_spec_points + amount - _max_specialization_skill_points
-#		var amount_to_spec = remainder + _current_skill_points - _max_skill_points
-#		var amount_to_overall = remainder - amount_to_spec
-#
-#		if remainder == amount:
-#			if _current_skill_points + remainder <= _max_skill_points:
-#				_current_skill_points += remainder
-#				return
-#			_current_specialization_skill_points += amount_to_spec
-#			_current_skill_points += amount_to_overall
-#			return
-#		_current_specialization_skill_points+=amount
-#		return
-#	_current_specialization_skill_points+=amount
 
 
 func _get_list_of_skill_levels():
