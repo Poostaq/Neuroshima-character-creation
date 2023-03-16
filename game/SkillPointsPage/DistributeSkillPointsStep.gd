@@ -42,6 +42,7 @@ var _max_skill_points = 35
 var _current_skill_points = 35
 var _max_specialization_skill_points = 30
 var _current_specialization_skill_points = 30
+var _general_spent_on_general_points = 0
 var _specialization_id = ""
 
 #####################################
@@ -261,6 +262,7 @@ func _pay_points(amount):
 		if amount > _current_skill_points:
 			return false
 		_current_skill_points -= amount
+		_general_spent_on_general_points += amount
 		return
 	if _current_specialization_skill_points-amount < 0:
 		var remainder = amount-_current_specialization_skill_points
@@ -272,39 +274,41 @@ func _pay_points(amount):
 	_current_specialization_skill_points-=amount
 
 
-#func _return_points(amount):
-#	if not _specialization_id in _skill_card_list[0].specialization:
-#		_current_skill_points += amount
-#		return
-#	if _current_specialization_skill_points+amount > _max_specialization_skill_points:
-#		var remainder = _current_specialization_skill_points+amount-_max_specialization_skill_points
-#		_current_specialization_skill_points = _max_specialization_skill_points
-#		_current_skill_points += remainder
-#		return
-#	_current_specialization_skill_points+=amount
-
 func _return_points(amount):
 	var _spent_spec_points = _max_specialization_skill_points - _current_specialization_skill_points
+	var _spent_general_points = _max_skill_points - _current_skill_points
+	var _general_on_spec_skill_points = _spent_general_points - _general_spent_on_general_points
+	
 	if not _specialization_id in _skill_card_list[0].specialization:
 		_current_skill_points += amount
+		_general_spent_on_general_points -= amount
 		return
-	if _spent_spec_points+amount > _max_specialization_skill_points:
-		var remainder = _spent_spec_points+amount-_max_specialization_skill_points
-		var amount_to_spec = remainder + _current_skill_points - _max_skill_points
-		var amount_to_overall = remainder - amount_to_spec
-		if remainder == amount:
-			if _current_skill_points + remainder <= _max_skill_points:
-				_current_skill_points += remainder
-				return
-			else:
-				_current_specialization_skill_points += amount_to_spec
-				_current_skill_points += amount_to_overall
-				return
-		else:
-			_current_specialization_skill_points+=amount
-			return
+	#_specialization_id == _skill_card_list[0].specialization
+	if _general_on_spec_skill_points >= amount:
+		_current_skill_points += amount
 		return
-	_current_specialization_skill_points+=amount
+	# _general_on_spec_skill_points < amount:
+	var points_to_spec = amount - _general_on_spec_skill_points
+	_current_skill_points += _general_on_spec_skill_points
+	_current_specialization_skill_points += points_to_spec
+	
+	
+#	if _spent_spec_points + amount > _max_specialization_skill_points:
+#
+#		var remainder = _spent_spec_points + amount - _max_specialization_skill_points
+#		var amount_to_spec = remainder + _current_skill_points - _max_skill_points
+#		var amount_to_overall = remainder - amount_to_spec
+#
+#		if remainder == amount:
+#			if _current_skill_points + remainder <= _max_skill_points:
+#				_current_skill_points += remainder
+#				return
+#			_current_specialization_skill_points += amount_to_spec
+#			_current_skill_points += amount_to_overall
+#			return
+#		_current_specialization_skill_points+=amount
+#		return
+#	_current_specialization_skill_points+=amount
 
 
 func _get_list_of_skill_levels():
