@@ -12,6 +12,7 @@ extends Node
 #####################################
 # EXPORT VARIABLES 
 #####################################
+export (NodePath) onready var regular_skill_pack_element = get_node(regular_skill_pack_element) as HBoxContainer
 export (NodePath) onready var skill_card1 = get_node(skill_card1) as Control
 export (NodePath) onready var skill_card2 = get_node(skill_card2) as Control
 export (NodePath) onready var skill_card3 = get_node(skill_card3) as Control
@@ -23,6 +24,11 @@ export (NodePath) onready var specialization_skill_points = get_node(specializat
 export (NodePath) onready var skill_pack_indicator = get_node(skill_pack_indicator) as TextureButton
 export (NodePath) onready var pack_plus_button = get_node(pack_plus_button) as TextureButton
 export (NodePath) onready var pack_minus_button = get_node(pack_minus_button) as TextureButton
+
+export (NodePath) onready var general_knowledge_skill_pack_element = get_node(general_knowledge_skill_pack_element) as HBoxContainer
+export (NodePath) onready var general_skill_card1 = get_node(general_skill_card1) as Control
+export (NodePath) onready var general_skill_card2 = get_node(general_skill_card2) as Control
+export (NodePath) onready var general_skill_card3 = get_node(general_skill_card3) as Control
 #####################################
 # PUBLIC VARIABLES 
 #####################################
@@ -32,6 +38,7 @@ export (NodePath) onready var pack_minus_button = get_node(pack_minus_button) as
 #####################################
 var _skill_card_list = []
 var _skill_packs_list = []
+var _general_skill_card_list = []
 var _current_skill_pack_data = {}
 var _current_skill_pack_index = 0
 var _current_skill_levels = {}
@@ -57,6 +64,7 @@ func _init() -> void:
 
 func load_step():
 	_skill_card_list = [skill_card1,skill_card2,skill_card3]
+	_general_skill_card_list = [general_skill_card1,general_skill_card2,general_skill_card3]
 	_skill_packs_list = DatabaseOperations.read_all_skill_packs()
 	_initial_skill_levels = CharacterStats.skill_levels
 	_current_skill_levels = _initial_skill_levels
@@ -76,25 +84,17 @@ func load_step():
 #####################################
 func _load_package():
 	_current_skill_pack_data = _skill_packs_list[_current_skill_pack_index]
+	_set_screen_state()
 	var pack_data = DatabaseOperations.read_skills_for_package(_current_skill_pack_data["skill_pack_identifier"])
-	pack_name_label.text = _current_skill_pack_data["skill_pack_name"] 
-	for index in range(0, len(pack_data)):
-		var current_skill_card = _skill_card_list[index]
-		var skill = pack_data[index]
-		current_skill_card.skill_name = skill.skill_name
-		current_skill_card.skill_identifier = skill.skill_identifier
-		current_skill_card.level = _current_skill_levels[skill.skill_identifier]
-		current_skill_card.description = skill.skill_description
-		current_skill_card.specialization = skill.specialization_identifier
-		current_skill_card.update_skill_card_text()
-	if _is_pack_bought():
-		skill_pack_indicator.pressed = true
-		pack_plus_button.disabled = true
-		pack_minus_button.disabled = false
+	pack_name_label.text = _current_skill_pack_data["skill_pack_name"]
+	if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
+		_load_skill_data(_general_skill_card_list, pack_data)
+		_load_general_skill_options()
 	else:
-		pack_plus_button.disabled = false
-		pack_minus_button.disabled = true
-		
+		_load_skill_data(_skill_card_list, pack_data)
+	skill_pack_indicator.pressed = _is_pack_bought()
+	pack_plus_button.disabled = _is_pack_bought()
+	pack_minus_button.disabled = not _is_pack_bought()
 
 func _on_NextPack_button_up():
 	_current_skill_pack_index += 1
@@ -306,3 +306,64 @@ func _is_pack_bought():
 			return true
 	return false
 
+
+func _set_screen_state():
+	print(_current_skill_pack_data["skill_pack_identifier"])
+	if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
+		regular_skill_pack_element.visible = false
+		general_knowledge_skill_pack_element.visible = true
+		return
+	regular_skill_pack_element.visible = true
+	general_knowledge_skill_pack_element.visible = false
+	return
+
+func _load_skill_data(skill_card_list, pack_data):
+	for index in range(0, len(pack_data)):
+		var current_skill_card = skill_card_list[index]
+		var skill = pack_data[index]
+		current_skill_card.skill_name = skill.skill_name
+		current_skill_card.skill_identifier = skill.skill_identifier
+		current_skill_card.level = _current_skill_levels[skill.skill_identifier]
+		current_skill_card.description = skill.skill_description
+		current_skill_card.specialization = skill.specialization_identifier
+		current_skill_card.update_skill_card_text()
+
+
+func _load_general_skill_options():
+	var list_of_options = DatabaseOperations.read_general_knowledge_skills()
+	print(list_of_options)
+	for skill in _general_skill_card_list:
+		var option_element = skill.find_node("OptionButton")
+		for option_index in range(0, len(list_of_options)):
+			option_element.add_item(list_of_options[option_index]["skill_name"], option_index)
+			var metadata = {"identifier": list_of_options[option_index]["skill_identifier"]}
+			option_element.set_item_metadata(option_index, metadata)
+	
+
+
+func _on_OptionButton_item_selected(index):
+	refresh_skill_states()
+
+
+func set_skill_inactive(index):
+	for skill in _general_skill_card_list:
+		var option_element = skill.find_node("OptionButton")
+		if option_element.get_selected_id() != index:
+			option_element.set_item_disabled(index, true)
+			
+func clear_disabled_skills():
+	for skill in _general_skill_card_list:
+		var option_element = skill.find_node("OptionButton")
+		for index in range(0, option_element.get_item_count()):
+			if option_element.is_item_disabled(index):
+				if index != option_element.get_selected_id():
+					option_element.set_item_disabled(index, false)
+					
+func refresh_skill_states():
+	clear_disabled_skills()
+	var selected_ids = []
+	for skill in _general_skill_card_list:
+		var option_element = skill.find_node("OptionButton")
+		selected_ids.append(option_element.get_selected_id())
+	for id in selected_ids:
+		set_skill_inactive(id)
