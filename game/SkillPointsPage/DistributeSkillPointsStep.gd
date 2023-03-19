@@ -332,13 +332,17 @@ func _load_skill_data(skill_card_list, pack_data):
 func _load_general_skill_options():
 	var list_of_options = DatabaseOperations.read_general_knowledge_skills()
 	print(list_of_options)
+	var index = 0
 	for skill in _general_skill_card_list:
 		var option_element = skill.find_node("OptionButton")
 		for option_index in range(0, len(list_of_options)):
 			option_element.add_item(list_of_options[option_index]["skill_name"], option_index)
 			var metadata = {"identifier": list_of_options[option_index]["skill_identifier"]}
 			option_element.set_item_metadata(option_index, metadata)
-	
+		option_element.select(index)
+		option_element.emit_signal("item_selected", index)
+		index+=1
+		
 
 
 func _on_OptionButton_item_selected(index):
