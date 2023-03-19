@@ -85,9 +85,13 @@ func load_step():
 func _load_package():
 	_current_skill_pack_data = _skill_packs_list[_current_skill_pack_index]
 	_set_screen_state()
-	var pack_data = DatabaseOperations.read_skills_for_package(_current_skill_pack_data["skill_pack_identifier"])
-	pack_name_label.text = _current_skill_pack_data["skill_pack_name"]
-	if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
+	var skill_pack_id = _current_skill_pack_data["skill_pack_identifier"]
+	var pack_data = DatabaseOperations.read_skills_for_package(skill_pack_id)
+	print(pack_data)
+	var specialization = pack_data[0]["specialization_name"]
+	var pack_text = "%s - %s" % [_current_skill_pack_data["skill_pack_name"], specialization]
+	pack_name_label.text = pack_text
+	if skill_pack_id == "general_knowledge":
 		_load_skill_data(_general_skill_card_list, pack_data)
 		_load_general_skill_options()
 	else:
@@ -335,6 +339,7 @@ func _load_general_skill_options():
 	var index = 0
 	for skill in _general_skill_card_list:
 		var option_element = skill.find_node("OptionButton")
+		option_element.clear()
 		for option_index in range(0, len(list_of_options)):
 			option_element.add_item(list_of_options[option_index]["skill_name"], option_index)
 			var metadata = {"identifier": list_of_options[option_index]["skill_identifier"]}
@@ -352,8 +357,9 @@ func _on_OptionButton_item_selected(index):
 func set_skill_inactive(index):
 	for skill in _general_skill_card_list:
 		var option_element = skill.find_node("OptionButton")
-		if option_element.get_selected_id() != index:
-			option_element.set_item_disabled(index, true)
+		if option_element.get_item_count() > 0 and index >= 0:
+			if option_element.get_selected_id() != index:
+				option_element.set_item_disabled(index, true)
 			
 func clear_disabled_skills():
 	for skill in _general_skill_card_list:
