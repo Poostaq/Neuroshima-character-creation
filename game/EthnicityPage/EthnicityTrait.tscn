@@ -6,11 +6,11 @@
 [ext_resource path="res://UI_Elements/skill box active.png" type="Texture" id=4]
 
 [sub_resource type="DynamicFont" id=3]
-size = 22
+size = 26
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 18
+size = 22
 font_data = ExtResource( 2 )
 
 [node name="EthnicityTraitButton" type="TextureButton"]

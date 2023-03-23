@@ -29,6 +29,8 @@ export (NodePath) onready var general_knowledge_skill_pack_element = get_node(ge
 export (NodePath) onready var general_skill_card1 = get_node(general_skill_card1) as Control
 export (NodePath) onready var general_skill_card2 = get_node(general_skill_card2) as Control
 export (NodePath) onready var general_skill_card3 = get_node(general_skill_card3) as Control
+export (NodePath) onready var general_skill_name = get_node(general_skill_name) as Label
+export (NodePath) onready var general_skill_description = get_node(general_skill_description) as RichTextLabel
 #####################################
 # PUBLIC VARIABLES 
 #####################################
@@ -39,6 +41,7 @@ export (NodePath) onready var general_skill_card3 = get_node(general_skill_card3
 var _skill_card_list = []
 var _skill_packs_list = []
 var _general_skill_card_list = []
+var _current_skill_card_list = []
 var _current_skill_pack_data = {}
 var _current_skill_pack_index = 0
 var _current_skill_levels = {}
@@ -87,15 +90,18 @@ func _load_package():
 	_set_screen_state()
 	var skill_pack_id = _current_skill_pack_data["skill_pack_identifier"]
 	var pack_data = DatabaseOperations.read_skills_for_package(skill_pack_id)
-	print(pack_data)
 	var specialization = pack_data[0]["specialization_name"]
 	var pack_text = "%s - %s" % [_current_skill_pack_data["skill_pack_name"], specialization]
 	pack_name_label.text = pack_text
 	if skill_pack_id == "general_knowledge":
-		_load_skill_data(_general_skill_card_list, pack_data)
+		_current_skill_card_list = _general_skill_card_list
+		_load_skill_data(_current_skill_card_list, pack_data)
 		_load_general_skill_options()
+		general_skill_name.text = _current_skill_pack_data["skill_pack_name"]
+		general_skill_description.bbcode_text = pack_data[0].skill_description
 	else:
-		_load_skill_data(_skill_card_list, pack_data)
+		_current_skill_card_list = _skill_card_list
+		_load_skill_data(_current_skill_card_list, pack_data)
 	skill_pack_indicator.pressed = _is_pack_bought()
 	pack_plus_button.disabled = _is_pack_bought()
 	pack_minus_button.disabled = not _is_pack_bought()
@@ -169,6 +175,11 @@ func _update_skill_points():
 
 
 func _update_skill_levels(skill):
+	if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
+		var option_element = skill.find_node("OptionButton")
+		var selected_option_meta = option_element.get_item_metadata(option_element.selected)
+		var selected_skill_identifier = selected_option_meta["identifier"]
+		_current_skill_levels[selected_skill_identifier] = skill.level
 	_current_skill_levels[skill.skill_identifier] = skill.level
 
 func _on_PackMinusButton_button_up():
@@ -177,12 +188,12 @@ func _on_PackMinusButton_button_up():
 	if !_is_pack_bought():
 		return
 	var levels = []
-	for skill in _skill_card_list:
+	for skill in _current_skill_card_list:
 		levels.append(skill.level)
 	if _is_all_values_n(levels, 1):
 		_sell_pack()
 		_update_skill_points()
-		for skill in _skill_card_list:
+		for skill in _current_skill_card_list:
 			_update_skill_levels(skill)
 		pack_plus_button.disabled = false
 		pack_minus_button.disabled = true
@@ -193,7 +204,7 @@ func _on_PackPlusButton_button_up():
 	if _is_pack_bought():
 		return
 	var levels = []
-	for skill in _skill_card_list:
+	for skill in _current_skill_card_list:
 		levels.append(skill.level)
 	if _is_all_values_n(levels, 0) and !_is_pack_bought():
 		if _pay_points(5) == false:
@@ -202,7 +213,7 @@ func _on_PackPlusButton_button_up():
 		_refund_single_skill_buys()
 		_buy_pack()
 		_update_skill_points()
-		for skill in _skill_card_list:
+		for skill in _current_skill_card_list:
 			_update_skill_levels(skill)
 		pack_plus_button.disabled = true
 		pack_minus_button.disabled = false
@@ -239,7 +250,7 @@ func _has_points_to_pay_for_pack_refund(skill):
 
 func _buy_pack():
 	_current_packs[_current_skill_pack_data["skill_pack_identifier"]] = true
-	for skill in _skill_card_list:
+	for skill in _current_skill_card_list:
 		skill.level += 1
 		skill.update_skill_card_text()
 	skill_pack_indicator.pressed = true
@@ -247,7 +258,7 @@ func _buy_pack():
 
 func _sell_pack():
 	_current_packs[_current_skill_pack_data["skill_pack_identifier"]] = false
-	for skill in _skill_card_list:
+	for skill in _current_skill_card_list:
 		skill.level -= 1
 		skill.update_skill_card_text()
 	_return_points(5)
@@ -262,7 +273,7 @@ func _refund_single_skill_buys():
 
 
 func _pay_points(amount):
-	if not _specialization_id in _skill_card_list[0].specialization:
+	if not _specialization_id in _current_skill_card_list[0].specialization:
 		if amount > _current_skill_points:
 			return false
 		_current_skill_points -= amount
@@ -283,11 +294,11 @@ func _return_points(amount):
 	var _spent_general_points = _max_skill_points - _current_skill_points
 	var _general_on_spec_skill_points = _spent_general_points - _general_spent_on_general_points
 	
-	if not _specialization_id in _skill_card_list[0].specialization:
+	if not _specialization_id in _current_skill_card_list[0].specialization:
 		_current_skill_points += amount
 		_general_spent_on_general_points -= amount
 		return
-	#_specialization_id == _skill_card_list[0].specialization
+	#_specialization_id == _current_skill_card_list[0].specialization
 	if _general_on_spec_skill_points >= amount:
 		_current_skill_points += amount
 		return
@@ -299,7 +310,7 @@ func _return_points(amount):
 
 func _get_list_of_skill_levels():
 	var levels = []
-	for skill in _skill_card_list:
+	for skill in _current_skill_card_list:
 		levels.append(skill.level)
 	return levels
 
@@ -312,7 +323,6 @@ func _is_pack_bought():
 
 
 func _set_screen_state():
-	print(_current_skill_pack_data["skill_pack_identifier"])
 	if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
 		regular_skill_pack_element.visible = false
 		general_knowledge_skill_pack_element.visible = true
@@ -335,7 +345,6 @@ func _load_skill_data(skill_card_list, pack_data):
 
 func _load_general_skill_options():
 	var list_of_options = DatabaseOperations.read_general_knowledge_skills()
-	print(list_of_options)
 	var index = 0
 	for skill in _general_skill_card_list:
 		var option_element = skill.find_node("OptionButton")
@@ -352,6 +361,7 @@ func _load_general_skill_options():
 
 func _on_OptionButton_item_selected(index):
 	refresh_skill_states()
+	refresh_current_skill_levels_for_general_knowledge()
 
 
 func set_skill_inactive(index):
@@ -377,3 +387,19 @@ func refresh_skill_states():
 		selected_ids.append(option_element.get_selected_id())
 	for id in selected_ids:
 		set_skill_inactive(id)
+
+func refresh_current_skill_levels_for_general_knowledge():
+	var selected_identifiers = []
+	for skill in _general_skill_card_list:
+		var option_element = skill.find_node("OptionButton")
+		print(option_element.get_selected_id())
+		if option_element.get_selected_id() >= 0:
+			var option_meta = option_element.get_item_metadata(option_element.get_selected_id())
+			var selected_identifer = option_meta["identifier"]
+			selected_identifiers.append(selected_identifer)
+	var list_of_options = DatabaseOperations.read_general_knowledge_skills()
+	for option in list_of_options:
+		if not option["skill_identifier"] in selected_identifiers:
+			if _current_skill_levels.has(option["skill_identifier"]):
+				_current_skill_levels.erase(option["skill_identifier"])
+
