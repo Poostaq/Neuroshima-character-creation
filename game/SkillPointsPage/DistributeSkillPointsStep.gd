@@ -17,6 +17,8 @@ export (NodePath) onready var skill_card1 = get_node(skill_card1) as Control
 export (NodePath) onready var skill_card2 = get_node(skill_card2) as Control
 export (NodePath) onready var skill_card3 = get_node(skill_card3) as Control
 export (NodePath) onready var pack_name_label = get_node(pack_name_label) as Label
+export (NodePath) onready var pack_specialization = get_node(pack_specialization) as Label
+export (NodePath) onready var pack_attribute = get_node(pack_attribute) as Label
 export (NodePath) onready var skill_description = get_node(skill_description) as RichTextLabel
 export (NodePath) onready var skill_name = get_node(skill_name) as Label
 export (NodePath) onready var skill_points = get_node(skill_points) as RichTextLabel
@@ -91,8 +93,10 @@ func _load_package():
 	var skill_pack_id = _current_skill_pack_data["skill_pack_identifier"]
 	var pack_data = DatabaseOperations.read_skills_for_package(skill_pack_id)
 	var specialization = pack_data[0]["specialization_name"]
-	var pack_text = "%s - %s" % [_current_skill_pack_data["skill_pack_name"], specialization]
-	pack_name_label.text = pack_text
+	pack_name_label.text = _current_skill_pack_data["skill_pack_name"]
+	pack_specialization.text = "Spec.: %s" % _current_skill_pack_data["specialization_name"]
+	pack_attribute.text = "Atrybut: %s" %_current_skill_pack_data["attribute_name"]
+	
 	if skill_pack_id == "general_knowledge":
 		_current_skill_card_list = _general_skill_card_list
 		_load_skill_data(_current_skill_card_list, pack_data)
@@ -405,7 +409,6 @@ func refresh_current_skill_levels_for_general_knowledge():
 	var selected_identifiers = []
 	for skill in _general_skill_card_list:
 		var option_element = skill.find_node("OptionButton")
-		print(option_element.get_selected_id())
 		if option_element.get_selected_id() >= 0:
 			var option_meta = option_element.get_item_metadata(option_element.get_selected_id())
 			var selected_identifer = option_meta["identifier"]
