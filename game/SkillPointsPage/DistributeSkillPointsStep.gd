@@ -139,6 +139,9 @@ func _on_SkillCard_minus_button_pressed(skill):
 		if _is_pack_bought():
 			return
 		_return_points(3)
+		if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
+			var option_element = skill.find_node("OptionButton")
+			option_element.disabled = false
 	skill.level -= 1
 	skill.update_skill_card_text()
 	_update_skill_points()
@@ -156,6 +159,9 @@ func _on_SkillCard_plus_button_pressed(skill):
 	if skill.level == 0:
 		if _pay_points(3) == false:
 			return
+		if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
+			var option_element = skill.find_node("OptionButton")
+			option_element.disabled = true
 	skill.level += 1
 	skill.update_skill_card_text()
 	_update_skill_points()
@@ -195,8 +201,12 @@ func _on_PackMinusButton_button_up():
 		_update_skill_points()
 		for skill in _current_skill_card_list:
 			_update_skill_levels(skill)
+			if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
+				var option_element = skill.find_node("OptionButton")
+				option_element.disabled = false
 		pack_plus_button.disabled = false
 		pack_minus_button.disabled = true
+		
 	
 
 
@@ -215,6 +225,9 @@ func _on_PackPlusButton_button_up():
 		_update_skill_points()
 		for skill in _current_skill_card_list:
 			_update_skill_levels(skill)
+			if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
+				var option_element = skill.find_node("OptionButton")
+				option_element.disabled = true
 		pack_plus_button.disabled = true
 		pack_minus_button.disabled = false
 		
