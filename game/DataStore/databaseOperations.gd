@@ -198,7 +198,6 @@ func read_specialization_identifiers():
 	var from = "FROM specializations "
 	var where = "WHERE specialization_enum is not null"
 	var selected_array = _sql_select(select+from+where)
-	print(selected_array)
 	db.close_db()
 	return selected_array
 
@@ -214,22 +213,48 @@ func read_data_for_specialization(specialization_identifier):
 
 
 func read_packs_for_specialization(specialization_identifier):
-	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name " 
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name  " 
 	var from = "FROM skill_packs sp "
 	var join = "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
 	var where = "WHERE spec.specialization_identifier like '%"+specialization_identifier+"%';"
-	print(select+from+join+where)
+	var selected_array = _sql_select(select+from+join+where);
+	db.close_db()
+	return selected_array
+
+func read_all_skill_packs():
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name " 
+	var from = "FROM skill_packs sp "
+	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
+	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
+	var selected_array = _sql_select(select+from+join);
+	db.close_db()
+	return selected_array	
+
+func read_skills_for_package(package_identifier):
+	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description, s2.specialization_identifier, s2.specialization_name " 
+	var from = "FROM skills s "
+	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
+	join += "JOIN specializations s2 on sp.specialization_id = s2.specialization_id "
+	var where = "WHERE s.skill_special_rules is null "
+	where += ("AND sp.skill_pack_identifier like '%s';" % package_identifier)
 	var selected_array = _sql_select(select+from+join+where);
 	db.close_db()
 	return selected_array
 	
 
-func read_skills_for_package(package_identifier):
-	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id " 
+func read_skills():
+	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description " 
 	var from = "FROM skills s "
 	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
-	var where = ("WHERE sp.skill_pack_identifier like '%s';" % package_identifier)
-	print(select+from+join+where)
+	var selected_array = _sql_select(select+from+join);
+	db.close_db()
+	return selected_array
+
+func read_general_knowledge_skills():
+	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description " 
+	var from = "FROM skills s "
+	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
+	var where = "WHERE s.skill_special_rules is not null "
 	var selected_array = _sql_select(select+from+join+where);
 	db.close_db()
 	return selected_array

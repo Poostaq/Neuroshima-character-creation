@@ -52,6 +52,7 @@ func load_step() -> void:
 	current_specialization = db.read_data_for_specialization(specialization_id)
 	_load_specialization(current_specialization)
 	emit_signal("specialization_chosen", current_specialization)
+	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)
 	
 	
 
@@ -73,17 +74,18 @@ func _prepare_specialization_skills(specialization_data):
 		var skills = db.read_skills_for_package(skill_pack)
 		for y in skills:
 			bbcode += ("- %s \n" % y["skill_name"])
+		bbcode+= "\n"
 	return bbcode
 
 
-func _on_PreviousSpecialization_button_up():
+func _on_Previousspecialization_button_up():
 	if _current_specialization_index == 0:
 		_current_specialization_index = len(_specialization_list)-1
 	else:
 		_current_specialization_index -= 1
 	load_step()
 
-func _on_NextSpecialization_button_up():
+func _on_Nextspecialization_button_up():
 	if _current_specialization_index == len(_specialization_list)-1:
 		_current_specialization_index = 0
 	else:

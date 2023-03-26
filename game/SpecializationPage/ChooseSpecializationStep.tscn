@@ -15,9 +15,8 @@
 size = 55
 font_data = ExtResource( 6 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 24
-outline_color = Color( 0, 0.937255, 0.0823529, 1 )
+[sub_resource type="DynamicFont" id=5]
+size = 26
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -102,7 +101,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="PreviousSpecialisation" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+[node name="PreviousSpecialization" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 margin_right = 105.0
 margin_bottom = 109.0
 rect_min_size = Vector2( 100, 100 )
@@ -129,7 +128,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="SpecialisationName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+[node name="SpecializationName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 24.0
 margin_right = 841.0
@@ -149,7 +148,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="NextSpecialisation" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+[node name="NextSpecialization" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 margin_left = 954.0
 margin_right = 1060.0
 margin_bottom = 109.0
@@ -216,27 +215,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+[node name="RichTextLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 335.0
-margin_bottom = 11.0
+margin_bottom = 61.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
-margin_top = 15.0
-margin_right = 335.0
-margin_bottom = 75.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_fonts/normal_font = SubResource( 3 )
-bbcode_enabled = true
-bbcode_text = "[center]Umiejętności specjalizacji:"
+custom_fonts/font = SubResource( 5 )
 text = "Umiejętności specjalizacji:"
+align = 1
+valign = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
-margin_top = 79.0
+margin_top = 65.0
 margin_right = 335.0
 margin_bottom = 678.0
 size_flags_horizontal = 3
@@ -245,7 +236,7 @@ size_flags_stretch_ratio = 10.0
 
 [node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer"]
 margin_right = 10.0
-margin_bottom = 599.0
+margin_bottom = 613.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.04
@@ -253,7 +244,7 @@ size_flags_stretch_ratio = 0.04
 [node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer"]
 margin_left = 14.0
 margin_right = 335.0
-margin_bottom = 599.0
+margin_bottom = 613.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.25
@@ -269,14 +260,14 @@ size_flags_stretch_ratio = 2.47
 
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer"]
 margin_right = 321.0
-margin_bottom = 599.0
+margin_bottom = 613.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 alignment = 1
 
 [node name="SpecialisationSkills" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
 margin_right = 321.0
-margin_bottom = 599.0
+margin_bottom = 613.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -327,7 +318,7 @@ margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SpecialisationDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
+[node name="SpecializationDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 128.0
 margin_right = 1039.0
@@ -354,5 +345,5 @@ margin_bottom = 879.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialisation" to="." method="_on_PreviousSpecialization_button_up"]
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialisation" to="." method="_on_NextSpecialization_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialization" to="." method="_on_PreviousSpecialisation_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialization" to="." method="_on_NextSpecialisation_button_up"]

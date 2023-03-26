@@ -1,0 +1,219 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://UI_Elements/skill box active.png" type="Texture" id=1]
+[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://SkillPointsPage/SkillCard.gd" type="Script" id=3]
+[ext_resource path="res://UI_Elements/light_on.png" type="Texture" id=4]
+[ext_resource path="res://UI_Elements/light_off.png" type="Texture" id=5]
+[ext_resource path="res://UI_Elements/skill box inactive.png" type="Texture" id=6]
+[ext_resource path="res://Fonts/Aleo-Bold.otf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=10]
+size = 32
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=7]
+size = 32
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=5]
+size = 28
+font_data = ExtResource( 7 )
+
+[sub_resource type="StreamTexture" id=9]
+flags = 4
+load_path = "res://.import/skill box.png-e8e91f3d4ce675d93074399320060981.stex"
+
+[sub_resource type="DynamicFont" id=8]
+size = 30
+font_data = ExtResource( 2 )
+
+[node name="SkillCard" type="TextureButton"]
+anchor_right = 0.146
+anchor_bottom = 0.218
+margin_right = -0.320038
+margin_bottom = -0.440018
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 1 )
+expand = true
+script = ExtResource( 3 )
+skill_card_name = NodePath("SkillCard/HBoxContainer/VBoxContainer/SkillName")
+skill_card_level = NodePath("TextureRect/SkillLevel")
+
+[node name="SkillCard" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_clip_content = true
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="SkillCard"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="Control" type="Control" parent="SkillCard/HBoxContainer"]
+margin_right = 30.0
+margin_bottom = 234.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.15
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SkillCard/HBoxContainer"]
+margin_left = 34.0
+margin_right = 234.0
+margin_bottom = 234.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="SkillCard/HBoxContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 50.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+
+[node name="SkillName" type="Label" parent="SkillCard/HBoxContainer/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 54.0
+margin_right = 200.0
+margin_bottom = 129.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+custom_fonts/font = SubResource( 10 )
+text = "Skill Name"
+align = 1
+valign = 1
+autowrap = true
+
+[node name="OptionButton" type="OptionButton" parent="SkillCard/HBoxContainer/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 133.0
+margin_right = 200.0
+margin_bottom = 155.0
+custom_fonts/font = SubResource( 11 )
+
+[node name="Control2" type="Control" parent="SkillCard/HBoxContainer/VBoxContainer"]
+margin_top = 159.0
+margin_right = 200.0
+margin_bottom = 234.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Control2" type="Control" parent="SkillCard/HBoxContainer"]
+margin_left = 238.0
+margin_right = 279.0
+margin_bottom = 234.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.2
+
+[node name="MinusButton" type="TextureButton" parent="."]
+anchor_left = 0.054
+anchor_top = 0.783
+anchor_right = 0.214
+anchor_bottom = 0.894
+margin_left = -0.120001
+margin_top = -0.00500488
+margin_right = 0.0799942
+margin_bottom = -1.09001
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="MinusLabel" type="Label" parent="MinusButton"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 16.0
+margin_top = -12.0
+margin_right = -16.0
+margin_bottom = 8.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 7.0
+custom_fonts/font = SubResource( 7 )
+text = "-"
+align = 1
+valign = 1
+
+[node name="PlusButton" type="TextureButton" parent="."]
+anchor_left = 0.754
+anchor_top = 0.779
+anchor_right = 0.914
+anchor_bottom = 0.889
+margin_left = -0.119995
+margin_top = -0.0650177
+margin_right = 0.0799866
+margin_bottom = -0.915009
+texture_normal = ExtResource( 5 )
+texture_pressed = ExtResource( 4 )
+texture_hover = ExtResource( 4 )
+expand = true
+
+[node name="PlusLabel" type="Label" parent="PlusButton"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 14.0
+margin_top = -11.0
+margin_right = -12.0
+margin_bottom = 9.00002
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 28.0
+custom_fonts/font = SubResource( 5 )
+text = "+"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.061
+anchor_top = 0.068
+anchor_right = 0.179
+anchor_bottom = 0.281
+margin_left = -0.0800018
+margin_top = 0.0199995
+margin_right = -0.120003
+margin_bottom = -0.0350037
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 9 )
+expand = true
+stretch_mode = 1
+
+[node name="SkillLevel" type="Label" parent="TextureRect"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 0.957
+margin_left = -1.0
+margin_top = -1.0
+margin_right = -2.48123
+margin_bottom = -0.674694
+custom_fonts/font = SubResource( 8 )
+text = "0"
+align = 1
+valign = 1
+
+[connection signal="button_up" from="." to="." method="_on_SkillCard_button_up"]
+[connection signal="button_up" from="MinusButton" to="." method="_on_MinusButton_button_up"]
+[connection signal="button_up" from="PlusButton" to="." method="_on_PlusButton_button_up"]

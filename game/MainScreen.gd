@@ -13,8 +13,9 @@ export (NodePath) onready var character_sheet_panel = get_node(character_sheet_p
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
 export (NodePath) onready var profession_element = get_node(profession_element) as Control
 export (NodePath) onready var attributes_element = get_node(attributes_element) as Control
-export (NodePath) onready var specialisation_element = get_node(specialisation_element) as Control
-export (NodePath) onready var specialisation_element2 = get_node(specialisation_element2) as Control
+export (NodePath) onready var specialization_element = get_node(specialization_element) as Control
+export (NodePath) onready var distribute_skill_points_element = get_node(distribute_skill_points_element) as Control
+export (NodePath) onready var dummy_step = get_node(dummy_step) as Control
 
 export (NodePath) onready var ethnicity_indicator = get_node(ethnicity_indicator) as TextureButton
 export (NodePath) onready var profession_indicator = get_node(profession_indicator) as TextureButton
@@ -28,13 +29,15 @@ export (NodePath) onready var form_indicator = get_node(form_indicator) as Textu
 export (NodePath) onready var gear_indicator = get_node(gear_indicator) as TextureButton
 
 
+
 var current_step = 0
 onready var steps = [
 					ethnicity_element,
 					profession_element,
 					attributes_element,
-					specialisation_element,
-					specialisation_element2,
+					specialization_element,
+					distribute_skill_points_element,
+					dummy_step,
 ]
 
 onready var indicators = [
@@ -68,10 +71,7 @@ func _next_step():
 		attributes_element.save_attributes()
 	if current_step == len(steps)-2:
 		next_step.disabled = true
-	if current_step == len(steps)-1:
-		print("The End")
-	else:
-		current_step += 1
+	current_step += 1
 	back_step.disabled = false
 	steps[current_step].load_step()
 	_turn_on_step_indicators()
@@ -80,18 +80,17 @@ func _next_step():
 	
 	
 func _previous_step():
-	var character_stats = character_sheet_panel.find_node("CharacterStats")
 	if steps[current_step] == attributes_element:
-		character_stats.clear_base_rolls_attributes()
-	if steps[current_step] == specialisation_element:
-		character_stats.clear_specialization()
+		CharacterStats.clear_base_rolls_attributes()
+	if steps[current_step] == specialization_element:
+		CharacterStats.clear_specialization()
 	if current_step == 1:
 		back_step.disabled = true
 	if current_step == 0:
 		print("CANT GO BACK")
 	else:
 		current_step -= 1
-	next_step.disabled = false
+	_disable_next_step()
 	steps[current_step].load_step()
 	_turn_off_step_indicators()
 	_turn_off_screens()
@@ -124,3 +123,5 @@ func _enable_next_step(_argument):
 
 func _disable_next_step():
 	next_step.disabled = true
+
+

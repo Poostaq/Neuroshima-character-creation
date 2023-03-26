@@ -110,7 +110,6 @@ func _get_screen_pos() -> Vector2:
 	if follow_mouse:
 		return get_viewport().get_mouse_position()
 	
-	
 	var position = Vector2()
 	
 	if owner_node is Node2D:

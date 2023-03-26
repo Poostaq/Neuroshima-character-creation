@@ -84,6 +84,8 @@ func _create_trait_button(trait_template, trait_data):
 func _on_Trait_Button_button_pressed(button):
 	emit_signal("trait_chosen", button)
 	emit_signal("profession_chosen", profession)
+	CharacterStats._on_ProfessionStep_profession_chosen(profession)
+	CharacterStats._on_ProfessionStep_trait_chosen(button)
 
 
 func _on_PreviousProfession_button_up():
@@ -106,5 +108,7 @@ func _on_NextProfession_button_up():
 
 
 func _changed_profession():
+	CharacterStats._on_ProfessionStep_clear_trait()
+	CharacterStats._on_ProfessionStep_clear_profession()
 	emit_signal("clear_profession")
 	emit_signal("clear_trait")

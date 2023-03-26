@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://CharacterSheet/FrontPage.png" type="Texture" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://CharacterSheet/CharacterSheet.gd" type="Script" id=4]
 [ext_resource path="res://THEME.tres" type="Theme" id=5]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://CharacterSheet/CharacterStats.tscn" type="PackedScene" id=7]
 
 [sub_resource type="Gradient" id=7]
 offsets = PoolRealArray( 0.997151, 1 )
@@ -1468,7 +1467,5 @@ margin_right = -502.0
 margin_bottom = -962.0
 custom_fonts/font = SubResource( 9 )
 text = "X"
-
-[node name="CharacterStats" parent="." instance=ExtResource( 7 )]
 
 [connection signal="button_up" from="PanelContainer/CloseButton" to="." method="_on_CloseButton_button_up"]

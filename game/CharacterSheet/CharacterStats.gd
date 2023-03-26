@@ -6,6 +6,7 @@ export var ethnicity_trait : String
 export var profession : String
 export var profession_trait : String
 export var specialization : String
+export var specialization_identifier : String
 
 export var agi_value : int
 export var agi_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "BaseRoll" : 0}
@@ -25,6 +26,15 @@ export var bod_modifiers : Dictionary = {"EthnicityAttributeModifier" : 0, "Base
 var attribute_modifiers_dicts = [agi_modifiers, per_modifiers, cha_modifiers, wit_modifiers, bod_modifiers]
 var attribute_values_list = [agi_value,per_value,cha_value,wit_value,bod_value]
 var attribute_modifier : int
+var skill_levels : Dictionary
+var skill_packs : Dictionary
+
+
+func _init() -> void:
+	var skill_data = DatabaseOperations.read_skills()
+	for skill in skill_data:
+		skill_levels[skill["skill_identifier"]] = 0
+
 
 func get_final_attribute_value(attribute_modifiers : Dictionary):
 	var result = 0
@@ -103,5 +113,6 @@ func _on_ProfessionStep_clear_profession():
 	profession = ""
 
 
-func _on_SpecialisationStep_specialization_chosen(current_specialisation):
-	specialization = current_specialisation["specialization_name"]
+func _on_specializationStep_specialization_chosen(current_specialization):
+	specialization = current_specialization["specialization_name"]
+	specialization_identifier = current_specialization["specialization_identifier"]
