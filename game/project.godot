@@ -24,6 +24,10 @@ config/name="Neuroshima Character Creation"
 run/main_scene="res://MainScreen.tscn"
 config/icon="res://icon.png"
 
+[audio]
+
+default_bus_layout=""
+
 [autoload]
 
 DatabaseOperations="*res://DataStore/databaseOperations.gd"
