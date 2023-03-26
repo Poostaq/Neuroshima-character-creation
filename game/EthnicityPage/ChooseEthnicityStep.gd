@@ -82,7 +82,7 @@ func _create_trait_button(trait_template, trait_data):
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
 	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
-	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["trait_short_description"]
+	trait_button.trait_description_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_short_description"]
 	trait_button.connect("trait_button_pressed",
 		self,
 		"_on_Trait_Button_button_pressed")
