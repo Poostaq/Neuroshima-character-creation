@@ -15,6 +15,7 @@ export (NodePath) onready var profession_element = get_node(profession_element) 
 export (NodePath) onready var attributes_element = get_node(attributes_element) as Control
 export (NodePath) onready var specialisation_element = get_node(specialisation_element) as Control
 export (NodePath) onready var distribute_skill_points_element = get_node(distribute_skill_points_element) as Control
+export (NodePath) onready var dummy_step = get_node(dummy_step) as Control
 
 export (NodePath) onready var ethnicity_indicator = get_node(ethnicity_indicator) as TextureButton
 export (NodePath) onready var profession_indicator = get_node(profession_indicator) as TextureButton
@@ -36,6 +37,7 @@ onready var steps = [
 					attributes_element,
 					specialisation_element,
 					distribute_skill_points_element,
+					dummy_step,
 ]
 
 onready var indicators = [

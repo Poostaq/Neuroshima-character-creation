@@ -92,10 +92,9 @@ func _load_package():
 	_set_screen_state()
 	var skill_pack_id = _current_skill_pack_data["skill_pack_identifier"]
 	var pack_data = DatabaseOperations.read_skills_for_package(skill_pack_id)
-	var specialization = pack_data[0]["specialization_name"]
 	pack_name_label.text = _current_skill_pack_data["skill_pack_name"]
-	pack_specialization.text = "Spec.: %s" % _current_skill_pack_data["specialization_name"]
-	pack_attribute.text = "Atrybut: %s" %_current_skill_pack_data["attribute_name"]
+	pack_specialization.text = "Specjalizacja %s" % _current_skill_pack_data["specialization_name"]
+	pack_attribute.text = "Atrybut %s" %_current_skill_pack_data["attribute_name"]
 	
 	if skill_pack_id == "general_knowledge":
 		_current_skill_card_list = _general_skill_card_list
@@ -376,7 +375,7 @@ func _load_general_skill_options():
 		
 
 
-func _on_OptionButton_item_selected(index):
+func _on_OptionButton_item_selected(_index):
 	refresh_skill_states()
 	refresh_current_skill_levels_for_general_knowledge()
 

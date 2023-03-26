@@ -46,6 +46,7 @@ profession_element = NodePath("CenterContainer/VBoxContainer/StepContainer/Profe
 attributes_element = NodePath("CenterContainer/VBoxContainer/StepContainer/AttributesStep")
 specialisation_element = NodePath("CenterContainer/VBoxContainer/StepContainer/SpecialisationStep")
 distribute_skill_points_element = NodePath("CenterContainer/VBoxContainer/StepContainer/DistributeSkillPointsStep")
+dummy_step = NodePath("CenterContainer/VBoxContainer/StepContainer/DummyStep")
 ethnicity_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/EthnicityIndicator")
 profession_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionIndicator")
 attributes_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesIndicator")
@@ -140,6 +141,15 @@ specialization_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContain
 specialization_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/SpecialisationDescription")
 
 [node name="DistributeSkillPointsStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 19 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 952.0
+
+[node name="DummyStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 18 )]
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
