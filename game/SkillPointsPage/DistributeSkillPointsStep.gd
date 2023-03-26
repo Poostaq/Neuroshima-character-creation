@@ -142,6 +142,7 @@ func _on_SkillCard_minus_button_pressed(skill):
 		if _is_pack_bought():
 			return
 		_return_points(3)
+		
 		if _current_skill_pack_data["skill_pack_identifier"] == "general_knowledge":
 			var option_element = skill.find_node("OptionButton")
 			option_element.disabled = false
