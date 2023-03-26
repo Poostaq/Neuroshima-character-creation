@@ -113,6 +113,6 @@ func _on_ProfessionStep_clear_profession():
 	profession = ""
 
 
-func _on_SpecialisationStep_specialization_chosen(current_specialisation):
-	specialization = current_specialisation["specialization_name"]
-	specialization_identifier = current_specialisation["specialization_identifier"]
+func _on_specializationStep_specialization_chosen(current_specialization):
+	specialization = current_specialization["specialization_name"]
+	specialization_identifier = current_specialization["specialization_identifier"]
