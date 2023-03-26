@@ -13,7 +13,7 @@ export (NodePath) onready var character_sheet_panel = get_node(character_sheet_p
 export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
 export (NodePath) onready var profession_element = get_node(profession_element) as Control
 export (NodePath) onready var attributes_element = get_node(attributes_element) as Control
-export (NodePath) onready var specialization_element = get_node(specialization_element) as Control
+export (NodePath) onready var specialisation_element = get_node(specialization_element) as Control
 export (NodePath) onready var distribute_skill_points_element = get_node(distribute_skill_points_element) as Control
 export (NodePath) onready var dummy_step = get_node(dummy_step) as Control
 
@@ -35,7 +35,7 @@ onready var steps = [
 					ethnicity_element,
 					profession_element,
 					attributes_element,
-					specialization_element,
+					specialisation_element,
 					distribute_skill_points_element,
 					dummy_step,
 ]
@@ -82,7 +82,7 @@ func _next_step():
 func _previous_step():
 	if steps[current_step] == attributes_element:
 		CharacterStats.clear_base_rolls_attributes()
-	if steps[current_step] == specialization_element:
+	if steps[current_step] == specialisation_element:
 		CharacterStats.clear_specialization()
 	if current_step == 1:
 		back_step.disabled = true

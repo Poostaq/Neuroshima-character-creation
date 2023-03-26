@@ -36,7 +36,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 script = ExtResource( 4 )
-specialisation_skills = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/SpecialisationSkills")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 anchor_right = 1.0
@@ -102,7 +101,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="PreviousSpecialisation" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+[node name="PreviousSpecialization" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 margin_right = 105.0
 margin_bottom = 109.0
 rect_min_size = Vector2( 100, 100 )
@@ -129,7 +128,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="SpecialisationName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+[node name="SpecializationName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 24.0
 margin_right = 841.0
@@ -149,7 +148,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="NextSpecialisation" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+[node name="NextSpecialization" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 margin_left = 954.0
 margin_right = 1060.0
 margin_bottom = 109.0
@@ -319,7 +318,7 @@ margin_bottom = 124.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SpecialisationDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
+[node name="SpecializationDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 128.0
 margin_right = 1039.0
@@ -346,5 +345,5 @@ margin_bottom = 879.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialisation" to="." method="_on_PreviousSpecialisation_button_up"]
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialisation" to="." method="_on_NextSpecialisation_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialization" to="." method="_on_PreviousSpecialisation_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialization" to="." method="_on_NextSpecialisation_button_up"]
