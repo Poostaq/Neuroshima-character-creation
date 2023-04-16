@@ -32,16 +32,6 @@ onready var db = get_node("/root/DatabaseOperations")
 #####################################
 # OVERRIDE FUNCTIONS
 #####################################
-func _init() -> void:
-	pass
-
-
-func _ready() -> void:
-	pass
-
-
-func _process(_delta: float) -> void:
-	pass
 
 #####################################
 # API FUNCTIONS
