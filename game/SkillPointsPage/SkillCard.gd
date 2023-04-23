@@ -35,16 +35,6 @@ export (NodePath) onready var skill_card_level = get_node(skill_card_level) as L
 #####################################
 # OVERRIDE FUNCTIONS
 #####################################
-func _init() -> void:
-	pass
-
-
-func _ready() -> void:
-	pass
-
-
-func _process(_delta: float) -> void:
-	pass
 
 #####################################
 # API FUNCTIONS

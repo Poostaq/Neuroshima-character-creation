@@ -4,7 +4,7 @@ extends Control
 onready var draggable_value = preload("res://AttributesPage/DraggableValue.tscn")
 
 
-func get_drag_data(_pos):
+func get_drag_data(_pos) -> Dictionary:
 	var data = {}
 	data["bbcode"] = self.get_node("Roll").bbcode_text
 	data["original_object"] = self.get_node("Roll")
@@ -14,7 +14,7 @@ func get_drag_data(_pos):
 	return data
 
 
-func can_drop_data(_position, _data):
+func can_drop_data(_position, _data) -> bool:
 	return true
 
 

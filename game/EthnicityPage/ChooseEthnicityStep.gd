@@ -26,11 +26,11 @@ onready var trait_button_scene = preload("res://EthnicityPage/EthnicityTrait.tsc
 onready var alternate_trait_button_scene = preload("res://EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.tscn")
 
 
-func _ready():
+func _ready() -> void:
 	load_step()
 
 
-func load_step():
+func load_step() -> void:
 	ethnicity_list = DatabaseOperations.read_ethnicity_identifiers()
 	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
@@ -41,7 +41,7 @@ func load_step():
 	_changed_ethnicity()
 
 
-func _set_image(path):
+func _set_image(path) -> void:
 	var image = load(path)
 	if image == null:
 		print("NO SUCH FILE: " + path)
@@ -49,7 +49,7 @@ func _set_image(path):
 		picture.texture = load(path)
 
 
-func _load_ethnicity(ethnicity):
+func _load_ethnicity(ethnicity) -> void:
 	_set_image(ethnicity["splash_art_path"])
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"]
@@ -61,8 +61,9 @@ func _load_ethnicity(ethnicity):
 	if len(trait_list) == 2:
 		_create_trait_list_filler()
 	for trait in trait_list:
+		var trait_button: Button
 		if trait["trait_identifier"] == "versatility_squared":
-			var trait_button = _create_trait_button(alternate_trait_button_scene, trait)
+			trait_button = _create_trait_button(alternate_trait_button_scene, trait)
 			var trait_button_trait_list = trait_button.get_node("HBoxContainer/VBoxContainer/OptionButton")
 			_fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
@@ -71,14 +72,14 @@ func _load_ethnicity(ethnicity):
 	if len(trait_list) == 2:
 		_create_trait_list_filler()
 
-func _create_trait_list_filler():
+func _create_trait_list_filler() -> void:
 		var control = Control.new()
 		control.size_flags_horizontal = 3
 		control.size_flags_vertical = 3
 		control.size_flags_stretch_ratio = 0.5
 		trait_container.add_child(control)
 	
-func _create_trait_button(trait_template, trait_data):
+func _create_trait_button(trait_template, trait_data) -> void:
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
 	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
@@ -91,10 +92,9 @@ func _create_trait_button(trait_template, trait_data):
 	trait_button.description = trait_data["trait_short_description"]
 	trait_button.tooltip_text = trait_data["trait_description"]
 	trait_button.get_node(".").set_button_group(trait_group)
-	return trait_button
 
 
-func _on_Trait_Button_button_pressed(button):
+func _on_Trait_Button_button_pressed(button) -> void:
 	var bonus_attribute = _get_bonus_attribute()
 	emit_signal("trait_chosen", button)
 	emit_signal("ethnicity_chosen", current_ethnicity_data)
@@ -103,19 +103,18 @@ func _on_Trait_Button_button_pressed(button):
 	CharacterStats._on_EthnicityStep_attribute_chosen(bonus_attribute)
 	CharacterStats._on_EthnicityStep_trait_chosen(button)
 	
-func _get_bonus_attribute():
+func _get_bonus_attribute() -> int:
 	if ethnicity_list[current_ethnicity_index]["ethnicity_identifier"] =="none_of_your_fucking_business":
 		return attribute_selector.selected
-	else:
-		return current_ethnicity_data["attribute_enum"]
+	return current_ethnicity_data["attribute_enum"]
 		
 
-func _fill_trait_button_trait_list(trait_list_element: OptionButton):
+func _fill_trait_button_trait_list(trait_list_element: OptionButton) -> void:
 	for trait in DatabaseOperations.read_list_of_ethnicity_traits_without_versatilities():
 		trait_list_element.add_item(trait)
 
 
-func _fill_attribute_bonus_label(_attributes):
+func _fill_attribute_bonus_label(_attributes) -> void:
 	if ethnicity_list[current_ethnicity_index]["ethnicity_identifier"] =="none_of_your_fucking_business":
 		attribute_bonus_label.visible = false
 		attribute_selector.visible = true
@@ -124,11 +123,11 @@ func _fill_attribute_bonus_label(_attributes):
 	attribute_bonus_label.visible = true
 	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % current_ethnicity_data["attribute_name"]
 
-func _on_AttributeSelect_item_selected(index):
+func _on_AttributeSelect_item_selected(index) -> void:
 	emit_signal("attribute_chosen", index)
 
 
-func _on_PreviousEthnicity_button_up():
+func _on_PreviousEthnicity_button_up() -> void:
 	if current_ethnicity_index == 0:
 		current_ethnicity_index = len(ethnicity_list)-1
 	else:
@@ -138,7 +137,7 @@ func _on_PreviousEthnicity_button_up():
 	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
 	_changed_ethnicity()
 
-func _on_NextEthnicity_button_up():
+func _on_NextEthnicity_button_up() -> void:
 	if current_ethnicity_index == len(ethnicity_list)-1:
 		current_ethnicity_index = 0
 	else:
@@ -149,13 +148,13 @@ func _on_NextEthnicity_button_up():
 	_changed_ethnicity()
 
 
-func _fill_attribute_selector_options():
+func _fill_attribute_selector_options() -> void :
 	attribute_selector.clear()
 	for attribute in DatabaseOperations.read_list_of_attributes_without_any():
 		attribute_selector.add_item(attribute)
 
 
-func _changed_ethnicity():
+func _changed_ethnicity() -> void:
 	emit_signal("clear_ethnicity")
 	emit_signal("clear_bonus_attribute")
 	CharacterStats._on_EthnicityStep_clear_ethnicity()

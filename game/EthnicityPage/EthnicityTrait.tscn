@@ -26,8 +26,6 @@ texture_normal = ExtResource( 1 )
 texture_pressed = ExtResource( 4 )
 expand = true
 script = ExtResource( 3 )
-trait_name_label = NodePath("HBoxContainer/VBoxContainer/TraitNameLabel")
-trait_description_label = NodePath("HBoxContainer/VBoxContainer/TraitDescriptionLabel")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
 anchor_right = 1.0
@@ -61,6 +59,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 
 [node name="TraitNameLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 39.0
 margin_right = 157.0
@@ -75,6 +74,7 @@ bbcode_text = "[center]Trait 1[/center]"
 text = "Trait 1"
 
 [node name="TraitDescriptionLabel" type="RichTextLabel" parent="HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 78.0
 margin_right = 157.0
