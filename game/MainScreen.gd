@@ -54,19 +54,19 @@ onready var indicators = [
 ]
 
 
-func _ready():
+func _ready() -> void:
 	back_step.disabled = true
 	next_step.disabled = true
 	
 
 
-func _on_CardButton_button_up():
+func _on_CardButton_button_up() -> void:
 	character_sheet_panel.visible = true
 	character_sheet_panel.mouse_filter = Control.MOUSE_FILTER_PASS
 	character_sheet_panel.update_card()
 
 
-func _next_step():
+func _next_step() -> void:
 	if steps[current_step] == attributes_element:
 		attributes_element.save_attributes()
 	if current_step == len(steps)-2:
@@ -79,7 +79,7 @@ func _next_step():
 	character_sheet_panel.update_card()
 	
 	
-func _previous_step():
+func _previous_step() -> void:
 	if steps[current_step] == attributes_element:
 		CharacterStats.clear_base_rolls_attributes()
 	if steps[current_step] == specialization_element:
@@ -96,7 +96,7 @@ func _previous_step():
 	_turn_off_screens()
 
 
-func _turn_off_screens():
+func _turn_off_screens() -> void:
 	for s in range(0, steps.size()):
 		if s == current_step:
 			steps[s].visible = true
@@ -105,23 +105,23 @@ func _turn_off_screens():
 			steps[s].visible = false
 
 
-func _turn_on_step_indicators():
+func _turn_on_step_indicators() -> void:
 	for i in range(0, steps.size()):
 		if i == current_step:
 			indicators[i].texture_normal = indicator_active
 
 
-func _turn_off_step_indicators():
+func _turn_off_step_indicators() -> void:
 	for i in range(0, steps.size()):
 		if i == current_step:
 			indicators[i+1].texture_normal = indicator_inactive
 
 
-func _enable_next_step(_argument):
+func _enable_next_step(_argument) -> void:
 	next_step.disabled = false
 
 
-func _disable_next_step():
+func _disable_next_step() -> void:
 	next_step.disabled = true
 
 

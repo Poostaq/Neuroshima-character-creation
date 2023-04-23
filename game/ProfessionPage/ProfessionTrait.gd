@@ -10,9 +10,9 @@ export (NodePath) onready var trait_name_label = get_node(trait_name_label) as R
 export (NodePath) onready var trait_description_label = get_node(trait_description_label) as RichTextLabel
 
 
-func _on_ProfesionTraitButton_pressed():
+func _on_ProfesionTraitButton_pressed() -> void:
 	emit_signal("profession_trait_button_pressed", self)
 
-func get_tooltip_text():
+func get_tooltip_text() -> String:
 	return "%s \n\n %s" % [trait_name, tooltip_text]
 	

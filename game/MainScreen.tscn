@@ -202,6 +202,7 @@ material = SubResource( 1 )
 margin_right = 55.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Pochodzenie"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -214,7 +215,7 @@ margin_left = 75.0
 margin_right = 131.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Wybór Profesji"
+hint_tooltip = "Profesja"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -230,6 +231,7 @@ margin_left = 151.0
 margin_right = 207.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Atrybuty"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -242,6 +244,7 @@ margin_left = 227.0
 margin_right = 282.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Specjalizacja"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -254,6 +257,7 @@ margin_left = 302.0
 margin_right = 358.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Umiejętności"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -266,6 +270,7 @@ margin_left = 378.0
 margin_right = 434.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Sztuczki"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -278,6 +283,7 @@ margin_left = 454.0
 margin_right = 509.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Choroba"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -290,6 +296,7 @@ margin_left = 529.0
 margin_right = 585.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Reputacja"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -302,6 +309,7 @@ margin_left = 605.0
 margin_right = 661.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Formularz"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -314,6 +322,7 @@ margin_left = 681.0
 margin_right = 737.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "Sprzęt"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 15 )
@@ -400,13 +409,7 @@ mouse_filter = 1
 [node name="PanelContainer" parent="CharacterSheet" index="0"]
 mouse_filter = 1
 
-[node name="MarginContainer" parent="CharacterSheet/PanelContainer/TextureRect2" index="0"]
-mouse_filter = 1
-
-[node name="ScrollContainer" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer" index="0"]
-mouse_filter = 1
-
-[node name="TextureRect" parent="CharacterSheet/PanelContainer/TextureRect2/MarginContainer/ScrollContainer" index="0"]
+[node name="CharacterCardTexture" parent="CharacterSheet/PanelContainer/MonitorTexture/MarginContainer/ScrollContainer" index="0"]
 margin_right = 815.0
 
 [connection signal="clear_ethnicity" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_disable_next_step"]

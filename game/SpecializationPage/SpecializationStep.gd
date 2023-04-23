@@ -49,13 +49,13 @@ func load_step() -> void:
 #####################################
 # HELPER FUNCTIONS
 #####################################
-func _load_specialization(specialization_data):
+func _load_specialization(specialization_data) -> void:
 	specialization_name.bbcode_text = "[center]%s[/center]" % specialization_data["specialization_name"]
 	specialization_description.bbcode_text = "%s" % specialization_data["specialization_description"]
 	specialization_skills.bbcode_text = _prepare_specialization_skills(specialization_data["specialization_identifier"])
 
 
-func _prepare_specialization_skills(specialization_data):
+func _prepare_specialization_skills(specialization_data: Dictionary) -> String:
 	var specialization_packs_list = db.read_packs_for_specialization(specialization_data)
 	var bbcode = ""
 	for x in specialization_packs_list:
@@ -68,14 +68,14 @@ func _prepare_specialization_skills(specialization_data):
 	return bbcode
 
 
-func _on_Previousspecialization_button_up():
+func _on_Previousspecialization_button_up() -> void:
 	if _current_specialization_index == 0:
 		_current_specialization_index = len(_specialization_list)-1
 	else:
 		_current_specialization_index -= 1
 	load_step()
 
-func _on_Nextspecialization_button_up():
+func _on_Nextspecialization_button_up() -> void:
 	if _current_specialization_index == len(_specialization_list)-1:
 		_current_specialization_index = 0
 	else:

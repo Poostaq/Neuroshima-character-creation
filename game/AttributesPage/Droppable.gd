@@ -5,7 +5,7 @@ onready var draggable_value = preload("res://AttributesPage/DraggableValue.tscn"
 signal dropped_data
 
 
-func get_drag_data(_pos):
+func get_drag_data(_pos) -> Dictionary:
 	var data = {}
 	data["bbcode"] = self.bbcode_text
 	data["original_object"] = self
@@ -15,11 +15,11 @@ func get_drag_data(_pos):
 	return data
 
 
-func can_drop_data(_position, _data):
+func can_drop_data(_position, _data) -> bool:
 	return true
 
 
-func drop_data(_position, data):
+func drop_data(_position, data) -> void:
 	if self.bbcode_text == "":
 		self.bbcode_text = data["bbcode"]
 		emit_signal("dropped_data")

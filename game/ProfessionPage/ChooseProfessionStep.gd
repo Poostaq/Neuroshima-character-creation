@@ -25,14 +25,14 @@ onready var trait_button_scene = preload("res://ProfessionPage/ProfessionTrait.t
 onready var db = get_node("/root/DatabaseOperations")
 
 
-func load_step():
+func load_step() -> void:
 	profession_list = db.read_profession_identifiers()
 	profession = db.read_data_for_profession(profession_list[current_profession_index]["profession_identifier"])
 	_load_profession(profession)
 	trait_group = load("res://ProfessionPage/Traits.tres")
 	_changed_profession()
 
-func _set_image(path):
+func _set_image(path) -> void:
 	var image = load(path)
 	if image == null:
 		print("NO SUCH FILE: " + path)
@@ -40,7 +40,7 @@ func _set_image(path):
 		picture.texture = load(path)
 
 
-func _load_profession(_profession):
+func _load_profession(_profession) -> void:
 	_set_image(profession["splash_art_path"]) 
 	profession_name.bbcode_text = "[center]%s[/center]" % profession["profession_name"]
 	profession_description.bbcode_text = "%s" % profession["profession_description"]
@@ -57,7 +57,7 @@ func _load_profession(_profession):
 	if len(profession_trait_list) == 2:
 		_create_trait_list_filler()
 
-func _create_trait_list_filler():
+func _create_trait_list_filler() -> void:
 		var control = Control.new()
 		control.size_flags_horizontal = 3
 		control.size_flags_vertical = 3
@@ -65,7 +65,7 @@ func _create_trait_list_filler():
 		trait_container.add_child(control)
 
 
-func _create_trait_button(trait_template, trait_data):
+func _create_trait_button(trait_template, trait_data) -> void:
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
 	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
@@ -78,17 +78,16 @@ func _create_trait_button(trait_template, trait_data):
 	trait_button.description = trait_data["trait_short_description"]
 	trait_button.tooltip_text = trait_data["trait_description"]
 	trait_button.get_node(".").set_button_group(trait_group)
-	return trait_button
 
 
-func _on_Trait_Button_button_pressed(button):
+func _on_Trait_Button_button_pressed(button) -> void:
 	emit_signal("trait_chosen", button)
 	emit_signal("profession_chosen", profession)
 	CharacterStats._on_ProfessionStep_profession_chosen(profession)
 	CharacterStats._on_ProfessionStep_trait_chosen(button)
 
 
-func _on_PreviousProfession_button_up():
+func _on_PreviousProfession_button_up() -> void:
 	if current_profession_index == 0:
 		current_profession_index = len(profession_list)-1
 	else:
@@ -97,7 +96,7 @@ func _on_PreviousProfession_button_up():
 	_load_profession(profession)
 	_changed_profession()
 
-func _on_NextProfession_button_up():
+func _on_NextProfession_button_up() -> void:
 	if current_profession_index == len(profession_list)-1:
 		current_profession_index = 0
 	else:
@@ -107,7 +106,7 @@ func _on_NextProfession_button_up():
 	_changed_profession()
 
 
-func _changed_profession():
+func _changed_profession() -> void:
 	CharacterStats._on_ProfessionStep_clear_trait()
 	CharacterStats._on_ProfessionStep_clear_profession()
 	emit_signal("clear_profession")

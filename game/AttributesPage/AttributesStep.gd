@@ -84,18 +84,18 @@ onready var attribute_value_list = [4,
 var current_roll = 0
 
 
-func _ready():
+func _ready() -> void:
 	for button in minus_button_list:
 		button.connect("button_up", self, "_on_minus_button_up",[button])
 	for button in plus_button_list:
 		button.connect("button_up", self, "_on_plus_button_up",[button])
 
 
-func load_step():
+func load_step() -> void:
 	pass
 
 
-func save_attributes():
+func save_attributes() -> void:
 	var list = []
 	if tab_container.current_tab == 0:
 		list = [
@@ -111,7 +111,7 @@ func save_attributes():
 	CharacterStats._on_AttributesStep_attributes_chosen(list)
 
 
-func _on_RollButton_button_up():
+func _on_RollButton_button_up() -> void:
 	_clear_rolls()
 	_clear_attribute_values()
 	var result_rolls_list = []
@@ -137,7 +137,7 @@ func _on_RollButton_button_up():
 		roll_list[x].bbcode_text = "[center]%s" % str(final_values_list[x])
 
 
-func _roll_attribute_above_six():
+func _roll_attribute_above_six() -> Array:
 	var average = 0
 	var results = []
 	while average <= 5:
@@ -146,17 +146,17 @@ func _roll_attribute_above_six():
 	return results
 
 
-func _clear_rolls():
+func _clear_rolls() -> void:
 	for roll in roll_list:
 		roll.bbcode_text = ""
 
 
-func _clear_attribute_values():
+func _clear_attribute_values() -> void:
 	for attribute in attribute_attribute_value_list:
 		attribute.bbcode_text = ""
 
 
-func _on_minus_button_up(button : BaseButton):
+func _on_minus_button_up(button : BaseButton) -> void:
 	var value_element = button.get_node("../ValueContainer/Value") as RichTextLabel
 	var value = value_element.stat
 	if attribute_value_list[value] > 4:
@@ -166,7 +166,7 @@ func _on_minus_button_up(button : BaseButton):
 		remaining_value_label.bbcode_text = "[center]%s" % attribute_value_list[5]
 
 
-func _on_plus_button_up(button : BaseButton):
+func _on_plus_button_up(button : BaseButton) -> void:
 	var value_element = button.get_node("../ValueContainer/Value") as RichTextLabel
 	var value = value_element.stat
 	if attribute_value_list[value] < 19 and attribute_value_list[5] > 0:

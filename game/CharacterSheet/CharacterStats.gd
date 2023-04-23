@@ -36,47 +36,47 @@ func _init() -> void:
 		skill_levels[skill["skill_identifier"]] = 0
 
 
-func get_final_attribute_value(attribute_modifiers : Dictionary):
+func get_final_attribute_value(attribute_modifiers: Dictionary) -> int:
 	var result = 0
 	for key in attribute_modifiers:
 		result+=attribute_modifiers[key]
 	return result
 
-func clear_base_rolls_attributes():
+func clear_base_rolls_attributes() -> void:
 	for element in attribute_modifiers_dicts:
 		element["BaseRoll"] = 0
 
 
-func _clear_bonus_attribute():
+func _clear_bonus_attribute() -> void:
 	for element in attribute_modifiers_dicts:
 		element["EthnicityAttributeModifier"] = 0
 	attribute_modifier = 0
 
 
-func clear_specialization():
+func clear_specialization() -> void:
 	specialization = ""
 
-func set_bonus_attribute(attribute=null):
+func set_bonus_attribute(attribute=null) -> void:
 	if attribute != null or (attribute <= 4 and attribute >= 0):
 		attribute_modifiers_dicts[attribute]["EthnicityAttributeModifier"] = 1
 
-func _on_AttributesStep_attributes_chosen(attribute_list):
+func _on_AttributesStep_attributes_chosen(attribute_list) -> void:
 	self.clear_base_rolls_attributes()
 	for x in range(0, len(attribute_list)):
 		_set_base_roll(x, attribute_list[x])
 
-func _set_base_roll(attribute=null, value=0):
+func _set_base_roll(attribute=null, value=0) -> void:
 	if attribute != null or (attribute <= 5 and attribute >= 0):
 		attribute_modifiers_dicts[attribute]["BaseRoll"] = value
 
-func _on_ProfessionStep_clear_trait():
+func _on_ProfessionStep_clear_trait() -> void:
 	profession_trait = ""
 
-func _on_ProfessionStep_profession_chosen(chosen_profession):
+func _on_ProfessionStep_profession_chosen(chosen_profession) -> void:
 	profession = chosen_profession["profession_name"]
 
 
-func _on_ProfessionStep_trait_chosen(trait_button):
+func _on_ProfessionStep_trait_chosen(trait_button) -> void:
 	profession_trait = trait_button.trait_name
 
 
@@ -84,35 +84,35 @@ func _on_EthnicityStep_ethnicity_chosen(chosen_ethnicity):
 	ethnicity = chosen_ethnicity["ethnicity_name"]
 
 
-func _on_EthnicityStep_attribute_chosen(bonus_attribute):
+func _on_EthnicityStep_attribute_chosen(bonus_attribute) -> void:
 	_clear_bonus_attribute()
 	attribute_modifier = bonus_attribute
 	set_bonus_attribute(attribute_modifier)
 
 
-func _on_EthnicityStep_trait_chosen(trait_element):
+func _on_EthnicityStep_trait_chosen(trait_element) -> void:
 	ethnicity_trait = _format_ethnicity_trait_name(trait_element)
 
 
-func _format_ethnicity_trait_name(trait_button):
+func _format_ethnicity_trait_name(trait_button) -> String:
 	if trait_button.identifier == "versatility_squared":
 		return trait_button.trait_name +" : " + trait_button.secondary_trait
 	else:
 		return trait_button.trait_name
 
-func _on_EthnicityStep_clear_ethnicity():
+func _on_EthnicityStep_clear_ethnicity() -> void:
 	ethnicity = ""
 	ethnicity_trait = ""
 
 
-func _on_EthnicityStep_clear_bonus_attribute():
+func _on_EthnicityStep_clear_bonus_attribute() -> void:
 	_clear_bonus_attribute()
 
 
-func _on_ProfessionStep_clear_profession():
+func _on_ProfessionStep_clear_profession() -> void:
 	profession = ""
 
 
-func _on_specializationStep_specialization_chosen(current_specialization):
+func _on_specializationStep_specialization_chosen(current_specialization) -> void:
 	specialization = current_specialization["specialization_name"]
 	specialization_identifier = current_specialization["specialization_identifier"]
