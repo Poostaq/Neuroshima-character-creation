@@ -27,6 +27,7 @@ var attribute_modifiers_dicts = [agi_modifiers, per_modifiers, cha_modifiers, wi
 var attribute_values_list = [agi_value,per_value,cha_value,wit_value,bod_value]
 var attribute_modifier : int
 var skill_levels : Dictionary
+var skill_levels_before_skill_distribution : Dictionary
 var skill_packs : Dictionary
 
 
@@ -116,3 +117,6 @@ func _on_ProfessionStep_clear_profession() -> void:
 func _on_specializationStep_specialization_chosen(current_specialization) -> void:
 	specialization = current_specialization["specialization_name"]
 	specialization_identifier = current_specialization["specialization_identifier"]
+
+func restore_initial_skill_levels() -> void:
+	CharacterStats.skill_levels = CharacterStats.skill_levels_before_skill_distribution

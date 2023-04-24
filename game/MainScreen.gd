@@ -10,33 +10,35 @@ export (NodePath) onready var steps_container =  get_node(steps_container) as HB
 export (NodePath) onready var card_button = get_node(card_button) as TextureButton
 export (NodePath) onready var character_sheet_panel = get_node(character_sheet_panel) as Control
 
-export (NodePath) onready var ethnicity_element = get_node(ethnicity_element) as Control
-export (NodePath) onready var profession_element = get_node(profession_element) as Control
-export (NodePath) onready var attributes_element = get_node(attributes_element) as Control
-export (NodePath) onready var specialization_element = get_node(specialization_element) as Control
-export (NodePath) onready var distribute_skill_points_element = get_node(distribute_skill_points_element) as Control
-export (NodePath) onready var dummy_step = get_node(dummy_step) as Control
 
-export (NodePath) onready var ethnicity_indicator = get_node(ethnicity_indicator) as TextureButton
-export (NodePath) onready var profession_indicator = get_node(profession_indicator) as TextureButton
-export (NodePath) onready var attributes_indicator = get_node(attributes_indicator) as TextureButton
-export (NodePath) onready var specjalization_indicator = get_node(specjalization_indicator) as TextureButton
-export (NodePath) onready var skills_indicator = get_node(skills_indicator) as TextureButton
-export (NodePath) onready var tricks_indicator = get_node(tricks_indicator) as TextureButton
-export (NodePath) onready var diseases_indicator = get_node(diseases_indicator) as TextureButton
-export (NodePath) onready var reputation_indicator = get_node(reputation_indicator) as TextureButton
-export (NodePath) onready var form_indicator = get_node(form_indicator) as TextureButton
-export (NodePath) onready var gear_indicator = get_node(gear_indicator) as TextureButton
+onready var ethnicity_step = $"%EthnicityStep"
+onready var profession_step = $"%ProfessionStep"
+onready var attributes_step = $"%AttributesStep"
+onready var specialization_step = $"%SpecializationStep"
+onready var skill_points_step = $"%SkillPointsStep"
+onready var dummy_step = $"%DummyStep"
+
+
+onready var ethnicity_indicator = $"%EthnicityIndicator"
+onready var profession_indicator = $"%ProfessionIndicator"
+onready var attributes_indicator = $"%AttributesIndicator"
+onready var specialization_indicator = $"%SpecializationIndicator"
+onready var skills_indicator = $"%SkillsIndicator"
+onready var tricks_indicator = $"%TricksIndicator"
+onready var diseases_indicator = $"%DiseasesIndicator"
+onready var reputation_indicator = $"%ReputationIndicator"
+onready var form_indicator = $"%FormIndicator"
+onready var gear_indicator = $"%GearIndicator"
 
 
 
 var current_step = 0
 onready var steps = [
-					ethnicity_element,
-					profession_element,
-					attributes_element,
-					specialization_element,
-					distribute_skill_points_element,
+					ethnicity_step,
+					profession_step,
+					attributes_step,
+					specialization_step,
+					skill_points_step,
 					dummy_step,
 ]
 
@@ -44,7 +46,7 @@ onready var indicators = [
 					ethnicity_indicator,
 					profession_indicator,
 					attributes_indicator,
-					specjalization_indicator,
+					specialization_indicator,
 					skills_indicator,
 					tricks_indicator,
 					diseases_indicator,
@@ -67,8 +69,8 @@ func _on_CardButton_button_up() -> void:
 
 
 func _next_step() -> void:
-	if steps[current_step] == attributes_element:
-		attributes_element.save_attributes()
+	if steps[current_step] == attributes_step:
+		attributes_step.save_attributes()
 	if current_step == len(steps)-2:
 		next_step.disabled = true
 	current_step += 1
@@ -80,10 +82,12 @@ func _next_step() -> void:
 	
 	
 func _previous_step() -> void:
-	if steps[current_step] == attributes_element:
+	if steps[current_step] == attributes_step:
 		CharacterStats.clear_base_rolls_attributes()
-	if steps[current_step] == specialization_element:
+	if steps[current_step] == specialization_step:
 		CharacterStats.clear_specialization()
+	if steps[current_step] == skill_points_step:
+		CharacterStats.restore_initial_skill_levels()
 	if current_step == 1:
 		back_step.disabled = true
 	if current_step == 0:

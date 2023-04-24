@@ -39,22 +39,6 @@ next_step = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Next")
 steps_container = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer")
 card_button = NodePath("CardButton")
 character_sheet_panel = NodePath("CharacterSheet")
-ethnicity_element = NodePath("CenterContainer/VBoxContainer/StepContainer/EthnicityStep")
-profession_element = NodePath("CenterContainer/VBoxContainer/StepContainer/ProfessionStep")
-attributes_element = NodePath("CenterContainer/VBoxContainer/StepContainer/AttributesStep")
-specialization_element = NodePath("CenterContainer/VBoxContainer/StepContainer/SpecializationStep")
-distribute_skill_points_element = NodePath("CenterContainer/VBoxContainer/StepContainer/DistributeSkillPointsStep")
-dummy_step = NodePath("CenterContainer/VBoxContainer/StepContainer/DummyStep")
-ethnicity_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/EthnicityIndicator")
-profession_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ProfessionIndicator")
-attributes_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/AttributesIndicator")
-specjalization_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SpecializationIndicator")
-skills_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/SkillsIndicator")
-tricks_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/TricksIndicator")
-diseases_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/DiseasesIndicator")
-reputation_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/ReputationIndicator")
-form_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/FormIndicator")
-gear_indicator = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer/GearIndicator")
 
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -100,6 +84,7 @@ __meta__ = {
 }
 
 [node name="EthnicityStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 1 )]
+unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_left = 20.0
@@ -109,6 +94,7 @@ margin_bottom = 952.0
 trait_group = SubResource( 2 )
 
 [node name="ProfessionStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 20 )]
+unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -119,6 +105,7 @@ margin_bottom = 952.0
 trait_group = SubResource( 5 )
 
 [node name="AttributesStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 18 )]
+unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -128,6 +115,7 @@ margin_right = 1880.0
 margin_bottom = 952.0
 
 [node name="SpecializationStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 17 )]
+unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -139,7 +127,8 @@ specialization_skills = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Te
 specialization_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/SpecializationName")
 specialization_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/SpecializationDescription")
 
-[node name="DistributeSkillPointsStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 19 )]
+[node name="SkillPointsStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 19 )]
+unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -149,6 +138,7 @@ margin_right = 1880.0
 margin_bottom = 952.0
 
 [node name="DummyStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 18 )]
+unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -198,6 +188,7 @@ custom_constants/separation = 20
 alignment = 1
 
 [node name="EthnicityIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_right = 55.0
 margin_bottom = 84.0
@@ -210,6 +201,7 @@ expand = true
 stretch_mode = 5
 
 [node name="ProfessionIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 75.0
 margin_right = 131.0
@@ -226,6 +218,7 @@ __meta__ = {
 }
 
 [node name="AttributesIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 151.0
 margin_right = 207.0
@@ -239,6 +232,7 @@ expand = true
 stretch_mode = 5
 
 [node name="SpecializationIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 227.0
 margin_right = 282.0
@@ -252,6 +246,7 @@ expand = true
 stretch_mode = 5
 
 [node name="SkillsIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 302.0
 margin_right = 358.0
@@ -265,6 +260,7 @@ expand = true
 stretch_mode = 5
 
 [node name="TricksIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 378.0
 margin_right = 434.0
@@ -278,6 +274,7 @@ expand = true
 stretch_mode = 5
 
 [node name="DiseasesIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 454.0
 margin_right = 509.0
@@ -291,6 +288,7 @@ expand = true
 stretch_mode = 5
 
 [node name="ReputationIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 529.0
 margin_right = 585.0
@@ -304,6 +302,7 @@ expand = true
 stretch_mode = 5
 
 [node name="FormIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 605.0
 margin_right = 661.0
@@ -317,6 +316,7 @@ expand = true
 stretch_mode = 5
 
 [node name="GearIndicator" type="TextureButton" parent="CenterContainer/VBoxContainer/HBoxContainer/StepsContainer"]
+unique_name_in_owner = true
 material = SubResource( 1 )
 margin_left = 681.0
 margin_right = 737.0
