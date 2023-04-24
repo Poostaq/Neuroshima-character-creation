@@ -18,16 +18,17 @@ onready var specialization_step = $"%SpecializationStep"
 onready var skill_points_step = $"%SkillPointsStep"
 onready var dummy_step = $"%DummyStep"
 
-export (NodePath) onready var ethnicity_indicator = get_node(ethnicity_indicator) as TextureButton
-export (NodePath) onready var profession_indicator = get_node(profession_indicator) as TextureButton
-export (NodePath) onready var attributes_indicator = get_node(attributes_indicator) as TextureButton
-export (NodePath) onready var specjalization_indicator = get_node(specjalization_indicator) as TextureButton
-export (NodePath) onready var skills_indicator = get_node(skills_indicator) as TextureButton
-export (NodePath) onready var tricks_indicator = get_node(tricks_indicator) as TextureButton
-export (NodePath) onready var diseases_indicator = get_node(diseases_indicator) as TextureButton
-export (NodePath) onready var reputation_indicator = get_node(reputation_indicator) as TextureButton
-export (NodePath) onready var form_indicator = get_node(form_indicator) as TextureButton
-export (NodePath) onready var gear_indicator = get_node(gear_indicator) as TextureButton
+
+onready var ethnicity_indicator = $"%EthnicityIndicator"
+onready var profession_indicator = $"%ProfessionIndicator"
+onready var attributes_indicator = $"%AttributesIndicator"
+onready var specialization_indicator = $"%SpecializationIndicator"
+onready var skills_indicator = $"%SkillsIndicator"
+onready var tricks_indicator = $"%TricksIndicator"
+onready var diseases_indicator = $"%DiseasesIndicator"
+onready var reputation_indicator = $"%ReputationIndicator"
+onready var form_indicator = $"%FormIndicator"
+onready var gear_indicator = $"%GearIndicator"
 
 
 
@@ -45,7 +46,7 @@ onready var indicators = [
 					ethnicity_indicator,
 					profession_indicator,
 					attributes_indicator,
-					specjalization_indicator,
+					specialization_indicator,
 					skills_indicator,
 					tricks_indicator,
 					diseases_indicator,
@@ -85,6 +86,8 @@ func _previous_step() -> void:
 		CharacterStats.clear_base_rolls_attributes()
 	if steps[current_step] == specialization_step:
 		CharacterStats.clear_specialization()
+	if steps[current_step] == skill_points_step:
+		CharacterStats.restore_initial_skill_levels()
 	if current_step == 1:
 		back_step.disabled = true
 	if current_step == 0:

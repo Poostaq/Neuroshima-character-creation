@@ -61,7 +61,7 @@ func _load_ethnicity(ethnicity) -> void:
 	if len(trait_list) == 2:
 		_create_trait_list_filler()
 	for trait in trait_list:
-		var trait_button: Button
+		var trait_button: TextureButton
 		if trait["trait_identifier"] == "versatility_squared":
 			trait_button = _create_trait_button(alternate_trait_button_scene, trait)
 			var trait_button_trait_list = trait_button.get_node("HBoxContainer/VBoxContainer/OptionButton")
@@ -79,7 +79,7 @@ func _create_trait_list_filler() -> void:
 		control.size_flags_stretch_ratio = 0.5
 		trait_container.add_child(control)
 	
-func _create_trait_button(trait_template, trait_data) -> void:
+func _create_trait_button(trait_template, trait_data) -> TextureButton:
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
 	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
@@ -92,6 +92,7 @@ func _create_trait_button(trait_template, trait_data) -> void:
 	trait_button.description = trait_data["trait_short_description"]
 	trait_button.tooltip_text = trait_data["trait_description"]
 	trait_button.get_node(".").set_button_group(trait_group)
+	return trait_button
 
 
 func _on_Trait_Button_button_pressed(button) -> void:

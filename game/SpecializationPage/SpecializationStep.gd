@@ -55,7 +55,7 @@ func _load_specialization(specialization_data) -> void:
 	specialization_skills.bbcode_text = _prepare_specialization_skills(specialization_data["specialization_identifier"])
 
 
-func _prepare_specialization_skills(specialization_data: Dictionary) -> String:
+func _prepare_specialization_skills(specialization_data: String) -> String:
 	var specialization_packs_list = db.read_packs_for_specialization(specialization_data)
 	var bbcode = ""
 	for x in specialization_packs_list:
