@@ -68,14 +68,14 @@ func _prepare_specialization_skills(specialization_data: String) -> String:
 	return bbcode
 
 
-func _on_Previousspecialization_button_up() -> void:
+func _on_PreviousSpecialization_button_up() -> void:
 	if _current_specialization_index == 0:
 		_current_specialization_index = len(_specialization_list)-1
 	else:
 		_current_specialization_index -= 1
 	load_step()
 
-func _on_Nextspecialization_button_up() -> void:
+func _on_NextSpecialization_button_up() -> void:
 	if _current_specialization_index == len(_specialization_list)-1:
 		_current_specialization_index = 0
 	else:

@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI_Elements/splash_art_box.png" type="Texture" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://SpecializationPage/SpecializationStep.gd" type="Script" id=4]
+[ext_resource path="res://src/SpecializationPage/SpecializationStep.gd" type="Script" id=4]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/origin box.png" type="Texture" id=8]
@@ -27,7 +27,7 @@ font_data = ExtResource( 6 )
 size = 40
 font_data = ExtResource( 6 )
 
-[node name="SpecialisationStep" type="Control"]
+[node name="SpecializationStep" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_right = -40.0
@@ -345,5 +345,5 @@ margin_bottom = 879.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialization" to="." method="_on_PreviousSpecialisation_button_up"]
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialization" to="." method="_on_NextSpecialisation_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialization" to="." method="_on_PreviousSpecialization_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialization" to="." method="_on_NextSpecialization_button_up"]

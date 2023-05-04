@@ -3,8 +3,8 @@
 [ext_resource path="res://UI_Elements/splash_art_box.png" type="Texture" id=1]
 [ext_resource path="res://UI_Elements/previous origin button off.png" type="Texture" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://EthnicityPage/ChooseEthnicityStep.gd" type="Script" id=4]
-[ext_resource path="res://EthnicityPage/Traits.tres" type="ButtonGroup" id=5]
+[ext_resource path="res://src/EthnicityPage/ChooseEthnicityStep.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/EthnicityPage/Traits.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/origin description box.png" type="Texture" id=8]
@@ -222,12 +222,14 @@ expand = true
 stretch_mode = 6
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 54.0
-margin_top = 92.0
-margin_right = -83.0
-margin_bottom = -89.0
+anchor_left = 0.11
+anchor_top = 0.107
+anchor_right = 0.831
+anchor_bottom = 0.896
+margin_left = -0.0100021
+margin_top = 0.0869904
+margin_right = -0.0210266
+margin_bottom = 0.335999
 
 [node name="EthnicityPic" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )

@@ -3,8 +3,8 @@
 [ext_resource path="res://UI_Elements/splash_art_box.png" type="Texture" id=1]
 [ext_resource path="res://UI_Elements/previous origin button off.png" type="Texture" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://SkillPointsPage/SkillCard_v2.tscn" type="PackedScene" id=4]
-[ext_resource path="res://SkillPointsPage/DistributeSkillPointsStep.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/SkillPointsPage/SkillCard_v2.tscn" type="PackedScene" id=4]
+[ext_resource path="res://src/SkillPointsPage/DistributeSkillPointsStep.gd" type="Script" id=5]
 [ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/origin description box.png" type="Texture" id=8]
@@ -13,9 +13,9 @@
 [ext_resource path="res://UI_Elements/next origin button on.png" type="Texture" id=11]
 [ext_resource path="res://UI_Elements/light_on.png" type="Texture" id=12]
 [ext_resource path="res://UI_Elements/next origin button off.png" type="Texture" id=13]
-[ext_resource path="res://SkillPointsPage/skillCardButtonGroup.tres" type="ButtonGroup" id=14]
+[ext_resource path="res://Scenes/SkillPointsPage/skillCardButtonGroup.tres" type="ButtonGroup" id=14]
 [ext_resource path="res://Fonts/Aleo-Bold.otf" type="DynamicFontData" id=15]
-[ext_resource path="res://SkillPointsPage/SkillCard_generalKnowledge.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/SkillPointsPage/SkillCard_generalKnowledge.tscn" type="PackedScene" id=16]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24

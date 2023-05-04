@@ -5,9 +5,9 @@ var db
 var db_local
 var sysdate = _datetime_to_string(OS.get_datetime())
 
-var main_db := "res://datastore/neuroshima"
+var main_db := "res://src/datastore/neuroshima"
 var packaged_main_db := "res://data_to_be_packaged"
-var json_name := "res://datastore/neuroshima_backup"
+var json_name := "res://src/datastore/neuroshima_backup"
 
 
 func open_connection_to(path) -> void:

@@ -1,7 +1,7 @@
 extends RichTextLabel
 
 
-onready var draggable_value = preload("res://AttributesPage/DraggableValue.tscn")
+onready var draggable_value = preload("res://Scenes/AttributesPage/DraggableValue.tscn")
 signal dropped_data
 
 

@@ -21,7 +21,7 @@ export (NodePath) onready var profession_description = get_node(profession_descr
 export (NodePath) onready var trait_container =  get_node(trait_container) as HBoxContainer
 export (NodePath) onready var profession_quote = get_node(profession_quote) as RichTextLabel
 
-onready var trait_button_scene = preload("res://ProfessionPage/ProfessionTrait.tscn")
+onready var trait_button_scene = preload("res://Scenes/ProfessionPage/ProfessionTrait.tscn")
 onready var db = get_node("/root/DatabaseOperations")
 
 
@@ -29,7 +29,7 @@ func load_step() -> void:
 	profession_list = db.read_profession_identifiers()
 	profession = db.read_data_for_profession(profession_list[current_profession_index]["profession_identifier"])
 	_load_profession(profession)
-	trait_group = load("res://ProfessionPage/Traits.tres")
+	trait_group = load("res://Scenes/ProfessionPage/Traits.tres")
 	_changed_profession()
 
 func _set_image(path) -> void:

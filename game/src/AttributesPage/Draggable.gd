@@ -1,7 +1,7 @@
 extends Control
 
 
-onready var draggable_value = preload("res://AttributesPage/DraggableValue.tscn")
+onready var draggable_value = preload("res://Scenes/AttributesPage/DraggableValue.tscn")
 
 
 func get_drag_data(_pos) -> Dictionary:

@@ -22,8 +22,8 @@ export (NodePath) onready var trait_container =  get_node(trait_container) as HB
 export (NodePath) onready var attribute_bonus_label = get_node(attribute_bonus_label) as RichTextLabel
 export (NodePath) onready var attribute_selector = get_node(attribute_selector) as OptionButton
 
-onready var trait_button_scene = preload("res://EthnicityPage/EthnicityTrait.tscn")
-onready var alternate_trait_button_scene = preload("res://EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.tscn")
+onready var trait_button_scene = preload("res://Scenes/EthnicityPage/EthnicityTrait.tscn")
+onready var alternate_trait_button_scene = preload("res://Scenes/EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.tscn")
 
 
 func _ready() -> void:
@@ -36,7 +36,7 @@ func load_step() -> void:
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_selector_options()
 	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
-	trait_group = load("res://EthnicityPage/Traits.tres")
+	trait_group = load("res://Scenes/EthnicityPage/Traits.tres")
 	yield(get_tree(), "idle_frame")
 	_changed_ethnicity()
 
@@ -68,7 +68,7 @@ func _load_ethnicity(ethnicity) -> void:
 			_fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
 		else:
-			_create_trait_button(trait_button_scene, trait)
+			var __ = _create_trait_button(trait_button_scene, trait)
 	if len(trait_list) == 2:
 		_create_trait_list_filler()
 

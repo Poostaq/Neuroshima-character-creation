@@ -72,7 +72,7 @@ func load_step() -> void:
 	_general_skill_card_list = [general_skill_card1,general_skill_card2,general_skill_card3]
 	_skill_packs_list = DatabaseOperations.read_all_skill_packs()
 	_initial_skill_levels = CharacterStats.skill_levels
-	CharacterStats.skill_levels_before_skill_distribution = _initial_skill_levels
+	CharacterStats.skill_levels_before_skill_distribution = _initial_skill_levels.duplicate(true)
 	_current_skill_levels = _initial_skill_levels
 	_specialization_id = CharacterStats.specialization_identifier
 	_initial_packs = CharacterStats.skill_packs
@@ -421,4 +421,4 @@ func refresh_current_skill_levels_for_general_knowledge() -> void:
 				_current_skill_levels.erase(option["skill_identifier"])
 
 func save_current_skill_levels_to_character_data() -> void:
-	CharacterStats.skill_levels = _current_skill_levels
+	CharacterStats.skill_levels = _current_skill_levels.duplicate(true)
