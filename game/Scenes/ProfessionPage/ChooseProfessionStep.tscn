@@ -5,7 +5,7 @@
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
 [ext_resource path="res://src/ProfessionPage/ChooseProfessionStep.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/ProfessionPage/Traits.tres" type="ButtonGroup" id=5]
-[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=6]
 [ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/origin box.png" type="Texture" id=8]
 [ext_resource path="res://UI_Elements/next origin button on.png" type="Texture" id=9]

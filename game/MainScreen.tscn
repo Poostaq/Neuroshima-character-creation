@@ -13,7 +13,7 @@
 [ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=11]
 [ext_resource path="res://UI_Elements/background.png" type="Texture" id=12]
 [ext_resource path="res://UI_Elements/progress light off.png" type="Texture" id=15]
-[ext_resource path="res://Gruppo-Regular.ttf" type="DynamicFontData" id=16]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=16]
 [ext_resource path="res://Scenes/SpecializationPage/ChooseSpecializationStep.tscn" type="PackedScene" id=17]
 [ext_resource path="res://Scenes/AttributesPage/AttributesStep.tscn" type="PackedScene" id=18]
 [ext_resource path="res://Scenes/SkillPointsPage/DistributeSkillPointsStep.tscn" type="PackedScene" id=19]

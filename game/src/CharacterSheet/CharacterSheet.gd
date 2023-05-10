@@ -251,4 +251,6 @@ func _on_CloseButton_button_up() -> void:
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
 
 
-
+func _update_skill_levels() -> void:
+	for skill in CharacterStats.skill_levels:
+		pass
