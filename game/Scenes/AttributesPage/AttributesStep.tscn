@@ -13,7 +13,6 @@
 [ext_resource path="res://Tooltip.tscn" type="PackedScene" id=11]
 [ext_resource path="res://src/AttributesPage/AttributeLabel.gd" type="Script" id=12]
 
-
 [sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 2 )
