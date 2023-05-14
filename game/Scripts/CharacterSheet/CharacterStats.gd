@@ -29,6 +29,7 @@ var attribute_modifier : int
 var skill_levels : Dictionary
 var skill_levels_before_skill_distribution : Dictionary
 var skill_packs : Dictionary
+var general_knowledge_names : Array = ["","",""]
 
 
 func _init() -> void:

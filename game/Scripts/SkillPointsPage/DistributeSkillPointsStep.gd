@@ -422,3 +422,17 @@ func refresh_current_skill_levels_for_general_knowledge() -> void:
 
 func save_current_skill_levels_to_character_data() -> void:
 	CharacterStats.skill_levels = _current_skill_levels.duplicate(true)
+	set_general_knowledge_names()
+
+
+func reset_skill_point_pools() -> void:
+	_current_skill_points = _max_skill_points
+	_current_specialization_skill_points = _max_specialization_skill_points
+
+func set_general_knowledge_names() -> void:
+	var list = []
+	for skill_card in _general_skill_card_list:
+		var option_list: OptionButton = skill_card.find_node("OptionButton")
+		list.append(option_list.get_item_text(option_list.selected))
+		print(option_list.get_item_text(option_list.selected))
+	CharacterStats.general_knowledge_names = list

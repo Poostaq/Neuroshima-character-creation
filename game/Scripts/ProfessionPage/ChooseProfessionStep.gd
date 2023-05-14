@@ -24,12 +24,17 @@ export (NodePath) onready var profession_quote = get_node(profession_quote) as R
 onready var trait_button_scene = preload("res://Scenes/ProfessionPage/ProfessionTrait.tscn")
 onready var db = get_node("/root/DatabaseOperations")
 
-
-func load_step() -> void:
+func _ready():
 	profession_list = db.read_profession_identifiers()
 	profession = db.read_data_for_profession(profession_list[current_profession_index]["profession_identifier"])
+
+
+func load_step() -> void:
 	_load_profession(profession)
 	trait_group = load("res://Scenes/ProfessionPage/Traits.tres")
+	_changed_profession()
+
+func clean_up_step() -> void:
 	_changed_profession()
 
 func _set_image(path) -> void:

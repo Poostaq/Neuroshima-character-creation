@@ -88,13 +88,16 @@ func _previous_step() -> void:
 		CharacterStats.clear_specialization()
 	if steps[current_step] == skill_points_step:
 		CharacterStats.restore_initial_skill_levels()
+		skill_points_step.reset_skill_point_pools()
 	if current_step == 1:
 		back_step.disabled = true
 	if current_step == 0:
 		print("CANT GO BACK")
 	else:
 		current_step -= 1
+	
 	_disable_next_step()
+	
 	steps[current_step].load_step()
 	_turn_off_step_indicators()
 	_turn_off_screens()

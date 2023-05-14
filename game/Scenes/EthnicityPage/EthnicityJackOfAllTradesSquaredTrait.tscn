@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.gd" type="Script" id=1]
+[ext_resource path="res://Scripts/EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/EthnicityPage/EthnicityTrait.tscn" type="PackedScene" id=2]
 
 [node name="Button" instance=ExtResource( 2 )]

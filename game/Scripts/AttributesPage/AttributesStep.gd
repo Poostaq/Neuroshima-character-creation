@@ -1,6 +1,6 @@
 extends Control
 
-signal attributes_chosen(attribute_list)
+# signal attributes_chosen(attribute_list)
 
 export (NodePath) onready var roll_button = get_node(roll_button) as Button
 export (NodePath) onready var roll_button_container = get_node(roll_button_container) as CenterContainer
@@ -49,7 +49,7 @@ export (NodePath) onready var remaining_value_label = get_node(remaining_value_l
 
 onready var math_list = [math1_label,math2_label,math3_label,math4_label,math5_label,math6_label]
 onready var roll_list = [roll1_label,roll2_label,roll3_label,roll4_label,roll5_label]
-onready var attribute_attribute_value_list = [
+onready var rolling_attribute_value_list = [
 	agility_attribute_val,
 	perception_attribute_val,
 	character_attribute_val,
@@ -72,7 +72,7 @@ onready var plus_button_list = [plus_agi_button,
 	]
 
 #Attributes on indexes: agi:0, per:1, cha:2, wit:3, bod:4, remaining:5
-onready var attribute_value_list = [4,
+onready var distribution_attribute_value_list = [4,
 	4,
 	4,
 	4,
@@ -94,6 +94,8 @@ func _ready() -> void:
 func load_step() -> void:
 	pass
 
+func clean_up_step() -> void:
+	pass
 
 func save_attributes() -> void:
 	var list = []
@@ -106,8 +108,8 @@ func save_attributes() -> void:
 			int(body_attribute_val.text),
 		]
 	elif tab_container.current_tab == 1:
-		list =  attribute_value_list.slice(0, 4)
-	emit_signal("attributes_chosen", list)
+		list =  distribution_attribute_value_list.slice(0, 4)
+	# emit_signal("attributes_chosen", list)
 	CharacterStats._on_AttributesStep_attributes_chosen(list)
 
 
@@ -152,25 +154,25 @@ func _clear_rolls() -> void:
 
 
 func _clear_attribute_values() -> void:
-	for attribute in attribute_attribute_value_list:
+	for attribute in rolling_attribute_value_list:
 		attribute.bbcode_text = ""
 
 
 func _on_minus_button_up(button : BaseButton) -> void:
 	var value_element = button.get_node("../ValueContainer/Value") as RichTextLabel
 	var value = value_element.stat
-	if attribute_value_list[value] > 4:
-		attribute_value_list[value] -= 1
-		value_element.bbcode_text = "[center]%s" % attribute_value_list[value]
-		attribute_value_list[5] += 1
-		remaining_value_label.bbcode_text = "[center]%s" % attribute_value_list[5]
+	if distribution_attribute_value_list[value] > 4:
+		distribution_attribute_value_list[value] -= 1
+		value_element.bbcode_text = "[center]%s" % distribution_attribute_value_list[value]
+		distribution_attribute_value_list[5] += 1
+		remaining_value_label.bbcode_text = "[center]%s" % distribution_attribute_value_list[5]
 
 
 func _on_plus_button_up(button : BaseButton) -> void:
 	var value_element = button.get_node("../ValueContainer/Value") as RichTextLabel
 	var value = value_element.stat
-	if attribute_value_list[value] < 19 and attribute_value_list[5] > 0:
-		attribute_value_list[value] += 1
-		value_element.bbcode_text = "[center]%s" % attribute_value_list[value]
-		attribute_value_list[5] -= 1
-		remaining_value_label.bbcode_text = "[center]%s" % attribute_value_list[5]
+	if distribution_attribute_value_list[value] < 19 and distribution_attribute_value_list[5] > 0:
+		distribution_attribute_value_list[value] += 1
+		value_element.bbcode_text = "[center]%s" % distribution_attribute_value_list[value]
+		distribution_attribute_value_list[5] -= 1
+		remaining_value_label.bbcode_text = "[center]%s" % distribution_attribute_value_list[5]

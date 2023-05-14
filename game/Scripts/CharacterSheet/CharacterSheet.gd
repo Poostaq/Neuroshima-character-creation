@@ -116,7 +116,7 @@ onready var pain_resistance = $"%PainResistance"
 onready var steadfastness = $"%Steadfastness"
 onready var morale = $"%Morale"
 ##Medicine
-onready var fist_aid = $"%FistAid"
+onready var first_aid = $"%FirstAid"
 onready var wound_healing = $"%WoundHealing"
 onready var disease_treatment = $"%DiseaseTreatment"
 ##Technology
@@ -130,6 +130,8 @@ onready var knowledge_name_2 = $"%KnowledgeName2"
 onready var knowledge_value_2 = $"%KnowledgeValue2"
 onready var knowledge_name_3 = $"%KnowledgeName3"
 onready var knowledge_value_3 = $"%KnowledgeValue3"
+
+onready var general_knowledge_name_labels = [knowledge_name_1,knowledge_name_2,knowledge_name_3]
 ##Equipment
 onready var heavy_machinery = $"%HeavyMachinery"
 onready var combat_vehicles = $"%CombatVehicles"
@@ -153,6 +155,66 @@ onready var armor_left_hand = $"%ArmorLeftHand"
 onready var armor_right_hand = $"%ArmorRightHand"
 onready var armor_left_leg = $"%ArmorLeftLeg"
 onready var armor_right_leg = $"%ArmorRightLeg"
+
+onready var skills_labels = {
+	"brawl":brawl,
+	"melee_weapon":melee_weapon,
+	"throwing":throwing,
+	"car":car,
+	"motorcycle":motorcycle,
+	"truck":truck,
+	"pickpocketing":pickpocketing,
+	"lockpicking":lockpicking,
+	"nimble_hands":nimble_hands,
+	"pistols":pistols,
+	"rifles":rifles,
+	"machine_gun":machineguns,
+	"bow":bow,
+	"crossbow":crossbow,
+	"slingshot":slingshot,
+	"sense_of_direction":sense_of_direction,
+	"traps":traps,
+	"tracking":tracking,
+	"listening":listening,
+	"watching_out":spotting,
+	"vigilance":vigilance,
+	"sneaking":sneaking,
+	"hiding":hiding,
+	"cloaking":cloaking,
+	"hunting":hunting,
+	"terrain_knowledge":terrain_knowledge,
+	"water_aquisition":water_aquisition,
+	"intimidation":intimidation,
+	"persuasion":persuasion,
+	"leadership_abilities":leadership,
+	"perceiving_emotions":perceiving_emotions,
+	"bluff":bluff,
+	"animal_care":animal_care,
+	"pain_resistance":pain_resistance,
+	"steadfastness":steadfastness,
+	"morale":morale,
+	"first_aid":first_aid,
+	"wound_healing":wound_healing,
+	"disease_treatment":disease_treatment,
+	"mechanics":mechanics,
+	"electronics":electronics,
+	"computers":computers,
+	"general_knowledge1":knowledge_value_1,
+	"general_knowledge2":knowledge_value_2,
+	"general_knowledge3":knowledge_value_3,
+	"heavy_machinery":heavy_machinery,
+	"combat_vehicles":combat_vehicles,
+	"boats":boats,
+	"gunsmithing":gunsmithing,
+	"launchers":launchers,
+	"explosives":explosives,
+	"fitness":fitness,
+	"swimming":swimming,
+	"climbing":climbing,
+	"horse_riding":horse_riding,
+	"carriage_driving":carriage_driving,
+	"wild_ride":wild_ride,
+}
 #Weapons
 ##Weapon1
 onready var w_1_name = $"%W1Name"
@@ -215,6 +277,7 @@ func update_card() -> void:
 	for attr in GlobalConstants.attribute:
 		self._update_attribute_values(GlobalConstants.attribute[attr])
 	self._update_basic_info_values()
+	self._update_skill_levels()
 
 
 func _update_basic_info_values() -> void:
@@ -253,4 +316,8 @@ func _on_CloseButton_button_up() -> void:
 
 func _update_skill_levels() -> void:
 	for skill in CharacterStats.skill_levels:
-		pass
+		if skills_labels.has(skill):
+			skills_labels[skill].text = str(CharacterStats.skill_levels[skill])
+	for index in range(0,3):
+		general_knowledge_name_labels[index].text = CharacterStats.general_knowledge_names[index]
+

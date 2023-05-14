@@ -1,23 +1,23 @@
 [gd_scene load_steps=23 format=2]
 
-[ext_resource path="res://Scenes/EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=1]
-[ext_resource path="res://UI_Elements/character sheet button off.png" type="Texture" id=2]
-[ext_resource path="res://Scenes/CharacterSheet/CharacterSheet.tscn" type="PackedScene" id=3]
-[ext_resource path="res://MainScreen.gd" type="Script" id=4]
-[ext_resource path="res://UI_Elements/progress light on.png" type="Texture" id=5]
-[ext_resource path="res://THEME.tres" type="Theme" id=6]
-[ext_resource path="res://UI_Elements/character sheet button on.png" type="Texture" id=7]
+[ext_resource path="res://THEME.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=3]
+[ext_resource path="res://UI_Elements/progress light on.png" type="Texture" id=4]
+[ext_resource path="res://UI_Elements/progress light off.png" type="Texture" id=5]
+[ext_resource path="res://UI_Elements/character sheet button off.png" type="Texture" id=6]
+[ext_resource path="res://UI_Elements/next step button on.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/next step button off.png" type="Texture" id=8]
-[ext_resource path="res://UI_Elements/next step button on.png" type="Texture" id=9]
-[ext_resource path="res://UI_Elements/previous origin button off.png" type="Texture" id=10]
-[ext_resource path="res://UI_Elements/previous origin button on.png" type="Texture" id=11]
-[ext_resource path="res://UI_Elements/background.png" type="Texture" id=12]
-[ext_resource path="res://UI_Elements/progress light off.png" type="Texture" id=15]
-[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=16]
-[ext_resource path="res://Scenes/SpecializationPage/ChooseSpecializationStep.tscn" type="PackedScene" id=17]
-[ext_resource path="res://Scenes/AttributesPage/AttributesStep.tscn" type="PackedScene" id=18]
-[ext_resource path="res://Scenes/SkillPointsPage/DistributeSkillPointsStep.tscn" type="PackedScene" id=19]
-[ext_resource path="res://Scenes/ProfessionPage/ChooseProfessionStep.tscn" type="PackedScene" id=20]
+[ext_resource path="res://UI_Elements/character sheet button on.png" type="Texture" id=9]
+[ext_resource path="res://UI_Elements/background.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/CharacterSheet/CharacterSheet.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/AttributesPage/AttributesStep.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/SkillPointsPage/DistributeSkillPointsStep.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/ProfessionPage/ChooseProfessionStep.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/SpecializationPage/ChooseSpecializationStep.tscn" type="PackedScene" id=16]
+[ext_resource path="res://UI_Elements/previous origin button off.png" type="Texture" id=17]
+[ext_resource path="res://Scripts/MainScreen/MainScreen.gd" type="Script" id=18]
 
 [sub_resource type="ButtonGroup" id=2]
 
@@ -27,13 +27,13 @@
 
 [sub_resource type="DynamicFont" id=4]
 size = 20
-font_data = ExtResource( 16 )
+font_data = ExtResource( 2 )
 
 [node name="MainScreen" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-theme = ExtResource( 6 )
-script = ExtResource( 4 )
+theme = ExtResource( 1 )
+script = ExtResource( 18 )
 back_step = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Back")
 next_step = NodePath("CenterContainer/VBoxContainer/HBoxContainer/Next")
 steps_container = NodePath("CenterContainer/VBoxContainer/HBoxContainer/StepsContainer")
@@ -43,7 +43,7 @@ character_sheet_panel = NodePath("CharacterSheet")
 [node name="Background" type="TextureRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-texture = ExtResource( 12 )
+texture = ExtResource( 10 )
 expand = true
 
 [node name="CenterContainer" type="MarginContainer" parent="."]
@@ -83,7 +83,7 @@ __meta__ = {
 "
 }
 
-[node name="EthnicityStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 1 )]
+[node name="EthnicityStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 14 )]
 unique_name_in_owner = true
 anchor_right = 0.0
 anchor_bottom = 0.0
@@ -93,7 +93,7 @@ margin_right = 1880.0
 margin_bottom = 952.0
 trait_group = SubResource( 2 )
 
-[node name="ProfessionStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 20 )]
+[node name="ProfessionStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 15 )]
 unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
@@ -104,7 +104,7 @@ margin_right = 1880.0
 margin_bottom = 952.0
 trait_group = SubResource( 5 )
 
-[node name="AttributesStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 18 )]
+[node name="AttributesStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 12 )]
 unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
@@ -114,7 +114,7 @@ margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 952.0
 
-[node name="SpecializationStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 17 )]
+[node name="SpecializationStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 16 )]
 unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
@@ -127,7 +127,7 @@ specialization_skills = NodePath("VBoxContainer/HBoxContainer/MarginContainer/Te
 specialization_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/SpecializationName")
 specialization_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/SpecializationDescription")
 
-[node name="SkillPointsStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 19 )]
+[node name="SkillPointsStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 13 )]
 unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
@@ -137,7 +137,7 @@ margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 952.0
 
-[node name="DummyStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 18 )]
+[node name="DummyStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 12 )]
 unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
@@ -171,9 +171,9 @@ margin_bottom = 84.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 size_flags_stretch_ratio = 4.0
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 11 )
-texture_hover = ExtResource( 11 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 3 )
+texture_hover = ExtResource( 3 )
 expand = true
 stretch_mode = 5
 
@@ -196,7 +196,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Pochodzenie"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 5 )
+texture_normal = ExtResource( 4 )
 expand = true
 stretch_mode = 5
 
@@ -210,7 +210,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Profesja"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -227,7 +227,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Atrybuty"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -241,7 +241,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Specjalizacja"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -255,7 +255,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Umiejętności"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -269,7 +269,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Sztuczki"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -283,7 +283,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Choroba"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -297,7 +297,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Reputacja"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -311,7 +311,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Formularz"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -325,7 +325,7 @@ rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "Sprzęt"
 size_flags_horizontal = 7
 size_flags_vertical = 3
-texture_normal = ExtResource( 15 )
+texture_normal = ExtResource( 5 )
 expand = true
 stretch_mode = 5
 
@@ -337,8 +337,8 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
 texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 9 )
-texture_hover = ExtResource( 9 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
 expand = true
 stretch_mode = 5
 
@@ -358,9 +358,9 @@ anchor_bottom = 0.721
 margin_top = -31.68
 margin_right = -0.175999
 margin_bottom = -0.279999
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 7 )
-texture_hover = ExtResource( 7 )
+texture_normal = ExtResource( 6 )
+texture_pressed = ExtResource( 9 )
+texture_hover = ExtResource( 9 )
 expand = true
 
 [node name="CharacterCardButton" type="RichTextLabel" parent="CardButton"]
@@ -402,7 +402,7 @@ A
 C
 I "
 
-[node name="CharacterSheet" parent="." instance=ExtResource( 3 )]
+[node name="CharacterSheet" parent="." instance=ExtResource( 11 )]
 visible = false
 mouse_filter = 1
 
@@ -412,8 +412,6 @@ mouse_filter = 1
 [node name="CharacterCardTexture" parent="CharacterSheet/PanelContainer/MonitorTexture/MarginContainer/ScrollContainer" index="0"]
 margin_right = 815.0
 
-[connection signal="clear_ethnicity" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_disable_next_step"]
-[connection signal="ethnicity_chosen" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_enable_next_step"]
 [connection signal="clear_profession" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_disable_next_step"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_enable_next_step"]
 [connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_enable_next_step"]

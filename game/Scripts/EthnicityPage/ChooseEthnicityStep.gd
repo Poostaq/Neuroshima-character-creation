@@ -1,12 +1,5 @@
 extends Control
 
-signal ethnicity_chosen(current_ethnicity_data)
-signal attribute_chosen(bonus_attribute)
-signal trait_chosen(trait_element)
-signal clear_ethnicity()
-signal clear_bonus_attribute()
-
-
 export(ButtonGroup) var trait_group
 
 
@@ -27,17 +20,21 @@ onready var alternate_trait_button_scene = preload("res://Scenes/EthnicityPage/E
 
 
 func _ready() -> void:
+	ethnicity_list = DatabaseOperations.read_ethnicity_identifiers()
+	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
+	_fill_attribute_selector_options()
 	load_step()
 
 
 func load_step() -> void:
-	ethnicity_list = DatabaseOperations.read_ethnicity_identifiers()
-	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
-	_fill_attribute_selector_options()
-	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
+	_fill_attribute_bonus_label()
 	trait_group = load("res://Scenes/EthnicityPage/Traits.tres")
 	yield(get_tree(), "idle_frame")
+	_changed_ethnicity()
+
+
+func clean_up_step() -> void:
 	_changed_ethnicity()
 
 
@@ -97,9 +94,6 @@ func _create_trait_button(trait_template, trait_data) -> TextureButton:
 
 func _on_Trait_Button_button_pressed(button) -> void:
 	var bonus_attribute = _get_bonus_attribute()
-	emit_signal("trait_chosen", button)
-	emit_signal("ethnicity_chosen", current_ethnicity_data)
-	emit_signal("attribute_chosen", bonus_attribute)
 	CharacterStats._on_EthnicityStep_ethnicity_chosen(current_ethnicity_data)
 	CharacterStats._on_EthnicityStep_attribute_chosen(bonus_attribute)
 	CharacterStats._on_EthnicityStep_trait_chosen(button)
@@ -115,7 +109,7 @@ func _fill_trait_button_trait_list(trait_list_element: OptionButton) -> void:
 		trait_list_element.add_item(trait)
 
 
-func _fill_attribute_bonus_label(_attributes) -> void:
+func _fill_attribute_bonus_label() -> void:
 	if ethnicity_list[current_ethnicity_index]["ethnicity_identifier"] =="none_of_your_fucking_business":
 		attribute_bonus_label.visible = false
 		attribute_selector.visible = true
@@ -125,7 +119,7 @@ func _fill_attribute_bonus_label(_attributes) -> void:
 	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % current_ethnicity_data["attribute_name"]
 
 func _on_AttributeSelect_item_selected(index) -> void:
-	emit_signal("attribute_chosen", index)
+	CharacterStats._on_EthnicityStep_attribute_chosen(index)
 
 
 func _on_PreviousEthnicity_button_up() -> void:
@@ -135,7 +129,7 @@ func _on_PreviousEthnicity_button_up() -> void:
 		current_ethnicity_index -= 1
 	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
-	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
+	_fill_attribute_bonus_label()
 	_changed_ethnicity()
 
 func _on_NextEthnicity_button_up() -> void:
@@ -145,7 +139,7 @@ func _on_NextEthnicity_button_up() -> void:
 		current_ethnicity_index += 1
 	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	_load_ethnicity(current_ethnicity_data)
-	_fill_attribute_bonus_label(current_ethnicity_data["attribute_name"])
+	_fill_attribute_bonus_label()
 	_changed_ethnicity()
 
 
@@ -156,7 +150,5 @@ func _fill_attribute_selector_options() -> void :
 
 
 func _changed_ethnicity() -> void:
-	emit_signal("clear_ethnicity")
-	emit_signal("clear_bonus_attribute")
 	CharacterStats._on_EthnicityStep_clear_ethnicity()
 	CharacterStats._on_EthnicityStep_clear_bonus_attribute()

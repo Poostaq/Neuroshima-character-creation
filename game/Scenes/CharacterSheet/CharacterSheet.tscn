@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scenes/CharacterSheet/FullCard.png" type="Texture" id=1]
 [ext_resource path="res://UI_Elements/origin description box.png" type="Texture" id=3]
-[ext_resource path="res://src/CharacterSheet/CharacterSheet.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/CharacterSheet/CharacterSheet.gd" type="Script" id=4]
 [ext_resource path="res://THEME.tres" type="Theme" id=5]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=6]
 
@@ -1636,7 +1636,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FistAid" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Skills/Medicine"]
+[node name="FirstAid" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Skills/Medicine"]
 unique_name_in_owner = true
 modulate = Color( 0, 0, 0, 1 )
 anchor_right = 0.956522
@@ -1749,7 +1749,6 @@ anchor_top = -0.0158691
 anchor_right = 0.805705
 anchor_bottom = 0.310102
 custom_fonts/font = SubResource( 13 )
-text = "0"
 align = 1
 valign = 1
 __meta__ = {
@@ -1779,7 +1778,6 @@ anchor_top = 0.261205
 anchor_right = 0.818777
 anchor_bottom = 0.587176
 custom_fonts/font = SubResource( 13 )
-text = "0"
 align = 1
 valign = 1
 __meta__ = {
@@ -1809,7 +1807,6 @@ anchor_top = 0.570878
 anchor_right = 0.825313
 anchor_bottom = 0.896848
 custom_fonts/font = SubResource( 13 )
-text = "0"
 align = 1
 valign = 1
 __meta__ = {

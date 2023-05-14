@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Neuroshima Character Creation"
-run/main_scene="res://MainScreen.tscn"
+run/main_scene="res://Scenes/MainScreen/MainScreen.tscn"
 config/icon="res://icon.png"
 
 [audio]
@@ -30,10 +30,10 @@ default_bus_layout=""
 
 [autoload]
 
-DatabaseOperations="*res://src/DataStore/databaseOperations.gd"
+DatabaseOperations="*res://Scripts/DataStore/databaseOperations.gd"
 GlobalConstants="*res://GlobalConstants.gd"
 Dices="*res://Dices.gd"
-CharacterStats="*res://src/CharacterSheet/CharacterStats.gd"
+CharacterStats="*res://Scripts/CharacterSheet/CharacterStats.gd"
 
 [display]
 
