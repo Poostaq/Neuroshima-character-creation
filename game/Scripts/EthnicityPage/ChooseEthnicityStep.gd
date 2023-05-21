@@ -49,7 +49,7 @@ func _set_image(path) -> void:
 
 
 func _load_ethnicity(ethnicity) -> void:
-	_set_image(ethnicity["splash_art_path"])
+	_set_image("res://Resources/EthnicityPage/splash_art/" + ethnicity["splash_art_name"])
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
 	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"]
 	var trait_list = DatabaseOperations.read_traits_for_ethnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])

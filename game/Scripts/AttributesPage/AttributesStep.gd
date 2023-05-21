@@ -97,7 +97,20 @@ func load_step() -> void:
 	pass
 
 func clean_up_step() -> void:
-	pass
+	_clear_rolls()
+	_clear_attribute_values()
+	_clear_math()
+	distribution_attribute_value_list = [4,
+	4,
+	4,
+	4,
+	4,
+	40
+	]
+	for index in range(0,len(distribution_attribute_value_element_list)):
+		distribution_attribute_value_element_list[index].bbcode_text = str(distribution_attribute_value_list[index])
+	remaining_value_label.bbcode_text = str(distribution_attribute_value_list[5])
+	save_attributes()
 
 func save_attributes() -> void:
 	var list = []
@@ -182,18 +195,5 @@ func _on_plus_button_up(button : BaseButton) -> void:
 		remaining_value_label.bbcode_text = "[center]%s" % distribution_attribute_value_list[5]
 	save_attributes()
 
-func _on_TabContainer_tab_changed(_tab:int):
-	_clear_rolls()
-	_clear_attribute_values()
-	_clear_math()
-	distribution_attribute_value_list = [4,
-	4,
-	4,
-	4,
-	4,
-	40
-	]
-	for index in range(0,len(distribution_attribute_value_element_list)):
-		distribution_attribute_value_element_list[index].bbcode_text = str(distribution_attribute_value_list[index])
-	remaining_value_label = distribution_attribute_value_list[5]
-	save_attributes()
+func _on_TabContainer_tab_changed(_tab:int): 
+	clean_up_step()

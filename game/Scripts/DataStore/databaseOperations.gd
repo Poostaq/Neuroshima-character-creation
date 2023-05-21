@@ -32,7 +32,7 @@ func read_ethnicity_identifiers() -> Array:
 	
 func read_data_for_etnicity(ethnicity_identifier) -> Dictionary:
 	var select = "SELECT e.ethnicity_identifier,e.ethnicity_name, " 
-	select += "e.splash_art_path, e.ethnicity_description,a.attribute_identifier, "
+	select += "e.splash_art_name, e.ethnicity_description,a.attribute_identifier, "
 	select += " a.attribute_name, a.attribute_enum, a.bonus_value "
 	var from = "FROM ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id "
 	var where = ("WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
@@ -60,7 +60,7 @@ func read_profession_identifiers() -> Array:
 
 func read_data_for_profession(profession_identifier) -> Dictionary:
 	var select = "SELECT profession_identifier, profession_name, " 
-	select += "splash_art_path, profession_quote, profession_description "
+	select += "splash_art_name, profession_quote, profession_description "
 	var from = "FROM professions "
 	var where = ("WHERE profession_identifier like '%s';" % profession_identifier)
 	var selected_array = _sql_select(select+from+where)

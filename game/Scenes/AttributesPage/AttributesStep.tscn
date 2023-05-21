@@ -66,11 +66,11 @@ plus_per_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW R
 plus_cha_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ChaPlus")
 plus_wit_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/WitPlus")
 plus_bod_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/BodPlus")
-agi_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/ValueContainer/AgiValue")
-per_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/ValueContainer/PerValue")
-cha_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ValueContainer/ChaValue")
-wit_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/ValueContainer/WitValue")
-bod_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/ValueContainer/BodValue")
+agi_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/ValueContainer/Value")
+per_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/ValueContainer/Value")
+cha_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ValueContainer/Value")
+wit_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/ValueContainer/Value")
+bod_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/ValueContainer/Value")
 tab_container = NodePath("MarginContainer/TabContainer")
 remaining_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer/ValueContainer/Value")
 
@@ -90,7 +90,6 @@ margin_bottom = 962.0
 tab_align = 0
 
 [node name="RZUCANIE KOŚĆMI" type="Tabs" parent="MarginContainer/TabContainer"]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -623,6 +622,7 @@ bbcode_enabled = true
 script = ExtResource( 6 )
 
 [node name="USTAWIANIE ATRYBUTÓW RĘCZNIE" type="Tabs" parent="MarginContainer/TabContainer"]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -702,7 +702,7 @@ size_flags_stretch_ratio = 0.5
 texture = ExtResource( 5 )
 expand = true
 
-[node name="AgiValue" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/ValueContainer"]
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/ValueContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -780,7 +780,7 @@ size_flags_stretch_ratio = 0.5
 texture = ExtResource( 5 )
 expand = true
 
-[node name="PerValue" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/ValueContainer"]
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/ValueContainer"]
 anchor_left = 0.489
 anchor_top = 0.5
 anchor_right = 0.489
@@ -858,7 +858,7 @@ size_flags_stretch_ratio = 0.5
 texture = ExtResource( 5 )
 expand = true
 
-[node name="ChaValue" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ValueContainer"]
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ValueContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -936,7 +936,7 @@ size_flags_stretch_ratio = 0.5
 texture = ExtResource( 5 )
 expand = true
 
-[node name="WitValue" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/ValueContainer"]
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/ValueContainer"]
 anchor_left = 0.489
 anchor_top = 0.506
 anchor_right = 0.489
@@ -1014,7 +1014,7 @@ size_flags_stretch_ratio = 0.5
 texture = ExtResource( 5 )
 expand = true
 
-[node name="BodValue" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/ValueContainer"]
+[node name="Value" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/ValueContainer"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5

@@ -47,7 +47,7 @@ func _set_image(path) -> void:
 
 
 func _load_profession(_profession) -> void:
-	_set_image(profession["splash_art_path"]) 
+	_set_image("res://Resources/ProfessionPage/splash_art/" + profession["splash_art_name"]) 
 	profession_name.bbcode_text = "[center]%s[/center]" % profession["profession_name"]
 	profession_description.bbcode_text = "%s" % profession["profession_description"]
 	profession_quote.bbcode_text = "[center]%s[/center]" % profession["profession_quote"]

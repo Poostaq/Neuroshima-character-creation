@@ -82,6 +82,7 @@ func _next_step() -> void:
 	
 	
 func _previous_step() -> void:
+	steps[current_step].clean_up_step()
 	if steps[current_step] == attributes_step:
 		CharacterStats.clear_base_rolls_attributes()
 	if steps[current_step] == specialization_step:
@@ -97,7 +98,6 @@ func _previous_step() -> void:
 		current_step -= 1
 	
 	_disable_next_step()
-	
 	steps[current_step].load_step()
 	_turn_off_step_indicators()
 	_turn_off_screens()

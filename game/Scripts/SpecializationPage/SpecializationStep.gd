@@ -44,7 +44,8 @@ func load_step() -> void:
 	emit_signal("specialization_chosen")
 	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)
 	
-	
+func clean_up_step() -> void:
+	pass
 
 #####################################
 # HELPER FUNCTIONS
