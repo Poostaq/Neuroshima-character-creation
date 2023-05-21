@@ -124,7 +124,7 @@ func _turn_off_step_indicators() -> void:
 			indicators[i+1].texture_normal = indicator_inactive
 
 
-func _enable_next_step(_argument) -> void:
+func _enable_next_step() -> void:
 	next_step.disabled = false
 
 

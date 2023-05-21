@@ -40,7 +40,7 @@ export (NodePath) onready var general_skill_description = get_node(general_skill
 #####################################
 # PRIVATE VARIABLES
 #####################################
-var _skill_card_list = []
+onready var _skill_card_list = [skill_card1,skill_card2,skill_card3]
 var _skill_packs_list = []
 var _general_skill_card_list = []
 var _current_skill_card_list = []
@@ -68,7 +68,7 @@ func _init() -> void:
 	pass
 
 func load_step() -> void:
-	_skill_card_list = [skill_card1,skill_card2,skill_card3]
+	# _skill_card_list = [skill_card1,skill_card2,skill_card3]
 	_general_skill_card_list = [general_skill_card1,general_skill_card2,general_skill_card3]
 	_skill_packs_list = DatabaseOperations.read_all_skill_packs()
 	_initial_skill_levels = CharacterStats.skill_levels
@@ -151,6 +151,7 @@ func _on_SkillCard_minus_button_pressed(skill) -> void:
 	skill.update_skill_card_text()
 	_update_skill_points()
 	_update_skill_levels(skill)
+	save_current_skill_levels_to_character_data()
 
 
 func _on_SkillCard_plus_button_pressed(skill) -> void:
@@ -171,7 +172,7 @@ func _on_SkillCard_plus_button_pressed(skill) -> void:
 	skill.update_skill_card_text()
 	_update_skill_points()
 	_update_skill_levels(skill)
-
+	save_current_skill_levels_to_character_data()
 
 func _on_SkillCard_skill_element_pressed(skill) -> void:
 	skill_name.text = skill.skill_name
@@ -211,11 +212,12 @@ func _on_PackMinusButton_button_up() -> void:
 				option_element.disabled = false
 		pack_plus_button.disabled = false
 		pack_minus_button.disabled = true
+		save_current_skill_levels_to_character_data()
 		
 	
 
 
-func _on_PackPlusButton_button_up() -> void: 
+func _on_PackPlusButton_button_up() -> void:
 	if _is_pack_bought():
 		return
 	var levels = []
@@ -235,6 +237,7 @@ func _on_PackPlusButton_button_up() -> void:
 				option_element.disabled = true
 		pack_plus_button.disabled = true
 		pack_minus_button.disabled = false
+		save_current_skill_levels_to_character_data()
 		
 
 
@@ -380,6 +383,7 @@ func _load_general_skill_options() -> void:
 func _on_OptionButton_item_selected(_index) -> void:
 	refresh_skill_states()
 	refresh_current_skill_levels_for_general_knowledge()
+	save_current_skill_levels_to_character_data()
 
 
 func set_skill_inactive(index) -> void:

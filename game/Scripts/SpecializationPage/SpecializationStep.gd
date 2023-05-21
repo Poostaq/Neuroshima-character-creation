@@ -4,7 +4,7 @@ extends Node
 #####################################
 # SIGNALS
 #####################################
-signal specialization_chosen(current_specialization)
+signal specialization_chosen()
 #####################################
 # CONSTANTS
 #####################################
@@ -41,7 +41,7 @@ func load_step() -> void:
 	var specialization_id = _specialization_list[_current_specialization_index]["specialization_identifier"]
 	current_specialization = db.read_data_for_specialization(specialization_id)
 	_load_specialization(current_specialization)
-	emit_signal("specialization_chosen", current_specialization)
+	emit_signal("specialization_chosen")
 	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)
 	
 	

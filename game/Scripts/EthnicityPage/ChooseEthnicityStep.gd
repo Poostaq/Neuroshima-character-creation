@@ -1,5 +1,7 @@
 extends Control
 
+signal ethnicity_selected
+
 export(ButtonGroup) var trait_group
 
 
@@ -97,6 +99,7 @@ func _on_Trait_Button_button_pressed(button) -> void:
 	CharacterStats._on_EthnicityStep_ethnicity_chosen(current_ethnicity_data)
 	CharacterStats._on_EthnicityStep_attribute_chosen(bonus_attribute)
 	CharacterStats._on_EthnicityStep_trait_chosen(button)
+	emit_signal("ethnicity_selected")
 	
 func _get_bonus_attribute() -> int:
 	if ethnicity_list[current_ethnicity_index]["ethnicity_identifier"] =="none_of_your_fucking_business":

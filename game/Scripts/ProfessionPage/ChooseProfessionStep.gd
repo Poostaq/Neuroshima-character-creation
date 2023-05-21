@@ -1,10 +1,9 @@
 extends Control
  
 
-signal profession_chosen(profession)
-signal trait_chosen(profession_trait)
-signal clear_trait()
-signal clear_profession()
+signal profession_chosen()
+# signal clear_trait()
+# signal clear_profession()
 
 
 export(ButtonGroup) var trait_group
@@ -34,8 +33,10 @@ func load_step() -> void:
 	trait_group = load("res://Scenes/ProfessionPage/Traits.tres")
 	_changed_profession()
 
+
 func clean_up_step() -> void:
 	_changed_profession()
+
 
 func _set_image(path) -> void:
 	var image = load(path)
@@ -86,8 +87,8 @@ func _create_trait_button(trait_template, trait_data) -> void:
 
 
 func _on_Trait_Button_button_pressed(button) -> void:
-	emit_signal("trait_chosen", button)
-	emit_signal("profession_chosen", profession)
+	# emit_signal("trait_chosen", button)
+	emit_signal("profession_chosen")
 	CharacterStats._on_ProfessionStep_profession_chosen(profession)
 	CharacterStats._on_ProfessionStep_trait_chosen(button)
 
@@ -114,5 +115,3 @@ func _on_NextProfession_button_up() -> void:
 func _changed_profession() -> void:
 	CharacterStats._on_ProfessionStep_clear_trait()
 	CharacterStats._on_ProfessionStep_clear_profession()
-	emit_signal("clear_profession")
-	emit_signal("clear_trait")
