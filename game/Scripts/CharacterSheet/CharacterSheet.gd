@@ -269,6 +269,12 @@ onready var aquaintance_3 = $"%Aquaintance3"
 onready var aquaintance_4 = $"%Aquaintance4"
 onready var aquaintance_5 = $"%Aquaintance5"
 onready var aquaintance_list = [aquaintance_1,aquaintance_2,aquaintance_3,aquaintance_4,aquaintance_5]
+#Tricks
+onready var trick_1 = $"%Trick1"
+onready var trick_2 = $"%Trick2"
+onready var trick_3 = $"%Trick3"
+onready var trick_4 = $"%Trick4"
+onready var trick_5 = $"%Trick5"
 
 onready var db = get_node("/root/DatabaseOperations")
 

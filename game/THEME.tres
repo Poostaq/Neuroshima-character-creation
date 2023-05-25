@@ -1,7 +1,7 @@
 [gd_resource type="Theme" load_steps=8 format=2]
 
-[ext_resource path="res://UI_Elements/slider_grabber.png" type="Texture" id=2]
-[ext_resource path="res://UI_Elements/slider_base.png" type="Texture" id=3]
+[ext_resource path="res://UI_Elements/sliderGrabber.png" type="Texture" id=2]
+[ext_resource path="res://UI_Elements/sliderBase.png" type="Texture" id=3]
 
 [sub_resource type="DynamicFontData" id=1]
 font_path = "res://Fonts/Gruppo-Regular.ttf"

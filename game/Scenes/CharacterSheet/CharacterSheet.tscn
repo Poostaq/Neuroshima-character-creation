@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=2]
 
-[ext_resource path="res://Scenes/CharacterSheet/FullCard.png" type="Texture" id=1]
-[ext_resource path="res://UI_Elements/origin description box.png" type="Texture" id=3]
+[ext_resource path="res://Resources/CharacterSheet/FullCard.png" type="Texture" id=1]
+[ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/CharacterSheet/CharacterSheet.gd" type="Script" id=4]
 [ext_resource path="res://THEME.tres" type="Theme" id=5]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=6]
@@ -81,6 +81,7 @@ __meta__ = {
 [node name="ScrollContainer" type="ScrollContainer" parent="PanelContainer/MonitorTexture/MarginContainer"]
 margin_right = 815.0
 margin_bottom = 802.0
+rect_clip_content = false
 
 [node name="CharacterCardTexture" type="TextureRect" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer"]
 modulate = Color( 0, 0.517647, 0.0431373, 1 )
@@ -892,6 +893,223 @@ anchor_left = 0.876147
 anchor_top = 0.5
 anchor_right = 0.995413
 anchor_bottom = 1.0
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Tricks" type="Control" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture"]
+anchor_left = 0.02
+anchor_top = 0.101277
+anchor_right = 0.455
+anchor_bottom = 0.222553
+margin_top = 1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trick1" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Tricks"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.109195
+anchor_top = 0.154386
+anchor_right = 0.859195
+anchor_bottom = 0.224561
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trick2" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Tricks"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.066092
+anchor_top = 0.235088
+anchor_right = 0.902299
+anchor_bottom = 0.312281
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trick3" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Tricks"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.066092
+anchor_top = 0.326316
+anchor_right = 0.902299
+anchor_bottom = 0.410526
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trick4" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Tricks"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.066092
+anchor_top = 0.410526
+anchor_right = 0.902299
+anchor_bottom = 0.498246
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trick5" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Tricks"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.066092
+anchor_top = 0.508772
+anchor_right = 0.902299
+anchor_bottom = 0.592982
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trick6" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Tricks"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.066092
+anchor_top = 0.603509
+anchor_right = 0.902299
+anchor_bottom = 0.687719
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trick7" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Tricks"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.066093
+anchor_top = 0.705264
+anchor_right = 0.9023
+anchor_bottom = 0.792983
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Trick8" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Tricks"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.066093
+anchor_top = 0.807018
+anchor_right = 0.9023
+anchor_bottom = 0.891229
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Ilness" type="Control" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture"]
+anchor_left = 0.5175
+anchor_top = 0.16766
+anchor_right = 0.94125
+anchor_bottom = 0.203404
+margin_bottom = -3.05176e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="IlnessName" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.348083
+anchor_right = 0.943953
+anchor_bottom = 0.238095
+margin_right = 3.05176e-05
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Medicine" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.168143
+anchor_top = 0.202384
+anchor_right = 0.970503
+anchor_bottom = 0.440479
+margin_right = -6.10352e-05
+margin_bottom = 3.05176e-05
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FirstSymptoms" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.342184
+anchor_top = 0.369051
+anchor_right = 0.976402
+anchor_bottom = 0.607146
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AcuteCondition" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.324485
+anchor_top = 0.523812
+anchor_right = 0.958703
+anchor_bottom = 0.761908
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CriticalCondition" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+unique_name_in_owner = true
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.351034
+anchor_top = 0.690479
+anchor_right = 0.985252
+anchor_bottom = 0.928574
 custom_fonts/font = SubResource( 13 )
 text = "0"
 align = 1
@@ -2914,6 +3132,267 @@ anchor_left = 0.0899743
 anchor_top = 0.779343
 anchor_right = 0.899743
 anchor_bottom = 0.882629
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment" type="Control" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture"]
+anchor_right = 0.18
+anchor_bottom = 0.178
+margin_left = 474.0
+margin_top = 1220.0
+margin_right = 624.0
+margin_bottom = 1339.7
+rect_pivot_offset = Vector2( 23.0004, 220 )
+
+[node name="Equipment1" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748299
+anchor_top = 0.0650558
+anchor_right = 0.942177
+anchor_bottom = 0.10223
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment2" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748299
+anchor_top = 0.115242
+anchor_right = 0.942177
+anchor_bottom = 0.152416
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment3" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0714286
+anchor_top = 0.169145
+anchor_right = 0.942177
+anchor_bottom = 0.20632
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment4" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748299
+anchor_top = 0.213755
+anchor_right = 0.942177
+anchor_bottom = 0.250929
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment5" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748299
+anchor_top = 0.263941
+anchor_right = 0.942177
+anchor_bottom = 0.301115
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment6" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.312268
+anchor_right = 0.942178
+anchor_bottom = 0.349443
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment7" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.364313
+anchor_right = 0.942178
+anchor_bottom = 0.401487
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment8" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.414499
+anchor_right = 0.942178
+anchor_bottom = 0.451673
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment9" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.462826
+anchor_right = 0.942178
+anchor_bottom = 0.5
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment10" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.511153
+anchor_right = 0.942178
+anchor_bottom = 0.548328
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment11" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.55948
+anchor_right = 0.942178
+anchor_bottom = 0.596655
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment12" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.611525
+anchor_right = 0.942178
+anchor_bottom = 0.648699
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment13" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.659852
+anchor_right = 0.942178
+anchor_bottom = 0.697026
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment14" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.708179
+anchor_right = 0.942178
+anchor_bottom = 0.745354
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment15" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.760224
+anchor_right = 0.942178
+anchor_bottom = 0.797398
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment16" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.808551
+anchor_right = 0.942178
+anchor_bottom = 0.845725
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment17" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.858737
+anchor_right = 0.942178
+anchor_bottom = 0.895911
+custom_fonts/font = SubResource( 13 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Equipment18" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Equipment"]
+modulate = Color( 0, 0, 0, 1 )
+anchor_left = 0.0748312
+anchor_top = 0.91264
+anchor_right = 0.942178
+anchor_bottom = 0.949815
 custom_fonts/font = SubResource( 13 )
 text = "0"
 align = 1

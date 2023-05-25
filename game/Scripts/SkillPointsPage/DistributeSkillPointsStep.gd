@@ -80,7 +80,8 @@ func load_step() -> void:
 	_load_package()
 	_update_skill_points()
 
-
+func clean_up_step() -> void:
+	pass
 #####################################
 # API FUNCTIONS
 #####################################

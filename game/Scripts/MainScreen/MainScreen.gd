@@ -1,7 +1,7 @@
 extends Control
 
-onready var indicator_active = preload("res://UI_Elements/progress light on.png")
-onready var indicator_inactive = preload("res://UI_Elements/progress light off.png")
+onready var indicator_active = preload("res://UI_Elements/progressLightOn.png")
+onready var indicator_inactive = preload("res://UI_Elements/progressLightOff.png")
 
 
 export (NodePath) onready var back_step = get_node(back_step) as TextureButton
