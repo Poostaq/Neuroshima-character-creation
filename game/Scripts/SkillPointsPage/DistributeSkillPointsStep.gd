@@ -376,8 +376,10 @@ func _load_general_skill_options() -> void:
 			var metadata = {"identifier": list_of_options[option_index]["skill_identifier"]}
 			option_element.set_item_metadata(option_index, metadata)
 		option_element.select(index)
-		option_element.emit_signal("item_selected", index)
 		index+=1
+	for skill in _general_skill_card_list:
+		var option_element = skill.find_node("OptionButton")
+		option_element.emit_signal("item_selected", index)
 		
 
 

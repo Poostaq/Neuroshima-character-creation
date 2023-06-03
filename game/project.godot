@@ -31,8 +31,8 @@ default_bus_layout=""
 [autoload]
 
 DatabaseOperations="*res://Scripts/DataStore/DatabaseOperations.gd"
-GlobalConstants="*res://GlobalConstants.gd"
-Dices="*res://Dices.gd"
+GlobalConstants="*res://Scripts/GlobalConstants.gd"
+Dices="*res://Scripts/Dices.gd"
 CharacterStats="*res://Scripts/CharacterSheet/CharacterStats.gd"
 
 [display]
