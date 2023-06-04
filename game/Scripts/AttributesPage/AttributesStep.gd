@@ -128,8 +128,7 @@ func save_attributes() -> void:
 
 
 func _on_RollButton_button_up() -> void:
-	_clear_rolls()
-	_clear_attribute_values()
+	clean_up_step()
 	var result_rolls_list = []
 	var final_values_list = []
 	for x in 6:

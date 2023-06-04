@@ -110,6 +110,8 @@ func _load_package() -> void:
 	skill_pack_indicator.pressed = _is_pack_bought()
 	pack_plus_button.disabled = _is_pack_bought()
 	pack_minus_button.disabled = not _is_pack_bought()
+	skill_name.text = "WYBIERZ UMIEJĘTNOŚĆ"
+	skill_description.bbcode_text = ""
 
 func _on_NextPack_button_up() -> void:
 	_current_skill_pack_index += 1
