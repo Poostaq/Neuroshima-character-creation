@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends Label
 
 
 onready var draggable_value = preload("res://Scenes/AttributesPage/DraggableValue.tscn")
@@ -7,10 +7,10 @@ signal dropped_data
 
 func get_drag_data(_pos) -> Dictionary:
 	var data = {}
-	data["bbcode"] = self.bbcode_text
+	data["bbcode"] = self.text
 	data["original_object"] = self
 	var drag_element = draggable_value.instance()
-	drag_element.get_node("TEXT").bbcode_text = self.bbcode_text
+	drag_element.get_node("TEXT").text = self.text
 	set_drag_preview(drag_element)
 	return data
 
@@ -20,12 +20,12 @@ func can_drop_data(_position, _data) -> bool:
 
 
 func drop_data(_position, data) -> void:
-	if self.bbcode_text == "":
-		self.bbcode_text = data["bbcode"]
+	if self.text == "":
+		self.text = data["bbcode"]
+		data["original_object"].text = ""
 		emit_signal("dropped_data")
-		data["original_object"].bbcode_text = ""
 	else:
-		var current_text = self.bbcode_text
-		self.bbcode_text = data["bbcode"]
+		var current_text = self.text
+		self.text = data["bbcode"]
+		data["original_object"].text = current_text
 		emit_signal("dropped_data")
-		data["original_object"].bbcode_text = current_text
