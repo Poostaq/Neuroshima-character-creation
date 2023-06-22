@@ -1,0 +1,412 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://UI_Elements/splashArtBox.png" type="Texture" id=1]
+[ext_resource path="res://UI_Elements/previousOriginButtonOff.png" type="Texture" id=2]
+[ext_resource path="res://THEME.tres" type="Theme" id=3]
+[ext_resource path="res://Scripts/EthnicityPage/ChooseEthnicityStep.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/EthnicityPage/Traits.tres" type="ButtonGroup" id=5]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://UI_Elements/previousOriginButtonOn.png" type="Texture" id=7]
+[ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=8]
+[ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=10]
+[ext_resource path="res://UI_Elements/nextOriginButtonOn.png" type="Texture" id=11]
+[ext_resource path="res://icon.png" type="Texture" id=12]
+[ext_resource path="res://UI_Elements/nextOriginButtonOff.png" type="Texture" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+size = 55
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 36
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 6 )
+
+[node name="EthnicityStep" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -88.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+script = ExtResource( 4 )
+trait_group = ExtResource( 5 )
+picture = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/EthnicityPic")
+ethnicity_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/EthnicityName")
+ethnicity_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer/EthnicityDescription")
+trait_container = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TraitContainer")
+attribute_bonus_label = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeBonus")
+attribute_selector = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeSelect")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+margin_right = 1880.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control3" type="Control" parent="VBoxContainer/Control/HBoxContainer"]
+margin_right = 743.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.34
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control/HBoxContainer"]
+margin_left = 747.0
+margin_right = 1701.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+texture = ExtResource( 10 )
+expand = true
+
+[node name="Control4" type="Control" parent="VBoxContainer/Control/HBoxContainer"]
+margin_left = 1705.0
+margin_right = 1880.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.55
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_right = 688.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.95
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_left = 692.0
+margin_right = 1752.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="PreviousEthnicity" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+margin_right = 105.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 2 )
+texture_pressed = ExtResource( 7 )
+texture_hover = ExtResource( 7 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+show_behind_parent = true
+margin_left = 109.0
+margin_right = 950.0
+margin_bottom = 109.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_right = 841.0
+margin_bottom = 18.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="EthnicityName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 22.0
+margin_right = 841.0
+margin_bottom = 83.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 1 )
+bbcode_enabled = true
+bbcode_text = "[center]NOT SET[/center]"
+text = "NOT SET"
+
+[node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
+margin_top = 87.0
+margin_right = 841.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="NextEthnicity" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+margin_left = 954.0
+margin_right = 1060.0
+margin_bottom = 109.0
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 11 )
+texture_hover = ExtResource( 11 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
+margin_left = 1756.0
+margin_right = 1880.0
+margin_bottom = 109.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.35
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+margin_top = 113.0
+margin_right = 1880.0
+margin_bottom = 992.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 8.0
+custom_constants/separation = 20
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+margin_right = 51.0
+margin_bottom = 879.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.1
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 71.0
+margin_right = 582.0
+margin_bottom = 879.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 501.0
+margin_bottom = 869.0
+texture = ExtResource( 1 )
+expand = true
+stretch_mode = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
+anchor_left = 0.11
+anchor_top = 0.107
+anchor_right = 0.831
+anchor_bottom = 0.896
+margin_left = -0.0100021
+margin_top = 0.0869904
+margin_right = -0.0210266
+margin_bottom = 0.335999
+
+[node name="EthnicityPic" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+self_modulate = Color( 1, 1, 1, 0.380392 )
+margin_right = 353.0
+margin_bottom = 481.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 6.0
+texture = ExtResource( 12 )
+expand = true
+stretch_mode = 6
+
+[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_top = 485.0
+margin_right = 353.0
+margin_bottom = 509.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+margin_top = 513.0
+margin_right = 353.0
+margin_bottom = 553.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer"]
+margin_right = 353.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 353.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.01
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 4.0
+margin_right = 353.0
+margin_bottom = 40.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 8.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="AttributeBonus" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_left = 12.0
+margin_right = 174.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/normal_font = SubResource( 6 )
+bbcode_enabled = true
+fit_content_height = true
+
+[node name="AttributeSelect" type="OptionButton" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_left = 178.0
+margin_right = 340.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 344.0
+margin_right = 353.0
+margin_bottom = 36.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.05
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+margin_top = 557.0
+margin_right = 353.0
+margin_bottom = 678.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+margin_left = 602.0
+margin_right = 1880.0
+margin_bottom = 879.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.5
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_right = 1278.0
+margin_bottom = 546.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
+margin_right = 114.0
+margin_bottom = 546.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
+margin_left = 118.0
+margin_right = 1148.0
+margin_bottom = 546.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 9.0
+
+[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+margin_right = 1030.0
+margin_bottom = 76.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 1030.0
+margin_bottom = 465.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+
+[node name="EthnicityDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+margin_right = 1030.0
+margin_bottom = 385.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "NOT SET"
+text = "NOT SET"
+
+[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+margin_top = 469.0
+margin_right = 1030.0
+margin_bottom = 546.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer"]
+margin_left = 1152.0
+margin_right = 1278.0
+margin_bottom = 546.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 1.1
+
+[node name="TraitContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+margin_top = 550.0
+margin_right = 1278.0
+margin_bottom = 879.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousEthnicity" to="." method="_on_PreviousEthnicity_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextEthnicity" to="." method="_on_NextEthnicity_button_up"]
+[connection signal="item_selected" from="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeSelect" to="." method="_on_AttributeSelect_item_selected"]

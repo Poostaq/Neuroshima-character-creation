@@ -61,7 +61,7 @@ func _ready() -> void:
 	
 	_timer = Timer.new()
 	add_child(_timer)
-	_timer.connect("timeout", self, "_custom_show")
+	var __ = _timer.connect("timeout", self, "_custom_show")
 	_visuals.hide()
 
 
