@@ -2,8 +2,6 @@ extends Control
  
 
 signal profession_chosen()
-# signal clear_trait()
-# signal clear_profession()
 
 
 export(ButtonGroup) var trait_group
@@ -87,7 +85,6 @@ func _create_trait_button(trait_template, trait_data) -> void:
 
 
 func _on_Trait_Button_button_pressed(button) -> void:
-	# emit_signal("trait_chosen", button)
 	emit_signal("profession_chosen")
 	CharacterStats._on_ProfessionStep_profession_chosen(profession)
 	CharacterStats._on_ProfessionStep_trait_chosen(button)
