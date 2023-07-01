@@ -15,6 +15,8 @@ signal specialization_chosen()
 export (NodePath) onready var specialization_skills = get_node(specialization_skills) as RichTextLabel
 export (NodePath) onready var specialization_name = get_node(specialization_name) as RichTextLabel
 export (NodePath) onready var specialization_description = get_node(specialization_description) as RichTextLabel
+onready var selected_identifier = $"%SelectedIdentifier"
+
 #####################################
 # PUBLIC VARIABLES 
 #####################################
