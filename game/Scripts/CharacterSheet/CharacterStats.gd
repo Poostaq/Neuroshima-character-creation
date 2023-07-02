@@ -57,6 +57,7 @@ func _clear_bonus_attribute() -> void:
 
 func clear_specialization() -> void:
 	specialization = ""
+	specialization_identifier = ""
 
 func set_bonus_attribute(attribute=null) -> void:
 	if attribute != null or (attribute <= 4 and attribute >= 0):
