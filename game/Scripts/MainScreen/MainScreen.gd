@@ -96,7 +96,6 @@ func _previous_step() -> void:
 		print("CANT GO BACK")
 	else:
 		current_step -= 1
-	
 	_disable_next_step()
 	steps[current_step].load_step()
 	_turn_off_step_indicators()
