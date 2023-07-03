@@ -5,6 +5,7 @@ extends Node
 # SIGNALS
 #####################################
 signal specialization_chosen()
+signal specialization_cleared()
 #####################################
 # CONSTANTS
 #####################################
@@ -12,9 +13,11 @@ signal specialization_chosen()
 #####################################
 # EXPORT VARIABLES 
 #####################################
-export (NodePath) onready var specialization_skills = get_node(specialization_skills) as RichTextLabel
-export (NodePath) onready var specialization_name = get_node(specialization_name) as RichTextLabel
-export (NodePath) onready var specialization_description = get_node(specialization_description) as RichTextLabel
+onready var specialization_skills = $"%SpecializationSkills"
+onready var specialization_name = $"%SpecializationName"
+onready var specialization_description = $"%SpecializationDescription"
+onready var selected_identifier = $"%SelectedIdentifier"
+
 #####################################
 # PUBLIC VARIABLES 
 #####################################
@@ -41,8 +44,7 @@ func load_step() -> void:
 	var specialization_id = _specialization_list[_current_specialization_index]["specialization_identifier"]
 	current_specialization = db.read_data_for_specialization(specialization_id)
 	_load_specialization(current_specialization)
-	emit_signal("specialization_chosen")
-	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)
+	emit_signal("specialization_cleared")
 	
 func clean_up_step() -> void:
 	pass
@@ -75,6 +77,8 @@ func _on_PreviousSpecialization_button_up() -> void:
 	else:
 		_current_specialization_index -= 1
 	load_step()
+	selected_identifier.pressed = false
+	CharacterStats.clear_specialization()
 
 func _on_NextSpecialization_button_up() -> void:
 	if _current_specialization_index == len(_specialization_list)-1:
@@ -82,3 +86,10 @@ func _on_NextSpecialization_button_up() -> void:
 	else:
 		_current_specialization_index += 1
 	load_step()
+	selected_identifier.pressed = false
+	CharacterStats.clear_specialization()
+
+func _on_SelectedIdentifier_pressed():
+	emit_signal("specialization_chosen")
+	selected_identifier.pressed = true
+	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)

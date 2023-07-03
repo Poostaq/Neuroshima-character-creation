@@ -123,9 +123,6 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 952.0
-specialization_skills = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer/SpecialisationSkills")
-specialization_name = NodePath("VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer/SpecializationName")
-specialization_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer/SpecializationDescription")
 
 [node name="SkillPointsStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 13 )]
 unique_name_in_owner = true
@@ -412,9 +409,12 @@ mouse_filter = 1
 [node name="CharacterCardTexture" parent="CharacterSheet/PanelContainer/MonitorTexture/MarginContainer/ScrollContainer" index="0"]
 margin_right = 815.0
 
+[connection signal="ethnicity_cleared" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_disable_next_step"]
 [connection signal="ethnicity_selected" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_enable_next_step"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_enable_next_step"]
+[connection signal="profession_cleared" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_disable_next_step"]
 [connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_enable_next_step"]
+[connection signal="specialization_cleared" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_disable_next_step"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_previous_step"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]

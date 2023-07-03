@@ -1,6 +1,7 @@
 extends Control
 
 signal ethnicity_selected
+signal ethnicity_cleared
 
 export(ButtonGroup) var trait_group
 
@@ -153,5 +154,6 @@ func _fill_attribute_selector_options() -> void :
 
 
 func _changed_ethnicity() -> void:
+	emit_signal("ethnicity_cleared")
 	CharacterStats._on_EthnicityStep_clear_ethnicity()
 	CharacterStats._on_EthnicityStep_clear_bonus_attribute()

@@ -2,6 +2,7 @@ extends Control
  
 
 signal profession_chosen()
+signal profession_cleared()
 
 
 export(ButtonGroup) var trait_group
@@ -110,5 +111,6 @@ func _on_NextProfession_button_up() -> void:
 
 
 func _changed_profession() -> void:
+	emit_signal("profession_cleared")
 	CharacterStats._on_ProfessionStep_clear_trait()
 	CharacterStats._on_ProfessionStep_clear_profession()
