@@ -1,5 +1,8 @@
 extends Control
 
+signal attributes_selected
+signal attributes_cleared
+
 export (NodePath) onready var roll_button = get_node(roll_button) as Button
 export (NodePath) onready var roll_button_container = get_node(roll_button_container) as CenterContainer
 
@@ -94,7 +97,7 @@ func _ready() -> void:
 
 
 func load_step() -> void:
-	pass
+	emit_signal("attributes_cleared")
 
 func clean_up_step() -> void:
 	_clear_rolls()
@@ -111,6 +114,7 @@ func clean_up_step() -> void:
 		distribution_attribute_value_element_list[index].text = str(distribution_attribute_value_list[index])
 	remaining_value_label.text = str(distribution_attribute_value_list[5])
 	save_attributes()
+	emit_signal("attributes_cleared")
 
 func save_attributes() -> void:
 	var list = []
@@ -126,6 +130,11 @@ func save_attributes() -> void:
 		list =  distribution_attribute_value_list.slice(0, 4)
 	CharacterStats._on_AttributesStep_attributes_chosen(list)
 
+func send_signal_if_all_attributes_set() -> void:
+	for attribute in rolling_attribute_value_list:
+		if attribute.text == "":
+			return
+	emit_signal("attributes_selected")
 
 func _on_RollButton_button_up() -> void:
 	clean_up_step()
@@ -183,6 +192,7 @@ func _on_minus_button_up(button : BaseButton) -> void:
 		distribution_attribute_value_list[5] += 1
 		remaining_value_label.text = "%s" % distribution_attribute_value_list[5]
 	save_attributes()
+	send_signal_to_main()
 
 func _on_plus_button_up(button : BaseButton) -> void:
 	var value_element = button.get_node("../ValueContainer/Value") as Label
@@ -193,6 +203,13 @@ func _on_plus_button_up(button : BaseButton) -> void:
 		distribution_attribute_value_list[5] -= 1
 		remaining_value_label.text = "%s" % distribution_attribute_value_list[5]
 	save_attributes()
+	send_signal_to_main()
 
 func _on_TabContainer_tab_changed(_tab:int): 
 	clean_up_step()
+
+func send_signal_to_main():
+	if distribution_attribute_value_list[5] == 0:
+		emit_signal("attributes_selected")
+	else:
+		emit_signal("attributes_cleared")

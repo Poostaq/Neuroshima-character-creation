@@ -1070,8 +1070,13 @@ __meta__ = {
 
 [connection signal="tab_changed" from="MarginContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="button_up" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton" to="." method="_on_RollButton_button_up"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="save_attributes"]
