@@ -97,7 +97,7 @@ func _ready() -> void:
 
 
 func load_step() -> void:
-	emit_signal("attributes_cleared")
+	clean_up_step()
 
 func clean_up_step() -> void:
 	_clear_rolls()
