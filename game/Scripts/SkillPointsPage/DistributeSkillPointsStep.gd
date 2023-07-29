@@ -79,7 +79,6 @@ func load_step() -> void:
 	_current_packs = _initial_packs
 	_load_package()
 	_update_skill_points()
-	_clear_skill_cards_indicators()
 	_load_general_skill_options()
 
 func clean_up_step() -> void:
@@ -113,6 +112,7 @@ func _load_package() -> void:
 	pack_minus_button.disabled = not _is_pack_bought()
 	skill_name.text = "WYBIERZ UMIEJĘTNOŚĆ"
 	skill_description.bbcode_text = ""
+	_clear_skill_cards_indicators()	
 
 func _on_NextPack_button_up() -> void:
 	_current_skill_pack_index += 1
@@ -438,6 +438,7 @@ func save_current_skill_levels_to_character_data() -> void:
 func reset_skill_point_pools() -> void:
 	_current_skill_points = _max_skill_points
 	_current_specialization_skill_points = _max_specialization_skill_points
+	_general_spent_on_general_points = 0
 
 func set_general_knowledge_names() -> void:
 	var list = []
