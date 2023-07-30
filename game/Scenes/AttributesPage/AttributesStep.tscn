@@ -238,7 +238,6 @@ expand = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -1.0
-script = ExtResource( 4 )
 
 [node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect/Control"]
 anchor_right = 1.0
@@ -250,6 +249,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 6 )
 align = 1
 valign = 1
+script = ExtResource( 4 )
 
 [node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 353.0
@@ -266,7 +266,6 @@ expand = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_bottom = -1.0
-script = ExtResource( 4 )
 
 [node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2/Control2"]
 anchor_right = 1.0
@@ -277,6 +276,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
 align = 1
 valign = 1
+script = ExtResource( 4 )
 
 [node name="TextureRect3" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 495.0
@@ -293,7 +293,6 @@ expand = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 1.0
-script = ExtResource( 4 )
 
 [node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3/Control3"]
 anchor_right = 1.0
@@ -304,6 +303,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
 align = 1
 valign = 1
+script = ExtResource( 4 )
 
 [node name="TextureRect4" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 637.0
@@ -320,7 +320,6 @@ expand = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_top = 1.0
-script = ExtResource( 4 )
 
 [node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4/Control4"]
 anchor_right = 1.0
@@ -331,6 +330,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
 align = 1
 valign = 1
+script = ExtResource( 4 )
 
 [node name="TextureRect5" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
 margin_left = 779.0
@@ -349,7 +349,6 @@ anchor_bottom = 1.0
 margin_left = 2.0
 margin_top = 1.0
 margin_right = 2.0
-script = ExtResource( 4 )
 
 [node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5/Control5"]
 anchor_right = 1.0
@@ -361,6 +360,7 @@ size_flags_vertical = 3
 custom_fonts/font = SubResource( 7 )
 align = 1
 valign = 1
+script = ExtResource( 4 )
 
 [node name="Control" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer"]
 margin_left = 921.0
@@ -1070,8 +1070,13 @@ __meta__ = {
 
 [connection signal="tab_changed" from="MarginContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="button_up" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton" to="." method="_on_RollButton_button_up"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="save_attributes"]

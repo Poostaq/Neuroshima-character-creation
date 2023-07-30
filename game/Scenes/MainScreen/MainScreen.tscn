@@ -413,6 +413,8 @@ margin_right = 815.0
 [connection signal="ethnicity_selected" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_enable_next_step"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_enable_next_step"]
 [connection signal="profession_cleared" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_disable_next_step"]
+[connection signal="attributes_cleared" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="." method="_disable_next_step"]
+[connection signal="attributes_selected" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="." method="_enable_next_step"]
 [connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_enable_next_step"]
 [connection signal="specialization_cleared" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_disable_next_step"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_previous_step"]

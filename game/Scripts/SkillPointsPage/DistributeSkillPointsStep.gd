@@ -41,8 +41,8 @@ export (NodePath) onready var general_skill_description = get_node(general_skill
 # PRIVATE VARIABLES
 #####################################
 onready var _skill_card_list = [skill_card1,skill_card2,skill_card3]
+onready var _general_skill_card_list = [general_skill_card1,general_skill_card2,general_skill_card3]
 var _skill_packs_list = []
-var _general_skill_card_list = []
 var _current_skill_card_list = []
 var _current_skill_pack_data = {}
 var _current_skill_pack_index = 0
@@ -65,12 +65,12 @@ var _specialization_id = ""
 # OVERRIDE FUNCTIONS
 #####################################
 func _init() -> void:
+	_skill_packs_list = DatabaseOperations.read_all_skill_packs()
 	pass
 
 func load_step() -> void:
-	# _skill_card_list = [skill_card1,skill_card2,skill_card3]
-	_general_skill_card_list = [general_skill_card1,general_skill_card2,general_skill_card3]
-	_skill_packs_list = DatabaseOperations.read_all_skill_packs()
+	if CharacterStats.skill_levels_before_skill_distribution:
+		CharacterStats.skill_levels = CharacterStats.skill_levels_before_skill_distribution
 	_initial_skill_levels = CharacterStats.skill_levels
 	CharacterStats.skill_levels_before_skill_distribution = _initial_skill_levels.duplicate(true)
 	_current_skill_levels = _initial_skill_levels
@@ -79,6 +79,7 @@ func load_step() -> void:
 	_current_packs = _initial_packs
 	_load_package()
 	_update_skill_points()
+	_load_general_skill_options()
 
 func clean_up_step() -> void:
 	pass
@@ -101,7 +102,6 @@ func _load_package() -> void:
 	if skill_pack_id == "general_knowledge":
 		_current_skill_card_list = _general_skill_card_list
 		_load_skill_data(_current_skill_card_list, pack_data)
-		_load_general_skill_options()
 		general_skill_name.text = _current_skill_pack_data["skill_pack_name"]
 		general_skill_description.bbcode_text = pack_data[0].skill_description
 	else:
@@ -112,6 +112,7 @@ func _load_package() -> void:
 	pack_minus_button.disabled = not _is_pack_bought()
 	skill_name.text = "WYBIERZ UMIEJĘTNOŚĆ"
 	skill_description.bbcode_text = ""
+	_clear_skill_cards_indicators()	
 
 func _on_NextPack_button_up() -> void:
 	_current_skill_pack_index += 1
@@ -437,6 +438,7 @@ func save_current_skill_levels_to_character_data() -> void:
 func reset_skill_point_pools() -> void:
 	_current_skill_points = _max_skill_points
 	_current_specialization_skill_points = _max_specialization_skill_points
+	_general_spent_on_general_points = 0
 
 func set_general_knowledge_names() -> void:
 	var list = []
@@ -445,3 +447,7 @@ func set_general_knowledge_names() -> void:
 		list.append(option_list.get_item_text(option_list.selected))
 		print(option_list.get_item_text(option_list.selected))
 	CharacterStats.general_knowledge_names = list
+
+func _clear_skill_cards_indicators() -> void:
+	for skill_card in _general_skill_card_list+_skill_card_list:
+		skill_card.set_pressed(false)

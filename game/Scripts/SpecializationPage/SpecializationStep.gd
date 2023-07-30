@@ -45,6 +45,7 @@ func load_step() -> void:
 	current_specialization = db.read_data_for_specialization(specialization_id)
 	_load_specialization(current_specialization)
 	emit_signal("specialization_cleared")
+	selected_identifier.set_pressed(false)
 	
 func clean_up_step() -> void:
 	pass
