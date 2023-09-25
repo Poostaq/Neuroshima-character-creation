@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=47 format=2]
 
 [ext_resource path="res://Scripts/AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
@@ -12,6 +12,24 @@
 [ext_resource path="res://Tooltip.gd" type="Script" id=10]
 [ext_resource path="res://Tooltip.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/AttributesPage/AttributeLabel.gd" type="Script" id=12]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka niewybrana.png" type="Texture" id=13]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka wybrana.png" type="Texture" id=14]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane.png" type="Texture" id=15]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/ekran losowania.png" type="Texture" id=16]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem wybrane.png" type="Texture" id=17]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/wyniki rzutów.png" type="Texture" id=18]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/symbol losowania.png" type="Texture" id=19]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/atrybut nieprzydzielony.png" type="Texture" id=20]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/atrybut przydzielony.png" type="Texture" id=21]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/stalowa płyta z kabelkami.png" type="Texture" id=22]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/plusik zgaszony.png" type="Texture" id=23]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/minusik zgaszony.png" type="Texture" id=24]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/minusik zapalony.png" type="Texture" id=25]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/plusik zapalony.png" type="Texture" id=26]
+[ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=27]
+[ext_resource path="res://Resources/AttributesPage/distribution_mode_buttons.tres" type="ButtonGroup" id=28]
+[ext_resource path="res://Resources/AttributesPage/AttributesPageRoll.tres" type="Animation" id=29]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/handle sprite 2.png" type="Texture" id=30]
 
 [sub_resource type="DynamicFont" id=6]
 size = 60
@@ -35,6 +53,47 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=9]
 size = 70
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=17]
+size = 26
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=11]
+size = 21
+outline_color = Color( 0, 0.937255, 0.0823529, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=12]
+size = 18
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 46
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=10]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 48
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 80
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=16]
+size = 28
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=18]
+size = 24
 font_data = ExtResource( 2 )
 
 [node name="AttributesStep" type="Control"]
@@ -87,6 +146,7 @@ tab_container = NodePath("MarginContainer/TabContainer")
 remaining_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer/ValueContainer/Value")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -395,7 +455,6 @@ bbcode_enabled = true
 bbcode_text = "ZRĘCZNOŚĆ"
 text = "ZRĘCZNOŚĆ"
 fit_content_height = true
-script = ExtResource( 12 )
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/AgilityLabel"]
 script = ExtResource( 10 )
@@ -442,8 +501,6 @@ bbcode_enabled = true
 bbcode_text = "PERCEPCJA"
 text = "PERCEPCJA"
 fit_content_height = true
-script = ExtResource( 12 )
-attribute = 1
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/PerceptionLabel"]
 script = ExtResource( 10 )
@@ -489,8 +546,6 @@ bbcode_enabled = true
 bbcode_text = "CHARAKTER"
 text = "CHARAKTER"
 fit_content_height = true
-script = ExtResource( 12 )
-attribute = 2
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/CharacterLabel"]
 script = ExtResource( 10 )
@@ -536,8 +591,6 @@ bbcode_enabled = true
 bbcode_text = "SPRYT"
 text = "SPRYT"
 fit_content_height = true
-script = ExtResource( 12 )
-attribute = 3
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/WitsLabel"]
 script = ExtResource( 10 )
@@ -585,8 +638,6 @@ bbcode_enabled = true
 bbcode_text = "BUDOWA"
 text = "BUDOWA"
 fit_content_height = true
-script = ExtResource( 12 )
-attribute = 4
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/BodyLabel"]
 script = ExtResource( 10 )
@@ -666,7 +717,6 @@ bbcode_enabled = true
 bbcode_text = "ZRĘCZNOŚĆ"
 text = "ZRĘCZNOŚĆ"
 fit_content_height = true
-script = ExtResource( 12 )
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/AgilityLabel"]
 script = ExtResource( 10 )
@@ -737,8 +787,6 @@ bbcode_enabled = true
 bbcode_text = "PERCEPCJA"
 text = "PERCEPCJA"
 fit_content_height = true
-script = ExtResource( 12 )
-attribute = 1
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/PerceptionLabel"]
 script = ExtResource( 10 )
@@ -812,8 +860,6 @@ bbcode_enabled = true
 bbcode_text = "CHARAKTER"
 text = "CHARAKTER"
 fit_content_height = true
-script = ExtResource( 12 )
-attribute = 2
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/CharacterLabel"]
 script = ExtResource( 10 )
@@ -887,8 +933,6 @@ bbcode_enabled = true
 bbcode_text = "SPRYT"
 text = "SPRYT"
 fit_content_height = true
-script = ExtResource( 12 )
-attribute = 3
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/WitsLabel"]
 script = ExtResource( 10 )
@@ -962,8 +1006,6 @@ bbcode_enabled = true
 bbcode_text = "BUDOWA"
 text = "BUDOWA"
 fit_content_height = true
-script = ExtResource( 12 )
-attribute = 4
 
 [node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/BodyLabel"]
 script = ExtResource( 10 )
@@ -1068,15 +1110,1224 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="NewLook" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -458, -29 )
+
+[node name="Background" type="TextureRect" parent="NewLook"]
+anchor_left = 0.0542553
+anchor_top = 0.00604839
+anchor_right = 0.448937
+anchor_bottom = 1.00202
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 22 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RollingButton" type="TextureButton" parent="NewLook/Background"]
+unique_name_in_owner = true
+anchor_left = 0.0381416
+anchor_top = 0.035551
+anchor_right = 0.419557
+anchor_bottom = 0.127122
+toggle_mode = true
+pressed = true
+group = ExtResource( 28 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollingButton"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 17 )
+text = "LOSUJ ATRYBUTY"
+align = 1
+valign = 1
+
+[node name="DistributeButon" type="TextureButton" parent="NewLook/Background"]
+unique_name_in_owner = true
+anchor_left = 0.450888
+anchor_top = 0.0344737
+anchor_right = 0.832303
+anchor_bottom = 0.126044
+toggle_mode = true
+group = ExtResource( 28 )
+texture_normal = ExtResource( 13 )
+texture_pressed = ExtResource( 14 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeButon"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 11 )
+text = "PRZYDZIEL ATRYBUTY"
+align = 1
+valign = 1
+
+[node name="RollAttributesUI" type="Control" parent="NewLook/Background"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureButton" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+anchor_left = -0.0539082
+anchor_top = 0.136639
+anchor_right = 0.283018
+anchor_bottom = 0.339068
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RandomizationFlavour" type="TextureRect" parent="NewLook/Background/RollAttributesUI/TextureButton"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="NewLook/Background/RollAttributesUI/TextureButton/RandomizationFlavour"]
+anchor_left = 0.248945
+anchor_top = 0.164103
+anchor_right = 0.763713
+anchor_bottom = 0.8
+mouse_filter = 2
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/TextureButton/RandomizationFlavour"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 19 )
+text = "LOSUJ"
+align = 1
+valign = 1
+
+[node name="TextureRect" type="TextureRect" parent="NewLook/Background/RollAttributesUI/TextureButton"]
+visible = false
+anchor_left = -0.288
+anchor_top = -0.29
+anchor_right = -0.00399988
+anchor_bottom = 0.767843
+margin_bottom = -25.5685
+texture = ExtResource( 30 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RollHandleAnimator" type="AnimationPlayer" parent="NewLook/Background/RollAttributesUI/TextureButton"]
+unique_name_in_owner = true
+anims/Roll = ExtResource( 29 )
+
+[node name="RollResults" type="TextureRect" parent="NewLook/Background/RollAttributesUI"]
+anchor_left = 0.277628
+anchor_top = 0.135628
+anchor_right = 0.645553
+anchor_bottom = 0.202429
+margin_left = 1.52588e-05
+margin_right = 3.05176e-05
+texture = ExtResource( 18 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="NewLook/Background/RollAttributesUI/RollResults"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 12 )
+text = "WYLOSOWANE WARTOŚCI"
+align = 1
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RollContainer1" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.297844
+anchor_top = 0.204453
+anchor_right = 0.419137
+anchor_bottom = 0.282389
+margin_left = -1.52588e-05
+disabled = true
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 15 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer1"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 13 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RollContainer2" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.425876
+anchor_top = 0.203441
+anchor_right = 0.54717
+anchor_bottom = 0.281377
+disabled = true
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 15 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer2"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 13 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RollContainer3" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.555256
+anchor_top = 0.203441
+anchor_right = 0.67655
+anchor_bottom = 0.281377
+margin_left = -3.05176e-05
+margin_right = -3.05176e-05
+disabled = true
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 15 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer3"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 13 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RollContainer4" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.683288
+anchor_top = 0.202429
+anchor_right = 0.804582
+anchor_bottom = 0.280364
+margin_left = 3.05176e-05
+disabled = true
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 15 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer4"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 13 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RollContainer5" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.814016
+anchor_top = 0.201417
+anchor_right = 0.93531
+anchor_bottom = 0.279352
+disabled = true
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 15 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer5"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 13 )
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AgilityContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.364371
+anchor_right = 0.835578
+anchor_bottom = 0.455464
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/RollAttributesUI/AgilityContainer"]
+anchor_right = 0.754717
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/AgilityContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "ZRĘCZNOŚĆ"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/AgilityContainer"]
+anchor_left = 0.830189
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/AgilityContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 4.0
+margin_top = 2.0
+margin_right = -3.0
+margin_bottom = -3.0
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/AgilityContainer"]
+anchor_left = 1.03774
+anchor_top = 0.222233
+anchor_right = 1.15094
+anchor_bottom = 0.888898
+disabled = true
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 20 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PerceptionContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.495949
+anchor_right = 0.835578
+anchor_bottom = 0.587042
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/RollAttributesUI/PerceptionContainer"]
+anchor_right = 0.754717
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/PerceptionContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "PERCEPCJA"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/PerceptionContainer"]
+anchor_left = 0.830189
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/PerceptionContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 3.99994
+margin_top = 1.0
+margin_right = -3.00006
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+attribute = 1
+
+[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/PerceptionContainer"]
+anchor_left = 1.03774
+anchor_top = 0.222222
+anchor_right = 1.15095
+anchor_bottom = 0.888886
+disabled = true
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 20 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CharacterContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.627528
+anchor_right = 0.835578
+anchor_bottom = 0.718621
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/RollAttributesUI/CharacterContainer"]
+anchor_right = 0.754717
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/CharacterContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "CHARAKTER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/CharacterContainer"]
+anchor_left = 0.830189
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/CharacterContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.99994
+margin_top = -1.0
+margin_right = -4.00006
+margin_bottom = -6.0
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+attribute = 2
+
+[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/CharacterContainer"]
+anchor_left = 1.03774
+anchor_top = 0.222222
+anchor_right = 1.15094
+anchor_bottom = 0.888886
+disabled = true
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 20 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="WitsContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.759106
+anchor_right = 0.835578
+anchor_bottom = 0.850199
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/RollAttributesUI/WitsContainer"]
+anchor_right = 0.754716
+anchor_bottom = 1.00001
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/WitsContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "SPRYT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/WitsContainer"]
+anchor_left = 0.830186
+anchor_top = 2.4414e-05
+anchor_right = 0.999997
+anchor_bottom = 1.00003
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/WitsContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.99994
+margin_top = 1.0
+margin_right = -5.00006
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+attribute = 3
+
+[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/WitsContainer"]
+anchor_left = 1.03774
+anchor_top = 0.222222
+anchor_right = 1.15094
+anchor_bottom = 0.888886
+disabled = true
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 20 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BodyContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121293
+anchor_top = 0.890685
+anchor_right = 0.835578
+anchor_bottom = 0.981778
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/RollAttributesUI/BodyContainer"]
+anchor_right = 0.75473
+anchor_bottom = 1.00001
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/BodyContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "BUDOWA"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/BodyContainer"]
+anchor_left = 0.830202
+anchor_top = 2.4414e-05
+anchor_right = 1.00002
+anchor_bottom = 1.00003
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/BodyContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.99994
+margin_top = 1.0
+margin_right = -4.00006
+margin_bottom = -4.0
+custom_fonts/font = SubResource( 14 )
+text = "0"
+align = 1
+valign = 1
+script = ExtResource( 12 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+attribute = 4
+
+[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/BodyContainer"]
+anchor_left = 1.03773
+anchor_top = 0.222222
+anchor_right = 1.15094
+anchor_bottom = 0.888886
+disabled = true
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 20 )
+texture_hover = ExtResource( 21 )
+texture_disabled = ExtResource( 20 )
+expand = true
+stretch_mode = 4
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DistributeAttributesUI" type="Control" parent="NewLook/Background"]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RemainingPoints" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI"]
+unique_name_in_owner = true
+anchor_left = -0.0539082
+anchor_top = 0.136639
+anchor_right = 0.265499
+anchor_bottom = 0.334008
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/RemainingPoints"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 15 )
+text = "40"
+align = 1
+valign = 1
+
+[node name="Remaining Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/RemainingPoints"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_top = 0.0769226
+anchor_right = 0.999999
+anchor_bottom = 0.343589
+custom_fonts/font = SubResource( 16 )
+text = "POZOSTAŁO"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DistributeAgilityContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.364371
+anchor_right = 0.970349
+anchor_bottom = 0.455464
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+anchor_right = 0.634921
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "ZRĘCZNOŚĆ"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+anchor_left = 0.777778
+anchor_right = 0.920635
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0380954
+anchor_top = 0.0229885
+anchor_right = 0.971428
+anchor_bottom = 0.965517
+custom_fonts/font = SubResource( 14 )
+text = "4"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+anchor_left = 0.68254
+anchor_top = 0.388889
+anchor_right = 0.761905
+anchor_bottom = 0.555556
+disabled = true
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+anchor_left = 0.920635
+anchor_top = 0.222222
+anchor_right = 0.992063
+anchor_bottom = 0.722222
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 26 )
+texture_disabled = ExtResource( 23 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DistributePerceptionContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.495949
+anchor_right = 0.970349
+anchor_bottom = 0.587042
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+anchor_right = 0.634921
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "PERCEPCJA"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+anchor_left = 0.777778
+anchor_right = 0.920635
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0380946
+anchor_top = 0.0114942
+anchor_right = 0.971428
+anchor_bottom = 0.954023
+custom_fonts/font = SubResource( 14 )
+text = "4"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+stat = 1
+
+[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+anchor_left = 0.68254
+anchor_top = 0.388889
+anchor_right = 0.761905
+anchor_bottom = 0.555556
+disabled = true
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+anchor_left = 0.920635
+anchor_top = 0.222222
+anchor_right = 0.992063
+anchor_bottom = 0.722222
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 26 )
+texture_disabled = ExtResource( 23 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DistributeCharacterContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.627528
+anchor_right = 0.970349
+anchor_bottom = 0.718621
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+anchor_right = 0.634921
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "CHARAKTER"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+anchor_left = 0.777778
+anchor_right = 0.920635
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0285708
+anchor_top = -0.0114942
+anchor_right = 0.961904
+anchor_bottom = 0.931035
+custom_fonts/font = SubResource( 14 )
+text = "4"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+stat = 2
+
+[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+anchor_left = 0.68254
+anchor_top = 0.388889
+anchor_right = 0.761905
+anchor_bottom = 0.555556
+disabled = true
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+anchor_left = 0.920635
+anchor_top = 0.222222
+anchor_right = 0.992063
+anchor_bottom = 0.722222
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 26 )
+texture_disabled = ExtResource( 23 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DistributeWitsContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.759106
+anchor_right = 0.835578
+anchor_bottom = 0.850199
+margin_right = 100.0
+margin_bottom = -0.000244141
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer"]
+anchor_right = 0.634921
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "SPRYT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer"]
+anchor_left = 0.777778
+anchor_right = 0.920635
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.019047
+anchor_top = 0.0114942
+anchor_right = 0.95238
+anchor_bottom = 0.954023
+custom_fonts/font = SubResource( 14 )
+text = "4"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+stat = 3
+
+[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer"]
+anchor_left = 0.68254
+anchor_top = 0.388889
+anchor_right = 0.761905
+anchor_bottom = 0.555556
+disabled = true
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer"]
+anchor_left = 0.920635
+anchor_top = 0.222222
+anchor_right = 0.992063
+anchor_bottom = 0.722222
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 26 )
+texture_disabled = ExtResource( 23 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DistributeBodyContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.121294
+anchor_top = 0.890685
+anchor_right = 0.835578
+anchor_bottom = 0.981778
+margin_right = 100.0
+margin_bottom = -0.000244141
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeName" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer"]
+anchor_right = 0.634921
+anchor_bottom = 1.0
+texture = ExtResource( 18 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer/AttributeName"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 10 )
+text = "BUDOWA"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer"]
+anchor_left = 0.777778
+anchor_right = 0.920635
+anchor_bottom = 1.0
+texture = ExtResource( 16 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer/AttributeValue"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0285708
+anchor_top = 0.0114942
+anchor_right = 0.961904
+anchor_bottom = 0.954023
+custom_fonts/font = SubResource( 14 )
+text = "4"
+align = 1
+valign = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+stat = 4
+
+[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer"]
+anchor_left = 0.68254
+anchor_top = 0.388889
+anchor_right = 0.761905
+anchor_bottom = 0.555556
+disabled = true
+texture_normal = ExtResource( 25 )
+texture_pressed = ExtResource( 24 )
+texture_hover = ExtResource( 25 )
+texture_disabled = ExtResource( 24 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer"]
+anchor_left = 0.920635
+anchor_top = 0.222222
+anchor_right = 0.992063
+anchor_bottom = 0.722222
+texture_normal = ExtResource( 26 )
+texture_pressed = ExtResource( 23 )
+texture_hover = ExtResource( 26 )
+texture_disabled = ExtResource( 23 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="NewLook/Background"]
+anchor_left = 1.031
+anchor_top = 0.0323885
+anchor_right = 2.3787
+anchor_bottom = 1.00911
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+texture = ExtResource( 27 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AttributeDescription" type="RichTextLabel" parent="NewLook/Background/TextureRect"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0923318
+anchor_top = 0.14652
+anchor_right = 0.898279
+anchor_bottom = 0.851648
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+custom_fonts/normal_font = SubResource( 18 )
+bbcode_enabled = true
+bbcode_text = "NOT SET"
+text = "NOT SET"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [connection signal="tab_changed" from="MarginContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
 [connection signal="button_up" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton" to="." method="_on_RollButton_button_up"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="send_signal_if_all_attributes_set"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="send_signal_if_all_attributes_set"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="send_signal_if_all_attributes_set"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="send_signal_if_all_attributes_set"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="send_signal_if_all_attributes_set"]
 [connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="save_attributes"]
+[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="send_signal_if_all_attributes_set"]
+[connection signal="toggled" from="NewLook/Background/RollingButton" to="." method="_on_Button_toggled"]
+[connection signal="toggled" from="NewLook/Background/DistributeButon" to="." method="_on_Button_toggled"]
+[connection signal="button_up" from="NewLook/Background/RollAttributesUI/TextureButton" to="." method="on_RollButton_button_up"]
