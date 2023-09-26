@@ -325,7 +325,7 @@ func on_plus_button_up(button : BaseButton) -> void:
 	update_values_on_ui()
 	new_save_attributes()
 	set_distribution_button_states()
-	send_signal_to_main()
+	new_send_signal_to_main()
 
 
 func new_save_attributes() -> void:
@@ -384,6 +384,7 @@ func on_RollButton_button_up():
 		roll.text = "%s" % str(final_values_list[x])
 	for button in roll_containers:
 		button.disabled = false
+	emit_signal("attributes_cleared")
 
 
 func set_distribution_button_states():
@@ -441,6 +442,7 @@ func on_selector_button_up(container):
 		value.text = copied_value
 		copied_value = null
 		set_rolling_button_states()
+		new_send_signal_to_main()
 		status = WAITING_FOR_BUTTON_PRESS
 		return
 	if status == WAITING_FOR_BUTTON_PRESS:
@@ -463,5 +465,22 @@ func on_selector_button_up(container):
 		swapped_node1.text = swapped_node2.text
 		swapped_node2.text = old_value
 		set_rolling_button_states()
+		new_send_signal_to_main()
 		status = WAITING_FOR_BUTTON_PRESS
 		return
+
+func new_send_signal_to_main():
+	if rolling_button.is_pressed():
+		var send_signal = true
+		for value in rolling_container_list:
+			if value.get_node("AttributeValue/Label").text == "0":
+				send_signal = false
+		if send_signal == true:
+			emit_signal("attributes_selected")
+	elif distribute_button.is_pressed():
+		if new_distribution_attribute_value_list[5] == 0:
+			emit_signal("attributes_selected")
+		else:
+			emit_signal("attributes_cleared")
+			
+			
