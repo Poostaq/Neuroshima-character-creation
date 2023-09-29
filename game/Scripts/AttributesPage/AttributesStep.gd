@@ -199,7 +199,8 @@ onready var rolling_button = $"%RollingButton"
 onready var distribute_button = $"%DistributeButon"
 
 onready var distribute_remaining_points = $"%RemainingPoints"
-onready var roll_handle_animator = $"%RollHandleAnimator"
+onready var attribute_description = $"%AttributeDescription"
+onready var attribute_description_name = $"%AttributeDescriptionName"
 
 onready var distribute_agility_container = $"%DistributeAgilityContainer"
 onready var distribute_perception_container = $"%DistributePerceptionContainer"
@@ -219,6 +220,13 @@ onready var roll_container3 = $"%RollContainer3"
 onready var roll_container4 = $"%RollContainer4"
 onready var roll_container5 = $"%RollContainer5"
 
+
+onready var agility_name_container = $"%AgilityNameContainer"
+onready var perception_name_container = $"%PerceptionNameContainer"
+onready var character_name_container = $"%CharacterNameContainer"
+onready var wits_name_container = $"%WitsNameContainer"
+onready var body_name_container = $"%BodyNameContainer"
+
 onready var roll_containers = [roll_container1,roll_container2, roll_container3, roll_container4, roll_container5,]
 
 onready var distribute_container_list = [
@@ -234,22 +242,31 @@ onready var rolling_container_list = [
 	character_container,
 	wits_container,
 	body_container
-]
+	]
 
-onready var new_minus_button_list = [minus_agi_button,
+onready var new_minus_button_list = [
+	minus_agi_button,
 	minus_per_button,
 	minus_cha_button,
 	minus_wit_button,
 	minus_bod_button
 	]
 
-onready var new_plus_button_list = [plus_agi_button,
+onready var new_plus_button_list = [
+	plus_agi_button,
 	plus_per_button,
 	plus_cha_button,
 	plus_wit_button,
 	plus_bod_button
 	]
 
+onready var attribute_name_button_list = [
+	agility_name_container,
+	perception_name_container,
+	character_name_container,
+	wits_name_container,
+	body_name_container
+	]
 
 onready var new_distribution_attribute_value_list = [4,4,4,4,4,40]
 onready var new_rolling_value_list = [0,0,0,0,0,]
@@ -258,16 +275,19 @@ enum {DISTRIBUTING_ROLL, REDISTRIBUTTING_ATTRIBUTE, WAITING_FOR_BUTTON_PRESS}
 var status = WAITING_FOR_BUTTON_PRESS
 
 func _ready() -> void:
-	for container in distribute_container_list:
-		var minus = container.get_node("Minus")
+	for d_container in distribute_container_list:
+		var minus = d_container.get_node("Minus")
 		minus.connect("button_up", self, "on_minus_button_up",[minus])
-		var plus = container.get_node("Plus")
+		var plus = d_container.get_node("Plus")
 		plus.connect("button_up", self, "on_plus_button_up",[plus])
 	for container in rolling_container_list:
 		var selector = container.get_node("Selector")
 		selector.connect("button_up", self, "on_selector_button_up",[container])
 	for button in roll_containers:
 		button.connect("button_up", self, "_on_RollContainer_button_up", [button])
+	for container in attribute_name_button_list:
+		var button = container.get_node("AttributeName")
+		button.connect("toggled", self, "_on_AttributeName_toggled", [container])
 
 func new_load_step() -> void:
 	new_clean_up_step()
@@ -414,10 +434,6 @@ func set_rolling_button_states():
 			selector.disabled = false
 
 
-func _on_Roll_Attributes_pressed():
-	roll_handle_animator.play("Roll")
-
-
 func _on_RollContainer_button_up(sender_button):
 	for container in rolling_container_list:
 		var selector = container.get_node("Selector")
@@ -484,3 +500,13 @@ func new_send_signal_to_main():
 			emit_signal("attributes_cleared")
 			
 			
+
+
+func _on_AttributeName_toggled(button_state: bool, container: Control):
+	if button_state:
+		var index = attribute_name_button_list.find(container)
+		var names_array = DatabaseOperations.read_list_of_attributes_without_any()
+		var description_array = DatabaseOperations.read_list_of_attribute_descriptions_without_any()
+		attribute_description.bbcode_text = description_array[index]
+		attribute_description_name.text = "%s:" % names_array[index]
+
