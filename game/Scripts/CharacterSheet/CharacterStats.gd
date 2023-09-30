@@ -41,7 +41,7 @@ func _init() -> void:
 func get_final_attribute_value(attribute_modifiers: Dictionary) -> int:
 	var result = 0
 	for key in attribute_modifiers:
-		result+=attribute_modifiers[key]
+		result+=int(attribute_modifiers[key])
 	return result
 
 func clear_base_rolls_attributes() -> void:

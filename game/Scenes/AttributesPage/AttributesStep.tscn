@@ -116,43 +116,9 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
-roll_button = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton")
-roll_button_container = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer")
-math1_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult1")
-math2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult2")
-math3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult3")
-math4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult4")
-math5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult5")
-math6_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer/MathResult6")
-roll1_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect/Control/Roll")
-roll2_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2/Control2/Roll")
-roll3_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3/Control3/Roll")
-roll4_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4/Control4/Roll")
-roll5_label = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5/Control5/Roll")
-agility_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue")
-perception_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue")
-character_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue")
-wits_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue")
-body_attribute_val = NodePath("MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue")
-minus_agi_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/AgiMinus")
-minus_per_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/PerMinus")
-minus_cha_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ChaMinus")
-minus_wit_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/WitMinus")
-minus_bod_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/BodMinus")
-plus_agi_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/AgiPlus")
-plus_per_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/PerPlus")
-plus_cha_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ChaPlus")
-plus_wit_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/WitPlus")
-plus_bod_button = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/BodPlus")
-agi_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/ValueContainer/Value")
-per_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/ValueContainer/Value")
-cha_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ValueContainer/Value")
-wit_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/ValueContainer/Value")
-bod_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/ValueContainer/Value")
-tab_container = NodePath("MarginContainer/TabContainer")
-remaining_value_label = NodePath("MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer/ValueContainer/Value")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -1117,7 +1083,6 @@ __meta__ = {
 }
 
 [node name="NewLook" type="Control" parent="."]
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -458, -29 )
