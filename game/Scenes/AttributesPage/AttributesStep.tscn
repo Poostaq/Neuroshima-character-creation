@@ -27,7 +27,6 @@
 [ext_resource path="res://UI_Elements/Attributes/Distribution/minusik zapalony.png" type="Texture" id=25]
 [ext_resource path="res://UI_Elements/Attributes/Distribution/plusik zapalony.png" type="Texture" id=26]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=27]
-[ext_resource path="res://Resources/AttributesPage/distribution_mode_buttons.tres" type="ButtonGroup" id=28]
 [ext_resource path="res://Resources/AttributesPage/attribute_name.tres" type="ButtonGroup" id=29]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/handle sprite 2.png" type="Texture" id=30]
 [ext_resource path="res://UI_Elements/Attributes/Distribution/główna zakładka wybrana.png" type="Texture" id=31]
@@ -56,6 +55,8 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=9]
 size = 70
 font_data = ExtResource( 2 )
+
+[sub_resource type="ButtonGroup" id=21]
 
 [sub_resource type="DynamicFont" id=17]
 size = 26
@@ -1108,7 +1109,7 @@ anchor_right = 0.419557
 anchor_bottom = 0.127122
 toggle_mode = true
 pressed = true
-group = ExtResource( 28 )
+group = SubResource( 21 )
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 14 )
 expand = true
@@ -1132,7 +1133,7 @@ anchor_top = 0.0344737
 anchor_right = 0.832303
 anchor_bottom = 0.126044
 toggle_mode = true
-group = ExtResource( 28 )
+group = SubResource( 21 )
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 14 )
 expand = true
