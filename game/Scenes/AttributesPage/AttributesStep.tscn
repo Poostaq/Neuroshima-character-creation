@@ -2074,8 +2074,8 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 custom_fonts/normal_font = SubResource( 18 )
 bbcode_enabled = true
-bbcode_text = "WCIŚNIJ NAZWĘ ATRYBUTU ABY WYŚWIETLIĆ JEGO OPIS."
-text = "WCIŚNIJ NAZWĘ ATRYBUTU ABY WYŚWIETLIĆ JEGO OPIS."
+bbcode_text = "WCIŚNIJ NAZWĘ WSPÓŁCZYNNIKA ABY WYŚWIETLIĆ JEGO OPIS."
+text = "WCIŚNIJ NAZWĘ WSPÓŁCZYNNIKA ABY WYŚWIETLIĆ JEGO OPIS."
 __meta__ = {
 "_edit_use_anchors_": true
 }
