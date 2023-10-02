@@ -64,8 +64,8 @@ onready var attribute_name_button_list = [
 	body_name_container
 	]
 
-onready var new_distribution_attribute_value_list = [4,4,4,4,4,40]
-onready var new_rolling_value_list = [0,0,0,0,0,]
+onready var distribution_attribute_value_list = [4,4,4,4,4,40]
+onready var rolling_value_list = [0,0,0,0,0,]
 
 enum {DISTRIBUTING_ROLL, REDISTRIBUTTING_ATTRIBUTE, WAITING_FOR_BUTTON_PRESS}
 var status = WAITING_FOR_BUTTON_PRESS
@@ -86,12 +86,12 @@ func _ready() -> void:
 		button.connect("toggled", self, "_on_AttributeName_toggled", [container])
 
 func load_step() -> void:
-	new_clean_up_step()
+	clean_up_step()
 
 
-func new_clean_up_step() -> void:
-	new_distribution_attribute_value_list = [4,4,4,4,4,40]
-	new_rolling_value_list = [0,0,0,0,0,]
+func clean_up_step() -> void:
+	distribution_attribute_value_list = [4,4,4,4,4,40]
+	rolling_value_list = [0,0,0,0,0,]
 	update_values_on_ui()
 	set_rolling_button_states()
 	save_attributes()
@@ -102,10 +102,10 @@ func attribute_value_label(attribute_container_element:Control):
 
 
 func attribute_value_labels_list(containers):
-	var new_list = []
+	var list = []
 	for x in containers:
-		new_list.append(attribute_value_label(x))
-	return new_list
+		list.append(attribute_value_label(x))
+	return list
 
 
 func clear_stats(containers) -> void:
@@ -123,37 +123,37 @@ func _roll_attribute_above_six() -> Array:
 func on_minus_button_up(button : BaseButton) -> void:
 	var value_element = button.get_node("./../AttributeValue/Label") as Label
 	var value = value_element.stat
-	if new_distribution_attribute_value_list[value] > 4:
-		new_distribution_attribute_value_list[value] -= 1
-		new_distribution_attribute_value_list[5] += 1
+	if distribution_attribute_value_list[value] > 4:
+		distribution_attribute_value_list[value] -= 1
+		distribution_attribute_value_list[5] += 1
 	update_values_on_ui()
 	set_distribution_button_states()
 	save_attributes()
-	new_send_signal_to_main()
+	send_signal_to_main()
 	
 func on_plus_button_up(button : BaseButton) -> void:
 	var value_element = button.get_node("./../AttributeValue/Label") as Label
 	var value = value_element.stat
-	if new_distribution_attribute_value_list[value] < 19 and new_distribution_attribute_value_list[5] > 0:
-		new_distribution_attribute_value_list[value] += 1
-		new_distribution_attribute_value_list[5] -= 1
+	if distribution_attribute_value_list[value] < 19 and distribution_attribute_value_list[5] > 0:
+		distribution_attribute_value_list[value] += 1
+		distribution_attribute_value_list[5] -= 1
 	update_values_on_ui()
 	save_attributes()
 	set_distribution_button_states()
-	new_send_signal_to_main()
+	send_signal_to_main()
 
 
 func save_attributes() -> void:
 	var list = []
 	if rolling_button.is_pressed():
-		list = new_rolling_value_list
+		list = rolling_value_list
 	elif distribute_button.is_pressed():
-		list = new_distribution_attribute_value_list.slice(0, 4)
+		list = distribution_attribute_value_list.slice(0, 4)
 	CharacterStats._on_AttributesStep_attributes_chosen(list)
 
 
 func _on_Button_toggled(_button_pressed:bool):
-	new_clean_up_step()
+	clean_up_step()
 	if rolling_button.is_pressed():
 		distribute_attributes_ui.visible = false
 		roll_attributes_ui.visible = true
@@ -167,11 +167,11 @@ func update_values_on_ui():
 	var attribute_list
 	if rolling_button.is_pressed():
 		container_list = rolling_container_list
-		attribute_list = new_rolling_value_list
+		attribute_list = rolling_value_list
 	elif distribute_button.is_pressed():
-		distribute_remaining_points.get_node("Label").text = "%s" % new_distribution_attribute_value_list[5]
+		distribute_remaining_points.get_node("Label").text = "%s" % distribution_attribute_value_list[5]
 		container_list = distribute_container_list
-		attribute_list = new_distribution_attribute_value_list
+		attribute_list = distribution_attribute_value_list
 	for index in range(len(container_list)):
 		var element = attribute_value_label(container_list[index])
 		element.text = "%s" % attribute_list[index]
@@ -179,7 +179,7 @@ func update_values_on_ui():
 
 func on_RollButton_button_up():
 	status = WAITING_FOR_BUTTON_PRESS
-	new_clean_up_step()
+	clean_up_step()
 	var final_values_list = []
 	for x in 6:
 		var result_rolls = _roll_attribute_above_six()
@@ -199,11 +199,11 @@ func set_distribution_button_states():
 	for index in len(distribute_container_list):
 		var minus = distribute_container_list[index].get_node("Minus")
 		var plus = distribute_container_list[index].get_node("Plus")
-		if new_distribution_attribute_value_list[5] == 0 or new_distribution_attribute_value_list[index] == 19:
+		if distribution_attribute_value_list[5] == 0 or distribution_attribute_value_list[index] == 19:
 			plus.disabled = true
 		else:
 			plus.disabled = false
-		if new_distribution_attribute_value_list[index] == 4:
+		if distribution_attribute_value_list[index] == 4:
 			minus.disabled = true
 		else:
 			minus.disabled = false
@@ -238,17 +238,16 @@ func _on_RollContainer_button_up(sender_button):
 func on_selector_button_up(container):
 	if status == DISTRIBUTING_ROLL:
 		var index = rolling_container_list.find(container)
-		# var value = container.get_node("AttributeValue/Label")
 		var copied_value = null
 		for element in roll_containers:
 			if element.disabled == false:
 				copied_value = element.get_node("Label").text
 				element.get_node("Label").text = ""
-		new_rolling_value_list[index] = copied_value
+		rolling_value_list[index] = copied_value
 		copied_value = null
 		update_values_on_ui()
 		set_rolling_button_states()
-		new_send_signal_to_main()
+		send_signal_to_main()
 		save_attributes()
 		status = WAITING_FOR_BUTTON_PRESS
 		return
@@ -268,19 +267,17 @@ func on_selector_button_up(container):
 				origin_container = old_container
 		var swapped_node_index1 = rolling_container_list.find(container)
 		var swapped_node_index2 = rolling_container_list.find(origin_container)
-		# var swapped_node1 = rolling_container_list[].get_node("AttributeValue/Label")
-		# var swapped_node2 = origin_container.get_node("AttributeValue/Label")
-		var old_value = new_rolling_value_list[swapped_node_index1]
-		new_rolling_value_list[swapped_node_index1] = new_rolling_value_list[swapped_node_index2]
-		new_rolling_value_list[swapped_node_index2] = old_value
+		var old_value = rolling_value_list[swapped_node_index1]
+		rolling_value_list[swapped_node_index1] = rolling_value_list[swapped_node_index2]
+		rolling_value_list[swapped_node_index2] = old_value
 		update_values_on_ui()
 		set_rolling_button_states()
-		new_send_signal_to_main()
+		send_signal_to_main()
 		save_attributes()
 		status = WAITING_FOR_BUTTON_PRESS
 		return
 
-func new_send_signal_to_main():
+func send_signal_to_main():
 	if rolling_button.is_pressed():
 		var send_signal = true
 		for value in rolling_container_list:
@@ -289,7 +286,7 @@ func new_send_signal_to_main():
 		if send_signal == true:
 			emit_signal("attributes_selected")
 	elif distribute_button.is_pressed():
-		if new_distribution_attribute_value_list[5] == 0:
+		if distribution_attribute_value_list[5] == 0:
 			emit_signal("attributes_selected")
 		else:
 			emit_signal("attributes_cleared")
