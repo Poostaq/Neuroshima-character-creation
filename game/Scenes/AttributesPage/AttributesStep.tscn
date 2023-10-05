@@ -1119,13 +1119,17 @@ __meta__ = {
 
 [node name="Label" type="Label" parent="NewLook/Background/RollingButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.0636018
+anchor_right = 0.886892
+anchor_bottom = 0.994777
 custom_fonts/font = SubResource( 17 )
 text = "LOSUJ WSPÓŁCZYNNIKI"
 align = 1
 valign = 1
 autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="DistributeButon" type="TextureButton" parent="NewLook/Background"]
 unique_name_in_owner = true
@@ -1232,8 +1236,9 @@ __meta__ = {
 
 [node name="Label2" type="Label" parent="NewLook/Background/RollAttributesUI/RollResults"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_left = 0.0296296
+anchor_right = 0.944443
+anchor_bottom = 1.00001
 custom_fonts/font = SubResource( 12 )
 text = "WYLOSOWANE WARTOŚCI"
 align = 1
@@ -2086,12 +2091,14 @@ anchor_left = 0.121294
 anchor_top = 0.364371
 anchor_right = 0.835578
 anchor_bottom = 0.455464
+margin_right = -130.0
+margin_bottom = -0.000244141
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeName" type="TextureButton" parent="NewLook/Background/AgilityNameContainer"]
-anchor_right = 0.754717
+anchor_right = 1.0
 anchor_bottom = 1.0
 toggle_mode = true
 group = ExtResource( 29 )
@@ -2100,6 +2107,9 @@ texture_pressed = ExtResource( 31 )
 texture_hover = ExtResource( 31 )
 texture_disabled = ExtResource( 32 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="NewLook/Background/AgilityNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -2119,12 +2129,14 @@ anchor_left = 0.121294
 anchor_top = 0.495949
 anchor_right = 0.835578
 anchor_bottom = 0.587042
+margin_right = -130.0
+margin_bottom = -0.000244141
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeName" type="TextureButton" parent="NewLook/Background/PerceptionNameContainer"]
-anchor_right = 0.754717
+anchor_right = 1.0
 anchor_bottom = 1.0
 toggle_mode = true
 group = ExtResource( 29 )
@@ -2133,6 +2145,9 @@ texture_pressed = ExtResource( 31 )
 texture_hover = ExtResource( 31 )
 texture_disabled = ExtResource( 32 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="NewLook/Background/PerceptionNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -2152,12 +2167,14 @@ anchor_left = 0.121294
 anchor_top = 0.627528
 anchor_right = 0.835578
 anchor_bottom = 0.718621
+margin_right = -130.0
+margin_bottom = -0.000244141
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeName" type="TextureButton" parent="NewLook/Background/CharacterNameContainer"]
-anchor_right = 0.754717
+anchor_right = 1.0
 anchor_bottom = 1.0
 toggle_mode = true
 group = ExtResource( 29 )
@@ -2166,6 +2183,9 @@ texture_pressed = ExtResource( 31 )
 texture_hover = ExtResource( 31 )
 texture_disabled = ExtResource( 32 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="NewLook/Background/CharacterNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -2185,12 +2205,14 @@ anchor_left = 0.121294
 anchor_top = 0.759106
 anchor_right = 0.835578
 anchor_bottom = 0.850199
+margin_right = -130.0
+margin_bottom = -0.000244141
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeName" type="TextureButton" parent="NewLook/Background/WitsNameContainer"]
-anchor_right = 0.754716
+anchor_right = 1.0
 anchor_bottom = 1.00001
 toggle_mode = true
 group = ExtResource( 29 )
@@ -2199,6 +2221,9 @@ texture_pressed = ExtResource( 31 )
 texture_hover = ExtResource( 31 )
 texture_disabled = ExtResource( 32 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="NewLook/Background/WitsNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -2218,12 +2243,14 @@ anchor_left = 0.121293
 anchor_top = 0.890685
 anchor_right = 0.835578
 anchor_bottom = 0.981778
+margin_right = -130.001
+margin_bottom = -0.000244141
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeName" type="TextureButton" parent="NewLook/Background/BodyNameContainer"]
-anchor_right = 0.75473
+anchor_right = 1.0
 anchor_bottom = 1.00001
 toggle_mode = true
 group = ExtResource( 29 )
@@ -2232,6 +2259,9 @@ texture_pressed = ExtResource( 31 )
 texture_hover = ExtResource( 31 )
 texture_disabled = ExtResource( 32 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="NewLook/Background/BodyNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )

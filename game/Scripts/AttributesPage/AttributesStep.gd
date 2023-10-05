@@ -39,7 +39,12 @@ onready var character_name_container = $"%CharacterNameContainer"
 onready var wits_name_container = $"%WitsNameContainer"
 onready var body_name_container = $"%BodyNameContainer"
 
-onready var roll_containers = [roll_container1,roll_container2, roll_container3, roll_container4, roll_container5,]
+onready var roll_containers = [
+	roll_container1,
+	roll_container2, 
+	roll_container3,
+	roll_container4, 
+	roll_container5,]
 
 onready var distribute_container_list = [
 	distribute_agility_container, 
@@ -95,6 +100,7 @@ func clean_up_step() -> void:
 	update_values_on_ui()
 	set_rolling_button_states()
 	save_attributes()
+	set_distribution_button_states()
 	emit_signal("attributes_cleared")
 
 func attribute_value_label(attribute_container_element:Control):
