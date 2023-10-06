@@ -1,4 +1,4 @@
-extends RichTextLabel
+extends Label
 
 
 #####################################
@@ -43,8 +43,6 @@ func _process(_delta: float) -> void:
 #####################################
 # API FUNCTIONS
 #####################################
-func get_tooltip_text() -> String:
-	return "%s \n %s" % [bbcode_text, tooltip_text]
 #####################################
 # HELPER FUNCTIONS
 #####################################
