@@ -51,8 +51,8 @@ func _set_image(path) -> void:
 
 func _load_ethnicity(ethnicity) -> void:
 	_set_image("res://Resources/EthnicityPage/splash_art/" + ethnicity["splash_art_name"])
-	ethnicity_name.bbcode_text = "[center]%s[/center]" % ethnicity["ethnicity_name"]
-	ethnicity_description.bbcode_text = "%s" % ethnicity["ethnicity_description"]
+	ethnicity_name.bbcode_text = "[center]%s[/center]" % tr(ethnicity["ethnicity_name"])
+	ethnicity_description.bbcode_text = "%s" % tr(ethnicity["ethnicity_description"])
 	var trait_list = DatabaseOperations.read_traits_for_ethnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
@@ -82,15 +82,15 @@ func _create_trait_list_filler() -> void:
 func _create_trait_button(trait_template, trait_data) -> TextureButton:
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
-	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
-	trait_button.trait_description_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_short_description"]
+	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % tr(trait_data["trait_name"])
+	trait_button.trait_description_label.bbcode_text = "[center]%s[/center]" % tr(trait_data["trait_description"])
 	trait_button.connect("trait_button_pressed",
 		self,
 		"_on_Trait_Button_button_pressed")
 	trait_button.identifier = trait_data["trait_identifier"]
-	trait_button.trait_name = trait_data["trait_name"]
-	trait_button.description = trait_data["trait_short_description"]
-	trait_button.tooltip_text = trait_data["trait_description"]
+	trait_button.trait_name = tr(trait_data["trait_name"])
+	trait_button.description = tr(trait_data["trait_description"])
+	trait_button.tooltip_text = tr(trait_data["trait_description"])
 	trait_button.get_node(".").set_button_group(trait_group)
 	return trait_button
 
@@ -120,7 +120,7 @@ func _fill_attribute_bonus_label() -> void:
 		return
 	attribute_selector.visible = false
 	attribute_bonus_label.visible = true
-	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % current_ethnicity_data["attribute_name"]
+	attribute_bonus_label.bbcode_text = "[right]%s +1[/right]" % tr(current_ethnicity_data["attribute_name"])
 
 func _on_AttributeSelect_item_selected(index) -> void:
 	CharacterStats._on_EthnicityStep_attribute_chosen(index)
@@ -150,10 +150,19 @@ func _on_NextEthnicity_button_up() -> void:
 func _fill_attribute_selector_options() -> void :
 	attribute_selector.clear()
 	for attribute in DatabaseOperations.read_list_of_attributes_without_any():
-		attribute_selector.add_item(attribute)
+		attribute_selector.add_item(tr(attribute))
 
 
 func _changed_ethnicity() -> void:
 	emit_signal("ethnicity_cleared")
 	CharacterStats._on_EthnicityStep_clear_ethnicity()
 	CharacterStats._on_EthnicityStep_clear_bonus_attribute()
+
+
+func _on_Button_button_up():
+	if TranslationServer.get_locale() == "en":
+		print(TranslationServer.get_locale())
+		TranslationServer.set_locale("pl")
+	else:
+		print(TranslationServer.get_locale())
+		TranslationServer.set_locale("en")

@@ -46,6 +46,12 @@ window/stretch/aspect="expand"
 
 enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
 
+[locale]
+
+test="en"
+translations=PoolStringArray( "res://Translation/Ethnicity/ethnicity_description.en.translation", "res://Translation/Ethnicity/ethnicity_description.pl.translation", "res://Translation/Ethnicity/ethnicity_trait_long_description.en.translation", "res://Translation/Ethnicity/ethnicity_trait_long_description.pl.translation", "res://Translation/Ethnicity/ethnicity_trait_names.en.translation", "res://Translation/Ethnicity/ethnicity_trait_names.pl.translation", "res://Translation/Ethnicity/ethnicity_name.en.translation", "res://Translation/Ethnicity/ethnicity_name.pl.translation", "res://Translation/general_strings.en.translation", "res://Translation/general_strings.pl.translation", "res://Translation/Profession/profession_description.en.translation", "res://Translation/Profession/profession_description.pl.translation", "res://Translation/Profession/profession_name.en.translation", "res://Translation/Profession/profession_name.pl.translation", "res://Translation/Profession/profession_quote.en.translation", "res://Translation/Profession/profession_quote.pl.translation", "res://Translation/Profession/profession_trait_long_description.en.translation", "res://Translation/Profession/profession_trait_long_description.pl.translation", "res://Translation/Profession/profession_trait_names.en.translation", "res://Translation/Profession/profession_trait_names.pl.translation", "res://Translation/Profession/profession_trait_short_description.en.translation", "res://Translation/Profession/profession_trait_short_description.pl.translation", "res://Translation/Attributes/attributes_translations.en.translation", "res://Translation/Attributes/attributes_translations.pl.translation" )
+locale_filter=[ 1, [ "en", "pl" ] ]
+
 [logging]
 
 file_logging/max_log_files=8

@@ -25,8 +25,8 @@
 
 [sub_resource type="CanvasItemMaterial" id=1]
 
-[sub_resource type="DynamicFont" id=4]
-size = 20
+[sub_resource type="DynamicFont" id=6]
+size = 26
 font_data = ExtResource( 2 )
 
 [node name="MainScreen" type="Control"]
@@ -331,7 +331,7 @@ material = SubResource( 1 )
 margin_right = 55.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Pochodzenie"
+hint_tooltip = "ethnicity_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 4 )
@@ -345,7 +345,7 @@ margin_left = 75.0
 margin_right = 130.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Profesja"
+hint_tooltip = "profession_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -362,7 +362,7 @@ margin_left = 150.0
 margin_right = 206.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Atrybuty"
+hint_tooltip = "attributes_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -376,7 +376,7 @@ margin_left = 226.0
 margin_right = 281.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Specjalizacja"
+hint_tooltip = "specialization_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -390,7 +390,7 @@ margin_left = 301.0
 margin_right = 357.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Umiejętności"
+hint_tooltip = "skills_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -404,7 +404,7 @@ margin_left = 377.0
 margin_right = 432.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Sztuczki"
+hint_tooltip = "tricks_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -418,7 +418,7 @@ margin_left = 452.0
 margin_right = 507.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Choroba"
+hint_tooltip = "illness_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -432,7 +432,7 @@ margin_left = 527.0
 margin_right = 583.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Reputacja"
+hint_tooltip = "reputation_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -446,7 +446,7 @@ margin_left = 603.0
 margin_right = 658.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Formularz"
+hint_tooltip = "form_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -460,7 +460,7 @@ margin_left = 678.0
 margin_right = 734.0
 margin_bottom = 84.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "Sprzęt"
+hint_tooltip = "equipment_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 5 )
@@ -490,55 +490,37 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 5.28
 
 [node name="CardButton" type="TextureButton" parent="."]
-anchor_top = 0.426
+unique_name_in_owner = true
+anchor_top = 0.397
 anchor_right = 0.049
 anchor_bottom = 0.721
-margin_top = -31.68
-margin_right = -0.175999
+margin_top = -0.505005
+margin_right = -0.17601
 margin_bottom = -0.279999
 texture_normal = ExtResource( 6 )
 texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 9 )
 expand = true
 
-[node name="CharacterCardButton" type="RichTextLabel" parent="CardButton"]
+[node name="CharacterCardButton" type="Label" parent="CardButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 0.62
-anchor_bottom = 1.0
-margin_left = 1.0
-margin_top = 31.6
-margin_right = -10.2205
-margin_bottom = -39.4
-rect_rotation = 0.00157754
+anchor_left = 0.0748173
+anchor_top = 0.014
+anchor_right = 0.46
+anchor_bottom = 0.963288
+margin_left = 36.0
+margin_top = -0.149369
+margin_right = 330.962
+margin_bottom = -295.0
+rect_rotation = 90.0
 mouse_filter = 1
-custom_fonts/normal_font = SubResource( 4 )
-bbcode_enabled = true
-bbcode_text = "[center]K 
-A 
-R 
-T 
-A 
-
-P
-O
-S
-T
-A
-C
-I "
-text = "K 
-A 
-R 
-T 
-A 
-
-P
-O
-S
-T
-A
-C
-I "
+custom_fonts/font = SubResource( 6 )
+text = "character_sheet_button"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="CharacterSheet" parent="." instance=ExtResource( 11 )]
 visible = false
