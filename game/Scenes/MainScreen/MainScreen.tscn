@@ -127,143 +127,143 @@ margin_right = 1873.0
 margin_bottom = 947.0
 
 [node name="Control" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer" index="0"]
-margin_right = 1860.0
-margin_bottom = 103.0
+margin_right = 1853.0
+margin_bottom = 102.0
 
 [node name="Control3" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer3" index="0"]
-margin_right = 735.0
-margin_bottom = 103.0
+margin_right = 732.0
+margin_bottom = 102.0
 
 [node name="TextureRect" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer3" index="1"]
-margin_left = 739.0
-margin_right = 1683.0
-margin_bottom = 103.0
+margin_left = 736.0
+margin_right = 1676.0
+margin_bottom = 102.0
 
 [node name="Control4" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer3" index="2"]
-margin_left = 1687.0
-margin_right = 1860.0
-margin_bottom = 103.0
+margin_left = 1680.0
+margin_right = 1853.0
+margin_bottom = 102.0
 
 [node name="Control" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2" index="0"]
-margin_right = 681.0
-margin_bottom = 103.0
+margin_right = 678.0
+margin_bottom = 102.0
 
 [node name="HBoxContainer" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2" index="1"]
-margin_left = 685.0
-margin_right = 1733.0
-margin_bottom = 103.0
+margin_left = 682.0
+margin_right = 1727.0
+margin_bottom = 102.0
 
 [node name="PreviousSpecialization" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2/HBoxContainer" index="0"]
-margin_right = 104.0
-margin_bottom = 103.0
+margin_right = 103.0
+margin_bottom = 102.0
 
 [node name="VBoxContainer" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2/HBoxContainer" index="1"]
-margin_left = 108.0
-margin_right = 940.0
-margin_bottom = 103.0
+margin_left = 107.0
+margin_right = 937.0
+margin_bottom = 102.0
 
 [node name="Control2" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer" index="0"]
-margin_right = 832.0
+margin_right = 830.0
 margin_bottom = 19.0
 
 [node name="SpecializationName" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer" index="1"]
 margin_top = 23.0
-margin_right = 832.0
-margin_bottom = 79.0
+margin_right = 830.0
+margin_bottom = 78.0
 
 [node name="Control" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer" index="2"]
-margin_top = 83.0
-margin_right = 832.0
-margin_bottom = 103.0
+margin_top = 82.0
+margin_right = 830.0
+margin_bottom = 102.0
 
 [node name="NextSpecialization" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2/HBoxContainer" index="2"]
-margin_left = 944.0
-margin_right = 1048.0
-margin_bottom = 103.0
+margin_left = 941.0
+margin_right = 1045.0
+margin_bottom = 102.0
 
 [node name="Control2" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/Control/HBoxContainer2" index="2"]
-margin_left = 1737.0
-margin_right = 1860.0
-margin_bottom = 103.0
+margin_left = 1731.0
+margin_right = 1853.0
+margin_bottom = 102.0
 
 [node name="HBoxContainer" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer" index="1"]
-margin_top = 107.0
-margin_right = 1860.0
-margin_bottom = 932.0
+margin_top = 106.0
+margin_right = 1853.0
+margin_bottom = 927.0
 
 [node name="Control" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer" index="0"]
 margin_right = 50.0
-margin_bottom = 825.0
+margin_bottom = 821.0
 
 [node name="MarginContainer" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer" index="1"]
 margin_left = 70.0
-margin_right = 576.0
-margin_bottom = 825.0
+margin_right = 573.0
+margin_bottom = 821.0
 
 [node name="TextureRect" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/MarginContainer" index="0"]
-margin_right = 496.0
-margin_bottom = 815.0
+margin_right = 493.0
+margin_bottom = 811.0
 
 [node name="RichTextLabel" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer" index="0"]
-margin_right = 331.0
+margin_right = 329.0
 margin_bottom = 57.0
 
 [node name="HBoxContainer" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer" index="1"]
 margin_top = 61.0
-margin_right = 331.0
-margin_bottom = 635.0
+margin_right = 329.0
+margin_bottom = 632.0
 
 [node name="Control2" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer" index="0"]
-margin_bottom = 574.0
+margin_bottom = 571.0
 
 [node name="TextureRect" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer" index="1"]
-margin_right = 331.0
-margin_bottom = 574.0
+margin_right = 329.0
+margin_bottom = 571.0
 
 [node name="HBoxContainer" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer" index="0"]
-margin_right = 317.0
-margin_bottom = 574.0
+margin_right = 315.0
+margin_bottom = 571.0
 
 [node name="SpecializationSkills" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer" index="0"]
-margin_right = 317.0
-margin_bottom = 574.0
+margin_right = 315.0
+margin_bottom = 571.0
 
 [node name="VBoxContainer" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer" index="2"]
-margin_left = 596.0
-margin_right = 1860.0
-margin_bottom = 825.0
+margin_left = 593.0
+margin_right = 1853.0
+margin_bottom = 821.0
 
 [node name="TextureRect" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/VBoxContainer" index="0"]
-margin_right = 1264.0
-margin_bottom = 825.0
+margin_right = 1260.0
+margin_bottom = 821.0
 
 [node name="Control2" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2" index="0"]
-margin_right = 114.0
-margin_bottom = 825.0
+margin_right = 113.0
+margin_bottom = 821.0
 
 [node name="VBoxContainer" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2" index="1"]
-margin_left = 118.0
-margin_right = 1145.0
-margin_bottom = 825.0
+margin_left = 117.0
+margin_right = 1142.0
+margin_bottom = 821.0
 
 [node name="Control" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer" index="0"]
-margin_right = 1027.0
+margin_right = 1025.0
 margin_bottom = 116.0
 
 [node name="SpecializationDescription" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer" index="1"]
 margin_top = 120.0
-margin_right = 1027.0
-margin_bottom = 704.0
+margin_right = 1025.0
+margin_bottom = 700.0
 
 [node name="Control2" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer" index="2"]
-margin_top = 708.0
-margin_right = 1027.0
-margin_bottom = 825.0
+margin_top = 704.0
+margin_right = 1025.0
+margin_bottom = 821.0
 
 [node name="Control3" parent="CenterContainer/VBoxContainer/StepContainer/SpecializationStep/VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2" index="2"]
-margin_left = 1149.0
-margin_right = 1264.0
-margin_bottom = 825.0
+margin_left = 1146.0
+margin_right = 1260.0
+margin_bottom = 821.0
 
 [node name="SkillPointsStep" parent="CenterContainer/VBoxContainer/StepContainer" instance=ExtResource( 13 )]
 unique_name_in_owner = true

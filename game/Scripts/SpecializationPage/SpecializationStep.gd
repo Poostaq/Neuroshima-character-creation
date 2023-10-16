@@ -54,8 +54,10 @@ func clean_up_step() -> void:
 # HELPER FUNCTIONS
 #####################################
 func _load_specialization(specialization_data) -> void:
-	specialization_name.bbcode_text = "[center]%s[/center]" % specialization_data["specialization_name"]
-	specialization_description.bbcode_text = "%s" % specialization_data["specialization_description"]
+	print(specialization_data["specialization_name"])
+	specialization_name.bbcode_text = "[center]%s[/center]" % tr(specialization_data["specialization_name"])
+	print(specialization_data["specialization_description"])
+	specialization_description.bbcode_text = "%s" % tr(specialization_data["specialization_description"])
 	specialization_skills.bbcode_text = _prepare_specialization_skills(specialization_data["specialization_identifier"])
 
 
