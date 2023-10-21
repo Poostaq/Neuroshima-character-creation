@@ -1,8 +1,10 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane2.png" type="Texture" id=4]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane1.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/AttributesPage/Value.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/AttributesPage/AttributeLabel.gd" type="Script" id=12]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka niewybrana.png" type="Texture" id=13]
@@ -174,41 +176,16 @@ anchor_left = -0.0539082
 anchor_top = 0.136639
 anchor_right = 0.283018
 anchor_bottom = 0.339068
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="RandomizationFlavour" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-texture = ExtResource( 16 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="TextureRect" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton/RandomizationFlavour"]
-anchor_left = 0.248945
-anchor_top = 0.164103
-anchor_right = 0.763713
-anchor_bottom = 0.8
-mouse_filter = 2
-texture = ExtResource( 19 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/TextureButton/RandomizationFlavour"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 19 )
-text = "roll_label"
-align = 1
-valign = 1
 
 [node name="TextureRect" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton"]
 visible = false
@@ -223,6 +200,26 @@ stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="TextureRect2" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton"]
+anchor_left = 0.248945
+anchor_top = 0.164103
+anchor_right = 0.763713
+anchor_bottom = 0.8
+margin_bottom = -1.52588e-05
+mouse_filter = 2
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/TextureButton"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 19 )
+text = "roll_label"
+align = 1
+valign = 1
 
 [node name="RollResults" type="TextureRect" parent="Control/Background/RollAttributesUI"]
 anchor_left = 0.277627
@@ -265,7 +262,6 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -293,7 +289,6 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -323,7 +318,6 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -352,7 +346,6 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -380,7 +373,6 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }

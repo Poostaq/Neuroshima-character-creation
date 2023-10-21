@@ -148,6 +148,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
 [node name="Rules" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 27.0
 margin_right = 353.0
@@ -157,14 +158,8 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 1.2
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
-bbcode_text = "REGUŁY:
-5 punkty = kupno całego pakietu na poziom 1.
-3 punkty = kupno pojedynczej umiejętności na poziom 1.
-N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka poziomów, za każdy z nich płacisz z osobna."
-text = "REGUŁY:
-5 punkty = kupno całego pakietu na poziom 1.
-3 punkty = kupno pojedynczej umiejętności na poziom 1.
-N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka poziomów, za każdy z nich płacisz z osobna."
+bbcode_text = "skill_pack_screen_point_distribution_rules"
+text = "skill_pack_screen_point_distribution_rules"
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -179,7 +174,8 @@ margin_bottom = 547.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
+[node name="SpecializationSkillPointsLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 353.0
 margin_bottom = 123.0
@@ -188,8 +184,8 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 custom_fonts/normal_font = SubResource( 3 )
 bbcode_enabled = true
-bbcode_text = "PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:"
-text = "PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:"
+bbcode_text = "specialization_skill_points_label_text"
+text = "specialization_skill_points_label_text"
 
 [node name="SpecializationSkillPoints" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -217,7 +213,8 @@ margin_bottom = 790.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
+[node name="SkillPointsLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
+unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 353.0
 margin_bottom = 123.0
@@ -226,10 +223,8 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 custom_fonts/normal_font = SubResource( 5 )
 bbcode_enabled = true
-bbcode_text = "PUNKTY DO ROZDANIA NA POZOSTAŁE UMIEJĘTNOŚCI:
-"
-text = "PUNKTY DO ROZDANIA NA POZOSTAŁE UMIEJĘTNOŚCI:
-"
+bbcode_text = "skill_points_label_text"
+text = "skill_points_label_text"
 
 [node name="SkillPoints" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -316,9 +311,10 @@ margin_bottom = 127.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 7 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 2 )
 texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 2 )
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -345,9 +341,10 @@ margin_bottom = 127.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 13 )
-texture_pressed = ExtResource( 11 )
+texture_normal = ExtResource( 11 )
+texture_pressed = ExtResource( 13 )
 texture_hover = ExtResource( 11 )
+texture_disabled = ExtResource( 13 )
 expand = true
 stretch_mode = 5
 __meta__ = {
@@ -372,9 +369,10 @@ margin_right = -0.156006
 margin_bottom = 0.0239868
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 12 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 9 )
 expand = true
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackMinusButton"]
@@ -401,9 +399,10 @@ margin_right = -0.416016
 margin_bottom = 0.0110016
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 12 )
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 9 )
 texture_hover = ExtResource( 12 )
+texture_disabled = ExtResource( 9 )
 expand = true
 
 [node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackPlusButton"]
@@ -919,7 +918,7 @@ margin_bottom = 172.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 9 )
-text = "WYBIERZ UMIEJĘTNOŚĆ"
+text = "select_skill_label"
 autowrap = true
 
 [node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]

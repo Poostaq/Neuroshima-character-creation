@@ -309,9 +309,10 @@ margin_bottom = 84.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 size_flags_stretch_ratio = 4.0
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 3 )
+texture_normal = ExtResource( 3 )
+texture_pressed = ExtResource( 17 )
 texture_hover = ExtResource( 3 )
+texture_disabled = ExtResource( 17 )
 expand = true
 stretch_mode = 5
 
@@ -474,9 +475,10 @@ margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
-texture_normal = ExtResource( 8 )
-texture_pressed = ExtResource( 7 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 8 )
 texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 8 )
 expand = true
 stretch_mode = 5
 
@@ -504,14 +506,14 @@ expand = true
 
 [node name="CharacterCardButton" type="Label" parent="CardButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.0748173
-anchor_top = 0.014
+anchor_left = 0.0748174
+anchor_top = 0.049
 anchor_right = 0.46
-anchor_bottom = 0.963288
+anchor_bottom = 0.912417
 margin_left = 36.0
-margin_top = -0.149369
-margin_right = 330.962
-margin_bottom = -295.0
+margin_top = -0.0777245
+margin_right = 300.962
+margin_bottom = -265.0
 rect_rotation = 90.0
 mouse_filter = 1
 custom_fonts/font = SubResource( 6 )
@@ -538,6 +540,7 @@ margin_right = 812.0
 
 [connection signal="ethnicity_selected" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_enable_next_step"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_enable_next_step"]
+[connection signal="profession_cleared" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_disable_next_step"]
 [connection signal="attributes_cleared" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="." method="_disable_next_step"]
 [connection signal="attributes_selected" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="." method="_enable_next_step"]
 [connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_enable_next_step"]
