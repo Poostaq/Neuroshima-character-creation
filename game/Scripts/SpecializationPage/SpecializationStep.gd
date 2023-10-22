@@ -92,6 +92,7 @@ func _on_SelectedIdentifier_pressed():
 	emit_signal("specialization_chosen")
 	selected_identifier.pressed = true
 	selected_identifier.get_node("Label").text = tr("select_button_selected")
+	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)
 
 func _clear_specialization():
 	load_step()
