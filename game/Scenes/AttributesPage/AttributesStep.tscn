@@ -1,31 +1,27 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Scripts/AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane2.png" type="Texture" id=4]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane1.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/AttributesPage/Value.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/AttributesPage/AttributeLabel.gd" type="Script" id=12]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka niewybrana.png" type="Texture" id=13]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka wybrana.png" type="Texture" id=14]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane.png" type="Texture" id=15]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/ekran losowania.png" type="Texture" id=16]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem wybrane.png" type="Texture" id=17]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/wyniki rzutów.png" type="Texture" id=18]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/symbol losowania.png" type="Texture" id=19]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/atrybut nieprzydzielony.png" type="Texture" id=20]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/atrybut przydzielony.png" type="Texture" id=21]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/stalowa płyta z kabelkami.png" type="Texture" id=22]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/plusik zgaszony.png" type="Texture" id=23]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/minusik zgaszony.png" type="Texture" id=24]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/minusik zapalony.png" type="Texture" id=25]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/plusik zapalony.png" type="Texture" id=26]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/tab_not_selected.png" type="Texture" id=13]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/tab_selected.png" type="Texture" id=14]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_panel_not_selected.png" type="Texture" id=15]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_panel.png" type="Texture" id=16]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_panel_selected.png" type="Texture" id=17]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_art.png" type="Texture" id=19]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/assigning_button_off.png" type="Texture" id=20]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/assigning_button_on.png" type="Texture" id=21]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/metal_plate_with_cables.png" type="Texture" id=22]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/plus_off.png" type="Texture" id=23]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/minus_off.png" type="Texture" id=24]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/minus_on.png" type="Texture" id=25]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/plus_on.png" type="Texture" id=26]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=27]
 [ext_resource path="res://Resources/AttributesPage/attribute_name.tres" type="ButtonGroup" id=29]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/handle sprite 2.png" type="Texture" id=30]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/główna zakładka wybrana.png" type="Texture" id=31]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/główna zakładka niewybrana.png" type="Texture" id=32]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/tab_selected.png" type="Texture" id=31]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/tab_not_selected.png" type="Texture" id=32]
 
 [sub_resource type="ButtonGroup" id=21]
 
@@ -40,10 +36,6 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=19]
 size = 48
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=12]
-size = 22
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=13]
@@ -178,25 +170,11 @@ anchor_right = 0.283018
 anchor_bottom = 0.339068
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 4 )
-texture_disabled = ExtResource( 5 )
+texture_normal = ExtResource( 17 )
+texture_pressed = ExtResource( 15 )
+texture_hover = ExtResource( 17 )
+texture_disabled = ExtResource( 15 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="TextureRect" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton"]
-visible = false
-anchor_left = -0.288
-anchor_top = -0.29
-anchor_right = -0.00399988
-anchor_bottom = 0.767843
-margin_bottom = -25.5685
-texture = ExtResource( 30 )
-expand = true
-stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -217,44 +195,16 @@ modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 19 )
-text = "roll_label"
-align = 1
-valign = 1
-
-[node name="RollResults" type="TextureRect" parent="Control/Background/RollAttributesUI"]
-anchor_left = 0.277627
-anchor_top = 0.135627
-anchor_right = 0.645551
-anchor_bottom = 0.21761
-margin_left = 1.52588e-05
-margin_right = -2.99997
-margin_bottom = 4.0
-texture = ExtResource( 18 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label2" type="Label" parent="Control/Background/RollAttributesUI/RollResults"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.0296296
-anchor_right = 0.944443
-anchor_bottom = 1.00001
-custom_fonts/font = SubResource( 12 )
 text = "rolled_values_label"
 align = 1
 valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="RollContainer1" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.297844
-anchor_top = 0.218623
+anchor_top = 0.194332
 anchor_right = 0.419137
-anchor_bottom = 0.296559
+anchor_bottom = 0.272268
 margin_left = -1.52588e-05
 disabled = true
 texture_normal = ExtResource( 17 )
@@ -280,9 +230,9 @@ __meta__ = {
 [node name="RollContainer2" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.425876
-anchor_top = 0.217611
+anchor_top = 0.19332
 anchor_right = 0.54717
-anchor_bottom = 0.295547
+anchor_bottom = 0.271256
 disabled = true
 texture_normal = ExtResource( 17 )
 texture_pressed = ExtResource( 15 )
@@ -307,9 +257,9 @@ __meta__ = {
 [node name="RollContainer3" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.555256
-anchor_top = 0.217611
+anchor_top = 0.19332
 anchor_right = 0.67655
-anchor_bottom = 0.295547
+anchor_bottom = 0.271256
 margin_left = -3.05176e-05
 margin_right = -3.05176e-05
 disabled = true
@@ -336,9 +286,9 @@ __meta__ = {
 [node name="RollContainer4" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.683288
-anchor_top = 0.216599
+anchor_top = 0.192308
 anchor_right = 0.804582
-anchor_bottom = 0.294534
+anchor_bottom = 0.270243
 margin_left = 3.05176e-05
 disabled = true
 texture_normal = ExtResource( 17 )
@@ -364,9 +314,9 @@ __meta__ = {
 [node name="RollContainer5" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.814016
-anchor_top = 0.215587
+anchor_top = 0.191296
 anchor_right = 0.93531
-anchor_bottom = 0.293522
+anchor_bottom = 0.269231
 disabled = true
 texture_normal = ExtResource( 17 )
 texture_pressed = ExtResource( 15 )
