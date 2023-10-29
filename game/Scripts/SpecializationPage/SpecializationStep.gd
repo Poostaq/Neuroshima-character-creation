@@ -45,6 +45,7 @@ func load_step() -> void:
 	current_specialization = db.read_data_for_specialization(specialization_id)
 	_load_specialization(current_specialization)
 	emit_signal("specialization_cleared")
+	selected_identifier.get_node("Label").text = tr("select_button")
 	selected_identifier.set_pressed(false)
 	
 func clean_up_step() -> void:
@@ -97,5 +98,4 @@ func _on_SelectedIdentifier_pressed():
 func _clear_specialization():
 	load_step()
 	selected_identifier.pressed = false
-	selected_identifier.get_node("Label").text = tr("select_button")
 	CharacterStats.clear_specialization()
