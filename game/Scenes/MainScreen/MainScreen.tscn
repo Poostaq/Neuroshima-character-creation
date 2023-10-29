@@ -538,12 +538,14 @@ margin_bottom = 798.0
 [node name="CharacterCardTexture" parent="CharacterSheet/PanelContainer/MonitorTexture/MarginContainer/ScrollContainer" index="0"]
 margin_right = 812.0
 
+[connection signal="ethnicity_cleared" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_disable_next_step"]
 [connection signal="ethnicity_selected" from="CenterContainer/VBoxContainer/StepContainer/EthnicityStep" to="." method="_enable_next_step"]
 [connection signal="profession_chosen" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_enable_next_step"]
 [connection signal="profession_cleared" from="CenterContainer/VBoxContainer/StepContainer/ProfessionStep" to="." method="_disable_next_step"]
 [connection signal="attributes_cleared" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="." method="_disable_next_step"]
 [connection signal="attributes_selected" from="CenterContainer/VBoxContainer/StepContainer/AttributesStep" to="." method="_enable_next_step"]
 [connection signal="specialization_chosen" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_enable_next_step"]
+[connection signal="specialization_cleared" from="CenterContainer/VBoxContainer/StepContainer/SpecializationStep" to="." method="_disable_next_step"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Back" to="." method="_previous_step"]
 [connection signal="button_up" from="CenterContainer/VBoxContainer/HBoxContainer/Next" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
