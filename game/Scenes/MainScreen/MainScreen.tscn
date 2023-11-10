@@ -19,6 +19,7 @@
 [ext_resource path="res://UI_Elements/previousOriginButtonOff.png" type="Texture" id=17]
 [ext_resource path="res://Scripts/MainScreen/MainScreen.gd" type="Script" id=18]
 
+
 [sub_resource type="ButtonGroup" id=2]
 
 [sub_resource type="ButtonGroup" id=5]
