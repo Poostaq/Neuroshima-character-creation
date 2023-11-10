@@ -9,6 +9,7 @@ export(ButtonGroup) var trait_group
 var ethnicity_list = []
 var current_ethnicity_index = 0
 var current_ethnicity_data = {}
+var selected_ethnicity_data = {}
 
 
 export (NodePath) onready var picture = get_node(picture) as TextureRect
@@ -25,6 +26,7 @@ onready var alternate_trait_button_scene = preload("res://Scenes/EthnicityPage/E
 func _ready() -> void:
 	ethnicity_list = DatabaseOperations.read_ethnicity_identifiers()
 	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
+	trait_group = load("res://Scenes/EthnicityPage/Traits.tres")
 	_fill_attribute_selector_options()
 	load_step()
 
@@ -32,7 +34,6 @@ func _ready() -> void:
 func load_step() -> void:
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_bonus_label()
-	trait_group = load("res://Scenes/EthnicityPage/Traits.tres")
 	yield(get_tree(), "idle_frame")
 	_changed_ethnicity()
 
@@ -53,7 +54,7 @@ func _load_ethnicity(ethnicity) -> void:
 	_set_image("res://Resources/EthnicityPage/splash_art/" + ethnicity["splash_art_name"])
 	ethnicity_name.bbcode_text = "[center]%s[/center]" % tr(ethnicity["ethnicity_name"])
 	ethnicity_description.bbcode_text = "%s" % tr(ethnicity["ethnicity_description"])
-	var trait_list = DatabaseOperations.read_traits_for_ethnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
+	var trait_list = DatabaseOperations.read_traits_for_ethnicity(ethnicity["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
 			trait_container.remove_child(n)
@@ -157,12 +158,3 @@ func _changed_ethnicity() -> void:
 	emit_signal("ethnicity_cleared")
 	CharacterStats._on_EthnicityStep_clear_ethnicity()
 	CharacterStats._on_EthnicityStep_clear_bonus_attribute()
-
-
-func _on_Button_button_up():
-	if TranslationServer.get_locale() == "en":
-		print(TranslationServer.get_locale())
-		TranslationServer.set_locale("pl")
-	else:
-		print(TranslationServer.get_locale())
-		TranslationServer.set_locale("en")

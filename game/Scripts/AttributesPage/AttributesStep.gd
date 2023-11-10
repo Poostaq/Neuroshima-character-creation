@@ -26,25 +26,13 @@ onready var character_container = $"%CharacterContainer"
 onready var wits_container = $"%WitsContainer"
 onready var body_container = $"%BodyContainer"
 
-onready var roll_container1 = $"%RollContainer1"
-onready var roll_container2 = $"%RollContainer2"
-onready var roll_container3 = $"%RollContainer3"
-onready var roll_container4 = $"%RollContainer4"
-onready var roll_container5 = $"%RollContainer5"
-
-
 onready var agility_name_container = $"%AgilityNameContainer"
 onready var perception_name_container = $"%PerceptionNameContainer"
 onready var character_name_container = $"%CharacterNameContainer"
 onready var wits_name_container = $"%WitsNameContainer"
 onready var body_name_container = $"%BodyNameContainer"
 
-onready var roll_containers = [
-	roll_container1,
-	roll_container2, 
-	roll_container3,
-	roll_container4, 
-	roll_container5,]
+### WYWALIĆ ROLL CONTENERY - ROLLOWAĆ PROSTO W ATRYBUTACH, ZOSTAWIĆ ZAMIANĘ DWÓCH ATRYBUTÓW
 
 onready var distribute_container_list = [
 	distribute_agility_container, 
@@ -53,43 +41,40 @@ onready var distribute_container_list = [
 	distribute_wits_container, 
 	distribute_body_container]
 
-onready var rolling_container_list = [
+onready var roll_container_list = [
 	agility_container,
 	perception_container,
 	character_container,
 	wits_container,
-	body_container
-	]
+	body_container]
 
 onready var attribute_name_button_list = [
 	agility_name_container,
 	perception_name_container,
 	character_name_container,
 	wits_name_container,
-	body_name_container
-	]
+	body_name_container]
 
-onready var distribution_attribute_value_list = [4,4,4,4,4,40]
+
+onready var distribution_attribute_value_list = [12,12,12,12,12,0]
 onready var rolling_value_list = [0,0,0,0,0,]
 
 enum {DISTRIBUTING_ROLL, REDISTRIBUTTING_ATTRIBUTE, WAITING_FOR_BUTTON_PRESS}
 var status = WAITING_FOR_BUTTON_PRESS
 
 func _ready() -> void:
-	for d_container in distribute_container_list:
-		var minus = d_container.get_node("Minus")
+	for container in distribute_container_list:
+		var minus = container.get_node("Minus")
 		minus.connect("button_up", self, "on_minus_button_up",[minus])
-		var plus = d_container.get_node("Plus")
+		var plus = container.get_node("Plus")
 		plus.connect("button_up", self, "on_plus_button_up",[plus])
-	for container in rolling_container_list:
+	for container in roll_container_list:
 		var selector = container.get_node("Selector")
 		selector.connect("button_up", self, "on_selector_button_up",[container])
-	for button in roll_containers:
-		button.connect("button_up", self, "_on_RollContainer_button_up", [button])
 	for container in attribute_name_button_list:
 		var button = container.get_node("AttributeName")
 		button.connect("toggled", self, "_on_AttributeName_toggled", [container])
-		var label = button.get_node("Label")
+		var label = container.get_node("AttributeName/Label")
 		label.text = tr(label.text).to_upper()
 
 func load_step() -> void:
@@ -97,14 +82,13 @@ func load_step() -> void:
 
 
 func clean_up_step() -> void:
-	attribute_description.bbcode_text = tr("select_attribute_label")
-	distribution_attribute_value_list = [4,4,4,4,4,40]
+	distribution_attribute_value_list = [12,12,12,12,12,0]
 	rolling_value_list = [0,0,0,0,0,]
 	update_values_on_ui()
 	set_rolling_button_states()
 	save_attributes()
 	set_distribution_button_states()
-	emit_signal("attributes_cleared")
+	emit_signal("attributes_selected")
 
 func attribute_value_label(attribute_container_element:Control):
 	return attribute_container_element.get_node("AttributeValue/Label")
@@ -117,9 +101,9 @@ func attribute_value_labels_list(containers):
 	return list
 
 
-func clear_stats(containers) -> void:
-	for value in attribute_value_labels_list(containers):
-		value.text = "0"
+# func clear_stats(containers) -> void:
+# 	for value in attribute_value_labels_list(containers):
+# 		value.text = "0"
 
 func _roll_attribute_above_six() -> Array:
 	var average = 0
@@ -172,10 +156,11 @@ func _on_Button_toggled(_button_pressed:bool):
 
 
 func update_values_on_ui():
+	attribute_description.bbcode_text = tr("select_attribute_label")
 	var container_list
 	var attribute_list
 	if rolling_button.is_pressed():
-		container_list = rolling_container_list
+		container_list = roll_container_list
 		attribute_list = rolling_value_list
 	elif distribute_button.is_pressed():
 		distribute_remaining_points.get_node("Label").text = "%s" % distribution_attribute_value_list[5]
@@ -196,12 +181,10 @@ func on_RollButton_button_up():
 		final_values_list.append(final_value)
 	var smallest_value_index = final_values_list.find(final_values_list.min())	
 	final_values_list.pop_at(smallest_value_index)
-	for x in range(0, len(final_values_list)):
-		var roll = roll_containers[x].get_node("Label")
-		roll.text = "%s" % str(final_values_list[x])
-	for button in roll_containers:
-		button.disabled = false
-	emit_signal("attributes_cleared")
+	rolling_value_list = final_values_list
+	update_values_on_ui()
+	emit_signal("attributes_selected")
+	set_all_attribute_selectors_active()
 
 
 func set_distribution_button_states():
@@ -218,64 +201,28 @@ func set_distribution_button_states():
 			minus.disabled = false
 
 func set_rolling_button_states():
-	for button in roll_containers:
-		if button.get_node("Label").text != "":
-			button.disabled = false
-		else:
-			button.disabled = true
-	for container in rolling_container_list:
+	for container in roll_container_list:
 		var selector = container.get_node("Selector")
 		if container.get_node("AttributeValue/Label").text == "0":
 			selector.disabled = true
 		else:
 			selector.disabled = false
 
-
-func _on_RollContainer_button_up(sender_button):
-	for container in rolling_container_list:
-		var selector = container.get_node("Selector")
-		if container.get_node("AttributeValue/Label").text == "0":
-			selector.disabled = false
-		else:
-			selector.disabled = true
-	for button in roll_containers:
-		if button != sender_button:
-			button.disabled = true
-	status = DISTRIBUTING_ROLL
 
 
 func on_selector_button_up(container):
-	if status == DISTRIBUTING_ROLL:
-		var index = rolling_container_list.find(container)
-		var copied_value = null
-		for element in roll_containers:
-			if element.disabled == false:
-				copied_value = element.get_node("Label").text
-				element.get_node("Label").text = ""
-		rolling_value_list[index] = copied_value
-		copied_value = null
-		update_values_on_ui()
-		set_rolling_button_states()
-		send_signal_to_main()
-		save_attributes()
-		status = WAITING_FOR_BUTTON_PRESS
-		return
 	if status == WAITING_FOR_BUTTON_PRESS:
-		for button in roll_containers:
-			button.disabled = true
-		for selector_container in rolling_container_list:
-			var selector = selector_container.get_node("Selector")
-			selector.disabled = false
+		set_all_attribute_selectors_active()
 		container.get_node("Selector").disabled = true
 		status = REDISTRIBUTTING_ATTRIBUTE
 		return
 	if status == REDISTRIBUTTING_ATTRIBUTE:
 		var origin_container = null
-		for old_container in rolling_container_list:
+		for old_container in roll_container_list:
 			if old_container.get_node("Selector").disabled == true:
 				origin_container = old_container
-		var swapped_node_index1 = rolling_container_list.find(container)
-		var swapped_node_index2 = rolling_container_list.find(origin_container)
+		var swapped_node_index1 = roll_container_list.find(container)
+		var swapped_node_index2 = roll_container_list.find(origin_container)
 		var old_value = rolling_value_list[swapped_node_index1]
 		rolling_value_list[swapped_node_index1] = rolling_value_list[swapped_node_index2]
 		rolling_value_list[swapped_node_index2] = old_value
@@ -286,11 +233,16 @@ func on_selector_button_up(container):
 		status = WAITING_FOR_BUTTON_PRESS
 		return
 
+func set_all_attribute_selectors_active():
+	for selector_container in roll_container_list:
+		var selector = selector_container.get_node("Selector")
+		selector.disabled = false
+
 func send_signal_to_main():
 	if rolling_button.is_pressed():
 		var send_signal = true
-		for value in rolling_container_list:
-			if value.get_node("AttributeValue/Label").text == "0":
+		for value in roll_container_list:
+			if attribute_value_label(value).text == "0":
 				send_signal = false
 		if send_signal == true:
 			emit_signal("attributes_selected")
@@ -299,8 +251,6 @@ func send_signal_to_main():
 			emit_signal("attributes_selected")
 		else:
 			emit_signal("attributes_cleared")
-			
-			
 
 
 func _on_AttributeName_toggled(button_state: bool, container: Control):

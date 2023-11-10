@@ -533,10 +533,9 @@ electronics_engineer_name,Elektronik,Electronics Engineer
 cat_name,Kot,Cat
 combat_training_name,Wyszkolenie,Combat training
 routine_name,Rutyna,Routine
-roll_attr_button,LOSUJ WSPÓŁCZYNNIKI,ROLL ATTRIBUTES
-distribute_attr_button,PRZYDZIEL WSPÓŁCZYNNIKI,DISTRIBUTE ATTRIBUTES
+roll_attr_button,LOSUJ i PRZYDZIEL WSPÓŁCZYNNIKI,ROLL AND ASSIGN ATTRIBUTES
+distribute_attr_button,ROZDAJ WSPÓŁCZYNNIKI,DISTRIBUTE ATTRIBUTES
 roll_label,LOSUJ,ROLL
-rolled_values_label,WYLOSOWANE WARTOŚCI,ROLL RESULTS
 agility_description,"Jeśli będziesz miał niską Zręczność, nie zdołasz trafić przeciwnika. A wtedy on wyciągnie spluwę i odstrzeli ci łeb. Gdy będziesz miał niską Zręczność, nie otworzysz zamka w drzwiach, ani nie zdołasz przebiec po walącym się murze. Nie uskoczysz przed przewracającym się słupem telegraficznym i nie złapiesz się krawędzi, gdy zawali się podłoga. Przeznacz mało punktów na Zręczność...","If you have low Dexterity, you won't be able to hit the enemy. Then they'll pull out a gun and shoot your head off. If you have low Dexterity, you won't be able to unlock the door, or you won't be able to run across a collapsing wall. You won't be able to dodge a falling telegraph pole, or grab onto the edge when the floor collapses. Invest too few points in Dexterity..."
 perception_description,"Musisz mieć oczy dookoła głowy. Za każdym rogiem czai się śmierć. Mutanci, ghule, gangersi, wszyscy oni tylko czekają na twój błąd. Chwila nieuwagi i obudzisz się z lufą przystawioną do głowy. Weź mało punktów na Percepcję, a nawet nie zauważysz swojej śmierci. Nie będziesz wiedział, kiedy potrącił cię samochód, kiedy ostrze piły tarczowej przetnie powietrze i wbije ci się w bebechy. Ile punktów?","You need to have eyes all around your head. Death is lurking around every corner. Mutants, ghouls, gangers, they're all just waiting for your mistake. A moment of inattention, and you'll wake up with a gun to your head. Invest few points in Perception, and you won't even notice your own death. You won't know when a car runs you over, when a circular saw blade slices through the air and into your guts. How many points?"
 charisma_description,"W dzisiejszych Stanach nie ma miejsca dla mięczaków ani życiowych niedorajd. Trzeba być kimś, by przetrwać każdy kolejny dzień. To, jaki masz Charakter wyjdzie na wierzch bardzo szybko. Wtedy, gdy banda gangerów zechce skroić cię ze sprzętu. Wtedy, kiedy będziesz musiał wydobyć z jakiegoś patafiana ważne informacje. Wtedy, kiedy celującemu prosto w twój łeb facetowi będziesz musiał wyjaśnić, by odłożył spluwę. Albo go przekonasz, albo wyciągniesz kopyta. To jak, ile punktów na Charakter?","In today's United States, there's no place for weaklings or life's losers. You have to be someone to survive each day. Your Charisma will quickly show when a gang of gangers wants to take you apart. When you need to extract important information from some thug. When you have to explain to the guy aiming straight at your head to put down the gun. Either you persuade him or you hoof it. So, how many points for Charisma?"
@@ -795,4 +794,4 @@ N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka 
 3 points = purchase a single skill at level 1.
 N * points = purchase skills at level N. If you want to increase by multiple levels, you pay for each of them separately."
 specialization_skill_points_label_text,PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:,POINTS TO SPEND ON SPECIALIZATION SKILLS:
-skill_points_label_text,PUNKTY DO ROZDANIA NA POZOSTAŁE UMIEJĘTNOŚCI:,POINTS TO SPEND ON OTHER SKILLS:
+skill_points_label_text,PUNKTY DO ROZDANIA NA WSZYSTKIE UMIEJĘTNOŚCI:,POINTS TO SPEND ON ANY SKILLS:
