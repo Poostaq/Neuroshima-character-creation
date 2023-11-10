@@ -164,7 +164,4 @@ func _fill_attribute_selector_options() -> void :
 func _changed_ethnicity() -> void:
 	emit_signal("ethnicity_cleared")
 	CharacterStats._on_EthnicityStep_clear_ethnicity()
-<<<<<<< HEAD
-	CharacterStats._on_EthnicityStep_clear_bonus_attribute()
-=======
 	CharacterStats._on_EthnicityStep_clear_bonus_attribute()
