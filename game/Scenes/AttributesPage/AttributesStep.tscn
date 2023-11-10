@@ -1,16 +1,11 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://Scripts/AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://Scripts/AttributesPage/Draggable.gd" type="Script" id=4]
-[ext_resource path="res://UI_Elements/OLD/Buttons/skilSelected.png" type="Texture" id=5]
-[ext_resource path="res://Scripts/AttributesPage/Droppable.gd" type="Script" id=6]
-[ext_resource path="res://Fonts/FONT.tres" type="DynamicFont" id=7]
-[ext_resource path="res://UI_Elements/OLD/Buttons/skillReady.png" type="Texture" id=8]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane2.png" type="Texture" id=4]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane1.png" type="Texture" id=5]
 [ext_resource path="res://Scripts/AttributesPage/Value.gd" type="Script" id=9]
-[ext_resource path="res://Tooltip.gd" type="Script" id=10]
-[ext_resource path="res://Tooltip.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scripts/AttributesPage/AttributeLabel.gd" type="Script" id=12]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka niewybrana.png" type="Texture" id=13]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka wybrana.png" type="Texture" id=14]
@@ -31,30 +26,6 @@
 [ext_resource path="res://UI_Elements/Attributes/Randomized/handle sprite 2.png" type="Texture" id=30]
 [ext_resource path="res://UI_Elements/Attributes/Distribution/główna zakładka wybrana.png" type="Texture" id=31]
 [ext_resource path="res://UI_Elements/Attributes/Distribution/główna zakładka niewybrana.png" type="Texture" id=32]
-
-[sub_resource type="DynamicFont" id=6]
-size = 60
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=7]
-size = 60
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=1]
-size = 30
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=8]
-size = 70
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 48
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=9]
-size = 70
-font_data = ExtResource( 2 )
 
 [sub_resource type="ButtonGroup" id=21]
 
@@ -117,977 +88,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 15.0
-margin_top = 15.0
-margin_right = -15.0
-margin_bottom = -15.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="TabContainer" type="TabContainer" parent="MarginContainer"]
-margin_right = 1850.0
-margin_bottom = 962.0
-tab_align = 0
-
-[node name="RZUCANIE KOŚĆMI" type="Tabs" parent="MarginContainer/TabContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 34.0
-margin_right = -4.0
-margin_bottom = -4.0
-mouse_filter = 1
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RollContainers" type="VBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer"]
-margin_right = 917.0
-margin_bottom = 924.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 10.0
-
-[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
-margin_right = 917.0
-margin_bottom = 22.0
-
-[node name="RollButton" type="Button" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer"]
-margin_right = 917.0
-margin_bottom = 22.0
-text = "RZUĆ KOŚĆMI"
-align = 0
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
-margin_top = 26.0
-margin_right = 917.0
-margin_bottom = 622.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 4.0
-
-[node name="MathResult1" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 27.0
-margin_right = 917.0
-margin_bottom = 68.0
-focus_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/normal_font = ExtResource( 7 )
-bbcode_enabled = true
-fit_content_height = true
-selection_enabled = true
-
-[node name="MathResult2" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 127.0
-margin_right = 917.0
-margin_bottom = 168.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/normal_font = ExtResource( 7 )
-bbcode_enabled = true
-fit_content_height = true
-
-[node name="MathResult3" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 227.0
-margin_right = 917.0
-margin_bottom = 268.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/normal_font = ExtResource( 7 )
-bbcode_enabled = true
-fit_content_height = true
-
-[node name="MathResult4" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 327.0
-margin_right = 917.0
-margin_bottom = 368.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/normal_font = ExtResource( 7 )
-bbcode_enabled = true
-fit_content_height = true
-
-[node name="MathResult5" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 427.0
-margin_right = 917.0
-margin_bottom = 468.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/normal_font = ExtResource( 7 )
-bbcode_enabled = true
-fit_content_height = true
-
-[node name="MathResult6" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/VBoxContainer"]
-margin_top = 527.0
-margin_right = 917.0
-margin_bottom = 568.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-custom_fonts/normal_font = ExtResource( 7 )
-bbcode_enabled = true
-fit_content_height = true
-
-[node name="RollsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers"]
-margin_top = 626.0
-margin_right = 917.0
-margin_bottom = 924.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.0
-
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_top = 140.0
-margin_right = 207.0
-margin_bottom = 157.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 1.5
-bbcode_enabled = true
-bbcode_text = "REZULTATY:"
-text = "REZULTATY:"
-fit_content_height = true
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 211.0
-margin_top = 99.0
-margin_right = 349.0
-margin_bottom = 199.0
-rect_min_size = Vector2( 0, 100 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-texture = ExtResource( 8 )
-expand = true
-
-[node name="Control" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -1.0
-
-[node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-mouse_default_cursor_shape = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
-align = 1
-valign = 1
-script = ExtResource( 4 )
-
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 353.0
-margin_top = 99.0
-margin_right = 491.0
-margin_bottom = 199.0
-rect_min_size = Vector2( 0, 100 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-texture = ExtResource( 8 )
-expand = true
-
-[node name="Control2" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_bottom = -1.0
-
-[node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect2/Control2"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
-align = 1
-valign = 1
-script = ExtResource( 4 )
-
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 495.0
-margin_top = 99.0
-margin_right = 633.0
-margin_bottom = 199.0
-rect_min_size = Vector2( 0, 100 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-texture = ExtResource( 8 )
-expand = true
-
-[node name="Control3" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 1.0
-
-[node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect3/Control3"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
-align = 1
-valign = 1
-script = ExtResource( 4 )
-
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 637.0
-margin_top = 99.0
-margin_right = 775.0
-margin_bottom = 199.0
-rect_min_size = Vector2( 0, 100 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-texture = ExtResource( 8 )
-expand = true
-
-[node name="Control4" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = 1.0
-
-[node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect4/Control4"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
-align = 1
-valign = 1
-script = ExtResource( 4 )
-
-[node name="TextureRect5" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer"]
-margin_left = 779.0
-margin_top = 99.0
-margin_right = 917.0
-margin_bottom = 199.0
-rect_min_size = Vector2( 0, 100 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-texture = ExtResource( 8 )
-expand = true
-
-[node name="Control5" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 2.0
-margin_top = 1.0
-margin_right = 2.0
-
-[node name="Roll" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/RollsContainer/TextureRect5/Control5"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-focus_mode = 2
-mouse_filter = 1
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 7 )
-align = 1
-valign = 1
-script = ExtResource( 4 )
-
-[node name="Control" type="Control" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer"]
-margin_left = 921.0
-margin_right = 1012.0
-margin_bottom = 924.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="AttributesContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer"]
-margin_left = 1016.0
-margin_right = 1842.0
-margin_bottom = 924.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 9.0
-
-[node name="AgilityContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
-margin_right = 826.0
-margin_bottom = 181.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="AgilityLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_top = 75.0
-margin_right = 616.0
-margin_bottom = 106.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "ZRĘCZNOŚĆ"
-text = "ZRĘCZNOŚĆ"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/AgilityLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_left = 620.0
-margin_right = 826.0
-margin_bottom = 181.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 5 )
-expand = true
-
-[node name="AgilityValue" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect" groups=["Droppable"]]
-anchor_left = 0.0242718
-anchor_top = 0.0220994
-anchor_right = 0.985437
-anchor_bottom = 0.983425
-mouse_filter = 0
-size_flags_horizontal = 5
-custom_fonts/font = SubResource( 8 )
-align = 1
-valign = 1
-script = ExtResource( 6 )
-
-[node name="PerceptionContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
-margin_top = 185.0
-margin_right = 826.0
-margin_bottom = 367.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PerceptionLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_top = 75.0
-margin_right = 616.0
-margin_bottom = 106.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "PERCEPCJA"
-text = "PERCEPCJA"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/PerceptionLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_left = 620.0
-margin_right = 826.0
-margin_bottom = 182.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 5 )
-expand = true
-
-[node name="PerceptionValue" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2" groups=["Droppable"]]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
-align = 1
-valign = 1
-script = ExtResource( 6 )
-
-[node name="CharacterContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
-margin_top = 371.0
-margin_right = 826.0
-margin_bottom = 552.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_top = 75.0
-margin_right = 616.0
-margin_bottom = 106.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "CHARAKTER"
-text = "CHARAKTER"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/CharacterLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="TextureRect2" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_left = 620.0
-margin_right = 826.0
-margin_bottom = 181.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 5 )
-expand = true
-
-[node name="CharacterValue" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2" groups=["Droppable"]]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
-align = 1
-valign = 1
-script = ExtResource( 6 )
-
-[node name="WitsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
-margin_top = 556.0
-margin_right = 826.0
-margin_bottom = 738.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="WitsLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_top = 75.0
-margin_right = 616.0
-margin_bottom = 106.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "SPRYT"
-text = "SPRYT"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/WitsLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="TextureRect3" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_left = 620.0
-margin_right = 826.0
-margin_bottom = 182.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 5 )
-expand = true
-
-[node name="WitsValue" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3" groups=["Droppable"]]
-anchor_left = 0.0145631
-anchor_top = 0.0164835
-anchor_right = 0.980583
-anchor_bottom = 0.994505
-mouse_filter = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
-align = 1
-valign = 1
-script = ExtResource( 6 )
-
-[node name="BodyContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer"]
-margin_top = 742.0
-margin_right = 826.0
-margin_bottom = 924.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="BodyLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_top = 75.0
-margin_right = 616.0
-margin_bottom = 106.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "BUDOWA"
-text = "BUDOWA"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/BodyLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="TextureRect4" type="TextureRect" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_left = 620.0
-margin_right = 826.0
-margin_bottom = 182.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 5 )
-expand = true
-
-[node name="BodyValue" type="Label" parent="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4" groups=["Droppable"]]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 8 )
-align = 1
-valign = 1
-script = ExtResource( 6 )
-
-[node name="USTAWIANIE ATRYBUTÓW RĘCZNIE" type="Tabs" parent="MarginContainer/TabContainer"]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 4.0
-margin_top = 34.0
-margin_right = -4.0
-margin_bottom = -4.0
-mouse_filter = 2
-
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer"]
-margin_right = 1842.0
-margin_bottom = 766.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 5.0
-
-[node name="Control" type="Control" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
-margin_right = 166.0
-margin_bottom = 766.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="AttributesContainer" type="VBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
-margin_left = 170.0
-margin_right = 1671.0
-margin_bottom = 766.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 9.0
-
-[node name="AgilityContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_right = 1501.0
-margin_bottom = 150.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="AgilityLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_top = 59.0
-margin_right = 1089.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "ZRĘCZNOŚĆ"
-text = "ZRĘCZNOŚĆ"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/AgilityLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="AgiMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_left = 1093.0
-margin_top = 48.0
-margin_right = 1202.0
-margin_bottom = 101.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "-"
-
-[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_left = 1206.0
-margin_right = 1388.0
-margin_bottom = 150.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-texture = ExtResource( 5 )
-expand = true
-
-[node name="Value" type="Label" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer/ValueContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 5
-custom_fonts/font = SubResource( 9 )
-text = "4"
-align = 1
-valign = 1
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="AgiPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/AgilityContainer"]
-margin_left = 1392.0
-margin_top = 48.0
-margin_right = 1501.0
-margin_bottom = 101.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "+"
-
-[node name="PerceptionContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_top = 154.0
-margin_right = 1501.0
-margin_bottom = 304.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="PerceptionLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_top = 59.0
-margin_right = 1089.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "PERCEPCJA"
-text = "PERCEPCJA"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/PerceptionLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="PerMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_left = 1093.0
-margin_top = 48.0
-margin_right = 1202.0
-margin_bottom = 101.0
-rect_pivot_offset = Vector2( -1047, 53 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "-"
-
-[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_left = 1206.0
-margin_right = 1388.0
-margin_bottom = 150.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-texture = ExtResource( 5 )
-expand = true
-
-[node name="Value" type="Label" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer/ValueContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-text = "4"
-align = 1
-valign = 1
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-stat = 1
-
-[node name="PerPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/PerceptionContainer"]
-margin_left = 1392.0
-margin_top = 48.0
-margin_right = 1501.0
-margin_bottom = 101.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "+"
-
-[node name="CharacterContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_top = 308.0
-margin_right = 1501.0
-margin_bottom = 458.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="CharacterLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_top = 59.0
-margin_right = 1089.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "CHARAKTER"
-text = "CHARAKTER"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/CharacterLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="ChaMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_left = 1093.0
-margin_top = 48.0
-margin_right = 1202.0
-margin_bottom = 101.0
-rect_pivot_offset = Vector2( -1047, 53 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "-"
-
-[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_left = 1206.0
-margin_right = 1388.0
-margin_bottom = 150.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-texture = ExtResource( 5 )
-expand = true
-
-[node name="Value" type="Label" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer/ValueContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-text = "4"
-align = 1
-valign = 1
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-stat = 2
-
-[node name="ChaPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/CharacterContainer"]
-margin_left = 1392.0
-margin_top = 48.0
-margin_right = 1501.0
-margin_bottom = 101.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "+"
-
-[node name="WitsContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_top = 462.0
-margin_right = 1501.0
-margin_bottom = 612.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="WitsLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_top = 59.0
-margin_right = 1089.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "SPRYT"
-text = "SPRYT"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/WitsLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="WitMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_left = 1093.0
-margin_top = 48.0
-margin_right = 1202.0
-margin_bottom = 101.0
-rect_pivot_offset = Vector2( -1047, 53 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "-"
-
-[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_left = 1206.0
-margin_right = 1388.0
-margin_bottom = 150.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-texture = ExtResource( 5 )
-expand = true
-
-[node name="Value" type="Label" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer/ValueContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-text = "4"
-align = 1
-valign = 1
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-stat = 3
-
-[node name="WitPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/WitsContainer"]
-margin_left = 1392.0
-margin_top = 48.0
-margin_right = 1501.0
-margin_bottom = 101.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "+"
-
-[node name="BodyContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer"]
-margin_top = 616.0
-margin_right = 1501.0
-margin_bottom = 766.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="BodyLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_top = 59.0
-margin_right = 1089.0
-margin_bottom = 90.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 3.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "BUDOWA"
-text = "BUDOWA"
-fit_content_height = true
-
-[node name="Tooltip" type="Node" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/BodyLabel"]
-script = ExtResource( 10 )
-visuals_res = ExtResource( 11 )
-owner_path = NodePath("..")
-
-[node name="BodMinus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_left = 1093.0
-margin_top = 48.0
-margin_right = 1202.0
-margin_bottom = 101.0
-rect_pivot_offset = Vector2( -1047, 53 )
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "-"
-
-[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_left = 1206.0
-margin_right = 1388.0
-margin_bottom = 150.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.5
-texture = ExtResource( 5 )
-expand = true
-
-[node name="Value" type="Label" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer/ValueContainer"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-text = "4"
-align = 1
-valign = 1
-script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-stat = 4
-
-[node name="BodPlus" type="Button" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer/AttributesContainer/BodyContainer"]
-margin_left = 1392.0
-margin_top = 48.0
-margin_right = 1501.0
-margin_bottom = 101.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 0.3
-custom_fonts/font = SubResource( 5 )
-text = "+"
-
-[node name="Control2" type="Control" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/HBoxContainer"]
-margin_left = 1675.0
-margin_right = 1842.0
-margin_bottom = 766.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RemainingContainer" type="HBoxContainer" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer"]
-margin_top = 770.0
-margin_right = 1842.0
-margin_bottom = 924.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="RemainingLabel" type="RichTextLabel" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer"]
-margin_top = 61.0
-margin_right = 1608.0
-margin_bottom = 92.0
-size_flags_horizontal = 3
-size_flags_vertical = 6
-size_flags_stretch_ratio = 7.0
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[right]POZOSTAŁO"
-text = "POZOSTAŁO"
-fit_content_height = true
-
-[node name="ValueContainer" type="TextureRect" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer"]
-margin_left = 1612.0
-margin_right = 1842.0
-margin_bottom = 154.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture = ExtResource( 5 )
-expand = true
-
-[node name="Value" type="Label" parent="MarginContainer/TabContainer/USTAWIANIE ATRYBUTÓW RĘCZNIE/VBoxContainer/RemainingContainer/ValueContainer" groups=["Droppable"]]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/font = SubResource( 9 )
-text = "40"
-align = 1
-valign = 1
-script = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="NewLook" type="Control" parent="."]
+[node name="Control" type="Control" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( -458, -29 )
 
-[node name="Background" type="TextureRect" parent="NewLook"]
+[node name="Background" type="TextureRect" parent="Control"]
 anchor_left = 0.0542553
 anchor_top = 0.00604839
 anchor_right = 0.448937
@@ -1101,7 +107,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RollingButton" type="TextureButton" parent="NewLook/Background"]
+[node name="RollingButton" type="TextureButton" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.0381416
 anchor_top = 0.035551
@@ -1117,13 +123,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollingButton"]
+[node name="Label" type="Label" parent="Control/Background/RollingButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0636018
 anchor_right = 0.886892
 anchor_bottom = 0.994777
 custom_fonts/font = SubResource( 17 )
-text = "LOSUJ WSPÓŁCZYNNIKI"
+text = "roll_attr_button"
 align = 1
 valign = 1
 autowrap = true
@@ -1131,7 +137,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DistributeButon" type="TextureButton" parent="NewLook/Background"]
+[node name="DistributeButon" type="TextureButton" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.450888
 anchor_top = 0.0344737
@@ -1146,17 +152,17 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/DistributeButon"]
+[node name="Label" type="Label" parent="Control/Background/DistributeButon"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 11 )
-text = "PRZYDZIEL WSPÓŁCZYNNIKI"
+text = "distribute_attr_button"
 align = 1
 valign = 1
 autowrap = true
 
-[node name="RollAttributesUI" type="Control" parent="NewLook/Background"]
+[node name="RollAttributesUI" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1165,48 +171,23 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureButton" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+[node name="TextureButton" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 anchor_left = -0.0539082
 anchor_top = 0.136639
 anchor_right = 0.283018
 anchor_bottom = 0.339068
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="RandomizationFlavour" type="TextureRect" parent="NewLook/Background/RollAttributesUI/TextureButton"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-mouse_filter = 2
-texture = ExtResource( 16 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
+texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="NewLook/Background/RollAttributesUI/TextureButton/RandomizationFlavour"]
-anchor_left = 0.248945
-anchor_top = 0.164103
-anchor_right = 0.763713
-anchor_bottom = 0.8
-mouse_filter = 2
-texture = ExtResource( 19 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/TextureButton/RandomizationFlavour"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 19 )
-text = "LOSUJ"
-align = 1
-valign = 1
-
-[node name="TextureRect" type="TextureRect" parent="NewLook/Background/RollAttributesUI/TextureButton"]
+[node name="TextureRect" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton"]
 visible = false
 anchor_left = -0.288
 anchor_top = -0.29
@@ -1220,7 +201,27 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RollResults" type="TextureRect" parent="NewLook/Background/RollAttributesUI"]
+[node name="TextureRect2" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton"]
+anchor_left = 0.248945
+anchor_top = 0.164103
+anchor_right = 0.763713
+anchor_bottom = 0.8
+margin_bottom = -1.52588e-05
+mouse_filter = 2
+texture = ExtResource( 19 )
+expand = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/TextureButton"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = SubResource( 19 )
+text = "roll_label"
+align = 1
+valign = 1
+
+[node name="RollResults" type="TextureRect" parent="Control/Background/RollAttributesUI"]
 anchor_left = 0.277627
 anchor_top = 0.135627
 anchor_right = 0.645551
@@ -1234,13 +235,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="NewLook/Background/RollAttributesUI/RollResults"]
+[node name="Label2" type="Label" parent="Control/Background/RollAttributesUI/RollResults"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0296296
 anchor_right = 0.944443
 anchor_bottom = 1.00001
 custom_fonts/font = SubResource( 12 )
-text = "WYLOSOWANE WARTOŚCI"
+text = "rolled_values_label"
 align = 1
 valign = 1
 autowrap = true
@@ -1248,7 +249,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RollContainer1" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+[node name="RollContainer1" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.297844
 anchor_top = 0.218623
@@ -1261,12 +262,11 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer1"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer1"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1277,7 +277,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RollContainer2" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+[node name="RollContainer2" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.425876
 anchor_top = 0.217611
@@ -1289,12 +289,11 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer2"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1305,7 +304,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RollContainer3" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+[node name="RollContainer3" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.555256
 anchor_top = 0.217611
@@ -1319,12 +318,11 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer3"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer3"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1335,7 +333,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RollContainer4" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+[node name="RollContainer4" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.683288
 anchor_top = 0.216599
@@ -1348,12 +346,11 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer4"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer4"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1364,7 +361,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RollContainer5" type="TextureButton" parent="NewLook/Background/RollAttributesUI"]
+[node name="RollContainer5" type="TextureButton" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.814016
 anchor_top = 0.215587
@@ -1376,12 +373,11 @@ texture_pressed = ExtResource( 15 )
 texture_hover = ExtResource( 17 )
 texture_disabled = ExtResource( 15 )
 expand = true
-stretch_mode = 4
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/RollContainer5"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer5"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1392,7 +388,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AgilityContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+[node name="AgilityContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.364371
@@ -1402,7 +398,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/AgilityContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/AgilityContainer"]
 anchor_left = 0.830189
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1412,7 +408,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/AgilityContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/AgilityContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1429,7 +425,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/AgilityContainer"]
+[node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/AgilityContainer"]
 anchor_left = 1.03774
 anchor_top = 0.222233
 anchor_right = 1.15094
@@ -1445,7 +441,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="PerceptionContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+[node name="PerceptionContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.495949
@@ -1455,7 +451,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/PerceptionContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/PerceptionContainer"]
 anchor_left = 0.830189
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1465,7 +461,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/PerceptionContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/PerceptionContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1483,7 +479,7 @@ __meta__ = {
 }
 attribute = 1
 
-[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/PerceptionContainer"]
+[node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/PerceptionContainer"]
 anchor_left = 1.03774
 anchor_top = 0.222222
 anchor_right = 1.15095
@@ -1499,7 +495,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="CharacterContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+[node name="CharacterContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.627528
@@ -1509,7 +505,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/CharacterContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/CharacterContainer"]
 anchor_left = 0.830189
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1519,7 +515,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/CharacterContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/CharacterContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1537,7 +533,7 @@ __meta__ = {
 }
 attribute = 2
 
-[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/CharacterContainer"]
+[node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/CharacterContainer"]
 anchor_left = 1.03774
 anchor_top = 0.222222
 anchor_right = 1.15094
@@ -1553,7 +549,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="WitsContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+[node name="WitsContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.759106
@@ -1563,7 +559,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/WitsContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/WitsContainer"]
 anchor_left = 0.830186
 anchor_top = 2.4414e-05
 anchor_right = 0.999997
@@ -1574,7 +570,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/WitsContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/WitsContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1592,7 +588,7 @@ __meta__ = {
 }
 attribute = 3
 
-[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/WitsContainer"]
+[node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/WitsContainer"]
 anchor_left = 1.03774
 anchor_top = 0.222222
 anchor_right = 1.15094
@@ -1608,7 +604,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="BodyContainer" type="Control" parent="NewLook/Background/RollAttributesUI"]
+[node name="BodyContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121293
 anchor_top = 0.890685
@@ -1618,7 +614,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/RollAttributesUI/BodyContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/BodyContainer"]
 anchor_left = 0.830202
 anchor_top = 2.4414e-05
 anchor_right = 1.00002
@@ -1629,7 +625,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/RollAttributesUI/BodyContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/BodyContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1647,7 +643,7 @@ __meta__ = {
 }
 attribute = 4
 
-[node name="Selector" type="TextureButton" parent="NewLook/Background/RollAttributesUI/BodyContainer"]
+[node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/BodyContainer"]
 anchor_left = 1.03773
 anchor_top = 0.222222
 anchor_right = 1.15094
@@ -1663,7 +659,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DistributeAttributesUI" type="Control" parent="NewLook/Background"]
+[node name="DistributeAttributesUI" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 visible = false
 anchor_right = 1.0
@@ -1673,7 +669,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RemainingPoints" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI"]
+[node name="RemainingPoints" type="TextureRect" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = -0.0539082
 anchor_top = 0.136639
@@ -1686,7 +682,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/RemainingPoints"]
+[node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/RemainingPoints"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -1695,20 +691,20 @@ text = "40"
 align = 1
 valign = 1
 
-[node name="Remaining Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/RemainingPoints"]
+[node name="Remaining Label" type="Label" parent="Control/Background/DistributeAttributesUI/RemainingPoints"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_top = 0.0769226
 anchor_right = 0.999999
 anchor_bottom = 0.343589
 custom_fonts/font = SubResource( 16 )
-text = "POZOSTAŁO"
+text = "remaining_label"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DistributeAgilityContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+[node name="DistributeAgilityContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.364371
@@ -1718,7 +714,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
 anchor_left = 0.777778
 anchor_right = 0.920635
 anchor_bottom = 1.0
@@ -1729,7 +725,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0380954
 anchor_top = 0.0229885
@@ -1744,7 +740,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
 anchor_left = 0.68254
 anchor_top = 0.388889
 anchor_right = 0.761905
@@ -1759,7 +755,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
 anchor_left = 0.920635
 anchor_top = 0.222222
 anchor_right = 0.992063
@@ -1773,7 +769,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DistributePerceptionContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+[node name="DistributePerceptionContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.495949
@@ -1783,7 +779,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
 anchor_left = 0.777778
 anchor_right = 0.920635
 anchor_bottom = 1.0
@@ -1794,7 +790,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0380946
 anchor_top = 0.0114942
@@ -1810,7 +806,7 @@ __meta__ = {
 }
 stat = 1
 
-[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
 anchor_left = 0.68254
 anchor_top = 0.388889
 anchor_right = 0.761905
@@ -1825,7 +821,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
 anchor_left = 0.920635
 anchor_top = 0.222222
 anchor_right = 0.992063
@@ -1839,7 +835,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DistributeCharacterContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+[node name="DistributeCharacterContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.627528
@@ -1849,7 +845,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
 anchor_left = 0.777778
 anchor_right = 0.920635
 anchor_bottom = 1.0
@@ -1860,7 +856,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0285708
 anchor_top = -0.0114942
@@ -1876,7 +872,7 @@ __meta__ = {
 }
 stat = 2
 
-[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
 anchor_left = 0.68254
 anchor_top = 0.388889
 anchor_right = 0.761905
@@ -1891,7 +887,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
 anchor_left = 0.920635
 anchor_top = 0.222222
 anchor_right = 0.992063
@@ -1905,7 +901,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DistributeWitsContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+[node name="DistributeWitsContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.759106
@@ -1917,7 +913,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
 anchor_left = 0.777778
 anchor_right = 0.920635
 anchor_bottom = 1.0
@@ -1928,7 +924,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.019047
 anchor_top = 0.0114942
@@ -1944,7 +940,7 @@ __meta__ = {
 }
 stat = 3
 
-[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer"]
+[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
 anchor_left = 0.68254
 anchor_top = 0.388889
 anchor_right = 0.761905
@@ -1959,7 +955,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeWitsContainer"]
+[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
 anchor_left = 0.920635
 anchor_top = 0.222222
 anchor_right = 0.992063
@@ -1973,7 +969,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DistributeBodyContainer" type="Control" parent="NewLook/Background/DistributeAttributesUI"]
+[node name="DistributeBodyContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.890685
@@ -1985,7 +981,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeValue" type="TextureRect" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer"]
+[node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
 anchor_left = 0.777778
 anchor_right = 0.920635
 anchor_bottom = 1.0
@@ -1996,7 +992,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer/AttributeValue"]
+[node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer/AttributeValue"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0285708
 anchor_top = 0.0114942
@@ -2012,7 +1008,7 @@ __meta__ = {
 }
 stat = 4
 
-[node name="Minus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer"]
+[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
 anchor_left = 0.68254
 anchor_top = 0.388889
 anchor_right = 0.761905
@@ -2027,7 +1023,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="NewLook/Background/DistributeAttributesUI/DistributeBodyContainer"]
+[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
 anchor_left = 0.920635
 anchor_top = 0.222222
 anchor_right = 0.992063
@@ -2041,7 +1037,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="NewLook/Background"]
+[node name="TextureRect" type="TextureRect" parent="Control/Background"]
 anchor_left = 1.031
 anchor_top = 0.0323885
 anchor_right = 2.3787
@@ -2055,7 +1051,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeDescriptionName" type="Label" parent="NewLook/Background/TextureRect"]
+[node name="AttributeDescriptionName" type="Label" parent="Control/Background/TextureRect"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0890004
@@ -2067,7 +1063,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeDescription" type="RichTextLabel" parent="NewLook/Background/TextureRect"]
+[node name="AttributeDescription" type="RichTextLabel" parent="Control/Background/TextureRect"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0920004
@@ -2079,13 +1075,13 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 custom_fonts/normal_font = SubResource( 18 )
 bbcode_enabled = true
-bbcode_text = "WCIŚNIJ NAZWĘ WSPÓŁCZYNNIKA ABY WYŚWIETLIĆ JEGO OPIS."
-text = "WCIŚNIJ NAZWĘ WSPÓŁCZYNNIKA ABY WYŚWIETLIĆ JEGO OPIS."
+bbcode_text = "select_attribute_label"
+text = "select_attribute_label"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AgilityNameContainer" type="Control" parent="NewLook/Background"]
+[node name="AgilityNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.364371
@@ -2097,7 +1093,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeName" type="TextureButton" parent="NewLook/Background/AgilityNameContainer"]
+[node name="AttributeName" type="TextureButton" parent="Control/Background/AgilityNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 toggle_mode = true
@@ -2111,19 +1107,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/AgilityNameContainer/AttributeName"]
+[node name="Label" type="Label" parent="Control/Background/AgilityNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
-text = "ZRĘCZNOŚĆ"
+text = "agi_name"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="PerceptionNameContainer" type="Control" parent="NewLook/Background"]
+[node name="PerceptionNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.495949
@@ -2135,7 +1131,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeName" type="TextureButton" parent="NewLook/Background/PerceptionNameContainer"]
+[node name="AttributeName" type="TextureButton" parent="Control/Background/PerceptionNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 toggle_mode = true
@@ -2149,19 +1145,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/PerceptionNameContainer/AttributeName"]
+[node name="Label" type="Label" parent="Control/Background/PerceptionNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
-text = "PERCEPCJA"
+text = "per_name"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="CharacterNameContainer" type="Control" parent="NewLook/Background"]
+[node name="CharacterNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.627528
@@ -2173,7 +1169,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeName" type="TextureButton" parent="NewLook/Background/CharacterNameContainer"]
+[node name="AttributeName" type="TextureButton" parent="Control/Background/CharacterNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 toggle_mode = true
@@ -2187,19 +1183,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/CharacterNameContainer/AttributeName"]
+[node name="Label" type="Label" parent="Control/Background/CharacterNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
-text = "CHARAKTER"
+text = "cha_name"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="WitsNameContainer" type="Control" parent="NewLook/Background"]
+[node name="WitsNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
 anchor_top = 0.759106
@@ -2211,7 +1207,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeName" type="TextureButton" parent="NewLook/Background/WitsNameContainer"]
+[node name="AttributeName" type="TextureButton" parent="Control/Background/WitsNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.00001
 toggle_mode = true
@@ -2225,19 +1221,19 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/WitsNameContainer/AttributeName"]
+[node name="Label" type="Label" parent="Control/Background/WitsNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
-text = "SPRYT"
+text = "wit_name"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="BodyNameContainer" type="Control" parent="NewLook/Background"]
+[node name="BodyNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121293
 anchor_top = 0.890685
@@ -2249,7 +1245,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AttributeName" type="TextureButton" parent="NewLook/Background/BodyNameContainer"]
+[node name="AttributeName" type="TextureButton" parent="Control/Background/BodyNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.00001
 toggle_mode = true
@@ -2263,30 +1259,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="NewLook/Background/BodyNameContainer/AttributeName"]
+[node name="Label" type="Label" parent="Control/Background/BodyNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
-text = "BUDOWA"
+text = "bod_name"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="tab_changed" from="MarginContainer/TabContainer" to="." method="_on_TabContainer_tab_changed"]
-[connection signal="button_up" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/RollContainers/MarginContainer/RollButton" to="." method="_on_RollButton_button_up"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/AgilityContainer/TextureRect/AgilityValue" to="." method="send_signal_if_all_attributes_set"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/PerceptionContainer/TextureRect2/PerceptionValue" to="." method="send_signal_if_all_attributes_set"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/CharacterContainer/TextureRect2/CharacterValue" to="." method="send_signal_if_all_attributes_set"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/WitsContainer/TextureRect3/WitsValue" to="." method="send_signal_if_all_attributes_set"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="save_attributes"]
-[connection signal="dropped_data" from="MarginContainer/TabContainer/RZUCANIE KOŚĆMI/HBoxContainer/AttributesContainer/BodyContainer/TextureRect4/BodyValue" to="." method="send_signal_if_all_attributes_set"]
-[connection signal="toggled" from="NewLook/Background/RollingButton" to="." method="_on_Button_toggled"]
-[connection signal="toggled" from="NewLook/Background/DistributeButon" to="." method="_on_Button_toggled"]
-[connection signal="button_up" from="NewLook/Background/RollAttributesUI/TextureButton" to="." method="on_RollButton_button_up"]
+[connection signal="toggled" from="Control/Background/RollingButton" to="." method="_on_Button_toggled"]
+[connection signal="toggled" from="Control/Background/DistributeButon" to="." method="_on_Button_toggled"]
+[connection signal="button_up" from="Control/Background/RollAttributesUI/TextureButton" to="." method="on_RollButton_button_up"]

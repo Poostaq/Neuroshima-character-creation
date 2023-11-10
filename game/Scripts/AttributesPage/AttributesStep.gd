@@ -89,12 +89,15 @@ func _ready() -> void:
 	for container in attribute_name_button_list:
 		var button = container.get_node("AttributeName")
 		button.connect("toggled", self, "_on_AttributeName_toggled", [container])
+		var label = button.get_node("Label")
+		label.text = tr(label.text).to_upper()
 
 func load_step() -> void:
 	clean_up_step()
 
 
 func clean_up_step() -> void:
+	attribute_description.bbcode_text = tr("select_attribute_label")
 	distribution_attribute_value_list = [4,4,4,4,4,40]
 	rolling_value_list = [0,0,0,0,0,]
 	update_values_on_ui()
@@ -304,7 +307,8 @@ func _on_AttributeName_toggled(button_state: bool, container: Control):
 	if button_state:
 		var index = attribute_name_button_list.find(container)
 		var names_array = DatabaseOperations.read_list_of_attributes_without_any()
+		print(names_array)
 		var description_array = DatabaseOperations.read_list_of_attribute_descriptions_without_any()
-		attribute_description.bbcode_text = description_array[index]
-		attribute_description_name.text = "%s:" % names_array[index]
+		attribute_description.bbcode_text = tr(description_array[index])
+		attribute_description_name.text = "%s:" % tr(names_array[index])
 

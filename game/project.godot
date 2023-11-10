@@ -46,6 +46,12 @@ window/stretch/aspect="expand"
 
 enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
 
+[locale]
+
+test="en"
+translations=PoolStringArray( "res://Translation/translation_strings.en.translation", "res://Translation/translation_strings.pl.translation" )
+locale_filter=[ 1, [ "en", "pl" ] ]
+
 [logging]
 
 file_logging/max_log_files=8

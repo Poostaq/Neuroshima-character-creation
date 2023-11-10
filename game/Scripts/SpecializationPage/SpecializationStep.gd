@@ -54,8 +54,10 @@ func clean_up_step() -> void:
 # HELPER FUNCTIONS
 #####################################
 func _load_specialization(specialization_data) -> void:
-	specialization_name.bbcode_text = "[center]%s[/center]" % specialization_data["specialization_name"]
-	specialization_description.bbcode_text = "%s" % specialization_data["specialization_description"]
+	print(specialization_data["specialization_name"])
+	specialization_name.bbcode_text = "[center]%s[/center]" % tr(specialization_data["specialization_name"])
+	print(specialization_data["specialization_description"])
+	specialization_description.bbcode_text = "%s" % tr(specialization_data["specialization_description"])
 	specialization_skills.bbcode_text = _prepare_specialization_skills(specialization_data["specialization_identifier"])
 
 
@@ -64,10 +66,10 @@ func _prepare_specialization_skills(specialization_data: String) -> String:
 	var bbcode = ""
 	for x in specialization_packs_list:
 		var skill_pack = x["skill_pack_identifier"]
-		bbcode += ("Paczka %s \n" % x["skill_pack_name"])
+		bbcode += ("%s %s \n" % [tr("pack_label"), tr(x["skill_pack_name"])])
 		var skills = db.read_skills_for_package(skill_pack)
 		for y in skills:
-			bbcode += ("- %s \n" % y["skill_name"])
+			bbcode += ("- %s \n" % tr(y["skill_name"]))
 		bbcode+= "\n"
 	return bbcode
 
@@ -77,20 +79,23 @@ func _on_PreviousSpecialization_button_up() -> void:
 		_current_specialization_index = len(_specialization_list)-1
 	else:
 		_current_specialization_index -= 1
-	load_step()
-	selected_identifier.pressed = false
-	CharacterStats.clear_specialization()
+	_clear_specialization()
 
 func _on_NextSpecialization_button_up() -> void:
 	if _current_specialization_index == len(_specialization_list)-1:
 		_current_specialization_index = 0
 	else:
 		_current_specialization_index += 1
-	load_step()
-	selected_identifier.pressed = false
-	CharacterStats.clear_specialization()
+	_clear_specialization()
 
 func _on_SelectedIdentifier_pressed():
 	emit_signal("specialization_chosen")
 	selected_identifier.pressed = true
+	selected_identifier.get_node("Label").text = tr("select_button_selected")
 	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)
+
+func _clear_specialization():
+	load_step()
+	selected_identifier.pressed = false
+	selected_identifier.get_node("Label").text = tr("select_button")
+	CharacterStats.clear_specialization()

@@ -113,9 +113,10 @@ margin_bottom = 109.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 10 )
-texture_pressed = ExtResource( 7 )
+texture_normal = ExtResource( 7 )
+texture_pressed = ExtResource( 10 )
 texture_hover = ExtResource( 7 )
+texture_disabled = ExtResource( 10 )
 expand = true
 stretch_mode = 5
 
@@ -129,17 +130,17 @@ size_flags_stretch_ratio = 8.0
 
 [node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
 margin_right = 841.0
-margin_bottom = 20.0
+margin_bottom = 18.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.35
+size_flags_stretch_ratio = 0.3
 
 [node name="SpecializationName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 24.0
+margin_top = 22.0
 margin_right = 841.0
-margin_bottom = 84.0
+margin_bottom = 86.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
@@ -148,12 +149,12 @@ bbcode_text = "[center]NOT SET[/center]"
 text = "NOT SET"
 
 [node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
-margin_top = 88.0
+margin_top = 90.0
 margin_right = 841.0
 margin_bottom = 109.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.35
+size_flags_stretch_ratio = 0.3
 
 [node name="NextSpecialization" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 margin_left = 954.0
@@ -162,9 +163,10 @@ margin_bottom = 109.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 12 )
-texture_pressed = ExtResource( 9 )
+texture_normal = ExtResource( 9 )
+texture_pressed = ExtResource( 12 )
 texture_hover = ExtResource( 9 )
+texture_disabled = ExtResource( 12 )
 expand = true
 stretch_mode = 5
 
@@ -229,7 +231,7 @@ margin_bottom = 61.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_fonts/font = SubResource( 5 )
-text = "Umiejętności specjalizacji:"
+text = "skills_list_label"
 align = 1
 valign = 1
 
@@ -374,7 +376,7 @@ modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 6 )
-text = "WYBIERZ"
+text = "select_button"
 align = 1
 valign = 1
 __meta__ = {

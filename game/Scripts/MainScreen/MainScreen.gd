@@ -129,5 +129,3 @@ func _enable_next_step() -> void:
 
 func _disable_next_step() -> void:
 	next_step.disabled = true
-
-
