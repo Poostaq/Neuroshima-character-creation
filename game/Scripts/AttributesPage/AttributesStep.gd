@@ -32,7 +32,6 @@ onready var character_name_container = $"%CharacterNameContainer"
 onready var wits_name_container = $"%WitsNameContainer"
 onready var body_name_container = $"%BodyNameContainer"
 
-### WYWALIĆ ROLL CONTENERY - ROLLOWAĆ PROSTO W ATRYBUTACH, ZOSTAWIĆ ZAMIANĘ DWÓCH ATRYBUTÓW
 
 onready var distribute_container_list = [
 	distribute_agility_container, 
@@ -106,10 +105,6 @@ func attribute_value_labels_list(containers):
 	return list
 
 
-# func clear_stats(containers) -> void:
-# 	for value in attribute_value_labels_list(containers):
-# 		value.text = "0"
-
 func _roll_attribute_above_six() -> Array:
 	var average = 0
 	var results = []
@@ -117,6 +112,7 @@ func _roll_attribute_above_six() -> Array:
 		results = Dices.roll_dice(3, 20)
 		average = ceil((results[0]+results[1]+results[2])/3.0)
 	return results
+
 
 func on_minus_button_up(button : BaseButton) -> void:
 	var value_element = button.get_node("./../AttributeValue/Label") as Label
@@ -213,7 +209,6 @@ func set_rolling_button_states():
 			selector.disabled = false
 
 
-
 func on_selector_button_up(container):
 	if status == WAITING_FOR_BUTTON_PRESS:
 		set_all_attribute_selectors_active()
@@ -237,10 +232,12 @@ func on_selector_button_up(container):
 		status = WAITING_FOR_BUTTON_PRESS
 		return
 
+
 func set_all_attribute_selectors_active():
 	for selector_container in roll_container_list:
 		var selector = selector_container.get_node("Selector")
 		selector.disabled = false
+
 
 func send_signal_to_main():
 	if rolling_button.is_pressed():
