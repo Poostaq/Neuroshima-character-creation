@@ -9,8 +9,7 @@ export(ButtonGroup) var trait_group
 var ethnicity_list = []
 var current_ethnicity_index = 0
 var current_ethnicity_data = {}
-var selected_ethnicity_data = {}
-
+export var ethnicity_selected = false
 
 export (NodePath) onready var picture = get_node(picture) as TextureRect
 export (NodePath) onready var ethnicity_name = get_node(ethnicity_name) as RichTextLabel
@@ -34,12 +33,11 @@ func _ready() -> void:
 func load_step() -> void:
 	_load_ethnicity(current_ethnicity_data)
 	_fill_attribute_bonus_label()
-	yield(get_tree(), "idle_frame")
-	_changed_ethnicity()
 
 
 func clean_up_step() -> void:
-	_changed_ethnicity()
+	if ethnicity_selected:
+		emit_signal("ethnicity_selected")
 
 
 func _set_image(path) -> void:
@@ -106,6 +104,7 @@ func _on_Trait_Button_button_pressed(button) -> void:
 	CharacterStats._on_EthnicityStep_ethnicity_chosen(current_ethnicity_data)
 	CharacterStats._on_EthnicityStep_attribute_chosen(bonus_attribute)
 	CharacterStats._on_EthnicityStep_trait_chosen(button)
+	ethnicity_selected = true
 	emit_signal("ethnicity_selected")
 	
 func _get_bonus_attribute() -> int:
@@ -162,6 +161,7 @@ func _fill_attribute_selector_options() -> void :
 
 
 func _changed_ethnicity() -> void:
+	ethnicity_selected = false
 	emit_signal("ethnicity_cleared")
 	CharacterStats._on_EthnicityStep_clear_ethnicity()
 	CharacterStats._on_EthnicityStep_clear_bonus_attribute()

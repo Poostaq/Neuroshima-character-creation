@@ -30,7 +30,6 @@ func _ready():
 func load_step() -> void:
 	_load_profession(profession)
 	trait_group = load("res://Scenes/ProfessionPage/Traits.tres")
-	_changed_profession()
 
 
 func clean_up_step() -> void:

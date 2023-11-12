@@ -286,6 +286,15 @@ func update_card() -> void:
 	self._update_skill_levels()
 
 
+func _update_attribute_values(attributeEnum) -> void:
+	if attributeEnum == GlobalConstants.attribute.ANY:
+		return
+	var value = CharacterStats.get_final_attribute_value(CharacterStats.attribute_modifiers_dicts[attributeEnum])
+	CharacterStats.attribute_values_list[attributeEnum] = value
+	attribute_value_elements[attributeEnum].text ="%s" %  value
+	_fill_attribute_modifiers(value, attribute_modifiers_elements[attributeEnum])
+
+
 func _update_basic_info_values() -> void:
 	ethnicity_element.text = CharacterStats.ethnicity
 	ethnicity_trait_element.text = CharacterStats.ethnicity_trait
@@ -294,13 +303,12 @@ func _update_basic_info_values() -> void:
 	specialization_element.text = CharacterStats.specialization
 
 
-func _update_attribute_values(attributeEnum) -> void:
-	if attributeEnum == GlobalConstants.attribute.ANY:
-		return
-	var value = CharacterStats.get_final_attribute_value(CharacterStats.attribute_modifiers_dicts[attributeEnum])
-	CharacterStats.attribute_values_list[attributeEnum] = value
-	attribute_value_elements[attributeEnum].text ="%s" %  value
-	_fill_attribute_modifiers(value, attribute_modifiers_elements[attributeEnum])
+func _update_skill_levels() -> void:
+	for skill in CharacterStats.skill_levels:
+		if skills_labels.has(skill):
+			skills_labels[skill].text = str(CharacterStats.skill_levels[skill])
+	for index in range(0,3):
+		general_knowledge_name_labels[index].text = CharacterStats.general_knowledge_names[index]
 
 
 func _fill_attribute_modifiers(attribute_value: int, attr_mod_elements: Array) -> void:
@@ -318,12 +326,3 @@ func _return_modifier_value_or_n(value: int) -> String:
 func _on_CloseButton_button_up() -> void:
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
-
-
-func _update_skill_levels() -> void:
-	for skill in CharacterStats.skill_levels:
-		if skills_labels.has(skill):
-			skills_labels[skill].text = str(CharacterStats.skill_levels[skill])
-	for index in range(0,3):
-		general_knowledge_name_labels[index].text = CharacterStats.general_knowledge_names[index]
-

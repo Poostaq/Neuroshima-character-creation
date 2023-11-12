@@ -78,10 +78,15 @@ func _ready() -> void:
 		label.text = tr(label.text).to_upper()
 
 func load_step() -> void:
-	clean_up_step()
+	attribute_description.bbcode_text = tr("select_attribute_label")
+	attribute_description_name.text = ""
+	save_attributes()
+	if distribution_attribute_value_list[5] == 0:
+		emit_signal("attributes_selected")
 
 
 func clean_up_step() -> void:
+	CharacterStats.clear_base_rolls_attributes()
 	distribution_attribute_value_list = [12,12,12,12,12,0]
 	rolling_value_list = [0,0,0,0,0,]
 	update_values_on_ui()
@@ -156,7 +161,6 @@ func _on_Button_toggled(_button_pressed:bool):
 
 
 func update_values_on_ui():
-	attribute_description.bbcode_text = tr("select_attribute_label")
 	var container_list
 	var attribute_list
 	if rolling_button.is_pressed():
