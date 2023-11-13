@@ -32,7 +32,7 @@ onready var gear_indicator = $"%GearIndicator"
 
 
 
-var current_step = 0
+export var current_step = 0
 onready var steps = [
 					ethnicity_step,
 					profession_step,
@@ -71,38 +71,30 @@ func _on_CardButton_button_up() -> void:
 func _next_step() -> void:
 	if steps[current_step] == attributes_step:
 		attributes_step.save_attributes()
-	if current_step == len(steps)-2:
-		next_step.disabled = true
+	next_step.disabled = true
 	current_step += 1
 	back_step.disabled = false
 	steps[current_step].load_step()
 	_turn_on_step_indicators()
-	_turn_off_screens()
+	_show_current_screen()
 	character_sheet_panel.update_card()
 	
 	
 func _previous_step() -> void:
 	steps[current_step].clean_up_step()
-	if steps[current_step] == attributes_step:
-		CharacterStats.clear_base_rolls_attributes()
-	if steps[current_step] == specialization_step:
-		CharacterStats.clear_specialization()
-	if steps[current_step] == skill_points_step:
-		CharacterStats.restore_initial_skill_levels()
-		skill_points_step.reset_skill_point_pools()
+	next_step.disabled = false
 	if current_step == 1:
 		back_step.disabled = true
 	if current_step == 0:
 		print("CANT GO BACK")
 	else:
 		current_step -= 1
-	_disable_next_step()
-	steps[current_step].load_step()
 	_turn_off_step_indicators()
-	_turn_off_screens()
+	_show_current_screen()
+	character_sheet_panel.update_card()
 
 
-func _turn_off_screens() -> void:
+func _show_current_screen() -> void:
 	for s in range(0, steps.size()):
 		if s == current_step:
 			steps[s].visible = true

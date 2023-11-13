@@ -228,7 +228,7 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
 texture = ExtResource( 1 )
 expand = true
-stretch_mode = 6
+stretch_mode = 1
 
 [node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )

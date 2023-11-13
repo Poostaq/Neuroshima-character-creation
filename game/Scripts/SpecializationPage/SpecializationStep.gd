@@ -41,25 +41,29 @@ onready var db = get_node("/root/DatabaseOperations")
 #####################################
 func load_step() -> void:
 	_specialization_list = db.read_specialization_identifiers()
-	var specialization_id = _specialization_list[_current_specialization_index]["specialization_identifier"]
-	current_specialization = db.read_data_for_specialization(specialization_id)
-	_load_specialization(current_specialization)
-	emit_signal("specialization_cleared")
-	selected_identifier.set_pressed(false)
+	_load_specialization(_get_current_secialization_identifier())
 	
 func clean_up_step() -> void:
-	pass
+	emit_signal("specialization_cleared")
+	selected_identifier.get_node("Label").text = tr("select_button")
+	selected_identifier.set_pressed(false)
+	CharacterStats.clear_specialization()
 
 #####################################
 # HELPER FUNCTIONS
 #####################################
-func _load_specialization(specialization_data) -> void:
+func _load_specialization(specialization_id) -> void:
+	var specialization_data = db.read_data_for_specialization(specialization_id)
+	current_specialization = specialization_data
 	print(specialization_data["specialization_name"])
 	specialization_name.bbcode_text = "[center]%s[/center]" % tr(specialization_data["specialization_name"])
 	print(specialization_data["specialization_description"])
 	specialization_description.bbcode_text = "%s" % tr(specialization_data["specialization_description"])
 	specialization_skills.bbcode_text = _prepare_specialization_skills(specialization_data["specialization_identifier"])
 
+
+func _get_current_secialization_identifier():
+	return _specialization_list[_current_specialization_index]["specialization_identifier"]
 
 func _prepare_specialization_skills(specialization_data: String) -> String:
 	var specialization_packs_list = db.read_packs_for_specialization(specialization_data)
@@ -79,6 +83,7 @@ func _on_PreviousSpecialization_button_up() -> void:
 		_current_specialization_index = len(_specialization_list)-1
 	else:
 		_current_specialization_index -= 1
+	_load_specialization(_get_current_secialization_identifier())
 	_clear_specialization()
 
 func _on_NextSpecialization_button_up() -> void:
@@ -86,6 +91,7 @@ func _on_NextSpecialization_button_up() -> void:
 		_current_specialization_index = 0
 	else:
 		_current_specialization_index += 1
+	_load_specialization(_get_current_secialization_identifier())
 	_clear_specialization()
 
 func _on_SelectedIdentifier_pressed():
@@ -95,7 +101,6 @@ func _on_SelectedIdentifier_pressed():
 	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)
 
 func _clear_specialization():
-	load_step()
+	emit_signal("specialization_cleared")
 	selected_identifier.pressed = false
-	selected_identifier.get_node("Label").text = tr("select_button")
 	CharacterStats.clear_specialization()

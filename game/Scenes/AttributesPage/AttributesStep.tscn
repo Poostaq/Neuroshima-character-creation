@@ -1,31 +1,26 @@
-[gd_scene load_steps=39 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Scripts/AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane2.png" type="Texture" id=4]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane1.png" type="Texture" id=5]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_results.png" type="Texture" id=4]
 [ext_resource path="res://Scripts/AttributesPage/Value.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/AttributesPage/AttributeLabel.gd" type="Script" id=12]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka niewybrana.png" type="Texture" id=13]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/główna zakładka wybrana.png" type="Texture" id=14]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem niewybrane.png" type="Texture" id=15]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/ekran losowania.png" type="Texture" id=16]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/okienko z wynikiem wybrane.png" type="Texture" id=17]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/wyniki rzutów.png" type="Texture" id=18]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/symbol losowania.png" type="Texture" id=19]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/atrybut nieprzydzielony.png" type="Texture" id=20]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/atrybut przydzielony.png" type="Texture" id=21]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/stalowa płyta z kabelkami.png" type="Texture" id=22]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/plusik zgaszony.png" type="Texture" id=23]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/minusik zgaszony.png" type="Texture" id=24]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/minusik zapalony.png" type="Texture" id=25]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/plusik zapalony.png" type="Texture" id=26]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/tab_not_selected.png" type="Texture" id=13]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/tab_selected.png" type="Texture" id=14]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_panel.png" type="Texture" id=16]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_art.png" type="Texture" id=19]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/assigning_button_off.png" type="Texture" id=20]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/assigning_button_on.png" type="Texture" id=21]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/metal_plate_with_cables.png" type="Texture" id=22]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/plus_off.png" type="Texture" id=23]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/minus_off.png" type="Texture" id=24]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/minus_on.png" type="Texture" id=25]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/plus_on.png" type="Texture" id=26]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=27]
 [ext_resource path="res://Resources/AttributesPage/attribute_name.tres" type="ButtonGroup" id=29]
-[ext_resource path="res://UI_Elements/Attributes/Randomized/handle sprite 2.png" type="Texture" id=30]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/główna zakładka wybrana.png" type="Texture" id=31]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/główna zakładka niewybrana.png" type="Texture" id=32]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/tab_selected.png" type="Texture" id=31]
+[ext_resource path="res://UI_Elements/Attributes/Distribution/tab_not_selected.png" type="Texture" id=32]
 
 [sub_resource type="ButtonGroup" id=21]
 
@@ -42,20 +37,12 @@ font_data = ExtResource( 2 )
 size = 48
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=12]
-size = 22
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=13]
-size = 46
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=14]
 size = 48
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=15]
-size = 80
+size = 58
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=16]
@@ -109,12 +96,13 @@ __meta__ = {
 
 [node name="RollingButton" type="TextureButton" parent="Control/Background"]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.0381416
 anchor_top = 0.035551
 anchor_right = 0.419557
 anchor_bottom = 0.127122
+disabled = true
 toggle_mode = true
-pressed = true
 group = SubResource( 21 )
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 14 )
@@ -139,11 +127,13 @@ __meta__ = {
 
 [node name="DistributeButon" type="TextureButton" parent="Control/Background"]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.450888
 anchor_top = 0.0344737
 anchor_right = 0.832303
 anchor_bottom = 0.126044
 toggle_mode = true
+pressed = true
 group = SubResource( 21 )
 texture_normal = ExtResource( 13 )
 texture_pressed = ExtResource( 14 )
@@ -164,6 +154,7 @@ autowrap = true
 
 [node name="RollAttributesUI" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -171,236 +162,72 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureButton" type="TextureButton" parent="Control/Background/RollAttributesUI"]
-anchor_left = -0.0539082
-anchor_top = 0.136639
-anchor_right = 0.283018
-anchor_bottom = 0.339068
+[node name="RollButton" type="TextureButton" parent="Control/Background/RollAttributesUI"]
+anchor_left = 0.0592991
+anchor_top = 0.896758
+anchor_right = 0.471697
+anchor_bottom = 0.98785
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 4 )
-texture_pressed = ExtResource( 5 )
-texture_hover = ExtResource( 4 )
-texture_disabled = ExtResource( 5 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 13 )
+texture_hover = ExtResource( 14 )
+texture_disabled = ExtResource( 13 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton"]
-visible = false
-anchor_left = -0.288
-anchor_top = -0.29
-anchor_right = -0.00399988
-anchor_bottom = 0.767843
-margin_bottom = -25.5685
-texture = ExtResource( 30 )
-expand = true
-stretch_mode = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="TextureRect2" type="TextureRect" parent="Control/Background/RollAttributesUI/TextureButton"]
-anchor_left = 0.248945
-anchor_top = 0.164103
-anchor_right = 0.763713
-anchor_bottom = 0.8
-margin_bottom = -1.52588e-05
+[node name="TextureRect2" type="TextureRect" parent="Control/Background/RollAttributesUI/RollButton"]
+anchor_left = 0.090244
+anchor_top = 0.288889
+anchor_right = 0.17561
+anchor_bottom = 0.677778
 mouse_filter = 2
 texture = ExtResource( 19 )
 expand = true
 stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/TextureButton"]
+[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.888889
 custom_fonts/font = SubResource( 19 )
 text = "roll_label"
 align = 1
 valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="RollResults" type="TextureRect" parent="Control/Background/RollAttributesUI"]
-anchor_left = 0.277627
-anchor_top = 0.135627
-anchor_right = 0.645551
-anchor_bottom = 0.21761
-margin_left = 1.52588e-05
-margin_right = -2.99997
-margin_bottom = 4.0
-texture = ExtResource( 18 )
+[node name="TextureRect3" type="TextureRect" parent="Control/Background/RollAttributesUI/RollButton"]
+anchor_left = 0.841463
+anchor_top = 0.277778
+anchor_right = 0.926829
+anchor_bottom = 0.666667
+mouse_filter = 2
+texture = ExtResource( 19 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label2" type="Label" parent="Control/Background/RollAttributesUI/RollResults"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.0296296
-anchor_right = 0.944443
-anchor_bottom = 1.00001
-custom_fonts/font = SubResource( 12 )
-text = "rolled_values_label"
-align = 1
-valign = 1
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="RollContainer1" type="TextureButton" parent="Control/Background/RollAttributesUI"]
-unique_name_in_owner = true
-anchor_left = 0.297844
-anchor_top = 0.218623
-anchor_right = 0.419137
-anchor_bottom = 0.296559
-margin_left = -1.52588e-05
-disabled = true
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 17 )
-texture_disabled = ExtResource( 15 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer1"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 13 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="RollContainer2" type="TextureButton" parent="Control/Background/RollAttributesUI"]
-unique_name_in_owner = true
-anchor_left = 0.425876
-anchor_top = 0.217611
-anchor_right = 0.54717
-anchor_bottom = 0.295547
-disabled = true
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 17 )
-texture_disabled = ExtResource( 15 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer2"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 13 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="RollContainer3" type="TextureButton" parent="Control/Background/RollAttributesUI"]
-unique_name_in_owner = true
-anchor_left = 0.555256
-anchor_top = 0.217611
-anchor_right = 0.67655
-anchor_bottom = 0.295547
-margin_left = -3.05176e-05
-margin_right = -3.05176e-05
-disabled = true
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 17 )
-texture_disabled = ExtResource( 15 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer3"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 13 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="RollContainer4" type="TextureButton" parent="Control/Background/RollAttributesUI"]
-unique_name_in_owner = true
-anchor_left = 0.683288
-anchor_top = 0.216599
-anchor_right = 0.804582
-anchor_bottom = 0.294534
-margin_left = 3.05176e-05
-disabled = true
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 17 )
-texture_disabled = ExtResource( 15 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer4"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 13 )
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="RollContainer5" type="TextureButton" parent="Control/Background/RollAttributesUI"]
-unique_name_in_owner = true
-anchor_left = 0.814016
-anchor_top = 0.215587
-anchor_right = 0.93531
-anchor_bottom = 0.293522
-disabled = true
-texture_normal = ExtResource( 17 )
-texture_pressed = ExtResource( 15 )
-texture_hover = ExtResource( 17 )
-texture_disabled = ExtResource( 15 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollContainer5"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-custom_fonts/font = SubResource( 13 )
-align = 1
-valign = 1
+stretch_mode = 5
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AgilityContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
-anchor_left = 0.121294
-anchor_top = 0.364371
-anchor_right = 0.835578
-anchor_bottom = 0.455464
+anchor_left = 0.714284
+anchor_top = 0.273278
+anchor_right = 0.983825
+anchor_bottom = 0.36437
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/AgilityContainer"]
-anchor_left = 0.830189
-anchor_right = 1.0
+anchor_right = 0.450001
 anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
@@ -426,10 +253,10 @@ __meta__ = {
 }
 
 [node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/AgilityContainer"]
-anchor_left = 1.03774
-anchor_top = 0.222233
-anchor_right = 1.15094
-anchor_bottom = 0.888898
+anchor_left = 0.550003
+anchor_top = 0.222222
+anchor_right = 0.850003
+anchor_bottom = 0.888889
 disabled = true
 texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 20 )
@@ -443,17 +270,16 @@ __meta__ = {
 
 [node name="PerceptionContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
-anchor_left = 0.121294
-anchor_top = 0.495949
-anchor_right = 0.835578
-anchor_bottom = 0.587042
+anchor_left = 0.714284
+anchor_top = 0.394735
+anchor_right = 0.983825
+anchor_bottom = 0.485828
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/PerceptionContainer"]
-anchor_left = 0.830189
-anchor_right = 1.0
+anchor_right = 0.45
 anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
@@ -480,10 +306,10 @@ __meta__ = {
 attribute = 1
 
 [node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/PerceptionContainer"]
-anchor_left = 1.03774
+anchor_left = 0.55
 anchor_top = 0.222222
-anchor_right = 1.15095
-anchor_bottom = 0.888886
+anchor_right = 0.85
+anchor_bottom = 0.888889
 disabled = true
 texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 20 )
@@ -497,17 +323,16 @@ __meta__ = {
 
 [node name="CharacterContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
-anchor_left = 0.121294
-anchor_top = 0.627528
-anchor_right = 0.835578
-anchor_bottom = 0.718621
+anchor_left = 0.714284
+anchor_top = 0.516192
+anchor_right = 0.983825
+anchor_bottom = 0.607284
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/CharacterContainer"]
-anchor_left = 0.830189
-anchor_right = 1.0
+anchor_right = 0.45
 anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
@@ -534,10 +359,10 @@ __meta__ = {
 attribute = 2
 
 [node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/CharacterContainer"]
-anchor_left = 1.03774
+anchor_left = 0.55
 anchor_top = 0.222222
-anchor_right = 1.15094
-anchor_bottom = 0.888886
+anchor_right = 0.85
+anchor_bottom = 0.888889
 disabled = true
 texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 20 )
@@ -551,19 +376,17 @@ __meta__ = {
 
 [node name="WitsContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
-anchor_left = 0.121294
-anchor_top = 0.759106
-anchor_right = 0.835578
-anchor_bottom = 0.850199
+anchor_left = 0.714284
+anchor_top = 0.637649
+anchor_right = 0.983824
+anchor_bottom = 0.728742
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/WitsContainer"]
-anchor_left = 0.830186
-anchor_top = 2.4414e-05
-anchor_right = 0.999997
-anchor_bottom = 1.00003
+anchor_right = 0.45
+anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
 __meta__ = {
@@ -589,10 +412,10 @@ __meta__ = {
 attribute = 3
 
 [node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/WitsContainer"]
-anchor_left = 1.03774
+anchor_left = 0.55
 anchor_top = 0.222222
-anchor_right = 1.15094
-anchor_bottom = 0.888886
+anchor_right = 0.85
+anchor_bottom = 0.888889
 disabled = true
 texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 20 )
@@ -606,19 +429,17 @@ __meta__ = {
 
 [node name="BodyContainer" type="Control" parent="Control/Background/RollAttributesUI"]
 unique_name_in_owner = true
-anchor_left = 0.121293
-anchor_top = 0.890685
-anchor_right = 0.835578
-anchor_bottom = 0.981778
+anchor_left = 0.714284
+anchor_top = 0.759106
+anchor_right = 0.983825
+anchor_bottom = 0.850199
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/RollAttributesUI/BodyContainer"]
-anchor_left = 0.830202
-anchor_top = 2.4414e-05
-anchor_right = 1.00002
-anchor_bottom = 1.00003
+anchor_right = 0.45
+anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
 __meta__ = {
@@ -644,10 +465,10 @@ __meta__ = {
 attribute = 4
 
 [node name="Selector" type="TextureButton" parent="Control/Background/RollAttributesUI/BodyContainer"]
-anchor_left = 1.03773
+anchor_left = 0.55
 anchor_top = 0.222222
-anchor_right = 1.15094
-anchor_bottom = 0.888886
+anchor_right = 0.85
+anchor_bottom = 0.888889
 disabled = true
 texture_normal = ExtResource( 21 )
 texture_pressed = ExtResource( 20 )
@@ -661,7 +482,6 @@ __meta__ = {
 
 [node name="DistributeAttributesUI" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
@@ -671,10 +491,10 @@ __meta__ = {
 
 [node name="RemainingPoints" type="TextureRect" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
-anchor_left = -0.0539082
-anchor_top = 0.136639
-anchor_right = 0.265499
-anchor_bottom = 0.334008
+anchor_left = 0.785713
+anchor_top = 0.88866
+anchor_right = 0.907006
+anchor_bottom = 0.979753
 texture = ExtResource( 16 )
 expand = true
 stretch_mode = 1
@@ -687,15 +507,27 @@ modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 15 )
-text = "40"
+text = "0"
 align = 1
 valign = 1
 
-[node name="Remaining Label" type="Label" parent="Control/Background/DistributeAttributesUI/RemainingPoints"]
+[node name="RemainingPoints2" type="TextureRect" parent="Control/Background/DistributeAttributesUI"]
+unique_name_in_owner = true
+anchor_left = 0.265498
+anchor_top = 0.890685
+anchor_right = 0.76954
+anchor_bottom = 0.981778
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Remaining Label" type="Label" parent="Control/Background/DistributeAttributesUI/RemainingPoints2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_top = 0.0769226
-anchor_right = 0.999999
-anchor_bottom = 0.343589
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_fonts/font = SubResource( 16 )
 text = "remaining_label"
 align = 1
@@ -707,9 +539,9 @@ __meta__ = {
 [node name="DistributeAgilityContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.364371
-anchor_right = 0.970349
-anchor_bottom = 0.455464
+anchor_top = 0.183197
+anchor_right = 0.970348
+anchor_bottom = 0.27429
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -732,7 +564,7 @@ anchor_top = 0.0229885
 anchor_right = 0.971428
 anchor_bottom = 0.965517
 custom_fonts/font = SubResource( 14 )
-text = "4"
+text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
@@ -772,9 +604,9 @@ __meta__ = {
 [node name="DistributePerceptionContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.495949
-anchor_right = 0.970349
-anchor_bottom = 0.587042
+anchor_top = 0.304654
+anchor_right = 0.970348
+anchor_bottom = 0.395747
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -797,7 +629,7 @@ anchor_top = 0.0114942
 anchor_right = 0.971428
 anchor_bottom = 0.954023
 custom_fonts/font = SubResource( 14 )
-text = "4"
+text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
@@ -838,9 +670,9 @@ __meta__ = {
 [node name="DistributeCharacterContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.627528
-anchor_right = 0.970349
-anchor_bottom = 0.718621
+anchor_top = 0.426111
+anchor_right = 0.970348
+anchor_bottom = 0.517204
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -863,7 +695,7 @@ anchor_top = -0.0114942
 anchor_right = 0.961904
 anchor_bottom = 0.931035
 custom_fonts/font = SubResource( 14 )
-text = "4"
+text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
@@ -904,11 +736,9 @@ __meta__ = {
 [node name="DistributeWitsContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.759106
-anchor_right = 0.835578
-anchor_bottom = 0.850199
-margin_right = 100.0
-margin_bottom = -0.000244141
+anchor_top = 0.547568
+anchor_right = 0.970348
+anchor_bottom = 0.638661
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -931,7 +761,7 @@ anchor_top = 0.0114942
 anchor_right = 0.95238
 anchor_bottom = 0.954023
 custom_fonts/font = SubResource( 14 )
-text = "4"
+text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
@@ -972,11 +802,9 @@ __meta__ = {
 [node name="DistributeBodyContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.890685
-anchor_right = 0.835578
-anchor_bottom = 0.981778
-margin_right = 100.0
-margin_bottom = -0.000244141
+anchor_top = 0.669025
+anchor_right = 0.970348
+anchor_bottom = 0.760118
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -999,7 +827,7 @@ anchor_top = 0.0114942
 anchor_right = 0.961904
 anchor_bottom = 0.954023
 custom_fonts/font = SubResource( 14 )
-text = "4"
+text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
@@ -1084,11 +912,10 @@ __meta__ = {
 [node name="AgilityNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.364371
-anchor_right = 0.835578
-anchor_bottom = 0.455464
-margin_right = -130.0
-margin_bottom = -0.000244141
+anchor_top = 0.182185
+anchor_right = 0.660376
+anchor_bottom = 0.273277
+margin_right = 3.05176e-05
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -1122,11 +949,10 @@ __meta__ = {
 [node name="PerceptionNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.495949
-anchor_right = 0.835578
-anchor_bottom = 0.587042
-margin_right = -130.0
-margin_bottom = -0.000244141
+anchor_top = 0.303642
+anchor_right = 0.660376
+anchor_bottom = 0.394735
+margin_right = 3.05176e-05
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -1153,18 +979,14 @@ custom_fonts/font = SubResource( 10 )
 text = "per_name"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="CharacterNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.627528
-anchor_right = 0.835578
-anchor_bottom = 0.718621
-margin_right = -130.0
-margin_bottom = -0.000244141
+anchor_top = 0.425099
+anchor_right = 0.660376
+anchor_bottom = 0.516192
+margin_right = 3.05176e-05
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -1198,11 +1020,10 @@ __meta__ = {
 [node name="WitsNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.759106
-anchor_right = 0.835578
-anchor_bottom = 0.850199
-margin_right = -130.0
-margin_bottom = -0.000244141
+anchor_top = 0.546556
+anchor_right = 0.660376
+anchor_bottom = 0.637649
+margin_right = 3.05176e-05
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -1235,12 +1056,10 @@ __meta__ = {
 
 [node name="BodyNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
-anchor_left = 0.121293
-anchor_top = 0.890685
-anchor_right = 0.835578
-anchor_bottom = 0.981778
-margin_right = -130.001
-margin_bottom = -0.000244141
+anchor_left = 0.121294
+anchor_top = 0.668013
+anchor_right = 0.660375
+anchor_bottom = 0.759106
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -1273,4 +1092,4 @@ __meta__ = {
 
 [connection signal="toggled" from="Control/Background/RollingButton" to="." method="_on_Button_toggled"]
 [connection signal="toggled" from="Control/Background/DistributeButon" to="." method="_on_Button_toggled"]
-[connection signal="button_up" from="Control/Background/RollAttributesUI/TextureButton" to="." method="on_RollButton_button_up"]
+[connection signal="button_up" from="Control/Background/RollAttributesUI/RollButton" to="." method="on_RollButton_button_up"]

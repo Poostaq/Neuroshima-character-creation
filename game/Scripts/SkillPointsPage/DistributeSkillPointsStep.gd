@@ -86,7 +86,9 @@ func load_step() -> void:
 	_load_translations()
 
 func clean_up_step() -> void:
-	pass
+	CharacterStats.restore_initial_skill_levels()
+	reset_skill_point_pools()
+
 #####################################
 # API FUNCTIONS
 #####################################
