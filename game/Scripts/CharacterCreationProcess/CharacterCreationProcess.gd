@@ -5,7 +5,6 @@ onready var indicator_inactive = preload("res://UI_Elements/progressLightOff.png
 
 
 export (NodePath) onready var steps_container =  get_node(steps_container) as HBoxContainer
-export (NodePath) onready var card_button = get_node(card_button) as TextureButton
 export (NodePath) onready var character_sheet_panel = get_node(character_sheet_panel) as Control
 
 onready var back_step = $"BackStepButton"

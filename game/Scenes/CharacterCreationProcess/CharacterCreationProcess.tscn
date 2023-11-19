@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Resources/BackButtonHover.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/BackButtonNormal.tres" type="StyleBox" id=2]
@@ -14,11 +14,13 @@
 [ext_resource path="res://Resources/BackButtonPressed.tres" type="StyleBox" id=12]
 [ext_resource path="res://Resources/NextButtonHover.tres" type="StyleBox" id=13]
 [ext_resource path="res://Resources/NextButtonNormal.tres" type="StyleBox" id=14]
+[ext_resource path="res://Resources/CharacterButtonNormal.tres" type="StyleBox" id=15]
 [ext_resource path="res://Resources/NextButtonPressed.tres" type="StyleBox" id=16]
 [ext_resource path="res://UI_Elements/progressLightOn.png" type="Texture" id=17]
 [ext_resource path="res://UI_Elements/progressLightOff.png" type="Texture" id=18]
-[ext_resource path="res://UI_Elements/characterSheetButtonOff.png" type="Texture" id=21]
-[ext_resource path="res://UI_Elements/characterSheetButtonOn.png" type="Texture" id=22]
+[ext_resource path="res://Resources/CharacterButtonPressed.tres" type="StyleBox" id=19]
+[ext_resource path="res://Resources/CharacterButtonDisabled.tres" type="StyleBox" id=20]
+[ext_resource path="res://Resources/CharacterButtonHover.tres" type="StyleBox" id=23]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=24]
 
 [sub_resource type="ButtonGroup" id=2]
@@ -30,6 +32,8 @@
 [sub_resource type="CanvasItemMaterial" id=1]
 
 [sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxEmpty" id=9]
 
 [sub_resource type="DynamicFont" id=6]
 size = 26
@@ -43,7 +47,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 steps_container = NodePath("StepsContainer")
-card_button = NodePath("CardButton")
 character_sheet_panel = NodePath("CharacterSheet")
 
 [node name="StepContainer" type="MarginContainer" parent="."]
@@ -321,7 +324,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="CardButton" type="TextureButton" parent="."]
+[node name="CardButton" type="Button" parent="."]
 unique_name_in_owner = true
 anchor_top = 0.397
 anchor_right = 0.049
@@ -329,10 +332,11 @@ anchor_bottom = 0.721
 margin_top = -0.505005
 margin_right = -0.17601
 margin_bottom = -0.280029
-texture_normal = ExtResource( 21 )
-texture_pressed = ExtResource( 22 )
-texture_hover = ExtResource( 22 )
-expand = true
+custom_styles/hover = ExtResource( 23 )
+custom_styles/pressed = ExtResource( 19 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = ExtResource( 20 )
+custom_styles/normal = ExtResource( 15 )
 
 [node name="CharacterCardButton" type="Label" parent="CardButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -368,3 +372,4 @@ mouse_filter = 1
 [connection signal="specialization_cleared" from="StepContainer/SpecializationStep" to="." method="_disable_next_step"]
 [connection signal="button_up" from="BackStepButton" to="." method="_previous_step"]
 [connection signal="button_up" from="NextStepButton" to="." method="_next_step"]
+[connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
