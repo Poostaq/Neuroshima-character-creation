@@ -21,7 +21,9 @@
 [sub_resource type="StyleBoxEmpty" id=16]
 
 [sub_resource type="DynamicFont" id=8]
-size = 36
+size = 44
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 11 )
 
 [sub_resource type="StyleBoxEmpty" id=17]
@@ -306,7 +308,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="MainMenu/OriginDescriptionBox"]
-modulate = Color( 0, 1, 0.270588, 1 )
+modulate = Color( 0, 0.717647, 0.0392157, 1 )
 material = SubResource( 9 )
 anchor_left = 0.0707237
 anchor_top = 0.0733198

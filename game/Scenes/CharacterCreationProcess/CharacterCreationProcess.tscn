@@ -37,6 +37,8 @@
 
 [sub_resource type="DynamicFont" id=6]
 size = 26
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 24 )
 
 [node name="CharacterCreationProcess" type="Control"]

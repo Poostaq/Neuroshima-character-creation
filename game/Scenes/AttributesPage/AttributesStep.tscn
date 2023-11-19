@@ -44,14 +44,20 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 60
+outline_size = 5
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 58
+outline_size = 5
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=16]
 size = 40
+outline_size = 4
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=22]
@@ -64,6 +70,8 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=20]
 size = 48
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=18]
@@ -74,6 +82,8 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=10]
 size = 40
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="StyleBoxEmpty" id=27]
@@ -554,9 +564,6 @@ custom_fonts/font = SubResource( 16 )
 text = "remaining_label"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="DistributeAgilityContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
@@ -594,9 +601,6 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
 anchor_left = 0.580953
@@ -660,9 +664,6 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 stat = 1
 
 [node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
@@ -731,9 +732,6 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 stat = 2
 
 [node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
@@ -802,9 +800,6 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 stat = 3
 
 [node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
@@ -868,9 +863,6 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 stat = 4
 
 [node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
@@ -975,9 +967,6 @@ custom_fonts/font = SubResource( 10 )
 text = "agi_name"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="PerceptionNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
