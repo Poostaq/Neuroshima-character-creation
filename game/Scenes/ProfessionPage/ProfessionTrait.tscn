@@ -1,9 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Scripts/ProfessionPage/ProfessionTrait.gd" type="Script" id=1]
-[ext_resource path="res://UI_Elements/skillBoxInactive.png" type="Texture" id=2]
-[ext_resource path="res://UI_Elements/skillBoxActive.png" type="Texture" id=3]
+[ext_resource path="res://Resources/Buttons/SkillBoxbutton/SkillBoxButtonPressed.tres" type="StyleBox" id=3]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://Resources/Buttons/SkillBoxbutton/SkillBoxButtonInactive.tres" type="StyleBox" id=5]
+[ext_resource path="res://Resources/Buttons/SkillBoxbutton/SkillBoxButtonHover.tres" type="StyleBox" id=6]
+[ext_resource path="res://Scenes/ProfessionPage/Traits.tres" type="ButtonGroup" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=3]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
@@ -13,7 +17,7 @@ font_data = ExtResource( 4 )
 size = 22
 font_data = ExtResource( 4 )
 
-[node name="ProfesionTraitButton" type="TextureButton"]
+[node name="ProfesionTraitButton" type="Button"]
 anchor_right = 0.115
 anchor_bottom = 0.185
 margin_right = -0.800003
@@ -21,10 +25,13 @@ margin_bottom = 0.199997
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/focus = SubResource( 3 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
 toggle_mode = true
-texture_normal = ExtResource( 2 )
-texture_pressed = ExtResource( 3 )
-expand = true
+group = ExtResource( 7 )
 script = ExtResource( 1 )
 
 [node name="TraitNameLabel" type="RichTextLabel" parent="."]

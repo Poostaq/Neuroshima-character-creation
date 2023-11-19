@@ -1,4 +1,4 @@
-extends TextureButton
+extends Button
 
 signal profession_trait_button_pressed(button)
 export var identifier: String

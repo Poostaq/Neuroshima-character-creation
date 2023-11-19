@@ -1,9 +1,13 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://Scripts/AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/roll_results.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonDisabled.tres" type="StyleBox" id=5]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonHover.tres" type="StyleBox" id=6]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonPressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonNormal.tres" type="StyleBox" id=8]
 [ext_resource path="res://Scripts/AttributesPage/Value.gd" type="Script" id=9]
 [ext_resource path="res://Scripts/AttributesPage/AttributeLabel.gd" type="Script" id=12]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/tab_not_selected.png" type="Texture" id=13]
@@ -48,6 +52,8 @@ font_data = ExtResource( 2 )
 [sub_resource type="DynamicFont" id=16]
 size = 28
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
 
 [sub_resource type="DynamicFont" id=20]
 size = 48
@@ -572,19 +578,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+[node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
 anchor_left = 0.68254
 anchor_top = 0.388889
 anchor_right = 0.761905
 anchor_bottom = 0.555556
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 25 )
-texture_disabled = ExtResource( 24 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = SubResource( 22 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 8 )
 
 [node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
 anchor_left = 0.920635

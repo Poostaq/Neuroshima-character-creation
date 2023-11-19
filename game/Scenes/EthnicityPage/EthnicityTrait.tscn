@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/EthnicityPage/EthnicityTrait.gd" type="Script" id=1]
-[ext_resource path="res://Resources/SkillBoxButtonHover.tres" type="StyleBox" id=2]
-[ext_resource path="res://Resources/SkillBoxButtonDisabled.tres" type="StyleBox" id=3]
+[ext_resource path="res://Resources/Buttons/SkillBoxbutton/SkillBoxButtonPressed.tres" type="StyleBox" id=2]
+[ext_resource path="res://Resources/Buttons/SkillBoxbutton/SkillBoxButtonInactive.tres" type="StyleBox" id=3]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=4]
-[ext_resource path="res://Resources/SkillBoxButtonNormal.tres" type="StyleBox" id=5]
+[ext_resource path="res://Resources/Buttons/SkillBoxbutton/SkillBoxButtonHover.tres" type="StyleBox" id=5]
 
 [sub_resource type="StyleBoxEmpty" id=5]
 
@@ -24,8 +24,8 @@ margin_bottom = 0.199997
 rect_clip_content = true
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_styles/hover = ExtResource( 2 )
-custom_styles/pressed = ExtResource( 5 )
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 2 )
 custom_styles/focus = SubResource( 5 )
 custom_styles/disabled = ExtResource( 3 )
 custom_styles/normal = ExtResource( 3 )
