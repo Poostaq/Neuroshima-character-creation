@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://THEME.tres" type="Theme" id=1]
 [ext_resource path="res://UI_Elements/MainMenu/ButtonHover.tres" type="StyleBox" id=3]
@@ -18,9 +18,13 @@
 
 [sub_resource type="ButtonGroup" id=15]
 
+[sub_resource type="StyleBoxEmpty" id=16]
+
 [sub_resource type="DynamicFont" id=8]
 size = 36
 font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
 
 [sub_resource type="StreamTexture" id=13]
 flags = 4
@@ -58,6 +62,8 @@ texture = ExtResource( 9 )
 expand = true
 
 [node name="CharacterCreationProcess" parent="." instance=ExtResource( 5 )]
+unique_name_in_owner = true
+visible = false
 
 [node name="EthnicityStep" parent="CharacterCreationProcess/StepContainer" index="0"]
 margin_right = 1873.0
@@ -92,46 +98,44 @@ margin_bottom = 76.0
 margin_bottom = 76.0
 
 [node name="AttributesIndicator" parent="CharacterCreationProcess/StepsContainer" index="2"]
-margin_right = 187.0
+margin_right = 218.0
 margin_bottom = 76.0
 
 [node name="SpecializationIndicator" parent="CharacterCreationProcess/StepsContainer" index="3"]
-margin_left = 207.0
-margin_right = 256.0
+margin_left = 238.0
 margin_bottom = 76.0
 
 [node name="SkillsIndicator" parent="CharacterCreationProcess/StepsContainer" index="4"]
-margin_left = 276.0
-margin_right = 325.0
+margin_right = 377.0
 margin_bottom = 76.0
 
 [node name="TricksIndicator" parent="CharacterCreationProcess/StepsContainer" index="5"]
-margin_left = 345.0
-margin_right = 394.0
+margin_left = 397.0
+margin_right = 457.0
 margin_bottom = 76.0
 
 [node name="DiseasesIndicator" parent="CharacterCreationProcess/StepsContainer" index="6"]
-margin_left = 414.0
-margin_right = 463.0
+margin_left = 477.0
+margin_right = 536.0
 margin_bottom = 76.0
 
 [node name="ReputationIndicator" parent="CharacterCreationProcess/StepsContainer" index="7"]
-margin_left = 483.0
-margin_right = 532.0
+margin_left = 556.0
+margin_right = 616.0
 margin_bottom = 76.0
 
 [node name="FormIndicator" parent="CharacterCreationProcess/StepsContainer" index="8"]
-margin_left = 552.0
-margin_right = 601.0
+margin_left = 636.0
+margin_right = 695.0
 margin_bottom = 76.0
 
 [node name="GearIndicator" parent="CharacterCreationProcess/StepsContainer" index="9"]
-margin_left = 621.0
-margin_right = 671.0
+margin_left = 715.0
+margin_right = 775.0
 margin_bottom = 76.0
 
 [node name="MainMenu" type="Control" parent="."]
-visible = false
+unique_name_in_owner = true
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -179,6 +183,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = SubResource( 16 )
 custom_styles/disabled = ExtResource( 16 )
 custom_styles/normal = ExtResource( 14 )
 
@@ -206,6 +211,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = SubResource( 17 )
 custom_styles/disabled = ExtResource( 16 )
 custom_styles/normal = ExtResource( 14 )
 
@@ -232,6 +238,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = SubResource( 17 )
 custom_styles/disabled = ExtResource( 16 )
 custom_styles/normal = ExtResource( 14 )
 
@@ -258,6 +265,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = SubResource( 17 )
 custom_styles/disabled = ExtResource( 16 )
 custom_styles/normal = ExtResource( 14 )
 
@@ -312,5 +320,8 @@ __meta__ = {
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="MainMenu"]
 environment = SubResource( 12 )
+
+[connection signal="back_to_main_menu" from="CharacterCreationProcess" to="." method="_back_to_main_menu"]
+[connection signal="button_up" from="MainMenu/NewCharacterButton" to="." method="_on_NewCharacterButton_button_up"]
 
 [editable path="CharacterCreationProcess"]

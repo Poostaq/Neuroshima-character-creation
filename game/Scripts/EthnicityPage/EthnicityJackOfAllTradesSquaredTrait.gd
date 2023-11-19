@@ -1,7 +1,7 @@
 extends "res://Scripts/EthnicityPage/EthnicityTrait.gd"
 
 export var secondary_trait: String
-export (NodePath) onready var option_button =  get_node(option_button) as OptionButton
+onready var option_button =  $"%TraitSelectionButton"
 
 
 func _on_OptionButton_item_selected(index) -> void:

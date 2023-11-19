@@ -1,5 +1,8 @@
 extends Control
 
+signal back_to_main_menu
+
+
 onready var indicator_active = preload("res://UI_Elements/progressLightOn.png")
 onready var indicator_inactive = preload("res://UI_Elements/progressLightOff.png")
 
@@ -7,8 +10,8 @@ onready var indicator_inactive = preload("res://UI_Elements/progressLightOff.png
 export (NodePath) onready var steps_container =  get_node(steps_container) as HBoxContainer
 export (NodePath) onready var character_sheet_panel = get_node(character_sheet_panel) as Control
 
-onready var back_step = $"BackStepButton"
-onready var next_step = $"NextStepButton"
+onready var back_step = $"%BackStepButton"
+onready var next_step = $"%NextStepButton"
 onready var ethnicity_step = $"%EthnicityStep"
 onready var profession_step = $"%ProfessionStep"
 onready var attributes_step = $"%AttributesStep"
@@ -55,8 +58,8 @@ onready var indicators = [
 
 
 func _ready() -> void:
-	back_step.disabled = true
 	next_step.disabled = true
+	steps[current_step].load_step()
 	
 
 
@@ -81,10 +84,8 @@ func _next_step() -> void:
 func _previous_step() -> void:
 	steps[current_step].clean_up_step()
 	next_step.disabled = false
-	if current_step == 1:
-		back_step.disabled = true
 	if current_step == 0:
-		print("CANT GO BACK")
+		emit_signal("back_to_main_menu")
 	else:
 		current_step -= 1
 	_turn_off_step_indicators()
