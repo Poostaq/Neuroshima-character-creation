@@ -21,7 +21,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Neuroshima Character Creation"
-run/main_scene="res://Scenes/MainScreen/MainScreen.tscn"
+run/main_scene="res://Scenes/MainScene/MainScene.tscn"
 config/icon="res://icon.png"
 
 [audio]

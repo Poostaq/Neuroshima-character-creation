@@ -1,21 +1,29 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://UI_Elements/splashArtBox.png" type="Texture" id=1]
-[ext_resource path="res://UI_Elements/previousOriginButtonOff.png" type="Texture" id=2]
+[ext_resource path="res://Resources/NextButtonHover.tres" type="StyleBox" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/EthnicityPage/ChooseEthnicityStep.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/EthnicityPage/Traits.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://UI_Elements/previousOriginButtonOn.png" type="Texture" id=7]
+[ext_resource path="res://Resources/NextButtonNormal.tres" type="StyleBox" id=7]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=8]
+[ext_resource path="res://Resources/BackButtonHover.tres" type="StyleBox" id=9]
 [ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=10]
-[ext_resource path="res://UI_Elements/nextOriginButtonOn.png" type="Texture" id=11]
+[ext_resource path="res://Resources/NextButtonDisabled.tres" type="StyleBox" id=11]
 [ext_resource path="res://icon.png" type="Texture" id=12]
-[ext_resource path="res://UI_Elements/nextOriginButtonOff.png" type="Texture" id=13]
+[ext_resource path="res://Resources/NextButtonPressed.tres" type="StyleBox" id=13]
+[ext_resource path="res://Resources/BackButtonNormal.tres" type="StyleBox" id=14]
+[ext_resource path="res://Resources/BackButtonDisabled.tres" type="StyleBox" id=15]
+[ext_resource path="res://Resources/BackButtonPressed.tres" type="StyleBox" id=16]
+
+[sub_resource type="StyleBoxEmpty" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 55
 font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=8]
 
 [sub_resource type="DynamicFont" id=6]
 size = 36
@@ -109,21 +117,17 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[node name="PreviousEthnicity" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+[node name="PreviousEthnicity2" type="Button" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 margin_right = 105.0
 margin_bottom = 109.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 2 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 2 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_styles/hover = ExtResource( 9 )
+custom_styles/pressed = ExtResource( 16 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = ExtResource( 15 )
+custom_styles/normal = ExtResource( 14 )
 
 [node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 show_behind_parent = true
@@ -162,22 +166,18 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.35
 
-[node name="NextEthnicity" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
+[node name="NextEthnicity" type="Button" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
 margin_left = 954.0
 margin_right = 1060.0
 margin_bottom = 109.0
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 11 )
-texture_pressed = ExtResource( 13 )
-texture_hover = ExtResource( 11 )
-texture_disabled = ExtResource( 13 )
-expand = true
-stretch_mode = 5
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_styles/hover = ExtResource( 2 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = ExtResource( 11 )
+custom_styles/normal = ExtResource( 7 )
 
 [node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
 margin_left = 1756.0
@@ -409,6 +409,6 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
 
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousEthnicity" to="." method="_on_PreviousEthnicity_button_up"]
+[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousEthnicity2" to="." method="_on_PreviousEthnicity_button_up"]
 [connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextEthnicity" to="." method="_on_NextEthnicity_button_up"]
 [connection signal="item_selected" from="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/VBoxContainer/HBoxContainer/AttributeSelect" to="." method="_on_AttributeSelect_item_selected"]

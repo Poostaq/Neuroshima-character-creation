@@ -1,0 +1,370 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Resources/BackButtonHover.tres" type="StyleBox" id=1]
+[ext_resource path="res://Resources/BackButtonNormal.tres" type="StyleBox" id=2]
+[ext_resource path="res://Scripts/CharacterCreationProcess/CharacterCreationProcess.gd" type="Script" id=3]
+[ext_resource path="res://Resources/BackButtonDisabled.tres" type="StyleBox" id=4]
+[ext_resource path="res://Resources/NextButtonDisabled.tres" type="StyleBox" id=5]
+[ext_resource path="res://Scenes/EthnicityPage/ChooseEthnicityStep.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/SkillPointsPage/DistributeSkillPointsStep.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/CharacterSheet/CharacterSheet.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/SpecializationPage/ChooseSpecializationStep.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/ProfessionPage/ChooseProfessionStep.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/AttributesPage/AttributesStep.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Resources/BackButtonPressed.tres" type="StyleBox" id=12]
+[ext_resource path="res://Resources/NextButtonHover.tres" type="StyleBox" id=13]
+[ext_resource path="res://Resources/NextButtonNormal.tres" type="StyleBox" id=14]
+[ext_resource path="res://Resources/NextButtonPressed.tres" type="StyleBox" id=16]
+[ext_resource path="res://UI_Elements/progressLightOn.png" type="Texture" id=17]
+[ext_resource path="res://UI_Elements/progressLightOff.png" type="Texture" id=18]
+[ext_resource path="res://UI_Elements/characterSheetButtonOff.png" type="Texture" id=21]
+[ext_resource path="res://UI_Elements/characterSheetButtonOn.png" type="Texture" id=22]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=24]
+
+[sub_resource type="ButtonGroup" id=2]
+
+[sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="CanvasItemMaterial" id=1]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+font_data = ExtResource( 24 )
+
+[node name="CharacterCreationProcess" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+steps_container = NodePath("StepsContainer")
+card_button = NodePath("CardButton")
+character_sheet_panel = NodePath("CharacterSheet")
+
+[node name="StepContainer" type="MarginContainer" parent="."]
+anchor_left = 0.00520833
+anchor_top = 0.00925926
+anchor_right = 0.994792
+anchor_bottom = 0.912037
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 29.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": true,
+"_editor_description_": "
+"
+}
+
+[node name="EthnicityStep" parent="StepContainer" instance=ExtResource( 6 )]
+unique_name_in_owner = true
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 955.0
+trait_group = SubResource( 2 )
+
+[node name="ProfessionStep" parent="StepContainer" instance=ExtResource( 10 )]
+unique_name_in_owner = true
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 955.0
+trait_group = SubResource( 5 )
+
+[node name="AttributesStep" parent="StepContainer" instance=ExtResource( 11 )]
+unique_name_in_owner = true
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 955.0
+
+[node name="SpecializationStep" parent="StepContainer" instance=ExtResource( 9 )]
+unique_name_in_owner = true
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 955.0
+
+[node name="SkillPointsStep" parent="StepContainer" instance=ExtResource( 7 )]
+unique_name_in_owner = true
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 955.0
+
+[node name="DummyStep" parent="StepContainer" instance=ExtResource( 11 )]
+unique_name_in_owner = true
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 955.0
+
+[node name="BackStepButton" type="Button" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.388542
+anchor_top = 0.917593
+anchor_right = 0.435417
+anchor_bottom = 0.991667
+size_flags_horizontal = 7
+size_flags_vertical = 7
+size_flags_stretch_ratio = 4.0
+custom_styles/hover = ExtResource( 1 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StepsContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.448958
+anchor_top = 0.919444
+anchor_right = 0.8
+anchor_bottom = 0.990741
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 17.09
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="EthnicityIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_right = 49.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "ethnicity_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 17 )
+expand = true
+stretch_mode = 5
+
+[node name="ProfessionIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 69.0
+margin_right = 118.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "profession_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="AttributesIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 138.0
+margin_right = 188.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "attributes_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="SpecializationIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 208.0
+margin_right = 257.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "specialization_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="SkillsIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 277.0
+margin_right = 327.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "skills_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="TricksIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 347.0
+margin_right = 396.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "tricks_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="DiseasesIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 416.0
+margin_right = 465.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "illness_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="ReputationIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 485.0
+margin_right = 535.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "reputation_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="FormIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 555.0
+margin_right = 604.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "form_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="GearIndicator" type="TextureButton" parent="StepsContainer"]
+unique_name_in_owner = true
+material = SubResource( 1 )
+margin_left = 624.0
+margin_right = 674.0
+margin_bottom = 77.0
+rect_min_size = Vector2( 20, 20 )
+hint_tooltip = "equipment_step_tooltip"
+size_flags_horizontal = 7
+size_flags_vertical = 3
+texture_normal = ExtResource( 18 )
+expand = true
+stretch_mode = 5
+
+[node name="NextStepButton" type="Button" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.813542
+anchor_top = 0.915741
+anchor_right = 0.858854
+anchor_bottom = 0.987037
+margin_right = 3.0
+margin_bottom = 3.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 4.0
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 16 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CardButton" type="TextureButton" parent="."]
+unique_name_in_owner = true
+anchor_top = 0.397
+anchor_right = 0.049
+anchor_bottom = 0.721
+margin_top = -0.505005
+margin_right = -0.17601
+margin_bottom = -0.280029
+texture_normal = ExtResource( 21 )
+texture_pressed = ExtResource( 22 )
+texture_hover = ExtResource( 22 )
+expand = true
+
+[node name="CharacterCardButton" type="Label" parent="CardButton"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0748174
+anchor_top = 0.049
+anchor_right = 0.46
+anchor_bottom = 0.912417
+margin_left = 36.0
+margin_top = -0.0777245
+margin_right = 300.962
+margin_bottom = -265.0
+rect_rotation = 90.0
+mouse_filter = 1
+custom_fonts/font = SubResource( 6 )
+text = "character_sheet_button"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CharacterSheet" parent="." instance=ExtResource( 8 )]
+visible = false
+mouse_filter = 1
+
+[connection signal="ethnicity_cleared" from="StepContainer/EthnicityStep" to="." method="_disable_next_step"]
+[connection signal="ethnicity_selected" from="StepContainer/EthnicityStep" to="." method="_enable_next_step"]
+[connection signal="profession_chosen" from="StepContainer/ProfessionStep" to="." method="_enable_next_step"]
+[connection signal="profession_cleared" from="StepContainer/ProfessionStep" to="." method="_disable_next_step"]
+[connection signal="attributes_cleared" from="StepContainer/AttributesStep" to="." method="_disable_next_step"]
+[connection signal="attributes_selected" from="StepContainer/AttributesStep" to="." method="_enable_next_step"]
+[connection signal="specialization_chosen" from="StepContainer/SpecializationStep" to="." method="_enable_next_step"]
+[connection signal="specialization_cleared" from="StepContainer/SpecializationStep" to="." method="_disable_next_step"]
+[connection signal="button_up" from="BackStepButton" to="." method="_previous_step"]
+[connection signal="button_up" from="NextStepButton" to="." method="_next_step"]
