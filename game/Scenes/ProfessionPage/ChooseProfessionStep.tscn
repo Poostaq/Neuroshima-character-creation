@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://UI_Elements/splashArtBox.png" type="Texture" id=2]
@@ -6,16 +6,24 @@
 [ext_resource path="res://Scripts/ProfessionPage/ChooseProfessionStep.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/ProfessionPage/Traits.tres" type="ButtonGroup" id=5]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://UI_Elements/previousOriginButtonOn.png" type="Texture" id=7]
-[ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=8]
-[ext_resource path="res://UI_Elements/nextOriginButtonOn.png" type="Texture" id=9]
-[ext_resource path="res://UI_Elements/previousOriginButtonOff.png" type="Texture" id=10]
+[ext_resource path="res://Resources/NextButtonDisabled.tres" type="StyleBox" id=7]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_results.png" type="Texture" id=8]
+[ext_resource path="res://Resources/NextButtonNormal.tres" type="StyleBox" id=9]
+[ext_resource path="res://Resources/NextButtonPressed.tres" type="StyleBox" id=10]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=11]
-[ext_resource path="res://UI_Elements/nextOriginButtonOff.png" type="Texture" id=12]
+[ext_resource path="res://Resources/BackButtonPressed.tres" type="StyleBox" id=12]
+[ext_resource path="res://Resources/BackButtonHover.tres" type="StyleBox" id=13]
+[ext_resource path="res://Resources/BackButtonNormal.tres" type="StyleBox" id=14]
+[ext_resource path="res://Resources/BackButtonDisabled.tres" type="StyleBox" id=15]
+[ext_resource path="res://Resources/NextButtonHover.tres" type="StyleBox" id=16]
 
 [sub_resource type="DynamicFont" id=3]
 size = 48
 font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=4]
+
+[sub_resource type="StyleBoxEmpty" id=5]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -33,9 +41,11 @@ script = ExtResource( 4 )
 trait_group = ExtResource( 5 )
 
 [node name="ProfessionNameTexture" type="TextureRect" parent="."]
-anchor_left = 0.39734
-anchor_right = 0.904787
+anchor_left = 0.425532
+anchor_right = 0.899468
 anchor_bottom = 0.109879
+margin_top = 6.0
+margin_bottom = 6.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 3.0
@@ -59,36 +69,35 @@ text = "NOT SET"
 align = 1
 valign = 1
 
-[node name="PreviousProfession" type="TextureButton" parent="."]
-anchor_left = 0.368085
-anchor_right = 0.423936
-anchor_bottom = 0.109879
+[node name="PreviousProfession" type="Button" parent="."]
+anchor_left = 0.380319
+anchor_top = 0.0131048
+anchor_right = 0.433511
+anchor_bottom = 0.113911
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 10 )
-expand = true
-stretch_mode = 5
+custom_styles/hover = ExtResource( 13 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = SubResource( 4 )
+custom_styles/disabled = ExtResource( 15 )
+custom_styles/normal = ExtResource( 14 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NextProfession" type="TextureButton" parent="."]
-anchor_left = 0.869149
-anchor_right = 0.931915
-anchor_bottom = 0.109879
-rect_min_size = Vector2( 100, 100 )
+[node name="NextProfession" type="Button" parent="."]
+anchor_left = 0.882979
+anchor_top = 0.015121
+anchor_right = 0.93617
+anchor_bottom = 0.115927
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 12 )
-texture_hover = ExtResource( 9 )
-texture_disabled = ExtResource( 12 )
-expand = true
-stretch_mode = 5
+custom_styles/hover = ExtResource( 16 )
+custom_styles/pressed = ExtResource( 10 )
+custom_styles/focus = SubResource( 5 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -135,52 +144,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Fluff/VBoxContainer"]
+[node name="ProfessionQuote" type="RichTextLabel" parent="Fluff/VBoxContainer"]
+unique_name_in_owner = true
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 516.0
 margin_right = 335.0
 margin_bottom = 678.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-
-[node name="Control2" type="Control" parent="Fluff/VBoxContainer/HBoxContainer"]
-margin_right = 10.0
-margin_bottom = 162.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.04
-
-[node name="TextureRect" type="TextureRect" parent="Fluff/VBoxContainer/HBoxContainer"]
-margin_left = 14.0
-margin_right = 335.0
-margin_bottom = 162.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.25
-expand = true
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Fluff/VBoxContainer/HBoxContainer/TextureRect"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.47
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Fluff/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer"]
-margin_right = 321.0
-margin_bottom = 162.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="ProfessionQuote" type="RichTextLabel" parent="Fluff/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
-unique_name_in_owner = true
-margin_right = 321.0
-margin_bottom = 162.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 5.0
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 bbcode_text = "NOT SET"
