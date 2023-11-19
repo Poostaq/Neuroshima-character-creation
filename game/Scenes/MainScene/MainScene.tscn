@@ -1,7 +1,7 @@
 [gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://THEME.tres" type="Theme" id=1]
-[ext_resource path="res://UI_Elements/MainMenu/ButtonHover.tres" type="StyleBox" id=3]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonHover.tres" type="StyleBox" id=3]
 [ext_resource path="res://Scenes/CharacterCreationProcess/CharacterCreationProcess.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI_Elements/MainMenu/CharacterManagerLogo.png" type="Texture" id=6]
 [ext_resource path="res://UI_Elements/MainMenu/PoostaqLogo.png" type="Texture" id=7]
@@ -10,9 +10,9 @@
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Shaders/glitch_effect.shader" type="Shader" id=12]
 [ext_resource path="res://Scripts/MainScreen/MainScreen.gd" type="Script" id=13]
-[ext_resource path="res://UI_Elements/MainMenu/ButtonNormal.tres" type="StyleBox" id=14]
-[ext_resource path="res://UI_Elements/MainMenu/ButtonPressed.tres" type="StyleBox" id=15]
-[ext_resource path="res://UI_Elements/MainMenu/ButtonDisabled.tres" type="StyleBox" id=16]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonNormal.tres" type="StyleBox" id=14]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonPressed.tres" type="StyleBox" id=15]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonDisabled.tres" type="StyleBox" id=16]
 
 [sub_resource type="ButtonGroup" id=14]
 
