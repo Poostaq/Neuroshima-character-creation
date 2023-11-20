@@ -259,3 +259,9 @@ func read_general_knowledge_skills():
 	db.close_db()
 	return selected_array
 	
+func get_languages_data():
+	var select = "Select l.language_key, l.language_locale "
+	var from = "FROM languages l"
+	var selected_array = _sql_select(select+from);
+	db.close_db()
+	return selected_array

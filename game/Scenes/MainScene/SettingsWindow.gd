@@ -4,7 +4,7 @@ extends Node
 #####################################
 # SIGNALS
 #####################################
-
+signal back_to_main_menu
 #####################################
 # CONSTANTS
 #####################################
@@ -20,15 +20,12 @@ extends Node
 #####################################
 # PRIVATE VARIABLES
 #####################################
-onready var main_menu =  $"%MainMenu"
-onready var character_creation_process =  $"%CharacterCreationProcess"
-onready var settings_window = $"%SettingsWindow"
-
-var menu_buttons = []
+var language_data = []
 #####################################
 # ONREADY VARIABLES
 #####################################
-
+onready var language_selector: OptionButton = $"%LanguageSelector"
+onready var close_button = $"%CloseButton"
 #####################################
 # OVERRIDE FUNCTIONS
 #####################################
@@ -37,9 +34,12 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	language_data = DatabaseOperations.get_languages_data()
+	fill_language_options()
+
+
+func _process(_delta: float) -> void:
 	pass
-
-
 
 #####################################
 # API FUNCTIONS
@@ -49,22 +49,16 @@ func _ready() -> void:
 # HELPER FUNCTIONS
 #####################################
 
+func fill_language_options():
+	for language in language_data:
+		language_selector.add_item(tr(language['language_key']))
 
-func _on_NewCharacterButton_button_up():
-	main_menu.visible = false
-	character_creation_process.visible = true
-
-
-func _back_to_main_menu():
-	main_menu.visible = true
-	character_creation_process.visible = false
-	settings_window.visible = false
-
-
-func _on_ExitButton_button_up():
-	get_tree().quit()
+func _on_LanguageSelector_item_selected(index:int):
+	language_selector.clear()
+	TranslationServer.set_locale(language_data[index]["language_locale"])
+	fill_language_options()
+	language_selector.select(index)
 
 
-func _on_SettingsButton_button_up():
-	main_menu.visible = false
-	settings_window.visible = true
+func _on_CloseButton_button_up():
+	emit_signal("back_to_main_menu")
