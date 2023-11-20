@@ -73,8 +73,6 @@ func _ready() -> void:
 	for container in attribute_name_button_list:
 		var button = container.get_node("AttributeName")
 		button.connect("toggled", self, "_on_AttributeName_toggled", [container])
-		var label = container.get_node("AttributeName/Label")
-		label.text = tr(label.text).to_upper()
 
 func load_step() -> void:
 	attribute_description.bbcode_text = tr("select_attribute_label")
