@@ -53,6 +53,7 @@ func _ready() -> void:
 func _on_NewCharacterButton_button_up():
 	main_menu.visible = false
 	character_creation_process.visible = true
+	character_creation_process.steps[character_creation_process.current_step].load_step()
 
 
 func _back_to_main_menu():
