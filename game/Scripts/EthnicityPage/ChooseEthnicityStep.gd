@@ -11,12 +11,12 @@ var current_ethnicity_index = 0
 var current_ethnicity_data = {}
 export var ethnicity_selected = false
 
-export (NodePath) onready var picture = get_node(picture) as TextureRect
-export (NodePath) onready var ethnicity_name = get_node(ethnicity_name) as RichTextLabel
-export (NodePath) onready var ethnicity_description = get_node(ethnicity_description) as RichTextLabel
-export (NodePath) onready var trait_container =  get_node(trait_container) as HBoxContainer
-export (NodePath) onready var attribute_bonus_label = get_node(attribute_bonus_label) as RichTextLabel
-export (NodePath) onready var attribute_selector = get_node(attribute_selector) as OptionButton
+onready var picture = $"%EthnicityPic"
+onready var ethnicity_name = $"%EthnicityName"
+onready var ethnicity_description = $"%EthnicityDescription"
+onready var trait_container = $"%TraitContainer"
+onready var attribute_bonus_label = $"%AttributeBonus"
+onready var attribute_selector = $"%AttributeSelect"
 
 onready var trait_button_scene = preload("res://Scenes/EthnicityPage/EthnicityTrait.tscn")
 onready var alternate_trait_button_scene = preload("res://Scenes/EthnicityPage/EthnicityJackOfAllTradesSquaredTrait.tscn")
@@ -27,7 +27,6 @@ func _ready() -> void:
 	current_ethnicity_data = DatabaseOperations.read_data_for_etnicity(ethnicity_list[current_ethnicity_index]["ethnicity_identifier"])
 	trait_group = load("res://Scenes/EthnicityPage/Traits.tres")
 	_fill_attribute_selector_options()
-	load_step()
 
 
 func load_step() -> void:
@@ -50,7 +49,7 @@ func _set_image(path) -> void:
 
 func _load_ethnicity(ethnicity) -> void:
 	_set_image("res://Resources/EthnicityPage/splash_art/" + ethnicity["splash_art_name"])
-	ethnicity_name.bbcode_text = "[center]%s[/center]" % tr(ethnicity["ethnicity_name"])
+	ethnicity_name.text = tr(ethnicity["ethnicity_name"])
 	ethnicity_description.bbcode_text = "%s" % tr(ethnicity["ethnicity_description"])
 	var trait_list = DatabaseOperations.read_traits_for_ethnicity(ethnicity["ethnicity_identifier"])
 	if trait_container.get_child_count() > 0:
@@ -60,10 +59,10 @@ func _load_ethnicity(ethnicity) -> void:
 	if len(trait_list) == 2:
 		_create_trait_list_filler()
 	for trait in trait_list:
-		var trait_button: TextureButton
+		var trait_button: Button
 		if trait["trait_identifier"] == "versatility_squared":
 			trait_button = _create_trait_button(alternate_trait_button_scene, trait)
-			var trait_button_trait_list = trait_button.get_node("HBoxContainer/VBoxContainer/OptionButton")
+			var trait_button_trait_list = trait_button.get_node("%TraitSelectionButton")
 			_fill_trait_button_trait_list(trait_button_trait_list)
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
 		else:
@@ -78,7 +77,7 @@ func _create_trait_list_filler() -> void:
 		control.size_flags_stretch_ratio = 0.5
 		trait_container.add_child(control)
 	
-func _create_trait_button(trait_template, trait_data) -> TextureButton:
+func _create_trait_button(trait_template, trait_data) -> Button:
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
 	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % tr(trait_data["trait_name"])

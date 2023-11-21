@@ -18,6 +18,7 @@
 [ext_resource path="res://Scenes/SkillPointsPage/SkillCard_generalKnowledge.tscn" type="PackedScene" id=16]
 [ext_resource path="res://UI_Elements/Attributes/Distribution/plus_on.png" type="Texture" id=20]
 
+
 [sub_resource type="DynamicFont" id=2]
 size = 24
 font_data = ExtResource( 6 )

@@ -1,26 +1,31 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Scripts/AttributesPage/AttributesStep.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/roll_results.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonDisabled.tres" type="StyleBox" id=5]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonHover.tres" type="StyleBox" id=6]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonPressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonNormal.tres" type="StyleBox" id=8]
 [ext_resource path="res://Scripts/AttributesPage/Value.gd" type="Script" id=9]
+[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonDisabled.tres" type="StyleBox" id=10]
+[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonNormal.tres" type="StyleBox" id=11]
 [ext_resource path="res://Scripts/AttributesPage/AttributeLabel.gd" type="Script" id=12]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/tab_not_selected.png" type="Texture" id=13]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/tab_selected.png" type="Texture" id=14]
+[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonHover.tres" type="StyleBox" id=15]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/roll_panel.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonPressed.tres" type="StyleBox" id=17]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonDisabled.tres" type="StyleBox" id=18]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/roll_art.png" type="Texture" id=19]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/assigning_button_off.png" type="Texture" id=20]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/assigning_button_on.png" type="Texture" id=21]
 [ext_resource path="res://UI_Elements/Attributes/Randomized/metal_plate_with_cables.png" type="Texture" id=22]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/plus_off.png" type="Texture" id=23]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/minus_off.png" type="Texture" id=24]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/minus_on.png" type="Texture" id=25]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/plus_on.png" type="Texture" id=26]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonHover.tres" type="StyleBox" id=23]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonNormal.tres" type="StyleBox" id=25]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=27]
 [ext_resource path="res://Resources/AttributesPage/attribute_name.tres" type="ButtonGroup" id=29]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/tab_selected.png" type="Texture" id=31]
-[ext_resource path="res://UI_Elements/Attributes/Distribution/tab_not_selected.png" type="Texture" id=32]
 
 [sub_resource type="ButtonGroup" id=21]
 
@@ -38,28 +43,50 @@ size = 48
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=14]
-size = 48
+size = 60
+outline_size = 5
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 58
+outline_size = 5
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=16]
-size = 28
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=25]
+
+[sub_resource type="StyleBoxEmpty" id=24]
 
 [sub_resource type="DynamicFont" id=20]
 size = 48
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=18]
 size = 36
 font_data = ExtResource( 2 )
 
+[sub_resource type="StyleBoxEmpty" id=26]
+
 [sub_resource type="DynamicFont" id=10]
 size = 40
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=27]
 
 [node name="AttributesStep" type="Control"]
 anchor_right = 1.0
@@ -495,6 +522,10 @@ anchor_left = 0.785713
 anchor_top = 0.88866
 anchor_right = 0.907006
 anchor_bottom = 0.979753
+margin_left = -0.000366211
+margin_top = 2.00049
+margin_right = -0.000366211
+margin_bottom = 2.00049
 texture = ExtResource( 16 )
 expand = true
 stretch_mode = 1
@@ -527,28 +558,30 @@ __meta__ = {
 [node name="Remaining Label" type="Label" parent="Control/Background/DistributeAttributesUI/RemainingPoints2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_bottom = 0.888886
+margin_bottom = 10.0
 custom_fonts/font = SubResource( 16 )
 text = "remaining_label"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="DistributeAgilityContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.183197
+anchor_top = 0.111335
 anchor_right = 0.970348
-anchor_bottom = 0.27429
+anchor_bottom = 0.202428
+margin_left = -0.000350952
+margin_top = 0.000663757
+margin_right = -0.000793457
+margin_bottom = 30.0004
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
-anchor_left = 0.777778
-anchor_right = 0.920635
+anchor_left = 0.688889
+anchor_right = 0.879365
 anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
@@ -568,35 +601,32 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
-[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
-anchor_left = 0.68254
+[node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+anchor_left = 0.580953
 anchor_top = 0.388889
-anchor_right = 0.761905
+anchor_right = 0.676191
 anchor_bottom = 0.555556
-disabled = true
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 25 )
-texture_disabled = ExtResource( 24 )
-expand = true
+margin_left = 3.05176e-05
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = SubResource( 22 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
-anchor_left = 0.920635
+[node name="Plus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer"]
+anchor_left = 0.890476
 anchor_top = 0.222222
-anchor_right = 0.992063
+anchor_right = 0.985714
 anchor_bottom = 0.722222
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 23 )
-texture_hover = ExtResource( 26 )
-texture_disabled = ExtResource( 23 )
-expand = true
+custom_styles/hover = ExtResource( 15 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -607,13 +637,14 @@ anchor_left = 0.121294
 anchor_top = 0.304654
 anchor_right = 0.970348
 anchor_bottom = 0.395747
-__meta__ = {
-"_edit_use_anchors_": true
-}
+margin_left = -0.000350952
+margin_top = -55.9993
+margin_right = -0.000793457
+margin_bottom = -25.9996
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
-anchor_left = 0.777778
-anchor_right = 0.920635
+anchor_left = 0.688889
+anchor_right = 0.879365
 anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
@@ -633,36 +664,34 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 stat = 1
 
-[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
-anchor_left = 0.68254
+[node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+anchor_left = 0.580953
 anchor_top = 0.388889
-anchor_right = 0.761905
+anchor_right = 0.676191
 anchor_bottom = 0.555556
-disabled = true
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 25 )
-texture_disabled = ExtResource( 24 )
-expand = true
+margin_left = 3.05176e-05
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
-anchor_left = 0.920635
+[node name="Plus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer"]
+anchor_left = 0.890476
 anchor_top = 0.222222
-anchor_right = 0.992063
+anchor_right = 0.985714
 anchor_bottom = 0.722222
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 23 )
-texture_hover = ExtResource( 26 )
-texture_disabled = ExtResource( 23 )
-expand = true
+custom_styles/hover = ExtResource( 15 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -670,16 +699,20 @@ __meta__ = {
 [node name="DistributeCharacterContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.426111
+anchor_top = 0.385625
 anchor_right = 0.970348
-anchor_bottom = 0.517204
+anchor_bottom = 0.476718
+margin_left = -0.000350952
+margin_top = -0.999359
+margin_right = -0.000793457
+margin_bottom = 29.0004
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
-anchor_left = 0.777778
-anchor_right = 0.920635
+anchor_left = 0.688889
+anchor_right = 0.879365
 anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
@@ -699,36 +732,34 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 stat = 2
 
-[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
-anchor_left = 0.68254
+[node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+anchor_left = 0.580953
 anchor_top = 0.388889
-anchor_right = 0.761905
+anchor_right = 0.676191
 anchor_bottom = 0.555556
-disabled = true
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 25 )
-texture_disabled = ExtResource( 24 )
-expand = true
+margin_left = 3.05176e-05
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = SubResource( 24 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
-anchor_left = 0.920635
+[node name="Plus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer"]
+anchor_left = 0.890476
 anchor_top = 0.222222
-anchor_right = 0.992063
+anchor_right = 0.985714
 anchor_bottom = 0.722222
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 23 )
-texture_hover = ExtResource( 26 )
-texture_disabled = ExtResource( 23 )
-expand = true
+custom_styles/hover = ExtResource( 15 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -736,16 +767,20 @@ __meta__ = {
 [node name="DistributeWitsContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.547568
+anchor_top = 0.523277
 anchor_right = 0.970348
-anchor_bottom = 0.638661
+anchor_bottom = 0.61437
+margin_left = -0.000350952
+margin_top = -1.99939
+margin_right = -0.000793457
+margin_bottom = 28.0004
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
-anchor_left = 0.777778
-anchor_right = 0.920635
+anchor_left = 0.688889
+anchor_right = 0.879365
 anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
@@ -765,36 +800,34 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 stat = 3
 
-[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
-anchor_left = 0.68254
+[node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
+anchor_left = 0.580953
 anchor_top = 0.388889
-anchor_right = 0.761905
+anchor_right = 0.676191
 anchor_bottom = 0.555556
-disabled = true
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 25 )
-texture_disabled = ExtResource( 24 )
-expand = true
+margin_left = 3.05176e-05
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = SubResource( 24 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
-anchor_left = 0.920635
+[node name="Plus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer"]
+anchor_left = 0.890476
 anchor_top = 0.222222
-anchor_right = 0.992063
+anchor_right = 0.985714
 anchor_bottom = 0.722222
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 23 )
-texture_hover = ExtResource( 26 )
-texture_disabled = ExtResource( 23 )
-expand = true
+custom_styles/hover = ExtResource( 15 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -802,16 +835,15 @@ __meta__ = {
 [node name="DistributeBodyContainer" type="Control" parent="Control/Background/DistributeAttributesUI"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.669025
+anchor_top = 0.669026
 anchor_right = 0.970348
-anchor_bottom = 0.760118
-__meta__ = {
-"_edit_use_anchors_": true
-}
+anchor_bottom = 0.790483
+margin_top = -11.0
+margin_bottom = -11.0
 
 [node name="AttributeValue" type="TextureRect" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
-anchor_left = 0.777778
-anchor_right = 0.920635
+anchor_left = 0.688889
+anchor_right = 0.879365
 anchor_bottom = 1.0
 texture = ExtResource( 16 )
 expand = true
@@ -831,36 +863,33 @@ text = "12"
 align = 1
 valign = 1
 script = ExtResource( 9 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 stat = 4
 
-[node name="Minus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
-anchor_left = 0.68254
+[node name="Minus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
+anchor_left = 0.580953
 anchor_top = 0.388889
-anchor_right = 0.761905
+anchor_right = 0.676191
 anchor_bottom = 0.555556
-disabled = true
-texture_normal = ExtResource( 25 )
-texture_pressed = ExtResource( 24 )
-texture_hover = ExtResource( 25 )
-texture_disabled = ExtResource( 24 )
-expand = true
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = SubResource( 24 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="TextureButton" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
-anchor_left = 0.920635
+[node name="Plus" type="Button" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer"]
+anchor_left = 0.890476
 anchor_top = 0.222222
-anchor_right = 0.992063
+anchor_right = 0.985714
 anchor_bottom = 0.722222
-texture_normal = ExtResource( 26 )
-texture_pressed = ExtResource( 23 )
-texture_hover = ExtResource( 26 )
-texture_disabled = ExtResource( 23 )
-expand = true
+custom_styles/hover = ExtResource( 15 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = ExtResource( 10 )
+custom_styles/normal = ExtResource( 11 )
+disabled = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -875,9 +904,6 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 texture = ExtResource( 27 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="AttributeDescriptionName" type="Label" parent="Control/Background/TextureRect"]
 unique_name_in_owner = true
@@ -915,24 +941,23 @@ anchor_left = 0.121294
 anchor_top = 0.182185
 anchor_right = 0.660376
 anchor_bottom = 0.273277
-margin_right = 3.05176e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
+margin_left = -40.0004
+margin_top = -69.9995
+margin_right = -40.0003
+margin_bottom = -69.9995
 
-[node name="AttributeName" type="TextureButton" parent="Control/Background/AgilityNameContainer"]
+[node name="AttributeName" type="Button" parent="Control/Background/AgilityNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_right = 0.000244141
+margin_bottom = 31.0007
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 23 )
+custom_styles/focus = SubResource( 26 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
 group = ExtResource( 29 )
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 31 )
-texture_hover = ExtResource( 31 )
-texture_disabled = ExtResource( 32 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label" type="Label" parent="Control/Background/AgilityNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -942,9 +967,6 @@ custom_fonts/font = SubResource( 10 )
 text = "agi_name"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="PerceptionNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
@@ -952,24 +974,21 @@ anchor_left = 0.121294
 anchor_top = 0.303642
 anchor_right = 0.660376
 anchor_bottom = 0.394735
-margin_right = 3.05176e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
+margin_left = -40.0004
+margin_top = -54.9995
+margin_right = -40.0003
+margin_bottom = -54.9995
 
-[node name="AttributeName" type="TextureButton" parent="Control/Background/PerceptionNameContainer"]
+[node name="AttributeName" type="Button" parent="Control/Background/PerceptionNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 23 )
+custom_styles/focus = SubResource( 27 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
 group = ExtResource( 29 )
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 31 )
-texture_hover = ExtResource( 31 )
-texture_disabled = ExtResource( 32 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label" type="Label" parent="Control/Background/PerceptionNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -983,27 +1002,24 @@ valign = 1
 [node name="CharacterNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.425099
+anchor_top = 0.384613
 anchor_right = 0.660376
-anchor_bottom = 0.516192
-margin_right = 3.05176e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
+anchor_bottom = 0.475706
+margin_left = -40.0004
+margin_top = 0.000579834
+margin_right = -40.0003
+margin_bottom = 0.000579834
 
-[node name="AttributeName" type="TextureButton" parent="Control/Background/CharacterNameContainer"]
+[node name="AttributeName" type="Button" parent="Control/Background/CharacterNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 23 )
+custom_styles/focus = SubResource( 27 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
 group = ExtResource( 29 )
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 31 )
-texture_hover = ExtResource( 31 )
-texture_disabled = ExtResource( 32 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label" type="Label" parent="Control/Background/CharacterNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -1020,27 +1036,24 @@ __meta__ = {
 [node name="WitsNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
 anchor_left = 0.121294
-anchor_top = 0.546556
+anchor_top = 0.522265
 anchor_right = 0.660376
-anchor_bottom = 0.637649
-margin_right = 3.05176e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
+anchor_bottom = 0.613358
+margin_left = -40.0004
+margin_top = -0.999451
+margin_right = -40.0003
+margin_bottom = -0.999451
 
-[node name="AttributeName" type="TextureButton" parent="Control/Background/WitsNameContainer"]
+[node name="AttributeName" type="Button" parent="Control/Background/WitsNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.00001
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 23 )
+custom_styles/focus = SubResource( 27 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
 group = ExtResource( 29 )
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 31 )
-texture_hover = ExtResource( 31 )
-texture_disabled = ExtResource( 32 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label" type="Label" parent="Control/Background/WitsNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
@@ -1050,9 +1063,6 @@ custom_fonts/font = SubResource( 10 )
 text = "wit_name"
 align = 1
 valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="BodyNameContainer" type="Control" parent="Control/Background"]
 unique_name_in_owner = true
@@ -1060,23 +1070,21 @@ anchor_left = 0.121294
 anchor_top = 0.668013
 anchor_right = 0.660375
 anchor_bottom = 0.759106
-__meta__ = {
-"_edit_use_anchors_": true
-}
+margin_left = -40.0004
+margin_top = -9.99939
+margin_right = -40.0004
+margin_bottom = -9.99939
 
-[node name="AttributeName" type="TextureButton" parent="Control/Background/BodyNameContainer"]
+[node name="AttributeName" type="Button" parent="Control/Background/BodyNameContainer"]
 anchor_right = 1.0
 anchor_bottom = 1.00001
+custom_styles/hover = ExtResource( 25 )
+custom_styles/pressed = ExtResource( 23 )
+custom_styles/focus = SubResource( 27 )
+custom_styles/disabled = ExtResource( 18 )
+custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
 group = ExtResource( 29 )
-texture_normal = ExtResource( 32 )
-texture_pressed = ExtResource( 31 )
-texture_hover = ExtResource( 31 )
-texture_disabled = ExtResource( 32 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label" type="Label" parent="Control/Background/BodyNameContainer/AttributeName"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )

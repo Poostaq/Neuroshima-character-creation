@@ -795,3 +795,10 @@ N * punkty = kupno umiejętności na poziom N. Jeśli chcesz podnieść o kilka 
 N * points = purchase skills at level N. If you want to increase by multiple levels, you pay for each of them separately."
 specialization_skill_points_label_text,PUNKTY DO ROZDANIA NA UMIEJĘTNOŚCI ZE SPECJALIZACJI:,POINTS TO SPEND ON SPECIALIZATION SKILLS:
 skill_points_label_text,PUNKTY DO ROZDANIA NA WSZYSTKIE UMIEJĘTNOŚCI:,POINTS TO SPEND ON ANY SKILLS:
+new_button,NOWA POSTAĆ,NEW CHARACTER
+manage_button,EDYTUJ POSTACIE,MANAGE CHARACTERS
+settings_button,USTAWIENIA,SETTINGS
+exit_button,WYJDŹ,EXIT
+polish,POLSKI,POLISH
+english,ANGIELSKI,ENGLISH
+language,JEZYK,LANGUAGE

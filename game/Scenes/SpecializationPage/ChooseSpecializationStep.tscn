@@ -1,283 +1,152 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=27 format=2]
 
-[ext_resource path="res://UI_Elements/light_off.png" type="Texture" id=1]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=1]
 [ext_resource path="res://UI_Elements/splashArtBox.png" type="Texture" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/SpecializationPage/SpecializationStep.gd" type="Script" id=4]
-[ext_resource path="res://UI_Elements/light_on.png" type="Texture" id=5]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonHover.tres" type="StyleBox" id=5]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://UI_Elements/previousOriginButtonOn.png" type="Texture" id=7]
-[ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=8]
-[ext_resource path="res://UI_Elements/nextOriginButtonOn.png" type="Texture" id=9]
-[ext_resource path="res://UI_Elements/previousOriginButtonOff.png" type="Texture" id=10]
+[ext_resource path="res://Resources/Buttons/BackButton/BackButtonDisabled.tres" type="StyleBox" id=7]
+[ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=8]
+[ext_resource path="res://Resources/Buttons/BackButton/BackButtonPressed.tres" type="StyleBox" id=9]
+[ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=10]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=11]
-[ext_resource path="res://UI_Elements/nextOriginButtonOff.png" type="Texture" id=12]
+[ext_resource path="res://Resources/Buttons/NextButton/NextButtonPressed.tres" type="StyleBox" id=12]
+[ext_resource path="res://Resources/Buttons/NextButton/NextButtonNormal.tres" type="StyleBox" id=13]
+[ext_resource path="res://Resources/Buttons/NextButton/NextButtonHover.tres" type="StyleBox" id=14]
+[ext_resource path="res://Resources/Buttons/NextButton/NextButtonDisabled.tres" type="StyleBox" id=15]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_results.png" type="Texture" id=16]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=17]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonNormal.tres" type="StyleBox" id=18]
 
-[sub_resource type="DynamicFont" id=1]
-size = 55
+[sub_resource type="DynamicFont" id=10]
+size = 54
+outline_size = 5
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=5]
 size = 26
-font_data = ExtResource( 6 )
-
-[sub_resource type="DynamicFont" id=2]
-size = 20
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=4]
 size = 40
 font_data = ExtResource( 6 )
 
+[sub_resource type="StyleBoxEmpty" id=9]
+
 [sub_resource type="DynamicFont" id=6]
 size = 36
+outline_size = 3
+outline_color = Color( 0.733333, 0.329412, 0, 1 )
 font_data = ExtResource( 6 )
 
 [node name="SpecializationStep" type="Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_right = -40.0
-margin_bottom = -88.0
+anchor_right = 0.979167
+anchor_bottom = 0.918519
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 script = ExtResource( 4 )
-
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Control" type="Control" parent="VBoxContainer"]
-margin_right = 1880.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="HBoxContainer3" type="HBoxContainer" parent="VBoxContainer/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Control3" type="Control" parent="VBoxContainer/Control/HBoxContainer3"]
-margin_right = 743.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.34
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/Control/HBoxContainer3"]
-margin_left = 747.0
-margin_right = 1701.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-texture = ExtResource( 8 )
-expand = true
-
-[node name="Control4" type="Control" parent="VBoxContainer/Control/HBoxContainer3"]
-margin_left = 1705.0
-margin_right = 1880.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.55
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/Control"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
-margin_right = 688.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.95
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/Control/HBoxContainer2"]
-margin_left = 692.0
-margin_right = 1752.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 3.0
-
-[node name="PreviousSpecialization" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
-margin_right = 105.0
-margin_bottom = 109.0
-rect_min_size = Vector2( 100, 100 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource( 7 )
-texture_pressed = ExtResource( 10 )
-texture_hover = ExtResource( 7 )
-texture_disabled = ExtResource( 10 )
-expand = true
-stretch_mode = 5
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
-margin_left = 109.0
-margin_right = 950.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 8.0
-
-[node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
-margin_right = 841.0
-margin_bottom = 18.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-
-[node name="SpecializationName" type="RichTextLabel" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
-unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 22.0
-margin_right = 841.0
-margin_bottom = 86.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_fonts/normal_font = SubResource( 1 )
-bbcode_enabled = true
-bbcode_text = "[center]NOT SET[/center]"
-text = "NOT SET"
-
-[node name="Control" type="Control" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer/VBoxContainer"]
-margin_top = 90.0
-margin_right = 841.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-
-[node name="NextSpecialization" type="TextureButton" parent="VBoxContainer/Control/HBoxContainer2/HBoxContainer"]
-margin_left = 954.0
-margin_right = 1060.0
-margin_bottom = 109.0
-rect_min_size = Vector2( 100, 100 )
-size_flags_horizontal = 3
-size_flags_vertical = 3
-texture_normal = ExtResource( 9 )
-texture_pressed = ExtResource( 12 )
-texture_hover = ExtResource( 9 )
-texture_disabled = ExtResource( 12 )
-expand = true
-stretch_mode = 5
-
-[node name="Control2" type="Control" parent="VBoxContainer/Control/HBoxContainer2"]
-margin_left = 1756.0
-margin_right = 1880.0
-margin_bottom = 109.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.35
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
-margin_top = 113.0
-margin_right = 1880.0
-margin_bottom = 992.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 8.0
-custom_constants/separation = 20
-
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
-margin_right = 51.0
-margin_bottom = 879.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.1
-
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 71.0
-margin_right = 582.0
-margin_bottom = 879.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-custom_constants/margin_right = 10
-custom_constants/margin_top = 10
-custom_constants/margin_left = 10
-custom_constants/margin_bottom = 10
-
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer"]
-margin_left = 10.0
-margin_top = 10.0
-margin_right = 501.0
-margin_bottom = 869.0
-texture = ExtResource( 2 )
-expand = true
-stretch_mode = 1
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
-anchor_left = 0.14053
-anchor_top = 0.104773
-anchor_right = 0.822811
-anchor_bottom = 0.894063
-margin_right = 3.05176e-05
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RichTextLabel" type="Label" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_right = 335.0
-margin_bottom = 61.0
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.425532
+anchor_top = 0.00604838
+anchor_right = 0.899468
+anchor_bottom = 0.115927
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 5 )
-text = "skills_list_label"
+size_flags_stretch_ratio = 3.0
+texture = ExtResource( 16 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SpecializationName" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0325477
+anchor_top = 0.201835
+anchor_right = 0.95174
+anchor_bottom = 0.788991
+margin_left = 0.999573
+margin_top = -10.9999
+margin_right = 0.999268
+margin_bottom = -0.999741
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 10 )
+text = "NOT SET"
 align = 1
 valign = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
-margin_top = 65.0
-margin_right = 335.0
-margin_bottom = 678.0
+[node name="PreviousSpecialization" type="Button" parent="."]
+anchor_left = 0.380319
+anchor_top = 0.0131048
+anchor_right = 0.433511
+anchor_bottom = 0.113911
+rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 10.0
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 9 )
+custom_styles/focus = SubResource( 7 )
+custom_styles/disabled = ExtResource( 7 )
+custom_styles/normal = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer"]
-margin_right = 10.0
-margin_bottom = 613.0
+[node name="NextSpecialization" type="Button" parent="."]
+anchor_left = 0.882978
+anchor_top = 0.015121
+anchor_right = 0.93617
+anchor_bottom = 0.115927
+rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.04
+custom_styles/hover = ExtResource( 14 )
+custom_styles/pressed = ExtResource( 12 )
+custom_styles/focus = SubResource( 8 )
+custom_styles/disabled = ExtResource( 15 )
+custom_styles/normal = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer"]
-margin_left = 14.0
-margin_right = 335.0
-margin_bottom = 613.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 1.25
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 0.0430851
+anchor_top = 0.123992
+anchor_right = 0.304255
+anchor_bottom = 0.989919
+texture = ExtResource( 2 )
 expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_right = 1.0
-anchor_bottom = 1.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 2.47
-
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer"]
-margin_right = 321.0
-margin_bottom = 613.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-alignment = 1
-
-[node name="SpecializationSkills" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/HBoxContainer/TextureRect/VBoxContainer/HBoxContainer"]
+[node name="SpecializationSkills" type="RichTextLabel" parent="TextureRect2"]
 unique_name_in_owner = true
-margin_right = 321.0
-margin_bottom = 613.0
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.169043
+anchor_top = 0.180442
+anchor_right = 0.822811
+anchor_bottom = 0.894063
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -286,54 +155,47 @@ bbcode_enabled = true
 bbcode_text = "NOT SET"
 meta_underlined = false
 text = "NOT SET"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
-margin_left = 602.0
-margin_right = 1880.0
-margin_bottom = 879.0
+[node name="Label" type="Label" parent="TextureRect2"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.14053
+anchor_top = 0.104773
+anchor_right = 0.822811
+anchor_bottom = 0.175786
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 2.5
+custom_fonts/font = SubResource( 5 )
+text = "skills_list_label"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
-margin_right = 1278.0
-margin_bottom = 879.0
+[node name="TextureRect3" type="TextureRect" parent="."]
+anchor_left = 0.320213
+anchor_top = 0.113911
+anchor_right = 1.0
+anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 texture = ExtResource( 11 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect"]
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2"]
-margin_right = 115.0
-margin_bottom = 879.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2"]
-margin_left = 119.0
-margin_right = 1158.0
-margin_bottom = 879.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 9.0
-
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
-margin_right = 1039.0
-margin_bottom = 124.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SpecializationDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
+[node name="SpecializationDescription" type="RichTextLabel" parent="TextureRect3"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 128.0
-margin_right = 1039.0
-margin_bottom = 750.0
+anchor_left = 0.0931142
+anchor_top = 0.14562
+anchor_right = 0.906103
+anchor_bottom = 0.853242
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -341,40 +203,27 @@ custom_fonts/normal_font = SubResource( 4 )
 bbcode_enabled = true
 bbcode_text = "NOT SET"
 text = "NOT SET"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2/VBoxContainer"]
-margin_top = 754.0
-margin_right = 1039.0
-margin_bottom = 879.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/TextureRect/HBoxContainer2"]
-margin_left = 1162.0
-margin_right = 1278.0
-margin_bottom = 879.0
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SelectedIdentifier" type="TextureButton" parent="."]
+[node name="SelectedIdentifier" type="Button" parent="."]
 unique_name_in_owner = true
 anchor_left = 0.544681
 anchor_top = 0.950605
 anchor_right = 0.750532
 anchor_bottom = 1.01915
-margin_left = 6.10352e-05
+custom_styles/hover = ExtResource( 5 )
+custom_styles/pressed = ExtResource( 17 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
-texture_normal = ExtResource( 1 )
-texture_pressed = ExtResource( 5 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label" type="Label" parent="SelectedIdentifier"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.847059, 1, 0, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "select_button"
 align = 1
@@ -383,6 +232,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/PreviousSpecialization" to="." method="_on_PreviousSpecialization_button_up"]
-[connection signal="button_up" from="VBoxContainer/Control/HBoxContainer2/HBoxContainer/NextSpecialization" to="." method="_on_NextSpecialization_button_up"]
+[connection signal="button_up" from="PreviousSpecialization" to="." method="_on_PreviousSpecialization_button_up"]
+[connection signal="button_up" from="NextSpecialization" to="." method="_on_NextSpecialization_button_up"]
 [connection signal="pressed" from="SelectedIdentifier" to="." method="_on_SelectedIdentifier_pressed"]

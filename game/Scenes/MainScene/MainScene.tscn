@@ -1,0 +1,432 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://THEME.tres" type="Theme" id=1]
+[ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=2]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonHover.tres" type="StyleBox" id=3]
+[ext_resource path="res://Scenes/MainScene/SettingsWindow.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/CharacterCreationProcess/CharacterCreationProcess.tscn" type="PackedScene" id=5]
+[ext_resource path="res://UI_Elements/MainMenu/CharacterManagerLogo.png" type="Texture" id=6]
+[ext_resource path="res://UI_Elements/MainMenu/PoostaqLogo.png" type="Texture" id=7]
+[ext_resource path="res://UI_Elements/MainMenu/NeuroshimaLogo.png" type="Texture" id=8]
+[ext_resource path="res://UI_Elements/background.png" type="Texture" id=9]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://Shaders/glitch_effect.shader" type="Shader" id=12]
+[ext_resource path="res://Scripts/MainScreen/MainScreen.gd" type="Script" id=13]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonNormal.tres" type="StyleBox" id=14]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonPressed.tres" type="StyleBox" id=15]
+[ext_resource path="res://Resources/Buttons/GeneralButton/ButtonDisabled.tres" type="StyleBox" id=16]
+
+[sub_resource type="ButtonGroup" id=14]
+
+[sub_resource type="ButtonGroup" id=15]
+
+[sub_resource type="StyleBoxEmpty" id=16]
+
+[sub_resource type="DynamicFont" id=8]
+size = 44
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxEmpty" id=17]
+
+[sub_resource type="StreamTexture" id=13]
+flags = 4
+load_path = "res://.import/originDescriptionBox.png-52d352332bd0b631d4f50a09247e5384.stex"
+
+[sub_resource type="ShaderMaterial" id=9]
+shader = ExtResource( 12 )
+shader_param/shake_power = 0.01
+shader_param/shake_rate = 0.1
+shader_param/shake_speed = 5.0
+shader_param/shake_block_size = 500.0
+shader_param/shake_color_rate = 0.012
+
+[sub_resource type="DynamicFont" id=18]
+size = 60
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=20]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 25
+font_data = ExtResource( 11 )
+
+[sub_resource type="Environment" id=12]
+background_mode = 4
+glow_enabled = true
+glow_intensity = 1.0
+glow_strength = 0.95
+glow_blend_mode = 0
+glow_bicubic_upscale = true
+glow_high_quality = true
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -7.0
+margin_bottom = -5.0
+theme = ExtResource( 1 )
+script = ExtResource( 13 )
+
+[node name="Background" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 9 )
+expand = true
+
+[node name="CharacterCreationProcess" parent="." instance=ExtResource( 5 )]
+unique_name_in_owner = true
+visible = false
+
+[node name="EthnicityStep" parent="CharacterCreationProcess/StepContainer" index="0"]
+margin_right = 1873.0
+margin_bottom = 950.0
+trait_group = SubResource( 14 )
+
+[node name="ProfessionStep" parent="CharacterCreationProcess/StepContainer" index="1"]
+margin_right = 1873.0
+margin_bottom = 950.0
+trait_group = SubResource( 15 )
+
+[node name="AttributesStep" parent="CharacterCreationProcess/StepContainer" index="2"]
+margin_right = 1873.0
+margin_bottom = 950.0
+
+[node name="SpecializationStep" parent="CharacterCreationProcess/StepContainer" index="3"]
+margin_right = 1873.0
+margin_bottom = 950.0
+
+[node name="SkillPointsStep" parent="CharacterCreationProcess/StepContainer" index="4"]
+margin_right = 1873.0
+margin_bottom = 950.0
+
+[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="5"]
+margin_right = 1873.0
+margin_bottom = 950.0
+
+[node name="EthnicityIndicator" parent="CharacterCreationProcess/StepsContainer" index="0"]
+margin_bottom = 76.0
+
+[node name="ProfessionIndicator" parent="CharacterCreationProcess/StepsContainer" index="1"]
+margin_bottom = 76.0
+
+[node name="AttributesIndicator" parent="CharacterCreationProcess/StepsContainer" index="2"]
+margin_right = 218.0
+margin_bottom = 76.0
+
+[node name="SpecializationIndicator" parent="CharacterCreationProcess/StepsContainer" index="3"]
+margin_left = 238.0
+margin_bottom = 76.0
+
+[node name="SkillsIndicator" parent="CharacterCreationProcess/StepsContainer" index="4"]
+margin_right = 377.0
+margin_bottom = 76.0
+
+[node name="TricksIndicator" parent="CharacterCreationProcess/StepsContainer" index="5"]
+margin_left = 397.0
+margin_right = 457.0
+margin_bottom = 76.0
+
+[node name="DiseasesIndicator" parent="CharacterCreationProcess/StepsContainer" index="6"]
+margin_left = 477.0
+margin_right = 536.0
+margin_bottom = 76.0
+
+[node name="ReputationIndicator" parent="CharacterCreationProcess/StepsContainer" index="7"]
+margin_left = 556.0
+margin_right = 616.0
+margin_bottom = 76.0
+
+[node name="FormIndicator" parent="CharacterCreationProcess/StepsContainer" index="8"]
+margin_left = 636.0
+margin_right = 695.0
+margin_bottom = 76.0
+
+[node name="GearIndicator" parent="CharacterCreationProcess/StepsContainer" index="9"]
+margin_left = 715.0
+margin_right = 775.0
+margin_bottom = 76.0
+
+[node name="MainMenu" type="Control" parent="."]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NeuroshimaText" type="TextureRect" parent="MainMenu"]
+modulate = Color( 0.8, 0.8, 0.8, 1 )
+anchor_left = 0.203346
+anchor_top = 0.0939535
+anchor_right = 0.987454
+anchor_bottom = 0.261395
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CharacterManagerText" type="TextureRect" parent="MainMenu"]
+modulate = Color( 0.8, 0.8, 0.8, 1 )
+anchor_left = 0.445374
+anchor_top = 0.255814
+anchor_right = 0.915839
+anchor_bottom = 0.348837
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NewCharacterButton" type="Button" parent="MainMenu"]
+unique_name_in_owner = true
+anchor_left = 0.172504
+anchor_top = 0.488372
+anchor_right = 0.486147
+anchor_bottom = 0.60093
+margin_right = 6.10352e-05
+margin_bottom = -21.0003
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/disabled = ExtResource( 16 )
+custom_styles/normal = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="MainMenu/NewCharacterButton"]
+anchor_left = 0.0947776
+anchor_top = 0.214953
+anchor_right = 0.924565
+anchor_bottom = 0.738318
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "new_button"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ManageButton" type="Button" parent="MainMenu"]
+visible = false
+anchor_left = 0.125457
+anchor_top = 0.609302
+anchor_right = 0.439101
+anchor_bottom = 0.702326
+margin_left = 1.52588e-05
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/disabled = ExtResource( 16 )
+custom_styles/normal = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="MainMenu/ManageButton"]
+anchor_left = 0.0947776
+anchor_top = 0.215843
+anchor_right = 0.924565
+anchor_bottom = 0.739208
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "manage_button"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SettingsButton" type="Button" parent="MainMenu"]
+anchor_left = 0.0784109
+anchor_top = 0.730233
+anchor_right = 0.392054
+anchor_bottom = 0.842791
+margin_bottom = -21.0002
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/disabled = ExtResource( 16 )
+custom_styles/normal = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="MainMenu/SettingsButton"]
+anchor_left = 0.0947776
+anchor_top = 0.214953
+anchor_right = 0.924565
+anchor_bottom = 0.738318
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "settings_button"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ExitButton" type="Button" parent="MainMenu"]
+anchor_left = 0.0313643
+anchor_top = 0.851163
+anchor_right = 0.345008
+anchor_bottom = 0.963721
+margin_bottom = -21.0003
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 15 )
+custom_styles/focus = SubResource( 17 )
+custom_styles/disabled = ExtResource( 16 )
+custom_styles/normal = ExtResource( 14 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="MainMenu/ExitButton"]
+anchor_left = 0.0947776
+anchor_top = 0.214953
+anchor_right = 0.924565
+anchor_bottom = 0.738318
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "exit_button"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OriginDescriptionBox" type="TextureRect" parent="MainMenu"]
+anchor_left = 0.613696
+anchor_top = 0.453023
+anchor_right = 0.931521
+anchor_bottom = 0.909767
+texture = SubResource( 13 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="MainMenu/OriginDescriptionBox"]
+anchor_left = 0.119377
+anchor_top = 0.125468
+anchor_right = 0.878893
+anchor_bottom = 0.850187
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="MainMenu/OriginDescriptionBox"]
+modulate = Color( 0, 0.717647, 0.0392157, 1 )
+material = SubResource( 9 )
+anchor_left = 0.0707237
+anchor_top = 0.0733198
+anchor_right = 0.917763
+anchor_bottom = 0.912424
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SettingsWindow" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 306, 200 )
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="SettingsWindow"]
+anchor_left = 0.0486147
+anchor_top = 0.0353488
+anchor_right = 0.973863
+anchor_bottom = 0.972093
+texture = ExtResource( 2 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="SettingsWindow/TextureRect"]
+anchor_left = 0.120339
+anchor_top = 0.141013
+anchor_right = 0.338983
+anchor_bottom = 0.216485
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 18 )
+text = "language"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="LanguageSelector" type="OptionButton" parent="SettingsWindow/TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.484181
+anchor_top = 0.141013
+anchor_right = 0.867232
+anchor_bottom = 0.220457
+custom_colors/font_color_disabled = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color_focus = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color_hover = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="CloseButton" type="Button" parent="SettingsWindow"]
+unique_name_in_owner = true
+modulate = Color( 1, 0, 0, 1 )
+anchor_left = 0.883429
+anchor_top = 0.0967442
+anchor_right = 0.899111
+anchor_bottom = 0.125581
+custom_fonts/font = SubResource( 19 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 12 )
+
+[connection signal="back_to_main_menu" from="CharacterCreationProcess" to="." method="_back_to_main_menu"]
+[connection signal="button_up" from="MainMenu/NewCharacterButton" to="." method="_on_NewCharacterButton_button_up"]
+[connection signal="button_up" from="MainMenu/SettingsButton" to="." method="_on_SettingsButton_button_up"]
+[connection signal="button_up" from="MainMenu/ExitButton" to="." method="_on_ExitButton_button_up"]
+[connection signal="back_to_main_menu" from="SettingsWindow" to="." method="_back_to_main_menu"]
+[connection signal="item_selected" from="SettingsWindow/TextureRect/LanguageSelector" to="SettingsWindow" method="_on_LanguageSelector_item_selected"]
+[connection signal="button_up" from="SettingsWindow/CloseButton" to="SettingsWindow" method="_on_CloseButton_button_up"]
+
+[editable path="CharacterCreationProcess"]
