@@ -7,6 +7,7 @@
 [ext_resource path="res://UI_Elements/light_off.png" type="Texture" id=5]
 [ext_resource path="res://UI_Elements/skillBoxInactive.png" type="Texture" id=6]
 [ext_resource path="res://Fonts/Aleo-Bold.otf" type="DynamicFontData" id=7]
+[ext_resource path="res://UI_Elements/skillBox.png" type="Texture" id=8]
 
 
 [sub_resource type="DynamicFont" id=10]
@@ -20,10 +21,6 @@ font_data = ExtResource( 7 )
 [sub_resource type="DynamicFont" id=5]
 size = 28
 font_data = ExtResource( 7 )
-
-[sub_resource type="StreamTexture" id=9]
-flags = 4
-load_path = "res://.import/skill box.png-e8e91f3d4ce675d93074399320060981.stex"
 
 [sub_resource type="DynamicFont" id=8]
 size = 30
@@ -123,9 +120,10 @@ margin_left = -0.120001
 margin_top = -0.00500488
 margin_right = 0.0799942
 margin_bottom = -1.09001
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
 expand = true
 
 [node name="MinusLabel" type="Label" parent="MinusButton"]
@@ -153,9 +151,10 @@ margin_left = -0.119995
 margin_top = -0.0650177
 margin_right = 0.0799866
 margin_bottom = -0.915009
-texture_normal = ExtResource( 5 )
-texture_pressed = ExtResource( 4 )
+texture_normal = ExtResource( 4 )
+texture_pressed = ExtResource( 5 )
 texture_hover = ExtResource( 4 )
+texture_disabled = ExtResource( 5 )
 expand = true
 
 [node name="PlusLabel" type="Label" parent="PlusButton"]
@@ -186,7 +185,7 @@ margin_bottom = -0.0350037
 mouse_filter = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = SubResource( 9 )
+texture = ExtResource( 8 )
 expand = true
 stretch_mode = 1
 

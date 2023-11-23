@@ -99,9 +99,9 @@ func _on_EthnicityStep_trait_chosen(trait_element) -> void:
 
 func _format_ethnicity_trait_name(trait_button) -> String:
 	if trait_button.identifier == "versatility_squared":
-		return trait_button.trait_name +" : \n " + trait_button.secondary_trait
+		return tr(trait_button.trait_name) +" : \n " + tr(trait_button.secondary_trait)
 	else:
-		return trait_button.trait_name
+		return tr(trait_button.trait_name)
 
 func _on_EthnicityStep_clear_ethnicity() -> void:
 	ethnicity = ""

@@ -40,6 +40,9 @@ export (NodePath) onready var general_skill_description = get_node(general_skill
 #####################################
 # PRIVATE VARIABLES
 #####################################
+onready var rules_label = $"%Rules" as RichTextLabel
+onready var specialization_skill_points_label = $"%SpecializationSkillPointsLabel" as RichTextLabel
+onready var skill_points_label = $"%SkillPointsLabel" as RichTextLabel
 onready var _skill_card_list = [skill_card1,skill_card2,skill_card3]
 onready var _general_skill_card_list = [general_skill_card1,general_skill_card2,general_skill_card3]
 var _skill_packs_list = []
@@ -80,9 +83,12 @@ func load_step() -> void:
 	_load_package()
 	_update_skill_points()
 	_load_general_skill_options()
+	_load_translations()
 
 func clean_up_step() -> void:
-	pass
+	CharacterStats.restore_initial_skill_levels()
+	reset_skill_point_pools()
+
 #####################################
 # API FUNCTIONS
 #####################################
@@ -96,21 +102,21 @@ func _load_package() -> void:
 	var skill_pack_id = _current_skill_pack_data["skill_pack_identifier"]
 	var pack_data = DatabaseOperations.read_skills_for_package(skill_pack_id)
 	pack_name_label.text = _current_skill_pack_data["skill_pack_name"]
-	pack_specialization.text = "Specjalizacja %s" % _current_skill_pack_data["specialization_name"]
-	pack_attribute.text = "Atrybut %s" %_current_skill_pack_data["attribute_name"]
+	pack_specialization.text = "%s: %s" % [tr("specialization_step_tooltip"), tr(_current_skill_pack_data["specialization_name"])]
+	pack_attribute.text = "%s: %s" % [tr("attribute_label"),tr(_current_skill_pack_data["attribute_name"])]
 	
 	if skill_pack_id == "general_knowledge":
 		_current_skill_card_list = _general_skill_card_list
 		_load_skill_data(_current_skill_card_list, pack_data)
 		general_skill_name.text = _current_skill_pack_data["skill_pack_name"]
-		general_skill_description.bbcode_text = pack_data[0].skill_description
+		general_skill_description.bbcode_text = tr(pack_data[0].skill_description)
 	else:
 		_current_skill_card_list = _skill_card_list
 		_load_skill_data(_current_skill_card_list, pack_data)
 	skill_pack_indicator.pressed = _is_pack_bought()
 	pack_plus_button.disabled = _is_pack_bought()
 	pack_minus_button.disabled = not _is_pack_bought()
-	skill_name.text = "WYBIERZ UMIEJĘTNOŚĆ"
+	skill_name.text = "select_skill_label"
 	skill_description.bbcode_text = ""
 	_clear_skill_cards_indicators()	
 
@@ -179,8 +185,8 @@ func _on_SkillCard_plus_button_pressed(skill) -> void:
 	save_current_skill_levels_to_character_data()
 
 func _on_SkillCard_skill_element_pressed(skill) -> void:
-	skill_name.text = skill.skill_name
-	skill_description.bbcode_text = skill.description
+	skill_name.text = tr(skill.skill_name)
+	skill_description.bbcode_text = tr(skill.description)
 
 
 func _update_skill_points() -> void:
@@ -366,6 +372,7 @@ func _load_skill_data(skill_card_list, pack_data) -> void:
 		current_skill_card.description = skill.skill_description
 		current_skill_card.specialization = skill.specialization_identifier
 		current_skill_card.update_skill_card_text()
+		
 
 
 func _load_general_skill_options() -> void:
@@ -451,3 +458,8 @@ func set_general_knowledge_names() -> void:
 func _clear_skill_cards_indicators() -> void:
 	for skill_card in _general_skill_card_list+_skill_card_list:
 		skill_card.set_pressed(false)
+
+func _load_translations() -> void:
+	rules_label.bbcode_text = tr("skill_pack_screen_point_distribution_rules")
+	specialization_skill_points_label.bbcode_text = tr("specialization_skill_points_label_text")
+	skill_points_label.bbcode_text = tr("skill_points_label_text")

@@ -12,12 +12,11 @@ var profession_list = []
 var current_profession_index = 0
 var profession = {}
 
-
-export (NodePath) onready var picture = get_node(picture) as TextureRect
-export (NodePath) onready var profession_name = get_node(profession_name) as RichTextLabel
-export (NodePath) onready var profession_description = get_node(profession_description) as RichTextLabel
-export (NodePath) onready var trait_container =  get_node(trait_container) as HBoxContainer
-export (NodePath) onready var profession_quote = get_node(profession_quote) as RichTextLabel
+onready var picture = $"%ProfessionPic"
+onready var profession_name = $"%ProfessionName"
+onready var profession_description = $"%ProfessionDescription"
+onready var trait_container = $"%TraitContainer"
+onready var profession_quote = $"%ProfessionQuote"
 
 onready var trait_button_scene = preload("res://Scenes/ProfessionPage/ProfessionTrait.tscn")
 onready var db = get_node("/root/DatabaseOperations")
@@ -30,7 +29,6 @@ func _ready():
 func load_step() -> void:
 	_load_profession(profession)
 	trait_group = load("res://Scenes/ProfessionPage/Traits.tres")
-	_changed_profession()
 
 
 func clean_up_step() -> void:
@@ -47,9 +45,9 @@ func _set_image(path) -> void:
 
 func _load_profession(_profession) -> void:
 	_set_image("res://Resources/ProfessionPage/splash_art/" + profession["splash_art_name"]) 
-	profession_name.bbcode_text = "[center]%s[/center]" % profession["profession_name"]
-	profession_description.bbcode_text = "%s" % profession["profession_description"]
-	profession_quote.bbcode_text = "[center]%s[/center]" % profession["profession_quote"]
+	profession_name.text = tr(profession["profession_name"])
+	profession_description.bbcode_text = "%s" % tr(profession["profession_description"])
+	profession_quote.bbcode_text = "[center]%s[/center]" % tr(profession["profession_quote"])
 	var profession_trait_list = db.read_traits_for_profession(profession_list[current_profession_index]["profession_identifier"])
 	if trait_container.get_child_count() > 0:
 		for n in trait_container.get_children():
@@ -73,15 +71,15 @@ func _create_trait_list_filler() -> void:
 func _create_trait_button(trait_template, trait_data) -> void:
 	var trait_button = trait_template.instance()
 	trait_container.add_child(trait_button)
-	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % trait_data["trait_name"]
-	trait_button.trait_description_label.bbcode_text = "%s" % trait_data["trait_short_description"]
+	trait_button.trait_name_label.bbcode_text = "[center]%s[/center]" % tr(trait_data["trait_name"])
+	trait_button.trait_description_label.bbcode_text = "%s" % tr(trait_data["trait_short_description"])
 	trait_button.connect("profession_trait_button_pressed", 
 						self, 
 						"_on_Trait_Button_button_pressed")
-	trait_button.identifier = trait_data["trait_identifier"]
-	trait_button.trait_name = trait_data["trait_name"]
-	trait_button.description = trait_data["trait_short_description"]
-	trait_button.tooltip_text = trait_data["trait_description"]
+	trait_button.identifier = tr(trait_data["trait_identifier"])
+	trait_button.trait_name = tr(trait_data["trait_name"])
+	trait_button.description = tr(trait_data["trait_short_description"])
+	trait_button.tooltip_text = tr(trait_data["trait_description"])
 	trait_button.get_node(".").set_button_group(trait_group)
 
 
