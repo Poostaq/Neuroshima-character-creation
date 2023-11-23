@@ -223,7 +223,7 @@ __meta__ = {
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 1036.62
-margin_bottom = 368.771
+margin_bottom = 368.77
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -243,14 +243,10 @@ __meta__ = {
 }
 
 [node name="PreviousEthnicity" type="Button" parent="."]
-anchor_left = 0.307447
-anchor_top = 0.264113
-anchor_right = 0.360639
-anchor_bottom = 0.364919
-margin_left = 2.00006
-margin_top = 8.52823
-margin_right = 1.99908
-margin_bottom = 8.72983
+anchor_left = 0.297872
+anchor_top = 0.272727
+anchor_right = 0.351064
+anchor_bottom = 0.373737
 rect_min_size = Vector2( 100, 100 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
