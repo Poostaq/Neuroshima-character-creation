@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://UI_Elements/splashArtBox.png" type="Texture" id=1]
 [ext_resource path="res://UI_Elements/previousOriginButtonOff.png" type="Texture" id=2]
@@ -16,8 +16,18 @@
 [ext_resource path="res://Scenes/SkillPointsPage/SkillCardButtonGroup.tres" type="ButtonGroup" id=14]
 [ext_resource path="res://Fonts/Aleo-Bold.otf" type="DynamicFontData" id=15]
 [ext_resource path="res://Scenes/SkillPointsPage/SkillCard_generalKnowledge.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=17]
+[ext_resource path="res://Resources/Buttons/NextButton/NextButtonHover.tres" type="StyleBox" id=18]
+[ext_resource path="res://Resources/Buttons/NextButton/NextButtonDisabled.tres" type="StyleBox" id=19]
 [ext_resource path="res://UI_Elements/Attributes/Distribution/plus_on.png" type="Texture" id=20]
-
+[ext_resource path="res://Resources/Buttons/NextButton/NextButtonPressed.tres" type="StyleBox" id=21]
+[ext_resource path="res://Resources/Buttons/BackButton/BackButtonPressed.tres" type="StyleBox" id=22]
+[ext_resource path="res://Resources/Buttons/NextButton/NextButtonNormal.tres" type="StyleBox" id=23]
+[ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=24]
+[ext_resource path="res://Resources/Buttons/BackButton/BackButtonDisabled.tres" type="StyleBox" id=25]
+[ext_resource path="res://UI_Elements/skillBox.png" type="Texture" id=26]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_results.png" type="Texture" id=27]
+[ext_resource path="res://UI_Elements/Attributes/Randomized/roll_panel.png" type="Texture" id=28]
 
 [sub_resource type="DynamicFont" id=2]
 size = 24
@@ -59,6 +69,16 @@ font_data = ExtResource( 6 )
 size = 32
 font_data = ExtResource( 6 )
 
+[sub_resource type="DynamicFont" id=12]
+size = 54
+outline_size = 5
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=13]
+
+[sub_resource type="StyleBoxEmpty" id=14]
+
 [node name="DistributeSkillPointsStep" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -68,34 +88,42 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource( 3 )
 script = ExtResource( 5 )
-regular_skill_pack_element = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack")
-skill_card1 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard")
-skill_card2 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard2")
-skill_card3 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard3")
-pack_name_label = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer/PackName")
-pack_specialization = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer/TextureRect/PackSpec")
-pack_attribute = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer/TextureRect2/PackAttribute")
-skill_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer/SkillDescription")
-skill_name = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/SkillName")
-skill_points = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2/SkillPoints")
-specialization_skill_points = NodePath("VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer/SpecializationSkillPoints")
-skill_pack_indicator = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackBoughtIndicator")
-pack_plus_button = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackPlusButton")
-pack_minus_button = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackMinusButton")
-general_knowledge_skill_pack_element = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack")
-general_skill_card1 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard")
-general_skill_card2 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2")
-general_skill_card3 = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3")
-general_skill_name = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/SkillName")
-general_skill_description = NodePath("VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer/SkillDescription")
+regular_skill_pack_element = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack")
+skill_card1 = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard")
+skill_card2 = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard2")
+skill_card3 = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard3")
+pack_name_label = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer/PackName")
+pack_specialization = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer/TextureRect/PackSpec")
+pack_attribute = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer/TextureRect2/PackAttribute")
+skill_description = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer/SkillDescription")
+skill_name = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/SkillName")
+skill_points = NodePath("OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2/SkillPoints")
+specialization_skill_points = NodePath("OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer/SpecializationSkillPoints")
+skill_pack_indicator = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackBoughtIndicator")
+pack_plus_button = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackPlusButton")
+pack_minus_button = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackMinusButton")
+general_knowledge_skill_pack_element = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack")
+general_skill_card1 = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard")
+general_skill_card2 = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2")
+general_skill_card3 = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3")
+general_skill_name = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/SkillName")
+general_skill_description = NodePath("OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer/SkillDescription")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="OLD" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OLD"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OLD/VBoxContainer"]
 margin_right = 1880.0
 margin_bottom = 992.0
 size_flags_horizontal = 3
@@ -103,14 +131,14 @@ size_flags_vertical = 3
 size_flags_stretch_ratio = 8.0
 custom_constants/separation = 20
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer"]
+[node name="Control" type="Control" parent="OLD/VBoxContainer/HBoxContainer"]
 margin_right = 51.0
 margin_bottom = 992.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="OLD/VBoxContainer/HBoxContainer"]
 margin_left = 71.0
 margin_right = 582.0
 margin_bottom = 992.0
@@ -121,7 +149,7 @@ custom_constants/margin_top = 10
 custom_constants/margin_left = 10
 custom_constants/margin_bottom = 10
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/MarginContainer"]
+[node name="TextureRect" type="TextureRect" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer"]
 margin_left = 10.0
 margin_top = 10.0
 margin_right = 501.0
@@ -132,7 +160,7 @@ texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect"]
 anchor_left = 0.11
 anchor_top = 0.095
 anchor_right = 0.831
@@ -142,14 +170,14 @@ margin_top = -0.340004
 margin_right = -0.0210266
 margin_bottom = 0.42395
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+[node name="Control" type="Control" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 margin_right = 353.0
 margin_bottom = 23.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="Rules" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+[node name="Rules" type="RichTextLabel" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 27.0
@@ -163,20 +191,20 @@ bbcode_enabled = true
 bbcode_text = "skill_pack_screen_point_distribution_rules"
 text = "skill_pack_screen_point_distribution_rules"
 
-[node name="HSeparator" type="HSeparator" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 308.0
 margin_right = 353.0
 margin_bottom = 312.0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 margin_top = 316.0
 margin_right = 353.0
 margin_bottom = 547.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SpecializationSkillPointsLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
+[node name="SpecializationSkillPointsLabel" type="RichTextLabel" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 353.0
@@ -189,7 +217,7 @@ bbcode_enabled = true
 bbcode_text = "specialization_skill_points_label_text"
 text = "specialization_skill_points_label_text"
 
-[node name="SpecializationSkillPoints" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
+[node name="SpecializationSkillPoints" type="RichTextLabel" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 127.0
 margin_right = 353.0
@@ -202,20 +230,20 @@ bbcode_enabled = true
 bbcode_text = "[center]30/30"
 text = "30/30"
 
-[node name="HSeparator2" type="HSeparator" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+[node name="HSeparator2" type="HSeparator" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 551.0
 margin_right = 353.0
 margin_bottom = 555.0
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
+[node name="VBoxContainer2" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer"]
 margin_top = 559.0
 margin_right = 353.0
 margin_bottom = 790.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SkillPointsLabel" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
+[node name="SkillPointsLabel" type="RichTextLabel" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 353.0
@@ -228,7 +256,7 @@ bbcode_enabled = true
 bbcode_text = "skill_points_label_text"
 text = "skill_points_label_text"
 
-[node name="SkillPoints" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
+[node name="SkillPoints" type="RichTextLabel" parent="OLD/VBoxContainer/HBoxContainer/MarginContainer/TextureRect/VBoxContainer/VBoxContainer2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 127.0
 margin_right = 353.0
@@ -241,7 +269,7 @@ bbcode_enabled = true
 bbcode_text = "[center]35/35"
 text = "35/35"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer"]
 margin_left = 602.0
 margin_right = 1880.0
 margin_bottom = 992.0
@@ -249,13 +277,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.5
 
-[node name="PackSelector" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="PackSelector" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_right = 1278.0
 margin_bottom = 127.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -264,13 +292,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer"]
+[node name="Control3" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer"]
 margin_right = 115.0
 margin_bottom = 127.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer"]
 margin_left = 119.0
 margin_right = 1158.0
 margin_bottom = 127.0
@@ -280,26 +308,26 @@ size_flags_stretch_ratio = 9.0
 texture = ExtResource( 10 )
 expand = true
 
-[node name="Control4" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer"]
+[node name="Control4" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer"]
 margin_left = 1162.0
 margin_right = 1278.0
 margin_bottom = 127.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2"]
+[node name="Control" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2"]
 margin_right = 57.0
 margin_bottom = 127.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2"]
 margin_left = 61.0
 margin_right = 1216.0
 margin_bottom = 127.0
@@ -307,7 +335,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 20.0
 
-[node name="PreviousPack" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer"]
+[node name="PreviousPack" type="TextureButton" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer"]
 margin_right = 114.0
 margin_bottom = 127.0
 rect_min_size = Vector2( 100, 100 )
@@ -323,7 +351,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="PackName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer"]
+[node name="PackName" type="Label" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_left = 118.0
 margin_right = 1036.0
@@ -336,7 +364,7 @@ text = "NOT SET"
 align = 1
 valign = 1
 
-[node name="NextPack" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer"]
+[node name="NextPack" type="TextureButton" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer"]
 margin_left = 1040.0
 margin_right = 1155.0
 margin_bottom = 127.0
@@ -353,14 +381,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2"]
+[node name="Control2" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2"]
 margin_left = 1220.0
 margin_right = 1278.0
 margin_bottom = 127.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="PackMinusButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
+[node name="PackMinusButton" type="TextureButton" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
 anchor_left = 0.124
 anchor_top = 0.723
 anchor_right = 0.202
@@ -377,7 +405,7 @@ texture_hover = ExtResource( 12 )
 texture_disabled = ExtResource( 9 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackMinusButton"]
+[node name="Label" type="Label" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackMinusButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -390,7 +418,7 @@ text = "-"
 align = 1
 valign = 1
 
-[node name="PackPlusButton" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
+[node name="PackPlusButton" type="TextureButton" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
 anchor_left = 0.793
 anchor_top = 0.716
 anchor_right = 0.872
@@ -407,7 +435,7 @@ texture_hover = ExtResource( 12 )
 texture_disabled = ExtResource( 9 )
 expand = true
 
-[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackPlusButton"]
+[node name="Label" type="Label" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackPlusButton"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -420,7 +448,7 @@ text = "+"
 align = 1
 valign = 1
 
-[node name="PackBoughtIndicator" type="TextureButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
+[node name="PackBoughtIndicator" type="TextureButton" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector"]
 anchor_left = 0.45
 anchor_top = -0.078
 anchor_right = 0.547
@@ -437,7 +465,7 @@ texture_normal = ExtResource( 9 )
 texture_pressed = ExtResource( 12 )
 expand = true
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 131.0
 margin_right = 1278.0
 margin_bottom = 144.0
@@ -445,7 +473,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="PackData" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="PackData" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 148.0
 margin_right = 1278.0
 margin_bottom = 224.0
@@ -453,7 +481,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.6
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackData"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackData"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 size_flags_horizontal = 3
@@ -462,7 +490,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer"]
 margin_right = 601.0
 margin_bottom = 76.0
 size_flags_horizontal = 3
@@ -471,7 +499,7 @@ size_flags_stretch_ratio = 9.0
 texture = ExtResource( 10 )
 expand = true
 
-[node name="PackSpec" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer/TextureRect"]
+[node name="PackSpec" type="Label" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer/TextureRect"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.002
 anchor_right = 1.0
@@ -488,14 +516,14 @@ text = "NOT SET"
 align = 1
 valign = 1
 
-[node name="Control4" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer"]
+[node name="Control4" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer"]
 margin_left = 605.0
 margin_right = 672.0
 margin_bottom = 76.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer"]
 margin_left = 676.0
 margin_right = 1278.0
 margin_bottom = 76.0
@@ -505,7 +533,7 @@ size_flags_stretch_ratio = 9.0
 texture = ExtResource( 10 )
 expand = true
 
-[node name="PackAttribute" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer/TextureRect2"]
+[node name="PackAttribute" type="Label" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackData/HBoxContainer/TextureRect2"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_top = -0.026
 anchor_right = 1.0
@@ -522,7 +550,7 @@ text = "NOT SET"
 align = 1
 valign = 1
 
-[node name="RegularSkillPack" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="RegularSkillPack" type="HBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer"]
 visible = false
 margin_top = 228.0
 margin_right = 1278.0
@@ -531,20 +559,20 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
 
-[node name="TraitContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack"]
+[node name="TraitContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack"]
 margin_right = 424.0
 margin_bottom = 764.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control6" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer"]
+[node name="Control6" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer"]
 margin_right = 424.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="SkillCard" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer" instance=ExtResource( 4 )]
+[node name="SkillCard" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 42.0
@@ -553,7 +581,7 @@ margin_bottom = 237.0
 toggle_mode = true
 group = ExtResource( 14 )
 
-[node name="Control7" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer"]
+[node name="Control7" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer"]
 margin_top = 241.0
 margin_right = 424.0
 margin_bottom = 280.0
@@ -561,7 +589,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="SkillCard2" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer" instance=ExtResource( 4 )]
+[node name="SkillCard2" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 284.0
@@ -570,7 +598,7 @@ margin_bottom = 479.0
 toggle_mode = true
 group = ExtResource( 14 )
 
-[node name="Control8" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer"]
+[node name="Control8" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer"]
 margin_top = 483.0
 margin_right = 424.0
 margin_bottom = 522.0
@@ -578,7 +606,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="SkillCard3" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer" instance=ExtResource( 4 )]
+[node name="SkillCard3" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer" instance=ExtResource( 4 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 526.0
@@ -587,7 +615,7 @@ margin_bottom = 721.0
 toggle_mode = true
 group = ExtResource( 14 )
 
-[node name="Control5" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer"]
+[node name="Control5" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer"]
 margin_top = 725.0
 margin_right = 424.0
 margin_bottom = 764.0
@@ -595,7 +623,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack"]
 margin_left = 428.0
 margin_right = 1278.0
 margin_bottom = 764.0
@@ -603,14 +631,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer"]
+[node name="Control" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer"]
 margin_right = 850.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer"]
 margin_top = 38.0
 margin_right = 850.0
 margin_bottom = 725.0
@@ -620,17 +648,17 @@ size_flags_stretch_ratio = 2.0
 texture = ExtResource( 8 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer"]
+[node name="Control2" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer"]
 margin_right = 75.0
 margin_bottom = 687.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer"]
 margin_left = 79.0
 margin_right = 762.0
 margin_bottom = 687.0
@@ -638,13 +666,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 9.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_right = 683.0
 margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SkillName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="SkillName" type="Label" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 88.0
 margin_right = 683.0
@@ -655,7 +683,7 @@ custom_fonts/font = SubResource( 9 )
 text = "WYBIERZ UMIEJĘTNOŚĆ"
 autowrap = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_top = 176.0
 margin_right = 683.0
 margin_bottom = 598.0
@@ -663,7 +691,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="SkillDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer"]
+[node name="SkillDescription" type="RichTextLabel" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 683.0
 margin_bottom = 422.0
@@ -672,14 +700,14 @@ size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_top = 602.0
 margin_right = 683.0
 margin_bottom = 687.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer"]
+[node name="Control3" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer/TextureRect/HBoxContainer"]
 margin_left = 766.0
 margin_right = 850.0
 margin_bottom = 687.0
@@ -687,7 +715,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.1
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer"]
+[node name="Control2" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/VBoxContainer"]
 margin_top = 729.0
 margin_right = 850.0
 margin_bottom = 764.0
@@ -695,7 +723,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="GeneralKnowledgePack" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer"]
+[node name="GeneralKnowledgePack" type="HBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer"]
 margin_top = 228.0
 margin_right = 1278.0
 margin_bottom = 992.0
@@ -703,61 +731,61 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 6.0
 
-[node name="TraitContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack"]
+[node name="TraitContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack"]
 margin_right = 424.0
 margin_bottom = 764.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control6" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer"]
+[node name="Control6" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer"]
 margin_right = 424.0
 margin_bottom = 38.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="SkillCard" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer" instance=ExtResource( 16 )]
+[node name="SkillCard" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer" instance=ExtResource( 16 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 42.0
 margin_right = 424.0
 margin_bottom = 237.0
 
-[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer" index="0"]
+[node name="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer" index="0"]
 margin_right = 46.0
 margin_bottom = 195.0
 
-[node name="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer" index="1"]
+[node name="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer" index="1"]
 margin_left = 50.0
 margin_right = 358.0
 margin_bottom = 195.0
 
-[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer" index="0"]
+[node name="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer" index="0"]
 margin_right = 308.0
 margin_bottom = 40.0
 
-[node name="SkillName" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer" index="1"]
+[node name="SkillName" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer" index="1"]
 margin_top = 44.0
 margin_right = 308.0
 margin_bottom = 104.0
 
-[node name="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer" index="2"]
+[node name="OptionButton" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer" index="2"]
 margin_top = 108.0
 margin_right = 308.0
 margin_bottom = 130.0
 custom_colors/font_color_disabled = Color( 0, 0.937255, 0.0823529, 1 )
 
-[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer" index="3"]
+[node name="Control2" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer" index="3"]
 margin_top = 134.0
 margin_right = 308.0
 margin_bottom = 195.0
 
-[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer" index="2"]
+[node name="Control2" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer" index="2"]
 margin_left = 362.0
 margin_right = 424.0
 margin_bottom = 195.0
 
-[node name="Control7" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer"]
+[node name="Control7" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer"]
 margin_top = 241.0
 margin_right = 424.0
 margin_bottom = 280.0
@@ -765,48 +793,48 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="SkillCard2" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer" instance=ExtResource( 16 )]
+[node name="SkillCard2" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer" instance=ExtResource( 16 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 284.0
 margin_right = 424.0
 margin_bottom = 479.0
 
-[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer" index="0"]
+[node name="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer" index="0"]
 margin_right = 46.0
 margin_bottom = 195.0
 
-[node name="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer" index="1"]
+[node name="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer" index="1"]
 margin_left = 50.0
 margin_right = 358.0
 margin_bottom = 195.0
 
-[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer" index="0"]
+[node name="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer" index="0"]
 margin_right = 308.0
 margin_bottom = 40.0
 
-[node name="SkillName" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer" index="1"]
+[node name="SkillName" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer" index="1"]
 margin_top = 44.0
 margin_right = 308.0
 margin_bottom = 104.0
 
-[node name="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer" index="2"]
+[node name="OptionButton" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer" index="2"]
 margin_top = 108.0
 margin_right = 308.0
 margin_bottom = 130.0
 custom_colors/font_color_disabled = Color( 0, 0.937255, 0.0823529, 1 )
 
-[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer" index="3"]
+[node name="Control2" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer" index="3"]
 margin_top = 134.0
 margin_right = 308.0
 margin_bottom = 195.0
 
-[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer" index="2"]
+[node name="Control2" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer" index="2"]
 margin_left = 362.0
 margin_right = 424.0
 margin_bottom = 195.0
 
-[node name="Control8" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer"]
+[node name="Control8" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer"]
 margin_top = 483.0
 margin_right = 424.0
 margin_bottom = 522.0
@@ -814,52 +842,52 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="SkillCard3" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer" instance=ExtResource( 16 )]
+[node name="SkillCard3" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer" instance=ExtResource( 16 )]
 anchor_right = 0.0
 anchor_bottom = 0.0
 margin_top = 526.0
 margin_right = 424.0
 margin_bottom = 721.0
 
-[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer" index="0"]
+[node name="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer" index="0"]
 margin_right = 46.0
 margin_bottom = 195.0
 
-[node name="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer" index="1"]
+[node name="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer" index="1"]
 margin_left = 50.0
 margin_right = 358.0
 margin_bottom = 195.0
 
-[node name="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer" index="0"]
+[node name="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer" index="0"]
 margin_right = 308.0
 margin_bottom = 40.0
 
-[node name="SkillName" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer" index="1"]
+[node name="SkillName" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer" index="1"]
 margin_top = 44.0
 margin_right = 308.0
 margin_bottom = 104.0
 
-[node name="OptionButton" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer" index="2"]
+[node name="OptionButton" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer" index="2"]
 margin_top = 108.0
 margin_right = 308.0
 margin_bottom = 130.0
 custom_colors/font_color_disabled = Color( 0, 0.937255, 0.0823529, 1 )
 
-[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer" index="3"]
+[node name="Control2" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer" index="3"]
 margin_top = 134.0
 margin_right = 308.0
 margin_bottom = 195.0
 
-[node name="PlusOn" type="Sprite" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer/Control2" index="0"]
+[node name="PlusOn" type="Sprite" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer/Control2" index="0"]
 position = Vector2( -138, -398 )
 texture = ExtResource( 20 )
 
-[node name="Control2" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer" index="2"]
+[node name="Control2" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer" index="2"]
 margin_left = 362.0
 margin_right = 424.0
 margin_bottom = 195.0
 
-[node name="Control5" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer"]
+[node name="Control5" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer"]
 margin_top = 725.0
 margin_right = 424.0
 margin_bottom = 764.0
@@ -867,7 +895,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack"]
 margin_left = 428.0
 margin_right = 1278.0
 margin_bottom = 764.0
@@ -875,14 +903,14 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer"]
+[node name="Control" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer"]
 margin_right = 850.0
 margin_bottom = 34.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer"]
 margin_top = 38.0
 margin_right = 850.0
 margin_bottom = 725.0
@@ -892,17 +920,17 @@ size_flags_stretch_ratio = 2.0
 texture = ExtResource( 8 )
 expand = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect"]
+[node name="HBoxContainer" type="HBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer"]
+[node name="Control2" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer"]
 margin_right = 75.0
 margin_bottom = 687.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer"]
 margin_left = 79.0
 margin_right = 762.0
 margin_bottom = 687.0
@@ -910,13 +938,13 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 9.0
 
-[node name="Control" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="Control" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_right = 683.0
 margin_bottom = 84.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="SkillName" type="Label" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="SkillName" type="Label" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_top = 88.0
 margin_right = 683.0
@@ -927,7 +955,7 @@ custom_fonts/font = SubResource( 9 )
 text = "select_skill_label"
 autowrap = true
 
-[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_top = 176.0
 margin_right = 683.0
 margin_bottom = 598.0
@@ -935,7 +963,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
 
-[node name="SkillDescription" type="RichTextLabel" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer"]
+[node name="SkillDescription" type="RichTextLabel" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer/ScrollContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 margin_right = 683.0
 margin_bottom = 422.0
@@ -944,14 +972,14 @@ size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 8 )
 bbcode_enabled = true
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
+[node name="Control2" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer/VBoxContainer"]
 margin_top = 602.0
 margin_right = 683.0
 margin_bottom = 687.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 
-[node name="Control3" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer"]
+[node name="Control3" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer/TextureRect/HBoxContainer"]
 margin_left = 766.0
 margin_right = 850.0
 margin_bottom = 687.0
@@ -959,7 +987,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 1.1
 
-[node name="Control2" type="Control" parent="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer"]
+[node name="Control2" type="Control" parent="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/VBoxContainer"]
 margin_top = 729.0
 margin_right = 850.0
 margin_bottom = 764.0
@@ -967,29 +995,255 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.1
 
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer/PreviousPack" to="." method="_on_PreviousPack_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer/NextPack" to="." method="_on_NextPack_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackMinusButton" to="." method="_on_PackMinusButton_button_up"]
-[connection signal="button_up" from="VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackPlusButton" to="." method="_on_PackPlusButton_button_up"]
-[connection signal="minus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard" to="." method="_on_SkillCard_minus_button_pressed"]
-[connection signal="plus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard" to="." method="_on_SkillCard_plus_button_pressed"]
-[connection signal="skill_element_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard" to="." method="_on_SkillCard_skill_element_pressed"]
-[connection signal="minus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_minus_button_pressed"]
-[connection signal="plus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_plus_button_pressed"]
-[connection signal="skill_element_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_skill_element_pressed"]
-[connection signal="minus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_minus_button_pressed"]
-[connection signal="plus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_plus_button_pressed"]
-[connection signal="skill_element_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_skill_element_pressed"]
-[connection signal="minus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard" to="." method="_on_SkillCard_minus_button_pressed"]
-[connection signal="plus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard" to="." method="_on_SkillCard_plus_button_pressed"]
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
-[connection signal="minus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_minus_button_pressed"]
-[connection signal="plus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_plus_button_pressed"]
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
-[connection signal="minus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_minus_button_pressed"]
-[connection signal="plus_button_pressed" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_plus_button_pressed"]
-[connection signal="item_selected" from="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[node name="UIv2" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -820, -217 )
 
-[editable path="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard"]
-[editable path="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2"]
-[editable path="VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3"]
+[node name="SkillsSpecializationTexture" type="TextureRect" parent="UIv2"]
+anchor_left = 0.287234
+anchor_top = 0.00604839
+anchor_right = 0.76117
+anchor_bottom = 0.115927
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 3.0
+texture = ExtResource( 27 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="EthnicityName" type="Label" parent="UIv2/SkillsSpecializationTexture"]
+unique_name_in_owner = true
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_right = 1.0
+anchor_bottom = 0.862385
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 12 )
+text = "NOT SET"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PreviousEthnicity2" type="Button" parent="UIv2"]
+anchor_left = 0.242021
+anchor_top = 0.0131048
+anchor_right = 0.295213
+anchor_bottom = 0.113911
+rect_min_size = Vector2( 100, 100 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 17 )
+custom_styles/pressed = ExtResource( 22 )
+custom_styles/focus = SubResource( 13 )
+custom_styles/disabled = ExtResource( 25 )
+custom_styles/normal = ExtResource( 24 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NextEthnicity" type="Button" parent="UIv2"]
+anchor_left = 0.746276
+anchor_top = 0.015121
+anchor_right = 0.799468
+anchor_bottom = 0.115927
+margin_left = -2.99915
+margin_top = -3.14713e-05
+margin_right = -2.99915
+margin_bottom = -3.05176e-05
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/hover = ExtResource( 18 )
+custom_styles/pressed = ExtResource( 21 )
+custom_styles/focus = SubResource( 14 )
+custom_styles/disabled = ExtResource( 19 )
+custom_styles/normal = ExtResource( 23 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Skills Container" type="TextureRect" parent="UIv2"]
+anchor_left = 0.0154255
+anchor_top = 0.125
+anchor_right = 0.997872
+anchor_bottom = 0.780242
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+texture = ExtResource( 8 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UIv2/Skills Container"]
+anchor_left = 0.0923318
+anchor_top = 0.14652
+anchor_right = 0.898279
+anchor_bottom = 0.851648
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control" type="Control" parent="UIv2/Skills Container/ScrollContainer"]
+
+[node name="TextureRect" type="TextureRect" parent="UIv2"]
+anchor_left = 0.557979
+anchor_top = 0.78125
+anchor_right = 0.951596
+anchor_bottom = 1.07762
+margin_left = 1.0
+margin_top = 5.0
+margin_right = 1.0
+margin_bottom = 6.0
+texture = ExtResource( 26 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="UIv2/TextureRect"]
+anchor_left = 0.102703
+anchor_top = 0.122449
+anchor_right = 0.886486
+anchor_bottom = 0.846939
+rect_clip_content = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UIv2/TextureRect/ScrollContainer"]
+bbcode_enabled = true
+bbcode_text = "TEST"
+text = "TEST"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="UIv2"]
+anchor_left = 0.0781915
+anchor_top = 0.78629
+anchor_right = 0.420213
+anchor_bottom = 0.928427
+margin_left = 3.0
+margin_bottom = -1.0
+texture = ExtResource( 27 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="UIv2/TextureRect2"]
+anchor_left = 0.0546875
+anchor_top = 0.192857
+anchor_right = 0.93125
+anchor_bottom = 0.75
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect3" type="TextureRect" parent="UIv2"]
+anchor_left = 0.081383
+anchor_top = 0.934476
+anchor_right = 0.421277
+anchor_bottom = 1.07661
+margin_left = -3.0
+margin_top = 3.0
+margin_right = -2.0
+margin_bottom = 2.0
+texture = ExtResource( 27 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="UIv2/TextureRect3"]
+anchor_left = 0.0625978
+anchor_top = 0.191489
+anchor_right = 0.934272
+anchor_bottom = 0.730496
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect4" type="TextureRect" parent="UIv2"]
+anchor_left = 0.435638
+anchor_top = 0.788306
+anchor_right = 0.521809
+anchor_bottom = 0.919355
+margin_left = 1.0
+margin_top = -2.0
+margin_right = -1.0
+margin_bottom = 8.0
+texture = ExtResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="UIv2/TextureRect4"]
+anchor_left = 0.141975
+anchor_top = 0.153846
+anchor_right = 0.858025
+anchor_bottom = 0.815385
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect5" type="TextureRect" parent="UIv2"]
+anchor_left = 0.433511
+anchor_top = 0.934476
+anchor_right = 0.519681
+anchor_bottom = 1.06552
+margin_left = 5.0
+margin_top = 3.0
+margin_right = 3.0
+margin_bottom = 13.0
+texture = ExtResource( 28 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="UIv2/TextureRect5"]
+anchor_left = 0.1125
+anchor_top = 0.121429
+anchor_right = 0.88125
+anchor_bottom = 0.85
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="button_up" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer/PreviousPack" to="." method="_on_PreviousPack_button_up"]
+[connection signal="button_up" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/HBoxContainer2/HBoxContainer/NextPack" to="." method="_on_NextPack_button_up"]
+[connection signal="button_up" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackMinusButton" to="." method="_on_PackMinusButton_button_up"]
+[connection signal="button_up" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/PackSelector/PackPlusButton" to="." method="_on_PackPlusButton_button_up"]
+[connection signal="minus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard" to="." method="_on_SkillCard_minus_button_pressed"]
+[connection signal="plus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard" to="." method="_on_SkillCard_plus_button_pressed"]
+[connection signal="skill_element_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard" to="." method="_on_SkillCard_skill_element_pressed"]
+[connection signal="minus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_minus_button_pressed"]
+[connection signal="plus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_plus_button_pressed"]
+[connection signal="skill_element_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_skill_element_pressed"]
+[connection signal="minus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_minus_button_pressed"]
+[connection signal="plus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_plus_button_pressed"]
+[connection signal="skill_element_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/RegularSkillPack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_skill_element_pressed"]
+[connection signal="minus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard" to="." method="_on_SkillCard_minus_button_pressed"]
+[connection signal="plus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard" to="." method="_on_SkillCard_plus_button_pressed"]
+[connection signal="item_selected" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard/SkillCard/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="minus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_minus_button_pressed"]
+[connection signal="plus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2" to="." method="_on_SkillCard_plus_button_pressed"]
+[connection signal="item_selected" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2/SkillCard/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="minus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_minus_button_pressed"]
+[connection signal="plus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_plus_button_pressed"]
+[connection signal="item_selected" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
+
+[editable path="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard"]
+[editable path="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2"]
+[editable path="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3"]
