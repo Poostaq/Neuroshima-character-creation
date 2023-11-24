@@ -48,7 +48,7 @@ anchor_right = 0.297872
 anchor_bottom = 0.989899
 texture = ExtResource( 2 )
 expand = true
-stretch_mode = 6
+stretch_mode = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -58,6 +58,10 @@ anchor_left = 0.14053
 anchor_top = 0.104773
 anchor_right = 0.822811
 anchor_bottom = 0.894063
+margin_left = -17.4544
+margin_top = -0.104782
+margin_right = 5.05072
+margin_bottom = 1.10583
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -66,8 +70,8 @@ __meta__ = {
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 self_modulate = Color( 1, 1, 1, 0.380392 )
-margin_right = 327.0
-margin_bottom = 484.0
+margin_right = 350.0
+margin_bottom = 485.0
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 3
@@ -79,9 +83,9 @@ stretch_mode = 1
 
 [node name="HSeparator" type="HSeparator" parent="Fluff/VBoxContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 488.0
-margin_right = 327.0
-margin_bottom = 512.0
+margin_top = 489.0
+margin_right = 350.0
+margin_bottom = 514.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 0.3
@@ -89,9 +93,9 @@ size_flags_stretch_ratio = 0.3
 [node name="ProfessionQuote" type="RichTextLabel" parent="Fluff/VBoxContainer"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_top = 516.0
-margin_right = 327.0
-margin_bottom = 678.0
+margin_top = 518.0
+margin_right = 350.0
+margin_bottom = 680.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -144,6 +148,10 @@ anchor_left = 0.0923318
 anchor_top = 0.243589
 anchor_right = 0.898279
 anchor_bottom = 0.851647
+margin_left = -3.18465
+margin_top = -0.850006
+margin_right = 5.20325
+margin_bottom = 5.07251
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
@@ -154,8 +162,8 @@ __meta__ = {
 [node name="ProfessionDescription" type="RichTextLabel" parent="DescriptionContainer/ScrollContainer"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-margin_right = 1031.61
-margin_bottom = 364.077
+margin_right = 1040.0
+margin_bottom = 370.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0
