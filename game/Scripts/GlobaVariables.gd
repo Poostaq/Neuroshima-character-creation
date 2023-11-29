@@ -1,3 +1,6 @@
 extends Node
 
 enum attribute {AGI,PER,CHA,WIT,BOD,ANY}
+
+var MAX_SKILL_POINTS = 35
+var MAX_SPECIALIZATION_SKILL_POINTS = 30

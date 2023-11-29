@@ -62,3 +62,11 @@ func _on_LanguageSelector_item_selected(index:int):
 
 func _on_CloseButton_button_up():
 	emit_signal("back_to_main_menu")
+
+
+
+func _on_SpecSkillPointsSelector_value_changed(value:float):
+	GlobalVariables.MAX_SPECIALIZATION_SKILL_POINTS = value
+
+func _on_AllSkillPointsSelector_value_changed(value:float):
+	GlobalVariables.MAX_SKILL_POINTS = value

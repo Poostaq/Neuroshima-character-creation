@@ -802,3 +802,8 @@ exit_button,WYJDŹ,EXIT
 polish,POLSKI,POLISH
 english,ANGIELSKI,ENGLISH
 language,JEZYK,LANGUAGE
+current_attribute_label,Paczki Umiejętności dla %s,%s Skill Packs
+pack_specialization_label,Specjalizacja: %s,Specialization: %s
+current_specialization_label,Aktualna Specjalizacja: %s,Current Specialization: %s
+all_skill_points_limit,LIMIT NA WSZYSTKIE UMIEJETNOSCI,LIMIT FOR ALL SKILLS
+specialization_skill_points_limit,LIMIT NA UMIEJETNOSCI ZE SPECJALIZACJI,LIMIT FOR SPECIALIZATION SKILLS

@@ -280,14 +280,14 @@ onready var db = get_node("/root/DatabaseOperations")
 
 
 func update_card() -> void:
-	for attr in GlobalConstants.attribute:
-		self._update_attribute_values(GlobalConstants.attribute[attr])
+	for attr in GlobalVariables.attribute:
+		self._update_attribute_values(GlobalVariables.attribute[attr])
 	self._update_basic_info_values()
 	self._update_skill_levels()
 
 
 func _update_attribute_values(attributeEnum) -> void:
-	if attributeEnum == GlobalConstants.attribute.ANY:
+	if attributeEnum == GlobalVariables.attribute.ANY:
 		return
 	var value = CharacterStats.get_final_attribute_value(CharacterStats.attribute_modifiers_dicts[attributeEnum])
 	CharacterStats.attribute_values_list[attributeEnum] = value
