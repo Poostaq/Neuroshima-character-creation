@@ -483,8 +483,8 @@ var _current_attribute_index = 0
 var _current_attribute_pack_data = {}
 
 
-onready var _current_skill_points = GlobalVariables.MAX_SKILL_POINTS
-onready var _current_specialization_skill_points = GlobalVariables.MAX_SPECIALIZATION_SKILL_POINTS
+onready var _current_skill_points = GlobalVariables.max_skill_points
+onready var _current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 
 func _init() -> void:
 	_skill_packs_list_grouped_by_attribute = DatabaseOperations.read_all_skill_packs_for_all_atributes()
@@ -496,8 +496,8 @@ func load_step():
 	currentAttributeLabel.text = current_attribute_label % tr(_current_attribute_pack_data["name"])
 	var current_specialization_label = tr("current_specialization_label")
 	chosenSpecLabel.text = current_specialization_label % tr(CharacterStats.specialization)
-	_current_skill_points = GlobalVariables.MAX_SKILL_POINTS
-	_current_specialization_skill_points = GlobalVariables.MAX_SPECIALIZATION_SKILL_POINTS
+	_current_skill_points = GlobalVariables.max_skill_points
+	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 	remainingSpecializationAmount.text = str(_current_specialization_skill_points)
 	remainingAllAmount.text = str(_current_skill_points)
 

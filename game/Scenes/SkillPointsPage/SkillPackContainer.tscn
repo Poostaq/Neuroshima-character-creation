@@ -37,7 +37,7 @@ font_data = ExtResource( 10 )
 
 [sub_resource type="DynamicFont" id=22]
 outline_size = 2
-outline_color = Color( 0.733333, 0.329412, 0, 1 )
+outline_color = Color( 0.435294, 0.196078, 0, 1 )
 font_data = ExtResource( 10 )
 
 [node name="SkillPackContainer" type="TextureRect"]
@@ -298,9 +298,9 @@ toggle_mode = true
 
 [node name="Label" type="Label" parent="Button"]
 anchor_left = 0.0344828
-anchor_top = 0.1
+anchor_top = 0.127778
 anchor_right = 0.986207
-anchor_bottom = 0.833333
+anchor_bottom = 0.861111
 custom_colors/font_color = Color( 0.847059, 1, 0, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "BUY PACK"

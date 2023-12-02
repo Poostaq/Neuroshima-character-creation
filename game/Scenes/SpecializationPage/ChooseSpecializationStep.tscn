@@ -43,7 +43,7 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=6]
 size = 36
 outline_size = 3
-outline_color = Color( 0.733333, 0.329412, 0, 1 )
+outline_color = Color( 0.278431, 0.129412, 0, 1 )
 font_data = ExtResource( 6 )
 
 [sub_resource type="StyleBoxEmpty" id=7]
@@ -193,13 +193,14 @@ custom_styles/focus = SubResource( 9 )
 custom_styles/disabled = ExtResource( 1 )
 custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
+pressed = true
 
 [node name="Label" type="Label" parent="SelectedIdentifier"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-custom_colors/font_color = Color( 0.847059, 1, 0, 1 )
+custom_colors/font_color = Color( 0.905882, 0.886275, 0, 1 )
 custom_fonts/font = SubResource( 6 )
-text = "select_button"
+text = "BUY PACK"
 align = 1
 valign = 1
 __meta__ = {

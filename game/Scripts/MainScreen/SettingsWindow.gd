@@ -26,21 +26,20 @@ var language_data = []
 #####################################
 onready var language_selector: OptionButton = $"%LanguageSelector"
 onready var close_button = $"%CloseButton"
+onready var all_skill_point_selector = $"%AllSkillPointsSelector"
+onready var spec_skill_point_selector = $"%SpecSkillPointsSelector"
 #####################################
 # OVERRIDE FUNCTIONS
 #####################################
-func _init() -> void:
-	pass
-
 
 func _ready() -> void:
 	language_data = DatabaseOperations.get_languages_data()
 	fill_language_options()
-
-
-func _process(_delta: float) -> void:
-	pass
-
+	for i in range(0,len(language_data)):
+		if language_data[i]["language_locale"] == GlobalVariables.language:
+			_on_LanguageSelector_item_selected(i)
+	all_skill_point_selector.value = GlobalVariables.max_skill_points
+	spec_skill_point_selector.value = GlobalVariables.max_specialization_skill_points
 #####################################
 # API FUNCTIONS
 #####################################
@@ -64,9 +63,8 @@ func _on_CloseButton_button_up():
 	emit_signal("back_to_main_menu")
 
 
-
 func _on_SpecSkillPointsSelector_value_changed(value:float):
-	GlobalVariables.MAX_SPECIALIZATION_SKILL_POINTS = value
+	GlobalVariables.max_specialization_skill_points = value
 
 func _on_AllSkillPointsSelector_value_changed(value:float):
-	GlobalVariables.MAX_SKILL_POINTS = value
+	GlobalVariables.max_skill_points = value

@@ -16,7 +16,7 @@ func open_connection_to(path) -> void:
 	db.open_db()
 
 
-func _sql_select(query) -> Array:
+func _sql_command(query) -> Array:
 	open_connection_to(main_db)
 	db.query(query)
 	return db.query_result
@@ -25,7 +25,7 @@ func _sql_select(query) -> Array:
 func read_ethnicity_identifiers() -> Array:
 	var select = "SELECT ethnicity_identifier "
 	var from = "FROM ethnicities;"
-	var selected_array = _sql_select(select+from)
+	var selected_array = _sql_command(select+from)
 	db.close_db()
 	return selected_array
 
@@ -36,7 +36,7 @@ func read_data_for_etnicity(ethnicity_identifier) -> Dictionary:
 	select += " a.attribute_name, a.attribute_enum, a.bonus_value "
 	var from = "FROM ethnicities e JOIN attributes a on a.attribute_id = e.attribute_id "
 	var where = ("WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
-	var selected_array = _sql_select(select+from+where)
+	var selected_array = _sql_command(select+from+where)
 	db.close_db()
 	return selected_array[0]
 
@@ -45,7 +45,7 @@ func read_traits_for_ethnicity(ethnicity_identifier) -> Array:
 	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description, t.trait_short_description "
 	var from = "FROM ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id "
 	var where = ("WHERE e.ethnicity_identifier like '%s';" % ethnicity_identifier)
-	var selected_array = _sql_select(select+from+where)
+	var selected_array = _sql_command(select+from+where)
 	db.close_db()
 	return selected_array
 
@@ -53,7 +53,7 @@ func read_traits_for_ethnicity(ethnicity_identifier) -> Array:
 func read_profession_identifiers() -> Array:
 	var select = "SELECT profession_identifier "
 	var from = "FROM professions;"
-	var selected_array = _sql_select(select+from)
+	var selected_array = _sql_command(select+from)
 	db.close_db()
 	return selected_array
 
@@ -63,7 +63,7 @@ func read_data_for_profession(profession_identifier) -> Dictionary:
 	select += "splash_art_name, profession_quote, profession_description "
 	var from = "FROM professions "
 	var where = ("WHERE profession_identifier like '%s';" % profession_identifier)
-	var selected_array = _sql_select(select+from+where)
+	var selected_array = _sql_command(select+from+where)
 	db.close_db()
 	return selected_array[0]
 
@@ -73,7 +73,7 @@ func read_traits_for_profession(profession_identifier) -> Array:
 	var from = "FROM professions p JOIN traits t on p.profession_id = t.profession_id "
 	var where = "WHERE t.profession_id is not null and "
 	where += ("p.profession_identifier like '%s';" % profession_identifier)
-	var selected_array = _sql_select(select+from+where)
+	var selected_array = _sql_command(select+from+where)
 	db.close_db()
 	return selected_array
 	
@@ -197,7 +197,7 @@ func read_specialization_identifiers():
 	var select = "SELECT specialization_identifier "
 	var from = "FROM specializations "
 	var where = "WHERE specialization_enum is not null"
-	var selected_array = _sql_select(select+from+where)
+	var selected_array = _sql_command(select+from+where)
 	db.close_db()
 	return selected_array
 
@@ -207,7 +207,7 @@ func read_data_for_specialization(specialization_identifier):
 	select += "specialization_name, specialization_description, specialization_enum "
 	var from = "FROM specializations "
 	var where = ("WHERE specialization_identifier like '%s';" % specialization_identifier)
-	var selected_array = _sql_select(select+from+where)
+	var selected_array = _sql_command(select+from+where)
 	db.close_db()
 	return selected_array[0]
 
@@ -217,7 +217,7 @@ func read_packs_for_specialization(specialization_identifier):
 	var from = "FROM skill_packs sp "
 	var join = "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
 	var where = "WHERE spec.specialization_identifier like '%"+specialization_identifier+"%';"
-	var selected_array = _sql_select(select+from+join+where);
+	var selected_array = _sql_command(select+from+join+where);
 	db.close_db()
 	return selected_array
 
@@ -226,7 +226,7 @@ func read_all_skill_packs():
 	var from = "FROM skill_packs sp "
 	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
 	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
-	var selected_array = _sql_select(select+from+join);
+	var selected_array = _sql_command(select+from+join);
 	db.close_db()
 	return selected_array
 
@@ -236,7 +236,7 @@ func read_all_skill_packs_for_attribute(attribute):
 	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
 	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
 	var where = "WHERE attr.attribute_name like '%"+attribute+"%';"
-	var selected_array = _sql_select(select+from+join+where);
+	var selected_array = _sql_command(select+from+join+where);
 	db.close_db()
 	return selected_array
 
@@ -253,7 +253,7 @@ func read_skills_for_package(package_identifier):
 	join += "JOIN specializations s2 on sp.specialization_id = s2.specialization_id "
 	var where = "WHERE s.skill_special_rules is null "
 	where += ("AND sp.skill_pack_identifier like '%s';" % package_identifier)
-	var selected_array = _sql_select(select+from+join+where);
+	var selected_array = _sql_command(select+from+join+where);
 	db.close_db()
 	return selected_array
 	
@@ -262,7 +262,7 @@ func read_skills():
 	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description " 
 	var from = "FROM skills s "
 	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
-	var selected_array = _sql_select(select+from+join);
+	var selected_array = _sql_command(select+from+join);
 	db.close_db()
 	return selected_array
 
@@ -271,13 +271,27 @@ func read_general_knowledge_skills():
 	var from = "FROM skills s "
 	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
 	var where = "WHERE s.skill_special_rules is not null "
-	var selected_array = _sql_select(select+from+join+where);
+	var selected_array = _sql_command(select+from+join+where);
 	db.close_db()
 	return selected_array
 	
 func get_languages_data():
 	var select = "Select l.language_key, l.language_locale "
 	var from = "FROM languages l"
-	var selected_array = _sql_select(select+from);
+	var selected_array = _sql_command(select+from);
 	db.close_db()
 	return selected_array
+
+func get_config_value(value: String):
+	var select = "Select conf.config_attribute_name, conf.config_attribute_value, conf.config_attribute_default_value "
+	var from = "FROM config conf "
+	var where = "WHERE conf.config_attribute_name = '%s'" % value
+	var selected_array = _sql_command(select+from+where);
+	db.close_db()
+	return selected_array[0]
+
+func save_config_value(config_name: String, value: String):
+	var insert = "UPDATE config "
+	var set = "SET config_attribute_value = '%s' " % value
+	var where = "WHERE config_attribute_name = '%s'" % config_name
+	var result = _sql_command(insert+set+where)

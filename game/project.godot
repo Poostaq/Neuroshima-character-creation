@@ -46,6 +46,10 @@ locale_filter=[ 1, [ "en", "pl" ] ]
 
 file_logging/max_log_files=8
 
+[network]
+
+limits/debugger_stdout/max_chars_per_second=10000000
+
 [physics]
 
 common/enable_pause_aware_picking=true
