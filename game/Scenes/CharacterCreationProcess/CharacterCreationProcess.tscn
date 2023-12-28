@@ -20,8 +20,8 @@
 [ext_resource path="res://UI_Elements/progressLightOff.png" type="Texture" id=18]
 [ext_resource path="res://Resources/Buttons/CharacterButton/CharacterButtonPressed.tres" type="StyleBox" id=19]
 [ext_resource path="res://Resources/Buttons/CharacterButton/CharacterButtonDisabled.tres" type="StyleBox" id=20]
-[ext_resource path="res://UI_Elements/MainMenu/trade_on_3.png" type="Texture" id=21]
-[ext_resource path="res://UI_Elements/MainMenu/trade_off_3.png" type="Texture" id=22]
+[ext_resource path="res://UI_Elements/MainMenu/trade_off_4.png" type="Texture" id=21]
+[ext_resource path="res://UI_Elements/MainMenu/trade_on_4.png" type="Texture" id=22]
 [ext_resource path="res://Resources/Buttons/CharacterButton/CharacterButtonHover.tres" type="StyleBox" id=23]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=24]
 [ext_resource path="res://UI_Elements/MainMenu/help_on_4.png" type="Texture" id=25]
@@ -46,21 +46,21 @@ outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 24 )
 
 [sub_resource type="StyleBoxTexture" id=11]
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 region_rect = Rect2( 0, 0, 280, 269 )
 modulate_color = Color( 1.5, 1.5, 1.5, 1 )
 
 [sub_resource type="StyleBoxTexture" id=12]
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 region_rect = Rect2( 0, 0, 280, 269 )
 
 [sub_resource type="StyleBoxTexture" id=13]
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 region_rect = Rect2( 0, 0, 280, 269 )
 modulate_color = Color( 0.5, 0.5, 0.5, 1 )
 
 [sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 21 )
+texture = ExtResource( 22 )
 region_rect = Rect2( 0, 0, 280, 269 )
 
 [sub_resource type="StyleBoxTexture" id=14]

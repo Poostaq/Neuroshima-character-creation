@@ -30,12 +30,14 @@ var skill_levels : Dictionary
 var skill_levels_before_skill_distribution : Dictionary
 var skill_packs : Dictionary
 var general_knowledge_names : Array = ["","",""]
+var skill_data : Array
+var skill_data_before_skill_distribution: Array
 
 
 func _init() -> void:
-	var skill_data = DatabaseOperations.read_skills()
-	for skill in skill_data:
-		skill_levels[skill["skill_identifier"]] = 0
+	var rows = DatabaseOperations.read_all_skill_packs()
+	skill_data = DatabaseOperations.create_skill_packs_from_database_rows(rows)
+
 
 
 func get_final_attribute_value(attribute_modifiers: Dictionary) -> int:

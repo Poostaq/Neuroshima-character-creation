@@ -1,17 +1,11 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonDisabled.tres" type="StyleBox" id=1]
-[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonHover.tres" type="StyleBox" id=2]
-[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonPressed.tres" type="StyleBox" id=3]
-[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonNormal.tres" type="StyleBox" id=4]
-[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonDisabled.tres" type="StyleBox" id=5]
-[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonNormal.tres" type="StyleBox" id=6]
-[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonHover.tres" type="StyleBox" id=7]
-[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonPressed.tres" type="StyleBox" id=8]
+[ext_resource path="res://Scripts/SkillPointsPage/SkillPackContainer.gd" type="Script" id=9]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://UI_Elements/Moje_próby.png" type="Texture" id=11]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=12]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=13]
+[ext_resource path="res://Scenes/SkillPointsPage/SkillPackSkill.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonHover.tres" type="StyleBox" id=15]
 
 [sub_resource type="DynamicFontData" id=24]
@@ -29,10 +23,6 @@ outline_size = 3
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 10 )
 
-[sub_resource type="StyleBoxEmpty" id=23]
-
-[sub_resource type="StyleBoxEmpty" id=20]
-
 [sub_resource type="StyleBoxEmpty" id=21]
 
 [sub_resource type="DynamicFont" id=22]
@@ -42,14 +32,19 @@ font_data = ExtResource( 10 )
 
 [node name="SkillPackContainer" type="TextureRect"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_right = 470.0
-margin_bottom = 240.0
+anchor_right = 0.244792
+anchor_bottom = 0.222222
 rect_min_size = Vector2( 470, 200 )
 texture = ExtResource( 11 )
 expand = true
 stretch_mode = 1
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="PackName" type="Label" parent="."]
+unique_name_in_owner = true
 anchor_left = 0.0276596
 anchor_top = 0.0208333
 anchor_right = 0.642553
@@ -64,6 +59,7 @@ __meta__ = {
 }
 
 [node name="SpecializationOfPack" type="Label" parent="."]
+unique_name_in_owner = true
 anchor_left = 0.0382979
 anchor_top = 0.316667
 anchor_right = 0.968085
@@ -87,197 +83,35 @@ margin_top = 40.0
 margin_right = 41.8087
 margin_bottom = 40.0
 
-[node name="SkillName1" type="Label" parent="."]
-anchor_left = 0.0244444
-anchor_top = 0.477333
-anchor_right = 0.551717
-anchor_bottom = 0.633333
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_fonts/font = SubResource( 12 )
-text = "SKILL NAME"
-align = 1
+[node name="SkillObject1" parent="." instance=ExtResource( 14 )]
+anchor_left = 0.0191489
+anchor_top = 0.4375
+anchor_right = 0.546421
+anchor_bottom = 0.593501
+margin_right = 2.18201
+margin_bottom = -2.44
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkillLevel" type="Label" parent="SkillName1"]
-anchor_left = 1.09993
-anchor_right = 1.24149
-anchor_bottom = 1.10071
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_fonts/font = SubResource( 12 )
-text = "0"
-align = 1
+[node name="SkillObject2" parent="." instance=ExtResource( 14 )]
+anchor_left = 0.0191489
+anchor_top = 0.625001
+anchor_right = 0.546421
+anchor_bottom = 0.781001
+margin_right = 2.18201
+margin_bottom = -2.44
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VSeparator" type="VSeparator" parent="SkillName1"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.968966
-anchor_right = 1.06897
-anchor_bottom = 0.974359
-margin_right = -3.05176e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Minus" type="Button" parent="SkillName1"]
-anchor_left = 1.28966
-anchor_top = 0.307692
-anchor_right = 1.42759
-anchor_bottom = 0.717949
-margin_top = -5.0
-margin_right = 0.81842
-margin_bottom = -5.36002
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/focus = SubResource( 23 )
-custom_styles/disabled = ExtResource( 1 )
-custom_styles/normal = ExtResource( 4 )
-
-[node name="Plus" type="Button" parent="SkillName1"]
-anchor_left = 1.47586
-anchor_top = -0.183761
-anchor_right = 1.63103
-anchor_bottom = 0.970082
-margin_right = -0.453918
-margin_bottom = -3.19988
-custom_styles/hover = ExtResource( 2 )
-custom_styles/pressed = ExtResource( 3 )
-custom_styles/focus = SubResource( 20 )
-custom_styles/disabled = ExtResource( 5 )
-custom_styles/normal = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="SkillName2" type="Label" parent="."]
-anchor_left = 0.0244444
-anchor_top = 0.644
-anchor_right = 0.551717
-anchor_bottom = 0.8
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_fonts/font = SubResource( 12 )
-text = "SKILL NAME"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="SkillLevel" type="Label" parent="SkillName2"]
-anchor_left = 1.09993
-anchor_right = 1.24149
-anchor_bottom = 1.10071
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_fonts/font = SubResource( 12 )
-text = "0"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VSeparator" type="VSeparator" parent="SkillName2"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.968966
-anchor_right = 1.06897
-anchor_bottom = 0.974359
-margin_right = -3.05176e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Minus" type="Button" parent="SkillName2"]
-anchor_left = 1.28966
-anchor_top = 0.307692
-anchor_right = 1.42759
-anchor_bottom = 0.717949
-margin_top = -5.0
-margin_right = 0.81842
-margin_bottom = -5.36002
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/focus = SubResource( 23 )
-custom_styles/disabled = ExtResource( 1 )
-custom_styles/normal = ExtResource( 4 )
-
-[node name="Plus" type="Button" parent="SkillName2"]
-anchor_left = 1.47586
-anchor_top = -0.183761
-anchor_right = 1.63103
-anchor_bottom = 0.970082
-margin_right = -0.453918
-margin_bottom = -3.19988
-custom_styles/hover = ExtResource( 2 )
-custom_styles/pressed = ExtResource( 3 )
-custom_styles/focus = SubResource( 20 )
-custom_styles/disabled = ExtResource( 5 )
-custom_styles/normal = ExtResource( 6 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="SkillName3" type="Label" parent="."]
-anchor_left = 0.0244444
-anchor_top = 0.810667
-anchor_right = 0.551717
-anchor_bottom = 0.966667
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_fonts/font = SubResource( 12 )
-text = "SKILL NAME"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="SkillLevel" type="Label" parent="SkillName3"]
-anchor_left = 1.09993
-anchor_right = 1.24149
-anchor_bottom = 1.10071
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_fonts/font = SubResource( 12 )
-text = "0"
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VSeparator" type="VSeparator" parent="SkillName3"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.968966
-anchor_right = 1.06897
-anchor_bottom = 0.974359
-margin_right = -3.05176e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Minus" type="Button" parent="SkillName3"]
-anchor_left = 1.28966
-anchor_top = 0.307692
-anchor_right = 1.42759
-anchor_bottom = 0.717949
-margin_top = -5.0
-margin_right = 0.81842
-margin_bottom = -5.36002
-custom_styles/hover = ExtResource( 7 )
-custom_styles/pressed = ExtResource( 8 )
-custom_styles/focus = SubResource( 23 )
-custom_styles/disabled = ExtResource( 1 )
-custom_styles/normal = ExtResource( 4 )
-
-[node name="Plus" type="Button" parent="SkillName3"]
-anchor_left = 1.47586
-anchor_top = -0.183761
-anchor_right = 1.63103
-anchor_bottom = 0.970082
-margin_right = -0.453918
-margin_bottom = -3.19988
-custom_styles/hover = ExtResource( 2 )
-custom_styles/pressed = ExtResource( 3 )
-custom_styles/focus = SubResource( 20 )
-custom_styles/disabled = ExtResource( 5 )
-custom_styles/normal = ExtResource( 6 )
+[node name="SkillObject3" parent="." instance=ExtResource( 14 )]
+anchor_left = 0.0191489
+anchor_top = 0.812501
+anchor_right = 0.546421
+anchor_bottom = 0.968501
+margin_right = 2.18201
+margin_bottom = -2.44002
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -309,3 +143,10 @@ valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[connection signal="mouse_entered_skill_object" from="SkillObject1" to="." method="_on_mouse_entered_skill_object"]
+[connection signal="on_plus_button_pressed" from="SkillObject1" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="mouse_entered_skill_object" from="SkillObject2" to="." method="_on_mouse_entered_skill_object"]
+[connection signal="on_plus_button_pressed" from="SkillObject2" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="mouse_entered_skill_object" from="SkillObject3" to="." method="_on_mouse_entered_skill_object"]
+[connection signal="on_plus_button_pressed" from="SkillObject3" to="." method="_on_skill_plus_button_pressed"]

@@ -213,9 +213,10 @@ func read_data_for_specialization(specialization_identifier):
 
 
 func read_packs_for_specialization(specialization_identifier):
-	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name  " 
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name " 
 	var from = "FROM skill_packs sp "
-	var join = "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
+	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
+	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
 	var where = "WHERE spec.specialization_identifier like '%"+specialization_identifier+"%';"
 	var selected_array = _sql_command(select+from+join+where);
 	db.close_db()
@@ -243,11 +244,13 @@ func read_all_skill_packs_for_attribute(attribute):
 func read_all_skill_packs_for_all_atributes():
 	var array = []
 	for attribute in read_list_of_attributes_without_any():
-		array.append({"name": attribute,"skill_packs_data" : read_all_skill_packs_for_attribute(attribute)})
+		var database_rows = read_all_skill_packs_for_attribute(attribute)
+		array.append({"name": attribute,"skill_packs_data" : create_skill_packs_from_database_rows(database_rows)})
 	return array
 
 func read_skills_for_package(package_identifier):
-	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description, s2.specialization_identifier, s2.specialization_name " 
+	var select = "SELECT s.skill_identifier, s.skill_name, s.skill_description, s.skill_special_rules,"
+	select+= " s2.specialization_identifier, s2.specialization_name " 
 	var from = "FROM skills s "
 	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
 	join += "JOIN specializations s2 on sp.specialization_id = s2.specialization_id "
@@ -255,16 +258,33 @@ func read_skills_for_package(package_identifier):
 	where += ("AND sp.skill_pack_identifier like '%s';" % package_identifier)
 	var selected_array = _sql_command(select+from+join+where);
 	db.close_db()
-	return selected_array
-	
+	var skill_list = []
+	for record in selected_array:
+		var skill_data = SkillData.new()
+		skill_data.name = record["skill_name"]
+		skill_data.level = 0
+		skill_data.skill_identifier = record["skill_identifier"]
+		skill_data.description = record["skill_description"]
+		if record["skill_special_rules"]:
+			skill_data.special_rules = record["skill_special_rules"] 
+		skill_list.append(skill_data)
+	return skill_list
 
 func read_skills():
-	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description " 
+	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description, s.skill_special_rules " 
 	var from = "FROM skills s "
-	var join = "JOIN skill_packs sp on s.skill_pack_id = sp.skill_pack_id "
-	var selected_array = _sql_command(select+from+join);
+	var selected_array = _sql_command(select+from);
 	db.close_db()
-	return selected_array
+	var skill_list = []
+	for record in selected_array:
+		var skill_data = SkillData.new()
+		skill_data.name = record["skill_name"]
+		skill_data.level = 0
+		skill_data.skill_identifier = record["skill_identifier"]
+		skill_data.description = record["skill_description"]
+		skill_data.special_rules = record["skill_special_rules"]
+		skill_list.append(skill_data)
+	return skill_list
 
 func read_general_knowledge_skills():
 	var select = "SELECT s.skill_identifier, s.skill_name, s.attribute_id, s.skill_description " 
@@ -294,4 +314,19 @@ func save_config_value(config_name: String, value: String):
 	var insert = "UPDATE config "
 	var set = "SET config_attribute_value = '%s' " % value
 	var where = "WHERE config_attribute_name = '%s'" % config_name
-	var result = _sql_command(insert+set+where)
+	var _result = _sql_command(insert+set+where)
+
+func create_skill_packs_from_database_rows(database_rows: Array):
+	var skill_pack_array = []
+	for record in database_rows:
+		print(record)
+		var skill_pack_data = SkillPack.new()
+		skill_pack_data.attribute_name = record["attribute_name"]
+		skill_pack_data.identifier = record["skill_pack_identifier"]
+		skill_pack_data.name = record["skill_pack_name"]
+		skill_pack_data.specialization_name = record["specialization_name"]
+		var skills_data = read_skills_for_package(skill_pack_data.identifier)
+		for index in skills_data.size():
+			skill_pack_data.skill_data[index] = skills_data[index]
+		skill_pack_array.append(skill_pack_data)
+	return skill_pack_array

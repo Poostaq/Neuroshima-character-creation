@@ -8,6 +8,22 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "SkillData",
+"language": "GDScript",
+"path": "res://Scripts/SkillData.gd"
+}, {
+"base": "Reference",
+"class": "SkillPack",
+"language": "GDScript",
+"path": "res://Scripts/SkillPack.gd"
+} ]
+_global_script_class_icons={
+"SkillData": "",
+"SkillPack": ""
+}
+
 [application]
 
 config/name="Neuroshima Character Creation"

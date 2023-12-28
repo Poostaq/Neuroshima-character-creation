@@ -367,6 +367,7 @@ __meta__ = {
 
 [node name="SettingsWindow" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 306, 200 )
@@ -468,9 +469,9 @@ value = 1.0
 align = 1
 
 [node name="SaveButton" type="Button" parent="SettingsWindow/TextureRect"]
-margin_left = 614.0
+margin_left = 662.0
 margin_top = 891.0
-margin_right = 1024.0
+margin_right = 1072.0
 margin_bottom = 1012.0
 custom_styles/hover = ExtResource( 3 )
 custom_styles/pressed = ExtResource( 14 )
@@ -495,8 +496,8 @@ __meta__ = {
 unique_name_in_owner = true
 modulate = Color( 1, 0, 0, 1 )
 anchor_left = 0.883429
-anchor_top = 0.0967442
-anchor_right = 0.899111
+anchor_top = 0.0846512
+anchor_right = 0.906952
 anchor_bottom = 0.125581
 custom_fonts/font = SubResource( 19 )
 text = "X"

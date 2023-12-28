@@ -469,57 +469,71 @@ extends Control
 
 #NEW CODE
 
-onready var currentAttributeLabel = $"%CurrentAttributeLabel"
-onready var chosenSpecLabel = $"%ChosenSpecLabel"
-onready var skillPackGrid = $"%SkillPackGrid"
-onready var remainingSpecializationAmount = $"%RemainingSpecializationAmount"
-onready var remainingAllAmount = $"%RemainingAllAmount"
-onready var skillScreenDescription = $"%SkillScreenDescription"
+onready var current_attribute_label = $"%CurrentAttributeLabel"
+onready var chosen_spec_label = $"%ChosenSpecLabel"
+onready var skill_pack_grid = $"%SkillPackGrid"
+onready var remaining_specialization_amount = $"%RemainingSpecializationAmount"
+onready var remaining_all_amount = $"%RemainingAllAmount"
 onready var skillPackScene = preload("res://Scenes/SkillPointsPage/SkillPackContainer.tscn")
+onready var description_name = $"%DescriptionName"
+onready var description_text = $"%DescriptionText"
 
 
-var _skill_packs_list_grouped_by_attribute = []
+var skill_packs_data_list_grouped_by_attribute = []
 var _current_attribute_index = 0
 var _current_attribute_pack_data = {}
-
+var _skill_data = {}
+var _skill_packs_bought = {}
 
 onready var _current_skill_points = GlobalVariables.max_skill_points
 onready var _current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 
 func _init() -> void:
-	_skill_packs_list_grouped_by_attribute = DatabaseOperations.read_all_skill_packs_for_all_atributes()
-	_current_attribute_pack_data = _skill_packs_list_grouped_by_attribute[_current_attribute_index]
+	skill_packs_data_list_grouped_by_attribute = DatabaseOperations.read_all_skill_packs_for_all_atributes()
+	_current_attribute_pack_data = skill_packs_data_list_grouped_by_attribute[_current_attribute_index]
 
 func load_step():
-	var current_attribute_label = tr("current_attribute_label")
-	print(current_attribute_label)
-	currentAttributeLabel.text = current_attribute_label % tr(_current_attribute_pack_data["name"])
-	var current_specialization_label = tr("current_specialization_label")
-	chosenSpecLabel.text = current_specialization_label % tr(CharacterStats.specialization)
+	CharacterStats.skill_data_before_skill_distribution = CharacterStats.skill_data.duplicate(true)
+	_skill_data = CharacterStats.skill_data
+	update_texts()
 	_current_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
-	remainingSpecializationAmount.text = str(_current_specialization_skill_points)
-	remainingAllAmount.text = str(_current_skill_points)
+	remaining_specialization_amount.text = str(_current_specialization_skill_points)
+	remaining_all_amount.text = str(_current_skill_points)
 
 	for skill_pack_data in _current_attribute_pack_data["skill_packs_data"]:
-		_fill_skill_pack_with_data(skill_pack_data)
+		_create_skill_pack(skill_pack_data)
 
+func clean_up_step():
+	CharacterStats.skill_data = CharacterStats.skill_data_before_skill_distribution.duplicate(true)
+	
 
-func _fill_skill_pack_with_data(skill_pack_data: Dictionary):
+func _create_skill_pack(skill_pack_data: SkillPack):
 	var skill_pack_instance = skillPackScene.instance()
-	var name = skill_pack_instance.get_node("PackName")
-	name.text = tr(skill_pack_data["skill_pack_name"]).to_upper()
-	var specialization = skill_pack_instance.get_node("SpecializationOfPack")
-	var text_for_spec = tr("pack_specialization_label")
-	specialization.text = text_for_spec % tr(skill_pack_data["specialization_name"])
-	skillPackGrid.add_child(skill_pack_instance)
-	var skills_list = []
-	skills_list.append(skill_pack_instance.get_node("SkillName1"))
-	skills_list.append(skill_pack_instance.get_node("SkillName2"))
-	skills_list.append(skill_pack_instance.get_node("SkillName3"))
-	var skills_data = DatabaseOperations.read_skills_for_package(skill_pack_data["skill_pack_identifier"])
-	print(skills_data)
-	for i in range(0, len(skills_data)):
-		skills_list[i].text = skills_data[i]["skill_name"]
+	skill_pack_instance.skill_pack_data = skill_pack_data
+	skill_pack_grid.add_child(skill_pack_instance)
+	skill_pack_instance.update_texts()
+	skill_pack_instance.update_skill_data()
+	skill_pack_instance.connect("mouse_entered_skill_name_of_skill_pack", self, "_on_SkillPackContainer_mouse_entered_skill_name")
+	skill_pack_instance.connect("skill_pack_skill_plus_pressed", self, "on_skill_pack_skill_plus_pressed")
 
-	return skill_pack_instance
+
+func update_texts():
+	var current_attribute_label_text = tr("current_attribute_label")
+	current_attribute_label.text = current_attribute_label_text % tr(_current_attribute_pack_data["name"])
+	var current_specialization_label = tr("current_specialization_label")
+	chosen_spec_label.text = current_specialization_label % tr(CharacterStats.specialization)
+
+
+func _update_skill_points() -> void:
+	remaining_all_amount.text = "%s" % _current_skill_points
+	remaining_specialization_amount.text = "%s" % _current_specialization_skill_points
+
+
+func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
+	pass
+
+func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
+	description_name.text = skill_data.name
+	description_text.text = tr(skill_data.description)
+
