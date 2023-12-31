@@ -21,8 +21,7 @@ func update_skill_data():
 	for i in range(0,skill_pack_data.skill_data.size()):
 		var skill = list_of_skill_objects[i]
 		skill.skill_data = skill_pack_data.skill_data[i]
-		skill.skill_setup()
-
+		skill.update_text()
 
 func _on_skill_plus_button_pressed(skill_object):
 	emit_signal("skill_pack_skill_plus_pressed", self, skill_object)

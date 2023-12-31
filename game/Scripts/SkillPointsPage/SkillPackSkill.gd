@@ -12,7 +12,7 @@ onready var skill_data: SkillData
 
 
 
-func skill_setup():
+func update_text():
 	skill_name.text = skill_data.name
 	skill_level.text = str(skill_data.level)
 

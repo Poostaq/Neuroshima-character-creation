@@ -1073,7 +1073,7 @@ anchor_bottom = 0.0
 margin_right = 470.0
 margin_bottom = 200.0
 
-[node name="RemainingSpecialization" type="TextureRect" parent="SkillDistribution2"]
+[node name="CurrentSpecializationBackground" type="TextureRect" parent="SkillDistribution2"]
 anchor_left = 0.0680851
 anchor_top = 0.72883
 anchor_right = 0.41383
@@ -1088,7 +1088,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="SkillDistribution2/RemainingSpecialization"]
+[node name="Label" type="Label" parent="SkillDistribution2/CurrentSpecializationBackground"]
 anchor_left = 0.0538462
 anchor_top = 0.2
 anchor_right = 0.935385
@@ -1103,7 +1103,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RemainingAll" type="TextureRect" parent="SkillDistribution2"]
+[node name="CurrentAllSkillsBackground" type="TextureRect" parent="SkillDistribution2"]
 anchor_left = 0.0696809
 anchor_top = 0.866935
 anchor_right = 0.415426
@@ -1118,7 +1118,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="SkillDistribution2/RemainingAll"]
+[node name="Label" type="Label" parent="SkillDistribution2/CurrentAllSkillsBackground"]
 anchor_left = 0.0569231
 anchor_top = 0.208333
 anchor_right = 0.938462
@@ -1133,7 +1133,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RemainingSpecializationAmountBackground" type="TextureRect" parent="SkillDistribution2"]
+[node name="CurrentSpecializationsAmountBackground" type="TextureRect" parent="SkillDistribution2"]
 anchor_left = 0.440426
 anchor_top = 0.726814
 anchor_right = 0.504255
@@ -1148,7 +1148,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RemainingSpecializationAmount" type="Label" parent="SkillDistribution2/RemainingSpecializationAmountBackground"]
+[node name="CurrentSpecializationAmount" type="Label" parent="SkillDistribution2/CurrentSpecializationsAmountBackground"]
 unique_name_in_owner = true
 anchor_left = 0.108333
 anchor_top = 0.125
@@ -1164,7 +1164,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RemainingAllAmountBackground" type="TextureRect" parent="SkillDistribution2"]
+[node name="CurrentAllAmountBackground" type="TextureRect" parent="SkillDistribution2"]
 anchor_left = 0.437234
 anchor_top = 0.860887
 anchor_right = 0.501064
@@ -1179,7 +1179,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RemainingAllAmount" type="Label" parent="SkillDistribution2/RemainingAllAmountBackground"]
+[node name="CurrentAllAmount" type="Label" parent="SkillDistribution2/CurrentAllAmountBackground"]
 unique_name_in_owner = true
 anchor_left = 0.15
 anchor_top = 0.158333

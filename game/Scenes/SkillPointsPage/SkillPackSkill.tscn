@@ -73,10 +73,13 @@ margin_right = -3.05176e-05
 
 [node name="Minus" type="Button" parent="."]
 unique_name_in_owner = true
-anchor_left = 1.28966
-anchor_top = 0.280983
-anchor_right = 1.43089
-anchor_bottom = 0.681624
+anchor_left = 1.33162
+anchor_top = 0.42735
+anchor_right = 1.453
+anchor_bottom = 0.652
+margin_right = -0.079895
+margin_bottom = 5.5891
+rect_scale = Vector2( 1, 0.6 )
 custom_styles/hover = ExtResource( 6 )
 custom_styles/pressed = ExtResource( 7 )
 custom_styles/focus = SubResource( 23 )
@@ -88,10 +91,10 @@ __meta__ = {
 
 [node name="Plus" type="Button" parent="."]
 unique_name_in_owner = true
-anchor_left = 1.47586
-anchor_top = -0.050214
-anchor_right = 1.6292
-anchor_bottom = 1.01816
+anchor_left = 1.51321
+anchor_top = 0.133547
+anchor_right = 1.63426
+anchor_bottom = 0.934828
 custom_styles/hover = ExtResource( 8 )
 custom_styles/pressed = ExtResource( 4 )
 custom_styles/focus = SubResource( 20 )

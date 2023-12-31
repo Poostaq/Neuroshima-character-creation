@@ -54,7 +54,7 @@ extends Control
 # var _current_packs = {}
 # var _initial_packs = {}
 # var _max_skill_points = 35
-# var _current_skill_points = 35
+# var _current_all_skill_points = 35
 # var _max_specialization_skill_points = 30
 # var _current_specialization_skill_points = 30
 # var _general_spent_on_general_points = 0
@@ -190,7 +190,7 @@ extends Control
 
 
 # func _update_skill_points() -> void:
-# 	var skillpoint_list = [_current_skill_points,_max_skill_points]
+# 	var skillpoint_list = [_current_all_skill_points,_max_skill_points]
 # 	skill_points.bbcode_text = "[center]%s/%s" % skillpoint_list
 # 	var specialization_skillpoint_list = [_current_specialization_skill_points,_max_specialization_skill_points]
 # 	specialization_skill_points.bbcode_text = "[center]%s/%s" % specialization_skillpoint_list
@@ -271,7 +271,7 @@ extends Control
 
 # func _has_points_to_pay_for_pack_refund(skill) -> bool:
 # 	if not _specialization_id in skill.specialization:
-# 		if _current_skill_points+5 < 6:
+# 		if _current_all_skill_points+5 < 6:
 # 			return false
 # 		return true
 # 	if _current_specialization_skill_points+5 < 6:
@@ -305,37 +305,37 @@ extends Control
 
 # func _pay_points(amount):
 # 	if not _specialization_id in _current_skill_card_list[0].specialization:
-# 		if amount > _current_skill_points:
+# 		if amount > _current_all_skill_points:
 # 			return false
-# 		_current_skill_points -= amount
+# 		_current_all_skill_points -= amount
 # 		_general_spent_on_general_points += amount
 # 		return
 # 	if _current_specialization_skill_points-amount < 0:
 # 		var remainder = amount-_current_specialization_skill_points
-# 		if _current_skill_points-remainder < 0:
+# 		if _current_all_skill_points-remainder < 0:
 # 			return false
 # 		_current_specialization_skill_points = 0
-# 		_current_skill_points -= remainder
+# 		_current_all_skill_points -= remainder
 # 		return
 # 	_current_specialization_skill_points-=amount
 
 
 # func _return_points(amount):
 # 	var _spent_spec_points = _max_specialization_skill_points - _current_specialization_skill_points
-# 	var _spent_general_points = _max_skill_points - _current_skill_points
+# 	var _spent_general_points = _max_skill_points - _current_all_skill_points
 # 	var _general_on_spec_skill_points = _spent_general_points - _general_spent_on_general_points
 	
 # 	if not _specialization_id in _current_skill_card_list[0].specialization:
-# 		_current_skill_points += amount
+# 		_current_all_skill_points += amount
 # 		_general_spent_on_general_points -= amount
 # 		return
 # 	#_specialization_id == _current_skill_card_list[0].specialization
 # 	if _general_on_spec_skill_points >= amount:
-# 		_current_skill_points += amount
+# 		_current_all_skill_points += amount
 # 		return
 # 	# _general_on_spec_skill_points < amount:
 # 	var points_to_spec = amount - _general_on_spec_skill_points
-# 	_current_skill_points += _general_on_spec_skill_points
+# 	_current_all_skill_points += _general_on_spec_skill_points
 # 	_current_specialization_skill_points += points_to_spec
 
 
@@ -443,7 +443,7 @@ extends Control
 
 
 # func reset_skill_point_pools() -> void:
-# 	_current_skill_points = _max_skill_points
+# 	_current_all_skill_points = _max_skill_points
 # 	_current_specialization_skill_points = _max_specialization_skill_points
 # 	_general_spent_on_general_points = 0
 
@@ -472,8 +472,8 @@ extends Control
 onready var current_attribute_label = $"%CurrentAttributeLabel"
 onready var chosen_spec_label = $"%ChosenSpecLabel"
 onready var skill_pack_grid = $"%SkillPackGrid"
-onready var remaining_specialization_amount = $"%RemainingSpecializationAmount"
-onready var remaining_all_amount = $"%RemainingAllAmount"
+onready var current_specialization_amount = $"%CurrentSpecializationAmount"
+onready var current_all_amount = $"%CurrentAllAmount"
 onready var skillPackScene = preload("res://Scenes/SkillPointsPage/SkillPackContainer.tscn")
 onready var description_name = $"%DescriptionName"
 onready var description_text = $"%DescriptionText"
@@ -483,9 +483,8 @@ var skill_packs_data_list_grouped_by_attribute = []
 var _current_attribute_index = 0
 var _current_attribute_pack_data = {}
 var _skill_data = {}
-var _skill_packs_bought = {}
 
-onready var _current_skill_points = GlobalVariables.max_skill_points
+onready var _current_all_skill_points = GlobalVariables.max_skill_points
 onready var _current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 
 func _init() -> void:
@@ -496,13 +495,14 @@ func load_step():
 	CharacterStats.skill_data_before_skill_distribution = CharacterStats.skill_data.duplicate(true)
 	_skill_data = CharacterStats.skill_data
 	update_texts()
-	_current_skill_points = GlobalVariables.max_skill_points
+	_current_all_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
-	remaining_specialization_amount.text = str(_current_specialization_skill_points)
-	remaining_all_amount.text = str(_current_skill_points)
+	current_specialization_amount.text = str(_current_specialization_skill_points)
+	current_all_amount.text = str(_current_all_skill_points)
 
 	for skill_pack_data in _current_attribute_pack_data["skill_packs_data"]:
-		_create_skill_pack(skill_pack_data)
+		var character_stats_pack_data = get_pack_data(skill_pack_data)
+		_create_skill_pack(character_stats_pack_data)
 
 func clean_up_step():
 	CharacterStats.skill_data = CharacterStats.skill_data_before_skill_distribution.duplicate(true)
@@ -526,14 +526,73 @@ func update_texts():
 
 
 func _update_skill_points() -> void:
-	remaining_all_amount.text = "%s" % _current_skill_points
-	remaining_specialization_amount.text = "%s" % _current_specialization_skill_points
+	current_all_amount.text = "%s" % _current_all_skill_points
+	current_specialization_amount.text = "%s" % _current_specialization_skill_points
 
 
 func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
-	pass
+	print(skill_object.skill_data.name)
+	var current_skill_level = skill_object.skill_data.level
+	var spec_name = skill_pack.skill_pack_data.specialization_name
+	if current_skill_level >= 5:
+		return
+	if current_skill_level > 0:
+		if can_pay_pay_for_level(current_skill_level+1, spec_name) == false:
+			return
+		pay_points(current_skill_level+1, CharacterStats.specialization == spec_name)
+	if current_skill_level == 0:
+		if can_pay_pay_for_level(3, spec_name) == false:
+			return
+		pay_points(3, CharacterStats.specialization == spec_name)
+	skill_object.skill_data.level += 1
+	_update_skill_points()
+	skill_object.update_text()
+	save_pack_data(skill_pack.skill_pack_data)
 
 func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
 	description_name.text = skill_data.name
 	description_text.text = tr(skill_data.description)
 
+
+func can_pay_pay_for_level(amount: int, specialization: String):
+	if CharacterStats.specialization == specialization:
+		if amount <= _current_specialization_skill_points+_current_all_skill_points:
+			return true
+		return false
+	if amount > _current_all_skill_points:
+		return false
+	return true
+
+
+func pay_points(amount:int, is_specialization: bool):
+	var remainder = amount-_current_specialization_skill_points
+	if is_specialization:
+		if remainder <= 0:
+			_current_specialization_skill_points -= amount
+			return
+		_current_specialization_skill_points = 0
+		_current_all_skill_points -= remainder
+		return
+	_current_all_skill_points -= amount
+	return
+
+func save_pack_data(skill_pack: SkillPack) -> void:
+	for i in range(0, CharacterStats.skill_data.size()):
+		if CharacterStats.skill_data[i].identifier == skill_pack.identifier:
+			CharacterStats.skill_data[i] = skill_pack
+			return
+
+func get_pack_data(skill_pack: SkillPack) -> SkillPack:
+	var skill_pack_identifier = 0
+	for i in range(0, CharacterStats.skill_data.size()):
+		if CharacterStats.skill_data[i].identifier == skill_pack.identifier:
+			skill_pack_identifier = i
+	return CharacterStats.skill_data[skill_pack_identifier]
+	
+
+"""
+1. PRESS SKILL
+2. CHECK IF SPECIALIZATION OR NOT
+3. CHECK IF YOU HAVE ENOUGH POINTS TO PAY FOR SKILL FROM THE CORRECT POOL
+3a. WE CAN PAY FOR SPECIALIZATION SKILL POINT IF WE HAVE ENOUGH POINTS IN BOTH POOLS
+"""
