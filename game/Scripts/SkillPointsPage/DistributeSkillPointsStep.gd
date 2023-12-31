@@ -483,6 +483,7 @@ var skill_packs_data_list_grouped_by_attribute = []
 var _current_attribute_index = 0
 var _current_attribute_pack_data = {}
 var _skill_data = {}
+var _general_spent_on_general_points = 0
 
 onready var _current_all_skill_points = GlobalVariables.max_skill_points
 onready var _current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
@@ -516,6 +517,7 @@ func _create_skill_pack(skill_pack_data: SkillPack):
 	skill_pack_instance.update_skill_data()
 	skill_pack_instance.connect("mouse_entered_skill_name_of_skill_pack", self, "_on_SkillPackContainer_mouse_entered_skill_name")
 	skill_pack_instance.connect("skill_pack_skill_plus_pressed", self, "on_skill_pack_skill_plus_pressed")
+	skill_pack_instance.connect("skill_pack_skill_minus_pressed", self, "on_skill_pack_skill_minus_pressed")
 
 
 func update_texts():
@@ -548,6 +550,23 @@ func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
 	_update_skill_points()
 	skill_object.update_text()
 	save_pack_data(skill_pack.skill_pack_data)
+	
+func on_skill_pack_skill_minus_pressed(skill_pack, skill_object):
+	print("MINUS PRESSED")
+	var current_skill_level = skill_object.skill_data.level
+	var spec_name = skill_pack.skill_pack_data.specialization_name
+	
+	if current_skill_level <= 0:
+		return
+	if current_skill_level > 1:
+		return_points(current_skill_level, CharacterStats.specialization == spec_name)
+	if current_skill_level == 1:
+		return_points(3, CharacterStats.specialization == spec_name)
+	skill_object.skill_data.level -= 1
+	skill_object.update_text()
+	_update_skill_points()
+	save_pack_data(skill_pack.skill_pack_data)
+
 
 func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
 	description_name.text = skill_data.name
@@ -574,7 +593,25 @@ func pay_points(amount:int, is_specialization: bool):
 		_current_all_skill_points -= remainder
 		return
 	_current_all_skill_points -= amount
+	_general_spent_on_general_points += amount
 	return
+
+func return_points(amount:int, is_specialization: bool):
+	var spent_general_points = GlobalVariables.max_skill_points - _current_all_skill_points
+	var general_on_spec_skill_points = spent_general_points - self._general_spent_on_general_points
+	if not is_specialization:
+		_current_all_skill_points += amount
+		_general_spent_on_general_points -= amount
+		return
+	# skill from selected specialization and paid from all skills pool
+	if general_on_spec_skill_points >= amount:
+		_current_all_skill_points += amount
+		return
+	# not enough points to return to general
+	var points_to_spec = amount - general_on_spec_skill_points
+	_current_all_skill_points += general_on_spec_skill_points
+	_current_specialization_skill_points += points_to_spec
+	
 
 func save_pack_data(skill_pack: SkillPack) -> void:
 	for i in range(0, CharacterStats.skill_data.size()):

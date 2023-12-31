@@ -105,4 +105,5 @@ __meta__ = {
 }
 
 [connection signal="mouse_entered" from="." to="." method="_on_SkillObject_mouse_entered"]
+[connection signal="pressed" from="Minus" to="." method="_on_Minus_pressed"]
 [connection signal="pressed" from="Plus" to="." method="_on_Plus_pressed"]

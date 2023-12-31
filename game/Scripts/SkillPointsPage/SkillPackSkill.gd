@@ -1,6 +1,7 @@
 extends Control
 
 signal on_plus_button_pressed(skill_object)
+signal on_minus_button_pressed(skill_object)
 signal mouse_entered_skill_object(object)
 
 onready var skill_name = $"%SkillName" as Label
@@ -19,6 +20,8 @@ func update_text():
 func _on_Plus_pressed():
 	emit_signal("on_plus_button_pressed", self)
 
+func _on_Minus_pressed():
+	emit_signal("on_minus_button_pressed", self)
 
 func _on_SkillObject_mouse_entered():
 	emit_signal("mouse_entered_skill_object", self.skill_data)

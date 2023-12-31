@@ -2,6 +2,7 @@ extends TextureRect
 
 signal mouse_entered_skill_name_of_skill_pack(skill_object)
 signal skill_pack_skill_plus_pressed(skill_pack, skill)
+signal skill_pack_skill_minus_pressed(skill_pack, skill)
 
 var skill_pack_data: SkillPack
 
@@ -25,6 +26,9 @@ func update_skill_data():
 
 func _on_skill_plus_button_pressed(skill_object):
 	emit_signal("skill_pack_skill_plus_pressed", self, skill_object)
+
+func _on_skill_minus_button_pressed(skill_object):
+	emit_signal("skill_pack_skill_minus_pressed", self, skill_object)
 
 
 func _on_mouse_entered_skill_object(skill_data: SkillData):
