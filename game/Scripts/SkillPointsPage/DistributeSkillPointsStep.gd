@@ -482,7 +482,6 @@ onready var description_text = $"%DescriptionText"
 var skill_packs_data_list_grouped_by_attribute = []
 var _current_attribute_index = 0
 var _current_attribute_pack_data = {}
-var _skill_data = {}
 var _general_spent_on_general_points = 0
 
 onready var _current_all_skill_points = GlobalVariables.max_skill_points
@@ -493,20 +492,27 @@ func _init() -> void:
 	_current_attribute_pack_data = skill_packs_data_list_grouped_by_attribute[_current_attribute_index]
 
 func load_step():
-	CharacterStats.skill_data_before_skill_distribution = CharacterStats.skill_data.duplicate(true)
-	_skill_data = CharacterStats.skill_data
+	CharacterStats.duplicate_data(CharacterStats.skill_data, CharacterStats.skill_data_before_skill_distribution)
 	update_texts()
 	_current_all_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
+	load_skill_packs_screen_data()
+
+func load_skill_packs_screen_data():
+	for child in skill_pack_grid.get_children():
+		child.queue_free()
+	_current_attribute_pack_data = skill_packs_data_list_grouped_by_attribute[_current_attribute_index]
 	current_specialization_amount.text = str(_current_specialization_skill_points)
 	current_all_amount.text = str(_current_all_skill_points)
-
+	
 	for skill_pack_data in _current_attribute_pack_data["skill_packs_data"]:
-		var character_stats_pack_data = get_pack_data(skill_pack_data)
+		var character_stats_pack_data = CharacterStats.get_pack_data(skill_pack_data,
+		CharacterStats.skill_data)
 		_create_skill_pack(character_stats_pack_data)
+	
 
 func clean_up_step():
-	CharacterStats.skill_data = CharacterStats.skill_data_before_skill_distribution.duplicate(true)
+	CharacterStats.duplicate_data(CharacterStats.skill_data_before_skill_distribution, CharacterStats.skill_data)
 	
 
 func _create_skill_pack(skill_pack_data: SkillPack):
@@ -515,6 +521,14 @@ func _create_skill_pack(skill_pack_data: SkillPack):
 	skill_pack_grid.add_child(skill_pack_instance)
 	skill_pack_instance.update_texts()
 	skill_pack_instance.update_skill_data()
+	if skill_pack_instance.skill_pack_data.bought:
+		skill_pack_instance.buy_pack_button.visible = false
+		skill_pack_instance.sell_pack_button.visible = true
+	else:
+		skill_pack_instance.buy_pack_button.visible = true
+		skill_pack_instance.sell_pack_button.visible = false
+	skill_pack_instance.set_buy_sell_button_state()
+	skill_pack_instance.set_plus_minus_button_state()
 	skill_pack_instance.connect("mouse_entered_skill_name_of_skill_pack", self, "_on_SkillPackContainer_mouse_entered_skill_name")
 	skill_pack_instance.connect("skill_pack_skill_plus_pressed", self, "on_skill_pack_skill_plus_pressed")
 	skill_pack_instance.connect("skill_pack_skill_minus_pressed", self, "on_skill_pack_skill_minus_pressed")
@@ -552,7 +566,8 @@ func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
 	update_skill_points()
 	skill_object.update_text()
 	save_pack_data(skill_pack.skill_pack_data)
-	set_buy_sell_button_state(skill_pack)
+	skill_pack.set_buy_sell_button_state()
+	skill_pack.set_plus_minus_button_state()
 	
 func on_skill_pack_skill_minus_pressed(skill_pack, skill_object):
 	print("MINUS PRESSED")
@@ -569,7 +584,8 @@ func on_skill_pack_skill_minus_pressed(skill_pack, skill_object):
 	skill_object.update_text()
 	update_skill_points()
 	save_pack_data(skill_pack.skill_pack_data)
-	set_buy_sell_button_state(skill_pack)
+	skill_pack.set_buy_sell_button_state()
+	skill_pack.set_plus_minus_button_state()
 
 func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
 	description_name.text = skill_data.name
@@ -621,13 +637,6 @@ func save_pack_data(skill_pack: SkillPack) -> void:
 		if CharacterStats.skill_data[i].identifier == skill_pack.identifier:
 			CharacterStats.skill_data[i] = skill_pack
 			return
-
-func get_pack_data(skill_pack: SkillPack) -> SkillPack:
-	var skill_pack_identifier = 0
-	for i in range(0, CharacterStats.skill_data.size()):
-		if CharacterStats.skill_data[i].identifier == skill_pack.identifier:
-			skill_pack_identifier = i
-	return CharacterStats.skill_data[skill_pack_identifier]
 	
 func on_buy_pack_button_pressed(skill_pack_object):
 	var spec_name = skill_pack_object.skill_pack_data.specialization_name
@@ -638,7 +647,8 @@ func on_buy_pack_button_pressed(skill_pack_object):
 		buy_pack(skill_pack_object)
 		update_skill_points()
 		save_pack_data(skill_pack_object.skill_pack_data)
-		set_buy_sell_button_state(skill_pack_object)
+		skill_pack_object.set_buy_sell_button_state()
+		skill_pack_object.set_plus_minus_button_state()
 
 func on_sell_pack_button_pressed(skill_pack_object):
 	var spec_name = skill_pack_object.skill_pack_data.specialization_name
@@ -647,7 +657,8 @@ func on_sell_pack_button_pressed(skill_pack_object):
 		update_skill_points()
 		sell_pack(skill_pack_object)
 		save_pack_data(skill_pack_object.skill_pack_data)
-		set_buy_sell_button_state(skill_pack_object)
+		skill_pack_object.set_buy_sell_button_state()
+		skill_pack_object.set_plus_minus_button_state()
 
 func _is_all_skill_levels_n(skill_list, n) -> bool:
 	for skill in skill_list:
@@ -661,6 +672,7 @@ func buy_pack(skill_pack_object) -> void:
 		skill.update_text()
 	skill_pack_object.buy_pack_button.visible = false
 	skill_pack_object.sell_pack_button.visible = true
+	skill_pack_object.skill_pack_data.bought = true
 
 func sell_pack(skill_pack_object) -> void:
 	for skill in skill_pack_object.list_of_skill_objects:
@@ -668,13 +680,20 @@ func sell_pack(skill_pack_object) -> void:
 		skill.update_text()
 	skill_pack_object.buy_pack_button.visible = true
 	skill_pack_object.sell_pack_button.visible = false
+	skill_pack_object.skill_pack_data.bought = false
 
-func set_buy_sell_button_state(skill_pack):
-	if _is_all_skill_levels_n(skill_pack.list_of_skill_objects, 0):
-		skill_pack.buy_pack_button.disabled = false
+
+func _on_Previous_pressed():
+	if _current_attribute_index == 0:
+		_current_attribute_index = skill_packs_data_list_grouped_by_attribute.size() - 1
 	else:
-		skill_pack.buy_pack_button.disabled = true
-	if _is_all_skill_levels_n(skill_pack.list_of_skill_objects, 1):
-		skill_pack.sell_pack_button.disabled = false
+		_current_attribute_index -= 1
+	load_skill_packs_screen_data()
+
+
+func _on_Next_pressed():
+	if _current_attribute_index == skill_packs_data_list_grouped_by_attribute.size() - 1:
+		_current_attribute_index = 0
 	else:
-		skill_pack.sell_pack_button.disabled = true
+		_current_attribute_index += 1
+	load_skill_packs_screen_data()

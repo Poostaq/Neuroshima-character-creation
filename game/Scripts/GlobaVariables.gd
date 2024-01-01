@@ -4,6 +4,7 @@ enum attribute {AGI,PER,CHA,WIT,BOD,ANY}
 
 var max_skill_points = 35
 var max_specialization_skill_points = 30
+var max_skill_level = 5
 var language = "en"
 
 func _ready():

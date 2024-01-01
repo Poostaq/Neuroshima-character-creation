@@ -27,8 +27,8 @@ var attribute_modifiers_dicts = [agi_modifiers, per_modifiers, cha_modifiers, wi
 var attribute_values_list = [agi_value,per_value,cha_value,wit_value,bod_value]
 var attribute_modifier : int
 var skill_levels : Dictionary
-var skill_levels_before_skill_distribution : Dictionary
-var skill_packs : Dictionary
+#var skill_levels_before_skill_distribution : Dictionary
+#var skill_packs : Dictionary
 var general_knowledge_names : Array = ["","",""]
 var skill_data : Array
 var skill_data_before_skill_distribution: Array
@@ -37,6 +37,7 @@ var skill_data_before_skill_distribution: Array
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()
 	skill_data = DatabaseOperations.create_skill_packs_from_database_rows(rows)
+	skill_data_before_skill_distribution = DatabaseOperations.create_skill_packs_from_database_rows(rows)
 
 
 
@@ -122,5 +123,17 @@ func _on_specializationStep_specialization_chosen(current_specialization) -> voi
 	specialization = current_specialization["specialization_name"]
 	specialization_identifier = current_specialization["specialization_identifier"]
 
-func restore_initial_skill_levels() -> void:
-	CharacterStats.skill_levels = CharacterStats.skill_levels_before_skill_distribution
+#func restore_initial_skill_levels() -> void:
+#	CharacterStats.skill_levels = CharacterStats.skill_levels_before_skill_distribution
+
+
+func get_pack_data(skill_pack: SkillPack, skill_data_object) -> SkillPack:
+	var skill_pack_index = 0
+	for i in range(0, skill_data_object.size()):
+		if skill_data_object[i].identifier == skill_pack.identifier:
+			skill_pack_index = i
+	return skill_data_object[skill_pack_index]
+
+func duplicate_data(data_copied_from, data_copied_to):
+	for index in range(0,len(data_copied_to)):
+		data_copied_to[index].duplicate(data_copied_from[index])

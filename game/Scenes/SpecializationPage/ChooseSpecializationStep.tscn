@@ -193,7 +193,6 @@ custom_styles/focus = SubResource( 9 )
 custom_styles/disabled = ExtResource( 1 )
 custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
-pressed = true
 
 [node name="Label" type="Label" parent="SelectedIdentifier"]
 anchor_right = 1.0

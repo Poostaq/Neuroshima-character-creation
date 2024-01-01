@@ -1286,6 +1286,8 @@ __meta__ = {
 [connection signal="minus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_minus_button_pressed"]
 [connection signal="plus_button_pressed" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3" to="." method="_on_SkillCard_plus_button_pressed"]
 [connection signal="item_selected" from="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard3/SkillCard/HBoxContainer/VBoxContainer/OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="SkillDistribution2/Previous" to="." method="_on_Previous_pressed"]
+[connection signal="pressed" from="SkillDistribution2/Next" to="." method="_on_Next_pressed"]
 
 [editable path="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard"]
 [editable path="OLD/VBoxContainer/HBoxContainer/VBoxContainer/GeneralKnowledgePack/TraitContainer/SkillCard2"]

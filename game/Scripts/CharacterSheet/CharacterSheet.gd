@@ -283,7 +283,7 @@ func update_card() -> void:
 	for attr in GlobalVariables.attribute:
 		self._update_attribute_values(GlobalVariables.attribute[attr])
 	self._update_basic_info_values()
-	self._update_skill_levels()
+#	self._update_skill_levels()
 
 
 func _update_attribute_values(attributeEnum) -> void:

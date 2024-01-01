@@ -29,6 +29,38 @@ func update_skill_data():
 		skill.skill_data = skill_pack_data.skill_data[i]
 		skill.update_text()
 
+func set_plus_minus_button_state():
+	for index in range(0,len(skill_pack_data.skill_data)):
+		if list_of_skill_objects[index].skill_data.level == GlobalVariables.max_skill_level:
+			list_of_skill_objects[index].plus.disabled = true
+		else:
+			list_of_skill_objects[index].plus.disabled = false
+		var minimal_level = CharacterStats.get_pack_data(
+			skill_pack_data, 
+			CharacterStats.skill_data_before_skill_distribution
+			).skill_data[index].level
+		print(minimal_level)
+		if list_of_skill_objects[index].skill_data.level == minimal_level:
+			list_of_skill_objects[index].minus.disabled = true
+		else:
+			list_of_skill_objects[index].minus.disabled = false
+
+func set_buy_sell_button_state():
+	if _is_all_skill_levels_n(self.list_of_skill_objects, 0):
+		self.buy_pack_button.disabled = false
+	else:
+		self.buy_pack_button.disabled = true
+	if _is_all_skill_levels_n(self.list_of_skill_objects, 1):
+		self.sell_pack_button.disabled = false
+	else:
+		self.sell_pack_button.disabled = true
+
+func _is_all_skill_levels_n(skill_list, n) -> bool:
+	for skill in skill_list:
+		if skill.skill_data.level != n:
+			return false
+	return true
+
 func _on_skill_plus_button_pressed(skill_object):
 	emit_signal("skill_pack_skill_plus_pressed", self, skill_object)
 
