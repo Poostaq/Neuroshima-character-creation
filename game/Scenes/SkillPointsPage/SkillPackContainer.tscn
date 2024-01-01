@@ -116,7 +116,8 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Button" type="Button" parent="."]
+[node name="BuyPackButton" type="Button" parent="."]
+unique_name_in_owner = true
 anchor_left = 0.63617
 anchor_top = 0.085
 anchor_right = 0.944681
@@ -128,9 +129,8 @@ custom_styles/pressed = ExtResource( 13 )
 custom_styles/focus = SubResource( 21 )
 custom_styles/disabled = ExtResource( 12 )
 custom_styles/normal = ExtResource( 15 )
-toggle_mode = true
 
-[node name="Label" type="Label" parent="Button"]
+[node name="Label" type="Label" parent="BuyPackButton"]
 anchor_left = 0.0344828
 anchor_top = 0.127778
 anchor_right = 0.986207
@@ -138,6 +138,35 @@ anchor_bottom = 0.861111
 custom_colors/font_color = Color( 0.847059, 1, 0, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "BUY PACK"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SellPackButton" type="Button" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.63617
+anchor_top = 0.085
+anchor_right = 0.944681
+anchor_bottom = 0.235
+margin_top = -5.0
+margin_bottom = -5.0
+custom_styles/hover = ExtResource( 15 )
+custom_styles/pressed = ExtResource( 13 )
+custom_styles/focus = SubResource( 21 )
+custom_styles/disabled = ExtResource( 12 )
+custom_styles/normal = ExtResource( 15 )
+
+[node name="Label" type="Label" parent="SellPackButton"]
+anchor_left = 0.0344828
+anchor_top = 0.127778
+anchor_right = 0.986207
+anchor_bottom = 0.861111
+custom_colors/font_color = Color( 0.847059, 1, 0, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "SELL PACK"
 align = 1
 valign = 1
 __meta__ = {
@@ -153,3 +182,5 @@ __meta__ = {
 [connection signal="mouse_entered_skill_object" from="SkillObject3" to="." method="_on_mouse_entered_skill_object"]
 [connection signal="on_minus_button_pressed" from="SkillObject3" to="." method="_on_skill_minus_button_pressed"]
 [connection signal="on_plus_button_pressed" from="SkillObject3" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="pressed" from="BuyPackButton" to="." method="_on_buy_pack_button_pressed"]
+[connection signal="pressed" from="SellPackButton" to="." method="_on_sell_pack_button_pressed"]
