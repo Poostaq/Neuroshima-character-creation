@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=2]
 
+[ext_resource path="res://Scenes/SkillPointsPage/GeneralKnowledgeSkill.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/SkillPointsPage/SkillPackContainer.gd" type="Script" id=9]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=10]
 [ext_resource path="res://UI_Elements/Moje_próby.png" type="Texture" id=11]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=12]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=13]
-[ext_resource path="res://Scenes/SkillPointsPage/SkillPackSkill.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonHover.tres" type="StyleBox" id=15]
 
 [sub_resource type="DynamicFontData" id=24]
@@ -30,7 +30,7 @@ outline_size = 2
 outline_color = Color( 0.435294, 0.196078, 0, 1 )
 font_data = ExtResource( 10 )
 
-[node name="SkillPackContainer" type="TextureRect"]
+[node name="GeneralKnowledgeContainer" type="TextureRect"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_right = 0.244792
 anchor_bottom = 0.222222
@@ -83,35 +83,36 @@ margin_top = 40.0
 margin_right = 41.8087
 margin_bottom = 40.0
 
-[node name="SkillObject1" parent="." instance=ExtResource( 14 )]
+[node name="SkillObject1" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.0191489
-anchor_top = 0.470833
-anchor_right = 0.546421
-anchor_bottom = 0.626834
-margin_right = 2.18201
-margin_bottom = -2.44
+anchor_top = 0.466667
+anchor_right = 0.561701
+anchor_bottom = 0.625001
+margin_right = -5.0
+margin_bottom = -3.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkillObject2" parent="." instance=ExtResource( 14 )]
+[node name="SkillObject2" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.0191489
 anchor_top = 0.633334
-anchor_right = 0.546421
-anchor_bottom = 0.789334
-margin_right = 2.18201
-margin_bottom = -2.44
+anchor_right = 0.561701
+anchor_bottom = 0.791667
+margin_right = -5.0
+margin_bottom = -3.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkillObject3" parent="." instance=ExtResource( 14 )]
+[node name="SkillObject3" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.0191489
-anchor_top = 0.800001
-anchor_right = 0.546421
-anchor_bottom = 0.956001
-margin_right = 2.18201
-margin_bottom = -2.44002
+anchor_top = 0.795834
+anchor_right = 0.561701
+anchor_bottom = 0.954167
+margin_top = 0.999954
+margin_right = -5.0
+margin_bottom = -2.00005
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -173,9 +174,11 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[connection signal="general_knowledge_skill_selected" from="SkillObject1" to="." method="_on_general_knowledge_skill_selected"]
 [connection signal="mouse_entered_skill_object" from="SkillObject1" to="." method="_on_mouse_entered_skill_object"]
 [connection signal="on_minus_button_pressed" from="SkillObject1" to="." method="_on_skill_minus_button_pressed"]
 [connection signal="on_plus_button_pressed" from="SkillObject1" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="general_knowledge_skill_selected" from="SkillObject2" to="." method="_on_general_knowledge_skill_selected"]
 [connection signal="mouse_entered_skill_object" from="SkillObject2" to="." method="_on_mouse_entered_skill_object"]
 [connection signal="on_minus_button_pressed" from="SkillObject2" to="." method="_on_skill_minus_button_pressed"]
 [connection signal="on_plus_button_pressed" from="SkillObject2" to="." method="_on_skill_plus_button_pressed"]

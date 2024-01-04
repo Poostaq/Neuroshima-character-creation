@@ -12,11 +12,11 @@ onready var minus = $"%Minus"
 onready var skill_data: SkillData
 
 
-
 func update_text():
 	skill_name.text = skill_data.name
 	skill_level.text = str(skill_data.level)
-	
+
+
 
 func _on_Plus_pressed():
 	emit_signal("on_plus_button_pressed", self)

@@ -36,8 +36,8 @@ var skill_data_before_skill_distribution: Array
 
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()
-	skill_data = DatabaseOperations.create_skill_packs_from_database_rows(rows)
-	skill_data_before_skill_distribution = DatabaseOperations.create_skill_packs_from_database_rows(rows)
+	skill_data = DatabaseOperations.create_skill_packs_from_database_query_result(rows)
+	skill_data_before_skill_distribution = DatabaseOperations.create_skill_packs_from_database_query_result(rows)
 
 
 

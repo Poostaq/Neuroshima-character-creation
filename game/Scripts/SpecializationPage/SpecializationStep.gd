@@ -67,7 +67,7 @@ func _get_current_secialization_identifier():
 
 func _prepare_specialization_skills(specialization_data: String) -> String:
 	var specialization_packs_list = db.read_packs_for_specialization(specialization_data)
-	var skill_packs = db.create_skill_packs_from_database_rows(specialization_packs_list)
+	var skill_packs = db.create_skill_packs_from_database_query_result(specialization_packs_list)
 	var bbcode = ""
 	for skill_pack in skill_packs:
 		bbcode += ("%s %s \n" % [tr("pack_label"), tr(skill_pack.name)])

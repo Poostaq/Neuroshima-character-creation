@@ -1,11 +1,6 @@
 class_name SkillPack
 
-var skill1_data: SkillData
-var skill2_data: SkillData
-var skill3_data: SkillData
-
-
-var skill_data = [skill1_data, skill2_data, skill3_data]
+var skill_data = []
 
 var bought: bool
 
@@ -14,6 +9,12 @@ var identifier: String
 var name: String
 var specialization_name: String
 
+
+func _init(new_attribute_name, new_identifier, new_name, new_specialization_name):
+	attribute_name = new_attribute_name
+	identifier = new_identifier
+	name = new_name
+	specialization_name = new_specialization_name
 
 func duplicate(class_object: SkillPack):
 	for index in range(0, len(skill_data)):
