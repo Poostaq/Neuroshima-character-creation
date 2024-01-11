@@ -85,11 +85,15 @@ func _create_trait_button(trait_template, trait_data) -> void:
 
 
 func _on_Trait_Button_button_pressed(button) -> void:
+	if CharacterStats.is_special_rules_profession_applied():
+		for rule in CharacterStats.special_rules["Profession"]:
+			rule.undo_perform_special_rule_action()
 	var query = DatabaseOperations.get_special_rules_for_trait(button.trait_id)
 	var special_rules = DatabaseOperations.create_special_rules_from_database_query_result(query)
 	if special_rules:
 		for rule in special_rules:
 			rule.perform_special_rule_actions(button)
+		CharacterStats.special_rules["Profession"] = special_rules
 	emit_signal("profession_chosen")
 	CharacterStats._on_ProfessionStep_profession_chosen(profession)
 	CharacterStats._on_ProfessionStep_trait_chosen(button)

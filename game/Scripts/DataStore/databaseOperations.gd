@@ -358,4 +358,15 @@ func create_general_knowledge_alternative_skill_pack() -> SkillPack:
 		skill_pack_data.skill_data.append(element)
 	return skill_pack_data
 
-
+func create_regular_general_knowledge_skill_pack() -> SkillPack:
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name " 
+	var from = "FROM skill_packs sp "
+	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
+	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
+	var where = "WHERE sp.skill_pack_identifier like 'general_knowledge' "
+	var record = sql_command(select+from+join+where)[0]
+	var skill_pack_data = SkillPack.new(record["attribute_name"],record["skill_pack_identifier"], record["skill_pack_name"], record["specialization_name"])
+	var skills_data = read_skills_for_package(skill_pack_data.identifier, false)
+	for element in skills_data:
+		skill_pack_data.skill_data.append(element)
+	return skill_pack_data

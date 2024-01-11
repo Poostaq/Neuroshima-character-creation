@@ -12,7 +12,6 @@ func _init(new_name, new_level, new_skill_identifier, new_description):
 	level = new_level
 	skill_identifier = new_skill_identifier
 	description = new_description
-	
 
 func duplicate(skill: SkillData):
 	for property in skill.get_property_list():

@@ -32,7 +32,7 @@ var general_knowledge_names : Array = ["","",""]
 var skill_data : Dictionary
 var skill_data_before_skill_distribution: Dictionary
 var flags: Dictionary
-var special_rules: Array
+var special_rules: Dictionary
 var fame: int
 
 func _init() -> void:
@@ -128,11 +128,23 @@ func get_pack_data(identifier: String, searched_skill_data) -> SkillPack:
 	return searched_skill_data[skill_pack_index]
 
 func find_pack_data(identifier: String) -> SkillPack:
-	for pack in skill_data:
-		if pack.identifier == identifier:
-			return pack
+	for pack in skill_data.keys():
+		if skill_data[pack].identifier == identifier:
+			return skill_data[pack]
 	return null
 
 func duplicate_data(data_copied_from, data_copied_to):
 	for object in data_copied_to.keys():
 		data_copied_to[object].duplicate(data_copied_from[object])
+
+func is_alternative_general_knowledge_active():
+	return CharacterStats.flags.has("general_knowledge_alternative") and \
+	CharacterStats.flags["general_knowledge_alternative"]
+
+func is_special_rules_ethnicity_applied():
+	return CharacterStats.special_rules.has("Ethnicity") and \
+	CharacterStats.special_rules["Ethnicity"]
+
+func is_special_rules_profession_applied():
+	return CharacterStats.special_rules.has("Profession") and \
+	CharacterStats.special_rules["Profession"]

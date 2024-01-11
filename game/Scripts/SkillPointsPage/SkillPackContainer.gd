@@ -30,11 +30,10 @@ func update_skill_data():
 		var skill = skills[i]
 		skill.skill_data = skill_pack_data.skill_data[i]
 		skill.update_text()
-		if skill_pack_data.identifier == "general_knowledge":
+		if skill_pack_data.identifier == "general_knowledge" and not CharacterStats.is_alternative_general_knowledge_active():
 			skill.load_general_knowledge_skills()
-			skill.skill_data.duplicate(skill.general_skill_data[i])
 			skill.option_button.select(i)
-	if skill_pack_data.identifier == "general_knowledge" and not CharacterStats.flags["general_knowledge_alternative"]:
+	if skill_pack_data.identifier == "general_knowledge" and not CharacterStats.is_alternative_general_knowledge_active():
 		for i in range(0,skill_pack_data.skill_data.size()):
 			skills[i].refresh_option_states([0,1,2])
 			

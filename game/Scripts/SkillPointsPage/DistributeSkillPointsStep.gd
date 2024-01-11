@@ -40,7 +40,7 @@ func load_skill_packs_screen_data():
 		var character_stats_pack_data = CharacterStats.get_pack_data(skill_pack_id,
 		CharacterStats.skill_data)
 		if character_stats_pack_data.identifier == "general_knowledge":
-			if is_alternative_general_knowledge_active():
+			if CharacterStats.is_alternative_general_knowledge_active() and _current_attribute_index == 3:
 				_fill_alternate_general_knowledge(character_stats_pack_data)
 			else:
 				_create_skill_pack(character_stats_pack_data, generalKnowledgePackScene)
@@ -53,22 +53,15 @@ func remove_skill_pack_containers():
 		child.queue_free()
 
 func set_ui_layout():
-	if is_alternative_general_knowledge_active():
+	if CharacterStats.is_alternative_general_knowledge_active() and _current_attribute_index == 3:
 		skill_pack_grid.columns = 2
 		alternative_general_knowledge.visible = true
 	else:
 		skill_pack_grid.columns = 3
 		alternative_general_knowledge.visible = false
-		
 
-func is_alternative_general_knowledge_active():
-	return CharacterStats.flags.has("general_knowledge_alternative") and \
-	CharacterStats.flags["general_knowledge_alternative"] and \
-	_current_attribute_index == 3
-	
 func clean_up_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data_before_skill_distribution, CharacterStats.skill_data)
-	
 
 func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	var skill_pack_instance = skill_pack_scene.instance()
@@ -102,11 +95,8 @@ func _fill_alternate_general_knowledge(skill_pack_data: SkillPack):
 	else:
 		alternative_general_knowledge.buy_pack_button.visible = true
 		alternative_general_knowledge.sell_pack_button.visible = false
-	alternative_general_knowledge.connect("mouse_entered_skill_name_of_skill_pack", self, "_on_SkillPackContainer_mouse_entered_skill_name")
-	alternative_general_knowledge.connect("skill_pack_skill_plus_pressed", self, "on_skill_pack_skill_plus_pressed")
-	alternative_general_knowledge.connect("skill_pack_skill_minus_pressed", self, "on_skill_pack_skill_minus_pressed")
-	alternative_general_knowledge.connect("buy_pack_button_pressed", self, "on_buy_pack_button_pressed")
-	alternative_general_knowledge.connect("sell_pack_button_pressed", self, "on_sell_pack_button_pressed")
+	alternative_general_knowledge.set_buy_sell_button_state()
+	alternative_general_knowledge.set_plus_minus_button_state()
 
 
 func update_texts():
@@ -282,7 +272,10 @@ func _on_general_skill_pack_skill_selected(skill_pack, skill, index):
 	skill.skill_data.duplicate(skill.general_skill_data[index])
 	skill.skill_data.level = retained_level
 	var selected_skills = []
-	for i in range(0,skill_pack.skill_pack_data.skill_data.size()):
-		selected_skills.append(skill_pack.list_of_skill_objects[i].option_button.selected)
-	for i in range(0,skill_pack.skill_pack_data.skill_data.size()):
-			skill_pack.list_of_skill_objects[i].refresh_option_states(selected_skills)
+	if CharacterStats.is_alternative_general_knowledge_active():
+		pass
+	else:
+		for i in range(0,skill_pack.skill_pack_data.skill_data.size()):
+			selected_skills.append(skill_pack.skill_object_group.get_children()[i].option_button.selected)
+		for i in range(0,skill_pack.skill_pack_data.skill_data.size()):
+				skill_pack.skill_object_group.get_children()[i].refresh_option_states(selected_skills)
