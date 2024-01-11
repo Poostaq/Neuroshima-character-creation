@@ -1,0 +1,121 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonDisabled.tres" type="StyleBox" id=1]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonNormal.tres" type="StyleBox" id=2]
+[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonNormal.tres" type="StyleBox" id=3]
+[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonPressed.tres" type="StyleBox" id=4]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonDisabled.tres" type="StyleBox" id=5]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonHover.tres" type="StyleBox" id=6]
+[ext_resource path="res://Resources/Buttons/MinusButton/MinusButtonPressed.tres" type="StyleBox" id=7]
+[ext_resource path="res://Resources/Buttons/PlusButton/PlusButtonHover.tres" type="StyleBox" id=8]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://Scripts/SkillPointsPage/GeneralKnowledgeSkill.gd" type="Script" id=10]
+
+[sub_resource type="DynamicFont" id=25]
+size = 26
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFontData" id=24]
+font_path = "res://Fonts/Gruppo-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+size = 26
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = SubResource( 24 )
+
+[sub_resource type="StyleBoxEmpty" id=23]
+
+[sub_resource type="StyleBoxEmpty" id=20]
+
+[node name="SkillObject" type="Control"]
+unique_name_in_owner = true
+anchor_right = 0.129072
+anchor_bottom = 0.0346667
+margin_right = -1.52588e-05
+script = ExtResource( 10 )
+
+[node name="SkillName" type="Label" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 25 )
+text = "TEST LABEL"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="OptionButton" type="OptionButton" parent="."]
+unique_name_in_owner = true
+anchor_top = 0.0801281
+anchor_right = 0.996698
+anchor_bottom = 0.881409
+text = "select_general_skill"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SkillLevel" type="Label" parent="."]
+unique_name_in_owner = true
+anchor_left = 1.10161
+anchor_top = 0.133547
+anchor_right = 1.24285
+anchor_bottom = 1.06838
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 12 )
+text = "0"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VSeparator" type="VSeparator" parent="."]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.968966
+anchor_right = 1.06897
+anchor_bottom = 0.974359
+margin_right = -3.05176e-05
+
+[node name="Minus" type="Button" parent="."]
+unique_name_in_owner = true
+anchor_left = 1.33162
+anchor_top = 0.42735
+anchor_right = 1.453
+anchor_bottom = 0.652
+margin_right = -0.079895
+margin_bottom = 5.5891
+rect_scale = Vector2( 1, 0.6 )
+custom_styles/hover = ExtResource( 6 )
+custom_styles/pressed = ExtResource( 7 )
+custom_styles/focus = SubResource( 23 )
+custom_styles/disabled = ExtResource( 5 )
+custom_styles/normal = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Plus" type="Button" parent="."]
+unique_name_in_owner = true
+anchor_left = 1.51321
+anchor_top = 0.133547
+anchor_right = 1.63426
+anchor_bottom = 0.934828
+custom_styles/hover = ExtResource( 8 )
+custom_styles/pressed = ExtResource( 4 )
+custom_styles/focus = SubResource( 20 )
+custom_styles/disabled = ExtResource( 1 )
+custom_styles/normal = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_SkillObject_mouse_entered"]
+[connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
+[connection signal="pressed" from="Minus" to="." method="_on_Minus_pressed"]
+[connection signal="pressed" from="Plus" to="." method="_on_Plus_pressed"]

@@ -1,14 +1,15 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://THEME.tres" type="Theme" id=1]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=2]
 [ext_resource path="res://Resources/Buttons/GeneralButton/ButtonHover.tres" type="StyleBox" id=3]
-[ext_resource path="res://Scenes/MainScene/SettingsWindow.gd" type="Script" id=4]
+[ext_resource path="res://Scripts/MainScreen/SettingsWindow.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/CharacterCreationProcess/CharacterCreationProcess.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI_Elements/MainMenu/CharacterManagerLogo.png" type="Texture" id=6]
 [ext_resource path="res://UI_Elements/MainMenu/PoostaqLogo.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/MainMenu/NeuroshimaLogo.png" type="Texture" id=8]
 [ext_resource path="res://UI_Elements/background.png" type="Texture" id=9]
+[ext_resource path="res://Themes/Spinboxes.tres" type="Theme" id=10]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://Shaders/glitch_effect.shader" type="Shader" id=12]
 [ext_resource path="res://Scripts/MainScreen/MainScreen.gd" type="Script" id=13]
@@ -37,10 +38,10 @@ load_path = "res://.import/originDescriptionBox.png-52d352332bd0b631d4f50a09247e
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 12 )
 shader_param/shake_power = 0.01
-shader_param/shake_rate = 0.1
+shader_param/shake_rate = 0.2
 shader_param/shake_speed = 5.0
 shader_param/shake_block_size = 500.0
-shader_param/shake_color_rate = 0.012
+shader_param/shake_color_rate = 0.152
 
 [sub_resource type="DynamicFont" id=18]
 size = 60
@@ -49,6 +50,18 @@ outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 11 )
 
 [sub_resource type="DynamicFont" id=20]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 36
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 11 )
+
+[sub_resource type="DynamicFont" id=22]
 size = 48
 outline_size = 3
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
@@ -375,15 +388,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label" type="Label" parent="SettingsWindow/TextureRect"]
-anchor_left = 0.120339
+[node name="LanguageLabel" type="Label" parent="SettingsWindow/TextureRect"]
+anchor_left = 0.0903955
 anchor_top = 0.141013
-anchor_right = 0.338983
+anchor_right = 0.309039
 anchor_bottom = 0.216485
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 18 )
 text = "language"
-align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -391,7 +403,7 @@ __meta__ = {
 
 [node name="LanguageSelector" type="OptionButton" parent="SettingsWindow/TextureRect"]
 unique_name_in_owner = true
-anchor_left = 0.484181
+anchor_left = 0.640113
 anchor_top = 0.141013
 anchor_right = 0.867232
 anchor_bottom = 0.220457
@@ -405,12 +417,87 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="AllSkillPointsLabel" type="Label" parent="SettingsWindow/TextureRect"]
+anchor_left = 0.0903955
+anchor_top = 0.251241
+anchor_right = 0.285311
+anchor_bottom = 0.350546
+margin_right = -3.05176e-05
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "all_skill_points_limit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="AllSkillPointsSelector" type="SpinBox" parent="SettingsWindow/TextureRect"]
+unique_name_in_owner = true
+margin_left = 1353.0
+margin_top = 276.0
+margin_right = 1533.0
+margin_bottom = 356.0
+theme = ExtResource( 10 )
+min_value = 1.0
+value = 1.0
+align = 1
+
+[node name="SpecSkillPointsLabel" type="Label" parent="SettingsWindow/TextureRect"]
+anchor_left = 0.0903955
+anchor_top = 0.372393
+anchor_right = 0.393785
+anchor_bottom = 0.481629
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "specialization_skill_points_limit"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SpecSkillPointsSelector" type="SpinBox" parent="SettingsWindow/TextureRect"]
+unique_name_in_owner = true
+margin_left = 1352.0
+margin_top = 396.0
+margin_right = 1535.0
+margin_bottom = 476.0
+theme = ExtResource( 10 )
+min_value = 1.0
+value = 1.0
+align = 1
+
+[node name="SaveButton" type="Button" parent="SettingsWindow/TextureRect"]
+margin_left = 662.0
+margin_top = 891.0
+margin_right = 1072.0
+margin_bottom = 1012.0
+custom_styles/hover = ExtResource( 3 )
+custom_styles/pressed = ExtResource( 14 )
+custom_styles/disabled = ExtResource( 16 )
+custom_styles/normal = ExtResource( 14 )
+
+[node name="Label" type="Label" parent="SettingsWindow/TextureRect/SaveButton"]
+anchor_left = 0.0775511
+anchor_top = 0.140496
+anchor_right = 0.932653
+anchor_bottom = 0.719009
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "save_button"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="CloseButton" type="Button" parent="SettingsWindow"]
 unique_name_in_owner = true
 modulate = Color( 1, 0, 0, 1 )
 anchor_left = 0.883429
-anchor_top = 0.0967442
-anchor_right = 0.899111
+anchor_top = 0.0846512
+anchor_right = 0.906952
 anchor_bottom = 0.125581
 custom_fonts/font = SubResource( 19 )
 text = "X"
@@ -427,6 +514,9 @@ environment = SubResource( 12 )
 [connection signal="button_up" from="MainMenu/ExitButton" to="." method="_on_ExitButton_button_up"]
 [connection signal="back_to_main_menu" from="SettingsWindow" to="." method="_back_to_main_menu"]
 [connection signal="item_selected" from="SettingsWindow/TextureRect/LanguageSelector" to="SettingsWindow" method="_on_LanguageSelector_item_selected"]
+[connection signal="value_changed" from="SettingsWindow/TextureRect/AllSkillPointsSelector" to="SettingsWindow" method="_on_AllSkillPointsSelector_value_changed"]
+[connection signal="value_changed" from="SettingsWindow/TextureRect/SpecSkillPointsSelector" to="SettingsWindow" method="_on_SpecSkillPointsSelector_value_changed"]
+[connection signal="pressed" from="SettingsWindow/TextureRect/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="button_up" from="SettingsWindow/CloseButton" to="SettingsWindow" method="_on_CloseButton_button_up"]
 
 [editable path="CharacterCreationProcess"]

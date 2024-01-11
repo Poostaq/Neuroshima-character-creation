@@ -8,6 +8,28 @@
 
 config_version=4
 
+_global_script_classes=[ {
+"base": "Reference",
+"class": "SkillData",
+"language": "GDScript",
+"path": "res://Scripts/SkillData.gd"
+}, {
+"base": "Reference",
+"class": "SkillPack",
+"language": "GDScript",
+"path": "res://Scripts/SkillPack.gd"
+}, {
+"base": "Reference",
+"class": "SpecialRule",
+"language": "GDScript",
+"path": "res://Scripts/SpecialRule.gd"
+} ]
+_global_script_class_icons={
+"SkillData": "",
+"SkillPack": "",
+"SpecialRule": ""
+}
+
 [application]
 
 config/name="Neuroshima Character Creation"
@@ -21,7 +43,7 @@ default_bus_layout=""
 [autoload]
 
 DatabaseOperations="*res://Scripts/DataStore/DatabaseOperations.gd"
-GlobalConstants="*res://Scripts/GlobaVariables.gd"
+GlobalVariables="*res://Scripts/GlobaVariables.gd"
 Dices="*res://Scripts/Dices.gd"
 CharacterStats="*res://Scripts/CharacterSheet/CharacterStats.gd"
 
@@ -45,6 +67,10 @@ locale_filter=[ 1, [ "en", "pl" ] ]
 [logging]
 
 file_logging/max_log_files=8
+
+[network]
+
+limits/debugger_stdout/max_chars_per_second=10000000
 
 [physics]
 

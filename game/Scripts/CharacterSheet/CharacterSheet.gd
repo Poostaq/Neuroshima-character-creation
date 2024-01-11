@@ -280,14 +280,14 @@ onready var db = get_node("/root/DatabaseOperations")
 
 
 func update_card() -> void:
-	for attr in GlobalConstants.attribute:
-		self._update_attribute_values(GlobalConstants.attribute[attr])
+	for attr in GlobalVariables.attribute:
+		self._update_attribute_values(GlobalVariables.attribute[attr])
 	self._update_basic_info_values()
-	self._update_skill_levels()
+#	self._update_skill_levels()
 
 
 func _update_attribute_values(attributeEnum) -> void:
-	if attributeEnum == GlobalConstants.attribute.ANY:
+	if attributeEnum == GlobalVariables.attribute.ANY:
 		return
 	var value = CharacterStats.get_final_attribute_value(CharacterStats.attribute_modifiers_dicts[attributeEnum])
 	CharacterStats.attribute_values_list[attributeEnum] = value
@@ -297,7 +297,7 @@ func _update_attribute_values(attributeEnum) -> void:
 
 func _update_basic_info_values() -> void:
 	ethnicity_element.text = CharacterStats.ethnicity
-	ethnicity_trait_element.text = CharacterStats.ethnicity_trait
+	ethnicity_trait_element.text = _format_ethnicity_trait_name()
 	profession_element.text = CharacterStats.profession
 	profession_trait_element.text = CharacterStats.profession_trait
 	specialization_element.text = CharacterStats.specialization
@@ -326,3 +326,10 @@ func _return_modifier_value_or_n(value: int) -> String:
 func _on_CloseButton_button_up() -> void:
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+func _format_ethnicity_trait_name() -> String:
+	if CharacterStats.ethnicity_trait == "versatility_squared":
+		return tr(CharacterStats.ethnicity_trait) +" : \n " + tr(CharacterStats.secondary_trait)
+	else:
+		return tr(CharacterStats.ethnicity_trait)

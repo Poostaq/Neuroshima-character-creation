@@ -69,3 +69,8 @@ func _on_ExitButton_button_up():
 func _on_SettingsButton_button_up():
 	main_menu.visible = false
 	settings_window.visible = true
+
+
+func _on_SaveButton_pressed():
+	GlobalVariables.save_config()
+	_back_to_main_menu()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=43 format=2]
 
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=2]
@@ -20,8 +20,12 @@
 [ext_resource path="res://UI_Elements/progressLightOff.png" type="Texture" id=18]
 [ext_resource path="res://Resources/Buttons/CharacterButton/CharacterButtonPressed.tres" type="StyleBox" id=19]
 [ext_resource path="res://Resources/Buttons/CharacterButton/CharacterButtonDisabled.tres" type="StyleBox" id=20]
+[ext_resource path="res://UI_Elements/MainMenu/trade_off_4.png" type="Texture" id=21]
+[ext_resource path="res://UI_Elements/MainMenu/trade_on_4.png" type="Texture" id=22]
 [ext_resource path="res://Resources/Buttons/CharacterButton/CharacterButtonHover.tres" type="StyleBox" id=23]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=24]
+[ext_resource path="res://UI_Elements/MainMenu/help_on_4.png" type="Texture" id=25]
+[ext_resource path="res://UI_Elements/MainMenu/help_off_4.png" type="Texture" id=26]
 
 [sub_resource type="ButtonGroup" id=2]
 
@@ -40,6 +44,44 @@ size = 26
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 24 )
+
+[sub_resource type="StyleBoxTexture" id=11]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 280, 269 )
+modulate_color = Color( 1.5, 1.5, 1.5, 1 )
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 280, 269 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 280, 269 )
+modulate_color = Color( 0.5, 0.5, 0.5, 1 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 280, 269 )
+
+[sub_resource type="StyleBoxTexture" id=14]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 0, 700, 700 )
+modulate_color = Color( 1.5, 1.5, 1.5, 1 )
+
+[sub_resource type="StyleBoxTexture" id=15]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 0, 700, 700 )
+
+[sub_resource type="StyleBoxEmpty" id=18]
+
+[sub_resource type="StyleBoxTexture" id=16]
+texture = ExtResource( 26 )
+region_rect = Rect2( 0, 0, 700, 700 )
+modulate_color = Color( 0.54902, 0.54902, 0.54902, 1 )
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 25 )
+region_rect = Rect2( 0, 0, 700, 700 )
 
 [node name="CharacterCreationProcess" type="Control"]
 anchor_right = 1.0
@@ -361,6 +403,35 @@ __meta__ = {
 [node name="CharacterSheet" parent="." instance=ExtResource( 8 )]
 visible = false
 mouse_filter = 1
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.926042
+anchor_top = 0.907407
+anchor_right = 0.965104
+anchor_bottom = 0.976852
+custom_styles/hover = SubResource( 11 )
+custom_styles/pressed = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Button2" type="Button" parent="."]
+anchor_left = 0.0104167
+anchor_top = 0.012037
+anchor_right = 0.062
+anchor_bottom = 0.105
+margin_right = 0.959991
+margin_bottom = -0.400002
+custom_styles/hover = SubResource( 14 )
+custom_styles/pressed = SubResource( 15 )
+custom_styles/focus = SubResource( 18 )
+custom_styles/disabled = SubResource( 16 )
+custom_styles/normal = SubResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [connection signal="ethnicity_cleared" from="StepContainer/EthnicityStep" to="." method="_disable_next_step"]
 [connection signal="ethnicity_selected" from="StepContainer/EthnicityStep" to="." method="_enable_next_step"]

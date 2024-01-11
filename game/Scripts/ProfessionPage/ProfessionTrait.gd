@@ -1,10 +1,12 @@
 extends Button
 
 signal profession_trait_button_pressed(button)
+
 export var identifier: String
 export var trait_name: String
 export var description: String
 export var tooltip_text: String
+export var trait_id: int
 
 
 onready var trait_name_label = $"%TraitNameLabel"
