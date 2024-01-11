@@ -219,10 +219,10 @@ text = "NOT SET"
 
 [node name="HSeparator" type="HSeparator" parent="DescriptionContainer"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.0962439
-anchor_top = 0.191414
-anchor_right = 0.899061
-anchor_bottom = 0.242696
+anchor_left = 0.097656
+anchor_top = 0.193333
+anchor_right = 0.900473
+anchor_bottom = 0.244615
 __meta__ = {
 "_edit_use_anchors_": true
 }

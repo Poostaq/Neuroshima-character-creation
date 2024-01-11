@@ -38,10 +38,10 @@ load_path = "res://.import/originDescriptionBox.png-52d352332bd0b631d4f50a09247e
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 12 )
 shader_param/shake_power = 0.01
-shader_param/shake_rate = 0.1
+shader_param/shake_rate = 0.2
 shader_param/shake_speed = 5.0
 shader_param/shake_block_size = 500.0
-shader_param/shake_color_rate = 0.012
+shader_param/shake_color_rate = 0.152
 
 [sub_resource type="DynamicFont" id=18]
 size = 60

@@ -297,7 +297,7 @@ func _update_attribute_values(attributeEnum) -> void:
 
 func _update_basic_info_values() -> void:
 	ethnicity_element.text = CharacterStats.ethnicity
-	ethnicity_trait_element.text = CharacterStats.ethnicity_trait
+	ethnicity_trait_element.text = _format_ethnicity_trait_name()
 	profession_element.text = CharacterStats.profession
 	profession_trait_element.text = CharacterStats.profession_trait
 	specialization_element.text = CharacterStats.specialization
@@ -326,3 +326,10 @@ func _return_modifier_value_or_n(value: int) -> String:
 func _on_CloseButton_button_up() -> void:
 	self.visible = false
 	self.mouse_filter = Control.MOUSE_FILTER_STOP
+
+
+func _format_ethnicity_trait_name() -> String:
+	if CharacterStats.ethnicity_trait == "versatility_squared":
+		return tr(CharacterStats.ethnicity_trait) +" : \n " + tr(CharacterStats.secondary_trait)
+	else:
+		return tr(CharacterStats.ethnicity_trait)

@@ -10,6 +10,7 @@ onready var skillPackScene = preload("res://Scenes/SkillPointsPage/SkillPackCont
 onready var generalKnowledgePackScene = preload("res://Scenes/SkillPointsPage/GeneralKnowledgeContainer.tscn")
 onready var description_name = $"%DescriptionName"
 onready var description_text = $"%DescriptionText"
+onready var alternative_general_knowledge = $"%AlternativeGeneralKnowledge"
 
 
 var skill_packs_data_list_grouped_by_attribute = []
@@ -22,31 +23,49 @@ onready var _current_specialization_skill_points = GlobalVariables.max_specializ
 
 func _init() -> void:
 	skill_packs_data_list_grouped_by_attribute = DatabaseOperations.read_all_skill_packs_for_all_atributes()
-	_current_attribute_pack_data = skill_packs_data_list_grouped_by_attribute[_current_attribute_index]
 
 func load_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data, CharacterStats.skill_data_before_skill_distribution)
-	update_texts()
 	_current_all_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 	load_skill_packs_screen_data()
 
 func load_skill_packs_screen_data():
-	for child in skill_pack_grid.get_children():
-		child.queue_free()
+	remove_skill_pack_containers()
 	_current_attribute_pack_data = skill_packs_data_list_grouped_by_attribute[_current_attribute_index]
-	current_specialization_amount.text = str(_current_specialization_skill_points)
-	current_all_amount.text = str(_current_all_skill_points)
+	set_ui_layout()
 	
-	for skill_pack_data in _current_attribute_pack_data["skill_packs_data"]:
-		var character_stats_pack_data = CharacterStats.get_pack_data(skill_pack_data,
+	for skill_pack in _current_attribute_pack_data["skill_packs_data"].keys():
+		var skill_pack_id = _current_attribute_pack_data["skill_packs_data"][skill_pack].identifier
+		var character_stats_pack_data = CharacterStats.get_pack_data(skill_pack_id,
 		CharacterStats.skill_data)
 		if character_stats_pack_data.identifier == "general_knowledge":
-			_create_skill_pack(character_stats_pack_data, generalKnowledgePackScene)
+			if is_alternative_general_knowledge_active():
+				_fill_alternate_general_knowledge(character_stats_pack_data)
+			else:
+				_create_skill_pack(character_stats_pack_data, generalKnowledgePackScene)
 		else:
 			_create_skill_pack(character_stats_pack_data, skillPackScene)
 	update_texts()
 
+func remove_skill_pack_containers():
+	for child in skill_pack_grid.get_children():
+		child.queue_free()
+
+func set_ui_layout():
+	if is_alternative_general_knowledge_active():
+		skill_pack_grid.columns = 2
+		alternative_general_knowledge.visible = true
+	else:
+		skill_pack_grid.columns = 3
+		alternative_general_knowledge.visible = false
+		
+
+func is_alternative_general_knowledge_active():
+	return CharacterStats.flags.has("general_knowledge_alternative") and \
+	CharacterStats.flags["general_knowledge_alternative"] and \
+	_current_attribute_index == 3
+	
 func clean_up_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data_before_skill_distribution, CharacterStats.skill_data)
 	
@@ -73,12 +92,30 @@ func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	if skill_pack_instance.skill_pack_data.identifier == "general_knowledge":
 		skill_pack_instance.connect("general_skill_pack_skill_selected", self, "_on_general_skill_pack_skill_selected")
 
+func _fill_alternate_general_knowledge(skill_pack_data: SkillPack):
+	alternative_general_knowledge.skill_pack_data = skill_pack_data
+	alternative_general_knowledge.update_texts()
+	alternative_general_knowledge.update_skill_data()
+	if alternative_general_knowledge.skill_pack_data.bought:
+		alternative_general_knowledge.buy_pack_button.visible = false
+		alternative_general_knowledge.sell_pack_button.visible = true
+	else:
+		alternative_general_knowledge.buy_pack_button.visible = true
+		alternative_general_knowledge.sell_pack_button.visible = false
+	alternative_general_knowledge.connect("mouse_entered_skill_name_of_skill_pack", self, "_on_SkillPackContainer_mouse_entered_skill_name")
+	alternative_general_knowledge.connect("skill_pack_skill_plus_pressed", self, "on_skill_pack_skill_plus_pressed")
+	alternative_general_knowledge.connect("skill_pack_skill_minus_pressed", self, "on_skill_pack_skill_minus_pressed")
+	alternative_general_knowledge.connect("buy_pack_button_pressed", self, "on_buy_pack_button_pressed")
+	alternative_general_knowledge.connect("sell_pack_button_pressed", self, "on_sell_pack_button_pressed")
+
 
 func update_texts():
 	var current_attribute_label_text = tr("current_attribute_label")
 	current_attribute_label.text = current_attribute_label_text % tr(_current_attribute_pack_data["name"])
 	var current_specialization_label = tr("current_specialization_label")
 	chosen_spec_label.text = current_specialization_label % tr(CharacterStats.specialization)
+	current_specialization_amount.text = str(_current_specialization_skill_points)
+	current_all_amount.text = str(_current_all_skill_points)
 
 
 func update_skill_points() -> void:
@@ -87,6 +124,7 @@ func update_skill_points() -> void:
 
 
 func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
+	print("on_skill_pack_skill_plus_pressed start")
 	var current_skill_level = skill_object.skill_data.level
 	var spec_name = skill_pack.skill_pack_data.specialization_name
 	if current_skill_level >= 5:
@@ -105,6 +143,7 @@ func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
 	save_pack_data(skill_pack.skill_pack_data)
 	skill_pack.set_buy_sell_button_state()
 	skill_pack.set_plus_minus_button_state()
+	print("on_skill_pack_skill_plus_pressed start end")
 	
 func on_skill_pack_skill_minus_pressed(skill_pack, skill_object):
 	var current_skill_level = skill_object.skill_data.level
@@ -168,14 +207,15 @@ func return_points(amount:int, is_specialization: bool):
 	
 
 func save_pack_data(skill_pack: SkillPack) -> void:
-	for i in range(0, CharacterStats.skill_data.size()):
-		if CharacterStats.skill_data[i].identifier == skill_pack.identifier:
-			CharacterStats.skill_data[i] = skill_pack
+	for key in CharacterStats.skill_data:
+		if CharacterStats.skill_data[key].identifier == skill_pack.identifier:
+			CharacterStats.skill_data[key] = skill_pack
 			return
 	
 func on_buy_pack_button_pressed(skill_pack_object):
 	var spec_name = skill_pack_object.skill_pack_data.specialization_name
-	if _is_all_skill_levels_n(skill_pack_object.list_of_skill_objects, 0):
+	var skill_objects = skill_pack_object.skill_object_group.get_children()
+	if _is_all_skill_levels_n(skill_objects, 0):
 		if can_pay(5, spec_name) == false:
 			return
 		pay_points(5, CharacterStats.specialization == spec_name)
@@ -187,7 +227,8 @@ func on_buy_pack_button_pressed(skill_pack_object):
 
 func on_sell_pack_button_pressed(skill_pack_object):
 	var spec_name = skill_pack_object.skill_pack_data.specialization_name
-	if _is_all_skill_levels_n(skill_pack_object.list_of_skill_objects, 1):
+	var skill_objects = skill_pack_object.skill_object_group.get_children()
+	if _is_all_skill_levels_n(skill_objects, 1):
 		return_points(5, CharacterStats.specialization == spec_name)
 		update_skill_points()
 		sell_pack(skill_pack_object)
@@ -202,7 +243,8 @@ func _is_all_skill_levels_n(skill_list, n) -> bool:
 	return true
 
 func buy_pack(skill_pack_object) -> void:
-	for skill in skill_pack_object.list_of_skill_objects:
+	var skill_objects = skill_pack_object.skill_object_group.get_children()
+	for skill in skill_objects:
 		skill.skill_data.level += 1
 		skill.update_text()
 	skill_pack_object.buy_pack_button.visible = false
@@ -210,7 +252,8 @@ func buy_pack(skill_pack_object) -> void:
 	skill_pack_object.skill_pack_data.bought = true
 
 func sell_pack(skill_pack_object) -> void:
-	for skill in skill_pack_object.list_of_skill_objects:
+	var skill_objects = skill_pack_object.skill_object_group.get_children()
+	for skill in skill_objects:
 		skill.skill_data.level -= 1
 		skill.update_text()
 	skill_pack_object.buy_pack_button.visible = true
@@ -235,7 +278,6 @@ func _on_Next_pressed():
 
 
 func _on_general_skill_pack_skill_selected(skill_pack, skill, index):
-	print("GENERAL SKILL SELECTED")
 	var retained_level = skill.skill_data.level
 	skill.skill_data.duplicate(skill.general_skill_data[index])
 	skill.skill_data.level = retained_level

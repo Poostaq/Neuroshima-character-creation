@@ -1,11 +1,11 @@
 [gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/SkillPointsPage/GeneralKnowledgeSkill.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI_Elements/SkillBoxBorderBig.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/SkillPointsPage/SkillPackContainer.gd" type="Script" id=9]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=10]
-[ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=11]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=12]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=13]
+[ext_resource path="res://Scenes/SkillPointsPage/SkillPackSkill.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonHover.tres" type="StyleBox" id=15]
 
 [sub_resource type="DynamicFontData" id=24]
@@ -30,12 +30,14 @@ outline_size = 2
 outline_color = Color( 0.435294, 0.196078, 0, 1 )
 font_data = ExtResource( 10 )
 
-[node name="GeneralKnowledgeContainer" type="TextureRect"]
+[node name="SkillPackContainer" type="TextureRect"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_right = 0.244792
 anchor_bottom = 0.222222
+margin_right = 0.000366211
+margin_bottom = 280.0
 rect_min_size = Vector2( 470, 200 )
-texture = ExtResource( 11 )
+texture = ExtResource( 1 )
 expand = true
 stretch_mode = 1
 script = ExtResource( 9 )
@@ -46,9 +48,9 @@ __meta__ = {
 [node name="PackName" type="Label" parent="."]
 unique_name_in_owner = true
 anchor_left = 0.0276596
-anchor_top = 0.0208333
-anchor_right = 0.642553
-anchor_bottom = 0.295833
+anchor_top = 0.00544868
+anchor_right = 0.642554
+anchor_bottom = 0.140064
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 12 )
 text = "VERY LONG TEXT TO SEE LONG SKILLS"
@@ -60,10 +62,10 @@ __meta__ = {
 
 [node name="SpecializationOfPack" type="Label" parent="."]
 unique_name_in_owner = true
-anchor_left = 0.0382979
-anchor_top = 0.316667
-anchor_right = 0.968085
-anchor_bottom = 0.420833
+anchor_left = 0.0382978
+anchor_top = 0.140385
+anchor_right = 0.968083
+anchor_bottom = 0.190385
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 19 )
 text = "SPEC: TECHNICIAN AND WARRIOR"
@@ -74,28 +76,28 @@ __meta__ = {
 
 [node name="HSeparator" type="HSeparator" parent="."]
 self_modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.0796169
-anchor_top = 0.212
-anchor_right = 0.875981
-anchor_bottom = 0.292
-margin_left = -19.8276
-margin_top = 40.0
-margin_right = 41.8087
-margin_bottom = 40.0
+anchor_left = 0.0382978
+anchor_top = 0.165385
+anchor_right = 0.965803
+anchor_bottom = 0.245385
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="BuyPackButton" type="Button" parent="."]
 unique_name_in_owner = true
-anchor_left = 0.63617
-anchor_top = 0.085
-anchor_right = 0.944681
-anchor_bottom = 0.235
-margin_top = -5.0
-margin_bottom = -5.0
+anchor_left = 0.653191
+anchor_top = 0.0196153
+anchor_right = 0.961701
+anchor_bottom = 0.0869227
 custom_styles/hover = ExtResource( 15 )
 custom_styles/pressed = ExtResource( 13 )
 custom_styles/focus = SubResource( 21 )
 custom_styles/disabled = ExtResource( 12 )
 custom_styles/normal = ExtResource( 15 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="Label" type="Label" parent="BuyPackButton"]
 anchor_left = 0.0344828
@@ -142,63 +144,142 @@ __meta__ = {
 
 [node name="SkillObjectGroup" type="Control" parent="."]
 unique_name_in_owner = true
-anchor_right = 0.997871
-anchor_bottom = 0.987501
+anchor_left = 0.00425531
+anchor_top = 0.2
+anchor_right = 1.00638
+anchor_bottom = 0.988462
 mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkillObject1" parent="SkillObjectGroup" instance=ExtResource( 1 )]
+[node name="SkillObject1" parent="SkillObjectGroup" instance=ExtResource( 14 )]
 anchor_left = 0.0191489
-anchor_top = 0.466667
-anchor_right = 0.561701
-anchor_bottom = 0.625001
-margin_left = 0.0191612
-margin_top = 1.39989
-margin_right = -4.98083
-margin_bottom = -1.60011
+anchor_top = 0.255449
+anchor_right = 0.551064
+anchor_bottom = 0.322756
+margin_left = -1.01913
+margin_top = -75.7339
+margin_right = -1.0191
+margin_bottom = -68.3298
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkillObject2" parent="SkillObjectGroup" instance=ExtResource( 1 )]
+[node name="SkillObject2" parent="SkillObjectGroup" instance=ExtResource( 14 )]
 anchor_left = 0.0191489
-anchor_top = 0.633334
-anchor_right = 0.561701
-anchor_bottom = 0.791667
-margin_left = 0.0191612
-margin_top = 1.89984
-margin_right = -4.98083
-margin_bottom = -1.10016
+anchor_top = 0.341027
+anchor_right = 0.551064
+anchor_bottom = 0.408334
+margin_left = -1.01913
+margin_top = -65.8209
+margin_right = -1.0191
+margin_bottom = -58.4168
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkillObject3" parent="SkillObjectGroup" instance=ExtResource( 1 )]
+[node name="SkillObject3" parent="SkillObjectGroup" instance=ExtResource( 14 )]
 anchor_left = 0.0191489
-anchor_top = 0.795834
-anchor_right = 0.561701
-anchor_bottom = 0.954167
-margin_left = 0.0191612
-margin_top = 3.38727
-margin_right = -4.98083
-margin_bottom = 0.387268
+anchor_top = 0.43077
+anchor_right = 0.551064
+anchor_bottom = 0.498078
+margin_left = -1.01913
+margin_top = -57.6158
+margin_right = -1.0191
+margin_bottom = -50.2121
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SkillObject4" parent="SkillObjectGroup" instance=ExtResource( 14 )]
+anchor_left = 0.0191489
+anchor_top = 0.520833
+anchor_right = 0.551064
+anchor_bottom = 0.588141
+margin_left = -1.01913
+margin_top = -49.5416
+margin_right = -1.0191
+margin_bottom = -42.1379
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SkillObject5" parent="SkillObjectGroup" instance=ExtResource( 14 )]
+anchor_left = 0.0191489
+anchor_top = 0.617949
+anchor_right = 0.551064
+anchor_bottom = 0.685257
+margin_left = -1.01913
+margin_top = -44.3593
+margin_right = -1.0191
+margin_bottom = -36.9556
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SkillObject6" parent="SkillObjectGroup" instance=ExtResource( 14 )]
+anchor_left = 0.0191489
+anchor_top = 0.707693
+anchor_right = 0.551064
+anchor_bottom = 0.775001
+margin_left = -1.01913
+margin_top = -36.1542
+margin_right = -1.0191
+margin_bottom = -28.7505
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SkillObject7" parent="SkillObjectGroup" instance=ExtResource( 14 )]
+anchor_left = 0.0191489
+anchor_top = 0.802565
+anchor_right = 0.551064
+anchor_bottom = 0.869873
+margin_left = -1.01913
+margin_top = -30.0515
+margin_right = -1.0191
+margin_bottom = -22.6478
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SkillObject8" parent="SkillObjectGroup" instance=ExtResource( 14 )]
+anchor_left = 0.0191489
+anchor_top = 0.892308
+anchor_right = 0.551064
+anchor_bottom = 0.959616
+margin_left = -1.01913
+margin_top = -21.8464
+margin_right = -1.0191
+margin_bottom = -14.4427
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [connection signal="pressed" from="BuyPackButton" to="." method="_on_buy_pack_button_pressed"]
 [connection signal="pressed" from="SellPackButton" to="." method="_on_sell_pack_button_pressed"]
-[connection signal="general_knowledge_skill_selected" from="SkillObjectGroup/SkillObject1" to="." method="_on_general_knowledge_skill_selected"]
 [connection signal="mouse_entered_skill_object" from="SkillObjectGroup/SkillObject1" to="." method="_on_mouse_entered_skill_object"]
 [connection signal="on_minus_button_pressed" from="SkillObjectGroup/SkillObject1" to="." method="_on_skill_minus_button_pressed"]
 [connection signal="on_plus_button_pressed" from="SkillObjectGroup/SkillObject1" to="." method="_on_skill_plus_button_pressed"]
-[connection signal="general_knowledge_skill_selected" from="SkillObjectGroup/SkillObject2" to="." method="_on_general_knowledge_skill_selected"]
 [connection signal="mouse_entered_skill_object" from="SkillObjectGroup/SkillObject2" to="." method="_on_mouse_entered_skill_object"]
 [connection signal="on_minus_button_pressed" from="SkillObjectGroup/SkillObject2" to="." method="_on_skill_minus_button_pressed"]
 [connection signal="on_plus_button_pressed" from="SkillObjectGroup/SkillObject2" to="." method="_on_skill_plus_button_pressed"]
-[connection signal="general_knowledge_skill_selected" from="SkillObjectGroup/SkillObject3" to="." method="_on_general_knowledge_skill_selected"]
 [connection signal="mouse_entered_skill_object" from="SkillObjectGroup/SkillObject3" to="." method="_on_mouse_entered_skill_object"]
 [connection signal="on_minus_button_pressed" from="SkillObjectGroup/SkillObject3" to="." method="_on_skill_minus_button_pressed"]
 [connection signal="on_plus_button_pressed" from="SkillObjectGroup/SkillObject3" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="mouse_entered_skill_object" from="SkillObjectGroup/SkillObject4" to="." method="_on_mouse_entered_skill_object"]
+[connection signal="on_minus_button_pressed" from="SkillObjectGroup/SkillObject4" to="." method="_on_skill_minus_button_pressed"]
+[connection signal="on_plus_button_pressed" from="SkillObjectGroup/SkillObject4" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="mouse_entered_skill_object" from="SkillObjectGroup/SkillObject5" to="." method="_on_mouse_entered_skill_object"]
+[connection signal="on_minus_button_pressed" from="SkillObjectGroup/SkillObject5" to="." method="_on_skill_minus_button_pressed"]
+[connection signal="on_plus_button_pressed" from="SkillObjectGroup/SkillObject5" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="mouse_entered_skill_object" from="SkillObjectGroup/SkillObject6" to="." method="_on_mouse_entered_skill_object"]
+[connection signal="on_minus_button_pressed" from="SkillObjectGroup/SkillObject6" to="." method="_on_skill_minus_button_pressed"]
+[connection signal="on_plus_button_pressed" from="SkillObjectGroup/SkillObject6" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="mouse_entered_skill_object" from="SkillObjectGroup/SkillObject7" to="." method="_on_mouse_entered_skill_object"]
+[connection signal="on_minus_button_pressed" from="SkillObjectGroup/SkillObject7" to="." method="_on_skill_minus_button_pressed"]
+[connection signal="on_plus_button_pressed" from="SkillObjectGroup/SkillObject7" to="." method="_on_skill_plus_button_pressed"]
+[connection signal="mouse_entered_skill_object" from="SkillObjectGroup/SkillObject8" to="." method="_on_mouse_entered_skill_object"]
+[connection signal="on_minus_button_pressed" from="SkillObjectGroup/SkillObject8" to="." method="_on_skill_minus_button_pressed"]
+[connection signal="on_plus_button_pressed" from="SkillObjectGroup/SkillObject8" to="." method="_on_skill_plus_button_pressed"]

@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "SkillPack",
 "language": "GDScript",
 "path": "res://Scripts/SkillPack.gd"
+}, {
+"base": "Reference",
+"class": "SpecialRule",
+"language": "GDScript",
+"path": "res://Scripts/SpecialRule.gd"
 } ]
 _global_script_class_icons={
 "SkillData": "",
-"SkillPack": ""
+"SkillPack": "",
+"SpecialRule": ""
 }
 
 [application]

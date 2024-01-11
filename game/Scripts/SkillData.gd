@@ -17,3 +17,4 @@ func _init(new_name, new_level, new_skill_identifier, new_description):
 func duplicate(skill: SkillData):
 	for property in skill.get_property_list():
 		self.set(property.name, skill.get(property.name))
+	return self

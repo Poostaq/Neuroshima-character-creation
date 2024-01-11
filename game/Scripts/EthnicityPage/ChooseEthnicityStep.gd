@@ -63,8 +63,30 @@ func _load_ethnicity(ethnicity) -> void:
 		if trait["trait_identifier"] == "versatility_squared":
 			trait_button = _create_trait_button(alternate_trait_button_scene, trait)
 			var trait_button_trait_list = trait_button.get_node("%TraitSelectionButton")
-			_fill_trait_button_trait_list(trait_button_trait_list)
+			_fill_trait_button_trait_list(
+				trait_button_trait_list, 
+				DatabaseOperations.read_list_of_ethnicity_traits_without_versatilities())
 			trait_button.secondary_trait = trait_button.option_button.get_item_text(0)
+		elif trait["trait_identifier"] == "natural_killer":
+			trait_button = _create_trait_button(alternate_trait_button_scene, trait)
+			var trait_button_trait_list = trait_button.get_node("%TraitSelectionButton")
+			var skill_packs = DatabaseOperations.read_packs_for_specialization("warrior")
+			var skill_packs_names = []
+			for pack in skill_packs:
+				skill_packs_names.append(tr(pack["skill_pack_name"]))
+			_fill_trait_button_trait_list(
+				trait_button_trait_list, 
+				skill_packs_names)
+		elif trait["trait_identifier"] == "nobly_born":
+			trait_button = _create_trait_button(alternate_trait_button_scene, trait)
+			var trait_button_trait_list = trait_button.get_node("%TraitSelectionButton")
+			var skill_packs = DatabaseOperations.read_all_skill_packs_for_attribute("character_name")
+			var skill_packs_names = []
+			for pack in skill_packs:
+				skill_packs_names.append(tr(pack["skill_pack_name"]))
+			_fill_trait_button_trait_list(
+				trait_button_trait_list, 
+				skill_packs_names)
 		else:
 			var __ = _create_trait_button(trait_button_scene, trait)
 	if len(trait_list) == 2:
@@ -89,11 +111,18 @@ func _create_trait_button(trait_template, trait_data) -> Button:
 	trait_button.trait_name = tr(trait_data["trait_name"])
 	trait_button.description = tr(trait_data["trait_description"])
 	trait_button.tooltip_text = tr(trait_data["trait_description"])
+	if trait_data["trait_id"]:
+		trait_button.trait_id = trait_data["trait_id"]
 	trait_button.get_node(".").set_button_group(trait_group)
 	return trait_button
 
 
 func _on_Trait_Button_button_pressed(button) -> void:
+	var query = DatabaseOperations.get_special_rules_for_trait(button.trait_id)
+	var special_rules = DatabaseOperations.create_special_rules_from_database_query_result(query)
+	if special_rules:
+		for rule in special_rules:
+			rule.perform_special_rule_actions(button)
 	var bonus_attribute = _get_bonus_attribute()
 	CharacterStats._on_EthnicityStep_ethnicity_chosen(current_ethnicity_data)
 	CharacterStats._on_EthnicityStep_attribute_chosen(bonus_attribute)
@@ -107,8 +136,8 @@ func _get_bonus_attribute() -> int:
 	return current_ethnicity_data["attribute_enum"]
 		
 
-func _fill_trait_button_trait_list(trait_list_element: OptionButton) -> void:
-	for trait in DatabaseOperations.read_list_of_ethnicity_traits_without_versatilities():
+func _fill_trait_button_trait_list(trait_list_element: OptionButton, query_result) -> void:
+	for trait in query_result:
 		trait_list_element.add_item(trait)
 
 
@@ -157,3 +186,4 @@ func _changed_ethnicity() -> void:
 	emit_signal("ethnicity_cleared")
 	CharacterStats._on_EthnicityStep_clear_ethnicity()
 	CharacterStats._on_EthnicityStep_clear_bonus_attribute()
+

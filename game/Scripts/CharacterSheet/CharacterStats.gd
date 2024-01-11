@@ -3,6 +3,7 @@ extends Node
 export var character_name : String
 export var ethnicity : String
 export var ethnicity_trait : String
+export var secondary_trait : String
 export var profession : String
 export var profession_trait : String
 export var specialization : String
@@ -27,12 +28,12 @@ var attribute_modifiers_dicts = [agi_modifiers, per_modifiers, cha_modifiers, wi
 var attribute_values_list = [agi_value,per_value,cha_value,wit_value,bod_value]
 var attribute_modifier : int
 var skill_levels : Dictionary
-#var skill_levels_before_skill_distribution : Dictionary
-#var skill_packs : Dictionary
 var general_knowledge_names : Array = ["","",""]
-var skill_data : Array
-var skill_data_before_skill_distribution: Array
-
+var skill_data : Dictionary
+var skill_data_before_skill_distribution: Dictionary
+var flags: Dictionary
+var special_rules: Array
+var fame: int
 
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()
@@ -97,14 +98,9 @@ func _on_EthnicityStep_attribute_chosen(bonus_attribute) -> void:
 
 
 func _on_EthnicityStep_trait_chosen(trait_element) -> void:
-	ethnicity_trait = _format_ethnicity_trait_name(trait_element)
-
-
-func _format_ethnicity_trait_name(trait_button) -> String:
-	if trait_button.identifier == "versatility_squared":
-		return tr(trait_button.trait_name) +" : \n " + tr(trait_button.secondary_trait)
-	else:
-		return tr(trait_button.trait_name)
+	if trait_element.identifier == "versatility_squared":
+		secondary_trait = trait_element.secondary_trait
+	ethnicity_trait = trait_element.trait_name
 
 func _on_EthnicityStep_clear_ethnicity() -> void:
 	ethnicity = ""
@@ -123,17 +119,20 @@ func _on_specializationStep_specialization_chosen(current_specialization) -> voi
 	specialization = current_specialization["specialization_name"]
 	specialization_identifier = current_specialization["specialization_identifier"]
 
-#func restore_initial_skill_levels() -> void:
-#	CharacterStats.skill_levels = CharacterStats.skill_levels_before_skill_distribution
 
+func get_pack_data(identifier: String, searched_skill_data) -> SkillPack:
+	var skill_pack_index = ""
+	for key in searched_skill_data.keys():
+		if searched_skill_data[key].identifier == identifier:
+			skill_pack_index = key
+	return searched_skill_data[skill_pack_index]
 
-func get_pack_data(skill_pack: SkillPack, skill_data_object) -> SkillPack:
-	var skill_pack_index = 0
-	for i in range(0, skill_data_object.size()):
-		if skill_data_object[i].identifier == skill_pack.identifier:
-			skill_pack_index = i
-	return skill_data_object[skill_pack_index]
+func find_pack_data(identifier: String) -> SkillPack:
+	for pack in skill_data:
+		if pack.identifier == identifier:
+			return pack
+	return null
 
 func duplicate_data(data_copied_from, data_copied_to):
-	for index in range(0,len(data_copied_to)):
-		data_copied_to[index].duplicate(data_copied_from[index])
+	for object in data_copied_to.keys():
+		data_copied_to[object].duplicate(data_copied_from[object])
