@@ -73,8 +73,6 @@ func undo_perform_special_rule_action():
 			CharacterStats.flags["general_knowledge_alternative"] = false
 		"general_knowledge_pack":
 			var new_skill_pack = DatabaseOperations.create_regular_general_knowledge_skill_pack()
-			for skill in new_skill_pack.skill_data:
-				skill.level -= value
 			CharacterStats.skill_data[new_skill_pack.identifier] = new_skill_pack
 		"low_rep_cost":
 			pass

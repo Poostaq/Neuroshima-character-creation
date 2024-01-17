@@ -1,5 +1,7 @@
 extends Control
 
+signal points_spent
+signal points_returned
 
 onready var current_attribute_label = $"%CurrentAttributeLabel"
 onready var chosen_spec_label = $"%ChosenSpecLabel"
@@ -116,17 +118,21 @@ func update_skill_points() -> void:
 func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
 	print("on_skill_pack_skill_plus_pressed start")
 	var current_skill_level = skill_object.skill_data.level
-	var spec_name = skill_pack.skill_pack_data.specialization_name
+	var spec_name = skill_pack.skill_pack_data.specialization_identifier
 	if current_skill_level >= 5:
 		return
 	if current_skill_level > 0:
 		if can_pay(current_skill_level+1, spec_name) == false:
 			return
-		pay_points(current_skill_level+1, CharacterStats.specialization == spec_name)
+		pay_points(current_skill_level+1, CharacterStats.specialization_identifier in spec_name)
+		if can_activate_next_step():
+			emit_signal("points_spent")
 	if current_skill_level == 0:
 		if can_pay(3, spec_name) == false:
 			return
-		pay_points(3, CharacterStats.specialization == spec_name)
+		pay_points(3, CharacterStats.specialization_identifier in spec_name)
+		if can_activate_next_step():
+			emit_signal("points_spent")
 	skill_object.skill_data.level += 1
 	update_skill_points()
 	skill_object.update_text()
@@ -137,14 +143,15 @@ func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
 	
 func on_skill_pack_skill_minus_pressed(skill_pack, skill_object):
 	var current_skill_level = skill_object.skill_data.level
-	var spec_name = skill_pack.skill_pack_data.specialization_name
-	
+	var spec_name = skill_pack.skill_pack_data.specialization_identifier
 	if current_skill_level <= 0:
 		return
 	if current_skill_level > 1:
-		return_points(current_skill_level, CharacterStats.specialization == spec_name)
+		return_points(current_skill_level, CharacterStats.specialization_identifier in spec_name)
+		emit_signal("points_returned")
 	if current_skill_level == 1:
-		return_points(3, CharacterStats.specialization == spec_name)
+		return_points(3, CharacterStats.specialization_identifier in spec_name)
+		emit_signal("points_returned")
 	skill_object.skill_data.level -= 1
 	skill_object.update_text()
 	skill_pack.set_buy_sell_button_state()
@@ -158,7 +165,7 @@ func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
 
 
 func can_pay(amount: int, specialization: String):
-	if CharacterStats.specialization == specialization:
+	if specialization in CharacterStats.specialization_identifier:
 		if amount <= _current_specialization_skill_points+_current_all_skill_points:
 			return true
 		return false
@@ -203,12 +210,14 @@ func save_pack_data(skill_pack: SkillPack) -> void:
 			return
 	
 func on_buy_pack_button_pressed(skill_pack_object):
-	var spec_name = skill_pack_object.skill_pack_data.specialization_name
+	var spec_name = skill_pack_object.skill_pack_data.specialization_identifier
 	var skill_objects = skill_pack_object.skill_object_group.get_children()
 	if _is_all_skill_levels_n(skill_objects, 0):
 		if can_pay(5, spec_name) == false:
 			return
-		pay_points(5, CharacterStats.specialization == spec_name)
+		pay_points(5, CharacterStats.specialization_identifier in spec_name)
+		if can_activate_next_step():
+			emit_signal("points_spent")
 		buy_pack(skill_pack_object)
 		update_skill_points()
 		save_pack_data(skill_pack_object.skill_pack_data)
@@ -216,10 +225,11 @@ func on_buy_pack_button_pressed(skill_pack_object):
 		skill_pack_object.set_plus_minus_button_state()
 
 func on_sell_pack_button_pressed(skill_pack_object):
-	var spec_name = skill_pack_object.skill_pack_data.specialization_name
+	var spec_name = skill_pack_object.skill_pack_data.specialization_identifier
 	var skill_objects = skill_pack_object.skill_object_group.get_children()
 	if _is_all_skill_levels_n(skill_objects, 1):
-		return_points(5, CharacterStats.specialization == spec_name)
+		emit_signal("points_returned")
+		return_points(5, CharacterStats.specialization_identifier in spec_name)
 		update_skill_points()
 		sell_pack(skill_pack_object)
 		save_pack_data(skill_pack_object.skill_pack_data)
@@ -279,3 +289,8 @@ func _on_general_skill_pack_skill_selected(skill_pack, skill, index):
 			selected_skills.append(skill_pack.skill_object_group.get_children()[i].option_button.selected)
 		for i in range(0,skill_pack.skill_pack_data.skill_data.size()):
 				skill_pack.skill_object_group.get_children()[i].refresh_option_states(selected_skills)
+
+func can_activate_next_step():
+	if _current_all_skill_points == 0 and _current_specialization_skill_points == 0:
+		return true
+	return false

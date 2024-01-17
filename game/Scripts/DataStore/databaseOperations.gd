@@ -214,7 +214,7 @@ func read_data_for_specialization(specialization_identifier):
 
 
 func read_packs_for_specialization(specialization_identifier):
-	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name " 
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_identifier, spec.specialization_name " 
 	var from = "FROM skill_packs sp "
 	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
 	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
@@ -224,7 +224,7 @@ func read_packs_for_specialization(specialization_identifier):
 	return selected_array
 
 func read_all_skill_packs():
-	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name " 
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_identifier, spec.specialization_name " 
 	var from = "FROM skill_packs sp "
 	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
 	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
@@ -233,7 +233,7 @@ func read_all_skill_packs():
 	return selected_array
 
 func read_all_skill_packs_for_attribute(attribute):
-	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name " 
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_identifier, spec.specialization_name " 
 	var from = "FROM skill_packs sp "
 	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
 	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
@@ -321,7 +321,7 @@ func save_config_value(config_name: String, value: String):
 func create_skill_packs_from_database_query_result(database_query_result: Array):
 	var skill_pack_dict = {}
 	for record in database_query_result:
-		var skill_pack_data = SkillPack.new(record["attribute_name"],record["skill_pack_identifier"], record["skill_pack_name"], record["specialization_name"])
+		var skill_pack_data = SkillPack.new(record["attribute_name"],record["skill_pack_identifier"], record["skill_pack_name"], record["specialization_identifier"], record["specialization_name"])
 		var skills_data = read_skills_for_package(skill_pack_data.identifier, false)
 		for element in skills_data:
 			skill_pack_data.skill_data.append(element)
@@ -346,27 +346,152 @@ func create_special_rules_from_database_query_result(database_query_result: Arra
 	return special_rules_array
 	
 func create_general_knowledge_alternative_skill_pack() -> SkillPack:
-	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name " 
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name, spec.specialization_identifier " 
 	var from = "FROM skill_packs sp "
 	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
 	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
 	var where = "WHERE sp.skill_pack_identifier like 'general_knowledge' "
 	var record = sql_command(select+from+join+where)[0]
-	var skill_pack_data = SkillPack.new(record["attribute_name"],record["skill_pack_identifier"], record["skill_pack_name"], record["specialization_name"])
+	var skill_pack_data = SkillPack.new(record["attribute_name"],record["skill_pack_identifier"], record["skill_pack_name"], record["specialization_identifier"], record["specialization_name"])
 	var skills_data = read_skills_for_package(skill_pack_data.identifier, true)
 	for element in skills_data:
 		skill_pack_data.skill_data.append(element)
 	return skill_pack_data
 
 func create_regular_general_knowledge_skill_pack() -> SkillPack:
-	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name " 
+	var select = "SELECT sp.skill_pack_identifier, sp.skill_pack_name, attr.attribute_name, spec.specialization_name, spec.specialization_identifier " 
 	var from = "FROM skill_packs sp "
 	var join = "JOIN attributes attr on sp.attribute_id = attr.attribute_id "
 	join += "JOIN specializations spec on sp.specialization_id = spec.specialization_id "
 	var where = "WHERE sp.skill_pack_identifier like 'general_knowledge' "
 	var record = sql_command(select+from+join+where)[0]
-	var skill_pack_data = SkillPack.new(record["attribute_name"],record["skill_pack_identifier"], record["skill_pack_name"], record["specialization_name"])
+	var skill_pack_data = SkillPack.new(record["attribute_name"],record["skill_pack_identifier"], record["skill_pack_name"], record["specialization_identifier"], record["specialization_name"])
 	var skills_data = read_skills_for_package(skill_pack_data.identifier, false)
 	for element in skills_data:
 		skill_pack_data.skill_data.append(element)
 	return skill_pack_data
+
+func get_tricks_data_for_character_stats() -> Array:
+	var query = """SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1
+WHERE (select agility from player_info)>= t1.agility 
+AND (select perception from player_info)>= t1.perception 
+AND (select character from player_info)>= t1.character 
+AND (select wits from player_info)>= t1.wits 
+AND (select body from player_info)>= t1.body 
+AND (select brawl from player_info)>= t1.brawl 
+AND (select melee_weapon from player_info)>= t1.melee_weapon 
+AND (select throwing from player_info)>= t1.throwing 
+AND (select car from player_info)>= t1.car 
+AND (select motorcycle from player_info)>= t1.motorcycle 
+AND (select truck from player_info)>= t1.truck 
+AND (select pickpocketing from player_info)>= t1.pickpocketing 
+AND (select lockpicking from player_info)>= t1.lockpicking 
+AND (select nimble_hands from player_info)>= t1.nimble_hands 
+AND (select pistols from player_info)>= t1.pistols 
+AND (select rifles from player_info)>= t1.rifles 
+AND (select machine_gun from player_info)>= t1.machine_gun 
+AND (select bow from player_info)>= t1.bow 
+AND (select crossbow from player_info)>= t1.crossbow 
+AND (select slingshot from player_info)>= t1.slingshot 
+AND (select sense_of_direction from player_info)>= t1.sense_of_direction 
+AND (select traps from player_info)>= t1.traps 
+AND (select tracking from player_info)>= t1.tracking 
+AND (select listening from player_info)>= t1.listening 
+AND (select watching_out from player_info)>= t1.watching_out 
+AND (select vigilance from player_info)>= t1.vigilance 
+AND (select sneaking from player_info)>= t1.sneaking 
+AND (select hiding from player_info)>= t1.hiding 
+AND (select cloaking from player_info)>= t1.cloaking 
+AND (select hunting from player_info)>= t1.hunting 
+AND (select terrain_knowledge from player_info)>= t1.terrain_knowledge 
+AND (select water_aquisition from player_info)>= t1.water_aquisition 
+AND (select intimidation from player_info)>= t1.intimidation 
+AND (select persuasion from player_info)>= t1.persuasion 
+AND (select leadership_abilities from player_info)>= t1.leadership_abilities 
+AND (select perceiving_emotions from player_info)>= t1.perceiving_emotions 
+AND (select bluff from player_info)>= t1.bluff 
+AND (select animal_care from player_info)>= t1.animal_care 
+AND (select pain_resistance from player_info)>= t1.pain_resistance 
+AND (select steadfastness from player_info)>= t1.steadfastness 
+AND (select morale from player_info)>= t1.morale 
+AND (select first_aid from player_info)>= t1.first_aid 
+AND (select wound_healing from player_info)>= t1.wound_healing 
+AND (select disease_treatment from player_info)>= t1.disease_treatment 
+AND (select mechanics from player_info)>= t1.mechanics 
+AND (select electronics from player_info)>= t1.electronics 
+AND (select computers from player_info)>= t1.computers 
+AND (select general_knowledge_1 from player_info)>= t1.general_knowledge_1
+AND (select general_knowledge_2 from player_info)>= t1.general_knowledge_2
+AND (select general_knowledge_3 from player_info)>= t1.general_knowledge_3
+AND (select history from player_info)>= t1.history
+AND (select geography from player_info)>= t1.geography
+AND (select biology from player_info)>= t1.biology
+AND (select surgery from player_info)>= t1.surgery
+AND (select physics from player_info)>= t1.physics
+AND (select mathematics from player_info)>= t1.mathematics
+AND (select chemistry from player_info)>= t1.chemistry
+AND (select psychology from player_info)>= t1.psychology
+AND (select heavy_machinery from player_info)>= t1.heavy_machinery 
+AND (select combat_vehicles from player_info)>= t1.combat_vehicles 
+AND (select boats from player_info)>= t1.boats 
+AND (select gunsmithing from player_info)>= t1.gunsmithing 
+AND (select launchers from player_info)>= t1.launchers 
+AND (select explosives from player_info)>= t1.explosives 
+AND (select fitness from player_info)>= t1.fitness 
+AND (select swimming from player_info)>= t1.swimming 
+AND (select climbing from player_info)>= t1.climbing 
+AND (select horse_riding from player_info)>= t1.horse_riding 
+AND (select carriage_driving from player_info)>= t1.carriage_driving 
+AND (select wild_ride from player_info)>= t1.wild_ride UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'feint' AND (select melee_weapon from player_info UNION select brawl from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select wits from player_info)>= t1.wits UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'making_arrows_or_bolts' AND (select bow from player_info UNION select crossbow from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select wits from player_info)>= t1.wits UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'wait_out' AND (select brawl from player_info UNION select melee_weapon from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select perception from player_info)>= t1.perception UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'glance' AND (select mechanics from player_info UNION select electronics from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select wits from player_info)>= t1.wits UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'mobile_target' AND (select pistols from player_info UNION select rifles from player_info UNION 
+select machine_gun from player_info order by 1 desc)>= t2.trick_sr_value AND (select wits from player_info)>= t1.wits AND (select perception from player_info)>= t1.perception UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'tune_up' AND (select mechanics from player_info UNION select electronics from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select wits from player_info)>= t1.wits UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'plug&play' AND (select combat_vehicles from player_info UNION select heavy_machinery from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select computers from player_info)>= t1.agility UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'surehand' AND (select rifles from player_info UNION select pistols from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select character from player_info)>= t1.character AND (select agility from player_info)>= t1.agility UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'octopus' AND (select brawl from player_info UNION select melee_weapon from player_info order by 1 desc )>= t2.trick_sr_value 
+AND (select wits from player_info)>= t1.wits AND (select fitness from player_info)>= t1.fitness UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'teacher' AND (select history from player_info UNION select geography from player_info UNION select biology from player_info 
+UNION select surgery from player_info UNION select physics from player_info UNION select mathematics from player_info UNION select chemistry from player_info
+UNION select psychology from player_info UNION select general_knowledge_1 from player_info UNION select general_knowledge_2 from player_info 
+UNION select general_knowledge_3 from player_info order by 1 desc)>= t2.trick_sr_value UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'think_like_a_machine' AND (select electronics from player_info UNION select mechanics from player_info order by 1 desc )>= t2.trick_sr_value 
+AND (select perceiving_emotions from player_info)>= t1.perceiving_emotions UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'drawing' AND (select pistols from player_info UNION select nimble_hands from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select agility from player_info)>= t1.agility UNION
+SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'four_tankmen' AND (select heavy_machinery from player_info UNION select combat_vehicles from player_info order by 1 desc)>=t2.trick_sr_value
+AND (select animal_care from player_info)>= t1.animal_care order by 1 asc;"""
+	var records = sql_command(query)
+	return records
+
+
+func get_trick_by_name(trick_name):
+	var query = """SELECT trick_name, trick_requirements, trick_description, trick_action
+FROM tricks
+WHERE trick_name = '%s'""" % trick_name
+	var record = sql_command(query)[0]
+	return record
+	

@@ -120,7 +120,7 @@ margin_bottom = 950.0
 margin_right = 1873.0
 margin_bottom = 950.0
 
-[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="5"]
+[node name="TricksStep" parent="CharacterCreationProcess/StepContainer" index="5"]
 margin_right = 1873.0
 margin_bottom = 950.0
 

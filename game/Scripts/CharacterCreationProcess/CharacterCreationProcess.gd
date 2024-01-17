@@ -17,7 +17,7 @@ onready var profession_step = $"%ProfessionStep"
 onready var attributes_step = $"%AttributesStep"
 onready var specialization_step = $"%SpecializationStep"
 onready var skill_points_step = $"%SkillPointsStep"
-onready var dummy_step = $"%DummyStep"
+onready var tricks_step = $"%TricksStep"
 
 
 onready var ethnicity_indicator = $"%EthnicityIndicator"
@@ -40,7 +40,7 @@ onready var steps = [
 					attributes_step,
 					specialization_step,
 					skill_points_step,
-					dummy_step,
+					tricks_step,
 ]
 
 onready var indicators = [

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Scenes/SkillPointsPage/GeneralKnowledgeContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/SkillPointsPage/AlternateGeneralKnowledgeContainer.tscn" type="PackedScene" id=2]
@@ -57,6 +57,8 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=20]
 size = 20
 font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
@@ -317,6 +319,7 @@ anchor_right = 0.0797872
 anchor_bottom = 0.403226
 custom_styles/hover = ExtResource( 25 )
 custom_styles/pressed = ExtResource( 27 )
+custom_styles/focus = SubResource( 22 )
 custom_styles/disabled = ExtResource( 21 )
 custom_styles/normal = ExtResource( 26 )
 __meta__ = {
@@ -325,9 +328,9 @@ __meta__ = {
 
 [node name="Next" type="Button" parent="."]
 unique_name_in_owner = true
-anchor_left = 0.942021
+anchor_left = 0.950354
 anchor_top = 0.302419
-anchor_right = 0.995212
+anchor_right = 1.00355
 anchor_bottom = 0.403226
 custom_styles/hover = ExtResource( 19 )
 custom_styles/pressed = ExtResource( 24 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=43 format=2]
+[gd_scene load_steps=44 format=2]
 
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=24]
 [ext_resource path="res://UI_Elements/MainMenu/help_on_4.png" type="Texture" id=25]
 [ext_resource path="res://UI_Elements/MainMenu/help_off_4.png" type="Texture" id=26]
+[ext_resource path="res://Scenes/TricksPage/TricksStep.tscn" type="PackedScene" id=27]
 
 [sub_resource type="ButtonGroup" id=2]
 
@@ -164,7 +165,7 @@ margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 955.0
 
-[node name="DummyStep" parent="StepContainer" instance=ExtResource( 11 )]
+[node name="TricksStep" parent="StepContainer" instance=ExtResource( 27 )]
 unique_name_in_owner = true
 visible = false
 anchor_right = 0.0
@@ -441,6 +442,8 @@ __meta__ = {
 [connection signal="attributes_selected" from="StepContainer/AttributesStep" to="." method="_enable_next_step"]
 [connection signal="specialization_chosen" from="StepContainer/SpecializationStep" to="." method="_enable_next_step"]
 [connection signal="specialization_cleared" from="StepContainer/SpecializationStep" to="." method="_disable_next_step"]
+[connection signal="points_returned" from="StepContainer/SkillPointsStep" to="." method="_disable_next_step"]
+[connection signal="points_spent" from="StepContainer/SkillPointsStep" to="." method="_enable_next_step"]
 [connection signal="button_up" from="BackStepButton" to="." method="_previous_step"]
 [connection signal="button_up" from="NextStepButton" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]
