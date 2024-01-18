@@ -165,7 +165,7 @@ func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
 
 
 func can_pay(amount: int, specialization: String):
-	if specialization in CharacterStats.specialization_identifier:
+	if CharacterStats.specialization_identifier in specialization:
 		if amount <= _current_specialization_skill_points+_current_all_skill_points:
 			return true
 		return false

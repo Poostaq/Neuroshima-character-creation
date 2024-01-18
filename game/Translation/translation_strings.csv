@@ -791,3 +791,5 @@ all_skill_points_limit,LIMIT NA WSZYSTKIE UMIEJETNOSCI,LIMIT FOR ALL SKILLS
 specialization_skill_points_limit,LIMIT NA UMIEJETNOSCI ZE SPECJALIZACJI,LIMIT FOR SPECIALIZATION SKILLS
 save_button,Zapisz,Save
 available_tricks,DOSTĘPNE SZTUCZKI,AVAILABLE TRICKS
+description_headline,Opis:,Description:
+requirements_headline,Wymagania:,Requirements:

@@ -69,14 +69,13 @@ __meta__ = {
 
 [node name="TrickName" type="Label" parent="Control/TextureRect"]
 unique_name_in_owner = true
-anchor_left = 0.108003
-anchor_top = 0.120207
-anchor_right = 0.771152
-anchor_bottom = 0.1886
-margin_right = -57.5607
+anchor_left = 0.106888
+anchor_top = 0.118679
+anchor_right = 0.724463
+anchor_bottom = 0.185759
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 20 )
-text = "Otwieranie zamków elektronicznych"
+text = "SKILL NAME"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -92,27 +91,26 @@ __meta__ = {
 }
 
 [node name="RequirementsSectionLabel" type="Label" parent="Control/TextureRect"]
-anchor_left = 0.112431
-anchor_top = 0.21259
-anchor_right = 0.372921
-anchor_bottom = 0.251806
+anchor_left = 0.110056
+anchor_top = 0.189887
+anchor_right = 0.300079
+anchor_bottom = 0.229102
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 22 )
-text = "Requirements:"
+text = "requirements_headline"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="RequirementsLabel" type="Label" parent="Control/TextureRect"]
 unique_name_in_owner = true
-anchor_left = 0.30562
-anchor_top = 0.192983
-anchor_right = 0.885191
-anchor_bottom = 0.270382
+anchor_left = 0.111639
+anchor_top = 0.23323
+anchor_right = 0.901818
+anchor_bottom = 0.332302
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "Agility 12+, Brawl 3+"
-valign = 1
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": true
@@ -121,21 +119,21 @@ __meta__ = {
 [node name="HSeparator3" type="HSeparator" parent="Control/TextureRect"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0958036
-anchor_top = 0.257998
+anchor_top = 0.307534
 anchor_right = 0.901029
-anchor_bottom = 0.308566
+anchor_bottom = 0.358102
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="DescriptionSectionLabel" type="Label" parent="Control/TextureRect"]
-anchor_left = 0.110055
-anchor_top = 0.297214
-anchor_right = 0.370546
-anchor_bottom = 0.336429
+anchor_left = 0.110847
+anchor_top = 0.338494
+anchor_right = 0.391923
+anchor_bottom = 0.377709
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 22 )
-text = "Description:"
+text = "description_headline"
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -143,9 +141,9 @@ __meta__ = {
 [node name="DescriptionText" type="RichTextLabel" parent="Control/TextureRect"]
 unique_name_in_owner = true
 anchor_left = 0.110055
-anchor_top = 0.340557
+anchor_top = 0.406605
 anchor_right = 0.505937
-anchor_bottom = 0.856553
+anchor_bottom = 0.871001
 custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/normal_font = SubResource( 23 )
 bbcode_text = "LOREM IPSUM BASTARDUM "
@@ -154,16 +152,20 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureRect" type="TextureRect" parent="Control/TextureRect"]
+[node name="BehaviourActionContainer" type="TextureRect" parent="Control/TextureRect"]
+unique_name_in_owner = true
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_left = 650.0
-margin_top = 330.0
-margin_right = 1130.0
-margin_bottom = 830.0
+anchor_left = 0.514646
+anchor_top = 0.406605
+anchor_right = 0.894692
+anchor_bottom = 0.871002
 texture = ExtResource( 6 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect/TextureRect"]
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect/BehaviourActionContainer"]
 anchor_left = 0.0229167
 anchor_top = 0.0225
 anchor_right = 0.983333
@@ -177,15 +179,15 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="BehaviourActionList" type="GridContainer" parent="Control/TextureRect/TextureRect/ScrollContainer"]
+[node name="BehaviourActionList" type="GridContainer" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer"]
 unique_name_in_owner = true
 margin_right = 460.0
 margin_bottom = 46.0
 
-[node name="Behaviour" parent="Control/TextureRect/TextureRect/ScrollContainer/BehaviourActionList" instance=ExtResource( 8 )]
+[node name="Behaviour" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer/BehaviourActionList" instance=ExtResource( 8 )]
 margin_bottom = 25.0
 
-[node name="Actions" type="RichTextLabel" parent="Control/TextureRect/TextureRect/ScrollContainer/BehaviourActionList"]
+[node name="Actions" type="RichTextLabel" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer/BehaviourActionList"]
 unique_name_in_owner = true
 margin_top = 29.0
 margin_right = 460.0
