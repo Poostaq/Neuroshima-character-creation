@@ -166,14 +166,10 @@ __meta__ = {
 }
 
 [node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect/BehaviourActionContainer"]
-anchor_left = 0.0229167
-anchor_top = 0.0225
-anchor_right = 0.983333
-anchor_bottom = 0.98
-margin_left = -1.0
-margin_top = 1.0
-margin_right = -2.0
-margin_bottom = -2.0
+anchor_left = 0.0208334
+anchor_top = 0.0247222
+anchor_right = 0.916667
+anchor_bottom = 0.975555
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": true
@@ -181,18 +177,20 @@ __meta__ = {
 
 [node name="BehaviourActionList" type="GridContainer" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 460.0
+margin_right = 430.0
 margin_bottom = 46.0
 
 [node name="Behaviour" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer/BehaviourActionList" instance=ExtResource( 8 )]
+margin_right = 430.0
 margin_bottom = 25.0
+rect_min_size = Vector2( 430, 0 )
 
 [node name="Actions" type="RichTextLabel" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer/BehaviourActionList"]
 unique_name_in_owner = true
 margin_top = 29.0
-margin_right = 460.0
+margin_right = 430.0
 margin_bottom = 46.0
-rect_min_size = Vector2( 460, 0 )
+rect_min_size = Vector2( 430, 0 )
 text = "Action"
 fit_content_height = true
 

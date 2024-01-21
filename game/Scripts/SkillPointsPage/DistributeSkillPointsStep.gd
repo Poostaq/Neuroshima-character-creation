@@ -64,6 +64,8 @@ func set_ui_layout():
 
 func clean_up_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data_before_skill_distribution, CharacterStats.skill_data)
+	_current_all_skill_points = GlobalVariables.max_skill_points
+	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 
 func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	var skill_pack_instance = skill_pack_scene.instance()

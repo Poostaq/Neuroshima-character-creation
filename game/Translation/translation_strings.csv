@@ -793,3 +793,257 @@ save_button,Zapisz,Save
 available_tricks,DOSTĘPNE SZTUCZKI,AVAILABLE TRICKS
 description_headline,Opis:,Description:
 requirements_headline,Wymagania:,Requirements:
+,3 2 1 Bum,3 2 1 Boom
+,Aramis,Aramis
+,Asekuracja,Safeguard
+,Aspiryna i Tik-Taki,Aspirin and Tic-Tacs
+,Barbarka,Headbutt
+,Berserker,Berserker
+,Bez oddechu,Breathless
+,"Bez sprzętu, bez zabezpieczenia","No equipment, no protection"
+,Bez sznurków,No strings
+,Bieg w ciszy,A run in silence
+,Bierz go!,Sic em!
+,Boa,Boats
+,Cassanova/Mata Hari,Cassanova/Mata Hari
+,Chłodnym okiem,with_a_cool_eye
+,Ciszej niż cień,Quieter than a shadow
+,"Człowiek, który kulom się nie kłaniał",Man who didn’t bow to bullets
+,Czterej pancerni,Four Tankmen
+,Czuły spust,Sensitive trigger
+,Dalszy zasięg,Further range
+,Dawid,David
+,Dłuższy strzał,Longer range shot
+,Dobry i zły glina,Good and bad cop
+,Dobywanie,Drawing
+,Dom na plecach,Backpack House
+,Doświadczony,Experienced
+,Dystans,Distance
+,"Dziś wszystko, jutro nic","Everything today, nothing tomorrow."
+,Flash,Flash
+,Garda,Guard
+,Głaz,Boulder
+,Goła ręka,Bare hand
+,Granie na nerwach,Ruffling Feathers
+,Gunfight,Gunfight
+,"Hej, przystojniaku!","Hey, handsome!"
+,Hokus pokus,Hocus Pocus
+,Immunitet,Immunity
+,Inspiracja,Inspiration
+,Jest zajebiście,It’s fucking awesome
+,Kanały,Canals
+,Komandos,Commando
+,Kop z obrotu,Spin Kick
+,Kot,Cat
+,Kradzież w tłumie,Stealing in crowd
+,Leśny diabeł,Forest Devil
+,Ładowanie kuszy,Crossbow loading
+,Ławnik,Benchwarmer
+,Magazynek,Clip
+,Mech bojowy,Combat Mech
+,Miotacz kul,Projectile Thrower
+,Mistrz opaski uciskowej,Tourniquet master
+,Mistrz włóczni,Spear master
+,Myśleć jak maszyna,Think like a machine
+,Na pewno działa!,It certainly works!
+,"Naprawdę, to nie moja wina","It wasn’t me, i swear!"
+,Nauczyciel,Teacher
+,Niewrażliwość na lekkie rany,Immunity to mild wounds
+,"No strzelaj, złomie!","Shoot, you goddamn scrap!"
+,Nożownik,Cutthroat
+,Obezwładnienie,Incapacitation
+,Odnajdywanie właściwej osoby,Finding the right person
+,Odporność na pogodę,Weather Resistance
+,Odtrucie żarcia,Food Detox
+,Odwrócenie uwagi,Distraction
+,Origami,Origami
+,Ośmiornica,Octopus
+,Otwieranie zamków elektronicznych,Electronic locks opening
+,Padnij/Powstań,Up’n’down
+,Pająk,Spider
+,Pakowanie,Arrangemend
+,Pan plaster,Mr Bandaid
+,Pewna ręka,Surehand
+,Pierwotny instynkt,Primordial instinct
+,Pitbull,Pitbull
+,Plug&Play,Plug’n’play
+,Po schodach,Up the stairs
+,Podrasowanie,Tune up
+,Położenie motocykla,Tilting motorcycle
+,Prowizorka,Makeshift
+,Rappeling,Rappeling
+,Rodeo,Rodeo
+,Rozróba,A Brawl
+,Rrrroooaaarrr,Rrrroooaaarrr
+,Ruchome gniazdo CKM,Mobile HMG socket
+,Ruchomy cel,Mobile target
+,Rzut oka,Glance
+,Sama se skocz po piwo,Get a beer yourself
+,Samuraj,Samurai
+,Sherlock Holmes,Sherlock Holmes
+,Siekierezada,Margaret Hatchet
+,Siup dup,Whippity whoop
+,Skład amunicji,Ammunition stockpile
+,Skok,Jump
+,Słuch absolutny,Perfect pitch
+,Snajper,Sniper
+,Spać na wodzie,Sleep on the water
+,Strzelec kieszonkowy,Pocket shooter
+,Szachista,Chess player
+,Szósty zmysł,Sixth sense
+,Sztuczki karciane,Card trick
+,Sztuka jest sztuka,Art is art
+,Szybki Bill,Quickdraw Kid
+,Szybki rzut,Quick throw
+,Szybkie strzelanie,Rapid fire
+,Śrutobranie,shot_blasting
+,Taran,Battering Ram
+,Taranowanie,Ramming
+,Targowanie się,Haggling
+,To się robi tak,It goes like this…
+,W mgnieniu oka,In a flash
+,Walka dwiema broniami,Dual-wielding
+,Wiatrak,Windmill
+,Wilk morski,Sea wolf
+,Właściwa twarz,Faceman
+,Wracający bumerang,Returning Boomerang
+,Wyczekanie,Wait out
+,Wyczucie emocji zwierząt,Animal empathy
+,Wyczucie promieniowania,Human geiger counter
+,Wyczucie zmian pogody,Sensing weather changes
+,Wyrabianie strzał lub bełtów,Fletching
+,Wytrych,Lockpick
+,Zagadanie,Pick Up line
+,Zasłona,Cover
+,Zgranie,Teamwork
+,Zielony balonik,Green baloon
+,Zły,Bad
+,Zmyłka,Feint
+,Żelazne racje,Iron-clad rations
+,"Wszystkie urządzenia na świecie można podzielić na takie, które czasem wybuchają, i takie, które nigdy nie wybuchają. Szczególnie interesują cię te pierwsze. Wystarczy tu przeciąć wężyk, tam skręcić kabel, tu znów poluzować śrubkę. I gotowe. Teraz wystarczy poczekać na fajerwerki.",
+,"Gdy spotkasz kiedyś wędrującego samotnie dziadka, który podpiera się kijkiem, za nic w świecie go nie zaczepiaj. To może być Dziadzio z Alabamy. Najpierw wytrąci ci kijkiem twój topór, potem złoi na kwaśne jabłko, a na koniec pogrozi palcem i pójdzie sobie dalej.",
+,"No nieźle ci idzie, teraz spróbuj sam. No dalej, nie pękaj...",
+,"Raz byłem poważnie chory i leczył mnie wtedy Pastor Ludwik. Przez dwa tygodnie łykałem lekarstwo na Gorączkę sobotniej nocy, aż wyzdrowiałem. Potem dowiedziałem się, że klecha karmił mnie aspiryną i Tik-takami.",
+,"Jak dla mnie, jednym z najbardziej deprymujących zagrań w walce, jest pieprznąć gościa w ryj, własnym ryjem. To zawsze szokuje...",
+,"Kumpel chwalił się kiedyś, że jest twardy jak Statua Wolności i nic go nie powali na ziemię. No i doczekał się - napadła go grupa gangerów i zaczęła go lać rurkami i łańcuchami. Nie chciał się poddać, to go powalili na ziemię. Wstawał i dalej się na nich rzucał. No i w końcu brakło mu posoki, bo cała wyciekła, tak go pochlastali. Zbyt twardy był, można powiedzieć.",
+,"Więc ja mu głowę pod wodę i czekam. Zacznie się dusić, to będzie bardziej rozmowny. No nie przesadzę, jak powiem, że trzymałem go tam dwie minuty. A on uśmiechnięty. No to trzy. A on morda w banan. No to ja go na cztery minuty. A on... W końcu złamałem mu kolano gazrurką i zaczął śpiewać...",
+,"Kocie ruchy, tak? Jak dla mnie to facet porusza się jak glonojad po ściance akwarium. Przylgnął do skały i prędzej ta skała walnie na ziemię, niż on. Tak to już jest, jak od dziecka mieszkasz w jaskiniach, nie?",
+,"Nauczyłem się tego z filmu. Tak, z filmu. Tyle, że u tamtych facetów było widać sznurki, na których latali jak czarodzieje. A ja nie potrzebuję żadnych sznurków. Chcesz zobaczyć?",
+,"Powiedział do mnie „Ścigamy się” i uśmiechnął się głupio. Myślę sobie, niezły żart. A potem zaczął biec. Spokojnie dopiłem piwo, zrobiłem zakupy, zatankowałem do pełna i ruszyłem. Po drodze mijałem go czterokrotnie, dokładnie tyle razy, ile razy stawała moja Christine, która tej nocy wyraźnie nie była w formie. Skończyło się tym, że dotarł do Vegas pierwszy - przebiegł 80 kilosów szybciej, niż mój Cadillac.",
+,"Jeżeli lubisz zwierzęta, a one w dodatku to wyczują, możesz skorzystać na wzajemnej sympatii. A to kogoś poszczujesz kretem, a to jaszczurka aportuje ci bumerang...",
+,"Łańcuch uchodzi za broń dla idiotów. Może nie jest specjalnie zabójczy, ale nieźle wyrównuje szanse, nawet jeśli nic nie potrafisz. A jednak widziałem k iedyś prawdziwego mistrza łańcucha. Potrafił nim nawet obierać ziemniaki.",
+,[ocenzurowano],
+,"Wsadzał na głowę słuchawki, włączał walkmana z melodią szumiących liści, robił sobie gorącej kawy i zamykał oczy. Po połowie godziny otwierał oczy i rzucał jakimś spostrzeżeniem. Cholera, zawsze potrafił mnie zaskoczyć.",
+,Słyszałeś kiedyś poruszający się cień? Z tą Sztuczką możesz być jeszcze bardziej cichy. A widziałeś kiedyś skradający się cień w środku bezksiężycowej nocy? Możesz być jeszcze bardziej niewidzialny. Dwa w jednym. Nie ma się co zastanawiać - bierz!,
+,"Opowiadali mi, że na północy, na froncie, pracował pewien sanitariusz. Chodził między okopami spokojnie, jakby zbierał stokrotki. Tu zawiązał bandaż, tam założył łupki na nogę, a w powietrzu kule gwizdały i gwizdały.",
+,"Słyszałeś kiedyś o gangu czołgistów? To nie mit. Istnieją tacy narwańcy, którzy wędrują po kontynencie w czołgu. Po czterech w każdej maszynie. Magiczna liczba, czy co? Piąty zawsze jest pies.",
+,"Pewien sierżant z Posterunku zrobił kiedyś niezły pokaz. Zasiadł do CKMu, uśmiechnął się i powiedział: 12. Po czym tratatatata. Potem powiedział: ""21. I tratatatata. Poszliśmy policzyć dziurki w ścianie. Dwanaście i dwadzieścia jeden.""",
+,"Znasz Chucka? Chuck mówi do mnie, „Widzisz tego ptaka?” A ja mu na to: „No nie widzę”. A on mówi: „To posłuchaj”. I sru, strzelił z tej swojej kuszy. I po chwili „Kraaa, kraa”. Zabił ptaszynę... Ja wiem, ile to mogło być metrów, pięćset...?",
+,"A gość kręci tym paskiem i kręci, w końcu pytam go: „Koleś, zaciąłeś się?! Wypuścisz ten kamień w końcu?” No i wypuścił. Aż żal mi było tego palanta z Vegas, gdy dostał kamieniem prosto w czoło. Niby zwykła proca, a jednak wiele potrafi.",
+,"Znasz Chucka? Chuck mówi do mnie, widzisz tego ptaka? A ja mu na to: no nie widzę. A on... Co? Już to mówiłem? O kuszy? E, niemożliwe. Chuck strzela z łuku...",
+,"Widzisz tamten cmentarz? Zauważyłeś, że wszystkie daty na nim są wczorajsze? Wczoraj chciałem się po prostu dowiedzieć od miejscowych, który z nich jest mechanikiem. I wiesz, w końcu poskutkowało. Jakiś facio w ciągu trzech godzin nauczył się fachu i teraz reperuje mi samochód.",
+,"Widziałem kiedyś taki film, w starym kinie w Vegas, „Bez przebaczenia”, czy „Tombstone”, nie pamiętam dokładnie. Rzecz była o kowbojach. Ci goście strzelali się bez osłony, bez pancerzy i innych takich. Jedyne co się liczyło - to kto pierwszy dobędzie broni i wystrzeli. I wiesz, od kilku miesięcy też ćwiczę dobywanie. W końcu kogoś zaskoczę.",
+,"Kiedy wyciągnął z plecaka namiot, materac, śpiwór, dwie butle gazowe, zestaw garnków, książkę kucharską i maść na moskity, nie zdziwiłem się. Zaskoczył mnie, gdy wyciągnął słoik ogórków, miskę na deszczówkę i żółwia w słoiku. Potem jeszcze jakiś wykrywacz ruchu i poduszkę. Przegiął, gdy z dna wyjął pidżamę i papucie…",
+,"Dawniej była nawet taka fucha, bodaj brygadzista się to nazywało. Facet stał i nic nie robił, a inni dzięki temu pracowali lepiej. Dasz wiarę?!",
+,Znasz Chucka? Chuck mówi do mnie: „Widzisz tego ptaka?”. Co znowu? Jak to już było? Co było?! Opowiadałem już o tym? No to sorry...,
+,"No i gość zawziął się i rozładował ten tabor. Inna sprawa, że na drugi dzień, jak zszedł z wyra, to padł na pysk i tak został. Kawę to mu słomką podawałem. Nie potrafił się ruszyć i już. Popsuł się, inny- mi słowy.",
+,"Uwziąłem się kiedyś na pewnego Chinola. Rozwaliłem pół knajpy, ale nie udało mi się go trafić. Padał, skakał, fikał koziołki. W końcu znalazłem go pod jednym ze stolików. Facet w końcu padł z wyczerpania.",
+,"Gość mnie w nerę, a ja blok. On mnie w brzuch, a ja się zastawiam. On mnie w bok, a ja garda. I jeszcze raz uderzył w nerkę, a ja jeszcze jeden blok. Niestety, potem się wściekł i złapał toporek...",
+,"Nie wiesz jak straszliwie trudno jest zachować bezruch przez dłuższy czas. Musisz się podrapać. Przesunąć nogę. Wysikać. Dostajesz skurczu. A oczy wariują - niedługo całe twoje ciało wrzeszczy o jakiś ruch. Dobry snajper potrafi się wycisz yć. Potrafi przeleżeć półtorej dnia jak głaz, wtopiony w otoczenie, będąc w jakimś dziwnym transie. Nie poruszy się do chwili, gdy pojawi się cel. A wtedy poruszy tylko palcem.",
+,"Karty kartami, ale zwinne rączki przydają się nie tylko przy zielonym stoliku. Czasem na hasło „Pokaż ręce” trzeba pokazać, że nie ma się broni. A jednak, zawsze tę broń warto by mieć, prawda? Mój kumpel właśnie umiał tak - niby pokazywał, że nic nie ma, a zawsze coś miał, skubany...",
+,"Miałem takiego kumpla, Eliasa. Facet był wkurzający, ale miał dobre źródło Tornado, więc włóczyłem się za nim przez długi czas. Raz napotkaliśmy takiego wielkiego gangera. Elias zaczął się nabijać z twardziela. Tak mu grał na nerwach, że wielkolud zrobił się czerwony. Już myślałem, że przypieprzy Eliasowi... i dostałem w pysk.",
+,"Bobby Kid nie był żadnym tam karateką, ale sukinsyn dbał o to, żeby nikt mu spluwy nie wziął. Potrafiłby odstrzelić ci kapelusz trzymając spluwę za swoimi plecami. Nawet byś nie wiedział, skąd padł strzał.",
+,"Czasem zupełnie przeciętna dziewczyna potrafi przyciągać spojrzenia bardziej, niż niesamowita szprycha. Dzięki tej sztuczce stada samców będą na usługi Bohaterki. Przynieś buty. Leż. Zmywaj.",
+,"Fajna Sztuczka, przynajmniej do czasu, jak nie bawisz się granatem. Bo wiesz, jak się zbytnio zagalopujesz, i sobie wsadzisz w spodnie, a jeszcze bez zawleczki...",
+,"Była kiedyś taka kobieta. Naz ywała się Matka Teresa z Kalkuty. Chociaż w Kalkucie pod Denver nikt o niej nie słyszał, uczeni powiadają, że mimo, iż leczyła zakaźnie chorych, umarła ze starości.",
+,"Spoko chłopcy, może i jest ich więcej, ale i tak przerobimy ich na pasztet! Damy radę?! Pewnie!! No to łapać za niezbędniki i naprzód!",
+,"Miałem takiego kumpla. Niepoprawny optymista - parł naprzód mimo wszelkich przeszkód. Nie widział nigdy złych stron żadnego planu. Wszystko było dla niego „zajebiste”. Najlepsze, że potrafi tym entuzjazmem zarażać innych. To zajebista Sztuczka. Weź ją.",
+,"Wędrowaliśmy po podziemiach dobre sześć, może nawet więcej godzin. Ciemno, mokro i piździ. A gość mówi, jesteśmy na miejscu. Myślę sobie - zaprowadził nas do domu, witamy w szambie! A on nie, wychodzi na powierzchnię i nagle się okazuje, że jesteśmy w Vegas. A wiesz, rano byliśmy w Detroit. Poważnie!",
+,"Pewien facet nauczył mnie doceniać znaczenie tych małych podskakujących kopczyków ziemi, które powstają, gdy jakiś wariat wygarnie serią z CKMu. Nie żeby od razu bawił się w arytmetykę i geometrię, ale skubany tak się toczył na prawo i na lewo, że prawie nie szło go trafić.",
+,"Steve miał taki styl, mówił do kolesia Mar-tens i niby się od niego odwracał, by po chwili zakręcić się i pieprznąć z półobrotu w twarz. Wiesz, Martensy to naz wa jego butów; zawsze potem przez tydzień miałeś ich znak firmowy na ryju. Całkiem niezłe logo, swoją drogą...",
+,"I mówi do mnie, spieprzamy. Ja patrzę, a gość skacze przez okno. Obłęd.",
+,"Johny się potknął i wpadł na Devila, Devil na mnie, ja na jakiegoś frajera, a do mojej ręki przylepiła się jak aś spluwa i dwa zapasowe magazynki. Dziwne to wszystko, co nie?",
+,"Kiedy myślę o takich ludziach, przechodzą mnie dreszcze. Nie dostrzeżesz żadnego z nich, chyba że zechce być zauważony. Leśny diabeł zaszyje się gdzieś w gąszczu i tkwi w ukryciu, wyczekując na zdobycz. Ma świadomość bezpieczeństwa, więc może skupić się tylko na wyszukiwaniu celu. Pomyśl czego ktoś taki mógłby dokonać ze snajperką.",
+,"Kuszy nie ładuje się łatwo. Można nawet powiedzieć, że w warunkach bojowych naciąganie cięciwy to prawdziwy horror. No cóż, są tacy, którzy potrafią w miarę szybko załadować kuszę. Ja tam wolę strzelać z peemki.",
+,"Ławnik to taki koleś, który jak nikt inny potrafi nawalać wsz ystkich wokół ławką. Albo beczk ą. Albo stolikiem. Cokolwiek, byle było duże i ciężkie.",
+,"A widziałeś może „Desperado”? Ten gość potrafił wymieniać magazynki, jak nikt inny.",
+,"Wstyd się przyznać, ale w miasteczku, które pojechaliśmy łupić, załatwił nas samotny facet. Serio. Był sam, a nas sześciu - każdy na Harleyu. Jak nas załatwił? Miał wóz strażacki. Nie doceniliśmy potęgi sikawaki. I nie ma się z czego śmiać!",
+,"Potrafisz cholernie celnie rzucać przedmiotami. Nie znaczy to, że od razu zostaniesz nożownikiem. Co prawda, trafisz w cel nawet nożem, ale nie znaczy, że od razu tą właściwą, ostrą stroną. Za to do granatów jest to wprost idealne!",
+,"Postrzeliłem tamtego gangera, ale to był mój ostatni nabój. Myślałem, że gówniarz nas rozstrzela, ale kumpel mówi - „Jestem mistrzem opaski uciskowej, opatrzę ci ranę, ale puścisz nas”. Ganger w śmiech i odpowiada - „Zobaczymy”. Kumpel dopadł do zbira i dawaj go bandażować. Nawet się nie połapałem, kiedy związał Gangera „w baleron”.",
+,"Gdy biegł na mnie, wyglądało to tak, jakby chciał skoczyć o tyczce. Niestety, nie o to mu chodziło.",
+,"Nestugow jest cholernym cyborgiem. To półbóg, mówię ci. Patrzy przez lornetkę na biegnącego Łowcę i mówi: „zawróci”. Po kilku sekundach Łowca zawraca.",
+,"Usłyszeliśmy „klik” i już wiedziałem, że mamy przesrane. Spluwa Cichego, którą celował prosto w łeb szefa tej grupy mutantów, właśnie się zacięła. Nie było na to lepszego momentu... Cichy splunął, wycedził pod nosem: „No strzelaj zdziro” i jeszcze raz nacisnął spust. Łeb mutanta pęk jak dynia.",
+,"Ten suk insyn oparł się o barierkę i wtedy nagle spadł mu kapelusz. Mówię ci, to niewiarygodne. Pieprzony kapelusz dostał się między łopatki turbiny. Najpierw coś zgrzytnęło, potem zapiszczało, zadymiło. I w końcu wybuchło. Ledwie uszliśmy z życiem. A teraz Chicago nie ma elektrowni.",
+,"Jeśli coś potrafisz, i jeszcze tego nauczasz - masz parasol ochronny. Żaden wieśniak, na przykład ten, któremu powiedziałeś, jak nastawić żonie wywichnięty bark, albo ten, któremu pomogłeś podłączyć radio bezpośrednio do kabla z prądem, nie pozwoli ci zrobić krzywdy.",
+,"A ja tylko czekałem, aż Johnemu wbiją ten bagnet w nogę - to jego ulubiona sztuczka. I stało się, wbili mu to żelazo, głęboko, tak na dziesięć centów. „I co, boli?” - zapytali. A on na to jak zwykle: „Bardziej zaboli was” i połamał im ręce i nogi, aż trzeszczało. Cały Johny. Lubi, jak mu ktoś coś gdzieś wbije... Czeka na to i dopiero potem robi chłopakom krzywdę.",
+,"Dotychczas uważałem, że walenie spluwą o leżący na ziemi kawał betonu nie służy broni najlepiej. No cóż, kilka tygodni w towarzystwie Brudnego Harrego potrafi wywrócić człowiekowi światopogląd. On właśnie tak naprawiał gnata, jak mu się zaciął...",
+,"Facet zamachnął się na mnie nabitą gwoździami pałką, zrzedła mi mina, ale jakoś uskoczyłem, a maczuga wbiła się w ścianę i tam została. Już się miałem uśmiechnąć, ale nagle widzę, że sukinsyn ma szczęście - w postaci ciężkiego topora opartego obok. O mało nie zlałem się w gacie. Na szczęście go nie uniósł. W końcu zobaczył nóż. Już się miałem uśmiechnąć, gdy nagle zobaczyłem uśmiech na jego twarzy. Znalazł to, czego szukał.",
+,"Powalasz gościa na ziemię, wykręcasz rękę, żeby się nie rzucał i pytasz, czy boli. Jeśli jęczy, znaczy się, że boli.",
+,"Mój kumpel, Sonny - on to potrafił. Wchodził do miasta, kierował się do knajpy i siadał przy stoliku. Po pół godzinie mieliśmy sprzedany cały towar, bak pełen benzyny i pół bagażnika amunicji do AK. Sonny wiedział z kim załatwiać takie rzeczy.",
+,"Ci goście nie mają kataru, grypy, ani sraczki. Mogą przez tydzień wędrować w ulewie, żreć owady i popijać stęchłą wodą... Śnieg, wichura, pioruny. A ci wędrują i wędrują. I mają się dobrze. I nic, do jasnej choler y, nic im nie jest! To mutanci, mówię ci!",
+,"Na moich oczach podniósł z ziemi zdechłą jaszczurkę i uśmiechnął się. Potem opalił ją na ogniu, wyciął kilka części, wrzucił ją do garnka i dosypał jakiegoś proszku, tak że woda aż zabulgotała. A potem zjadł tę gadzinę. I wiesz, ja to mam w dupie, ja się padliny nie chwycę, kto wie, na co zdechła, może świerzb miała, albo co innego...",
+,"W zasadzie nie jest to trudna sprawa, wystarczy trochę wprawy i pomysłów. Ot, udasz, że zostałeś popchnięty, czy zaczepisz kogoś i o coś spytasz, możesz zrobić wiele fajnych numerów - byle facet patrzył ci w oczy, albo gdzieś w horyzont, a nie tam, gdzie trzymasz łapy.",
+,"Facet się wkurzył i odszedł. Na dwa lata. Znalazł podobno jakiegoś starego mistrza judo. Dziadek go uczył, uczył i oto skutki. Teraz chodzi z opaską na czole.",
+,"Nie było na niego bata, machał bronią jakby miał osiem rąk, a nie dwie. I wtedy zdałem sobie sprawę, że ręka mi słabnie i długo tak nie wytrzymam. Musiałem go skosić serią. Cholera, było mi szkoda tych kul...",
+,"Jak myślisz, kto się lepiej zna na sztuce, artysta czy historyk sztuki? Dobra, a kto szybciej otworzy elektroniczny zamek: elektronik czy złodziej? Ty nie musisz się tym przejmować, na szczęście jesteś i jednym, i drugim.",
+,"Jeśli jesteś z Hegemoni i nie potrafisz tego od urodzenia, to wstyd. Goście ćwiczą i ćwiczą, a jak dojdzie co do czego, to masz wrażenie, jakby skubaniec leżał na trampolinie. Więc jeżeli wybrałeś Pochodzenie „Hegemonia” - lepiej wykup tę Sztuczkę, inaczej ludzie będą się z ciebie śmiali.",
+,"Uczył się wspinać od dziecka. Był coraz lepszy, potem jeszcze lepszy. Uczył się tego i uczył, aż w końcu się nauczył.",
+,"Co mówisz kochanie? Co? „Cukier jest w łazience, w apteczce, w małym pudełku z napisem >kakao<”?! A gdzie jest bandaż? Co? Włożyłaś bandaże do bidonu?!”.",
+,"Ten sanitariusz, co to kulom się nie kłaniał, miał jeszcze jedną ciekawą umiejętność. Za pomocą najprostszych środków potrafił leczyć najpoważniejsze obrażenia. Tu plaster, tam plaster i po trepanacji ani śladu.",
+,"Amator bierze do ręki spluwę i wali gdzie popadnie. Gdyby się sobie przyjrzał, odkryłby, że ręka mu lata jak szmata na wietrze. Zawodowiec ma pewną rękę i strzały częściej sięgają celu. Ale prawdziwi mistrzowie stają się jednością z pistoletem. Wiesz, pistolet jest przedłużeniem oczu. Znaczy się ręki. Jakoś tak.",
+,"Pewnego razu zaczailiśmy się w ruinach na paru gangerów. Rozdzieliliśmy się i zachodzimy ich od różnych stron. Nagle widzę, a tu Johny z jednej strony murku, a Devil z drugiej. Murek się kończy i ta dwójka naszych wpada na siebie. W tej samej chwili Devil leży i trzyma się za krwawiący nos. Bo Johny ma swoją świętą zasadę: najpierw bije, a potem sprawdza, kogo.",
+,"Wracaliśmy kiedyś w czwórkę z wielkiego festynu przyjaźni z mutantami w Saint Louis. Nieźle się ubawiliśmy. Pech chciał, że w krzakach przyczaiła się banda Teksańczyków, którym festyn nie przypadł do gustu. Wyskoczyli nagle z krzaków i jedynym z nas, który nie oberwał, był Jojo. Potem wyrzucaliśmy mu: Jojo, czemu nas nie ostrzegłeś, czemu nie ostrzegłeś?",
+,"Tylko raz widziałem takie cudo. Spec podłączył swój komputer do panelu fabryki, nacisnął czerwony guzik i wszystkie syreny zaczęły wygrywać Happy Birthday. To były moje urodziny. Wzruszyłem się.",
+,"Puszczasz sprzęgło i w drogę. Ja tak często jeżdżę, a bo to mało razy winda się spieprzyła? Miałem na nogach wchodzić?! Na piąte piętro?!",
+,"I wziął go bracie, podkręcił tak, że wyciągaliśmy setkę w 6 sekund. Inna sprawa, że po tygodniu chłodnica spłonęła…",
+,"Pierwszy raz w życiu widziałem coś takiego. Facet wjechał na motorze pod pędzącą ciężarówkę, wyjechał z drugiej strony i po trzech minutach ciężarówka wybuchła...",
+,"Facet wziął śrubokręt, kawałek drutu i zapalniczkę. Chwilę potem odlecieliśmy w siną dal. Zrobił z tego helikopter. No poważnie!",
+,"Kumpel wyrzucił linę za okno i krzyczy: „spierdalamy”, zjeżdża po niej. No i skoczyłem za nim. Jak byłem w połowie drogi, to już wiedziałem, że nie jest to takie proste, jak myślałem. Przytomność straciłem przy lądowaniu. Od tej pory do lin podchodzę raczej ostrożnie.",
+,"Ha ha! Wypakowałeś tę idiotyczną Umiejętność na 5+? No to odbierz prezent! Sztuczka do wykupienia, a mikser gratis. Niech ci MG kupi.",
+,"Facet miał ksywę Niedźwiedź, i wiesz, dopiero, jak go chcieliśmy związać, to załapałem, w czym rzecz...",
+,"Kiedyś słyszałem o czymś takim jak okrzyk bojowy, ale dopiero gdy spotkałem Jackiego, załapałem w czym rzecz. Gdy na mnie wrzasnął, po prostu się przewróciłem. Podobno sekretem jest czosnek.",
+,"Mówili na niego Pan Bunkier, czasem Pan Imadło. Jak się zaparł nogami, to nic go nie mogło ruszyć, a jak chwycił CKM, wycelował i nacisnął spust, to broń prawie nie podskakiwała. Wszystkie kulki leciały równiutko, jak po sznurku, prosto w cel. Potem dopiero okazało się, że facet był pieprzonym mutantem...",
+,"Widziałem kiedyś w akcji Stalową Policję, jak wykańczali akurat jakichś łachmytów niedaleko Jackson. Goście spieprzali ile sił w nogach, klucząc i skacząc na boki. Oficer SP mruknął: „Chłopcy, ruchomy cel”. Każdy z tych psycholi oddał tylko jeden strzał. I żaden bandzior już nie uciekał.",
+,"A gość spogląda na mnie i śmiertelnie poważnym głosem mówi „Zesrało się”. A ja, wiesz, jak gdyby nigdy nic, mówię do niego: „Widzisz, kolego. Widzę, że się zesrało. Ale proszę, powiedz mi, co dokładnie się zesrało.” A facet spogląda na mnie i tym samym, śmiertelnie poważnym głosem mówi: „Hydrostabilizator.”",
+,"Znasz legendę o Jeźdźcu bez głowy? A słyszałeś bajkę o Teksańczyku, który miał alergię na konie? Jestem w stanie uwierzyć we wszystko, ale nie w to, że istnieje ktoś posiadający tę Sztuczkę.",
+,"Na pojedynek z tym sukinsynem wybrałem starą elektrownię, czyli że tak powiem „moje miejsce”. Zebrało się sporo gapiów. Wiedziałem, że nie mam szans. Gnojek przytaszczył tę swoją katanę, ja wziąłem drewniany młot. Rozbrzmiał gong. Wtedy Pablo, mój kumpel elektronik, włączył elektromagnes, pod którym staliśmy. Na szczęście zadziałał.",
+,"Ledwo widoczny ślad w piasku? „Elementarne, Wattsonie - to był biały mężczyzna, wzrost koło 184 cm, waga 80 kg, lekko utykający na prawą nogę. Niósł coś w ręce - teczkę, albo torbę.”",
+,"Każdy potrafi rzucać siekierą. Bierzesz, rzucasz - no i leci. A ja cię teraz nauczę, jak nią rzucić, żeby ta cholera się wbiła. I to nie byle jak. Ma rozpołowić pieniek. No popatrz...",
+,"Siup, dup i nagle czujesz ból, a potem widzisz, że twoją spluwę trzyma ten, co właśnie zrobił siup, dup. Nie wiem co dokładnie oznacza „siup, dup”. Goście od sztuk walki robią to tak szybko, że nic nie widać. Tylko „siup, dup” i gotowe.",
+,"Siedzieliśmy w okopie. Tamci też mieli jakąś osłonę. Można było sądzić, że będziemy tak siedzieli miesiąc i straszyli się nawzajem. Każdy oszczędzał amunicję, bo nie było sensu strzelać na oślep. Tylko Ślepy Bizon walił z tej swojej procy raz za razem. „Dużo masz tych pocisków?” - pytam, a on rozejrzał się wzdłuż okopu i odpowiedział: „Ze 30 tysięcy, a co?”",
+,"Oczywiście, że trzeba mieć spore umiejętności, by skakać na motorze z dachu na dach, ale powiem ci, jak dla mnie to przede wszystkim trzeba mieć stalowe jaja. Rozpędzić motocykl i zamknąć oczy potrafi każdy. Niestety, to zdecydowanie za mało...",
+,"Granie ze słuchu, bezbłędne rozpoznawanie ludzkich głosów, taki był nasz Ron. Myślałem, że w dupę sobie można wcisnąć takie Sztuczki, aż tu raz siedzieliśmy za rogiem i słyszeliśmy, jak gość otwiera zamek kodowy i wchodzi do środka. Ron podszedł do zamka i kurwa, zagwizdał ten sam kod. I weszliśmy.",
+,"Dwadzieścia minut mierzenia, jedna sekunda na strzał, i cała wieczność w trumnie dla tego gościa, którego miałeś na celowniku.",
+,"Kiedyś miałem zakład z kumplem. Twierdził, że nie potrafi utonąć. No to ja mu mówię - masz tę butlę i leż na wodzie. Położył się. Przywiązałem mu kamol do nogi, trochę go ściągnęło, ale wciąż był na powierzchni. Związałem mu ręce, żeby nie machał, a on pływa jak cholerny pniak. W końcu się wściekłem i polazłem po coś cięższego. Jak wróciłem to spał. Normalnie zasnął na wodzie, dasz wiarę?!",
+,"Marcus jest pacyfistą, to znaczy, że nigdy nie wyciąga na nikogo broni. Naprawdę nigdy. A jak już musi kogoś wykończyć, to ostateczność. Bardzo nie lubi używać tej swojej Sztuczki, bo za każdym razem musi potem cerować kieszeń w płaszczu. Ale dzięki temu nadal jest pacyfistą.",
+,"Słyszałeś o Szachiście? No to ci powiem, że to taki facet, którego się nie da trafić, chyba że z pistoletu. Będzie biegał i unikał tak długo, aż ci się odechce walki. A wtedy on zaproponuje ci partyjkę szachów na rozstrzygnięcie sporu.",
+,"Oto sztuka medytacji według starej indiańskiej szkoły Sun Tsu, czy jakoś tak. Ja to robię od lat. Na początku zauważysz, że jesteś czujniejszy. Ten etap I ndianie nazywali etapem pumy. Potem zwiększy się twoja szybkość. To etap kobry. Na końcu staniesz się prawdziwym magikiem. To etap systemu wczesnego ostrzegania, czy jakoś tak.",
+,"W większość gier karcianych chodzi o to, by mieć dobre karty na ręce. Więc jak masz sprawne łapki i wiesz choć w przybliżeniu, które karty to „dobre karty”, to zwycięstwo masz w kieszeni. Mam rację, prawda? No więc... Sam zobacz - co napisane jest w opisie działania tej Sztuczki!",
+,"Jak mawia stare przysłowie, jeśli ma lufę i cyngiel, to znaczy się, że strzela. Ot, cokolwiek znajdziesz, bez względu na to, czy to strzelba z czasów napoleońskich, czy z okresu wojny w Wietnamie, bez względu na to, czy jest zapiaszczona, czy zapaćkana jakimś szambem - doprowadzisz ją do użyteczności.",
+,"Mam kumpla w Detroit, mówimy na niego suseł, wiesz czemu? Bo jak przychodzi do strzelaniny, to gość sadzi takie susy...",
+,"Jest taka scena w filmie Desperado, jak będziesz kiedyś w Vegas, wpadnij tam sobie do kina, często puszczają ten film. Tam gość nożami wykończył coś z ośmiu chłopa, mimo że mieli broń maszynową. Dasz wiarę? Był szybszy od nich...",
+,"Łuk maszynowy” - taką karteczkę raz przywiązaliśmy jednemu czerwonoskóremu na południu Teksasu. Facet uśmiechnął się, i nawet jej nie zerwał, widać połechtaliśmy jego próżność. No ale trzeba przyznać, nie wzięliśmy tej karteczki z księżyca. Gość strzelał z tego łuku, jakby miał podajnik strzał na taśmie... Wieczorem zrobił nam pokaz, niewiarygodny widok.",
+,"Mutki siedziały ukryte w bunkrze. Chciałem wrzucić im granat, ale Franz ściągnął z ramienia śrutówkę i wycedził: „No to mutasy, czas na śrutobranie. Bierzcie koszyki” I jak zaczął do nich walić, to aż się duszno zrobiło. No nie powiem, śrutobranie się udało, każdy z mutków zebrał coś po pół kilo, choć nie do koszyczka, lecz w korpus. Ale to detal.",
+,"Każdy głupi wie, że jak ktoś się na ciebie porządnie zamachnie, to lepiej się zawczasu odsunąć. Gorzej, gdy cwaniak robi to tak, że nawet nie zauważysz. Spokojnie się zasłaniasz, a tu nagle „dup!” - i ręka ci drętwieje od ciosu.",
+,"Jak mi moja bryka odmówiła posłuszeństwa, to załapałem się na autostop - podwoził mnie gość w takiej całkiem niemałej ciężarówce. Wóz mi się bardzo podobał, nawet mu mówiłem: „No kurcze, super bryka, radio, ogrzewanie, wszystko widać z góry, tu lodóweczka, tam miejsce na nocleg. Szefie, masz pan tu jak w raju! Lubisz ten komfort, co?!” Wiesz co mi odpowiedział? „Ja to jednak najbardziej sobie cenię taranowanie gangerów”",
+,Moja największa wtopa? Poszedłem na bazar w Salt Lake i nieopatrznie wdałem się w rozmowę z jakimś handlarzem. Po godzinie wymieniłem nowiutki kevlar na medalik ze świętym Antonim.,
+,"Gadał, gadał, nawet ciekawie, i jakoś tak przysłuchiwałem się... Minutę potem zacząłem murować z chłopakami jakąś ścianę. A jak już ściana stanęła, facet mówi, że taki samotny ten mur. No to dorobiliśmy jeszcze trzy ściany. Bez dachu głupio wyglądało, więc gość powiedział nam jak dorobić dach.",
+,"Kiedy wychylasz się zza osłony to nie zgrywaj turysty i nie rozglądaj się za przeciwnikiem, tylko rzuć okiem, a potem strzelaj. Taką radę usłyszałem wiele lat temu. I od tej pory tak właśnie załatwiam „turystów”, którzy wychylają łeb i rozglądają się...",
+,"W zasadzie tylko raz w życiu widziałem kolesia, który machał dwiema broniami i sobie tym wcale nie przeszkadzał.",
+,"Jeśli nie potrafisz walczyć, to zdradzę ci dobrą metodę: schowaj głowę i zasyp frajera pięściami od góry, coś z tego wyłapie, czegoś nie wyłapie, ale na mur się cofnie. Jeśli umiesz walczyć, to nadal jest to dobra metoda.",
+,"Wujek Domowa Robótka tak mnie związał, że posiniałem. Myślę sobie - „albo mnie rozwiąże, albo wezwę pomoc”. A on mówi: „Patrz ćwoku!”. Pociągnął za sznur i byłem wolny. Magik, psiakrew.",
+,"Czasem trzeba się uśmiechnąć, innym razem pokazać zdecydowanie i determinację. Skąd wiadomo, jak się zachować w danej sytuacji? Nie wiem, czy można się tego nauczyć. To chyba dar.",
+,"Kupiłem kiedyś bumerang. To było oszustwo stulecia. Od trzech lat szukam tego gościa, który mi to wcisnął i w końcu gdzieś go spotkam. Najpierw handlarz rzucał bumerangiem, pokazywał, jakie to sprytne, jak wraca, gdy się rzuci... Kupiłem urządzenie za furę fajek, facet się szybko zwinął, a ja zostałem z tym cholerstwem. Głupi kij. Nigdy do mnie nie wrócił. Rzucałem nim ze sto razy - leciał w krzaki i nic. W końcu wywaliłem ten bumerang w jakiś kanion. Mam nadzieję, że się chociaż połamał.",
+,"Pieprzony samuraj. Spokojnie czekał, aż do niego podbiegnę i przywalę mu łomem. W ostatniej chwili odsunął się, uniknął jeszcze dwa razy i nagle załadował mi na spamiętanie z kastetu prosto w nos. Dziś jesteśmy kumplami.",
+,"Ci goście z pustyni, to są mutanty, bracie. Spojrzy taki na zwierzaka i mówi ci, na przykład, że wilczur jest głodny i wystarczy rzucić mu puszkę, a uspokoi się. W jaki sposób facet odróżnia wściekłość od głodu? Pewnie sam jest w jakiejś części zwierzęciem, nie sądzisz?",
+,"To tak, jakby ci ktoś wsadził w dupsko Geigera. Jak tylko poziom promieniowania niebezpiecznie się podniesie - wyczujesz to.",
+,"Wędrówka z cholernym Tropicielem to mordęga... Ale kilka rzeczy mi się u nich podoba. Przepowiadanie pogody, na ten przykład. Są lepsi od radia.",
+,"Jak dla mnie, to jedyny i wcale niezbyt przekonywujący powód, dla którego warto strzelać z łuku, a nie ze spluwy. Do łuku łatwiej dorobić amunicję.",
+,"Zrobienie wytrycha to akurat nie jest żadna sztuka. Zrobisz go z wszystkiego, kawałka drutu, czy co tam masz pod ręką. Inna sprawa, że aby przekonać o tym Mistrza Gry, lepiej jednak mieć tę Sztuczkę. No cóż, kup, zaoszczędzisz sobie nieprzyjemności...",
+,"OK, poddaję się, rozumiem. Widzę, że masz większego. To Magnum? Niezły, ja mam tylko... tego Glocka.",
+,"Ten Chinol, o którym już wspominałem, roztoczył wokół rąk pole siłowe. Tak nimi machał, że gdzie nie chciałeś go huknąć, napotykałeś opór! Ja szybko, on jeszcze szybciej. Ja mocno, on niewzruszony. Ja toporem, a on mi dup, kopniak w jaja. O rzesz, głupi Chinolu...",
+,"Cholerni koszykarze, przyjechali prosto z Nowego Jorku na Front. Jednemu brakło amunicji? Żaden problem, ciach-mach i już ma od kolegi. Tamten drugi potrzebuje w zamian granat? Ciach-mach, gotowe.",
+,"Potrzebuję dosłownie chwili spokoju, by w miejsce łba dowolnego fagasa wyobrazić sobie zielony balonik. A powiem ci, trafiania w dyndające zielone baloniki uczyłem się dwanaście lat.",
+,"Eastwood mówi przyciszonym głosem, który słychać nawet na końcu stadionu. Spojrzenie ma takie, że człowiek myśli o obdzieraniu żywcem ze skóry i rozcinaniu piłą. Ten facet to chodzący Laxigen, spojrzysz i już masz srakę.",
+,"Zamachnąłem się w stronę gladiatora tak, że ledwo uskoczył i w dodatku stracił równowagę. Tak mi się przynajmniej wydawało do momentu, gdy chciałem wykorzystać przewagę. Nawet nie wiem, co się wtedy stało. Grunt, że w ogóle to przeżyłem.",
+,"Podczas walki wręcz, na czas 1 tury możesz do Umiejętności walki dodać swój Blef. Sztuczkę można użyć tylko 1 raz przeciwko temu samemu przeciwnikowi.",
