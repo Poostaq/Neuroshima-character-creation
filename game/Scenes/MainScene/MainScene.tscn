@@ -124,6 +124,10 @@ margin_bottom = 950.0
 margin_right = 1873.0
 margin_bottom = 950.0
 
+[node name="IlnessStep" parent="CharacterCreationProcess/StepContainer" index="6"]
+margin_right = 1873.0
+margin_bottom = 950.0
+
 [node name="EthnicityIndicator" parent="CharacterCreationProcess/StepsContainer" index="0"]
 margin_bottom = 76.0
 
