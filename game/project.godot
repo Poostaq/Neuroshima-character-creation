@@ -60,7 +60,7 @@ enabled=PoolStringArray( "res://addons/godot-sqlite/plugin.cfg" )
 
 [locale]
 
-test="en"
+test="pl"
 translations=PoolStringArray( "res://Translation/translation_strings.en.translation", "res://Translation/translation_strings.pl.translation" )
 locale_filter=[ 1, [ "en", "pl" ] ]
 

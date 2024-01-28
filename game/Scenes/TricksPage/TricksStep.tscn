@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://THEME.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Scenes/TricksPage/TrickObject.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI_Elements/SkillBoxBorderBig.png" type="Texture" id=6]
 [ext_resource path="res://Scripts/TricksPage/TricksStep.gd" type="Script" id=7]
-[ext_resource path="res://Scenes/TricksPage/RuleDescriptionObject.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/TricksPage/ActionObject.tscn" type="PackedScene" id=8]
 
 [sub_resource type="DynamicFont" id=20]
 size = 48
@@ -15,14 +15,23 @@ outline_size = 3
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFontData" id=24]
+font_path = "res://Fonts/Gruppo-Regular.ttf"
+
 [sub_resource type="DynamicFont" id=22]
 size = 36
 outline_size = 3
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 2 )
+font_data = SubResource( 24 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 25
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = SubResource( 24 )
 
 [sub_resource type="DynamicFont" id=23]
-size = 26
+size = 20
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
@@ -83,18 +92,22 @@ __meta__ = {
 [node name="HSeparator2" type="HSeparator" parent="Control/TextureRect"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
 anchor_left = 0.0958036
-anchor_top = 0.167183
+anchor_top = 0.151703
 anchor_right = 0.901029
-anchor_bottom = 0.21775
+anchor_bottom = 0.20227
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="RequirementsSectionLabel" type="Label" parent="Control/TextureRect"]
 anchor_left = 0.110056
-anchor_top = 0.189887
-anchor_right = 0.300079
-anchor_bottom = 0.229102
+anchor_top = 0.181631
+anchor_right = 0.416468
+anchor_bottom = 0.220846
+margin_left = -4.00122
+margin_top = -0.000320435
+margin_right = -4.00122
+margin_bottom = -0.000320435
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "requirements_headline"
@@ -104,12 +117,16 @@ __meta__ = {
 
 [node name="RequirementsLabel" type="Label" parent="Control/TextureRect"]
 unique_name_in_owner = true
-anchor_left = 0.111639
-anchor_top = 0.23323
-anchor_right = 0.901818
-anchor_bottom = 0.332302
+anchor_left = 0.110847
+anchor_top = 0.236326
+anchor_right = 0.901027
+anchor_bottom = 0.27451
+margin_left = -5.00026
+margin_top = 0.000335693
+margin_right = -5.00024
+margin_bottom = 0.000335693
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_fonts/font = SubResource( 22 )
+custom_fonts/font = SubResource( 25 )
 text = "Agility 12+, Brawl 3+"
 autowrap = true
 __meta__ = {
@@ -118,19 +135,23 @@ __meta__ = {
 
 [node name="HSeparator3" type="HSeparator" parent="Control/TextureRect"]
 modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.0958036
-anchor_top = 0.307534
+anchor_left = 0.0958039
+anchor_top = 0.257998
 anchor_right = 0.901029
-anchor_bottom = 0.358102
+anchor_bottom = 0.308566
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="DescriptionSectionLabel" type="Label" parent="Control/TextureRect"]
-anchor_left = 0.110847
-anchor_top = 0.338494
-anchor_right = 0.391923
-anchor_bottom = 0.377709
+anchor_left = 0.106889
+anchor_top = 0.297214
+anchor_right = 0.387965
+anchor_bottom = 0.336429
+margin_left = -0.001297
+margin_top = -9.15527e-05
+margin_right = -0.00128174
+margin_bottom = -9.15527e-05
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "description_headline"
@@ -141,9 +162,13 @@ __meta__ = {
 [node name="DescriptionText" type="RichTextLabel" parent="Control/TextureRect"]
 unique_name_in_owner = true
 anchor_left = 0.110055
-anchor_top = 0.406605
-anchor_right = 0.505937
-anchor_bottom = 0.871001
+anchor_top = 0.34675
+anchor_right = 0.505936
+anchor_bottom = 0.592364
+margin_left = -3.99995
+margin_top = -0.000396729
+margin_right = -3.99994
+margin_bottom = -0.000366211
 custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/normal_font = SubResource( 23 )
 bbcode_text = "LOREM IPSUM BASTARDUM "
@@ -152,47 +177,92 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="BehaviourActionContainer" type="TextureRect" parent="Control/TextureRect"]
+[node name="BehaviourSectionLabel" type="Label" parent="Control/TextureRect"]
+anchor_left = 0.112431
+anchor_top = 0.597524
+anchor_right = 0.393507
+anchor_bottom = 0.636739
+margin_left = -7.00085
+margin_top = -0.000183105
+margin_right = -7.00089
+margin_bottom = -0.000183105
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "behaviour_headline"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BehaviourText" type="RichTextLabel" parent="Control/TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.110055
+anchor_top = 0.648091
+anchor_right = 0.505936
+anchor_bottom = 0.86481
+margin_left = -3.99995
+margin_top = 0.000427246
+margin_right = -3.99994
+margin_bottom = 0.000427246
+custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "LOREM IPSUM BASTARDUM "
+text = "LOREM IPSUM BASTARDUM "
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ActionContainer" type="TextureRect" parent="Control/TextureRect"]
 unique_name_in_owner = true
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_left = 0.514646
-anchor_top = 0.406605
+anchor_top = 0.297214
 anchor_right = 0.894692
-anchor_bottom = 0.871002
+anchor_bottom = 0.85449
+margin_right = -9.99976
+margin_bottom = 0.000183105
 texture = ExtResource( 6 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect/BehaviourActionContainer"]
-anchor_left = 0.0208334
-anchor_top = 0.0247222
-anchor_right = 0.916667
-anchor_bottom = 0.975555
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect/ActionContainer"]
+anchor_left = 0.0208333
+anchor_top = 0.0181818
+anchor_right = 0.979167
+anchor_bottom = 0.976364
+margin_bottom = 2.16364
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="BehaviourActionList" type="GridContainer" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer"]
+[node name="ActionList" type="GridContainer" parent="Control/TextureRect/ActionContainer/ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 430.0
-margin_bottom = 46.0
+margin_right = 450.0
+margin_bottom = 518.0
 
-[node name="Behaviour" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer/BehaviourActionList" instance=ExtResource( 8 )]
-margin_right = 430.0
-margin_bottom = 25.0
-rect_min_size = Vector2( 430, 0 )
+[node name="Action" parent="Control/TextureRect/ActionContainer/ScrollContainer/ActionList" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 450.0
+margin_bottom = 170.0
 
-[node name="Actions" type="RichTextLabel" parent="Control/TextureRect/BehaviourActionContainer/ScrollContainer/BehaviourActionList"]
-unique_name_in_owner = true
-margin_top = 29.0
-margin_right = 430.0
-margin_bottom = 46.0
-rect_min_size = Vector2( 430, 0 )
-text = "Action"
-fit_content_height = true
+[node name="Action2" parent="Control/TextureRect/ActionContainer/ScrollContainer/ActionList" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 174.0
+margin_right = 450.0
+margin_bottom = 344.0
+rect_min_size = Vector2( 430, 170 )
+
+[node name="Action3" parent="Control/TextureRect/ActionContainer/ScrollContainer/ActionList" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_top = 348.0
+margin_right = 450.0
+margin_bottom = 518.0
+rect_min_size = Vector2( 430, 170 )
 
 [node name="TricksListObject" type="TextureRect" parent="Control"]
 anchor_left = 0.0590426

@@ -489,9 +489,18 @@ AND (select animal_care from player_info)>= t1.animal_care order by 1 asc;"""
 
 
 func get_trick_by_name(trick_name):
-	var query = """SELECT trick_name, trick_requirements, trick_description, trick_action
-FROM tricks
-WHERE trick_name = '%s'""" % trick_name
-	var record = sql_command(query)[0]
+	var select = "SELECT trick_id, trick_name, trick_requirements, trick_description, trick_behaviour "
+	var from = "FROM tricks "
+	var where = "WHERE trick_name = '%s'" % trick_name
+	var record = sql_command(select+from+where)[0]
+	db.close_db()
 	return record
 	
+
+func get_trick_actions(trick_id):
+	var select = "SELECT ta.trick_action_name, ta.trick_action_description " 
+	var from = "FROM tricks_actions ta "
+	var where = "WHERE ta.trick_id = %s" % trick_id
+	var selected_array = sql_command(select+from+where);
+	db.close_db()
+	return selected_array

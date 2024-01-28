@@ -3,13 +3,14 @@ extends Control
 export var tricks_data_list: Array
 
 onready var trick_object = preload("res://Scenes/TricksPage/TrickObject.tscn")
-onready var rule_description_scene = preload("res://Scenes/TricksPage/RuleDescriptionObject.tscn")
+onready var action_object_scene = preload("res://Scenes/TricksPage/ActionObject.tscn")
 onready var tricks_list = $"%TricksList"
 onready var trick_name = $"%TrickName"
 onready var description_text = $"%DescriptionText"
+onready var behaviour_text = $"%BehaviourText"
 onready var requirements_label = $"%RequirementsLabel"
-onready var behaviour_action_list = $"%BehaviourActionList"
-onready var behaviour_action_container = $"%BehaviourActionContainer"
+onready var action_list = $"%ActionList"
+onready var action_container = $"%ActionContainer"
 
 func _init():
 	tricks_data_list = DatabaseOperations.get_tricks_data_for_character_stats()
@@ -33,19 +34,29 @@ func create_new_trick_object(trick_data: Dictionary):
 	trick_object_instance.connect("trick_button_pressed", self, "_on_trick_button_pressed")
 
 func _on_trick_button_pressed(trick_identifier):
-	behaviour_action_container.visible = true
 	var trick_data = DatabaseOperations.get_trick_by_name(trick_identifier)
 	trick_name.text = tr(trick_data["trick_name"])
+	print(trick_data["trick_description"])
 	description_text.bbcode_text = tr(trick_data["trick_description"])
+	behaviour_text.bbcode_text = tr(trick_data["trick_behaviour"])
 	requirements_label.text = tr(trick_data["trick_requirements"])
 	clear_action_space()
-	create_new_rule_description_object(trick_data["trick_action"])
+	var action_data = DatabaseOperations.get_trick_actions(trick_data["trick_id"])
+	if action_data:
+		action_container.visible = true
+		for action in action_data:
+			create_new_action_object(action)
+	else:
+		clear_action_space()
+		action_container.visible = false
+		
 
-func create_new_rule_description_object(data):
-	var rule_description_object = rule_description_scene.instance()
-	behaviour_action_list.add_child(rule_description_object)
-	rule_description_object.bbcode_text = data
+func create_new_action_object(data):
+	var action_object = action_object_scene.instance()
+	action_list.add_child(action_object)
+	action_object.action_name.text = data["trick_action_name"]
+	action_object.action_description.bbcode_text = data["trick_action_description"]
 
 func clear_action_space():
-	for child in behaviour_action_list.get_children():
+	for child in action_list.get_children():
 		child.queue_free()
