@@ -372,7 +372,7 @@ func create_regular_general_knowledge_skill_pack() -> SkillPack:
 	return skill_pack_data
 
 func get_tricks_data_for_character_stats() -> Array:
-	var query = """SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1
+	var query = """SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1
 WHERE (select agility from player_info)>= t1.agility 
 AND (select perception from player_info)>= t1.perception 
 AND (select character from player_info)>= t1.character 
@@ -443,45 +443,52 @@ AND (select climbing from player_info)>= t1.climbing
 AND (select horse_riding from player_info)>= t1.horse_riding 
 AND (select carriage_driving from player_info)>= t1.carriage_driving 
 AND (select wild_ride from player_info)>= t1.wild_ride UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'feint' AND (select melee_weapon from player_info UNION select brawl from player_info order by 1 desc )>= t2.trick_sr_value
 AND (select wits from player_info)>= t1.wits UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'makeshift' AND (select mechanics  from player_info UNION select electronics  from player_info order by 1 desc )>= t2.trick_sr_value UNION
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'chess_player' AND (select melee_weapon from player_info UNION select brawl from player_info order by 1 desc )>= t2.trick_sr_value
+AND (select wits from player_info)>= t1.wits UNION
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+WHERE t2.trick_identifier like 'ramming' AND (select truck from player_info UNION select car from player_info order by 1 desc )>= t2.trick_sr_value UNION
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'making_arrows_or_bolts' AND (select bow from player_info UNION select crossbow from player_info order by 1 desc )>= t2.trick_sr_value
 AND (select wits from player_info)>= t1.wits UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'wait_out' AND (select brawl from player_info UNION select melee_weapon from player_info order by 1 desc )>= t2.trick_sr_value
 AND (select perception from player_info)>= t1.perception UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'glance' AND (select mechanics from player_info UNION select electronics from player_info order by 1 desc )>= t2.trick_sr_value
 AND (select wits from player_info)>= t1.wits UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'mobile_target' AND (select pistols from player_info UNION select rifles from player_info UNION 
 select machine_gun from player_info order by 1 desc)>= t2.trick_sr_value AND (select wits from player_info)>= t1.wits AND (select perception from player_info)>= t1.perception UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'tune_up' AND (select mechanics from player_info UNION select electronics from player_info order by 1 desc )>= t2.trick_sr_value
 AND (select wits from player_info)>= t1.wits UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'plug&play' AND (select combat_vehicles from player_info UNION select heavy_machinery from player_info order by 1 desc )>= t2.trick_sr_value
 AND (select computers from player_info)>= t1.agility UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'surehand' AND (select rifles from player_info UNION select pistols from player_info order by 1 desc )>= t2.trick_sr_value
 AND (select character from player_info)>= t1.character AND (select agility from player_info)>= t1.agility UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'octopus' AND (select brawl from player_info UNION select melee_weapon from player_info order by 1 desc )>= t2.trick_sr_value 
 AND (select wits from player_info)>= t1.wits AND (select fitness from player_info)>= t1.fitness UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'teacher' AND (select history from player_info UNION select geography from player_info UNION select biology from player_info 
 UNION select surgery from player_info UNION select physics from player_info UNION select mathematics from player_info UNION select chemistry from player_info
 UNION select psychology from player_info UNION select general_knowledge_1 from player_info UNION select general_knowledge_2 from player_info 
 UNION select general_knowledge_3 from player_info order by 1 desc)>= t2.trick_sr_value UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'think_like_a_machine' AND (select electronics from player_info UNION select mechanics from player_info order by 1 desc )>= t2.trick_sr_value 
 AND (select perceiving_emotions from player_info)>= t1.perceiving_emotions UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'drawing' AND (select pistols from player_info UNION select nimble_hands from player_info order by 1 desc )>= t2.trick_sr_value
 AND (select agility from player_info)>= t1.agility UNION
-SELECT t1.trick_id, trick_name, trick_requirements FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
+SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'four_tankmen' AND (select heavy_machinery from player_info UNION select combat_vehicles from player_info order by 1 desc)>=t2.trick_sr_value
 AND (select animal_care from player_info)>= t1.animal_care order by 1 asc;"""
 	var records = sql_command(query)
@@ -493,8 +500,13 @@ func get_trick_by_name(trick_name):
 	var from = "FROM tricks "
 	var where = "WHERE trick_name = '%s'" % trick_name
 	var record = sql_command(select+from+where)[0]
+	var new_trick = Trick.new(record["trick_id"],
+								record["trick_name"], 
+								record["trick_description"],
+								record["trick_behaviour"],
+								record["trick_requirements"])
 	db.close_db()
-	return record
+	return new_trick
 	
 
 func get_trick_actions(trick_id):

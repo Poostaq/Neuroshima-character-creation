@@ -10,7 +10,11 @@ var name: String
 var specialization_identifier: String
 var specialization_name: String
 
-func _init(new_attribute_name, new_identifier, new_name, new_specialization_identifier, new_specialization_name):
+func _init(new_attribute_name: String, 
+			new_identifier: String, 
+			new_name: String, 
+			new_specialization_identifier: String, 
+			new_specialization_name: String):
 	attribute_name = new_attribute_name
 	identifier = new_identifier
 	name = new_name

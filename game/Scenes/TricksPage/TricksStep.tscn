@@ -1,13 +1,15 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://THEME.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=3]
 [ext_resource path="res://UI_Elements/splashArtBox.png" type="Texture" id=4]
-[ext_resource path="res://Scenes/TricksPage/TrickObject.tscn" type="PackedScene" id=5]
-[ext_resource path="res://UI_Elements/SkillBoxBorderBig.png" type="Texture" id=6]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonNormal.tres" type="StyleBox" id=5]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=6]
 [ext_resource path="res://Scripts/TricksPage/TricksStep.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/TricksPage/ActionObject.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=9]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonHover.tres" type="StyleBox" id=10]
 
 [sub_resource type="DynamicFont" id=20]
 size = 48
@@ -40,6 +42,14 @@ font_data = ExtResource( 2 )
 size = 26
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="DynamicFont" id=27]
+size = 36
+outline_size = 3
+outline_color = Color( 0.278431, 0.129412, 0, 1 )
 font_data = ExtResource( 2 )
 
 [node name="TricksStep" type="Control"]
@@ -127,7 +137,7 @@ margin_right = -5.00024
 margin_bottom = 0.000335693
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 25 )
-text = "Agility 12+, Brawl 3+"
+text = "LOREM IPSUM BASTARDUM"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": true
@@ -143,15 +153,33 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DescriptionSectionLabel" type="Label" parent="Control/TextureRect"]
-anchor_left = 0.106889
-anchor_top = 0.297214
-anchor_right = 0.387965
-anchor_bottom = 0.336429
-margin_left = -0.001297
-margin_top = -9.15527e-05
-margin_right = -0.00128174
-margin_bottom = -9.15527e-05
+[node name="ActionList" type="GridContainer" parent="Control/TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.106888
+anchor_top = 0.547988
+anchor_right = 0.859063
+anchor_bottom = 0.651187
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Action" parent="Control/TextureRect/ActionList" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 950.0
+margin_bottom = 100.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TextureRect"]
+margin_left = 135.0
+margin_top = 288.0
+margin_right = 1150.0
+margin_bottom = 559.0
+
+[node name="DescriptionSectionLabel" type="Label" parent="Control/TextureRect/VBoxContainer"]
+margin_right = 1015.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "description_headline"
@@ -159,16 +187,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DescriptionText" type="RichTextLabel" parent="Control/TextureRect"]
+[node name="DescriptionText" type="RichTextLabel" parent="Control/TextureRect/VBoxContainer"]
 unique_name_in_owner = true
-anchor_left = 0.110055
-anchor_top = 0.34675
-anchor_right = 0.505936
-anchor_bottom = 0.592364
-margin_left = -3.99995
-margin_top = -0.000396729
-margin_right = -3.99994
-margin_bottom = -0.000366211
+margin_top = 47.0
+margin_right = 1015.0
+margin_bottom = 133.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/normal_font = SubResource( 23 )
 bbcode_text = "LOREM IPSUM BASTARDUM "
@@ -177,15 +203,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="BehaviourSectionLabel" type="Label" parent="Control/TextureRect"]
-anchor_left = 0.112431
-anchor_top = 0.597524
-anchor_right = 0.393507
-anchor_bottom = 0.636739
-margin_left = -7.00085
-margin_top = -0.000183105
-margin_right = -7.00089
-margin_bottom = -0.000183105
+[node name="BehaviourSectionLabel" type="Label" parent="Control/TextureRect/VBoxContainer"]
+margin_top = 137.0
+margin_right = 1015.0
+margin_bottom = 172.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "behaviour_headline"
@@ -193,16 +216,14 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="BehaviourText" type="RichTextLabel" parent="Control/TextureRect"]
+[node name="BehaviourText" type="RichTextLabel" parent="Control/TextureRect/VBoxContainer"]
 unique_name_in_owner = true
-anchor_left = 0.110055
-anchor_top = 0.648091
-anchor_right = 0.505936
-anchor_bottom = 0.86481
-margin_left = -3.99995
-margin_top = 0.000427246
-margin_right = -3.99994
-margin_bottom = 0.000427246
+margin_top = 184.0
+margin_right = 1015.0
+margin_bottom = 271.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
 custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/normal_font = SubResource( 23 )
 bbcode_text = "LOREM IPSUM BASTARDUM "
@@ -210,59 +231,6 @@ text = "LOREM IPSUM BASTARDUM "
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="ActionContainer" type="TextureRect" parent="Control/TextureRect"]
-unique_name_in_owner = true
-self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-anchor_left = 0.514646
-anchor_top = 0.297214
-anchor_right = 0.894692
-anchor_bottom = 0.85449
-margin_right = -9.99976
-margin_bottom = 0.000183105
-texture = ExtResource( 6 )
-expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ScrollContainer" type="ScrollContainer" parent="Control/TextureRect/ActionContainer"]
-anchor_left = 0.0208333
-anchor_top = 0.0181818
-anchor_right = 0.979167
-anchor_bottom = 0.976364
-margin_bottom = 2.16364
-scroll_horizontal_enabled = false
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ActionList" type="GridContainer" parent="Control/TextureRect/ActionContainer/ScrollContainer"]
-unique_name_in_owner = true
-margin_right = 450.0
-margin_bottom = 518.0
-
-[node name="Action" parent="Control/TextureRect/ActionContainer/ScrollContainer/ActionList" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 450.0
-margin_bottom = 170.0
-
-[node name="Action2" parent="Control/TextureRect/ActionContainer/ScrollContainer/ActionList" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 174.0
-margin_right = 450.0
-margin_bottom = 344.0
-rect_min_size = Vector2( 430, 170 )
-
-[node name="Action3" parent="Control/TextureRect/ActionContainer/ScrollContainer/ActionList" instance=ExtResource( 8 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_top = 348.0
-margin_right = 450.0
-margin_bottom = 518.0
-rect_min_size = Vector2( 430, 170 )
 
 [node name="TricksListObject" type="TextureRect" parent="Control"]
 anchor_left = 0.0590426
@@ -316,7 +284,32 @@ __meta__ = {
 
 [node name="TricksList" type="GridContainer" parent="Control/TricksListObject/ScrollContainer"]
 unique_name_in_owner = true
-margin_right = 360.0
-margin_bottom = 50.0
 
-[node name="TrickObject" parent="Control/TricksListObject/ScrollContainer/TricksList" instance=ExtResource( 5 )]
+[node name="SelectedTrick" type="Button" parent="."]
+anchor_left = 0.582979
+anchor_top = 0.950605
+anchor_right = 0.78883
+anchor_bottom = 1.01915
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = SubResource( 26 )
+custom_styles/disabled = ExtResource( 9 )
+custom_styles/normal = ExtResource( 5 )
+toggle_mode = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="SelectedTrick"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.905882, 0.886275, 0, 1 )
+custom_fonts/font = SubResource( 27 )
+text = "SELECT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="SelectedTrick" to="." method="_on_SelectedTrick_pressed"]
