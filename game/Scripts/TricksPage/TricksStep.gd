@@ -4,7 +4,6 @@ signal trick_selected
 signal trick_unselected
 
 export var tricks_data_list: Array
-
 onready var trick_object = preload("res://Scenes/TricksPage/TrickObject.tscn")
 onready var action_object_scene = preload("res://Scenes/TricksPage/ActionObject.tscn")
 onready var tricks_list = $"%TricksList"
@@ -16,10 +15,9 @@ onready var action_list = $"%ActionList"
 onready var selected_trick = $"%SelectedTrick"
 var current_trick_data: Trick
 
-func _init():
-	tricks_data_list = DatabaseOperations.get_tricks_data_for_character_stats()
 
 func _ready():
+	tricks_data_list = DatabaseOperations.get_tricks_data_for_character_stats()
 	if get_tree().current_scene.name == "TricksStep":
 		load_step()
 
@@ -31,6 +29,10 @@ func load_step():
 	clear_action_space()
 	tricks_list.get_children()[0]._on_TrickObject_button_up()
 
+func clean_up_step():
+	if current_trick_data:
+			CharacterStats.remove_trick_from_character(current_trick_data.trick_id)
+	
 func create_new_trick_object(trick_data: Dictionary):
 	var trick_object_instance = trick_object.instance()
 	tricks_list.add_child(trick_object_instance)
