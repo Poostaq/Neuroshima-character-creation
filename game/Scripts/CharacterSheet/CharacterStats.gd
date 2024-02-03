@@ -34,6 +34,7 @@ var skill_data_before_skill_distribution: Dictionary
 var flags: Dictionary
 var special_rules: Dictionary
 var fame: int
+var tricks: Array
 
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()
@@ -148,3 +149,8 @@ func is_special_rules_ethnicity_applied():
 func is_special_rules_profession_applied():
 	return CharacterStats.special_rules.has("Profession") and \
 	CharacterStats.special_rules["Profession"]
+
+func remove_trick_from_character(trick_id):
+	for i in range(0, len(tricks)):
+		if tricks[i].trick_id == trick_id:
+			tricks.pop_at(i)

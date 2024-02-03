@@ -92,6 +92,8 @@ anchor_left = 0.106888
 anchor_top = 0.118679
 anchor_right = 0.724463
 anchor_bottom = 0.185759
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 20 )
 text = "SKILL NAME"
@@ -105,6 +107,8 @@ anchor_left = 0.0958036
 anchor_top = 0.151703
 anchor_right = 0.901029
 anchor_bottom = 0.20227
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -118,6 +122,8 @@ margin_left = -4.00122
 margin_top = -0.000320435
 margin_right = -4.00122
 margin_bottom = -0.000320435
+size_flags_horizontal = 3
+size_flags_vertical = 6
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "requirements_headline"
@@ -135,6 +141,8 @@ margin_left = -5.00026
 margin_top = 0.000335693
 margin_right = -5.00024
 margin_bottom = 0.000335693
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
 custom_fonts/font = SubResource( 25 )
 text = "LOREM IPSUM BASTARDUM"
@@ -159,6 +167,8 @@ anchor_left = 0.106888
 anchor_top = 0.547988
 anchor_right = 0.859063
 anchor_bottom = 0.651187
+size_flags_horizontal = 3
+size_flags_vertical = 3
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -168,15 +178,20 @@ anchor_right = 0.0
 anchor_bottom = 0.0
 margin_right = 950.0
 margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/TextureRect"]
-margin_left = 135.0
-margin_top = 288.0
-margin_right = 1150.0
-margin_bottom = 559.0
+anchor_left = 0.106888
+anchor_top = 0.286894
+anchor_right = 0.910527
+anchor_bottom = 0.558308
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="DescriptionSectionLabel" type="Label" parent="Control/TextureRect/VBoxContainer"]
-margin_right = 1015.0
+margin_right = 1014.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
@@ -189,9 +204,9 @@ __meta__ = {
 
 [node name="DescriptionText" type="RichTextLabel" parent="Control/TextureRect/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 47.0
-margin_right = 1015.0
-margin_bottom = 133.0
+margin_top = 45.0
+margin_right = 1014.0
+margin_bottom = 129.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -204,9 +219,9 @@ __meta__ = {
 }
 
 [node name="BehaviourSectionLabel" type="Label" parent="Control/TextureRect/VBoxContainer"]
-margin_top = 137.0
-margin_right = 1015.0
-margin_bottom = 172.0
+margin_top = 133.0
+margin_right = 1014.0
+margin_bottom = 168.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
 custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
@@ -218,9 +233,9 @@ __meta__ = {
 
 [node name="BehaviourText" type="RichTextLabel" parent="Control/TextureRect/VBoxContainer"]
 unique_name_in_owner = true
-margin_top = 184.0
-margin_right = 1015.0
-margin_bottom = 271.0
+margin_top = 178.0
+margin_right = 1014.0
+margin_bottom = 262.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
@@ -277,6 +292,8 @@ anchor_left = 0.10998
 anchor_top = 0.176596
 anchor_right = 0.843178
 anchor_bottom = 0.9
+size_flags_horizontal = 3
+size_flags_vertical = 3
 scroll_horizontal_enabled = false
 __meta__ = {
 "_edit_use_anchors_": true
@@ -286,6 +303,7 @@ __meta__ = {
 unique_name_in_owner = true
 
 [node name="SelectedTrick" type="Button" parent="."]
+unique_name_in_owner = true
 anchor_left = 0.582979
 anchor_top = 0.950605
 anchor_right = 0.78883

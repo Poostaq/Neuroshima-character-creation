@@ -1,5 +1,8 @@
 extends Control
 
+signal trick_selected
+signal trick_unselected
+
 export var tricks_data_list: Array
 
 onready var trick_object = preload("res://Scenes/TricksPage/TrickObject.tscn")
@@ -10,13 +13,16 @@ onready var description_text = $"%DescriptionText"
 onready var behaviour_text = $"%BehaviourText"
 onready var requirements_label = $"%RequirementsLabel"
 onready var action_list = $"%ActionList"
+onready var selected_trick = $"%SelectedTrick"
+var current_trick_data: Trick
 
 func _init():
 	tricks_data_list = DatabaseOperations.get_tricks_data_for_character_stats()
 
 func _ready():
-	load_step()
-	
+	if get_tree().current_scene.name == "TricksStep":
+		load_step()
+
 func load_step():
 	for child in tricks_list.get_children():
 		child.queue_free()
@@ -33,13 +39,18 @@ func create_new_trick_object(trick_data: Dictionary):
 	trick_object_instance.connect("trick_button_pressed", self, "_on_trick_button_pressed")
 
 func _on_trick_button_pressed(trick_identifier):
-	var trick_data: Trick = DatabaseOperations.get_trick_by_name(trick_identifier)
-	trick_name.text = tr(trick_data.trick_name)
-	description_text.bbcode_text = tr(trick_data.trick_description)
-	behaviour_text.bbcode_text = tr(trick_data.trick_behaviour)
-	requirements_label.text = tr(trick_data.trick_requirements)
+	if current_trick_data:
+		CharacterStats.remove_trick_from_character(current_trick_data.trick_id)
+	if selected_trick.pressed:
+		selected_trick.pressed = false
+	emit_signal("trick_unselected")
+	current_trick_data = DatabaseOperations.get_trick_by_name(trick_identifier)
+	trick_name.text = tr(current_trick_data.trick_name)
+	description_text.bbcode_text = tr(current_trick_data.trick_description)
+	behaviour_text.bbcode_text = tr(current_trick_data.trick_behaviour)
+	requirements_label.text = tr(current_trick_data.trick_requirements)
 	clear_action_space()
-	var action_data = DatabaseOperations.get_trick_actions(trick_data.trick_id)
+	var action_data = DatabaseOperations.get_trick_actions(current_trick_data.trick_id)
 	if action_data:
 		for action in action_data:
 			create_new_action_object(action)
@@ -59,4 +70,5 @@ func clear_action_space():
 
 
 func _on_SelectedTrick_pressed():
-	pass # Replace with function body.
+	CharacterStats.tricks.append(current_trick_data)
+	emit_signal("trick_selected")
