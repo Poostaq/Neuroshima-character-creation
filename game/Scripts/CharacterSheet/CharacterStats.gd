@@ -41,8 +41,6 @@ func _init() -> void:
 	skill_data = DatabaseOperations.create_skill_packs_from_database_query_result(rows)
 	skill_data_before_skill_distribution = DatabaseOperations.create_skill_packs_from_database_query_result(rows)
 
-
-
 func get_final_attribute_value(attribute_modifiers: Dictionary) -> int:
 	var result = 0
 	for key in attribute_modifiers:

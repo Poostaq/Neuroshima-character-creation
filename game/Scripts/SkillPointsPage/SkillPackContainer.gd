@@ -36,36 +36,7 @@ func update_skill_data():
 	if skill_pack_data.identifier == "general_knowledge" and not CharacterStats.is_alternative_general_knowledge_active():
 		for i in range(0,skill_pack_data.skill_data.size()):
 			skills[i].refresh_option_states([0,1,2])
-			
-func set_plus_minus_button_state():
-	var skills = skill_object_group.get_children()
-	for i in range(0,skills.size()):
-		if skills[i].skill_data.level == GlobalVariables.max_skill_level:
-			skills[i].plus.disabled = true
-		else:
-			skills[i].plus.disabled = false
-		var pack_data = CharacterStats.get_pack_data(
-			skill_pack_data.identifier, 
-			CharacterStats.skill_data_before_skill_distribution
-			)
-		var minimal_level = pack_data.skill_data[i].level
-		if skills[i].skill_data.level == minimal_level:
-			skills[i].minus.disabled = true
-		elif skills[i].skill_data.level == 1 and self.skill_pack_data.bought:
-			skills[i].minus.disabled = true
-		else:
-			skills[i].minus.disabled = false
 
-func set_buy_sell_button_state():
-	var skills = skill_object_group.get_children()
-	if _is_all_skill_levels_n(skills, 0):
-		self.buy_pack_button.disabled = false
-	else:
-		self.buy_pack_button.disabled = true
-	if _is_all_skill_levels_n(skills, 1):
-		self.sell_pack_button.disabled = false
-	else:
-		self.sell_pack_button.disabled = true
 
 func _is_all_skill_levels_n(skill_list, n) -> bool:
 	for skill in skill_list:
@@ -74,7 +45,6 @@ func _is_all_skill_levels_n(skill_list, n) -> bool:
 	return true
 
 func _on_skill_plus_button_pressed(skill_object):
-	print("PLUS PRESSED")
 	emit_signal("skill_pack_skill_plus_pressed", self, skill_object)
 
 func _on_skill_minus_button_pressed(skill_object):
