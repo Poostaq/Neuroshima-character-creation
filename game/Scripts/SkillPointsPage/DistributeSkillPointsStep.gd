@@ -30,6 +30,7 @@ func load_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data, CharacterStats.skill_data_before_skill_distribution)
 	_current_all_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
+	_general_spent_on_general_points = 0
 	load_skill_packs_screen_data()
 
 func load_skill_packs_screen_data():
@@ -67,6 +68,7 @@ func clean_up_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data_before_skill_distribution, CharacterStats.skill_data)
 	_current_all_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
+	_general_spent_on_general_points = 0
 
 func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	var skill_pack_instance = skill_pack_scene.instance()
@@ -329,10 +331,10 @@ func set_buy_sell_button_state(skill_pack_object):
 			skill_pack_object.buy_pack_button.disabled = false
 		else:
 			skill_pack_object.buy_pack_button.disabled = true
-		if _is_all_skill_levels_n(skills, 1):
-			skill_pack_object.sell_pack_button.disabled = false
-		else:
-			skill_pack_object.sell_pack_button.disabled = true
+	if _is_all_skill_levels_n(skills, 1):
+		skill_pack_object.sell_pack_button.disabled = false
+	else:
+		skill_pack_object.sell_pack_button.disabled = true
 
 
 func set_all_skill_packs_button_states():
