@@ -30,7 +30,7 @@ func read_ethnicity_identifiers() -> Array:
 	return selected_array
 
 	
-func read_data_for_etnicity(ethnicity_identifier) -> Dictionary:
+func read_data_for_etnicity(ethnicity_identifier: String) -> Dictionary:
 	var select = "SELECT e.ethnicity_identifier,e.ethnicity_name, " 
 	select += "e.splash_art_name, e.ethnicity_description,a.attribute_identifier, "
 	select += " a.attribute_name, a.attribute_enum, a.bonus_value "
@@ -41,7 +41,7 @@ func read_data_for_etnicity(ethnicity_identifier) -> Dictionary:
 	return selected_array[0]
 
 
-func read_traits_for_ethnicity(ethnicity_identifier) -> Array:
+func read_traits_for_ethnicity(ethnicity_identifier: String) -> Array:
 	var select = "SELECT t.trait_id, t.trait_identifier, t.trait_name, t.trait_description, "
 	select += "t.trait_short_description, t.trait_special_rules "
 	var from = "FROM ethnicities e JOIN traits t on e.ethnicity_id = t.ethnicity_id "
@@ -59,7 +59,7 @@ func read_profession_identifiers() -> Array:
 	return selected_array
 
 
-func read_data_for_profession(profession_identifier) -> Dictionary:
+func read_data_for_profession(profession_identifier: String) -> Dictionary:
 	var select = "SELECT profession_identifier, profession_name, " 
 	select += "splash_art_name, profession_quote, profession_description "
 	var from = "FROM professions "
@@ -69,7 +69,7 @@ func read_data_for_profession(profession_identifier) -> Dictionary:
 	return selected_array[0]
 
 	
-func read_traits_for_profession(profession_identifier) -> Array:
+func read_traits_for_profession(profession_identifier: String) -> Array:
 	var select = "SELECT t.trait_identifier, t.trait_name, t.trait_description, t.trait_short_description, t.trait_id "
 	var from = "FROM professions p JOIN traits t on p.profession_id = t.profession_id "
 	var where = "WHERE t.profession_id is not null and "
@@ -143,9 +143,9 @@ func update_player_info(value):
 	db.close_db()
 
 
-func update_player_ethnicity(player_ethnicity, player_ethnicity_trait):
+func update_player_ethnicity(player_id: int, player_ethnicity: String, player_ethnicity_trait: String) -> void:
 	open_connection_to(main_db)
-	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
 	var col = {"player_updated_date" :sysdate, "player_ethnicity":player_ethnicity,"player_ethnicity_trait":player_ethnicity_trait} 
 	db.update_rows("player_info", condition, col)
 	db.close_db()
@@ -164,9 +164,9 @@ func update_player_attribute_bonus(value):
 	db.close_db()
 
 
-func update_player_profession(player_profession, player_profession_trait):
+func update_player_profession(player_id: int, player_profession, player_profession_trait):
 	open_connection_to(main_db)
-	var condition = "(player_id = (SELECT MAX(player_id) FROM player_info))"
+	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
 	var col = {"player_updated_date" :sysdate, "player_profession":player_profession,"player_profession_trait":player_profession_trait }
 	db.update_rows("player_info", condition, col)
 	db.close_db()
@@ -495,7 +495,7 @@ AND (select animal_care from player_info)>= t1.animal_care order by 1 asc;"""
 	return records
 
 
-func get_trick_by_name(trick_name):
+func get_trick_by_name(trick_name: String) -> Trick:
 	var select = "SELECT trick_id, trick_name, trick_requirements, trick_description, trick_behaviour "
 	var from = "FROM tricks "
 	var where = "WHERE trick_name = '%s'" % trick_name
@@ -509,10 +509,45 @@ func get_trick_by_name(trick_name):
 	return new_trick
 	
 
-func get_trick_actions(trick_id):
+func get_trick_actions(trick_id: int) -> Array:
 	var select = "SELECT ta.trick_action_name, ta.trick_action_description " 
 	var from = "FROM tricks_actions ta "
 	var where = "WHERE ta.trick_id = %s" % trick_id
-	var selected_array = sql_command(select+from+where);
+	var selected_array = sql_command(select+from+where)
 	db.close_db()
 	return selected_array
+
+
+func create_new_character_entry() -> void:
+	var insert = "INSERT INTO player_info DEFAULT VALUES; "
+	var _query_result = sql_command(insert)
+	db.close_db()
+
+func return_current_player_id() -> int:
+	var select = "SELECT MAX(player_id) as player_id FROM player_info"
+	var query_result = sql_command(select)
+	db.close_db()
+	return query_result[0]["player_id"]
+
+func set_creation_date(player_id: int) -> void:
+	open_connection_to(main_db)
+	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
+	var columns = {"player_created_date" :sysdate, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, columns)
+	db.close_db()
+	
+
+func update_attribute_value(player_id: int, attribute_name: String, attribute_value: int) -> void:
+	open_connection_to(main_db)
+	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
+	var columns = {attribute_name : attribute_value, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, columns)
+	db.close_db()
+	
+func update_player_specialization(player_id: int, specialization_identifier: String) -> void:
+	open_connection_to(main_db)
+	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
+	var columns = {"player_specjalization" : specialization_identifier, "player_updated_date" :sysdate}
+	db.update_rows("player_info", condition, columns)
+	db.close_db()
+	

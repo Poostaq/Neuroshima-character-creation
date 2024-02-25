@@ -28,6 +28,7 @@ func _init() -> void:
 
 func load_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data, CharacterStats.skill_data_before_skill_distribution)
+	DatabaseOperations.update_player_specialization(CharacterStats.player_id, CharacterStats.specialization_identifier)
 	_current_all_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 	_general_spent_on_general_points = 0

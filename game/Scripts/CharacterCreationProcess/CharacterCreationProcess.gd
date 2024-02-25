@@ -32,8 +32,7 @@ onready var reputation_indicator = $"%ReputationIndicator"
 onready var form_indicator = $"%FormIndicator"
 onready var gear_indicator = $"%GearIndicator"
 
-
-
+export var current_seed = 0
 export var current_step = 0
 onready var steps = [
 					ethnicity_step,

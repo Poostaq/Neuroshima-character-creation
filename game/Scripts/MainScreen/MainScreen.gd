@@ -51,6 +51,9 @@ func _ready() -> void:
 
 
 func _on_NewCharacterButton_button_up():
+	DatabaseOperations.create_new_character_entry()
+	CharacterStats.player_id = DatabaseOperations.return_current_player_id()
+	DatabaseOperations.set_creation_date(CharacterStats.player_id)
 	main_menu.visible = false
 	character_creation_process.visible = true
 	character_creation_process.steps[character_creation_process.current_step].load_step()
