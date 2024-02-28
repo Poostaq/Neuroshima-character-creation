@@ -33,7 +33,6 @@ font_data = ExtResource( 11 )
 
 [sub_resource type="StreamTexture" id=13]
 flags = 4
-load_path = "res://.import/originDescriptionBox.png-52d352332bd0b631d4f50a09247e5384.stex"
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 12 )

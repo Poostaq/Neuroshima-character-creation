@@ -70,6 +70,7 @@ func clean_up_step():
 	_current_all_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 	_general_spent_on_general_points = 0
+	DatabaseOperations.update_player_skill_levels(CharacterStats.player_id, CharacterStats.get_all_skill_dictionary())
 
 func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	var skill_pack_instance = skill_pack_scene.instance()

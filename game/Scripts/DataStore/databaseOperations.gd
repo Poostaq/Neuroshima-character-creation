@@ -551,3 +551,11 @@ func update_player_specialization(player_id: int, specialization_identifier: Str
 	db.update_rows("player_info", condition, columns)
 	db.close_db()
 	
+func update_player_skill_levels(player_id: int, skill_data_dict) -> void:
+	open_connection_to(main_db)
+	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
+	print(skill_data_dict)
+	skill_data_dict.merge({"player_updated_date" :sysdate})
+	db.update_rows("player_info", condition, skill_data_dict)
+	db.close_db()
+	

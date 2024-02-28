@@ -177,3 +177,16 @@ func update_attribute_values():
 			value += attribute[key]
 		DatabaseOperations.update_attribute_value(player_id, attribute_list[index].trim_suffix ("_name"), value)
 	
+func get_all_skill_dictionary():
+	var skill_dictionary = {}
+	print(skill_data)
+	for skill_pack in skill_data.keys():
+		print(skill_pack)
+		print(skill_data[skill_pack])
+		var skill_pack_data = skill_data[skill_pack].skill_data
+		print(skill_pack_data)
+		for skill in skill_data[skill_pack].skill_data:
+			print()
+			skill_dictionary[skill.skill_identifier] = skill.level
+	print(skill_dictionary)
+	return skill_dictionary
