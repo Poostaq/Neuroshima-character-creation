@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=2]
+[gd_scene load_steps=48 format=2]
 
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=2]
@@ -28,7 +28,8 @@
 [ext_resource path="res://UI_Elements/MainMenu/help_off_4.png" type="Texture" id=26]
 [ext_resource path="res://Scenes/TricksPage/TricksStep.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/CharacterCreationProcess/DummyStep.gd" type="Script" id=28]
-[ext_resource path="res://Scenes/IllnessPage/IlnessStep.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scenes/IllnessPage/IlnessStep.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scripts/IllnessPage/IlnessStep.gd" type="Script" id=30]
 
 [sub_resource type="ButtonGroup" id=2]
 
@@ -181,7 +182,9 @@ margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 955.0
 
-[node name="IlnessStep" parent="StepContainer" instance=ExtResource( 27 )]
+[node name="IlnessStep" parent="StepContainer" instance=ExtResource( 29 )]
+unique_name_in_owner = true
+visible = false
 anchor_left = 0.0
 anchor_top = 0.0
 anchor_right = 0.0
@@ -190,16 +193,7 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 955.0
-
-[node name="IlnessStep" parent="StepContainer" instance=ExtResource( 27 )]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
-margin_right = 1880.0
-margin_bottom = 955.0
+script = ExtResource( 30 )
 
 [node name="DummyStep" type="Control" parent="StepContainer"]
 unique_name_in_owner = true

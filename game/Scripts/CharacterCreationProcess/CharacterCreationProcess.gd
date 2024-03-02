@@ -18,6 +18,7 @@ onready var attributes_step = $"%AttributesStep"
 onready var specialization_step = $"%SpecializationStep"
 onready var skill_points_step = $"%SkillPointsStep"
 onready var tricks_step = $"%TricksStep"
+onready var ilness_step = $"%IlnessStep"
 onready var dummy_step = $"%DummyStep"
 
 
@@ -41,6 +42,7 @@ onready var steps = [
 					specialization_step,
 					skill_points_step,
 					tricks_step,
+					ilness_step,
 					dummy_step
 ]
 

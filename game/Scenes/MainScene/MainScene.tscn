@@ -118,18 +118,20 @@ margin_right = 1873.0
 margin_bottom = 950.0
 
 [node name="TricksStep" parent="CharacterCreationProcess/StepContainer" index="5"]
-margin_right = 1873.0
-margin_bottom = 950.0
-
-[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="6"]
-margin_right = 1873.0
-margin_bottom = 950.0
-
-[node name="IlnessStep" parent="CharacterCreationProcess/StepContainer" index="6"]
+anchor_left = 0.0
+anchor_top = 0.0
 margin_right = 1873.0
 margin_bottom = 950.0
 
 [node name="IlnessStep" parent="CharacterCreationProcess/StepContainer" index="6"]
+margin_right = 1873.0
+margin_bottom = 950.0
+
+[node name="IlnessStep" parent="CharacterCreationProcess/StepContainer" index="7"]
+margin_right = 1873.0
+margin_bottom = 950.0
+
+[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="8"]
 margin_right = 1873.0
 margin_bottom = 950.0
 
