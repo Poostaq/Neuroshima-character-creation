@@ -191,6 +191,16 @@ margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 955.0
 
+[node name="IlnessStep" parent="StepContainer" instance=ExtResource( 27 )]
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 955.0
+
 [node name="DummyStep" type="Control" parent="StepContainer"]
 unique_name_in_owner = true
 visible = false
