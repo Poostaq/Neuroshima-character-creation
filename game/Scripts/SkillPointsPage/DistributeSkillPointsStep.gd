@@ -1,5 +1,7 @@
 extends Control
 
+signal points_spent
+signal points_returned
 
 onready var current_attribute_label = $"%CurrentAttributeLabel"
 onready var chosen_spec_label = $"%ChosenSpecLabel"
@@ -26,8 +28,10 @@ func _init() -> void:
 
 func load_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data, CharacterStats.skill_data_before_skill_distribution)
+	DatabaseOperations.update_player_specialization(CharacterStats.player_id, CharacterStats.specialization_identifier)
 	_current_all_skill_points = GlobalVariables.max_skill_points
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
+	_general_spent_on_general_points = 0
 	load_skill_packs_screen_data()
 
 func load_skill_packs_screen_data():
@@ -46,6 +50,7 @@ func load_skill_packs_screen_data():
 				_create_skill_pack(character_stats_pack_data, generalKnowledgePackScene)
 		else:
 			_create_skill_pack(character_stats_pack_data, skillPackScene)
+	set_all_skill_packs_button_states()
 	update_texts()
 
 func remove_skill_pack_containers():
@@ -62,6 +67,10 @@ func set_ui_layout():
 
 func clean_up_step():
 	CharacterStats.duplicate_data(CharacterStats.skill_data_before_skill_distribution, CharacterStats.skill_data)
+	_current_all_skill_points = GlobalVariables.max_skill_points
+	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
+	_general_spent_on_general_points = 0
+	DatabaseOperations.update_player_skill_levels(CharacterStats.player_id, CharacterStats.get_all_skill_dictionary())
 
 func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	var skill_pack_instance = skill_pack_scene.instance()
@@ -75,8 +84,6 @@ func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	else:
 		skill_pack_instance.buy_pack_button.visible = true
 		skill_pack_instance.sell_pack_button.visible = false
-	skill_pack_instance.set_buy_sell_button_state()
-	skill_pack_instance.set_plus_minus_button_state()
 	skill_pack_instance.connect("mouse_entered_skill_name_of_skill_pack", self, "_on_SkillPackContainer_mouse_entered_skill_name")
 	skill_pack_instance.connect("skill_pack_skill_plus_pressed", self, "on_skill_pack_skill_plus_pressed")
 	skill_pack_instance.connect("skill_pack_skill_minus_pressed", self, "on_skill_pack_skill_minus_pressed")
@@ -95,8 +102,7 @@ func _fill_alternate_general_knowledge(skill_pack_data: SkillPack):
 	else:
 		alternative_general_knowledge.buy_pack_button.visible = true
 		alternative_general_knowledge.sell_pack_button.visible = false
-	alternative_general_knowledge.set_buy_sell_button_state()
-	alternative_general_knowledge.set_plus_minus_button_state()
+	set_all_skill_packs_button_states()
 
 
 func update_texts():
@@ -114,41 +120,42 @@ func update_skill_points() -> void:
 
 
 func on_skill_pack_skill_plus_pressed(skill_pack, skill_object):
-	print("on_skill_pack_skill_plus_pressed start")
 	var current_skill_level = skill_object.skill_data.level
-	var spec_name = skill_pack.skill_pack_data.specialization_name
-	if current_skill_level >= 5:
+	var spec_name = skill_pack.skill_pack_data.specialization_identifier
+	if current_skill_level >= GlobalVariables.max_skill_level:
 		return
 	if current_skill_level > 0:
 		if can_pay(current_skill_level+1, spec_name) == false:
 			return
-		pay_points(current_skill_level+1, CharacterStats.specialization == spec_name)
+		pay_points(current_skill_level+1, CharacterStats.specialization_identifier in spec_name)
+		if can_activate_next_step():
+			emit_signal("points_spent")
 	if current_skill_level == 0:
 		if can_pay(3, spec_name) == false:
 			return
-		pay_points(3, CharacterStats.specialization == spec_name)
+		pay_points(3, CharacterStats.specialization_identifier in spec_name)
+		if can_activate_next_step():
+			emit_signal("points_spent")
 	skill_object.skill_data.level += 1
 	update_skill_points()
 	skill_object.update_text()
 	save_pack_data(skill_pack.skill_pack_data)
-	skill_pack.set_buy_sell_button_state()
-	skill_pack.set_plus_minus_button_state()
-	print("on_skill_pack_skill_plus_pressed start end")
+	set_all_skill_packs_button_states()
 	
 func on_skill_pack_skill_minus_pressed(skill_pack, skill_object):
 	var current_skill_level = skill_object.skill_data.level
-	var spec_name = skill_pack.skill_pack_data.specialization_name
-	
+	var spec_name = skill_pack.skill_pack_data.specialization_identifier
 	if current_skill_level <= 0:
 		return
 	if current_skill_level > 1:
-		return_points(current_skill_level, CharacterStats.specialization == spec_name)
+		return_points(current_skill_level, CharacterStats.specialization_identifier in spec_name)
+		emit_signal("points_returned")
 	if current_skill_level == 1:
-		return_points(3, CharacterStats.specialization == spec_name)
+		return_points(3, CharacterStats.specialization_identifier in spec_name)
+		emit_signal("points_returned")
 	skill_object.skill_data.level -= 1
 	skill_object.update_text()
-	skill_pack.set_buy_sell_button_state()
-	skill_pack.set_plus_minus_button_state()
+	set_all_skill_packs_button_states()
 	update_skill_points()
 	save_pack_data(skill_pack.skill_pack_data)
 
@@ -158,7 +165,7 @@ func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
 
 
 func can_pay(amount: int, specialization: String):
-	if CharacterStats.specialization == specialization:
+	if CharacterStats.specialization_identifier in specialization:
 		if amount <= _current_specialization_skill_points+_current_all_skill_points:
 			return true
 		return false
@@ -203,28 +210,29 @@ func save_pack_data(skill_pack: SkillPack) -> void:
 			return
 	
 func on_buy_pack_button_pressed(skill_pack_object):
-	var spec_name = skill_pack_object.skill_pack_data.specialization_name
+	var spec_name = skill_pack_object.skill_pack_data.specialization_identifier
 	var skill_objects = skill_pack_object.skill_object_group.get_children()
 	if _is_all_skill_levels_n(skill_objects, 0):
 		if can_pay(5, spec_name) == false:
 			return
-		pay_points(5, CharacterStats.specialization == spec_name)
+		pay_points(5, CharacterStats.specialization_identifier in spec_name)
+		if can_activate_next_step():
+			emit_signal("points_spent")
 		buy_pack(skill_pack_object)
 		update_skill_points()
 		save_pack_data(skill_pack_object.skill_pack_data)
-		skill_pack_object.set_buy_sell_button_state()
-		skill_pack_object.set_plus_minus_button_state()
+		set_all_skill_packs_button_states()
 
 func on_sell_pack_button_pressed(skill_pack_object):
-	var spec_name = skill_pack_object.skill_pack_data.specialization_name
+	var spec_name = skill_pack_object.skill_pack_data.specialization_identifier
 	var skill_objects = skill_pack_object.skill_object_group.get_children()
 	if _is_all_skill_levels_n(skill_objects, 1):
-		return_points(5, CharacterStats.specialization == spec_name)
+		emit_signal("points_returned")
+		return_points(5, CharacterStats.specialization_identifier in spec_name)
 		update_skill_points()
 		sell_pack(skill_pack_object)
 		save_pack_data(skill_pack_object.skill_pack_data)
-		skill_pack_object.set_buy_sell_button_state()
-		skill_pack_object.set_plus_minus_button_state()
+		set_all_skill_packs_button_states()
 
 func _is_all_skill_levels_n(skill_list, n) -> bool:
 	for skill in skill_list:
@@ -279,3 +287,62 @@ func _on_general_skill_pack_skill_selected(skill_pack, skill, index):
 			selected_skills.append(skill_pack.skill_object_group.get_children()[i].option_button.selected)
 		for i in range(0,skill_pack.skill_pack_data.skill_data.size()):
 				skill_pack.skill_object_group.get_children()[i].refresh_option_states(selected_skills)
+
+func can_activate_next_step():
+	if _current_all_skill_points == 0 and _current_specialization_skill_points == 0:
+		return true
+	return false
+
+
+func set_plus_minus_button_state(skill_pack_object):
+	var skills = skill_pack_object.skill_object_group.get_children()
+	for i in range(0,skills.size()):
+		var skill = skills[i]
+		if skill.skill_data.level == GlobalVariables.max_skill_level:
+			skill.plus.disabled = true
+		else:
+			if skill.skill_data.level > 0 and \
+			!can_pay(
+				skill.skill_data.level+1, skill_pack_object.skill_pack_data.specialization_identifier):
+				skill.plus.disabled = true
+			elif skill.skill_data.level == 0 \
+			and !can_pay(3, skill_pack_object.skill_pack_data.specialization_identifier):
+				skill.plus.disabled = true
+			else:
+				skill.plus.disabled = false
+		var pack_data = CharacterStats.get_pack_data(
+			skill_pack_object.skill_pack_data.identifier, 
+			CharacterStats.skill_data_before_skill_distribution
+			)
+		var minimal_level = pack_data.skill_data[i].level
+		if skill.skill_data.level == minimal_level:
+			skill.minus.disabled = true
+		elif skill.skill_data.level == 1 and skill_pack_object.skill_pack_data.bought:
+			skill.minus.disabled = true
+		else:
+			skill.minus.disabled = false
+			
+
+func set_buy_sell_button_state(skill_pack_object):
+	var skills = skill_pack_object.skill_object_group.get_children()
+	var spec_name = skill_pack_object.skill_pack_data.specialization_identifier
+	if can_pay(5, spec_name) == false:
+		skill_pack_object.buy_pack_button.disabled = true
+	else:
+		if _is_all_skill_levels_n(skills, 0):
+			skill_pack_object.buy_pack_button.disabled = false
+		else:
+			skill_pack_object.buy_pack_button.disabled = true
+	if _is_all_skill_levels_n(skills, 1):
+		skill_pack_object.sell_pack_button.disabled = false
+	else:
+		skill_pack_object.sell_pack_button.disabled = true
+
+
+func set_all_skill_packs_button_states():
+	var skill_packs = skill_pack_grid.get_children()
+	if CharacterStats.is_alternative_general_knowledge_active() and _current_attribute_index == 3:
+		skill_packs.append(alternative_general_knowledge)
+	for skill_pack in skill_packs:
+		set_plus_minus_button_state(skill_pack)
+		set_buy_sell_button_state(skill_pack)

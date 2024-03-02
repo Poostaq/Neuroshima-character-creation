@@ -12,22 +12,28 @@ _global_script_classes=[ {
 "base": "Reference",
 "class": "SkillData",
 "language": "GDScript",
-"path": "res://Scripts/SkillData.gd"
+"path": "res://Scripts/Helpers/SkillData.gd"
 }, {
 "base": "Reference",
 "class": "SkillPack",
 "language": "GDScript",
-"path": "res://Scripts/SkillPack.gd"
+"path": "res://Scripts/Helpers/SkillPack.gd"
 }, {
 "base": "Reference",
 "class": "SpecialRule",
 "language": "GDScript",
-"path": "res://Scripts/SpecialRule.gd"
+"path": "res://Scripts/Helpers/SpecialRule.gd"
+}, {
+"base": "Reference",
+"class": "Trick",
+"language": "GDScript",
+"path": "res://Scripts/Helpers/Trick.gd"
 } ]
 _global_script_class_icons={
 "SkillData": "",
 "SkillPack": "",
-"SpecialRule": ""
+"SpecialRule": "",
+"Trick": ""
 }
 
 [application]
@@ -43,8 +49,8 @@ default_bus_layout=""
 [autoload]
 
 DatabaseOperations="*res://Scripts/DataStore/DatabaseOperations.gd"
-GlobalVariables="*res://Scripts/GlobaVariables.gd"
-Dices="*res://Scripts/Dices.gd"
+GlobalVariables="*res://Scripts/Helpers/GlobaVariables.gd"
+Dices="*res://Scripts/Helpers/Dices.gd"
 CharacterStats="*res://Scripts/CharacterSheet/CharacterStats.gd"
 
 [display]

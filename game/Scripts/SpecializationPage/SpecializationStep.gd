@@ -40,6 +40,7 @@ onready var db = get_node("/root/DatabaseOperations")
 # API FUNCTIONS
 #####################################
 func load_step() -> void:
+	CharacterStats.update_attribute_values()
 	_specialization_list = db.read_specialization_identifiers()
 	_load_specialization(_get_current_secialization_identifier())
 	

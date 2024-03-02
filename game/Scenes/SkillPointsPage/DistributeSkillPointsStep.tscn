@@ -1,6 +1,5 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=25 format=2]
 
-[ext_resource path="res://Scenes/SkillPointsPage/GeneralKnowledgeContainer.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/SkillPointsPage/AlternateGeneralKnowledgeContainer.tscn" type="PackedScene" id=2]
 [ext_resource path="res://THEME.tres" type="Theme" id=3]
 [ext_resource path="res://Scripts/SkillPointsPage/DistributeSkillPointsStep.gd" type="Script" id=5]
@@ -16,7 +15,6 @@
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=25]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=26]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonPressed.tres" type="StyleBox" id=27]
-[ext_resource path="res://Scenes/SkillPointsPage/SkillPackContainer.tscn" type="PackedScene" id=28]
 
 [sub_resource type="DynamicFont" id=13]
 size = 48
@@ -57,6 +55,8 @@ font_data = ExtResource( 6 )
 [sub_resource type="DynamicFont" id=20]
 size = 20
 font_data = ExtResource( 6 )
+
+[sub_resource type="StyleBoxEmpty" id=22]
 
 [sub_resource type="StyleBoxEmpty" id=18]
 
@@ -124,19 +124,6 @@ columns = 3
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="GeneralKnowledgeContainer" parent="SkillContainerBackground/SkillPackGrid" instance=ExtResource( 1 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_right = 470.0
-margin_bottom = 200.0
-
-[node name="SkillPackContainer" parent="SkillContainerBackground/SkillPackGrid" instance=ExtResource( 28 )]
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 480.0
-margin_right = 950.0
-margin_bottom = 200.0
 
 [node name="AlternativeGeneralKnowledge" parent="SkillContainerBackground" instance=ExtResource( 2 )]
 unique_name_in_owner = true
@@ -317,6 +304,7 @@ anchor_right = 0.0797872
 anchor_bottom = 0.403226
 custom_styles/hover = ExtResource( 25 )
 custom_styles/pressed = ExtResource( 27 )
+custom_styles/focus = SubResource( 22 )
 custom_styles/disabled = ExtResource( 21 )
 custom_styles/normal = ExtResource( 26 )
 __meta__ = {
@@ -325,9 +313,9 @@ __meta__ = {
 
 [node name="Next" type="Button" parent="."]
 unique_name_in_owner = true
-anchor_left = 0.942021
+anchor_left = 0.950354
 anchor_top = 0.302419
-anchor_right = 0.995212
+anchor_right = 1.00355
 anchor_bottom = 0.403226
 custom_styles/hover = ExtResource( 19 )
 custom_styles/pressed = ExtResource( 24 )
@@ -338,7 +326,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="general_skill_pack_skill_selected" from="SkillContainerBackground/SkillPackGrid/GeneralKnowledgeContainer" to="." method="_on_general_skill_pack_skill_selected"]
 [connection signal="buy_pack_button_pressed" from="SkillContainerBackground/AlternativeGeneralKnowledge" to="." method="on_buy_pack_button_pressed"]
 [connection signal="mouse_entered_skill_name_of_skill_pack" from="SkillContainerBackground/AlternativeGeneralKnowledge" to="." method="_on_SkillPackContainer_mouse_entered_skill_name"]
 [connection signal="sell_pack_button_pressed" from="SkillContainerBackground/AlternativeGeneralKnowledge" to="." method="on_sell_pack_button_pressed"]

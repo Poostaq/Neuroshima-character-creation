@@ -75,6 +75,7 @@ func _ready() -> void:
 		button.connect("toggled", self, "_on_AttributeName_toggled", [container])
 
 func load_step() -> void:
+	DatabaseOperations.update_player_profession(CharacterStats.player_id, CharacterStats.profession_id, CharacterStats.profession_trait_id)
 	attribute_description.bbcode_text = tr("select_attribute_label")
 	attribute_description_name.text = ""
 	save_attributes()
@@ -90,6 +91,7 @@ func clean_up_step() -> void:
 	set_rolling_button_states()
 	save_attributes()
 	set_distribution_button_states()
+	CharacterStats.update_attribute_values()
 	emit_signal("attributes_selected")
 
 func attribute_value_label(attribute_container_element:Control):

@@ -16,6 +16,7 @@
 [ext_resource path="res://Resources/Buttons/GeneralButton/ButtonNormal.tres" type="StyleBox" id=14]
 [ext_resource path="res://Resources/Buttons/GeneralButton/ButtonPressed.tres" type="StyleBox" id=15]
 [ext_resource path="res://Resources/Buttons/GeneralButton/ButtonDisabled.tres" type="StyleBox" id=16]
+[ext_resource path="res://UI_Elements/skillBox.png" type="Texture" id=17]
 
 [sub_resource type="ButtonGroup" id=14]
 
@@ -30,10 +31,6 @@ outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 11 )
 
 [sub_resource type="StyleBoxEmpty" id=17]
-
-[sub_resource type="StreamTexture" id=13]
-flags = 4
-load_path = "res://.import/originDescriptionBox.png-52d352332bd0b631d4f50a09247e5384.stex"
 
 [sub_resource type="ShaderMaterial" id=9]
 shader = ExtResource( 12 )
@@ -120,7 +117,11 @@ margin_bottom = 950.0
 margin_right = 1873.0
 margin_bottom = 950.0
 
-[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="5"]
+[node name="TricksStep" parent="CharacterCreationProcess/StepContainer" index="5"]
+margin_right = 1873.0
+margin_bottom = 950.0
+
+[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="6"]
 margin_right = 1873.0
 margin_bottom = 950.0
 
@@ -335,7 +336,7 @@ anchor_left = 0.613696
 anchor_top = 0.453023
 anchor_right = 0.931521
 anchor_bottom = 0.909767
-texture = SubResource( 13 )
+texture = ExtResource( 17 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true

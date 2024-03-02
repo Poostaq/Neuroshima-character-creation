@@ -1,0 +1,333 @@
+[gd_scene load_steps=19 format=2]
+
+[ext_resource path="res://THEME.tres" type="Theme" id=1]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=3]
+[ext_resource path="res://UI_Elements/splashArtBox.png" type="Texture" id=4]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonNormal.tres" type="StyleBox" id=5]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=6]
+[ext_resource path="res://Scripts/TricksPage/TricksStep.gd" type="Script" id=7]
+[ext_resource path="res://Scenes/TricksPage/ActionObject.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=9]
+[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonHover.tres" type="StyleBox" id=10]
+
+[sub_resource type="DynamicFont" id=20]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFontData" id=24]
+font_path = "res://Fonts/Gruppo-Regular.ttf"
+
+[sub_resource type="DynamicFont" id=22]
+size = 36
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = SubResource( 24 )
+
+[sub_resource type="DynamicFont" id=25]
+size = 25
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = SubResource( 24 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 26
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxEmpty" id=26]
+
+[sub_resource type="DynamicFont" id=27]
+size = 36
+outline_size = 3
+outline_color = Color( 0.278431, 0.129412, 0, 1 )
+font_data = ExtResource( 2 )
+
+[node name="TricksStep" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -40.0
+margin_bottom = -88.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Control" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( -458, -29 )
+
+[node name="TextureRect" type="TextureRect" parent="Control"]
+anchor_left = 0.341489
+anchor_top = 0.0383065
+anchor_right = 1.0133
+anchor_bottom = 1.01512
+margin_right = -0.00012207
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 5.0
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TrickName" type="Label" parent="Control/TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.106888
+anchor_top = 0.118679
+anchor_right = 0.724463
+anchor_bottom = 0.185759
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 20 )
+text = "SKILL NAME"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="Control/TextureRect"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0958036
+anchor_top = 0.151703
+anchor_right = 0.901029
+anchor_bottom = 0.20227
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RequirementsSectionLabel" type="Label" parent="Control/TextureRect"]
+anchor_left = 0.110056
+anchor_top = 0.181631
+anchor_right = 0.416468
+anchor_bottom = 0.220846
+margin_left = -4.00122
+margin_top = -0.000320435
+margin_right = -4.00122
+margin_bottom = -0.000320435
+size_flags_horizontal = 3
+size_flags_vertical = 6
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "requirements_headline"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RequirementsLabel" type="Label" parent="Control/TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.110847
+anchor_top = 0.236326
+anchor_right = 0.901027
+anchor_bottom = 0.27451
+margin_left = -5.00026
+margin_top = 0.000335693
+margin_right = -5.00024
+margin_bottom = 0.000335693
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 25 )
+text = "LOREM IPSUM BASTARDUM"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator3" type="HSeparator" parent="Control/TextureRect"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.0958039
+anchor_top = 0.257998
+anchor_right = 0.901029
+anchor_bottom = 0.308566
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ActionList" type="GridContainer" parent="Control/TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.106888
+anchor_top = 0.547988
+anchor_right = 0.859063
+anchor_bottom = 0.651187
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Action" parent="Control/TextureRect/ActionList" instance=ExtResource( 8 )]
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 950.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TextureRect"]
+anchor_left = 0.106888
+anchor_top = 0.286894
+anchor_right = 0.910527
+anchor_bottom = 0.558308
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DescriptionSectionLabel" type="Label" parent="Control/TextureRect/VBoxContainer"]
+margin_right = 1014.0
+margin_bottom = 35.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "description_headline"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DescriptionText" type="RichTextLabel" parent="Control/TextureRect/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 45.0
+margin_right = 1014.0
+margin_bottom = 129.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "LOREM IPSUM BASTARDUM "
+text = "LOREM IPSUM BASTARDUM "
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BehaviourSectionLabel" type="Label" parent="Control/TextureRect/VBoxContainer"]
+margin_top = 133.0
+margin_right = 1014.0
+margin_bottom = 168.0
+size_flags_horizontal = 3
+size_flags_vertical = 2
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "behaviour_headline"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BehaviourText" type="RichTextLabel" parent="Control/TextureRect/VBoxContainer"]
+unique_name_in_owner = true
+margin_top = 178.0
+margin_right = 1014.0
+margin_bottom = 262.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 2.0
+custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/normal_font = SubResource( 23 )
+bbcode_text = "LOREM IPSUM BASTARDUM "
+text = "LOREM IPSUM BASTARDUM "
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TricksListObject" type="TextureRect" parent="Control"]
+anchor_left = 0.0590426
+anchor_top = 0.0514113
+anchor_right = 0.320212
+anchor_bottom = 0.998992
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="Control/TricksListObject"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.14053
+anchor_top = 0.104773
+anchor_right = 0.822811
+anchor_bottom = 0.175786
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 21 )
+text = "available_tricks"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="Control/TricksListObject"]
+modulate = Color( 0, 0.937255, 0.0823529, 1 )
+anchor_left = 0.10998
+anchor_top = 0.142553
+anchor_right = 0.869654
+anchor_bottom = 0.193617
+margin_top = -1.52588e-05
+margin_bottom = -1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control/TricksListObject"]
+anchor_left = 0.10998
+anchor_top = 0.176596
+anchor_right = 0.843178
+anchor_bottom = 0.9
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TricksList" type="GridContainer" parent="Control/TricksListObject/ScrollContainer"]
+unique_name_in_owner = true
+
+[node name="SelectedTrick" type="Button" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.582979
+anchor_top = 0.950605
+anchor_right = 0.78883
+anchor_bottom = 1.01915
+custom_styles/hover = ExtResource( 10 )
+custom_styles/pressed = ExtResource( 6 )
+custom_styles/focus = SubResource( 26 )
+custom_styles/disabled = ExtResource( 9 )
+custom_styles/normal = ExtResource( 5 )
+toggle_mode = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="SelectedTrick"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_colors/font_color = Color( 0.905882, 0.886275, 0, 1 )
+custom_fonts/font = SubResource( 27 )
+text = "SELECT"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[connection signal="pressed" from="SelectedTrick" to="." method="_on_SelectedTrick_pressed"]

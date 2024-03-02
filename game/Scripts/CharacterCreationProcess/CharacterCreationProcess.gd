@@ -17,6 +17,7 @@ onready var profession_step = $"%ProfessionStep"
 onready var attributes_step = $"%AttributesStep"
 onready var specialization_step = $"%SpecializationStep"
 onready var skill_points_step = $"%SkillPointsStep"
+onready var tricks_step = $"%TricksStep"
 onready var dummy_step = $"%DummyStep"
 
 
@@ -31,8 +32,7 @@ onready var reputation_indicator = $"%ReputationIndicator"
 onready var form_indicator = $"%FormIndicator"
 onready var gear_indicator = $"%GearIndicator"
 
-
-
+export var current_seed = 0
 export var current_step = 0
 onready var steps = [
 					ethnicity_step,
@@ -40,7 +40,8 @@ onready var steps = [
 					attributes_step,
 					specialization_step,
 					skill_points_step,
-					dummy_step,
+					tricks_step,
+					dummy_step
 ]
 
 onready var indicators = [

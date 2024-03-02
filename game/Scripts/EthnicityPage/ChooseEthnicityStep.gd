@@ -35,8 +35,9 @@ func load_step() -> void:
 
 
 func clean_up_step() -> void:
+	DatabaseOperations.update_player_ethnicity(CharacterStats.player_id, "", "")
 	if ethnicity_selected:
-		emit_signal("ethnicity_selected")
+		emit_signal("ethnicity_cleared")
 
 
 func _set_image(path) -> void:

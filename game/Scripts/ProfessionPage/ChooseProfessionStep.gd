@@ -27,6 +27,8 @@ func _ready():
 
 
 func load_step() -> void:
+	db.update_player_ethnicity(CharacterStats.player_id, CharacterStats.ethnicity_id, CharacterStats.ethnicity_trait_id)
+	CharacterStats.update_attribute_values()
 	_load_profession(profession)
 	trait_group = load("res://Scenes/ProfessionPage/Traits.tres")
 
