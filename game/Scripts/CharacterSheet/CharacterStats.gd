@@ -170,7 +170,6 @@ func remove_trick_from_character(trick_id):
 func update_attribute_values():
 	var attribute_list = DatabaseOperations.read_list_of_attributes_without_any()
 	for index in range(0,len(attribute_list)):
-		print(attribute_list[index].trim_suffix ("_name"))
 		var attribute = attribute_modifiers_dicts[index]
 		var value = 0
 		for key in attribute:
@@ -179,14 +178,8 @@ func update_attribute_values():
 	
 func get_all_skill_dictionary():
 	var skill_dictionary = {}
-	print(skill_data)
 	for skill_pack in skill_data.keys():
-		print(skill_pack)
-		print(skill_data[skill_pack])
 		var skill_pack_data = skill_data[skill_pack].skill_data
-		print(skill_pack_data)
 		for skill in skill_data[skill_pack].skill_data:
-			print()
 			skill_dictionary[skill.skill_identifier] = skill.level
-	print(skill_dictionary)
 	return skill_dictionary

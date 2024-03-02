@@ -293,7 +293,11 @@ func read_general_knowledge_skills():
 	db.close_db()
 	var skill_list = []
 	for record in selected_array:
-		var skill_data = SkillData.new(record["skill_name"], 0, record["skill_identifier"], record["skill_description"])
+		print(record["skill_description"])
+		var description = ""
+		if record["skill_description"] != null:
+			description = record["skill_description"]
+		var skill_data = SkillData.new(record["skill_name"], 0, record["skill_identifier"], description)
 		skill_list.append(skill_data)
 	return skill_list
 	
