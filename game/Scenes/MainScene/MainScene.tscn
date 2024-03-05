@@ -97,43 +97,37 @@ visible = false
 
 [node name="EthnicityStep" parent="CharacterCreationProcess/StepContainer" index="0"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 902.0
 trait_group = SubResource( 14 )
 
 [node name="ProfessionStep" parent="CharacterCreationProcess/StepContainer" index="1"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 902.0
 trait_group = SubResource( 15 )
 
 [node name="AttributesStep" parent="CharacterCreationProcess/StepContainer" index="2"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 902.0
 
 [node name="SpecializationStep" parent="CharacterCreationProcess/StepContainer" index="3"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 902.0
 
 [node name="SkillPointsStep" parent="CharacterCreationProcess/StepContainer" index="4"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 902.0
 
 [node name="TricksStep" parent="CharacterCreationProcess/StepContainer" index="5"]
-anchor_left = 0.0
-anchor_top = 0.0
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 902.0
 
-[node name="IlnessStep" parent="CharacterCreationProcess/StepContainer" index="6"]
+[node name="IllnessStep" parent="CharacterCreationProcess/StepContainer" index="6"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 902.0
 
-[node name="IlnessStep" parent="CharacterCreationProcess/StepContainer" index="7"]
+[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="7"]
 margin_right = 1873.0
-margin_bottom = 950.0
-
-[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="8"]
-margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 902.0
 
 [node name="EthnicityIndicator" parent="CharacterCreationProcess/StepsContainer" index="0"]
 margin_bottom = 76.0

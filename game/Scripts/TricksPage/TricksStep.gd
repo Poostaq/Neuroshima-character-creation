@@ -3,6 +3,7 @@ extends Control
 signal trick_selected
 signal trick_unselected
 
+var step_name = "tricks_step_description"
 export var tricks_data_list: Array
 onready var trick_object = preload("res://Scenes/TricksPage/TrickObject.tscn")
 onready var action_object_scene = preload("res://Scenes/TricksPage/ActionObject.tscn")

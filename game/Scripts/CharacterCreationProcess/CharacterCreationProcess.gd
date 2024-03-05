@@ -18,10 +18,10 @@ onready var attributes_step = $"%AttributesStep"
 onready var specialization_step = $"%SpecializationStep"
 onready var skill_points_step = $"%SkillPointsStep"
 onready var tricks_step = $"%TricksStep"
-onready var ilness_step = $"%IlnessStep"
+onready var illness_step = $"%IllnessStep"
 onready var dummy_step = $"%DummyStep"
 
-
+onready var step_name_label = $"%StepNameLabel"
 onready var ethnicity_indicator = $"%EthnicityIndicator"
 onready var profession_indicator = $"%ProfessionIndicator"
 onready var attributes_indicator = $"%AttributesIndicator"
@@ -42,7 +42,7 @@ onready var steps = [
 					specialization_step,
 					skill_points_step,
 					tricks_step,
-					ilness_step,
+					illness_step,
 					dummy_step
 ]
 
@@ -81,6 +81,7 @@ func _next_step() -> void:
 	steps[current_step].load_step()
 	_turn_on_step_indicators()
 	_show_current_screen()
+	step_name_label.text = steps[current_step].step_name
 	character_sheet_panel.update_card()
 	
 	
@@ -93,6 +94,7 @@ func _previous_step() -> void:
 		current_step -= 1
 	_turn_off_step_indicators()
 	_show_current_screen()
+	step_name_label.text = steps[current_step].step_name
 	character_sheet_panel.update_card()
 
 

@@ -4,6 +4,7 @@ signal attributes_selected
 signal attributes_cleared
 
 
+var step_name = "attributes_step_description"
 onready var distribute_attributes_ui = $"%DistributeAttributesUI"
 onready var roll_attributes_ui = $"%RollAttributesUI"
 

@@ -1324,4 +1324,10 @@ origami_action_description_1,"Używane przez walczących bronie otrzymują modyf
 origami_action_description_2,"Przeciwnik wylatuje w górę i uderza o ziemię. Otrzymuje Lekką ranę i nie może przejąć Inicjatywy w kolejnym segmencie. Jeśli przeciwnik został pochwycony wcześniej, wtedy akcja kosztuje tylko 1 sukces.
        ","The opponent flies up and hits the ground. They receive a Light Wound and cannot take Initiative in the next segment. If the opponent was captured earlier, the action costs only 1 success. "
 origami_action_description_3,"Walczący zakłada dźwignię i unieruchamia przeciwnika, jeśli zechce może zadać ranę Ciężką. Może także przydusić przeciwnika, aż ten straci przytomność. Jeśli przeciwnik został pochwycony wcześniej, wtedy akcja kosztuje tylko 2 sukcesy.","The fighter applies a lever and immobilizes the opponent; if he wants, he can inflict a Serious Wound. He can also suffocate the opponent until they lose consciousness. If the opponent was captured earlier, the action costs only 2 successes."
-whippity_whoop_action_description_1,"PT testu o poziom wyższy, tylko do walki gołymi rękami. Rozbrajasz przeciwnika i przejmujesz jego broń.","Test level higher, only for unarmed combat. You disarm the opponent and take his weapon."
+whippity_whoop_action_description_1,"PT testu o poziom wyższy, tylko do walki gołymi rękami. Rozbrajasz przeciwnika i przejmujesz jego broń.","PT testu o poziom wyższy, tylko do walki gołymi rękami. Rozbrajasz przeciwnika i przejmujesz jego broń."
+ethnicity_step_description,KROK 1: POCHODZENIE,STEP 1: ETHNICITY
+profession_step_description,KROK 2: PROFESJA,STEP 2: PROFESSION
+attributes_step_description,KROK 3: WSPÓŁCZYNNIKI,STEP 3: ATTRIBUTES
+specialization_step_description,KROK 4: SPECJALIZACJA,STEP 4: SPECIALIZATION
+skill_points_step_description,KROK 5: UMIEJĘTNOŚCI,STEP 5: SKILLS
+tricks_step_description,KROK 6: SZTUCZKI,STEP 6: TRICKS

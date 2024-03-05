@@ -179,7 +179,6 @@ func update_attribute_values():
 func get_all_skill_dictionary():
 	var skill_dictionary = {}
 	for skill_pack in skill_data.keys():
-		var skill_pack_data = skill_data[skill_pack].skill_data
 		for skill in skill_data[skill_pack].skill_data:
 			skill_dictionary[skill.skill_identifier] = skill.level
 	return skill_dictionary

@@ -3,6 +3,7 @@ extends Control
 signal points_spent
 signal points_returned
 
+var step_name = "skill_points_step_description"
 onready var current_attribute_label = $"%CurrentAttributeLabel"
 onready var chosen_spec_label = $"%ChosenSpecLabel"
 onready var skill_pack_grid = $"%SkillPackGrid"

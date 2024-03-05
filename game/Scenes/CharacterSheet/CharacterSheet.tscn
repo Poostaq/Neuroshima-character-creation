@@ -1031,7 +1031,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Ilness" type="Control" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture"]
+[node name="Illness" type="Control" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture"]
 anchor_left = 0.5175
 anchor_top = 0.16766
 anchor_right = 0.94125
@@ -1041,7 +1041,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="IlnessName" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+[node name="IllnessName" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Illness"]
 unique_name_in_owner = true
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.348083
@@ -1056,7 +1056,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Medicine" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+[node name="Medicine" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Illness"]
 unique_name_in_owner = true
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.168143
@@ -1073,7 +1073,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FirstSymptoms" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+[node name="FirstSymptoms" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Illness"]
 unique_name_in_owner = true
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.342184
@@ -1088,7 +1088,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AcuteCondition" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+[node name="AcuteCondition" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Illness"]
 unique_name_in_owner = true
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.324485
@@ -1103,7 +1103,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="CriticalCondition" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Ilness"]
+[node name="CriticalCondition" type="Label" parent="PanelContainer/MonitorTexture/MarginContainer/ScrollContainer/CharacterCardTexture/Illness"]
 unique_name_in_owner = true
 modulate = Color( 0, 0, 0, 1 )
 anchor_left = 0.351034

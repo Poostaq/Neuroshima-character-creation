@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=2]
+[gd_scene load_steps=50 format=2]
 
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=2]
@@ -28,8 +28,10 @@
 [ext_resource path="res://UI_Elements/MainMenu/help_off_4.png" type="Texture" id=26]
 [ext_resource path="res://Scenes/TricksPage/TricksStep.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/CharacterCreationProcess/DummyStep.gd" type="Script" id=28]
-[ext_resource path="res://Scenes/IllnessPage/IlnessStep.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Scripts/IllnessPage/IlnessStep.gd" type="Script" id=30]
+[ext_resource path="res://Scenes/IllnessPage/IllnessStep.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scripts/IllnessPage/IllnessStep.gd" type="Script" id=30]
+[ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=31]
+[ext_resource path="res://Fonts/Bold_45_colored.tres" type="DynamicFont" id=32]
 
 [sub_resource type="ButtonGroup" id=2]
 
@@ -101,9 +103,34 @@ __meta__ = {
 steps_container = NodePath("StepsContainer")
 character_sheet_panel = NodePath("CharacterSheet")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.0234375
+anchor_top = 0.913889
+anchor_right = 0.383333
+anchor_bottom = 0.986111
+texture = ExtResource( 31 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StepNameLabel" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.0711061
+anchor_top = 0.0121951
+anchor_right = 0.927765
+anchor_bottom = 0.878049
+custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_fonts/font = ExtResource( 32 )
+text = "STEP 1: ETHNICITY"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="StepContainer" type="MarginContainer" parent="."]
 anchor_left = 0.00520833
-anchor_top = 0.00925926
+anchor_top = 0.00277778
 anchor_right = 0.994792
 anchor_bottom = 0.912037
 grow_horizontal = 2
@@ -128,7 +155,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 trait_group = SubResource( 2 )
 
 [node name="ProfessionStep" parent="StepContainer" instance=ExtResource( 10 )]
@@ -139,7 +166,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 trait_group = SubResource( 5 )
 
 [node name="AttributesStep" parent="StepContainer" instance=ExtResource( 11 )]
@@ -150,7 +177,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 
 [node name="SpecializationStep" parent="StepContainer" instance=ExtResource( 9 )]
 unique_name_in_owner = true
@@ -160,7 +187,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 
 [node name="SkillPointsStep" parent="StepContainer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
@@ -170,7 +197,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 
 [node name="TricksStep" parent="StepContainer" instance=ExtResource( 27 )]
 unique_name_in_owner = true
@@ -180,9 +207,9 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 
-[node name="IlnessStep" parent="StepContainer" instance=ExtResource( 29 )]
+[node name="IllnessStep" parent="StepContainer" instance=ExtResource( 29 )]
 unique_name_in_owner = true
 visible = false
 anchor_left = 0.0
@@ -192,7 +219,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 script = ExtResource( 30 )
 
 [node name="DummyStep" type="Control" parent="StepContainer"]
@@ -201,7 +228,7 @@ visible = false
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 script = ExtResource( 28 )
 
 [node name="TextEdit" type="Label" parent="StepContainer/DummyStep"]
@@ -218,6 +245,8 @@ anchor_left = 0.338542
 anchor_top = 0.917593
 anchor_right = 0.385417
 anchor_bottom = 0.991667
+margin_left = 120.0
+margin_right = 120.0
 size_flags_horizontal = 7
 size_flags_vertical = 7
 size_flags_stretch_ratio = 4.0
@@ -226,23 +255,19 @@ custom_styles/pressed = ExtResource( 12 )
 custom_styles/focus = SubResource( 7 )
 custom_styles/disabled = ExtResource( 4 )
 custom_styles/normal = ExtResource( 2 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="StepsContainer" type="HBoxContainer" parent="."]
 anchor_left = 0.390625
 anchor_top = 0.919444
 anchor_right = 0.795833
 anchor_bottom = 0.990741
+margin_left = 120.0
+margin_right = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 17.09
 custom_constants/separation = 20
 alignment = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="EthnicityIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
@@ -392,6 +417,8 @@ anchor_left = 0.796875
 anchor_top = 0.915741
 anchor_right = 0.84375
 anchor_bottom = 0.989815
+margin_left = 120.0
+margin_right = 120.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 4.0
