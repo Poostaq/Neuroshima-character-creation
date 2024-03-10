@@ -88,5 +88,5 @@ func _on_SaveButton_pressed():
 	_back_to_main_menu()
 
 
-func _on_IllnessSelectionMode_item_selected(index):
+func _on_DiseaseSelectionMode_item_selected(index):
 	pass # Replace with function body.

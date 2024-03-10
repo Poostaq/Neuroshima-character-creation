@@ -28,7 +28,7 @@ onready var language_selector: OptionButton = $"%LanguageSelector"
 onready var close_button = $"%CloseButton"
 onready var all_skill_point_selector = $"%AllSkillPointsSelector"
 onready var spec_skill_point_selector = $"%SpecSkillPointsSelector"
-onready var illness_selection_mode = $"%IllnessSelectionMode"
+onready var disease_selection_mode = $"%DiseaseSelectionMode"
 #####################################
 # OVERRIDE FUNCTIONS
 #####################################
@@ -41,7 +41,7 @@ func _ready() -> void:
 			_on_LanguageSelector_item_selected(i)
 	all_skill_point_selector.value = GlobalVariables.max_skill_points
 	spec_skill_point_selector.value = GlobalVariables.max_specialization_skill_points
-	illness_selection_mode.select(GlobalVariables.illness_mode)
+	disease_selection_mode.select(GlobalVariables.disease_mode)
 	
 #####################################
 # API FUNCTIONS
@@ -73,5 +73,5 @@ func _on_AllSkillPointsSelector_value_changed(value:float):
 	GlobalVariables.max_skill_points = value
 
 
-func _on_IllnessSelectionMode_item_selected(index):
-	GlobalVariables.illness_mode = index
+func _on_DiseaseSelectionMode_item_selected(index):
+	GlobalVariables.disease_mode = index

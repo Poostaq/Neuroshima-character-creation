@@ -557,7 +557,7 @@ attributes_step_tooltip,Współczynniki,Attributes
 specialization_step_tooltip,Specjalizacja,Specialization
 skills_step_tooltip,Umiejętności,Skills
 tricks_step_tooltip,Sztuczki,Tricks
-illness_step_tooltip,Choroba,Illness
+disease_step_tooltip,Choroba,Disease
 reputation_step_tooltip,Reputacja,Reputation
 form_step_tooltip,Formularz,Form
 equipment_step_tooltip,Sprzęt,Equipment
@@ -1331,5 +1331,8 @@ attributes_step_description,KROK 3: WSPÓŁCZYNNIKI,STEP 3: ATTRIBUTES
 specialization_step_description,KROK 4: SPECJALIZACJA,STEP 4: SPECIALIZATION
 skill_points_step_description,KROK 5: UMIEJĘTNOŚCI,STEP 5: SKILLS
 tricks_step_description,KROK 6: SZTUCZKI,STEP 6: TRICKS
-illness_step_description,KROK 7: CHOROBA,STEP 7: ILLNESS
-illness_selection_mode_setting,Tryb wyboru choroby,Mode for illness selection
+disease_step_description,KROK 7: CHOROBA,STEP 7: DISEASE
+disease_selection_mode_setting,Tryb wyboru choroby,Mode for disease selection
+disease_step_flavour_description,"Nastał czas na coś przykrego. Trzeba określić, na co chorujesz. Niestety, chorują wszyscy. Co gorsza, nie ma tu zwykłej grypy, chyba, że ta grypa nieleczona zabija, a leczona, co najwyżej odsuwa moment śmierci. To, co poniżej, to nasze największe przekleństwo. Nasza degeneracja. Każdy z Bohaterów powinien wylosować sobie chorobę, na jaką cierpi.
+Niestety, oto smutna prawda o współczesnym świecie…","It's time for something unpleasant. You have to determine what disease you suffer from. Unfortunately, everyone is sick. What's worse, it's not just a common flu, unless that flu, untreated, kills, and treated, at best, only delays the moment of death. What follows below is our greatest curse. Our degeneration. Each of the Heroes should draw a disease they suffer from.
+Unfortunately, here's the sad truth about the modern world..."

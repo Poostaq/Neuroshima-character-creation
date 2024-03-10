@@ -121,7 +121,7 @@ margin_bottom = 957.0
 margin_right = 1873.0
 margin_bottom = 957.0
 
-[node name="IllnessStep" parent="CharacterCreationProcess/StepContainer" index="6"]
+[node name="DiseaseStep" parent="CharacterCreationProcess/StepContainer" index="6"]
 margin_right = 1873.0
 margin_bottom = 957.0
 
@@ -372,6 +372,7 @@ __meta__ = {
 
 [node name="SettingsWindow" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 306, 200 )
@@ -472,7 +473,7 @@ min_value = 1.0
 value = 1.0
 align = 1
 
-[node name="IllnessSelectionModeLabel" type="Label" parent="SettingsWindow/TextureRect"]
+[node name="DiseaseSelectionModeLabel" type="Label" parent="SettingsWindow/TextureRect"]
 anchor_left = 0.0915255
 anchor_top = 0.504469
 anchor_right = 0.394915
@@ -480,14 +481,14 @@ anchor_bottom = 0.613705
 margin_right = 0.000610352
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 21 )
-text = "illness_selection_mode_setting"
+text = "disease_selection_mode_setting"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="IllnessSelectionMode" type="OptionButton" parent="SettingsWindow/TextureRect"]
+[node name="DiseaseSelectionMode" type="OptionButton" parent="SettingsWindow/TextureRect"]
 unique_name_in_owner = true
 anchor_left = 0.637288
 anchor_top = 0.51142
@@ -554,7 +555,7 @@ environment = SubResource( 12 )
 [connection signal="item_selected" from="SettingsWindow/TextureRect/LanguageSelector" to="SettingsWindow" method="_on_LanguageSelector_item_selected"]
 [connection signal="value_changed" from="SettingsWindow/TextureRect/AllSkillPointsSelector" to="SettingsWindow" method="_on_AllSkillPointsSelector_value_changed"]
 [connection signal="value_changed" from="SettingsWindow/TextureRect/SpecSkillPointsSelector" to="SettingsWindow" method="_on_SpecSkillPointsSelector_value_changed"]
-[connection signal="item_selected" from="SettingsWindow/TextureRect/IllnessSelectionMode" to="SettingsWindow" method="_on_IllnessSelectionMode_item_selected"]
+[connection signal="item_selected" from="SettingsWindow/TextureRect/DiseaseSelectionMode" to="SettingsWindow" method="_on_DiseaseSelectionMode_item_selected"]
 [connection signal="pressed" from="SettingsWindow/TextureRect/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="button_up" from="SettingsWindow/CloseButton" to="SettingsWindow" method="_on_CloseButton_button_up"]
 

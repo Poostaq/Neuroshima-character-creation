@@ -563,3 +563,9 @@ func update_player_skill_levels(player_id: int, skill_data_dict) -> void:
 	db.update_rows("player_info", condition, skill_data_dict)
 	db.close_db()
 	
+func get_all_disease_data() -> Array:
+	var select = "SELECT * "
+	var from = "FROM diseases "
+	var records = sql_command(select+from)
+	return records
+	

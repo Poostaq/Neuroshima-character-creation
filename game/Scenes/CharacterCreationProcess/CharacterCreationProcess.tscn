@@ -28,7 +28,7 @@
 [ext_resource path="res://UI_Elements/MainMenu/help_off_4.png" type="Texture" id=26]
 [ext_resource path="res://Scenes/TricksPage/TricksStep.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/CharacterCreationProcess/DummyStep.gd" type="Script" id=28]
-[ext_resource path="res://Scenes/IllnessPage/IllnessStep.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/DiseasePage/DiseaseStep.tscn" type="PackedScene" id=29]
 [ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=31]
 [ext_resource path="res://Fonts/Bold_45_colored.tres" type="DynamicFont" id=32]
 
@@ -208,7 +208,7 @@ margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 962.0
 
-[node name="IllnessStep" parent="StepContainer" instance=ExtResource( 29 )]
+[node name="DiseaseStep" parent="StepContainer" instance=ExtResource( 29 )]
 unique_name_in_owner = true
 visible = false
 anchor_left = 0.0
@@ -360,7 +360,7 @@ margin_left = 478.0
 margin_right = 537.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "illness_step_tooltip"
+hint_tooltip = "disease_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 18 )
