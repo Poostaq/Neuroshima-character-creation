@@ -41,6 +41,8 @@ var special_rules: Dictionary
 var fame: int
 var tricks: Array
 var player_id: int
+var player_seed: int
+var player_seed_state: int
 
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()

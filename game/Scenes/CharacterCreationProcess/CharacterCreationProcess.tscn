@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=2]
@@ -29,7 +29,6 @@
 [ext_resource path="res://Scenes/TricksPage/TricksStep.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/CharacterCreationProcess/DummyStep.gd" type="Script" id=28]
 [ext_resource path="res://Scenes/IllnessPage/IllnessStep.tscn" type="PackedScene" id=29]
-[ext_resource path="res://Scripts/IllnessPage/IllnessStep.gd" type="Script" id=30]
 [ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=31]
 [ext_resource path="res://Fonts/Bold_45_colored.tres" type="DynamicFont" id=32]
 
@@ -105,9 +104,9 @@ character_sheet_panel = NodePath("CharacterSheet")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.0234375
-anchor_top = 0.913889
+anchor_top = 0.917593
 anchor_right = 0.383333
-anchor_bottom = 0.986111
+anchor_bottom = 0.976852
 texture = ExtResource( 31 )
 expand = true
 __meta__ = {
@@ -120,7 +119,7 @@ anchor_left = 0.0711061
 anchor_top = 0.0121951
 anchor_right = 0.927765
 anchor_bottom = 0.878049
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = ExtResource( 32 )
 text = "STEP 1: ETHNICITY"
 valign = 1
@@ -220,7 +219,6 @@ margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 962.0
-script = ExtResource( 30 )
 
 [node name="DummyStep" type="Control" parent="StepContainer"]
 unique_name_in_owner = true
@@ -446,7 +444,7 @@ custom_styles/disabled = ExtResource( 20 )
 custom_styles/normal = ExtResource( 15 )
 
 [node name="CharacterCardButton" type="Label" parent="CardButton"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0748174
 anchor_top = 0.049
 anchor_right = 0.46

@@ -94,7 +94,7 @@ anchor_right = 0.724463
 anchor_bottom = 0.185759
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 20 )
 text = "SKILL NAME"
 __meta__ = {
@@ -102,7 +102,7 @@ __meta__ = {
 }
 
 [node name="HSeparator2" type="HSeparator" parent="Control/TextureRect"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0958036
 anchor_top = 0.151703
 anchor_right = 0.901029
@@ -124,7 +124,7 @@ margin_right = -4.00122
 margin_bottom = -0.000320435
 size_flags_horizontal = 3
 size_flags_vertical = 6
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "requirements_headline"
 __meta__ = {
@@ -143,7 +143,7 @@ margin_right = -5.00024
 margin_bottom = 0.000335693
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 25 )
 text = "LOREM IPSUM BASTARDUM"
 autowrap = true
@@ -152,7 +152,7 @@ __meta__ = {
 }
 
 [node name="HSeparator3" type="HSeparator" parent="Control/TextureRect"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0958039
 anchor_top = 0.257998
 anchor_right = 0.901029
@@ -195,7 +195,7 @@ margin_right = 1014.0
 margin_bottom = 35.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "description_headline"
 __meta__ = {
@@ -210,7 +210,7 @@ margin_bottom = 129.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/normal_font = SubResource( 23 )
 bbcode_text = "LOREM IPSUM BASTARDUM "
 text = "LOREM IPSUM BASTARDUM "
@@ -224,7 +224,7 @@ margin_right = 1014.0
 margin_bottom = 168.0
 size_flags_horizontal = 3
 size_flags_vertical = 2
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "behaviour_headline"
 __meta__ = {
@@ -239,7 +239,7 @@ margin_bottom = 262.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 2.0
-custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/normal_font = SubResource( 23 )
 bbcode_text = "LOREM IPSUM BASTARDUM "
 text = "LOREM IPSUM BASTARDUM "
@@ -260,7 +260,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/TricksListObject"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.14053
 anchor_top = 0.104773
 anchor_right = 0.822811
@@ -276,7 +276,7 @@ __meta__ = {
 }
 
 [node name="HSeparator" type="HSeparator" parent="Control/TricksListObject"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.10998
 anchor_top = 0.142553
 anchor_right = 0.869654

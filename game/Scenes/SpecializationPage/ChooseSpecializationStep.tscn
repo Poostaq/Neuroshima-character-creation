@@ -75,7 +75,7 @@ __meta__ = {
 
 [node name="SpecializationSkills" type="RichTextLabel" parent="TextureRect2"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.169043
 anchor_top = 0.180442
 anchor_right = 0.822811
@@ -93,7 +93,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="TextureRect2"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.14053
 anchor_top = 0.104773
 anchor_right = 0.822811
@@ -109,7 +109,7 @@ __meta__ = {
 }
 
 [node name="HSeparator" type="HSeparator" parent="TextureRect2"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.10998
 anchor_top = 0.142553
 anchor_right = 0.869654
@@ -136,7 +136,7 @@ __meta__ = {
 
 [node name="SpecializationName" type="Label" parent="TextureRect3"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0250386
 anchor_top = 0.0732799
 anchor_right = 0.944444
@@ -152,7 +152,7 @@ __meta__ = {
 }
 
 [node name="HSeparator" type="HSeparator" parent="TextureRect3"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0962437
 anchor_top = 0.151308
 anchor_right = 0.899061
@@ -165,7 +165,7 @@ __meta__ = {
 
 [node name="SpecializationDescription" type="RichTextLabel" parent="TextureRect3"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0931142
 anchor_top = 0.188542
 anchor_right = 0.906103

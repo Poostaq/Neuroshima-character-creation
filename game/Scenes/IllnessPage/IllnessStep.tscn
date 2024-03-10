@@ -1,13 +1,16 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=3]
-[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonHover.tres" type="StyleBox" id=4]
-[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=5]
-[ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonNormal.tres" type="StyleBox" id=6]
+[ext_resource path="res://Scripts/IllnessPage/IllnessStep.gd" type="Script" id=3]
 [ext_resource path="res://UI_Elements/SkillBoxBorderBig.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=8]
+
+[sub_resource type="DynamicFont" id=6]
+size = 26
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=3]
 size = 40
@@ -21,35 +24,55 @@ outline_size = 3
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="StyleBoxEmpty" id=1]
-
-[sub_resource type="DynamicFont" id=2]
-size = 48
-outline_size = 3
-outline_color = Color( 0.278431, 0.129412, 0, 1 )
-font_data = ExtResource( 2 )
-
 [sub_resource type="DynamicFont" id=5]
 size = 30
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
+[sub_resource type="DynamicFont" id=7]
+size = 40
+outline_size = 4
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=8]
+size = 48
+outline_size = 4
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=10]
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxEmpty" id=12]
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 8 )
+region_rect = Rect2( -10, -10, 490, 220 )
+margin_left = 20.0
+margin_right = 20.0
+margin_top = 20.0
+margin_bottom = 20.0
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
 [node name="IllnessStep" type="Control"]
 anchor_left = 0.0104167
 anchor_top = 0.0185185
 anchor_right = 0.979167
 anchor_bottom = 0.884259
+script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SelectIllness" type="Control" parent="."]
-visible = false
-anchor_right = 1.0
-anchor_bottom = 1.0
-
-[node name="TextureRect" type="TextureRect" parent="SelectIllness"]
+[node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.0365591
 anchor_top = 0.0245989
 anchor_right = 0.990323
@@ -61,97 +84,64 @@ margin_bottom = -0.00256348
 texture = ExtResource( 1 )
 expand = true
 
-[node name="IllnessName" type="Label" parent="SelectIllness/TextureRect"]
-anchor_left = 0.0975197
-anchor_top = 0.11875
-anchor_right = 0.875422
-anchor_bottom = 0.215624
-custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "NAME OF THE ILLNESS"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
+[node name="SelectIllness" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
 
-[node name="HSeparator" type="HSeparator" parent="SelectIllness/TextureRect"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.0947012
-anchor_top = 0.202083
-anchor_right = 0.897519
-anchor_bottom = 0.253366
-margin_top = -1.52588e-05
-margin_bottom = -1.52588e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="DescriptionHeadline" type="Label" parent="SelectIllness/TextureRect"]
-anchor_left = 0.0980834
-anchor_top = 0.230208
-anchor_right = 0.353438
-anchor_bottom = 0.283333
-custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "DESCRIPTION"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="IllnessDescription" type="RichTextLabel" parent="SelectIllness/TextureRect"]
-anchor_left = 0.104284
-anchor_top = 0.293749
-anchor_right = 0.371477
-anchor_bottom = 0.844789
-text = "TEST DESCRIPTION"
-
-[node name="SelectedIdentifier" type="Button" parent="SelectIllness"]
-anchor_left = 0.379032
-anchor_top = 0.963637
-anchor_right = 0.648387
-anchor_bottom = 1.07273
-custom_styles/hover = ExtResource( 4 )
-custom_styles/pressed = ExtResource( 3 )
-custom_styles/focus = SubResource( 1 )
-custom_styles/disabled = ExtResource( 5 )
-custom_styles/normal = ExtResource( 6 )
-toggle_mode = true
-
-[node name="Label" type="Label" parent="SelectIllness/SelectedIdentifier"]
-anchor_left = 0.00598798
-anchor_top = -0.0392163
-anchor_right = 1.00599
-anchor_bottom = 0.960786
-custom_colors/font_color = Color( 0.905882, 0.886275, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "ROLL"
+[node name="Label" type="Label" parent="SelectIllness"]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.119355
+anchor_top = 0.116578
+anchor_right = 0.303763
+anchor_bottom = 0.187166
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_fonts/font = SubResource( 6 )
+text = "available_tricks"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RollForIllness" type="Control" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="HSeparator" type="HSeparator" parent="SelectIllness"]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.110215
+anchor_top = 0.142246
+anchor_right = 0.297849
+anchor_bottom = 0.193583
+margin_top = -1.52588e-05
+margin_bottom = -1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="TextureRect" type="TextureRect" parent="RollForIllness"]
-anchor_left = 0.0365591
-anchor_top = 0.0245989
-anchor_right = 0.990323
-anchor_bottom = 1.05134
-margin_left = -2.99995
-margin_top = 3.62396e-05
-margin_right = -0.0012207
-margin_bottom = -0.00256348
-texture = ExtResource( 1 )
-expand = true
+[node name="ScrollContainer" type="ScrollContainer" parent="SelectIllness"]
+anchor_left = 0.110753
+anchor_top = 0.188235
+anchor_right = 0.310215
+anchor_bottom = 0.91123
+size_flags_horizontal = 3
+size_flags_vertical = 3
+scroll_horizontal_enabled = false
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="IllnessName" type="Label" parent="RollForIllness/TextureRect"]
-anchor_left = 0.0975197
-anchor_top = 0.11875
-anchor_right = 0.875422
-anchor_bottom = 0.215624
+[node name="TricksList" type="GridContainer" parent="SelectIllness/ScrollContainer"]
+unique_name_in_owner = true
+
+[node name="IllnessName" type="Label" parent="SelectIllness"]
+anchor_left = 0.445695
+anchor_top = 0.122917
+anchor_right = 0.895892
+anchor_bottom = 0.219792
+margin_left = 26.0071
+margin_top = 25.073
+margin_right = 26.0071
+margin_bottom = 25.073
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "NAME OF THE ILLNESS"
@@ -160,23 +150,29 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator" type="HSeparator" parent="RollForIllness/TextureRect"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
-anchor_left = 0.0947012
+[node name="HSeparator2" type="HSeparator" parent="SelectIllness"]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.45076
 anchor_top = 0.202083
-anchor_right = 0.897519
-anchor_bottom = 0.253366
-margin_top = -1.52588e-05
-margin_bottom = -1.52588e-05
+anchor_right = 0.89758
+anchor_bottom = 0.253125
+margin_left = 25.5867
+margin_top = 27.0521
+margin_right = 25.5867
+margin_bottom = 27.0521
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DescriptionHeadline" type="Label" parent="RollForIllness/TextureRect"]
-anchor_left = 0.0980834
-anchor_top = 0.230208
-anchor_right = 0.353438
-anchor_bottom = 0.283333
+[node name="DescriptionHeadline" type="Label" parent="SelectIllness"]
+anchor_left = 0.453011
+anchor_top = 0.251042
+anchor_right = 0.708365
+anchor_bottom = 0.304167
+margin_left = 25.3998
+margin_top = 28.2762
+margin_right = 25.3999
+margin_bottom = 28.2762
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "DESCRIPTION"
@@ -184,28 +180,88 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="IllnessDescription" type="RichTextLabel" parent="RollForIllness/TextureRect"]
+[node name="IllnessDescription" type="RichTextLabel" parent="SelectIllness"]
 anchor_left = 0.104284
 anchor_top = 0.293749
 anchor_right = 0.371477
 anchor_bottom = 0.844789
+margin_left = 680.032
+margin_top = 46.3448
+margin_right = 680.032
+margin_bottom = 46.3448
+text = "TEST DESCRIPTION"
+
+[node name="RolledIllnessScreen" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="IllnessName" type="Label" parent="RolledIllnessScreen"]
+anchor_left = 0.0975197
+anchor_top = 0.11875
+anchor_right = 0.875422
+anchor_bottom = 0.215624
+margin_left = 56.9058
+margin_top = 25.9688
+margin_right = 56.9058
+margin_bottom = 25.9688
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "NAME OF THE ILLNESS"
+valign = 1
+
+[node name="HSeparator" type="HSeparator" parent="RolledIllnessScreen"]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0947012
+anchor_top = 0.202083
+anchor_right = 0.897519
+anchor_bottom = 0.253366
+margin_left = 57.1397
+margin_top = 28.0521
+margin_right = 57.1398
+margin_bottom = 28.0521
+
+[node name="DescriptionHeadline" type="Label" parent="RolledIllnessScreen"]
+anchor_left = 0.0980834
+anchor_top = 0.230208
+anchor_right = 0.353438
+anchor_bottom = 0.283333
+margin_left = 56.859
+margin_top = 28.7553
+margin_right = 56.859
+margin_bottom = 28.7553
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "DESCRIPTION"
+
+[node name="IllnessDescription" type="RichTextLabel" parent="RolledIllnessScreen"]
+anchor_left = 0.104284
+anchor_top = 0.293749
+anchor_right = 0.371477
+anchor_bottom = 0.844789
+margin_left = 56.3444
+margin_top = 30.3438
+margin_right = 56.3444
+margin_bottom = 30.3438
 custom_colors/default_color = Color( 0, 0.717647, 0.0392157, 1 )
 custom_fonts/normal_font = SubResource( 5 )
 text = "TEST DESCRIPTION"
 
-[node name="TextureRect" type="TextureRect" parent="RollForIllness/TextureRect"]
+[node name="TextureRect2" type="TextureRect" parent="RolledIllnessScreen"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_left = 0.451885
 anchor_top = 0.229167
 anchor_right = 0.887451
 anchor_bottom = 0.855208
+margin_left = 27.4933
+margin_top = 28.7292
+margin_right = 27.4933
+margin_bottom = 28.7292
 texture = ExtResource( 7 )
 expand = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RollForIllness/TextureRect/TextureRect"]
+[node name="VBoxContainer" type="VBoxContainer" parent="RolledIllnessScreen/TextureRect2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 15.0
@@ -213,61 +269,68 @@ margin_top = 9.0
 margin_right = -14.0
 margin_bottom = -8.0
 
-[node name="TextureRect" type="TextureRect" parent="RollForIllness/TextureRect/TextureRect/VBoxContainer"]
+[node name="TextureRect" type="TextureRect" parent="RolledIllnessScreen/TextureRect2/VBoxContainer"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_right = 745.0
-margin_bottom = 192.0
+margin_right = 781.0
+margin_bottom = 186.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 1
 
-[node name="TextureRect2" type="TextureRect" parent="RollForIllness/TextureRect/TextureRect/VBoxContainer"]
+[node name="TextureRect2" type="TextureRect" parent="RolledIllnessScreen/TextureRect2/VBoxContainer"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_top = 196.0
-margin_right = 745.0
-margin_bottom = 388.0
+margin_top = 190.0
+margin_right = 781.0
+margin_bottom = 377.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 1
 
-[node name="TextureRect3" type="TextureRect" parent="RollForIllness/TextureRect/TextureRect/VBoxContainer"]
+[node name="TextureRect3" type="TextureRect" parent="RolledIllnessScreen/TextureRect2/VBoxContainer"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_top = 392.0
-margin_right = 745.0
-margin_bottom = 584.0
+margin_top = 381.0
+margin_right = 781.0
+margin_bottom = 568.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 8 )
 expand = true
 stretch_mode = 1
 
-[node name="SelectedIdentifier" type="Button" parent="RollForIllness"]
+[node name="RollForIllnessScreen" type="Control" parent="."]
 unique_name_in_owner = true
-anchor_left = 0.379032
-anchor_top = 0.963637
-anchor_right = 0.648387
-anchor_bottom = 1.07273
-custom_styles/hover = ExtResource( 4 )
-custom_styles/pressed = ExtResource( 3 )
-custom_styles/focus = SubResource( 1 )
-custom_styles/disabled = ExtResource( 5 )
-custom_styles/normal = ExtResource( 6 )
-toggle_mode = true
+anchor_right = 1.02151
+anchor_bottom = 1.04278
+margin_right = -40.0
+margin_bottom = -40.0
 
-[node name="Label" type="Label" parent="RollForIllness/SelectedIdentifier"]
-anchor_left = 0.00598798
-anchor_top = -0.0392163
-anchor_right = 1.00599
-anchor_bottom = 0.960786
-custom_colors/font_color = Color( 0.905882, 0.886275, 0, 1 )
-custom_fonts/font = SubResource( 2 )
-text = "ROLL"
-align = 1
-valign = 1
+[node name="RollForIllnessText" type="RichTextLabel" parent="RollForIllnessScreen"]
+anchor_left = 0.142472
+anchor_top = 0.17861
+anchor_right = 0.853759
+anchor_bottom = 0.678076
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 7 )
+text = "Nastał czas na coś przykrego. Trzeba określić, na co chorujesz. Niestety, chorują wszyscy. Co gorsza, nie ma tu zwykłej grypy, chyba, że ta grypa nieleczona zabija, a leczona, co najwyżej odsuwa moment śmierci. To, co poniżej, to nasze największe przekleństwo. Nasza degeneracja. Każdy z Bohaterów powinien wylosować sobie chorobę, na jaką cierpi.
+Niestety, oto smutna prawda o współczesnym świecie..."
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="Button" type="Button" parent="RollForIllnessScreen"]
+margin_left = 677.0
+margin_top = 675.0
+margin_right = 1206.0
+margin_bottom = 834.0
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 8 )
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+text = "Roll for your Illness"

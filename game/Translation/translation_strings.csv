@@ -1331,3 +1331,5 @@ attributes_step_description,KROK 3: WSPÓŁCZYNNIKI,STEP 3: ATTRIBUTES
 specialization_step_description,KROK 4: SPECJALIZACJA,STEP 4: SPECIALIZATION
 skill_points_step_description,KROK 5: UMIEJĘTNOŚCI,STEP 5: SKILLS
 tricks_step_description,KROK 6: SZTUCZKI,STEP 6: TRICKS
+illness_step_description,KROK 7: CHOROBA,STEP 7: ILLNESS
+illness_selection_mode_setting,Tryb wyboru choroby,Mode for illness selection
