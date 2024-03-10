@@ -86,7 +86,3 @@ func _on_SettingsButton_button_up():
 func _on_SaveButton_pressed():
 	GlobalVariables.save_config()
 	_back_to_main_menu()
-
-
-func _on_DiseaseSelectionMode_item_selected(index):
-	pass # Replace with function body.

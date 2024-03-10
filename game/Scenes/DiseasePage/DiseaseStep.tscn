@@ -246,7 +246,7 @@ anchor_left = 0.128114
 anchor_top = 0.146524
 anchor_right = 0.906017
 anchor_bottom = 0.243398
-margin_left = -1.52588e-05
+margin_left = 1.52588e-05
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "NAME OF THE DISEASE"
@@ -261,17 +261,16 @@ anchor_left = 0.125421
 anchor_top = 0.232085
 anchor_right = 0.928239
 anchor_bottom = 0.283368
-margin_left = 1.52588e-05
-margin_right = 0.00012207
+margin_left = -1.52588e-05
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
 [node name="DescriptionHeadline" type="Label" parent="RolledDiseaseScreen"]
-anchor_left = 0.128653
-anchor_top = 0.260962
-anchor_right = 0.384007
-anchor_bottom = 0.314087
+anchor_left = 0.129032
+anchor_top = 0.262032
+anchor_right = 0.384386
+anchor_bottom = 0.315157
 margin_top = -1.52588e-05
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
 custom_fonts/font = SubResource( 4 )
@@ -282,13 +281,41 @@ __meta__ = {
 
 [node name="DiseaseDescription" type="Label" parent="RolledDiseaseScreen"]
 unique_name_in_owner = true
-anchor_left = 0.134577
-anchor_top = 0.326202
-anchor_right = 0.40177
-anchor_bottom = 0.877242
+anchor_left = 0.129032
+anchor_top = 0.310161
+anchor_right = 0.443548
+anchor_bottom = 0.860963
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "TEST DESCRIPTION"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RemedyHeadline" type="Label" parent="RolledDiseaseScreen"]
+anchor_left = 0.129032
+anchor_top = 0.748663
+anchor_right = 0.384386
+anchor_bottom = 0.801788
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "DESCRIPTION"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Remedy" type="Label" parent="RolledDiseaseScreen"]
+unique_name_in_owner = true
+anchor_left = 0.129032
+anchor_top = 0.796792
+anchor_right = 0.443548
+anchor_bottom = 0.902674
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "TEST DESCRIPTION"
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
 [node name="TextureRect2" type="TextureRect" parent="RolledDiseaseScreen"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
