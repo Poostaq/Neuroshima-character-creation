@@ -11,6 +11,8 @@ onready var critical_condition = $"%CriticalCondition"
 onready var terminal_condition = $"%TerminalCondition"
 onready var remedy = $"%Remedy"
 
+onready var condition_list = [first_symptoms,acute_condition,critical_condition,terminal_condition]
+var current_condition = 0
 var step_name = "disease_step_description"
 
 var list_of_disease
@@ -56,6 +58,29 @@ func _fill_symptom_level(symptom_object: TextureRect, disease_data):
 	description.text = disease_data["description"]
 	penalty.text = disease_data["penalty"]
 	
-	
-	
-	
+
+func _on_LowerConditionLevel_button_up():
+	if current_condition == 0:
+		current_condition = 3
+	else:
+		current_condition -= 1
+	for index in range(0,len(condition_list)):
+		if index == current_condition:
+			print(condition_list[index])
+			condition_list[index].visible = true
+		else:
+			print(condition_list[index])
+			condition_list[index].visible = false
+		 
+
+
+func _on_HigherConditionLevel_button_up():
+	if current_condition == 3:
+		current_condition = 0
+	else:
+		current_condition += 1
+	for index in range(0,len(condition_list)):
+		if index == current_condition:
+			condition_list[index].visible = true
+		else:
+			condition_list[index].visible = false
