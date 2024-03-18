@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://THEME.tres" type="Theme" id=1]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=2]
@@ -21,6 +21,10 @@
 [sub_resource type="ButtonGroup" id=14]
 
 [sub_resource type="ButtonGroup" id=15]
+
+[sub_resource type="ButtonGroup" id=23]
+
+[sub_resource type="ButtonGroup" id=24]
 
 [sub_resource type="StyleBoxEmpty" id=16]
 
@@ -120,14 +124,24 @@ margin_bottom = 957.0
 [node name="TricksStep" parent="CharacterCreationProcess/StepContainer" index="5"]
 margin_right = 1873.0
 margin_bottom = 957.0
+trait_group = SubResource( 23 )
 
 [node name="DiseaseStep" parent="CharacterCreationProcess/StepContainer" index="6"]
 margin_right = 1873.0
 margin_bottom = 957.0
+trait_group = SubResource( 24 )
 
 [node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="7"]
 margin_right = 1873.0
 margin_bottom = 957.0
+
+[node name="BackStepButton" parent="CharacterCreationProcess" index="2"]
+anchor_left = 0.401271
+anchor_right = 0.448146
+
+[node name="StepsContainer" parent="CharacterCreationProcess" index="3"]
+anchor_left = 0.453354
+anchor_right = 0.858562
 
 [node name="EthnicityIndicator" parent="CharacterCreationProcess/StepsContainer" index="0"]
 margin_bottom = 76.0
@@ -171,6 +185,10 @@ margin_bottom = 76.0
 margin_left = 715.0
 margin_right = 775.0
 margin_bottom = 76.0
+
+[node name="NextStepButton" parent="CharacterCreationProcess" index="4"]
+anchor_left = 0.859604
+anchor_right = 0.906479
 
 [node name="MainMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -548,6 +566,8 @@ __meta__ = {
 environment = SubResource( 12 )
 
 [connection signal="back_to_main_menu" from="CharacterCreationProcess" to="." method="_back_to_main_menu"]
+[connection signal="disease_selected" from="CharacterCreationProcess/StepContainer/DiseaseStep" to="CharacterCreationProcess" method="_enable_next_step"]
+[connection signal="disease_unselected" from="CharacterCreationProcess/StepContainer/DiseaseStep" to="CharacterCreationProcess" method="_disable_next_step"]
 [connection signal="button_up" from="MainMenu/NewCharacterButton" to="." method="_on_NewCharacterButton_button_up"]
 [connection signal="button_up" from="MainMenu/SettingsButton" to="." method="_on_SettingsButton_button_up"]
 [connection signal="button_up" from="MainMenu/ExitButton" to="." method="_on_ExitButton_button_up"]

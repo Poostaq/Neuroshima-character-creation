@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://THEME.tres" type="Theme" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Scenes/TricksPage/ActionObject.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=9]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonHover.tres" type="StyleBox" id=10]
+[ext_resource path="res://Resources/TricksPage/tricks_buttongroup.tres" type="ButtonGroup" id=11]
 
 [sub_resource type="DynamicFont" id=20]
 size = 48
@@ -65,6 +66,7 @@ script = ExtResource( 7 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+trait_group = ExtResource( 11 )
 
 [node name="Control" type="Control" parent="."]
 anchor_right = 1.0

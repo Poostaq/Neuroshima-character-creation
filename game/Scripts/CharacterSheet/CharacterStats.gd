@@ -40,6 +40,7 @@ var flags: Dictionary
 var special_rules: Dictionary
 var fame: int
 var tricks: Array
+var disease: Dictionary
 var player_id: int
 var player_seed: int
 var player_seed_state: int

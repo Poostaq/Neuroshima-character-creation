@@ -3,6 +3,8 @@ extends Control
 signal trick_selected
 signal trick_unselected
 
+export(ButtonGroup) var trait_group
+
 var step_name = "tricks_step_description"
 export var tricks_data_list: Array
 onready var trick_object = preload("res://Scenes/TricksPage/TrickObject.tscn")
@@ -18,18 +20,19 @@ var current_trick_data: Trick
 
 
 func _ready():
-	tricks_data_list = DatabaseOperations.get_tricks_data_for_character_stats()
 	if get_tree().current_scene.name == "TricksStep":
 		load_step()
 
 func load_step():
 	DatabaseOperations.update_player_skill_levels(CharacterStats.player_id, CharacterStats.get_all_skill_dictionary())
+	tricks_data_list = DatabaseOperations.get_tricks_data_for_character_stats()
 	for child in tricks_list.get_children():
 		child.queue_free()
 	for trick_data in tricks_data_list:
 		create_new_trick_object(trick_data)
 	clear_action_space()
 	tricks_list.get_children()[0]._on_TrickObject_button_up()
+	tricks_list.get_children()[0].pressed = true
 
 func clean_up_step():
 	if current_trick_data:
@@ -41,6 +44,7 @@ func create_new_trick_object(trick_data: Dictionary):
 	trick_object_instance.trick_data = trick_data
 	trick_object_instance.set_trick_name()
 	trick_object_instance.connect("trick_button_pressed", self, "_on_trick_button_pressed")
+	trick_object_instance.get_node(".").set_button_group(trait_group)
 
 func _on_trick_button_pressed(trick_identifier):
 	if current_trick_data:

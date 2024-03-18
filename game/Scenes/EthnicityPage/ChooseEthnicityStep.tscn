@@ -207,6 +207,8 @@ __meta__ = {
 [node name="EthnicityDescription" type="RichTextLabel" parent="DescriptionContainer/ScrollContainer"]
 unique_name_in_owner = true
 modulate = Color( 0, 0.792157, 0.0862745, 1 )
+margin_right = 1040.0
+margin_bottom = 370.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 size_flags_stretch_ratio = 5.0

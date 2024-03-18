@@ -1,44 +1,15 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/DiseasePage/DiseaseStep.gd" type="Script" id=3]
+[ext_resource path="res://Resources/DiseasePage/disease_buttongroup.tres" type="ButtonGroup" id=4]
 [ext_resource path="res://UI_Elements/SkillBoxBorderBig.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=8]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=30]
 size = 26
 outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 40
-outline_size = 3
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 40
-outline_size = 3
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=22]
-size = 24
-outline_size = 3
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=19]
-size = 30
-outline_size = 3
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 2 )
-
-[sub_resource type="DynamicFont" id=23]
-size = 24
-outline_size = 3
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
@@ -66,6 +37,36 @@ modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 470, 200 )
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 40
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=22]
+size = 20
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=19]
+size = 30
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=23]
+size = 20
+outline_size = 3
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=20]
 size = 28
@@ -130,6 +131,7 @@ script = ExtResource( 3 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
+trait_group = ExtResource( 4 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_left = 0.0365591
@@ -145,43 +147,56 @@ expand = true
 
 [node name="SelectDisease" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_left = -6.29425e-05
+margin_top = 1.00002
+margin_right = -0.00012207
+margin_bottom = 1.0
 
-[node name="Label" type="Label" parent="SelectDisease"]
+[node name="TricksListObject" type="Control" parent="SelectDisease"]
+anchor_left = 0.112903
+anchor_top = 0.0770054
+anchor_right = 0.298925
+anchor_bottom = 0.970054
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label" type="Label" parent="SelectDisease/TricksListObject"]
 modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.119355
-anchor_top = 0.116578
-anchor_right = 0.303763
-anchor_bottom = 0.187166
+anchor_left = 0.14053
+anchor_top = 0.104773
+anchor_right = 0.822811
+anchor_bottom = 0.175786
 size_flags_horizontal = 3
 size_flags_vertical = 3
-custom_fonts/font = SubResource( 6 )
-text = "available_tricks"
+custom_fonts/font = SubResource( 30 )
+text = "diseases_list"
 align = 1
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator" type="HSeparator" parent="SelectDisease"]
+[node name="HSeparator" type="HSeparator" parent="SelectDisease/TricksListObject"]
 modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.110215
-anchor_top = 0.142246
-anchor_right = 0.297849
-anchor_bottom = 0.193583
+anchor_left = 0.0578035
+anchor_top = 0.138922
+anchor_right = 1.05202
+anchor_bottom = 0.190419
 margin_top = -1.52588e-05
 margin_bottom = -1.52588e-05
+mouse_filter = 2
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="SelectDisease"]
-anchor_left = 0.110753
-anchor_top = 0.188235
-anchor_right = 0.310215
-anchor_bottom = 0.91123
+[node name="ScrollContainer" type="ScrollContainer" parent="SelectDisease/TricksListObject"]
+anchor_left = 0.0520231
+anchor_top = 0.17485
+anchor_right = 1.0
+anchor_bottom = 0.936527
 size_flags_horizontal = 3
 size_flags_vertical = 3
 scroll_horizontal_enabled = false
@@ -189,84 +204,63 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TricksList" type="GridContainer" parent="SelectDisease/ScrollContainer"]
+[node name="DiseaseList" type="GridContainer" parent="SelectDisease/TricksListObject/ScrollContainer"]
 unique_name_in_owner = true
+mouse_filter = 2
 
-[node name="DiseaseName" type="Label" parent="SelectDisease"]
-anchor_left = 0.445695
-anchor_top = 0.122917
-anchor_right = 0.895892
-anchor_bottom = 0.219792
-margin_left = 26.0071
-margin_top = 25.073
-margin_right = 26.0071
-margin_bottom = 25.073
+[node name="VSeparator" type="VSeparator" parent="SelectDisease"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.299462
+anchor_top = 0.143316
+anchor_right = 0.326344
+anchor_bottom = 0.921925
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Select" type="Button" parent="SelectDisease"]
+anchor_left = 0.432796
+anchor_top = 0.84492
+anchor_right = 0.645162
+anchor_bottom = 0.913369
+margin_left = 2.99928
+margin_top = 1.99988
+margin_right = 2.99928
+margin_bottom = 1.99988
+custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "NAME OF THE DISEASE"
-valign = 1
+custom_colors/font_color_hover = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 27 )
+custom_styles/focus = SubResource( 28 )
+custom_styles/disabled = SubResource( 29 )
+custom_styles/normal = SubResource( 18 )
+text = "select_button"
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator2" type="HSeparator" parent="SelectDisease"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.45076
-anchor_top = 0.202083
-anchor_right = 0.89758
-anchor_bottom = 0.253125
-margin_left = 25.5867
-margin_top = 27.0521
-margin_right = 25.5867
-margin_bottom = 27.0521
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="DescriptionHeadline" type="Label" parent="SelectDisease"]
-anchor_left = 0.453011
-anchor_top = 0.251042
-anchor_right = 0.708365
-anchor_bottom = 0.304167
-margin_left = 25.3998
-margin_top = 28.2762
-margin_right = 25.3999
-margin_bottom = 28.2762
-custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
-custom_fonts/font = SubResource( 4 )
-text = "DESCRIPTION"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="DiseaseDescription" type="RichTextLabel" parent="SelectDisease"]
-anchor_left = 0.104284
-anchor_top = 0.293749
-anchor_right = 0.371477
-anchor_bottom = 0.844789
-margin_left = 680.032
-margin_top = 46.3448
-margin_right = 680.032
-margin_bottom = 46.3448
-text = "TEST DESCRIPTION"
-
-[node name="RolledDiseaseScreen" type="Control" parent="."]
+[node name="SelectedDisease" type="Control" parent="SelectDisease"]
 unique_name_in_owner = true
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = -6.29425e-05
-margin_top = 2.00002
-margin_right = -0.00012207
-margin_bottom = 2.0
+anchor_left = 0.307527
+anchor_top = 0.141177
+anchor_right = 0.915591
+anchor_bottom = 0.834225
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="DiseaseName" type="Label" parent="RolledDiseaseScreen"]
+[node name="SelectedDiseaseName" type="Label" parent="SelectDisease/SelectedDisease"]
 unique_name_in_owner = true
-anchor_left = 0.128114
-anchor_top = 0.146524
-anchor_right = 0.906017
-anchor_bottom = 0.243398
-margin_left = 1.52588e-05
+anchor_left = 0.0299947
+anchor_top = 0.0208807
+anchor_right = 0.807898
+anchor_bottom = 0.117754
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
 custom_fonts/font = SubResource( 3 )
 text = "pulmonary_calcification_name"
@@ -275,23 +269,22 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen"]
+[node name="HSeparator" type="HSeparator" parent="SelectDisease/SelectedDisease"]
 modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.125421
-anchor_top = 0.232085
-anchor_right = 0.928239
-anchor_bottom = 0.283368
-margin_left = -1.52588e-05
+anchor_left = 0.0264901
+anchor_top = 0.0934795
+anchor_right = 0.963576
+anchor_bottom = 0.144922
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DescriptionHeadline" type="Label" parent="RolledDiseaseScreen"]
-anchor_left = 0.129032
-anchor_top = 0.262032
-anchor_right = 0.384386
-anchor_bottom = 0.315157
-margin_top = -1.52588e-05
+[node name="DescriptionHeadline" type="Label" parent="SelectDisease/SelectedDisease"]
+anchor_left = 0.0309461
+anchor_top = 0.131923
+anchor_right = 0.482759
+anchor_bottom = 0.193652
+margin_right = -3.05176e-05
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "DESCRIPTION"
@@ -300,12 +293,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="DiseaseDescription" type="Label" parent="RolledDiseaseScreen"]
+[node name="SelectedDiseaseDescription" type="Label" parent="SelectDisease/SelectedDisease"]
 unique_name_in_owner = true
-anchor_left = 0.129032
-anchor_top = 0.310161
-anchor_right = 0.443548
-anchor_bottom = 0.66631
+anchor_left = 0.0309461
+anchor_top = 0.199074
+anchor_right = 0.473033
+anchor_bottom = 0.608025
+margin_top = -1.52588e-05
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "pulmonary_calcification_description"
@@ -314,15 +308,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RemedyHeadline" type="Label" parent="RolledDiseaseScreen"]
-anchor_left = 0.127957
-anchor_top = 0.610695
-anchor_right = 0.383311
-anchor_bottom = 0.66382
-margin_left = 2.0
-margin_top = -1.00006
-margin_right = 2.0
-margin_bottom = -1.00006
+[node name="RemedyHeadline" type="Label" parent="SelectDisease/SelectedDisease"]
+anchor_left = 0.0311258
+anchor_top = 0.61355
+anchor_right = 0.28648
+anchor_bottom = 0.666675
+margin_top = -3.05176e-05
+margin_right = 3.05176e-05
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
 custom_fonts/font = SubResource( 4 )
 text = "REMEDY"
@@ -331,14 +323,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Remedy" type="Label" parent="RolledDiseaseScreen"]
+[node name="SelectedRemedy" type="Label" parent="SelectDisease/SelectedDisease"]
 unique_name_in_owner = true
-anchor_left = 0.126882
-anchor_top = 0.66738
-anchor_right = 0.441398
-anchor_bottom = 0.853476
-margin_top = -9.0
-margin_bottom = -9.0
+anchor_left = 0.0311258
+anchor_top = 0.670013
+anchor_right = 0.472848
+anchor_bottom = 0.929736
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "pulmonary_calcification_remedy"
@@ -347,48 +337,44 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TextureRect2" type="TextureRect" parent="RolledDiseaseScreen"]
+[node name="TextureRect2" type="TextureRect" parent="SelectDisease/SelectedDisease"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-anchor_left = 0.458064
-anchor_top = 0.259893
-anchor_right = 0.89363
-anchor_bottom = 0.885934
-margin_top = 1.52588e-05
+anchor_left = 0.485411
+anchor_top = 0.134259
+anchor_right = 0.961981
+anchor_bottom = 0.930556
 texture = ExtResource( 7 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VBoxContainer" type="VBoxContainer" parent="RolledDiseaseScreen/TextureRect2"]
-anchor_left = 0.0617167
-anchor_top = 0.0153755
-anchor_right = 1.03314
-anchor_bottom = 0.903736
-margin_left = -40.0
-margin_right = -37.0
+[node name="VBoxContainer" type="VBoxContainer" parent="SelectDisease/SelectedDisease/TextureRect2"]
+anchor_left = 0.0208333
+anchor_top = 0.0172414
+anchor_right = 0.979167
+anchor_bottom = 0.905172
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FirstSymptoms" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
+[node name="SelectedFirstSymptoms" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_right = 790.0
-margin_bottom = 520.0
+margin_right = 516.0
+margin_bottom = 458.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/FirstSymptoms"]
-anchor_left = 0.0405063
-anchor_top = 0.0288462
-anchor_right = 0.983544
-anchor_bottom = 0.117308
-margin_bottom = 3.05176e-05
+[node name="Label" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
+anchor_left = 0.0387597
+anchor_top = 0.0327511
+anchor_right = 0.978682
+anchor_bottom = 0.120087
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 19 )
 text = "First Symptoms"
@@ -398,7 +384,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/FirstSymptoms"]
+[node name="HSeparator" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0101266
 anchor_top = 0.123077
@@ -411,12 +397,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/FirstSymptoms"]
-anchor_left = 0.0253165
-anchor_top = 0.153846
-anchor_right = 0.983544
-anchor_bottom = 0.511538
-margin_bottom = 3.05176e-05
+[node name="Description" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
+anchor_left = 0.0387597
+anchor_top = 0.152838
+anchor_right = 0.968992
+anchor_bottom = 0.510917
+margin_bottom = 1.00002
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 23 )
 text = "pulmonary_calcification_first_symptoms"
@@ -425,7 +411,321 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/FirstSymptoms"]
+[node name="Label2" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
+anchor_left = 0.0387597
+anchor_top = 0.556769
+anchor_right = 0.978682
+anchor_bottom = 0.645229
+margin_top = 1.52588e-05
+margin_bottom = -0.515015
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 19 )
+text = "Penalty:"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0177215
+anchor_top = 0.526923
+anchor_right = 0.977215
+anchor_bottom = 0.551923
+margin_left = 1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator3" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0202532
+anchor_top = 0.65
+anchor_right = 0.977215
+anchor_bottom = 0.675
+margin_left = -1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Penalty" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
+anchor_left = 0.0387597
+anchor_top = 0.682692
+anchor_right = 0.968992
+anchor_bottom = 0.973076
+margin_top = -2.673
+margin_bottom = -0.669006
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "pulmonary_calcification_first_symptoms_penalties"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SelectedAcuteCondition" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 516.0
+margin_bottom = 458.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.0327511
+anchor_right = 0.978682
+anchor_bottom = 0.120087
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 19 )
+text = "Acute Condition"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0101266
+anchor_top = 0.123077
+anchor_right = 0.979747
+anchor_bottom = 0.148077
+margin_left = 7.0
+margin_right = 1.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.152838
+anchor_right = 0.968992
+anchor_bottom = 0.5131
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "pulmonary_calcification_acute_condition"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.556769
+anchor_right = 0.978682
+anchor_bottom = 0.644105
+margin_top = 1.52588e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 19 )
+text = "Penalty:"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0177215
+anchor_top = 0.526923
+anchor_right = 0.977215
+anchor_bottom = 0.551923
+margin_left = 1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator3" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0202532
+anchor_top = 0.65
+anchor_right = 0.977215
+anchor_bottom = 0.675
+margin_left = -1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Penalty" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.676856
+anchor_right = 0.968992
+anchor_bottom = 0.971616
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "pulmonary_calcification_acute_condition_penalties"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SelectedCriticalCondition" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 516.0
+margin_bottom = 458.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.0327511
+anchor_right = 0.978682
+anchor_bottom = 0.120087
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 19 )
+text = "Critical Condition"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0236925
+anchor_top = 0.123077
+anchor_right = 0.981685
+anchor_bottom = 0.152444
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.152838
+anchor_right = 0.968992
+anchor_bottom = 0.5131
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "pulmonary_calcification_cricital_condition"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.556769
+anchor_right = 0.978682
+anchor_bottom = 0.644105
+margin_top = 1.52588e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 19 )
+text = "Penalty:"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0196595
+anchor_top = 0.526923
+anchor_right = 0.983029
+anchor_bottom = 0.55629
+margin_bottom = -1.52588e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator3" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0183152
+anchor_top = 0.65
+anchor_right = 0.983029
+anchor_bottom = 0.679367
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Penalty" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.676856
+anchor_right = 0.978682
+anchor_bottom = 0.971616
+margin_right = -4.99991
+margin_bottom = -0.00012207
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "pulmonary_calcification_cricital_condition_penalties"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SelectedTerminalCondition" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 516.0
+margin_bottom = 458.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.0327511
+anchor_right = 0.978682
+anchor_bottom = 0.120087
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 19 )
+text = "Terminal Condition"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0101266
+anchor_top = 0.123077
+anchor_right = 0.979747
+anchor_bottom = 0.148077
+margin_left = 7.0
+margin_right = 1.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.152838
+anchor_right = 0.968992
+anchor_bottom = 0.5131
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "pulmonary_calcification_terminal_condition"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
 anchor_left = 0.039241
 anchor_top = 0.553846
 anchor_right = 0.982279
@@ -440,7 +740,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator2" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/FirstSymptoms"]
+[node name="HSeparator2" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0177215
 anchor_top = 0.526923
@@ -453,7 +753,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator3" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/FirstSymptoms"]
+[node name="HSeparator3" type="HSeparator" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0202532
 anchor_top = 0.65
@@ -466,7 +766,277 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/FirstSymptoms"]
+[node name="Penalty" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
+anchor_left = 0.0387597
+anchor_top = 0.676856
+anchor_right = 0.968992
+anchor_bottom = 0.971616
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "pulmonary_calcification_terminal_condition_penalties"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SelectedLowerConditionLevel" type="Button" parent="SelectDisease/SelectedDisease/TextureRect2"]
+unique_name_in_owner = true
+anchor_left = 0.0222517
+anchor_top = 0.913703
+anchor_right = 0.331921
+anchor_bottom = 0.981783
+margin_right = 2.99998
+margin_bottom = 2.0
+custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_hover = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 27 )
+custom_styles/focus = SubResource( 28 )
+custom_styles/disabled = SubResource( 29 )
+custom_styles/normal = SubResource( 18 )
+text = "previous_button"
+clip_text = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SelectedHigherConditionLevel" type="Button" parent="SelectDisease/SelectedDisease/TextureRect2"]
+unique_name_in_owner = true
+anchor_left = 0.657196
+anchor_top = 0.913986
+anchor_right = 0.961302
+anchor_bottom = 0.982322
+margin_right = 6.0
+margin_bottom = 1.85706
+custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_hover = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 20 )
+custom_styles/hover = SubResource( 15 )
+custom_styles/pressed = SubResource( 24 )
+custom_styles/focus = SubResource( 25 )
+custom_styles/disabled = SubResource( 26 )
+custom_styles/normal = SubResource( 16 )
+text = "next_button"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RolledDiseaseScreen" type="Control" parent="."]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.103763
+anchor_top = 0.0887701
+anchor_right = 0.915591
+anchor_bottom = 0.941177
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RolledDiseaseName" type="Label" parent="RolledDiseaseScreen"]
+unique_name_in_owner = true
+anchor_left = 0.0299947
+anchor_top = 0.0702634
+anchor_right = 0.807898
+anchor_bottom = 0.167137
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "pulmonary_calcification_name"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen"]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0264901
+anchor_top = 0.17064
+anchor_right = 0.963576
+anchor_bottom = 0.222083
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RolledDescriptionHeadline" type="Label" parent="RolledDiseaseScreen"]
+anchor_left = 0.0311255
+anchor_top = 0.205771
+anchor_right = 0.28648
+anchor_bottom = 0.258896
+margin_right = -3.05176e-05
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "DESCRIPTION"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RolledDiseaseDescription" type="Label" parent="RolledDiseaseScreen"]
+unique_name_in_owner = true
+anchor_left = 0.0311258
+anchor_top = 0.262233
+anchor_right = 0.472848
+anchor_bottom = 0.608532
+margin_top = -1.52588e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "pulmonary_calcification_description"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RemedyHeadline" type="Label" parent="RolledDiseaseScreen"]
+anchor_left = 0.0311258
+anchor_top = 0.61355
+anchor_right = 0.28648
+anchor_bottom = 0.666675
+margin_top = -3.05176e-05
+margin_right = 3.05176e-05
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 4 )
+text = "REMEDY"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RolledRemedy" type="Label" parent="RolledDiseaseScreen"]
+unique_name_in_owner = true
+anchor_left = 0.0311258
+anchor_top = 0.670013
+anchor_right = 0.472848
+anchor_bottom = 0.929736
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 22 )
+text = "pulmonary_calcification_remedy"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect2" type="TextureRect" parent="RolledDiseaseScreen"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+anchor_left = 0.48543
+anchor_top = 0.203262
+anchor_right = 0.962252
+anchor_bottom = 0.930991
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="RolledDiseaseScreen/TextureRect2"]
+anchor_left = 0.0208333
+anchor_top = 0.0172414
+anchor_right = 0.979167
+anchor_bottom = 0.905172
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="RolledFirstSymptoms" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 690.0
+margin_bottom = 514.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 7 )
+expand = true
+stretch_mode = 1
+
+[node name="Label" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
+anchor_left = 0.0405063
+anchor_top = 0.0288462
+anchor_right = 0.983544
+anchor_bottom = 0.117308
+margin_bottom = 3.05176e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 19 )
+text = "First Symptoms"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0101266
+anchor_top = 0.123077
+anchor_right = 0.979747
+anchor_bottom = 0.148077
+margin_left = 7.0
+margin_right = 1.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
+anchor_left = 0.0253165
+anchor_top = 0.153846
+anchor_right = 0.983544
+anchor_bottom = 0.511538
+margin_bottom = 3.05176e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 23 )
+text = "pulmonary_calcification_first_symptoms"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
+anchor_left = 0.039241
+anchor_top = 0.553846
+anchor_right = 0.982279
+anchor_bottom = 0.642307
+margin_bottom = 3.05176e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 19 )
+text = "Penalty:"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0177215
+anchor_top = 0.526923
+anchor_right = 0.977215
+anchor_bottom = 0.551923
+margin_left = 1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator3" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0202532
+anchor_top = 0.65
+anchor_right = 0.977215
+anchor_bottom = 0.675
+margin_left = -1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
 anchor_left = 0.0240506
 anchor_top = 0.682692
 anchor_right = 0.981013
@@ -482,19 +1052,20 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AcuteCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
+[node name="RolledAcuteCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_right = 790.0
-margin_bottom = 520.0
+margin_top = 129.0
+margin_right = 690.0
+margin_bottom = 255.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/AcuteCondition"]
+[node name="Label" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 anchor_left = 0.0405063
 anchor_top = 0.0288462
 anchor_right = 0.983544
@@ -509,7 +1080,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/AcuteCondition"]
+[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0101266
 anchor_top = 0.123077
@@ -522,7 +1093,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/AcuteCondition"]
+[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 anchor_left = 0.0164557
 anchor_top = 0.153846
 anchor_right = 0.965823
@@ -539,7 +1110,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/AcuteCondition"]
+[node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 anchor_left = 0.039241
 anchor_top = 0.553846
 anchor_right = 0.982279
@@ -554,7 +1125,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator2" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/AcuteCondition"]
+[node name="HSeparator2" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0177215
 anchor_top = 0.526923
@@ -567,7 +1138,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator3" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/AcuteCondition"]
+[node name="HSeparator3" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0202532
 anchor_top = 0.65
@@ -580,7 +1151,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/AcuteCondition"]
+[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 anchor_left = 0.0139241
 anchor_top = 0.682692
 anchor_right = 0.963291
@@ -597,18 +1168,20 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="CriticalCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
+[node name="RolledCriticalCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_right = 790.0
-margin_bottom = 520.0
+margin_top = 173.0
+margin_right = 690.0
+margin_bottom = 342.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-texture = ExtResource( 8 )
+texture = ExtResource( 7 )
 expand = true
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/CriticalCondition"]
+[node name="Label" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 anchor_left = 0.0405063
 anchor_top = 0.0288462
 anchor_right = 0.983544
@@ -623,7 +1196,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/CriticalCondition"]
+[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0101266
 anchor_top = 0.123077
@@ -636,7 +1209,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/CriticalCondition"]
+[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 anchor_left = 0.0164557
 anchor_top = 0.153846
 anchor_right = 0.96962
@@ -653,7 +1226,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/CriticalCondition"]
+[node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 anchor_left = 0.039241
 anchor_top = 0.553846
 anchor_right = 0.982279
@@ -668,7 +1241,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator2" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/CriticalCondition"]
+[node name="HSeparator2" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0177215
 anchor_top = 0.526923
@@ -681,7 +1254,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator3" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/CriticalCondition"]
+[node name="HSeparator3" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0202532
 anchor_top = 0.65
@@ -694,7 +1267,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/CriticalCondition"]
+[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 anchor_left = 0.0139241
 anchor_top = 0.682692
 anchor_right = 0.958228
@@ -711,19 +1284,20 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="TerminalCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
+[node name="RolledTerminalCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
 visible = false
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_right = 790.0
-margin_bottom = 520.0
+margin_top = 259.0
+margin_right = 690.0
+margin_bottom = 515.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 texture = ExtResource( 7 )
 expand = true
 stretch_mode = 1
 
-[node name="Label" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/TerminalCondition"]
+[node name="Label" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 anchor_left = 0.0405063
 anchor_top = 0.0288462
 anchor_right = 0.983544
@@ -738,7 +1312,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/TerminalCondition"]
+[node name="HSeparator" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0101266
 anchor_top = 0.123077
@@ -751,7 +1325,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/TerminalCondition"]
+[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 anchor_left = 0.0164557
 anchor_top = 0.153846
 anchor_right = 0.983544
@@ -765,7 +1339,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/TerminalCondition"]
+[node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 anchor_left = 0.039241
 anchor_top = 0.553846
 anchor_right = 0.982279
@@ -780,7 +1354,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator2" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/TerminalCondition"]
+[node name="HSeparator2" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0177215
 anchor_top = 0.526923
@@ -793,7 +1367,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="HSeparator3" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/TerminalCondition"]
+[node name="HSeparator3" type="HSeparator" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0202532
 anchor_top = 0.65
@@ -806,7 +1380,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/TerminalCondition"]
+[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 anchor_left = 0.0139241
 anchor_top = 0.682692
 anchor_right = 0.981013
@@ -821,14 +1395,11 @@ __meta__ = {
 }
 
 [node name="LowerConditionLevel" type="Button" parent="RolledDiseaseScreen/TextureRect2"]
-anchor_left = 0.0148129
-anchor_top = 0.910569
-anchor_right = 0.286367
-anchor_bottom = 0.978904
-margin_left = 2.99928
-margin_top = 1.99988
-margin_right = 2.99928
-margin_bottom = 1.99988
+anchor_left = 0.0189786
+anchor_top = 0.914017
+anchor_right = 0.323145
+anchor_bottom = 0.982352
+margin_right = -23.481
 custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
@@ -902,6 +1473,9 @@ custom_styles/disabled = SubResource( 12 )
 custom_styles/normal = SubResource( 13 )
 text = "Roll for your Disease"
 
+[connection signal="pressed" from="SelectDisease/Select" to="." method="_on_Select_pressed"]
+[connection signal="pressed" from="SelectDisease/SelectedDisease/TextureRect2/SelectedLowerConditionLevel" to="." method="_on_SelectedLowerConditionLevel_pressed"]
+[connection signal="pressed" from="SelectDisease/SelectedDisease/TextureRect2/SelectedHigherConditionLevel" to="." method="_on_SelectedHigherConditionLevel_pressed"]
 [connection signal="button_up" from="RolledDiseaseScreen/TextureRect2/LowerConditionLevel" to="." method="_on_LowerConditionLevel_button_up"]
 [connection signal="button_up" from="RolledDiseaseScreen/TextureRect2/HigherConditionLevel2" to="." method="_on_HigherConditionLevel_button_up"]
 [connection signal="button_up" from="RollForDiseaseScreen/Button" to="." method="_on_Button_button_up"]

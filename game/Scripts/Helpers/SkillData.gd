@@ -11,7 +11,10 @@ func _init(new_name, new_level, new_skill_identifier, new_description):
 	name = new_name
 	level = new_level
 	skill_identifier = new_skill_identifier
-	description = new_description
+	if not description:
+		description = ""
+	else:
+		description = new_description
 
 func duplicate(skill: SkillData):
 	for property in skill.get_property_list():
