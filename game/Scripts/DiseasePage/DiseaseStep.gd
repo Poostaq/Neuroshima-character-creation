@@ -50,6 +50,7 @@ func load_step():
 		rolled_disease_screen.visible = false
 		roll_for_disease_screen.visible = false
 		for child in disease_list.get_children():
+			child.get_parent().remove_child(child)
 			child.queue_free()
 		for disease_data in disease_data_list:
 			create_new_disease_object(disease_data)

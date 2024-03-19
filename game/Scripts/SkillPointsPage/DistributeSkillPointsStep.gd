@@ -162,7 +162,7 @@ func on_skill_pack_skill_minus_pressed(skill_pack, skill_object):
 
 func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
 	description_name.text = skill_data.name
-	description_text.text = tr(skill_data.description)
+	description_text.bbcode_text = tr(skill_data.description)
 
 
 func can_pay(amount: int, specialization: String):

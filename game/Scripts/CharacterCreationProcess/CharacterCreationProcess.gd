@@ -29,7 +29,6 @@ onready var specialization_indicator = $"%SpecializationIndicator"
 onready var skills_indicator = $"%SkillsIndicator"
 onready var tricks_indicator = $"%TricksIndicator"
 onready var diseases_indicator = $"%DiseasesIndicator"
-onready var reputation_indicator = $"%ReputationIndicator"
 onready var form_indicator = $"%FormIndicator"
 onready var gear_indicator = $"%GearIndicator"
 
@@ -54,7 +53,6 @@ onready var indicators = [
 					skills_indicator,
 					tricks_indicator,
 					diseases_indicator,
-					reputation_indicator,
 					form_indicator,
 					gear_indicator,
 ]

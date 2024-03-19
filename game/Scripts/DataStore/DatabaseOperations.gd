@@ -527,11 +527,13 @@ func create_new_character_entry() -> void:
 	var _query_result = sql_command(insert)
 	db.close_db()
 
+
 func return_current_player_id() -> int:
 	var select = "SELECT MAX(player_id) as player_id FROM player_info"
 	var query_result = sql_command(select)
 	db.close_db()
 	return query_result[0]["player_id"]
+
 
 func set_creation_date(player_id: int) -> void:
 	open_connection_to(main_db)
@@ -539,7 +541,7 @@ func set_creation_date(player_id: int) -> void:
 	var columns = {"player_created_date" :sysdate, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
 	db.close_db()
-	
+
 
 func update_attribute_value(player_id: int, attribute_name: String, attribute_value: int) -> void:
 	open_connection_to(main_db)
@@ -547,14 +549,16 @@ func update_attribute_value(player_id: int, attribute_name: String, attribute_va
 	var columns = {attribute_name : attribute_value, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
 	db.close_db()
-	
+
+
 func update_player_specialization(player_id: int, specialization_identifier: String) -> void:
 	open_connection_to(main_db)
 	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
 	var columns = {"player_specjalization" : specialization_identifier, "player_updated_date" :sysdate}
 	db.update_rows("player_info", condition, columns)
 	db.close_db()
-	
+
+
 func update_player_skill_levels(player_id: int, skill_data_dict) -> void:
 	open_connection_to(main_db)
 	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
@@ -562,10 +566,10 @@ func update_player_skill_levels(player_id: int, skill_data_dict) -> void:
 	skill_data_dict.merge({"player_updated_date" :sysdate})
 	db.update_rows("player_info", condition, skill_data_dict)
 	db.close_db()
-	
+
+
 func get_all_disease_data() -> Array:
 	var select = "SELECT * "
 	var from = "FROM diseases "
 	var records = sql_command(select+from)
 	return records
-	

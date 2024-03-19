@@ -278,7 +278,7 @@ __meta__ = {
 [node name="EthnicityIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_right = 59.0
+margin_right = 68.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "ethnicity_step_tooltip"
@@ -291,8 +291,8 @@ stretch_mode = 5
 [node name="ProfessionIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 79.0
-margin_right = 139.0
+margin_left = 88.0
+margin_right = 157.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "profession_step_tooltip"
@@ -308,8 +308,8 @@ __meta__ = {
 [node name="AttributesIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 159.0
-margin_right = 219.0
+margin_left = 177.0
+margin_right = 245.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "attributes_step_tooltip"
@@ -322,8 +322,8 @@ stretch_mode = 5
 [node name="SpecializationIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 239.0
-margin_right = 298.0
+margin_left = 265.0
+margin_right = 334.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "specialization_step_tooltip"
@@ -336,8 +336,8 @@ stretch_mode = 5
 [node name="SkillsIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 318.0
-margin_right = 378.0
+margin_left = 354.0
+margin_right = 422.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "skills_step_tooltip"
@@ -350,8 +350,8 @@ stretch_mode = 5
 [node name="TricksIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 398.0
-margin_right = 458.0
+margin_left = 442.0
+margin_right = 511.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "tricks_step_tooltip"
@@ -364,8 +364,8 @@ stretch_mode = 5
 [node name="DiseasesIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 478.0
-margin_right = 537.0
+margin_left = 531.0
+margin_right = 599.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "disease_step_tooltip"
@@ -375,25 +375,11 @@ texture_normal = ExtResource( 18 )
 expand = true
 stretch_mode = 5
 
-[node name="ReputationIndicator" type="TextureButton" parent="StepsContainer"]
-unique_name_in_owner = true
-material = SubResource( 1 )
-margin_left = 557.0
-margin_right = 617.0
-margin_bottom = 77.0
-rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "reputation_step_tooltip"
-size_flags_horizontal = 7
-size_flags_vertical = 3
-texture_normal = ExtResource( 18 )
-expand = true
-stretch_mode = 5
-
 [node name="FormIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 637.0
-margin_right = 697.0
+margin_left = 619.0
+margin_right = 688.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "form_step_tooltip"
@@ -406,7 +392,7 @@ stretch_mode = 5
 [node name="GearIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 717.0
+margin_left = 708.0
 margin_right = 777.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )

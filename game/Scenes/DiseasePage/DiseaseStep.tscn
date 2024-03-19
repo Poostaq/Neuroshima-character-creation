@@ -210,9 +210,9 @@ mouse_filter = 2
 
 [node name="VSeparator" type="VSeparator" parent="SelectDisease"]
 self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.299462
+anchor_left = 0.303763
 anchor_top = 0.143316
-anchor_right = 0.326344
+anchor_right = 0.330645
 anchor_bottom = 0.921925
 mouse_filter = 2
 __meta__ = {
@@ -360,7 +360,6 @@ __meta__ = {
 
 [node name="SelectedFirstSymptoms" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
-visible = false
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 margin_right = 516.0
 margin_bottom = 458.0
@@ -676,6 +675,7 @@ __meta__ = {
 
 [node name="SelectedTerminalCondition" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
+visible = false
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 margin_right = 516.0
 margin_bottom = 458.0

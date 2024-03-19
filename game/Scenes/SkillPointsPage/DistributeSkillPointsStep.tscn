@@ -274,9 +274,13 @@ anchor_left = 0.101865
 anchor_top = 0.113206
 anchor_right = 0.908177
 anchor_bottom = 0.290565
+margin_left = -2.52782
+margin_top = -2.7166
+margin_right = -6.62146
+margin_bottom = 1.02654
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 17 )
-text = "NAME"
+text = "Hover over skill"
 valign = 1
 autowrap = true
 __meta__ = {
@@ -289,9 +293,21 @@ anchor_left = 0.0860831
 anchor_top = 0.309434
 anchor_right = 0.901003
 anchor_bottom = 0.864151
+margin_left = 8.70889
+margin_top = 0.573387
+margin_right = -11.5136
+margin_bottom = -4.74017
 custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/normal_font = SubResource( 20 )
-text = "BIG CHUNK OF DESCRIPTION TEXT"
+bbcode_enabled = true
+bbcode_text = "To show the descriptions
+
+
+Database will go brrrrrr."
+text = "To show the descriptions
+
+
+Database will go brrrrrr."
 __meta__ = {
 "_edit_use_anchors_": true
 }
