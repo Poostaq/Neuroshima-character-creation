@@ -54,8 +54,9 @@ func load_step():
 			child.queue_free()
 		for disease_data in disease_data_list:
 			create_new_disease_object(disease_data)
-		disease_list.get_children()[0].emit_signal("pressed")
-		disease_list.get_children()[0].pressed = true
+		var first_disease = disease_list.get_children()[0]
+		first_disease.emit_signal("disease_button_pressed", first_disease.disease_data)
+		first_disease.pressed = true
 		
 func clean_up_step():
 	GlobalVariables.global_randomizer.state = CharacterStats.player_seed_state
@@ -93,9 +94,10 @@ func _on_Button_button_up():
 
 
 func _on_disease_button_pressed(disease_data):
+	
 	selected_disease_name.text = disease_data["disease_name"]
-	selected_disease_description.text = disease_data["disease_description"]
-	selected_remedy.text = disease_data["disease_remedy"]
+	selected_disease_description.bbcode_text = tr(disease_data["disease_description"])
+	selected_remedy.bbcode_text = tr(disease_data["disease_remedy"])
 	var first_symptoms_data = {"description": disease_data["disease_first_symptoms"], "penalty": disease_data["disease_first_symptoms_penalties"]}
 	_fill_symptom_level(selected_first_symptoms, first_symptoms_data)
 	var acute_condition_data = {"description": disease_data["disease_acute_condition"], "penalty": disease_data["disease_acute_condition_penalties"]}
