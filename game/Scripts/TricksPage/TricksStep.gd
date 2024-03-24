@@ -25,7 +25,7 @@ func _ready():
 
 func load_step():
 	DatabaseOperations.update_player_skill_levels(CharacterStats.player_id, CharacterStats.get_all_skill_dictionary())
-	tricks_data_list = DatabaseOperations.get_tricks_data_for_character_stats()
+	tricks_data_list = DatabaseOperations.get_tricks_data_for_character_stats(CharacterStats.player_id)
 	for child in tricks_list.get_children():
 		child.get_parent().remove_child(child)
 		child.queue_free()
