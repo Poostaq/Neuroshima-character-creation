@@ -78,8 +78,8 @@ func _on_Button_button_up():
 	current_disease = GlobalVariables.global_randomizer.randi_range(1,20)
 	var disease_data = disease_data_list[current_disease-1]
 	rolled_disease_name.text = disease_data["disease_name"]
-	rolled_disease_description.text = disease_data["disease_description"]
-	rolled_remedy.text = disease_data["disease_remedy"]
+	rolled_disease_description.bbcode_text = tr(disease_data["disease_description"])
+	rolled_remedy.bbcode_text = tr(disease_data["disease_remedy"])
 	var first_symptoms_data = {"description": disease_data["disease_first_symptoms"], "penalty": disease_data["disease_first_symptoms_penalties"]}
 	_fill_symptom_level(rolled_first_symptoms, first_symptoms_data)
 	var acute_condition_data = {"description": disease_data["disease_acute_condition"], "penalty": disease_data["disease_acute_condition_penalties"]}
