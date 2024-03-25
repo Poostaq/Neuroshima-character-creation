@@ -114,8 +114,8 @@ func _on_disease_button_pressed(disease_data):
 func _fill_symptom_level(symptom_object: TextureRect, disease_data):
 	var description = symptom_object.get_node("Description")
 	var penalty = symptom_object.get_node("Penalty")
-	description.text = disease_data["description"]
-	penalty.text = disease_data["penalty"]
+	description.bbcode_text = tr(disease_data["description"])
+	penalty.bbcode_text = tr(disease_data["penalty"])
 	
 
 func _on_LowerConditionLevel_button_up():

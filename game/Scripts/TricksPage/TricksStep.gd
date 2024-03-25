@@ -53,6 +53,7 @@ func _on_trick_button_pressed(trick_identifier):
 	if selected_trick.pressed:
 		selected_trick.pressed = false
 	emit_signal("trick_unselected")
+	selected_trick.get_node("Label").text = tr("select_button")
 	current_trick_data = DatabaseOperations.get_trick_by_name(trick_identifier)
 	trick_name.text = tr(current_trick_data.trick_name)
 	description_text.bbcode_text = tr(current_trick_data.trick_description)
@@ -79,5 +80,13 @@ func clear_action_space():
 
 
 func _on_SelectedTrick_pressed():
-	CharacterStats.tricks.append(current_trick_data)
+	print("SELECTING THIS TRICK: ")
+	print(current_trick_data.trick_id)
+	print(selected_trick.pressed)
+	if selected_trick.pressed:
+		print("APPENDED TRICK DATA")
+		CharacterStats.tricks.append(current_trick_data)
+	selected_trick.pressed = true
+	selected_trick.get_node("Label").text = tr("select_button_selected")
+	print(selected_trick.pressed)
 	emit_signal("trick_selected")

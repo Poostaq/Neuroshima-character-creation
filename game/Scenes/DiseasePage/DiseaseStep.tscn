@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=1]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
@@ -52,13 +52,13 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=31]
 size = 24
-outline_size = 3
+outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=32]
 size = 24
-outline_size = 3
+outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
@@ -68,9 +68,9 @@ outline_size = 3
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
-[sub_resource type="DynamicFont" id=23]
+[sub_resource type="DynamicFont" id=33]
 size = 20
-outline_size = 3
+outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 2 )
 
@@ -99,12 +99,6 @@ modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 470, 200 )
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
-
-[sub_resource type="DynamicFont" id=22]
-size = 20
-outline_size = 3
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=14]
 size = 40
@@ -409,19 +403,17 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
+[node name="Description" type="RichTextLabel" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
 anchor_left = 0.0387597
 anchor_top = 0.152838
 anchor_right = 0.968992
 anchor_bottom = 0.510917
 margin_bottom = 1.00002
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_first_symptoms"
 text = "pulmonary_calcification_first_symptoms"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label2" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
 anchor_left = 0.0387597
@@ -465,20 +457,18 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
+[node name="Penalty" type="RichTextLabel" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedFirstSymptoms"]
 anchor_left = 0.0387597
 anchor_top = 0.682692
 anchor_right = 0.968992
 anchor_bottom = 0.973076
 margin_top = -2.673
 margin_bottom = -0.669006
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_first_symptoms_penalties"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_penalties"
+text = "pulmonary_calcification_penalties"
 
 [node name="SelectedAcuteCondition" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
@@ -519,18 +509,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+[node name="Description" type="RichTextLabel" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
 anchor_left = 0.0387597
 anchor_top = 0.152838
 anchor_right = 0.968992
 anchor_bottom = 0.5131
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_acute_condition"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_first_symptoms"
+text = "pulmonary_calcification_first_symptoms"
 
 [node name="Label2" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
 anchor_left = 0.0387597
@@ -573,18 +561,15 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
+[node name="Penalty" type="RichTextLabel" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedAcuteCondition"]
 anchor_left = 0.0387597
 anchor_top = 0.676856
 anchor_right = 0.968992
 anchor_bottom = 0.971616
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_acute_condition_penalties"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_text = "pulmonary_calcification_penalties"
+text = "pulmonary_calcification_penalties"
 
 [node name="SelectedCriticalCondition" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
@@ -622,18 +607,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+[node name="Description" type="RichTextLabel" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
 anchor_left = 0.0387597
 anchor_top = 0.152838
 anchor_right = 0.968992
 anchor_bottom = 0.5131
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_cricital_condition"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_first_symptoms"
+text = "pulmonary_calcification_first_symptoms"
 
 [node name="Label2" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
 anchor_left = 0.0387597
@@ -671,20 +654,17 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
+[node name="Penalty" type="RichTextLabel" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedCriticalCondition"]
 anchor_left = 0.0387597
 anchor_top = 0.676856
 anchor_right = 0.978682
 anchor_bottom = 0.971616
 margin_right = -4.99991
 margin_bottom = -0.00012207
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_cricital_condition_penalties"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_text = "pulmonary_calcification_penalties"
+text = "pulmonary_calcification_penalties"
 
 [node name="SelectedTerminalCondition" type="TextureRect" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
@@ -725,18 +705,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
+[node name="Description" type="RichTextLabel" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
 anchor_left = 0.0387597
 anchor_top = 0.152838
 anchor_right = 0.968992
 anchor_bottom = 0.5131
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_terminal_condition"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_first_symptoms"
+text = "pulmonary_calcification_first_symptoms"
 
 [node name="Label2" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
 anchor_left = 0.039241
@@ -779,18 +757,15 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
+[node name="Penalty" type="RichTextLabel" parent="SelectDisease/SelectedDisease/TextureRect2/VBoxContainer/SelectedTerminalCondition"]
 anchor_left = 0.0387597
 anchor_top = 0.676856
 anchor_right = 0.968992
 anchor_bottom = 0.971616
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_terminal_condition_penalties"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_text = "pulmonary_calcification_penalties"
+text = "pulmonary_calcification_penalties"
 
 [node name="SelectedLowerConditionLevel" type="Button" parent="SelectDisease/SelectedDisease/TextureRect2"]
 unique_name_in_owner = true
@@ -890,20 +865,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RolledDiseaseDescription" type="Label" parent="RolledDiseaseScreen"]
+[node name="RolledDiseaseDescription" type="RichTextLabel" parent="RolledDiseaseScreen"]
 unique_name_in_owner = true
 anchor_left = 0.0311258
 anchor_top = 0.262233
 anchor_right = 0.472848
 anchor_bottom = 0.608532
 margin_top = -1.52588e-05
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 22 )
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 31 )
 text = "pulmonary_calcification_description"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="RemedyHeadline" type="Label" parent="RolledDiseaseScreen"]
 anchor_left = 0.0311258
@@ -920,19 +891,15 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RolledRemedy" type="Label" parent="RolledDiseaseScreen"]
+[node name="RolledRemedy" type="RichTextLabel" parent="RolledDiseaseScreen"]
 unique_name_in_owner = true
 anchor_left = 0.0311258
 anchor_top = 0.670013
 anchor_right = 0.472848
 anchor_bottom = 0.929736
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 22 )
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/normal_font = SubResource( 32 )
 text = "pulmonary_calcification_remedy"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="TextureRect2" type="TextureRect" parent="RolledDiseaseScreen"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
@@ -994,19 +961,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
+[node name="Description" type="RichTextLabel" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
 anchor_left = 0.0253165
 anchor_top = 0.153846
 anchor_right = 0.983544
 anchor_bottom = 0.511538
 margin_bottom = 3.05176e-05
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_first_symptoms"
 text = "pulmonary_calcification_first_symptoms"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
 anchor_left = 0.039241
@@ -1049,7 +1013,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
+[node name="Penalty" type="RichTextLabel" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledFirstSymptoms"]
 anchor_left = 0.0240506
 anchor_top = 0.682692
 anchor_right = 0.981013
@@ -1057,13 +1021,7 @@ anchor_bottom = 0.973077
 margin_left = 1.0
 margin_right = 1.0
 margin_bottom = 3.05176e-05
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
 text = "pulmonary_calcification_first_symptoms_penalties"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="RolledAcuteCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
@@ -1106,7 +1064,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
+[node name="Description" type="RichTextLabel" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 anchor_left = 0.0164557
 anchor_top = 0.153846
 anchor_right = 0.965823
@@ -1115,13 +1073,10 @@ margin_left = 7.0
 margin_top = 8.39233e-05
 margin_right = 7.0
 margin_bottom = 0.00012207
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_acute_condition"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_first_symptoms"
+text = "pulmonary_calcification_first_symptoms"
 
 [node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 anchor_left = 0.039241
@@ -1164,7 +1119,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
+[node name="Penalty" type="RichTextLabel" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledAcuteCondition"]
 anchor_left = 0.0139241
 anchor_top = 0.682692
 anchor_right = 0.963291
@@ -1173,13 +1128,7 @@ margin_left = 8.99996
 margin_top = 0.000152588
 margin_right = 8.99994
 margin_bottom = 0.000183105
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
 text = "pulmonary_calcification_acute_condition_penalties"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="RolledCriticalCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
@@ -1222,7 +1171,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
+[node name="Description" type="RichTextLabel" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 anchor_left = 0.0164557
 anchor_top = 0.153846
 anchor_right = 0.96962
@@ -1231,13 +1180,10 @@ margin_left = 7.0
 margin_top = 8.39233e-05
 margin_right = 7.0
 margin_bottom = 0.00012207
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_cricital_condition"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_first_symptoms"
+text = "pulmonary_calcification_first_symptoms"
 
 [node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 anchor_left = 0.039241
@@ -1280,7 +1226,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
+[node name="Penalty" type="RichTextLabel" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledCriticalCondition"]
 anchor_left = 0.0139241
 anchor_top = 0.682692
 anchor_right = 0.958228
@@ -1289,13 +1235,7 @@ margin_left = 8.99996
 margin_top = 0.000152588
 margin_right = 8.99994
 margin_bottom = 0.000183105
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
 text = "pulmonary_calcification_cricital_condition_penalties"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="RolledTerminalCondition" type="TextureRect" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer"]
 unique_name_in_owner = true
@@ -1338,19 +1278,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Description" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
+[node name="Description" type="RichTextLabel" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 anchor_left = 0.0164557
 anchor_top = 0.153846
 anchor_right = 0.983544
 anchor_bottom = 0.511538
 margin_bottom = 3.05176e-05
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
-text = "pulmonary_calcification_terminal_condition"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
+custom_fonts/normal_font = SubResource( 33 )
+bbcode_enabled = true
+bbcode_text = "pulmonary_calcification_first_symptoms"
+text = "pulmonary_calcification_first_symptoms"
 
 [node name="Label2" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 anchor_left = 0.039241
@@ -1393,19 +1330,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Penalty" type="Label" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
+[node name="Penalty" type="RichTextLabel" parent="RolledDiseaseScreen/TextureRect2/VBoxContainer/RolledTerminalCondition"]
 anchor_left = 0.0139241
 anchor_top = 0.682692
 anchor_right = 0.981013
 anchor_bottom = 0.973077
 margin_bottom = 3.05176e-05
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 23 )
 text = "pulmonary_calcification_terminal_condition_penalties"
-autowrap = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="LowerConditionLevel" type="Button" parent="RolledDiseaseScreen/TextureRect2"]
 anchor_left = 0.0189786
