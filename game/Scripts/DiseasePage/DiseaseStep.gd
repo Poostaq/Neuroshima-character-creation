@@ -24,6 +24,7 @@ onready var selected_first_symptoms = $"%SelectedFirstSymptoms"
 onready var selected_acute_condition = $"%SelectedAcuteCondition"
 onready var selected_critical_condition = $"%SelectedCriticalCondition"
 onready var selected_terminal_condition = $"%SelectedTerminalCondition"
+onready var select_button = $"%SelectButton"
 
 onready var disease_object = preload("res://Scenes/DiseasePage/DiseaseObject.tscn")
 onready var selected_condition_list = [selected_first_symptoms,selected_acute_condition,selected_critical_condition,selected_terminal_condition]
@@ -94,7 +95,6 @@ func _on_Button_button_up():
 
 
 func _on_disease_button_pressed(disease_data):
-	
 	selected_disease_name.text = disease_data["disease_name"]
 	selected_disease_description.bbcode_text = tr(disease_data["disease_description"])
 	selected_remedy.bbcode_text = tr(disease_data["disease_remedy"])
@@ -107,6 +107,8 @@ func _on_disease_button_pressed(disease_data):
 	var terminal_condition_data = {"description": disease_data["disease_terminal_condition"], "penalty": disease_data["disease_terminal_condition_penalties"]}
 	_fill_symptom_level(selected_terminal_condition, terminal_condition_data)
 	emit_signal("disease_unselected")
+	select_button.text = tr("select_button")
+	select_button.set_pressed(false)
 
 
 func _fill_symptom_level(symptom_object: TextureRect, disease_data):
@@ -158,4 +160,6 @@ func _show_current_condition_level(condition_list):
 
 func _on_Select_pressed():
 	CharacterStats.disease = disease_data_list[current_disease]
+	select_button.pressed = true
+	select_button.text = tr("select_button_selected")
 	emit_signal("disease_selected")
