@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://THEME.tres" type="Theme" id=1]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=2]
@@ -21,6 +21,10 @@
 [sub_resource type="ButtonGroup" id=14]
 
 [sub_resource type="ButtonGroup" id=15]
+
+[sub_resource type="ButtonGroup" id=23]
+
+[sub_resource type="ButtonGroup" id=24]
 
 [sub_resource type="StyleBoxEmpty" id=16]
 
@@ -97,33 +101,47 @@ visible = false
 
 [node name="EthnicityStep" parent="CharacterCreationProcess/StepContainer" index="0"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 957.0
 trait_group = SubResource( 14 )
 
 [node name="ProfessionStep" parent="CharacterCreationProcess/StepContainer" index="1"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 957.0
 trait_group = SubResource( 15 )
 
 [node name="AttributesStep" parent="CharacterCreationProcess/StepContainer" index="2"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 957.0
 
 [node name="SpecializationStep" parent="CharacterCreationProcess/StepContainer" index="3"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 957.0
 
 [node name="SkillPointsStep" parent="CharacterCreationProcess/StepContainer" index="4"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 957.0
 
 [node name="TricksStep" parent="CharacterCreationProcess/StepContainer" index="5"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 957.0
+trait_group = SubResource( 23 )
 
-[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="6"]
+[node name="DiseaseStep" parent="CharacterCreationProcess/StepContainer" index="6"]
 margin_right = 1873.0
-margin_bottom = 950.0
+margin_bottom = 957.0
+trait_group = SubResource( 24 )
+
+[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="7"]
+margin_right = 1873.0
+margin_bottom = 957.0
+
+[node name="BackStepButton" parent="CharacterCreationProcess" index="2"]
+anchor_left = 0.401271
+anchor_right = 0.448146
+
+[node name="StepsContainer" parent="CharacterCreationProcess" index="3"]
+anchor_left = 0.453354
+anchor_right = 0.858562
 
 [node name="EthnicityIndicator" parent="CharacterCreationProcess/StepsContainer" index="0"]
 margin_bottom = 76.0
@@ -153,20 +171,19 @@ margin_left = 477.0
 margin_right = 536.0
 margin_bottom = 76.0
 
-[node name="ReputationIndicator" parent="CharacterCreationProcess/StepsContainer" index="7"]
-margin_left = 556.0
-margin_right = 616.0
-margin_bottom = 76.0
-
-[node name="FormIndicator" parent="CharacterCreationProcess/StepsContainer" index="8"]
+[node name="FormIndicator" parent="CharacterCreationProcess/StepsContainer" index="7"]
 margin_left = 636.0
 margin_right = 695.0
 margin_bottom = 76.0
 
-[node name="GearIndicator" parent="CharacterCreationProcess/StepsContainer" index="9"]
+[node name="GearIndicator" parent="CharacterCreationProcess/StepsContainer" index="8"]
 margin_left = 715.0
 margin_right = 775.0
 margin_bottom = 76.0
+
+[node name="NextStepButton" parent="CharacterCreationProcess" index="4"]
+anchor_left = 0.859604
+anchor_right = 0.906479
 
 [node name="MainMenu" type="Control" parent="."]
 unique_name_in_owner = true
@@ -231,7 +248,7 @@ anchor_left = 0.0947776
 anchor_top = 0.214953
 anchor_right = 0.924565
 anchor_bottom = 0.738318
-custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "new_button"
 align = 1
@@ -260,7 +277,7 @@ anchor_left = 0.0947776
 anchor_top = 0.215843
 anchor_right = 0.924565
 anchor_bottom = 0.739208
-custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "manage_button"
 align = 1
@@ -291,7 +308,7 @@ anchor_left = 0.0947776
 anchor_top = 0.214953
 anchor_right = 0.924565
 anchor_bottom = 0.738318
-custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "settings_button"
 align = 1
@@ -322,7 +339,7 @@ anchor_left = 0.0947776
 anchor_top = 0.214953
 anchor_right = 0.924565
 anchor_bottom = 0.738318
-custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "exit_button"
 align = 1
@@ -354,7 +371,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="MainMenu/OriginDescriptionBox"]
-modulate = Color( 0, 0.717647, 0.0392157, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 material = SubResource( 9 )
 anchor_left = 0.0707237
 anchor_top = 0.0733198
@@ -394,7 +411,7 @@ anchor_left = 0.0903955
 anchor_top = 0.141013
 anchor_right = 0.309039
 anchor_bottom = 0.216485
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 18 )
 text = "language"
 valign = 1
@@ -408,11 +425,11 @@ anchor_left = 0.640113
 anchor_top = 0.141013
 anchor_right = 0.867232
 anchor_bottom = 0.220457
-custom_colors/font_color_disabled = Color( 0, 0.937255, 0.0823529, 1 )
-custom_colors/font_color_focus = Color( 0, 0.937255, 0.0823529, 1 )
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
-custom_colors/font_color_hover = Color( 0, 0.937255, 0.0823529, 1 )
-custom_colors/font_color_pressed = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color_disabled = Color( 0, 0.792157, 0.0862745, 1 )
+custom_colors/font_color_focus = Color( 0, 0.792157, 0.0862745, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_colors/font_color_hover = Color( 0, 0.792157, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -424,7 +441,7 @@ anchor_top = 0.251241
 anchor_right = 0.285311
 anchor_bottom = 0.350546
 margin_right = -3.05176e-05
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 21 )
 text = "all_skill_points_limit"
 align = 1
@@ -449,7 +466,7 @@ anchor_left = 0.0903955
 anchor_top = 0.372393
 anchor_right = 0.393785
 anchor_bottom = 0.481629
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 21 )
 text = "specialization_skill_points_limit"
 align = 1
@@ -469,6 +486,40 @@ min_value = 1.0
 value = 1.0
 align = 1
 
+[node name="DiseaseSelectionModeLabel" type="Label" parent="SettingsWindow/TextureRect"]
+anchor_left = 0.0915255
+anchor_top = 0.504469
+anchor_right = 0.394915
+anchor_bottom = 0.613705
+margin_right = 0.000610352
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 21 )
+text = "disease_selection_mode_setting"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="DiseaseSelectionMode" type="OptionButton" parent="SettingsWindow/TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.637288
+anchor_top = 0.51142
+anchor_right = 0.864407
+anchor_bottom = 0.590864
+custom_colors/font_color_disabled = Color( 0, 0.792157, 0.0862745, 1 )
+custom_colors/font_color_focus = Color( 0, 0.792157, 0.0862745, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_colors/font_color_hover = Color( 0, 0.792157, 0.0862745, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 20 )
+text = "Random"
+items = [ "Random", null, false, 0, null, "Selected", null, false, 1, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="SaveButton" type="Button" parent="SettingsWindow/TextureRect"]
 margin_left = 662.0
 margin_top = 891.0
@@ -484,7 +535,7 @@ anchor_left = 0.0775511
 anchor_top = 0.140496
 anchor_right = 0.932653
 anchor_bottom = 0.719009
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 22 )
 text = "save_button"
 align = 1
@@ -510,6 +561,8 @@ __meta__ = {
 environment = SubResource( 12 )
 
 [connection signal="back_to_main_menu" from="CharacterCreationProcess" to="." method="_back_to_main_menu"]
+[connection signal="disease_selected" from="CharacterCreationProcess/StepContainer/DiseaseStep" to="CharacterCreationProcess" method="_enable_next_step"]
+[connection signal="disease_unselected" from="CharacterCreationProcess/StepContainer/DiseaseStep" to="CharacterCreationProcess" method="_disable_next_step"]
 [connection signal="button_up" from="MainMenu/NewCharacterButton" to="." method="_on_NewCharacterButton_button_up"]
 [connection signal="button_up" from="MainMenu/SettingsButton" to="." method="_on_SettingsButton_button_up"]
 [connection signal="button_up" from="MainMenu/ExitButton" to="." method="_on_ExitButton_button_up"]
@@ -517,6 +570,7 @@ environment = SubResource( 12 )
 [connection signal="item_selected" from="SettingsWindow/TextureRect/LanguageSelector" to="SettingsWindow" method="_on_LanguageSelector_item_selected"]
 [connection signal="value_changed" from="SettingsWindow/TextureRect/AllSkillPointsSelector" to="SettingsWindow" method="_on_AllSkillPointsSelector_value_changed"]
 [connection signal="value_changed" from="SettingsWindow/TextureRect/SpecSkillPointsSelector" to="SettingsWindow" method="_on_SpecSkillPointsSelector_value_changed"]
+[connection signal="item_selected" from="SettingsWindow/TextureRect/DiseaseSelectionMode" to="SettingsWindow" method="_on_DiseaseSelectionMode_item_selected"]
 [connection signal="pressed" from="SettingsWindow/TextureRect/SaveButton" to="." method="_on_SaveButton_pressed"]
 [connection signal="button_up" from="SettingsWindow/CloseButton" to="SettingsWindow" method="_on_CloseButton_button_up"]
 

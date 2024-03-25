@@ -68,7 +68,7 @@ __meta__ = {
 
 [node name="ProfessionPic" type="TextureRect" parent="Fluff/VBoxContainer"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 self_modulate = Color( 1, 1, 1, 0.380392 )
 margin_right = 349.0
 margin_bottom = 485.0
@@ -82,7 +82,7 @@ expand = true
 stretch_mode = 1
 
 [node name="HSeparator" type="HSeparator" parent="Fluff/VBoxContainer"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 margin_top = 489.0
 margin_right = 349.0
 margin_bottom = 514.0
@@ -92,7 +92,7 @@ size_flags_stretch_ratio = 0.3
 
 [node name="ProfessionQuote" type="RichTextLabel" parent="Fluff/VBoxContainer"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 margin_top = 518.0
 margin_right = 349.0
 margin_bottom = 680.0
@@ -124,7 +124,7 @@ __meta__ = {
 
 [node name="ProfessionName" type="Label" parent="DescriptionContainer"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0430569
 anchor_top = 0.0561427
 anchor_right = 0.924903
@@ -161,7 +161,7 @@ __meta__ = {
 
 [node name="ProfessionDescription" type="RichTextLabel" parent="DescriptionContainer/ScrollContainer"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 margin_right = 1040.0
 margin_bottom = 370.0
 size_flags_horizontal = 3
@@ -173,7 +173,7 @@ bbcode_text = "NOT SET"
 text = "NOT SET"
 
 [node name="HSeparator" type="HSeparator" parent="DescriptionContainer"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0962439
 anchor_top = 0.191414
 anchor_right = 0.899061

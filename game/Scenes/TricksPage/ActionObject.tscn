@@ -1,8 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scenes/TricksPage/ActionObject.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/TricksPage/ActionObject.gd" type="Script" id=2]
 [ext_resource path="res://UI_Elements/SkillBoxBorderLong.png" type="Texture" id=3]
+
 
 [sub_resource type="DynamicFont" id=1]
 size = 25
@@ -34,7 +35,7 @@ anchor_left = 0.00842105
 anchor_top = 0.03
 anchor_right = 0.965867
 anchor_bottom = 0.28
-custom_colors/font_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 1 )
 text = "Otwieranie zamków elektronicznych"
 __meta__ = {
@@ -47,7 +48,7 @@ anchor_left = 0.00842105
 anchor_top = 0.28
 anchor_right = 0.991579
 anchor_bottom = 0.95
-custom_colors/default_color = Color( 0, 0.937255, 0.0823529, 1 )
+custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/normal_font = SubResource( 2 )
 bbcode_enabled = true
 __meta__ = {

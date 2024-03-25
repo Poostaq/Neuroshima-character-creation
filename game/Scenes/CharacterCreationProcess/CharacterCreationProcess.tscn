@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=2]
+[gd_scene load_steps=51 format=2]
 
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=2]
@@ -28,10 +28,17 @@
 [ext_resource path="res://UI_Elements/MainMenu/help_off_4.png" type="Texture" id=26]
 [ext_resource path="res://Scenes/TricksPage/TricksStep.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/CharacterCreationProcess/DummyStep.gd" type="Script" id=28]
+[ext_resource path="res://Scenes/DiseasePage/DiseaseStep.tscn" type="PackedScene" id=29]
+[ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=31]
+[ext_resource path="res://Fonts/Bold_45_colored.tres" type="DynamicFont" id=32]
 
 [sub_resource type="ButtonGroup" id=2]
 
 [sub_resource type="ButtonGroup" id=5]
+
+[sub_resource type="ButtonGroup" id=20]
+
+[sub_resource type="ButtonGroup" id=21]
 
 [sub_resource type="DynamicFont" id=19]
 size = 72
@@ -99,9 +106,34 @@ __meta__ = {
 steps_container = NodePath("StepsContainer")
 character_sheet_panel = NodePath("CharacterSheet")
 
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_left = 0.0234375
+anchor_top = 0.917593
+anchor_right = 0.383333
+anchor_bottom = 0.976852
+texture = ExtResource( 31 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StepNameLabel" type="Label" parent="TextureRect"]
+unique_name_in_owner = true
+anchor_left = 0.0711061
+anchor_top = 0.0121951
+anchor_right = 0.927765
+anchor_bottom = 0.878049
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = ExtResource( 32 )
+text = "STEP 1: ETHNICITY"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="StepContainer" type="MarginContainer" parent="."]
 anchor_left = 0.00520833
-anchor_top = 0.00925926
+anchor_top = 0.00277778
 anchor_right = 0.994792
 anchor_bottom = 0.912037
 grow_horizontal = 2
@@ -126,7 +158,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 trait_group = SubResource( 2 )
 
 [node name="ProfessionStep" parent="StepContainer" instance=ExtResource( 10 )]
@@ -137,7 +169,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 trait_group = SubResource( 5 )
 
 [node name="AttributesStep" parent="StepContainer" instance=ExtResource( 11 )]
@@ -148,7 +180,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 
 [node name="SpecializationStep" parent="StepContainer" instance=ExtResource( 9 )]
 unique_name_in_owner = true
@@ -158,7 +190,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 
 [node name="SkillPointsStep" parent="StepContainer" instance=ExtResource( 7 )]
 unique_name_in_owner = true
@@ -168,7 +200,7 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 
 [node name="TricksStep" parent="StepContainer" instance=ExtResource( 27 )]
 unique_name_in_owner = true
@@ -178,7 +210,21 @@ anchor_bottom = 0.0
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
+trait_group = SubResource( 20 )
+
+[node name="DiseaseStep" parent="StepContainer" instance=ExtResource( 29 )]
+unique_name_in_owner = true
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 962.0
+trait_group = SubResource( 21 )
 
 [node name="DummyStep" type="Control" parent="StepContainer"]
 unique_name_in_owner = true
@@ -186,7 +232,7 @@ visible = false
 margin_left = 20.0
 margin_top = 20.0
 margin_right = 1880.0
-margin_bottom = 955.0
+margin_bottom = 962.0
 script = ExtResource( 28 )
 
 [node name="TextEdit" type="Label" parent="StepContainer/DummyStep"]
@@ -199,9 +245,9 @@ valign = 1
 
 [node name="BackStepButton" type="Button" parent="."]
 unique_name_in_owner = true
-anchor_left = 0.338542
+anchor_left = 0.401042
 anchor_top = 0.917593
-anchor_right = 0.385417
+anchor_right = 0.447917
 anchor_bottom = 0.991667
 size_flags_horizontal = 7
 size_flags_vertical = 7
@@ -216,9 +262,9 @@ __meta__ = {
 }
 
 [node name="StepsContainer" type="HBoxContainer" parent="."]
-anchor_left = 0.390625
+anchor_left = 0.453125
 anchor_top = 0.919444
-anchor_right = 0.795833
+anchor_right = 0.858333
 anchor_bottom = 0.990741
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -232,7 +278,7 @@ __meta__ = {
 [node name="EthnicityIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_right = 59.0
+margin_right = 68.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "ethnicity_step_tooltip"
@@ -245,8 +291,8 @@ stretch_mode = 5
 [node name="ProfessionIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 79.0
-margin_right = 139.0
+margin_left = 88.0
+margin_right = 157.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "profession_step_tooltip"
@@ -262,8 +308,8 @@ __meta__ = {
 [node name="AttributesIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 159.0
-margin_right = 219.0
+margin_left = 177.0
+margin_right = 245.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "attributes_step_tooltip"
@@ -276,8 +322,8 @@ stretch_mode = 5
 [node name="SpecializationIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 239.0
-margin_right = 298.0
+margin_left = 265.0
+margin_right = 334.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "specialization_step_tooltip"
@@ -290,8 +336,8 @@ stretch_mode = 5
 [node name="SkillsIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 318.0
-margin_right = 378.0
+margin_left = 354.0
+margin_right = 422.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "skills_step_tooltip"
@@ -304,8 +350,8 @@ stretch_mode = 5
 [node name="TricksIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 398.0
-margin_right = 458.0
+margin_left = 442.0
+margin_right = 511.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "tricks_step_tooltip"
@@ -318,25 +364,11 @@ stretch_mode = 5
 [node name="DiseasesIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 478.0
-margin_right = 537.0
+margin_left = 531.0
+margin_right = 599.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "illness_step_tooltip"
-size_flags_horizontal = 7
-size_flags_vertical = 3
-texture_normal = ExtResource( 18 )
-expand = true
-stretch_mode = 5
-
-[node name="ReputationIndicator" type="TextureButton" parent="StepsContainer"]
-unique_name_in_owner = true
-material = SubResource( 1 )
-margin_left = 557.0
-margin_right = 617.0
-margin_bottom = 77.0
-rect_min_size = Vector2( 20, 20 )
-hint_tooltip = "reputation_step_tooltip"
+hint_tooltip = "disease_step_tooltip"
 size_flags_horizontal = 7
 size_flags_vertical = 3
 texture_normal = ExtResource( 18 )
@@ -346,8 +378,8 @@ stretch_mode = 5
 [node name="FormIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 637.0
-margin_right = 697.0
+margin_left = 619.0
+margin_right = 688.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
 hint_tooltip = "form_step_tooltip"
@@ -360,7 +392,7 @@ stretch_mode = 5
 [node name="GearIndicator" type="TextureButton" parent="StepsContainer"]
 unique_name_in_owner = true
 material = SubResource( 1 )
-margin_left = 717.0
+margin_left = 708.0
 margin_right = 777.0
 margin_bottom = 77.0
 rect_min_size = Vector2( 20, 20 )
@@ -373,9 +405,9 @@ stretch_mode = 5
 
 [node name="NextStepButton" type="Button" parent="."]
 unique_name_in_owner = true
-anchor_left = 0.796875
+anchor_left = 0.859375
 anchor_top = 0.915741
-anchor_right = 0.84375
+anchor_right = 0.90625
 anchor_bottom = 0.989815
 size_flags_horizontal = 3
 size_flags_vertical = 3
@@ -404,7 +436,7 @@ custom_styles/disabled = ExtResource( 20 )
 custom_styles/normal = ExtResource( 15 )
 
 [node name="CharacterCardButton" type="Label" parent="CardButton"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0748174
 anchor_top = 0.049
 anchor_right = 0.46

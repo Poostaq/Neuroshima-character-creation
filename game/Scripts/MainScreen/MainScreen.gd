@@ -37,7 +37,8 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	pass
+	GlobalVariables.global_randomizer = RandomNumberGenerator.new()
+	GlobalVariables.global_randomizer.randomize()
 
 
 
@@ -57,6 +58,14 @@ func _on_NewCharacterButton_button_up():
 	main_menu.visible = false
 	character_creation_process.visible = true
 	character_creation_process.steps[character_creation_process.current_step].load_step()
+	CharacterStats.player_seed = GlobalVariables.global_randomizer.seed
+	print("PLAYER SEED:")
+	print(CharacterStats.player_seed)
+	print("------------")
+	CharacterStats.player_seed_state = GlobalVariables.global_randomizer.state
+	print("PLAYER SEED STATE:")
+	print(CharacterStats.player_seed_state)
+	print("------------")
 
 
 func _back_to_main_menu():

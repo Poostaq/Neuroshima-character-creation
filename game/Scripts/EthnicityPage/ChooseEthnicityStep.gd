@@ -5,7 +5,7 @@ signal ethnicity_cleared
 
 export(ButtonGroup) var trait_group
 
-
+var step_name = "ethnicity_step_description"
 var ethnicity_list = []
 var current_ethnicity_index = 0
 var current_ethnicity_data = {}

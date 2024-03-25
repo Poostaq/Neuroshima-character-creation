@@ -7,7 +7,7 @@ signal profession_cleared()
 
 export(ButtonGroup) var trait_group
 
-
+var step_name = "profession_step_description"
 var profession_list = []
 var current_profession_index = 0
 var profession = {}

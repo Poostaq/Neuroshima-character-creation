@@ -35,7 +35,7 @@ font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=11]
 size = 24
-outline_color = Color( 0, 0.937255, 0.0823529, 1 )
+outline_color = Color( 0, 0.792157, 0.0862745, 1 )
 font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=19]
@@ -139,7 +139,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/RollingButton"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0636018
 anchor_right = 0.886892
 anchor_bottom = 0.994777
@@ -170,7 +170,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/DistributeButon"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 11 )
@@ -219,7 +219,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/RollAttributesUI/RollButton"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 0.888889
 custom_fonts/font = SubResource( 19 )
@@ -263,7 +263,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/RollAttributesUI/AgilityContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 4.0
@@ -315,7 +315,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/RollAttributesUI/PerceptionContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 3.99994
@@ -368,7 +368,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/RollAttributesUI/CharacterContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.99994
@@ -421,7 +421,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/RollAttributesUI/WitsContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 1.99994
@@ -474,7 +474,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/RollAttributesUI/BodyContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 2.99994
@@ -534,7 +534,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/RemainingPoints"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 15 )
@@ -556,7 +556,7 @@ __meta__ = {
 }
 
 [node name="Remaining Label" type="Label" parent="Control/Background/DistributeAttributesUI/RemainingPoints2"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 0.888886
 margin_bottom = 10.0
@@ -591,7 +591,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributeAgilityContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0380954
 anchor_top = 0.0229885
 anchor_right = 0.971428
@@ -654,7 +654,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributePerceptionContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0380946
 anchor_top = 0.0114942
 anchor_right = 0.971428
@@ -722,7 +722,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributeCharacterContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0285708
 anchor_top = -0.0114942
 anchor_right = 0.961904
@@ -790,7 +790,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributeWitsContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.019047
 anchor_top = 0.0114942
 anchor_right = 0.95238
@@ -853,7 +853,7 @@ __meta__ = {
 }
 
 [node name="Label" type="Label" parent="Control/Background/DistributeAttributesUI/DistributeBodyContainer/AttributeValue"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0285708
 anchor_top = 0.0114942
 anchor_right = 0.961904
@@ -907,7 +907,7 @@ expand = true
 
 [node name="AttributeDescriptionName" type="Label" parent="Control/Background/TextureRect"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0890004
 anchor_top = 0.120207
 anchor_right = 0.661003
@@ -919,7 +919,7 @@ __meta__ = {
 
 [node name="AttributeDescription" type="RichTextLabel" parent="Control/Background/TextureRect"]
 unique_name_in_owner = true
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_left = 0.0920004
 anchor_top = 0.1886
 anchor_right = 0.898004
@@ -960,7 +960,7 @@ toggle_mode = true
 group = ExtResource( 29 )
 
 [node name="Label" type="Label" parent="Control/Background/AgilityNameContainer/AttributeName"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
@@ -991,7 +991,7 @@ toggle_mode = true
 group = ExtResource( 29 )
 
 [node name="Label" type="Label" parent="Control/Background/PerceptionNameContainer/AttributeName"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
@@ -1022,7 +1022,7 @@ toggle_mode = true
 group = ExtResource( 29 )
 
 [node name="Label" type="Label" parent="Control/Background/CharacterNameContainer/AttributeName"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
@@ -1056,7 +1056,7 @@ toggle_mode = true
 group = ExtResource( 29 )
 
 [node name="Label" type="Label" parent="Control/Background/WitsNameContainer/AttributeName"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )
@@ -1087,7 +1087,7 @@ toggle_mode = true
 group = ExtResource( 29 )
 
 [node name="Label" type="Label" parent="Control/Background/BodyNameContainer/AttributeName"]
-modulate = Color( 0, 0.937255, 0.0823529, 1 )
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_fonts/font = SubResource( 10 )

@@ -40,7 +40,10 @@ var flags: Dictionary
 var special_rules: Dictionary
 var fame: int
 var tricks: Array
+var disease: Dictionary
 var player_id: int
+var player_seed: int
+var player_seed_state: int
 
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()
@@ -179,7 +182,6 @@ func update_attribute_values():
 func get_all_skill_dictionary():
 	var skill_dictionary = {}
 	for skill_pack in skill_data.keys():
-		var skill_pack_data = skill_data[skill_pack].skill_data
 		for skill in skill_data[skill_pack].skill_data:
 			skill_dictionary[skill.skill_identifier] = skill.level
 	return skill_dictionary

@@ -21,7 +21,7 @@ onready var selected_identifier = $"%SelectedIdentifier"
 #####################################
 # PUBLIC VARIABLES 
 #####################################
-
+var step_name = "specialization_step_description"
 #####################################
 # PRIVATE VARIABLES
 #####################################

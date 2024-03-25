@@ -3,6 +3,7 @@ extends Control
 signal points_spent
 signal points_returned
 
+var step_name = "skill_points_step_description"
 onready var current_attribute_label = $"%CurrentAttributeLabel"
 onready var chosen_spec_label = $"%ChosenSpecLabel"
 onready var skill_pack_grid = $"%SkillPackGrid"
@@ -161,7 +162,7 @@ func on_skill_pack_skill_minus_pressed(skill_pack, skill_object):
 
 func _on_SkillPackContainer_mouse_entered_skill_name(skill_data: SkillData):
 	description_name.text = skill_data.name
-	description_text.text = tr(skill_data.description)
+	description_text.bbcode_text = tr(skill_data.description)
 
 
 func can_pay(amount: int, specialization: String):
