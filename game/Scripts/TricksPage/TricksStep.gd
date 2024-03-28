@@ -15,7 +15,8 @@ onready var description_text = $"%DescriptionText"
 onready var behaviour_text = $"%BehaviourText"
 onready var requirements_label = $"%RequirementsLabel"
 onready var action_list = $"%ActionList"
-onready var selected_trick = $"%SelectedTrick"
+#onready var selected_trick = $"%SelectedTrick"
+onready var select_button = $"%SelectButton"
 var current_trick_data: Trick
 
 
@@ -50,10 +51,10 @@ func create_new_trick_object(trick_data: Dictionary):
 func _on_trick_button_pressed(trick_identifier):
 	if current_trick_data:
 		CharacterStats.remove_trick_from_character(current_trick_data.trick_id)
-	if selected_trick.pressed:
-		selected_trick.pressed = false
+	if select_button.pressed:
+		select_button.pressed = false
 	emit_signal("trick_unselected")
-	selected_trick.get_node("Label").text = tr("select_button")
+	select_button.text = tr("select_button")
 	current_trick_data = DatabaseOperations.get_trick_by_name(trick_identifier)
 	trick_name.text = tr(current_trick_data.trick_name)
 	description_text.bbcode_text = tr(current_trick_data.trick_description)
@@ -80,13 +81,8 @@ func clear_action_space():
 
 
 func _on_SelectedTrick_pressed():
-	print("SELECTING THIS TRICK: ")
-	print(current_trick_data.trick_id)
-	print(selected_trick.pressed)
-	if selected_trick.pressed:
-		print("APPENDED TRICK DATA")
+	if select_button.pressed:
 		CharacterStats.tricks.append(current_trick_data)
-	selected_trick.pressed = true
-	selected_trick.get_node("Label").text = tr("select_button_selected")
-	print(selected_trick.pressed)
+	select_button.pressed = true
+	select_button.text = tr("select_button_selected")
 	emit_signal("trick_selected")

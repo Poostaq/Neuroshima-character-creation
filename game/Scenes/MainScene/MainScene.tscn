@@ -132,6 +132,7 @@ margin_bottom = 957.0
 trait_group = SubResource( 24 )
 
 [node name="FormStep" parent="CharacterCreationProcess/StepContainer" index="7"]
+visible = false
 margin_right = 1873.0
 margin_bottom = 957.0
 

@@ -342,7 +342,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="buy_pack_button_pressed" from="SkillContainerBackground/AlternativeGeneralKnowledge" to="." method="on_buy_pack_button_pressed"]
 [connection signal="mouse_entered_skill_name_of_skill_pack" from="SkillContainerBackground/AlternativeGeneralKnowledge" to="." method="_on_SkillPackContainer_mouse_entered_skill_name"]
 [connection signal="sell_pack_button_pressed" from="SkillContainerBackground/AlternativeGeneralKnowledge" to="." method="on_sell_pack_button_pressed"]
 [connection signal="skill_pack_skill_minus_pressed" from="SkillContainerBackground/AlternativeGeneralKnowledge" to="." method="on_skill_pack_skill_minus_pressed"]
