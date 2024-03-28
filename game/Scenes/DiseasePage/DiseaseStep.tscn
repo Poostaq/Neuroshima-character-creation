@@ -1409,6 +1409,7 @@ custom_styles/disabled = SubResource( 12 )
 custom_styles/normal = SubResource( 13 )
 text = "Roll for your Disease"
 
+[connection signal="pressed" from="SelectDisease/SelectButton" to="." method="_on_Select_pressed"]
 [connection signal="pressed" from="SelectDisease/SelectedDisease/TextureRect2/SelectedLowerConditionLevel" to="." method="_on_SelectedLowerConditionLevel_pressed"]
 [connection signal="pressed" from="SelectDisease/SelectedDisease/TextureRect2/SelectedHigherConditionLevel" to="." method="_on_SelectedHigherConditionLevel_pressed"]
 [connection signal="button_up" from="RolledDiseaseScreen/TextureRect2/LowerConditionLevel" to="." method="_on_LowerConditionLevel_button_up"]
