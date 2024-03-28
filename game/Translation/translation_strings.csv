@@ -645,9 +645,9 @@ disease_treatment_name,Leczenie chorób,Disease treatment
 mechanics_name,Mechanika,Mechanics
 electronics_name,Elektronika,Electronics Engineer
 computers_name,Komputery,Computers
-general_knowledge1_name,Wiedza ogólna 1,General Knowledge 1
-general_knowledge2_name,Wiedza ogólna 2,General Knowledge 2
-general_knowledge3_name,Wiedza ogólna 3,General Knowledge 3
+general_knowledge1_name,Wiedza ogólna,General Knowledge
+general_knowledge2_name,Wiedza ogólna,General Knowledge
+general_knowledge3_name,Wiedza ogólna,General Knowledge
 heavy_machinery_name,Maszyny ciężkie,Heavy machinery
 combat_vehicles_name,Wozy bojowe,Combat Vehicles
 boats_name,Kutry,Boats
