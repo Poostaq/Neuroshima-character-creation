@@ -13,14 +13,14 @@ outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 40
+size = 36
 outline_size = 3
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 5 )
 
 [sub_resource type="DynamicFont" id=15]
 size = 24
-outline_size = 3
+outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 5 )
 
@@ -136,7 +136,7 @@ anchor_right = 0.978682
 anchor_bottom = 0.0814397
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "PYTANIE PIERWSZE:"
+text = "first_question_label"
 valign = 1
 autowrap = true
 __meta__ = {
@@ -157,14 +157,14 @@ __meta__ = {
 }
 
 [node name="Description" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question1"]
-anchor_left = 0.0387597
-anchor_top = 0.0884258
-anchor_right = 0.968992
-anchor_bottom = 0.446505
+anchor_left = 0.038777
+anchor_top = 0.0885668
+anchor_right = 0.96868
+anchor_bottom = 0.378422
 margin_bottom = 1.00002
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 2 )
-text = "Jest późny wieczór, od zachodu zbliża się wichura, pierwsze podmuchy poruszają konarami skarłowaciałych drzew. Wyłaniasz się zza załomu muru, przekraczasz ulicę i wchodzisz do knajpy. Panujący w niej zgiełk ustaje, a zgromadzeni wewnątrz dostrzegają..."
+text = "first_question"
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": true
@@ -179,7 +179,7 @@ margin_top = 1.52588e-05
 margin_bottom = -0.515015
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 1 )
-text = "ODPOWIEDŹ:"
+text = "answer_label"
 valign = 1
 autowrap = true
 __meta__ = {
@@ -201,16 +201,17 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect2/VBoxContainer/Question1"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-anchor_right = 0.107
-anchor_bottom = 0.5
-margin_left = 51.0
-margin_top = 306.0
-margin_right = 1168.51
-margin_bottom = 277.5
+anchor_left = 0.0380313
+anchor_top = 0.492754
+anchor_right = 0.978372
+anchor_bottom = 0.94686
 texture = ExtResource( 2 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="Penalty" type="TextEdit" parent="TextureRect/TextureRect2/VBoxContainer/Question1/TextureRect"]
+[node name="Answer" type="TextEdit" parent="TextureRect/TextureRect2/VBoxContainer/Question1/TextureRect"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = 5.0
@@ -229,7 +230,558 @@ context_menu_enabled = false
 wrap_enabled = true
 caret_block_mode = true
 
-[node name="SelectedLowerConditionLevel" type="Button" parent="TextureRect/TextureRect2"]
+[node name="Question2" type="Control" parent="TextureRect/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 1341.0
+margin_bottom = 621.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question2"]
+anchor_left = 0.0387597
+anchor_top = -0.00589624
+anchor_right = 0.978682
+anchor_bottom = 0.0814397
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "second_question_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question2"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0101266
+anchor_top = 0.0715472
+anchor_right = 0.979747
+anchor_bottom = 0.0965472
+margin_left = 7.0
+margin_right = 1.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question2"]
+anchor_left = 0.038777
+anchor_top = 0.0885668
+anchor_right = 0.96868
+anchor_bottom = 0.378422
+margin_bottom = 1.00002
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "second_question"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question2"]
+anchor_left = 0.0387597
+anchor_top = 0.389297
+anchor_right = 0.978682
+anchor_bottom = 0.477757
+margin_top = 1.52588e-05
+margin_bottom = -0.515015
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "answer_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question2"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0177215
+anchor_top = 0.372334
+anchor_right = 0.977215
+anchor_bottom = 0.397333
+margin_left = 1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect2/VBoxContainer/Question2"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+anchor_left = 0.0380313
+anchor_top = 0.492754
+anchor_right = 0.978372
+anchor_bottom = 0.94686
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Answer" type="TextEdit" parent="TextureRect/TextureRect2/VBoxContainer/Question2/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -5.0
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/read_only = SubResource( 16 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 16 )
+custom_styles/completion = SubResource( 16 )
+text = "Jesteś kontaktowy czy mrukliwy? Łatwo nawiązujesz przyjaźnie czy raczej jesteś nieufny. A może twój styl bycia sprawia, że takie patałachy nigdy się do ciebie nie dosiadają? Gadasz jak najęty czy cedzisz słowa jak Clint Eastwood?"
+bookmark_gutter = true
+context_menu_enabled = false
+wrap_enabled = true
+caret_block_mode = true
+
+[node name="Question3" type="Control" parent="TextureRect/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 1341.0
+margin_bottom = 621.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question3"]
+anchor_left = 0.0387597
+anchor_top = -0.00589624
+anchor_right = 0.978682
+anchor_bottom = 0.0814397
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "third_question_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question3"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0101266
+anchor_top = 0.0715472
+anchor_right = 0.979747
+anchor_bottom = 0.0965472
+margin_left = 7.0
+margin_right = 1.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question3"]
+anchor_left = 0.038777
+anchor_top = 0.0885668
+anchor_right = 0.96868
+anchor_bottom = 0.378422
+margin_bottom = 1.00002
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "third_question"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question3"]
+anchor_left = 0.0387597
+anchor_top = 0.389297
+anchor_right = 0.978682
+anchor_bottom = 0.477757
+margin_top = 1.52588e-05
+margin_bottom = -0.515015
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "answer_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question3"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0177215
+anchor_top = 0.372334
+anchor_right = 0.977215
+anchor_bottom = 0.397333
+margin_left = 1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect2/VBoxContainer/Question3"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+anchor_left = 0.0380313
+anchor_top = 0.492754
+anchor_right = 0.978372
+anchor_bottom = 0.94686
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Answer" type="TextEdit" parent="TextureRect/TextureRect2/VBoxContainer/Question3/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -5.0
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/read_only = SubResource( 16 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 16 )
+custom_styles/completion = SubResource( 16 )
+text = "Jak z uczuciami? Wiesz co to litość? Jesteś brutalny czy delikatny? Co sądzisz o przemocy? Zabiłeś już kogoś czy nie? Masz jakieś zasady moralne? 
+No jak, co z tobą?"
+bookmark_gutter = true
+context_menu_enabled = false
+wrap_enabled = true
+caret_block_mode = true
+
+[node name="Question4" type="Control" parent="TextureRect/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 1341.0
+margin_bottom = 621.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question4"]
+anchor_left = 0.0387597
+anchor_top = -0.00589624
+anchor_right = 0.978682
+anchor_bottom = 0.0814397
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "fourth_question_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question4"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0101266
+anchor_top = 0.0715472
+anchor_right = 0.979747
+anchor_bottom = 0.0965472
+margin_left = 7.0
+margin_right = 1.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question4"]
+anchor_left = 0.038777
+anchor_top = 0.0885668
+anchor_right = 0.96868
+anchor_bottom = 0.378422
+margin_bottom = 1.00002
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "fourth_question"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question4"]
+anchor_left = 0.0387597
+anchor_top = 0.389297
+anchor_right = 0.978682
+anchor_bottom = 0.477757
+margin_top = 1.52588e-05
+margin_bottom = -0.515015
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "answer_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question4"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0177215
+anchor_top = 0.372334
+anchor_right = 0.977215
+anchor_bottom = 0.397333
+margin_left = 1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect2/VBoxContainer/Question4"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+anchor_left = 0.0380313
+anchor_top = 0.492754
+anchor_right = 0.978372
+anchor_bottom = 0.94686
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Answer" type="TextEdit" parent="TextureRect/TextureRect2/VBoxContainer/Question4/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -5.0
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/read_only = SubResource( 16 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 16 )
+custom_styles/completion = SubResource( 16 )
+text = "Jakie masz nastawienie do tradycji i rodziny? Co sądzisz o swoim ojcu i matce? Masz rodzeństwo? Jesteś samotny czy może gdzieś daleko stąd ktoś na ciebie czeka?"
+bookmark_gutter = true
+context_menu_enabled = false
+wrap_enabled = true
+caret_block_mode = true
+
+[node name="Question5" type="Control" parent="TextureRect/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 1341.0
+margin_bottom = 621.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question5"]
+anchor_left = 0.0387597
+anchor_top = -0.00589624
+anchor_right = 0.978682
+anchor_bottom = 0.0814397
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "fifth_question_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question5"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0101266
+anchor_top = 0.0715472
+anchor_right = 0.979747
+anchor_bottom = 0.0965472
+margin_left = 7.0
+margin_right = 1.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question5"]
+anchor_left = 0.038777
+anchor_top = 0.0885668
+anchor_right = 0.96868
+anchor_bottom = 0.378422
+margin_bottom = 1.00002
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "fifth_question"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question5"]
+anchor_left = 0.0387597
+anchor_top = 0.389297
+anchor_right = 0.978682
+anchor_bottom = 0.477757
+margin_top = 1.52588e-05
+margin_bottom = -0.515015
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "answer_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question5"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0177215
+anchor_top = 0.372334
+anchor_right = 0.977215
+anchor_bottom = 0.397333
+margin_left = 1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect2/VBoxContainer/Question5"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+anchor_left = 0.0380313
+anchor_top = 0.492754
+anchor_right = 0.978372
+anchor_bottom = 0.94686
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Answer" type="TextEdit" parent="TextureRect/TextureRect2/VBoxContainer/Question5/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -5.0
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/read_only = SubResource( 16 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 16 )
+custom_styles/completion = SubResource( 16 )
+text = "Czy twój ojciec, lub ktoś inny, bardzo dla ciebie ważny, czegoś cię nauczył? Zdradził ci jakąś mądrość, prawdę życiową? Jest coś, za co go wyjątkowo szanujesz? Chciałbyś być taki jak on?"
+bookmark_gutter = true
+context_menu_enabled = false
+wrap_enabled = true
+caret_block_mode = true
+
+[node name="Question6" type="Control" parent="TextureRect/TextureRect2/VBoxContainer"]
+unique_name_in_owner = true
+visible = false
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_right = 1341.0
+margin_bottom = 621.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question6"]
+anchor_left = 0.0387597
+anchor_top = -0.00589624
+anchor_right = 0.978682
+anchor_bottom = 0.0814397
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "sixth_question_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question6"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0101266
+anchor_top = 0.0715472
+anchor_right = 0.979747
+anchor_bottom = 0.0965472
+margin_left = 7.0
+margin_right = 1.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Description" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question6"]
+anchor_left = 0.038777
+anchor_top = 0.0885668
+anchor_right = 0.96868
+anchor_bottom = 0.378422
+margin_bottom = 1.00002
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "sixth_question"
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Label2" type="Label" parent="TextureRect/TextureRect2/VBoxContainer/Question6"]
+anchor_left = 0.0387597
+anchor_top = 0.389297
+anchor_right = 0.978682
+anchor_bottom = 0.477757
+margin_top = 1.52588e-05
+margin_bottom = -0.515015
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "answer_label"
+valign = 1
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="TextureRect/TextureRect2/VBoxContainer/Question6"]
+self_modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0177215
+anchor_top = 0.372334
+anchor_right = 0.977215
+anchor_bottom = 0.397333
+margin_left = 1.0
+margin_right = 3.00006
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="TextureRect" type="TextureRect" parent="TextureRect/TextureRect2/VBoxContainer/Question6"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+anchor_left = 0.0380313
+anchor_top = 0.492754
+anchor_right = 0.978372
+anchor_bottom = 0.94686
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Answer" type="TextEdit" parent="TextureRect/TextureRect2/VBoxContainer/Question6/TextureRect"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 5.0
+margin_top = 5.0
+margin_right = -10.0
+margin_bottom = -5.0
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 15 )
+custom_styles/read_only = SubResource( 16 )
+custom_styles/focus = SubResource( 16 )
+custom_styles/normal = SubResource( 16 )
+custom_styles/completion = SubResource( 16 )
+text = "Boisz się śmierci? Jak reagujesz w sytuacjach niebezpiecznych? Mięknie ci rura czy dalej jesteś hardy? Myślisz czasami o końcu? Masz jakiś cel, który chciałbyś osiągnąć zanim wyciągniesz kopyta?"
+bookmark_gutter = true
+context_menu_enabled = false
+wrap_enabled = true
+caret_block_mode = true
+
+[node name="PreviousQuestion" type="Button" parent="TextureRect/TextureRect2"]
 unique_name_in_owner = true
 anchor_left = 0.0222517
 anchor_top = 0.913703
@@ -254,7 +806,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SelectedHigherConditionLevel" type="Button" parent="TextureRect/TextureRect2"]
+[node name="NextQuestion" type="Button" parent="TextureRect/TextureRect2"]
 unique_name_in_owner = true
 anchor_left = 0.657196
 anchor_top = 0.913986
@@ -277,3 +829,6 @@ text = "next_button"
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[connection signal="pressed" from="TextureRect/TextureRect2/PreviousQuestion" to="." method="_on_SelectedPreviousQuestion_pressed"]
+[connection signal="pressed" from="TextureRect/TextureRect2/NextQuestion" to="." method="_on_SelectedNextQuestion_pressed"]
