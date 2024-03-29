@@ -511,6 +511,7 @@ __meta__ = {
 [connection signal="points_spent" from="StepContainer/SkillPointsStep" to="." method="_enable_next_step"]
 [connection signal="trick_selected" from="StepContainer/TricksStep" to="." method="_enable_next_step"]
 [connection signal="trick_unselected" from="StepContainer/TricksStep" to="." method="_disable_next_step"]
+[connection signal="enable_next_step_anyway" from="StepContainer/FormStep" to="." method="_enable_next_step"]
 [connection signal="button_up" from="BackStepButton" to="." method="_previous_step"]
 [connection signal="button_up" from="NextStepButton" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]

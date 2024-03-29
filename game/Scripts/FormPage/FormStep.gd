@@ -1,5 +1,6 @@
 extends Control
 
+signal enable_next_step_anyway
 
 var step_name = "form_step_description"
 onready var question_1 = $"%Question1"
@@ -9,11 +10,11 @@ onready var question_4 = $"%Question4"
 onready var question_5 = $"%Question5"
 onready var question_6 = $"%Question6"
 onready var question_list = [question_1,question_2,question_3,question_4,question_5,question_6]
-# var a = 2
-# var b = "text"
+
+
 var current_question = 0
 
-# Called when the node enters the scene tree for the first time.
+
 func _ready():
 	question_1.get_node("TextureRect/Answer").text = tr("first_answer_default")
 	question_2.get_node("TextureRect/Answer").text = tr("second_answer_default")
@@ -23,9 +24,13 @@ func _ready():
 	question_6.get_node("TextureRect/Answer").text = tr("sixth_answer_default")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func load_step():
+	emit_signal("enable_next_step_anyway")
+
+
+func clean_up_step():
+	pass
+
 func _on_SelectedPreviousQuestion_pressed():
 	if current_question == 0:
 		current_question = 5

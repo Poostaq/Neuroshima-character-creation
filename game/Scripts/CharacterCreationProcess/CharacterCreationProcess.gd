@@ -19,6 +19,7 @@ onready var specialization_step = $"%SpecializationStep"
 onready var skill_points_step = $"%SkillPointsStep"
 onready var tricks_step = $"%TricksStep"
 onready var disease_step = $"%DiseaseStep"
+onready var form_step = $"%FormStep"
 onready var dummy_step = $"%DummyStep"
 
 onready var step_name_label = $"%StepNameLabel"
@@ -42,6 +43,7 @@ onready var steps = [
 					skill_points_step,
 					tricks_step,
 					disease_step,
+					form_step,
 					dummy_step
 ]
 
