@@ -45,9 +45,7 @@ func load_step() -> void:
 	_load_specialization(_get_current_secialization_identifier())
 	
 func clean_up_step() -> void:
-	emit_signal("specialization_cleared")
-	selected_identifier.get_node("Label").text = tr("select_button")
-	selected_identifier.set_pressed(false)
+	_clear_specialization()
 	CharacterStats.clear_specialization()
 
 #####################################
@@ -97,10 +95,12 @@ func _on_NextSpecialization_button_up() -> void:
 func _on_SelectedIdentifier_pressed():
 	emit_signal("specialization_chosen")
 	selected_identifier.pressed = true
-	selected_identifier.get_node("Label").text = tr("select_button_selected")
+#	selected_identifier.get_node("Label").text = tr("select_button_selected")
+	selected_identifier.text = tr("select_button_selected")
 	CharacterStats._on_specializationStep_specialization_chosen(current_specialization)
 
 func _clear_specialization():
 	emit_signal("specialization_cleared")
+	selected_identifier.text = tr("select_button")
 	selected_identifier.pressed = false
 	CharacterStats.clear_specialization()
