@@ -22,6 +22,13 @@ func _ready():
 	question_4.get_node("TextureRect/Answer").text = tr("fourth_answer_default")
 	question_5.get_node("TextureRect/Answer").text = tr("fifth_answer_default")
 	question_6.get_node("TextureRect/Answer").text = tr("sixth_answer_default")
+	var dict = CharacterStats.player_form_answers
+	dict["question1"] = ""
+	dict["question2"] = ""
+	dict["question3"] = ""
+	dict["question4"] = ""
+	dict["question5"] = ""
+	dict["question6"] = ""
 
 
 func load_step():
@@ -53,3 +60,19 @@ func _on_SelectedNextQuestion_pressed():
 			question_list[index].visible = true
 		else:
 			question_list[index].visible = false
+
+func on_form_finished():
+	fill_question_answer("question1", question_1, "first_answer_default")
+	fill_question_answer("question2", question_2, "second_answer_default")
+	fill_question_answer("question3", question_3, "third_answer_default")
+	fill_question_answer("question4", question_4, "fourth_answer_default")
+	fill_question_answer("question5", question_5, "fifth_answer_default")
+	fill_question_answer("question6", question_6, "sixth_answer_default")
+	
+func fill_question_answer(question_key, question_object, default_answer):
+	var dict = CharacterStats.player_form_answers
+	if question_object.get_node("TextureRect/Answer").text == tr(default_answer):
+		dict[question_key] = ""
+	else:
+		dict[question_key] = question_object.get_node("TextureRect/Answer").text
+		

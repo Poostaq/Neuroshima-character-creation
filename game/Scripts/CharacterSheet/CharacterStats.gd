@@ -44,6 +44,7 @@ var disease: Dictionary
 var player_id: int
 var player_seed: int
 var player_seed_state: int
+var player_form_answers: Dictionary
 
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()
@@ -185,3 +186,7 @@ func get_all_skill_dictionary():
 		for skill in skill_data[skill_pack].skill_data:
 			skill_dictionary[skill.skill_identifier] = skill.level
 	return skill_dictionary
+
+func save_form_answers():
+	pass
+	

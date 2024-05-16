@@ -75,6 +75,8 @@ func _on_CardButton_button_up() -> void:
 func _next_step() -> void:
 	if steps[current_step] == attributes_step:
 		attributes_step.save_attributes()
+	if steps[current_step] == form_step:
+		form_step.on_form_finished()
 	next_step.disabled = true
 	current_step += 1
 	back_step.disabled = false
