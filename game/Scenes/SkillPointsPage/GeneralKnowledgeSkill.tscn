@@ -116,6 +116,8 @@ __meta__ = {
 }
 
 [connection signal="mouse_entered" from="." to="." method="_on_SkillObject_mouse_entered"]
+[connection signal="on_minus_button_pressed" from="." to="." method="_on_skill_level_modification"]
+[connection signal="on_plus_button_pressed" from="." to="." method="_on_skill_level_modification"]
 [connection signal="item_selected" from="OptionButton" to="." method="_on_OptionButton_item_selected"]
 [connection signal="pressed" from="Minus" to="." method="_on_Minus_pressed"]
 [connection signal="pressed" from="Plus" to="." method="_on_Plus_pressed"]

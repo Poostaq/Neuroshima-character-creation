@@ -23,3 +23,7 @@ func refresh_option_states(index_list):
 
 func _on_OptionButton_item_selected(index):
 	emit_signal("general_knowledge_skill_selected", self, index)
+
+
+func _on_skill_level_modification(_skill_object):
+	emit_signal("general_knowledge_skill_selected", self, option_button.get_selected_id())

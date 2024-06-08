@@ -32,6 +32,7 @@ func update_skill_data():
 		skill.update_text()
 		if skill_pack_data.identifier == "general_knowledge" and not CharacterStats.is_alternative_general_knowledge_active():
 			skill.load_general_knowledge_skills()
+			
 			skill.option_button.select(i)
 	if skill_pack_data.identifier == "general_knowledge" and not CharacterStats.is_alternative_general_knowledge_active():
 		for i in range(0,skill_pack_data.skill_data.size()):
