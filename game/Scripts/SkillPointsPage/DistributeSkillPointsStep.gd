@@ -290,8 +290,9 @@ func _on_general_skill_pack_skill_selected(skill_pack, skill, index):
 	
 	var skill_index = get_skill_index_within_skillpack(skill_pack, skill)
 	selected_options[skill_index] = index
-	skill_packs_data_list_grouped_by_attribute[_current_attribute_index]["skill_packs_data"]["general_knowledge"].skill_data[skill_index] = skill.general_skill_data[index]
-	character_stats_pack_data.skill_data[skill_index] = skill.general_skill_data[index]
+	skill_packs_data_list_grouped_by_attribute[_current_attribute_index]["skill_packs_data"]["general_knowledge"].skill_data[skill_index] = skill.skill_data
+	character_stats_pack_data.skill_data[skill_index] = skill.skill_data
+	skill_pack.skill_pack_data.skill_data[skill_index] = skill.skill_data
 	refresh_all_general_knowledge_dropdowns(skill_pack)
 	
 func refresh_all_general_knowledge_dropdowns(skill_pack):
