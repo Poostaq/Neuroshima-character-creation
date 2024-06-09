@@ -324,11 +324,12 @@ func save_config_value(config_name: String, value: String):
 func create_skill_packs_from_database_query_result(database_query_result: Array):
 	var skill_pack_dict = {}
 	for record in database_query_result:
-		var skill_pack_data = SkillPack.new(record["attribute_name"],
-											record["skill_pack_identifier"], 
-											record["skill_pack_name"], 
-											record["specialization_identifier"], 
-											record["specialization_name"])
+		var skill_pack_data = SkillPack.new(
+			record["attribute_name"],
+			record["skill_pack_identifier"], 
+			record["skill_pack_name"], 
+			record["specialization_identifier"], 
+			record["specialization_name"])
 		var skills_data = read_skills_for_package(skill_pack_data.identifier, false)
 		for element in skills_data:
 			skill_pack_data.skill_data.append(element)
