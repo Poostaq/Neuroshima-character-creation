@@ -186,7 +186,3 @@ func get_all_skill_dictionary():
 		for skill in skill_data[skill_pack].skill_data:
 			skill_dictionary[skill.skill_identifier] = skill.level
 	return skill_dictionary
-
-func save_form_answers():
-	pass
-	

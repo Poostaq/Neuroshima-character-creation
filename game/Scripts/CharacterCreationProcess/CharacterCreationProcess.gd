@@ -79,7 +79,6 @@ func _next_step() -> void:
 		form_step.on_form_finished()
 	next_step.disabled = true
 	current_step += 1
-	back_step.disabled = false
 	steps[current_step].load_step()
 	_turn_on_step_indicators()
 	_show_current_screen()

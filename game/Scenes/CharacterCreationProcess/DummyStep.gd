@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func load_step():
-	CharacterStats.save_form_answers()
+	pass
 
 func clean_up_step():
 	pass
