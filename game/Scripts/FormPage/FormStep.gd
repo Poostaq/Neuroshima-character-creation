@@ -76,3 +76,7 @@ func fill_question_answer(question_key, question_object, default_answer):
 	else:
 		dict[question_key] = question_object.get_node("TextureRect/Answer").text
 		
+
+
+func _on_ClearAnswer_pressed():
+	question_list[current_question].get_node("TextureRect/Answer").text = ""

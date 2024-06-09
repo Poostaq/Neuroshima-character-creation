@@ -805,6 +805,28 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="ClearAnswer" type="Button" parent="TextureRect/TextureRect2"]
+unique_name_in_owner = true
+anchor_left = 0.34291
+anchor_top = 0.913986
+anchor_right = 0.651302
+anchor_bottom = 0.984975
+custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_hover = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 9 )
+custom_styles/hover = SubResource( 10 )
+custom_styles/pressed = SubResource( 11 )
+custom_styles/focus = SubResource( 12 )
+custom_styles/disabled = SubResource( 13 )
+custom_styles/normal = SubResource( 14 )
+text = "clear_button"
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
 [node name="NextQuestion" type="Button" parent="TextureRect/TextureRect2"]
 unique_name_in_owner = true
 anchor_left = 0.657196
@@ -830,4 +852,5 @@ __meta__ = {
 }
 
 [connection signal="pressed" from="TextureRect/TextureRect2/PreviousQuestion" to="." method="_on_SelectedPreviousQuestion_pressed"]
+[connection signal="pressed" from="TextureRect/TextureRect2/ClearAnswer" to="." method="_on_ClearAnswer_pressed"]
 [connection signal="pressed" from="TextureRect/TextureRect2/NextQuestion" to="." method="_on_SelectedNextQuestion_pressed"]
