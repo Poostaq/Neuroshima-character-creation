@@ -19,6 +19,7 @@ onready var specialization_step = $"%SpecializationStep"
 onready var skill_points_step = $"%SkillPointsStep"
 onready var tricks_step = $"%TricksStep"
 onready var disease_step = $"%DiseaseStep"
+onready var form_step = $"%FormStep"
 onready var dummy_step = $"%DummyStep"
 
 onready var step_name_label = $"%StepNameLabel"
@@ -42,6 +43,7 @@ onready var steps = [
 					skill_points_step,
 					tricks_step,
 					disease_step,
+					form_step,
 					dummy_step
 ]
 
@@ -73,9 +75,10 @@ func _on_CardButton_button_up() -> void:
 func _next_step() -> void:
 	if steps[current_step] == attributes_step:
 		attributes_step.save_attributes()
+	if steps[current_step] == form_step:
+		form_step.on_form_finished()
 	next_step.disabled = true
 	current_step += 1
-	back_step.disabled = false
 	steps[current_step].load_step()
 	_turn_on_step_indicators()
 	_show_current_screen()

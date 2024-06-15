@@ -44,6 +44,7 @@ var disease: Dictionary
 var player_id: int
 var player_seed: int
 var player_seed_state: int
+var player_form_answers: Dictionary
 
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()

@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonDisabled.tres" type="StyleBox" id=1]
 [ext_resource path="res://UI_Elements/splashArtBox.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Resources/Buttons/NextButton/NextButtonNormal.tres" type="StyleBox" id=13]
 [ext_resource path="res://Resources/Buttons/NextButton/NextButtonHover.tres" type="StyleBox" id=14]
 [ext_resource path="res://Resources/Buttons/NextButton/NextButtonDisabled.tres" type="StyleBox" id=15]
+[ext_resource path="res://Scenes/SelectButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=17]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonNormal.tres" type="StyleBox" id=18]
 
@@ -181,8 +182,9 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SelectedIdentifier" type="Button" parent="."]
+[node name="SelectedIdentifier2" type="Button" parent="."]
 unique_name_in_owner = true
+visible = false
 anchor_left = 0.544681
 anchor_top = 0.950605
 anchor_right = 0.750532
@@ -194,7 +196,7 @@ custom_styles/disabled = ExtResource( 1 )
 custom_styles/normal = ExtResource( 18 )
 toggle_mode = true
 
-[node name="Label" type="Label" parent="SelectedIdentifier"]
+[node name="Label" type="Label" parent="SelectedIdentifier2"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 custom_colors/font_color = Color( 0.905882, 0.886275, 0, 1 )
@@ -241,6 +243,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[connection signal="pressed" from="SelectedIdentifier" to="." method="_on_SelectedIdentifier_pressed"]
+[node name="SelectedIdentifier" parent="." instance=ExtResource( 16 )]
+anchor_left = 0.552128
+anchor_top = 0.79133
+anchor_right = 0.764494
+anchor_bottom = 0.859779
+
+[connection signal="pressed" from="SelectedIdentifier2" to="." method="_on_SelectedIdentifier_pressed"]
 [connection signal="button_up" from="PreviousSpecialization" to="." method="_on_PreviousSpecialization_button_up"]
 [connection signal="button_up" from="NextSpecialization" to="." method="_on_NextSpecialization_button_up"]
+[connection signal="pressed" from="SelectedIdentifier" to="." method="_on_SelectedIdentifier_pressed"]

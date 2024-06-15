@@ -20,6 +20,7 @@ var skill_packs_data_list_grouped_by_attribute = []
 var _current_attribute_index = 0
 var _current_attribute_pack_data = {}
 var _general_spent_on_general_points = 0
+export var selected_options = [0,1,2]
 
 onready var _current_all_skill_points = GlobalVariables.max_skill_points
 onready var _current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
@@ -72,6 +73,7 @@ func clean_up_step():
 	_current_specialization_skill_points = GlobalVariables.max_specialization_skill_points
 	_general_spent_on_general_points = 0
 	DatabaseOperations.update_player_skill_levels(CharacterStats.player_id, CharacterStats.get_all_skill_dictionary())
+	selected_options = [0,1,2]
 
 func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	var skill_pack_instance = skill_pack_scene.instance()
@@ -92,6 +94,8 @@ func _create_skill_pack(skill_pack_data: SkillPack, skill_pack_scene: Resource):
 	skill_pack_instance.connect("sell_pack_button_pressed", self, "on_sell_pack_button_pressed")
 	if skill_pack_instance.skill_pack_data.identifier == "general_knowledge":
 		skill_pack_instance.connect("general_skill_pack_skill_selected", self, "_on_general_skill_pack_skill_selected")
+		refresh_all_general_knowledge_dropdowns(skill_pack_instance)
+		
 
 func _fill_alternate_general_knowledge(skill_pack_data: SkillPack):
 	alternative_general_knowledge.skill_pack_data = skill_pack_data
@@ -280,14 +284,34 @@ func _on_general_skill_pack_skill_selected(skill_pack, skill, index):
 	var retained_level = skill.skill_data.level
 	skill.skill_data.duplicate(skill.general_skill_data[index])
 	skill.skill_data.level = retained_level
-	var selected_skills = []
-	if CharacterStats.is_alternative_general_knowledge_active():
-		pass
-	else:
-		for i in range(0,skill_pack.skill_pack_data.skill_data.size()):
-			selected_skills.append(skill_pack.skill_object_group.get_children()[i].option_button.selected)
-		for i in range(0,skill_pack.skill_pack_data.skill_data.size()):
-				skill_pack.skill_object_group.get_children()[i].refresh_option_states(selected_skills)
+	var character_stats_pack_data = CharacterStats.get_pack_data(
+		_current_attribute_pack_data["skill_packs_data"]["general_knowledge"].identifier,
+		CharacterStats.skill_data)
+	
+	var skill_index = get_skill_index_within_skillpack(skill_pack, skill)
+	selected_options[skill_index] = index
+	skill_packs_data_list_grouped_by_attribute[_current_attribute_index]["skill_packs_data"]["general_knowledge"].skill_data[skill_index] = skill.skill_data
+	character_stats_pack_data.skill_data[skill_index] = skill.skill_data
+	skill_pack.skill_pack_data.skill_data[skill_index] = skill.skill_data
+	refresh_all_general_knowledge_dropdowns(skill_pack)
+	
+func refresh_all_general_knowledge_dropdowns(skill_pack):
+	var skill_data = skill_pack.skill_pack_data.skill_data
+	for i in range(0,skill_data.size()):
+		var option_button = skill_pack.skill_object_group.get_children()[i].option_button
+		option_button.selected = selected_options[i]
+		skill_pack.skill_object_group.get_children()[i].refresh_option_states(selected_options)
+
+func get_option_by_text(option_button, text):
+	for x in range(0, option_button.get_item_count()):
+		if option_button.get_item_text(x) == text:
+			return x
+
+func get_skill_index_within_skillpack(skill_pack, skill):
+	var skillpack_group = skill_pack.skill_object_group.get_children()
+	for index in range(0, len(skillpack_group)):
+		if skillpack_group[index] == skill:
+			return index
 
 func can_activate_next_step():
 	if _current_all_skill_points == 0 and _current_specialization_skill_points == 0:

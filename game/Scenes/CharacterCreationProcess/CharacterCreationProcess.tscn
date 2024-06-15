@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonHover.tres" type="StyleBox" id=1]
 [ext_resource path="res://Resources/Buttons/BackButton/BackButtonNormal.tres" type="StyleBox" id=2]
@@ -29,6 +29,7 @@
 [ext_resource path="res://Scenes/TricksPage/TricksStep.tscn" type="PackedScene" id=27]
 [ext_resource path="res://Scenes/CharacterCreationProcess/DummyStep.gd" type="Script" id=28]
 [ext_resource path="res://Scenes/DiseasePage/DiseaseStep.tscn" type="PackedScene" id=29]
+[ext_resource path="res://Scenes/FormPage/FormStep.tscn" type="PackedScene" id=30]
 [ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=31]
 [ext_resource path="res://Fonts/Bold_45_colored.tres" type="DynamicFont" id=32]
 
@@ -225,6 +226,17 @@ margin_top = 20.0
 margin_right = 1880.0
 margin_bottom = 962.0
 trait_group = SubResource( 21 )
+
+[node name="FormStep" parent="StepContainer" instance=ExtResource( 30 )]
+visible = false
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1880.0
+margin_bottom = 962.0
 
 [node name="DummyStep" type="Control" parent="StepContainer"]
 unique_name_in_owner = true
@@ -500,6 +512,7 @@ __meta__ = {
 [connection signal="points_spent" from="StepContainer/SkillPointsStep" to="." method="_enable_next_step"]
 [connection signal="trick_selected" from="StepContainer/TricksStep" to="." method="_enable_next_step"]
 [connection signal="trick_unselected" from="StepContainer/TricksStep" to="." method="_disable_next_step"]
+[connection signal="enable_next_step_anyway" from="StepContainer/FormStep" to="." method="_enable_next_step"]
 [connection signal="button_up" from="BackStepButton" to="." method="_previous_step"]
 [connection signal="button_up" from="NextStepButton" to="." method="_next_step"]
 [connection signal="button_up" from="CardButton" to="." method="_on_CardButton_button_up"]

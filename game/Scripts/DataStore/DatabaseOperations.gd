@@ -293,7 +293,6 @@ func read_general_knowledge_skills():
 	db.close_db()
 	var skill_list = []
 	for record in selected_array:
-		print(record["skill_description"])
 		var description = ""
 		if record["skill_description"] != null:
 			description = record["skill_description"]
@@ -325,7 +324,12 @@ func save_config_value(config_name: String, value: String):
 func create_skill_packs_from_database_query_result(database_query_result: Array):
 	var skill_pack_dict = {}
 	for record in database_query_result:
-		var skill_pack_data = SkillPack.new(record["attribute_name"],record["skill_pack_identifier"], record["skill_pack_name"], record["specialization_identifier"], record["specialization_name"])
+		var skill_pack_data = SkillPack.new(
+			record["attribute_name"],
+			record["skill_pack_identifier"], 
+			record["skill_pack_name"], 
+			record["specialization_identifier"], 
+			record["specialization_name"])
 		var skills_data = read_skills_for_package(skill_pack_data.identifier, false)
 		for element in skills_data:
 			skill_pack_data.skill_data.append(element)
@@ -375,9 +379,10 @@ func create_regular_general_knowledge_skill_pack() -> SkillPack:
 		skill_pack_data.skill_data.append(element)
 	return skill_pack_data
 
-func get_tricks_data_for_character_stats() -> Array:
-	var query = """SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1
+func get_tricks_data_for_character_stats(player_id) -> Array:
+	var query = """SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 
 WHERE (select agility from player_info)>= t1.agility 
+AND (select player_id from player_info)== %s 
 AND (select perception from player_info)>= t1.perception 
 AND (select character from player_info)>= t1.character 
 AND (select wits from player_info)>= t1.wits 
@@ -494,7 +499,7 @@ WHERE t2.trick_identifier like 'drawing' AND (select pistols from player_info UN
 AND (select agility from player_info)>= t1.agility UNION
 SELECT t1.trick_id, trick_name, trick_requirements, trick_behaviour FROM tricks t1 LEFT JOIN tricks_special_rules t2 on t1.trick_id = t2.trick_id 
 WHERE t2.trick_identifier like 'four_tankmen' AND (select heavy_machinery from player_info UNION select combat_vehicles from player_info order by 1 desc)>=t2.trick_sr_value
-AND (select animal_care from player_info)>= t1.animal_care order by 1 asc;"""
+AND (select animal_care from player_info)>= t1.animal_care order by 1 asc;""" % [player_id]
 	var records = sql_command(query)
 	return records
 

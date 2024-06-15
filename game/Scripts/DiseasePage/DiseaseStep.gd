@@ -75,8 +75,8 @@ func create_new_disease_object(disease_data: Dictionary):
 	
 	
 func _on_Button_button_up():
-	current_disease = GlobalVariables.global_randomizer.randi_range(1,20)
-	var disease_data = disease_data_list[current_disease-1]
+	current_disease = (GlobalVariables.global_randomizer.randi_range(1,20)) -1
+	var disease_data = disease_data_list[current_disease]
 	rolled_disease_name.text = disease_data["disease_name"]
 	rolled_disease_description.bbcode_text = tr(disease_data["disease_description"])
 	rolled_remedy.bbcode_text = tr(disease_data["disease_remedy"])

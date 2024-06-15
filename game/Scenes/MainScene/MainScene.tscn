@@ -131,7 +131,11 @@ margin_right = 1873.0
 margin_bottom = 957.0
 trait_group = SubResource( 24 )
 
-[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="7"]
+[node name="FormStep" parent="CharacterCreationProcess/StepContainer" index="7"]
+margin_right = 1873.0
+margin_bottom = 957.0
+
+[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="8"]
 margin_right = 1873.0
 margin_bottom = 957.0
 
