@@ -20,7 +20,7 @@ onready var skill_points_step = $"%SkillPointsStep"
 onready var tricks_step = $"%TricksStep"
 onready var disease_step = $"%DiseaseStep"
 onready var form_step = $"%FormStep"
-onready var dummy_step = $"%DummyStep"
+onready var dummy_step = $"%InventoryAndFriends"
 
 onready var step_name_label = $"%StepNameLabel"
 onready var ethnicity_indicator = $"%EthnicityIndicator"

@@ -46,7 +46,6 @@ var player_seed: int
 var player_seed_state: int
 var player_form_answers: Dictionary
 var player_equipment: Array
-var player_currency: int
 
 func _init() -> void:
 	var rows = DatabaseOperations.read_all_skill_packs()
@@ -188,16 +187,3 @@ func get_all_skill_dictionary():
 		for skill in skill_data[skill_pack].skill_data:
 			skill_dictionary[skill.skill_identifier] = skill.level
 	return skill_dictionary
-	
-func get_equipment_item_data(item_name: String) -> Dictionary:
-	for element in player_equipment:
-		if element["equipment_data"].eq_name == item_name:
-			return element
-	return {}
-
-func remove_equipment_item_data(item_name: String):
-	for element in player_equipment:
-		if element["equipment_data"].eq_name == item_name:
-			player_equipment.erase(element)
-			return
-	return {}

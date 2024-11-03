@@ -15,9 +15,10 @@
 [ext_resource path="res://Resources/Buttons/NextButton/NextButtonNormal.tres" type="StyleBox" id=13]
 [ext_resource path="res://Resources/Buttons/NextButton/NextButtonHover.tres" type="StyleBox" id=14]
 [ext_resource path="res://Resources/Buttons/NextButton/NextButtonDisabled.tres" type="StyleBox" id=15]
-[ext_resource path="res://Scenes/SelectButton.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/InventoryAndFriends/SelectButton.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonPressed.tres" type="StyleBox" id=17]
 [ext_resource path="res://Resources/Buttons/SpecializationButton/SpecializationButtonNormal.tres" type="StyleBox" id=18]
+
 
 [sub_resource type="DynamicFont" id=2]
 size = 20

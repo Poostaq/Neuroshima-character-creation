@@ -4,7 +4,7 @@
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scripts/DiseasePage/DiseaseStep.gd" type="Script" id=3]
 [ext_resource path="res://Resources/DiseasePage/disease_buttongroup.tres" type="ButtonGroup" id=4]
-[ext_resource path="res://Scenes/SelectButton.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/InventoryAndFriends/SelectButton.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI_Elements/SkillBoxBorderBig.png" type="Texture" id=7]
 [ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=8]
 

@@ -1,0 +1,254 @@
+[gd_scene load_steps=30 format=2]
+
+[ext_resource path="res://UI_Elements/plusButtonActive.png" type="Texture" id=1]
+[ext_resource path="res://UI_Elements/minusButtonInactive.png" type="Texture" id=2]
+[ext_resource path="res://UI_Elements/plusButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://UI_Elements/plusButton.png" type="Texture" id=4]
+[ext_resource path="res://UI_Elements/minusButtonActive.png" type="Texture" id=5]
+[ext_resource path="res://UI_Elements/minusButtonPressed.png" type="Texture" id=6]
+[ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/InventoryAndFriends/PurchasedEquipmentItem.gd" type="Script" id=9]
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=10]
+
+[sub_resource type="StyleBoxTexture" id=30]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 7.0
+margin_right = 7.0
+margin_top = 8.0
+margin_bottom = 8.0
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 40
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxEmpty" id=6]
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 50, 50 )
+modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxEmpty" id=11]
+
+[sub_resource type="StyleBoxTexture" id=12]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=13]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 50, 50 )
+modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 28
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 10 )
+
+[sub_resource type="StyleBoxTexture" id=17]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxTexture" id=27]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=28]
+
+[sub_resource type="StyleBoxTexture" id=29]
+
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[node name="Item" type="Control"]
+anchor_right = 0.729167
+anchor_bottom = 0.0462963
+rect_min_size = Vector2( 1400, 50 )
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemFrame" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 0, 50 )
+custom_styles/panel = SubResource( 30 )
+
+[node name="ItemNameLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.0114286
+anchor_right = 0.402857
+anchor_bottom = 1.0
+margin_right = -6.10352e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "TEST ITEM"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VSeparator4" type="VSeparator" parent="."]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.54
+anchor_top = 0.1
+anchor_right = 0.554285
+anchor_bottom = 0.9
+margin_right = 6.10352e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemValueLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.552143
+anchor_top = 0.02
+anchor_right = 0.637857
+anchor_bottom = 0.98
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "123"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VSeparator" type="VSeparator" parent="."]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.631429
+anchor_top = 0.1
+anchor_right = 0.645714
+anchor_bottom = 0.9
+margin_right = 6.10352e-05
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemAmountLabel" type="Label" parent="."]
+unique_name_in_owner = true
+anchor_left = 0.64
+anchor_top = 0.02
+anchor_right = 0.757857
+anchor_bottom = 0.98
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "123"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.751429
+anchor_top = 0.1
+anchor_right = 0.765714
+anchor_bottom = 0.9
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Minus" type="Button" parent="."]
+anchor_left = 2.8202
+anchor_top = 0.140016
+anchor_right = 2.96983
+anchor_bottom = 1.7413
+margin_left = -2864.27
+margin_top = -0.000349998
+margin_right = -3033.76
+margin_bottom = -40.0645
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/disabled = SubResource( 7 )
+custom_styles/normal = SubResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Plus" type="Button" parent="."]
+anchor_left = 3.1882
+anchor_top = 0.353556
+anchor_right = 3.33782
+anchor_bottom = 1.95484
+margin_left = -3318.49
+margin_top = -11.6774
+margin_right = -3487.96
+margin_bottom = -51.7415
+custom_styles/hover = SubResource( 9 )
+custom_styles/pressed = SubResource( 10 )
+custom_styles/focus = SubResource( 11 )
+custom_styles/disabled = SubResource( 12 )
+custom_styles/normal = SubResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VSeparator3" type="VSeparator" parent="."]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.853572
+anchor_top = 0.100009
+anchor_right = 0.867858
+anchor_bottom = 0.900009
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SellButton" parent="." instance=ExtResource( 8 )]
+anchor_left = 0.865715
+anchor_top = 0.0800024
+anchor_right = 0.991429
+anchor_bottom = 0.880002
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 27 )
+custom_styles/focus = SubResource( 28 )
+custom_styles/disabled = SubResource( 29 )
+custom_styles/normal = SubResource( 18 )
+toggle_mode = false
+text = "sell_button"
+clip_text = true
+
+[connection signal="pressed" from="Minus" to="." method="_on_Minus_pressed"]
+[connection signal="pressed" from="Plus" to="." method="_on_Plus_pressed"]
+[connection signal="pressed" from="SellButton" to="." method="_on_SellButton_pressed"]

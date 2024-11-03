@@ -1,0 +1,211 @@
+.38;2; 40%;;;;ammunition_group
+.40-44;2; 20%;;;;ammunition_group
+.44;3; 30%;;;;ammunition_group
+5,7mm;3; 10%;;;;ammunition_group
+7,62mm TT;2; 30%;;;;ammunition_group
+9mm;3; 40%;;;;ammunition_group
+45ACP;2; 40%;;;;ammunition_group
+50.AE;2; 10%;;;;ammunition_group
+.22;2; 50%;;;;ammunition_group
+5,56mm;3; 40%;;;;ammunition_group
+7,62mm;3; 40%;;;;ammunition_group
+7,62mm AK;2; 30%;;;;ammunition_group
+.50BMG;2; 40%;;;;ammunition_group
+.12;2; 50%;;;;ammunition_group
+Granat 20mm;50; 10%;;;;ammunition_group
+Granat 40mm;40; 20%;;;;ammunition_group
+Pocisk rakietowy;100; 10%;;;;ammunition_group
+Strzała;1; 80%;;;;ammunition_group
+Bełt;2; 40%;;;;ammunition_group
+Dobrej jakości;15; 10%;;;;fuel_group
+Przeciętnej jakości;5; 30%;;;;fuel_group
+Słabej jakości;3; 50%;;;;fuel_group
+Olej napędowy;3; 50%;;;;fuel_group
+Decalcit;2; 80%; na Zwapnienie płuc; 24 w opakowaniu;;medicaments_group
+Calcidis;2; 60%; na Zwapnienie płuc; 50 w słoiczku;;medicaments_group
+Valapren;5; 20%; na Gorączkę sob. nocy; 20 w słoiczku;;medicaments_group
+Ebokiller;4; 40%; na Przewlekłą gor. krwotoczną; na sztuki;;medicaments_group
+Tubokuraryna;1; 70%; na Mount Rushmor;e zastrzyk na sztuki;;medicaments_group
+Benzodiazepiny;2; 50%; na Mount Rushmore; na sztuki;;medicaments_group
+Progabid;3; 40%; na Mount Rushmore; na sztuki;;medicaments_group
+Pinio;1; 60%; na Syndrom Obcego; syrop 50 łyżek;;medicaments_group
+Uregyt;2; 80%; na Chore nery; proszek na wagę (1 gram = 1 dawka);;medicaments_group
+Kwas foliowy;1; 80%; na Chore nery; proszek na wagę (1 gram = 1 dawka);;medicaments_group
+Preparaty żelaza;1; 80%; na Chore nery; płyn na wagę (1 gram = 1 dawka);;medicaments_group
+Leki przeciwhistaminowe;3; 30%; na Alergie; tabletki 40 w opakowaniu;;medicaments_group
+Alef;2; 50%; na Szaleństwo bostońskie; proszek (1 gram = 1 dawka);;medicaments_group
+Bet;2; 40%; na Szaleństwo bostońskie; proszek (1 gram = 1 dawka);;medicaments_group
+Gimel;2; 40%; na Szaleństwo bostońskie; proszek (1 gram = 1 dawka);;medicaments_group
+Reminex;5; 30%; na Syndrom Thurmana; zastrzyk (10mg = 1 dawka);;medicaments_group
+Lek na drgawki;1; 40%; na Drgawki; pigułki domowej roboty;;medicaments_group
+Krioprecypitat;10; 20%; na Hemofilię; 5 tabletek w opakowaniu;;medicaments_group
+Osocze świeże/mrożone;5; 10%; na Hemofilię; 1 pojemnik;;medicaments_group
+Desmopresyna;7; 30%; na Hemofilię; 10 tabletek w opakowaniu;;medicaments_group
+Mallonix;2; 50%; na Drętwotę Hollywood; krople 10 w butelce;;medicaments_group
+Wapniak;1; 25%; na Osteoporozę; proszek (10 gram = 1 dawka);;medicaments_group
+Actinix;2; 50%; na Zawroty głowy; pastylki 20 w opakowaniu;;medicaments_group
+Rephidal;3; 25%; na Zawroty głowy; pastylki 8 w opakowaniu;;medicaments_group
+Aspiryna K;1; 80%; na Niewydolność krążenia; tabletki 30 w opakowaniu;;medicaments_group
+Preparat krwiotwórczy T;3; 60%; na Anemię; tabletki 40 w opakowaniu;;medicaments_group
+Preparat krwiotwórczy K;4; 60%; na Anemię; krople 80 dawek w butelce;;medicaments_group
+Memoral;6; 30%; na Morbus Dexteri; tabletki 50 w opakowaniu;;medicaments_group
+Dracophen;3; 60%; na Syndrom Draculi; 20 porcji w butelce w opakowaniu;;medicaments_group
+AVTDS;2; 40%; na VTDS; cukierki do ssania 30 w opakowaniu;;medicaments_group
+Witaminy;1; 80%; ogólnie; tabletki na sztuki;;medicaments_group
+Środki przeciwbólowe;1; 70%; ogólnie; tabletki na sztuki;;medicaments_group
+Psychotropy;3; 25%; na Paranoję; pastylki lub czopki na sztuki;;medicaments_group
+Alkohol (samogon, litr);5;70,00%;;;;addictives_group
+Alkohol (markowy, litr);10;20,00%;;;;addictives_group
+Papieros (1 sztuka);1;60,00%;;;;addictives_group
+Tytoń do żucia (porcja) ;2;80,00%;;;;addictives_group
+Bumerang;25;20,00%;;;10;melee_weapon_group
+Granat dymny;50;20,00%;;;;melee_weapon_group
+Granat rozświetlający;60;30,00%;;;;melee_weapon_group
+Granat gazowy;80;20,00%;;;;melee_weapon_group
+Granat obronny;90;30,00%;;;;melee_weapon_group
+Granat zaczepny;70;30,00%;;;;melee_weapon_group
+Kastet;5;80,00%;;;2;melee_weapon_group
+Kusza;40;30,00%;;;30;melee_weapon_group
+Łańcuch;10;50,00%;;;3;melee_weapon_group
+Łuk;30;40,00%;;;20;melee_weapon_group
+Maczuga;5;90,00%;;;2;melee_weapon_group
+Miecz;20;20,00%;;;;melee_weapon_group
+Młot;15;40,00%;;;10;melee_weapon_group
+Morgenstern;15;30,00%;;;10;melee_weapon_group
+Nóż;10;100,00%;;;6;melee_weapon_group
+Pałka;5;100,00%;;;1;melee_weapon_group
+Proca;0;100,00%;;;;melee_weapon_group
+Tarcza ciężka;10;40,00%;;;6;melee_weapon_group
+Tarcza lekka;5;50,00%;;;3;melee_weapon_group
+Topór;20;80,00%;;;10;melee_weapon_group
+Włócznia;10;70,00%;;;8;melee_weapon_group
+AK (Kałasz);70;10,00%;;;;firearm_group
+Barrett M82 A1;230;5,00%;;;;firearm_group
+Bazooka;65;30,00%;;;;firearm_group
+Beretta 92;35;30,00%;;;;firearm_group
+Beretta 93R;45;30,00%;;;;firearm_group
+Browning HP;45;25,00%;;;;firearm_group
+Colt 635;80;20,00%;;;;firearm_group
+Colt „Peacemaker”;40;40,00%;;;;firearm_group
+Colt M1911 A1;40;25,00%;;;;firearm_group
+Desert Eagle;40;30,00%;;;;firearm_group
+Dwururka;50;60,00%;;;;firearm_group
+FN-SCAR;70;30,00%;;;;firearm_group
+Glock 17;55;30,00%;;;;firearm_group
+Glock 18;60;25,00%;;;;firearm_group
+H&K MP5;75;20,00%;;;;firearm_group
+H&K MP5SD, MP5K;85;20,00%;;;;firearm_group
+H&K UMP;85;15,00%;;;;firearm_group
+Ingram MAC-10;70;10,00%;;;;firearm_group
+Karabin-samopał;30;70,00%;;;;firearm_group
+Kel-Tec;40;40,00%;;;;firearm_group
+M14;50;20,00%;;;;firearm_group
+M16 A2;70;40,00%;;;;firearm_group
+M1 Grand;65;30,00%;;;;firearm_group
+M2HB;110;20,00%;;;;firearm_group
+M240;120;15,00%;;;;firearm_group
+M4 A1;75;30,00%;;;;firearm_group
+M40 A3;150;30,00%;;;;firearm_group
+M60;80;20,00%;;;;firearm_group
+M72 LAW;75;30,00%;;;;firearm_group
+M79;70;30,00%;;;;firearm_group
+Magnum 44;60;35,00%;;;;firearm_group
+MGL Mk-1S;120;20,00%;;;;firearm_group
+Miotacz ognia;150;20,00%;;;;firearm_group
+Minimi;100;10,00%;;;;firearm_group
+Moździerz;160;15,00%;;;;firearm_group
+Obrzyn;50;70,00%;;;;firearm_group
+Pistolet-samopał;20;60,00%;;;;firearm_group
+PSG-1;190;40,00%;;;;firearm_group
+Pompka;60;35,00%;;;;firearm_group
+Ruger MP9;70;50,00%;;;;firearm_group
+Sig – Sauer P226;40;20,00%;;;;firearm_group
+SKS;65;10,00%;;;;firearm_group
+SPAS-12;70;20,00%;;;;firearm_group
+Springfield;45;20,00%;;;;firearm_group
+SU-16;70;40,00%;;;;firearm_group
+Trzydziestka ósemka (S&W);35;30,00%;;;;firearm_group
+USAS-12;60;35,00%;;;;firearm_group
+UZI;60;50,00%;;;;firearm_group
+Walther P-99;50;30,00%;;;;firearm_group
+Winchester;40;60,00%;;;;firearm_group
+XM-8;75;50,00%;;;;firearm_group
+Celownik laserowy;60;10,00%;;;;weapon_accessory_group
+Celownik optyczny;40;20,00%;;;;weapon_accessory_group
+Dwójnóg;10;80,00%;;;;weapon_accessory_group
+Granatnik podwieszany;70;20,00%;;;;weapon_accessory_group
+Podstawa trójnożna;20;70,00%;;;;weapon_accessory_group
+Śrutówka podlufowa;45;15,00%;;;;weapon_accessory_group
+Analizator chemiczny;100;5,00%;;;;electronics_group
+Baterie (1 sztuka);20;10,00%;;;;electronics_group
+Części zapasowe (0.25 kg);5;100,00%;;;;electronics_group
+Detektor ruchu;80;10,00%;;;;electronics_group
+Krótkofalówka;25;25,00%;;;;electronics_group
+Mały Elektryk;20;50,00%;;;;electronics_group
+Miernik promieniowania;30;30,00%;;;;electronics_group
+Miernik skażenia chemicznego;50;20,00%;;;;electronics_group
+Noktowizor;70;15,00%;;;;electronics_group
+Odtwarzacz CD;10;20,00%;;;;electronics_group
+Radio;15;70,00%;;;;electronics_group
+Wykrywacz metalu;30;20,00%;;;;electronics_group
+Wytrychy (elektroniczne);50;5,00%;;;;electronics_group
+Komputer Osobisty;30;80,00%;;;;electronics_group
+Komputer Najnowszej generacji;60;40,00%;;;;electronics_group
+Komputer Notebook;50;60,00%;;;;electronics_group
+Komputer Wojskowy;140;5,00%;;;;electronics_group
+Komputer ze sztuczną inteligencją;80;10,00%;;;;electronics_group
+Autobus miejski;180;20,00%;;;;vehicle_group
+Autobus szkolny;170;15,00%;;;;vehicle_group
+Autobus turystyczny;220;10,00%;;;;vehicle_group
+Ciężarówka;200;15,00%;;;;vehicle_group
+Coupe;40;40,00%;;;;vehicle_group
+Furgonetka;150;20,00%;;;;vehicle_group
+Hammer;180;10,00%;;;;vehicle_group
+Hatchback;50;40,00%;;;;vehicle_group
+Jeep;100;25,00%;;;;vehicle_group
+Limuzyna;100;15,00%;;;;vehicle_group
+Łazik;80;20,00%;;;;vehicle_group
+Kombi;40;60,00%;;;;vehicle_group
+Pickup;100;25,00%;;;;vehicle_group
+Minivan;110;20,00%;;;;vehicle_group
+Motocykl;50;40,00%;;;;vehicle_group
+Sedan;60;30,00%;;;;vehicle_group
+Wóz strażacki;300;15,00%;;;;vehicle_group
+Koń (chory lub skażony);30;60,00%;;;;food_livestock_group
+Koń (chabeta);50;60,00%;;;;food_livestock_group
+Koń (przeciętny);60;30,00%;;;;food_livestock_group
+Koń (dobrze odżywiony);80;20,00%;;;;food_livestock_group
+Koń (Teksańczyk);100;10,00%;;;;food_livestock_group
+Krowa;70;50,00%;;;;food_livestock_group
+Owca;30;60,00%;;;;food_livestock_group
+Wół;50;30,00%;;;;food_livestock_group
+Świnia;40;60,00%;;;;food_livestock_group
+Koza;30;70,00%;;;;food_livestock_group
+Kura;20;80,00%;;;;food_livestock_group
+Herbata (1 kg);25;50,00%;;;;food_livestock_group
+Jajko;2;70,00%;;;;food_livestock_group
+Kawa (1 kg);30;30,00%;;;;food_livestock_group
+Kawa zbożowa (1 kg);20;80,00%;;;;food_livestock_group
+Konserwa;5;20,00%;;;;food_livestock_group
+Liofilizowana żywność  (1 kg);45;10,00%;;;;food_livestock_group
+Mięso (1 kg);10;80,00%;;;;food_livestock_group
+Mleko (1 litr);10;50,00%;;;;food_livestock_group
+Owoce i warzywa (1 kg);15;30,00%;;;;food_livestock_group
+Ryby (1 kg);15;80,00%;;;;food_livestock_group
+Ser (1 kg);10;40,00%;;;;food_livestock_group
+Ziarno (1 kg);5;80,00%;;;;food_livestock_group
+;;;;;;food_livestock_group
+Skóry małego zwierzęcia (szop);6;60,00%;;;;food_livestock_group
+Skóry dużego zwierzęcia (niedźwiedź);20;20,00%;;;;food_livestock_group
+Łatwe do wyprodukowania;10;40,00%;;;;drugs_group
+Przedwojenne;60;10,00%;;;;drugs_group
+Tornado;100;5,00%;;;;drugs_group
+Zaawansowane technologicznie;50;20,00%;;;;drugs_group
+AR-23 ;70;10,00%;;;;drugs_group
+AR-25-BETA;100;5,00%;;;;drugs_group
+DeadLine;50;20,00%;;;;drugs_group
+Medpaki;20;30,00%;;;;drugs_group
+Painkiller;10;60,00%;;;;drugs_group
+RadOff;30;20,00%;;;;drugs_group
+Remov;50;10,00%;;;;drugs_group
+WD-Tabs;20;60,00%;;;;drugs_group

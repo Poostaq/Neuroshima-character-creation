@@ -1338,7 +1338,7 @@ Niestety, oto smutna prawda o współczesnym świecie…","It's time for somethi
 Unfortunately, here's the sad truth about the modern world..."
 next_button,Następny,Next
 previous_button,Poprzedni,Previous
-pulmonary_calcification_name,ZWAPNIENIE PŁUC,LUNG CALCIFICATION
+pulmonary_calcification_name,ZWAPNIENIE PŁUC,PULMONARY CALCIFICATION
 pulmonary_calcification_description,"Chorujesz na zwapnienie płuc? To oznacza, że będziesz miał raczej nikłe szanse podczas biegu. Na przykład, gdy spieprzasz przed wściekłym psem. Masz mniejszą, niż zdrowy człowiek, pojemność płuc. Owszem, na początku gry jeszcze nie cierpisz z tego powodu. Nie narzekaj, inni mają gorzej. Będziesz się leczył, to wszystko będzie grać.","You suffer from lung calcification? This means you will have rather slim chances during a run, for instance when you're fleeing from an angry dog. You have a reduced lung capacity compared to a healthy person. Yes, at the beginning of the game, you won't suffer much from it. Don't complain; others have it worse. You'll undergo treatment, and everything will work out."
 pulmonary_calcification_remedy,"Każde, które nie pozwala na odkładanie się wapnia w organizmie. Nazwy tych leków mają w sobie coś z calcium np. Decalcit (dostępność 80%, 24 tabletki w opakowaniu) czy Calcidis (dostępność 60%, 50 tabletek w słoiczku). Jest powszechnie dostępny, możesz kupić go nawet w zwykłej, przydroż- nej knajpie.","Take any medication that prevents calcium buildup in the body. The names of these medications contain something related to calcium, e.g., Decalcit (availability 80%, 24 tablets per pack) or Calcidis (availability 60%, 50 tablets in a jar). It's readily available; you can even buy it in a regular roadside tavern."
 pulmonary_calcification_first_symptoms," Masz krótszy oddech i łatwo dostajesz zadyszki. O bieganiu zapomnij. Odegraj to fajnie, to może Mistrz Gry podrzuci ci kilka opakowań leku.","Your breath shortens, and you easily get out of breath. Forget about running. Play it cool, and maybe the Game Master will throw in a few packs of the medicine."
@@ -1395,7 +1395,7 @@ alien_syndrome_cricital_condition,"Ból staje się nie do zniesienia. Śmierdzis
 alien_syndrome_cricital_condition_penalties,"Percepcja -8, Budowa -8, Zręczność -8, testy kontaktów z ludźmi +90%","Perception -8, Constitution -8, Dexterity -8, social interaction tests +90%."
 alien_syndrome_terminal_condition,"A jednak może się pogorszyć. Nie umierasz na coś takiego. Po wejściu w stan terminalny masz jedynie mnóstwo odparzeń, więc gdy wyzdrowiejesz, wygląd nie wróci już do normy, tak zostanie. Zasady zdrowienia jak w przypadku Stanu Krytycznego.","And yet it may worsen. You don't die from something like this. In the terminal state, you only have plenty of irritations, so when you recover, your appearance won't return to normal, it will stay that way. Healing rules as in Critical Condition."
 alien_syndrome_terminal_condition_penalties," Percepcja -8, Budowa -8, Zręczność -8, testy kontaktów z ludźmi +90% (na stałe!) Kary do kontaktów z ludźmi możesz zmniejszyć, jeśli zasłonisz odparzenia. ","Perception -8, Constitution -8, Dexterity -8, social interaction tests +90% (permanent!) You can reduce penalties to social interaction by covering the irritations."
-sick_nerves_name,CHORE NERKI,KIDNEY DISEASE
+sick_nerves_name,CHORE NERY,SICK KIDNEY
 sick_nerves_description,"Twoje nerki, na skutek przebytych w przeszłości chorób, są w strzępach. Nie działają poprawnie i czujesz to za każdym razem, gdy np. napijesz się piwa. Przed wojną można było się leczyć dializami. Dzisiaj znalezienie sprawnego aparatu zakrawa o cud. Na szczęście są środki farmakologiczne.","Your kidneys, due to past illnesses, are in tatters. They don't function properly and you feel it every time, for example, when you drink beer. Before the war, you could treat yourself with dialysis. Today, finding a functional apparatus is almost miraculous. Fortunately, there are pharmacological means."
 sick_nerves_remedy,"Preparaty moczopędne, np. Urogyt, do tego kwas foliowy i preparaty żelaza (Dostępność każdego to 80%). Muszą być mieszane razem, osobno działają ze skutecznością 30%. Mieszanka posiada Dostępność 50%.","Diuretics, e.g. Urogyt, plus folic acid and iron preparations (Availability for each is 80%). They must be mixed together, separately they work with an effectiveness of 30%. The mixture has an Availability of 50%."
 sick_nerves_first_symptoms,"Łatwo pomylić z niewyspaniem - jesteś zmęczony, osłabiony, kleją ci się oczy, masz problemy z koncentracją.","It's easy to mistake it for lack of sleep - you're tired, weakened, your eyes are sticking together, you have concentration problems."
@@ -1589,3 +1589,260 @@ fifth_answer_default,"Czy twój ojciec, lub ktoś inny, bardzo dla ciebie ważny
 sixth_answer_default,"Boisz się śmierci? Jak reagujesz w sytuacjach niebezpiecznych? Mięknie ci rura czy dalej jesteś hardy? Myślisz czasami o końcu? Masz jakiś cel, który chciałbyś osiągnąć zanim wyciągniesz kopyta?",Are you afraid of death? How do you react in dangerous situations? Does your courage falter or are you still tough? Do you sometimes think about the end? Do you have a goal you'd like to achieve before you kick the bucket?
 form_step_description,KROK 8: FORMULARZ,STEP 8: FORM
 clear_button,Wyczyść,Clear
+buy_tab,Kupowanie,Buying
+purchase_button,Zakupy,Purchase
+equipment_button,Twój Ekwipunek,Your Equipment
+cancel_button,Anuluj,Cancel
+buy_button,Kup,Buy
+name_sorting,Nazwa przedmiotu,Item Name
+price_sorting,Cena,Price
+any_group,Każdy,Any
+drugs_group,Używki,Drugs
+ammunition_group,Amunicja,Ammunition
+medicaments_group,Leki,Medicaments
+fuel_group,Paliwo,Fuel
+melee_weapon_group,Broń Biała i miotana,Melee weapon and throwables
+firearm_group,Broń Palna,Firearms
+weapon_accessory_group,Akcesoria do broni,Weapons Accessories
+electronics_group,Elektronika,Electronics 
+vehicle_group,Pojazdy,Vehicle
+food_livestock_group,Żywność i zwierzęta,Food and Livestock
+alcohol,Alkohol,Alcohol
+cigarette,Papieros,Cigarette
+chewing_tobacco,Tytoń do żucia,Chewing Tobacco
+oh_three_eight,0.38,0.38
+forty_forty_four,.40-44,.40-44
+forty_four,0.44,0.44
+five_point_seven,"5,7mm","5,7mm"
+seven_sixty_two_tt,"7,62mm TT","7,62mm TT"
+nine_mm,9mm,9mm
+forty_five_acp,45ACP,45ACP
+fifty_ae,50.AE,50.AE
+oh_two_two,0.22,0.22
+five_fifty_six,"5,56mm","5,56mm"
+seven_sixty_two,"7,62mm","7,62mm"
+seven_sixty_two_ak,"7,62mm AK","7,62mm AK"
+fifty_bmg,.50BMG,.50BMG
+point_twelve,0.12,0.12
+grenade_twenty_mm,Granat 20mm,Granat 20mm
+grenade_forty_mm,Granat 40mm,Granat 40mm
+rocket_missile,Pocisk rakietowy,Rocket missile
+arrow,Strzała,Arrow
+belt,Bełt,Belt
+decalcit,Decalcit,Decal
+calcidis,Calcidis,Calcidis
+valapren,Valapren,Valapren
+ebokiller,Ebokiller,Ebokiller
+turbocucurbita,Tubokuraryna,Turbocucurbita
+benzodiazepines,Benzodiazepiny,Benzodiazepines
+progabid,Progabid,Progabid
+pinio,Pinio,Pinio
+uregyt,Uregyt,Uregyt
+folic_acid,Kwas foliowy,Folic acid
+iron_supplements,Preparaty żelaza,Iron supplements
+antihistamines,Leki przeciwhistaminowe,Antihistamines
+alef,Alef,Alef
+bet,Bet,Bet
+gimel,Gimel,Gimel
+reminex,Reminex,Reminex
+convulsion_medicine,Lek na drgawki,Convulsion Medicine
+cryoprecipitate,Krioprecypitat,Cryoprecipitate
+fresh_frozen_plasma,Osocze świeże/mrożone,Fresh/Frozen plasma
+desmopressin,Desmopresyna,Desmopressin
+mallonix,Mallonix,Mallonix
+limestoney,Wapniak,Wapniak
+actinix,Actinix,Actinix
+rephidal,Rephidal,Rephidal
+aspirin_k,Aspiryna K,Aspirin K
+hematopoietic_supplement_t,Preparat krwiotwórczy T,Hematopoietic supplement T
+hematopoietic_supplement_k,Preparat krwiotwórczy K,Hematopoietic supplement K
+memoral,Memoral,Memoral
+dracophen,Dracophen,Dracophen
+avtds,AVTDS,AVTDS
+vitamins,Witaminy,Vitamins
+painkillers,Środki przeciwbólowe,Painkillers
+psychotropic_drugs,Psychotropy,Psychotropic drugs
+good_fuel,Paliwo dobrej jakości,Good fuel
+mediocre_fuel,Paliwo przeciętnej jakości,Mediocre fuel
+low_quality_fuel,Paliwo słabej jakości,Low quality fuel
+diesel,Olej napędowy,Diesel
+boomerang,Bumerang,Boomerang
+smoke_grenade,Granat dymny,Smoke grenade
+illuminating_grenade,Granat rozświetlający,Illuminating grenade
+gas_grenade,Granat gazowy,Gas Gremade
+defensive_grenade,Granat obronny,Defensive Grenade
+offensive_grenade,Granat zaczepny,Offensive Grenade
+knuckleduster,Kastet,Knuckleduster
+crossbow,Kusza,Crossbow
+chain,Łańcuch,Chain
+bow,Łuk,Bow
+club,Maczuga,Club
+sword,Miecz,Sword
+mallet,Młot,Mallet
+morgenstern,Morgenstern,Morgenstern
+knife,Nóż,Knife
+baton,Pałka,Baton
+slingshot_,Proca,Slingshot
+heavy_shield,Tarcza ciężka,Heavy Shield
+light_shield,Tarcza lekka,Light Shield
+axe,Topór,Axe
+spear,Włócznia,Spear
+ak_kalashnikov,AK (Kałasz),AK (Kalashnikov)
+barret_m_eighty_two_a_one,Barrett M82 A1,Barrett M82 A1
+bazooka,Bazooka,Bazooka
+beretta_ninety_two,Beretta 92,Beretta 92
+beretta_ninety_three_r,Beretta 93R,Beretta 93R
+browning_hp,Browning HP,Browning HP
+colt_six_three_five,Colt 635,Colt 635
+colt_peacemaker,Colt „Peacemaker”,Colt „Peacemaker”
+colt_m_nineteen_eleven_a_one,Colt M1911 A1,Colt M1911 A1
+desert_eagle,Desert Eagle,Desert Eagle
+double_barreled_shotgun,Dwururka,Dwururka
+fn_scar,FN-SCAR,FN-SCAR
+glock_seventeen,Glock 17,Glock 17
+glock_eighteen,Glock 18,Glock 18
+hk_mp_five,H&K MP5,H&K MP5
+hk_mp_five_sd_k,"H&K MP5SD, MP5K","H&K MP5SD, MP5K"
+hk_ump,H&K UMP,H&K UMP
+ingram_mac,Ingram MAC-10,Ingram MAC-10
+semi_auto_rifle,Karabin-samopał,Semi-auto rifle
+kel_tec,Kel-Tec,Kel-Tec
+m_fourteen,M14,M14
+m_sixtteen_a_two,M16 A2,M16 A2
+m_one_garand,M1 Garand,M1 Garand
+m_two_hb,M2HB,M2HB
+m_dwo_four_oh,M240,M240
+m_four_a_one,M4 A1,M4 A1
+m_forty_a_three,M40 A3,M40 A3
+m_sixty,M60,M60
+m_seventy_two_law,M72 LAW,M72 LAW
+m_seventy_nine,M79,M79
+magnum_forty_four,Magnum 44,Magnum 44
+mgl_mk_one_s,MGL Mk-1S,MGL Mk-1S
+flamethrower,Miotacz ognia,Flamethrower
+minimi,Minimi,Minimi
+mortar,Moździerz,Mortar
+sawed_off_shotgun,Obrzyn,Sawed-off shotgun
+semi_auto_pistol,Pistolet-samopał,Semi-auto pistol
+psg_one,PSG-1,PSG-1
+pump_action_shotgun,Pompka,Pump action shotgun
+ruger_mp_nine,Ruger MP9,Ruger MP9
+sig_sauer_p_two_two_six,Sig – Sauer P226,Sig – Sauer P226
+sks,SKS,SKS
+spas_twelve,SPAS-12,SPAS-12
+springfield,Springfield,Springfield
+su_sixteen,SU-16,SU-16
+thirty_eight_s_w,Trzydziestka ósemka (S&W),38 S&W
+usas_twelve,USAS-12,USAS-12
+uzi,UZI,UZI
+walther_p_nine_nine,Walther P-99,Walther P-99
+winchester,Winchester,Winchester
+xm_eighrt,XM-8,XM-8
+laser_pointer,Celownik laserowy,Laser pointer
+scope,Celownik optyczny,Scope
+bipod,Dwójnóg,Bipod
+attached_grenade_launcher,Granatnik podwieszany,Attached Grenade Launcher
+tripod,Podstawa trójnożna,Tripod
+attached_shotgun,Śrutówka podlufowa,Attached Shotgun
+chemical_analyzer,Analizator chemiczny,Chemical Analyzer
+batteries,Baterie,Batteries
+spare_parts,Części zapasowe (0.25 kg),Spare parts (0.25kg)
+movement_sensor,Detektor ruchu,Movement Sensor
+walkie_talkie,Krótkofalówka,Walkie Talkie
+little_electrician,Mały Elektryk,Little Electrician
+radiation_meter,Miernik promieniowania,Radiation Meter
+toxicity_meter,Miernik skażenia chemicznego,Toxicity Meter
+night_vision,Noktowizor,Night vision
+cd_player,Odtwarzacz CD,CD player
+radio,Radio,Radio
+metal_detector,Wykrywacz metalu,Metal Detector
+electronic_lockpicks,Wytrychy (elektroniczne),Electronic lockpicks
+pc,Komputer Osobisty,Personal Computer
+newest_pc,Komputer Najnowszej generacji,Newest Personal Computer
+notebook,Komputer Notebook,Notebook
+military_pc,Komputer Wojskowy,Military Computer
+ai_pc,Komputer ze sztuczną inteligencją,AI Supported Computer
+town_bus,Autobus miejski,Town Bus
+school_bus,Autobus szkolny,School Bus
+travel_bus,Autobus turystyczny,Travel Bus
+truck,Ciężarówka,Truck
+coupe,Coupe,Coupe
+van,Furgonetka,Van
+hummer,Hammer,Hummer
+hatchback,Hatchback,Hatchback
+jeep,Jeep,Jeep
+limousine,Limuzyna,Limousine
+offroader,Łazik,Offroader
+wagon,Kombi,Wagon
+pickup,Pickup,Pickup
+minivan,Minivan,Minivan
+motorcycle,Motocykl,Motorcycle
+sedan,Sedan,Sedan
+firefighter_truck,Wóz strażacki,Firefighter Truck
+horse_ill,Koń (chory lub skażony),Horse (ill or poisoned)
+horse_poor_quality,Koń (chabeta),Horse (poor quality)
+horse_regular_quality,Koń (przeciętny),Horse (regular quality)
+horse_good_quality,Koń (dobrze odżywiony),Horse (well fed)
+horse_texan,Koń (Teksańczyk),Horse (texan breed)
+cow,Krowa,Cow
+sheep,Owca,Sheep
+bull,Wół,Bull
+pig,Świnia,Pig
+goat,Koza,Goat
+hen,Kura,Hen
+tea,Herbata,Tea
+egg,Jajko,Egg
+coffee,Kawa,Coffee
+grain_coffee,Kawa zbożowa,Grain Coffee
+canned_meat,Konserwa,Canned meat
+freeze_dried_food,Liofilizowana żywność,Freeze-dried food
+meat,Mięso,Meat
+milk,Mleko,Milk
+fruits_vegetables,Owoce i warzywa,Fruits and vegetables
+fish,Ryby,Fish
+cheese,Ser,Cheese
+grains,Ziarno,Grains
+small_animal_hide,Skóry małego zwierzęcia (szop),Small animal hide (raccoon)
+large_animal_hide,Skóry dużego zwierzęcia (niedźwiedź),Large animal hide (bear)
+easy_drugs,Łatwe do wyprodukowania,Easy to produce
+before_war_drugs,Przedwojenne,From before war
+tornado_drug,Tornado,Tornado
+hi_tech_drugs,Zaawansowane technologicznie,Hi-tech
+ar_two_three,AR-23 ,AR-23 
+ar_two_five_beta,AR-25-BETA,AR-25-BETA
+deadline,DeadLine,DeadLine
+medpacks,Medpaki,Medpacks
+painkiller_drug,Painkiller,Painkiller
+radoff,RadOff,RadOff
+remov,Remov,Remov
+wd_tabs,WD-Tabs,WD-Tabs
+for_pulmonary_calcification,na Zwapnienie płuc,for Pulmonary Calcification
+for_saturday_night_fever,na Gorączkę sob. nocy,for Saturday Night Fever
+for_chronic_haemorrhaging_fever,na Przewlekłą gor. krwotoczną,for Chronic
+for_mount_rushmore,na Mount Rushmore,for Mount Rushmore
+for_alien_syndrome,na Syndrom Obcego,for Alien Syndrome
+for_sick_kidney,na Chore nery,for Sick Kidney
+for_allergies,na Alergie,for Allergies
+for_boston_madness,na Szaleństwo bostońskie,for Boston Madness
+for_thurman_syndrome,na Syndrom Thurmana,for Thurman Syndrome
+for_tremors,na Drgawki,for Tremors
+for_haemophilia,na Hemofilię,for Haemophilia
+for_hollywood_numbness,na Drętwotę Hollywood,for Hollywood Numbness
+for_osteoporosis,na Osteoporozę,for Osteoporosis
+for_dizziness,na Zawroty głowy,for Dizziness
+for_circulatory_insufficiency,na Niewydolność krążenia,for Circulatory_insufficiency
+for_anaemia,na Anemię,for Anaemia
+for_morbus_dexteri,na Morbus Dexteri,for Morbus Dexteri
+for_dracula_sundrome,na Syndrom Draculi,for Dracula Syndrome
+for_vtds,na VTDS,for VTDS
+for_anything,ogólnie,for anything
+for_paranoia,na Paranoję,for Paranoia
+for_one_liter,za 1 litr,for 1 liter
+for_one_kg,za 1 kg,for 1 kg
+moonshine_liter,"samogon, za 1 litr","moonshine, for 1 liter"
+brand_liter,"markowy, za 1 litr","good brand, for 1 liter"
+one_piece,1 sztuka,1 piece
+portion,porcja,portion
+custom_item,Indywidualny przedmiot,Custom Item
+price_label,Cena:,Price:
+sell_button,Sprzedaj Paczkę,Sell

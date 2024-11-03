@@ -567,7 +567,6 @@ func update_player_specialization(player_id: int, specialization_identifier: Str
 func update_player_skill_levels(player_id: int, skill_data_dict) -> void:
 	open_connection_to(main_db)
 	var condition = "(player_id = (SELECT MAX(%s) FROM player_info))" % [player_id]
-	print(skill_data_dict)
 	skill_data_dict.merge({"player_updated_date" :sysdate})
 	db.update_rows("player_info", condition, skill_data_dict)
 	db.close_db()
@@ -578,3 +577,25 @@ func get_all_disease_data() -> Array:
 	var from = "FROM diseases "
 	var records = sql_command(select+from)
 	return records
+	
+func get_equipment_data() -> Array:
+	var select = "SELECT * "
+	var from = "FROM equipment "
+	var records = sql_command(select+from)
+	var equipment_items = []
+	for record in records:
+		var item = EquipmentItem.new(record["equipment_id"],
+								record["name"],
+								record["additional_info"],
+								record["value"],
+								record["alternate_value"],
+								record["group_id"])
+		equipment_items.append(item)
+	return equipment_items
+
+func get_equipment_groups() -> Array:
+	var select = "SELECT DISTINCT group_id "
+	var from = "FROM equipment "
+	var records = sql_command(select+from)
+	return records
+	
