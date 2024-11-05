@@ -31,7 +31,9 @@ onready var skills_indicator = $"%SkillsIndicator"
 onready var tricks_indicator = $"%TricksIndicator"
 onready var diseases_indicator = $"%DiseasesIndicator"
 onready var form_indicator = $"%FormIndicator"
-onready var gear_indicator = $"%GearIndicator"
+onready var inventory_indicator = $"%InventoryIndicator"
+onready var friends_indicator = $"%FriendsIndicator"
+
 
 export var current_seed = 0
 export var current_step = 0
@@ -56,7 +58,8 @@ onready var indicators = [
 					tricks_indicator,
 					diseases_indicator,
 					form_indicator,
-					gear_indicator,
+					inventory_indicator,
+					friends_indicator
 ]
 
 
