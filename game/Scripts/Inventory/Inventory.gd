@@ -40,7 +40,8 @@ onready var balance_amount_label = $"%BalanceAmountLabel"
 var purchased_item_data: EquipmentItem
 
 func _ready():
-	load_step()
+	if get_tree().current_scene.name == "InventoryAndFriends":
+		load_step()	
 	CharacterStats.player_currency = 150
 	balance_amount_label.text = str(CharacterStats.player_currency)
 
