@@ -30,9 +30,12 @@ func _on_SellButton_pressed():
 func _on_Minus_pressed():
 	item_amount -= 1
 	CharacterStats.player_currency += int(item_value_label.text)
+	var item_statistics = CharacterStats.get_equipment_item_data(item_data.eq_name)
+	item_statistics["amount"] = str(int(item_statistics["amount"])-1)
 	set_item_amount()
 	emit_signal("amount_reduced")
 	if item_amount == 0:
+		CharacterStats.remove_equipment_item_data(item_data.eq_name)
 		self.queue_free()
 		
 
@@ -42,4 +45,6 @@ func _on_Plus_pressed():
 		item_amount += 1
 		set_item_amount()
 		emit_signal("amount_increased")
+		var item_statistics = CharacterStats.get_equipment_item_data(item_data.eq_name)
+		item_statistics["amount"] = str(int(item_statistics["amount"])+1)
 	
