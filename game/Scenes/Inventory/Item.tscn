@@ -8,7 +8,7 @@
 [ext_resource path="res://UI_Elements/minusButtonPressed.png" type="Texture" id=6]
 [ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=7]
 [ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/InventoryAndFriends/PurchasedEquipmentItem.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Inventory/PurchasedEquipmentItem.gd" type="Script" id=9]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="StyleBoxTexture" id=30]

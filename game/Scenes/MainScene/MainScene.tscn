@@ -135,13 +135,11 @@ trait_group = SubResource( 24 )
 margin_right = 1873.0
 margin_bottom = 957.0
 
-[node name="InventoryAndFriends" parent="CharacterCreationProcess/StepContainer" index="8"]
-anchor_left = 0.0
-anchor_top = 0.0
-anchor_right = 0.0
-anchor_bottom = 0.0
-margin_left = 20.0
-margin_top = 20.0
+[node name="Inventory" parent="CharacterCreationProcess/StepContainer" index="8"]
+margin_right = 1873.0
+margin_bottom = 957.0
+
+[node name="DummyStep" parent="CharacterCreationProcess/StepContainer" index="9"]
 margin_right = 1873.0
 margin_bottom = 957.0
 
@@ -182,11 +180,16 @@ margin_right = 536.0
 margin_bottom = 76.0
 
 [node name="FormIndicator" parent="CharacterCreationProcess/StepsContainer" index="7"]
+margin_left = 556.0
+margin_right = 616.0
+margin_bottom = 76.0
+
+[node name="InventoryIndicator" parent="CharacterCreationProcess/StepsContainer" index="8"]
 margin_left = 636.0
 margin_right = 695.0
 margin_bottom = 76.0
 
-[node name="GearIndicator" parent="CharacterCreationProcess/StepsContainer" index="8"]
+[node name="FriendsIndicator" parent="CharacterCreationProcess/StepsContainer" index="9"]
 margin_left = 715.0
 margin_right = 775.0
 margin_bottom = 76.0
