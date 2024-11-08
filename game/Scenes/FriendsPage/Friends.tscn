@@ -1,4 +1,4 @@
-[gd_scene load_steps=51 format=2]
+[gd_scene load_steps=42 format=2]
 
 [ext_resource path="res://UI_Elements/plusButtonActive.png" type="Texture" id=1]
 [ext_resource path="res://UI_Elements/plusButton.png" type="Texture" id=2]
@@ -10,43 +10,14 @@
 [ext_resource path="res://UI_Elements/panel_stylebox.tres" type="StyleBox" id=9]
 [ext_resource path="res://UI_Elements/WindowWithBorder.png" type="Texture" id=10]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/Inventory/Item.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=14]
-[ext_resource path="res://THEME.tres" type="Theme" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
 outline_size = 5
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
-
-[sub_resource type="DynamicFont" id=21]
-size = 28
-outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 14 )
-
-[sub_resource type="StyleBoxTexture" id=17]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
-
-[sub_resource type="StyleBoxTexture" id=27]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=28]
-
-[sub_resource type="StyleBoxTexture" id=29]
-
-[sub_resource type="StyleBoxTexture" id=18]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
-
-[sub_resource type="ButtonGroup" id=34]
 
 [sub_resource type="StyleBoxTexture" id=23]
 texture = ExtResource( 6 )
@@ -55,27 +26,6 @@ margin_left = 4.02014
 margin_right = 6.31675
 margin_top = 3.96128
 margin_bottom = 4.93945
-
-[sub_resource type="DynamicFont" id=35]
-size = 26
-outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 14 )
-
-[sub_resource type="StyleBoxTexture" id=36]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-margin_left = 7.0
-margin_right = 7.0
-margin_top = 9.0
-margin_bottom = 7.0
-modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
-
-[sub_resource type="DynamicFont" id=4]
-size = 26
-outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 14 )
 
 [sub_resource type="DynamicFont" id=37]
 size = 36
@@ -92,6 +42,13 @@ margin_top = 3.0
 margin_bottom = 3.0
 modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
 
+[sub_resource type="StyleBoxTexture" id=27]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=28]
+
 [sub_resource type="StyleBoxTexture" id=40]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 470, 200 )
@@ -101,28 +58,28 @@ margin_top = 7.0
 margin_bottom = 7.0
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
+[sub_resource type="ButtonGroup" id=34]
+
 [sub_resource type="DynamicFont" id=22]
 size = 36
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
 
-[sub_resource type="StyleBoxTexture" id=30]
+[sub_resource type="StyleBoxTexture" id=17]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 470, 200 )
-margin_left = 5.94396
-margin_right = 6.48432
-margin_top = 4.86324
-margin_bottom = 8.1054
+modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
 
-[sub_resource type="DynamicFont" id=3]
-size = 34
-outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 14 )
+[sub_resource type="StyleBoxTexture" id=29]
 
-[sub_resource type="DynamicFont" id=33]
-size = 24
+[sub_resource type="StyleBoxTexture" id=18]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 28
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
@@ -199,14 +156,6 @@ texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 50, 50 )
 modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
 
-[sub_resource type="StyleBoxTexture" id=43]
-texture = ExtResource( 10 )
-region_rect = Rect2( 0, 0, 470, 520 )
-margin_left = 8.59416
-margin_right = 6.0
-margin_top = 6.13869
-margin_bottom = 7.0
-
 [node name="FriendsStep" type="Control"]
 unique_name_in_owner = true
 margin_left = 20.0
@@ -255,35 +204,6 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SelectButton" parent="." instance=ExtResource( 13 )]
-anchor_left = 0.127957
-anchor_top = 0.144374
-anchor_right = 0.314516
-anchor_bottom = 0.194267
-custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 27 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 29 )
-custom_styles/normal = SubResource( 18 )
-pressed = true
-group = SubResource( 34 )
-text = "purchase_button"
-
-[node name="EquipmentButton" parent="." instance=ExtResource( 13 )]
-anchor_left = 0.316667
-anchor_top = 0.144374
-anchor_right = 0.503226
-anchor_bottom = 0.194267
-custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 27 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 29 )
-custom_styles/normal = SubResource( 18 )
-group = SubResource( 34 )
-text = "equipment_button"
-
 [node name="PurchaseTab" type="Panel" parent="."]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_left = 0.123118
@@ -296,62 +216,11 @@ margin_right = 1.00024
 margin_bottom = -1.00031
 custom_styles/panel = SubResource( 23 )
 
-[node name="Filtering" type="Control" parent="PurchaseTab"]
-anchor_left = 0.0111654
-anchor_top = 0.0085034
-anchor_right = 0.988137
-anchor_bottom = 0.0935374
-rect_min_size = Vector2( 1400, 50 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="CategoryFilter" type="OptionButton" parent="PurchaseTab/Filtering"]
-anchor_left = -0.00714286
-anchor_top = 0.0526567
-anchor_right = 0.323571
-anchor_bottom = 0.86006
-theme = ExtResource( 15 )
-custom_colors/font_color_disabled = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color_focus = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color_hover = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color_pressed = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 35 )
-custom_styles/hover = SubResource( 36 )
-custom_styles/pressed = SubResource( 36 )
-custom_styles/focus = SubResource( 36 )
-custom_styles/disabled = SubResource( 36 )
-custom_styles/normal = SubResource( 36 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="FilterEditbox" type="LineEdit" parent="PurchaseTab/Filtering"]
-anchor_left = 0.690714
-anchor_right = 1.00429
-anchor_bottom = 0.877611
-input_pass_on_modal_close_click = false
-custom_colors/cursor_color = Color( 0, 0.717647, 0.0392157, 1 )
-custom_colors/font_color_selected = Color( 0, 0.717647, 0.0392157, 1 )
-custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
-custom_colors/font_color_uneditable = Color( 0, 0.717647, 0.0392157, 1 )
-custom_fonts/font = SubResource( 4 )
-custom_styles/read_only = SubResource( 36 )
-custom_styles/focus = SubResource( 36 )
-custom_styles/normal = SubResource( 36 )
-align = 1
-placeholder_text = "SEARCH"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
 [node name="Headers" type="Control" parent="PurchaseTab"]
 anchor_left = 0.0111654
-anchor_top = 0.0809925
+anchor_top = -0.0025896
 anchor_right = 0.988137
-anchor_bottom = 0.166027
+anchor_bottom = 0.0824449
 margin_left = 1.52588e-05
 rect_min_size = Vector2( 1400, 50 )
 __meta__ = {
@@ -390,15 +259,19 @@ text = "price_sorting"
 icon_align = 2
 expand_icon = true
 
-[node name="ItemsListFrame" type="Panel" parent="PurchaseTab"]
+[node name="FriendsListPanel" type="Panel" parent="PurchaseTab"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_left = 0.000697837
-anchor_top = 0.170149
+anchor_top = 0.1
 anchor_right = 1.0
 anchor_bottom = 1.0
+margin_bottom = -6.10352e-05
 custom_styles/panel = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PurchaseTab/ItemsListFrame"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PurchaseTab/FriendsListPanel"]
 anchor_left = 0.00488827
 anchor_top = 0.0125899
 anchor_right = 0.993017
@@ -407,154 +280,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="AvailableItemsList" type="GridContainer" parent="PurchaseTab/ItemsListFrame/ScrollContainer"]
+[node name="FriendsList" type="GridContainer" parent="PurchaseTab/FriendsListPanel/ScrollContainer"]
 __meta__ = {
 "_edit_use_anchors_": true
 }
-
-[node name="EquipmentTab" type="Panel" parent="."]
-visible = false
-self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-anchor_left = 0.123118
-anchor_top = 0.197452
-anchor_right = 0.893548
-anchor_bottom = 0.821656
-margin_left = 1.00046
-margin_top = -0.999832
-margin_right = 1.00024
-margin_bottom = 80.9999
-custom_styles/panel = SubResource( 30 )
-
-[node name="Item2" type="Control" parent="EquipmentTab"]
-anchor_left = 0.0111654
-anchor_top = 0.00789886
-anchor_right = 0.988137
-anchor_bottom = 0.0868877
-rect_min_size = Vector2( 1400, 50 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ItemNameLabel" type="Label" parent="EquipmentTab/Item2"]
-anchor_left = 0.0114286
-anchor_right = 0.615714
-anchor_bottom = 1.0
-margin_right = -6.10352e-05
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 35 )
-text = "ITEM NAME"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VSeparator1" type="VSeparator" parent="EquipmentTab/Item2"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.536429
-anchor_top = 0.1
-anchor_right = 0.550715
-anchor_bottom = 0.9
-margin_left = -6.10352e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="AmountLabel" type="Label" parent="EquipmentTab/Item2"]
-anchor_left = 0.645
-anchor_top = 0.0188955
-anchor_right = 0.753571
-anchor_bottom = 0.982568
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "AMOUNT"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VSeparator2" type="VSeparator" parent="EquipmentTab/Item2"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.627858
-anchor_top = 0.1
-anchor_right = 0.642143
-anchor_bottom = 0.9
-margin_right = 6.10352e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ItemValueLabel" type="RichTextLabel" parent="EquipmentTab/Item2"]
-anchor_left = 0.543571
-anchor_top = 0.0188955
-anchor_right = 0.633571
-anchor_bottom = 0.982568
-custom_colors/default_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/selection_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color_selected = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color_shadow = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/normal_font = SubResource( 33 )
-bbcode_enabled = true
-bbcode_text = "[center]Item
- Value[/center]"
-text = "Item
- Value"
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VSeparator3" type="VSeparator" parent="EquipmentTab/Item2"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.748572
-anchor_top = 0.1
-anchor_right = 0.762857
-anchor_bottom = 0.9
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ActionsLabel" type="Label" parent="EquipmentTab/Item2"]
-anchor_left = 0.765714
-anchor_top = 0.02
-anchor_right = 0.995714
-anchor_bottom = 0.98
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "ACTIONS"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ItemsListFrame" type="TextureRect" parent="EquipmentTab"]
-anchor_left = 0.00837404
-anchor_top = 0.0835821
-anchor_right = 0.993022
-anchor_bottom = 0.938806
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ScrollContainer" type="ScrollContainer" parent="EquipmentTab/ItemsListFrame"]
-anchor_right = 1.00425
-anchor_bottom = 1.06806
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="PurchasedItemsList" type="GridContainer" parent="EquipmentTab/ItemsListFrame/ScrollContainer"]
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Item" parent="EquipmentTab/ItemsListFrame/ScrollContainer/PurchasedItemsList" instance=ExtResource( 12 )]
-visible = false
-margin_right = 1400.0
-margin_bottom = 50.0
 
 [node name="PurchaseWindowBackground" type="ColorRect" parent="."]
-visible = false
 anchor_left = 0.1
 anchor_top = 0.089172
 anchor_right = 0.913978
@@ -565,9 +296,9 @@ __meta__ = {
 }
 
 [node name="PurchaseWindow" type="TextureRect" parent="PurchaseWindowBackground"]
-anchor_left = 0.337517
-anchor_top = 0.348301
-anchor_right = 0.671731
+anchor_left = 0.161823
+anchor_top = 0.23301
+anchor_right = 0.862616
 anchor_bottom = 0.85801
 texture = ExtResource( 10 )
 expand = true
@@ -617,35 +348,44 @@ custom_styles/disabled = SubResource( 32 )
 custom_styles/normal = SubResource( 18 )
 text = "cancel_button"
 
-[node name="PurchaseItemName" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-anchor_left = 0.0342466
-anchor_top = 0.0200833
-anchor_right = 0.979452
-anchor_bottom = 0.184754
-margin_left = -0.0342312
-margin_top = 0.0401783
-margin_right = -0.0342407
-margin_bottom = 0.0401764
+[node name="FriendName" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
+anchor_left = 0.0263381
+anchor_top = 0.0292656
+anchor_right = 0.440222
+anchor_bottom = 0.146328
+margin_left = 2.0
+margin_top = -5.0
+margin_right = 2.0
+margin_bottom = -5.0
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 6 )
-text = "Leki przeciwhistaminowe"
+text = "Name"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="PurchaseAdditional Info" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-anchor_left = 0.0342466
-anchor_top = 0.18075
-anchor_right = 0.777397
-anchor_bottom = 0.288534
-margin_left = -0.0342312
-margin_top = 0.361511
-margin_right = -0.0342407
-margin_bottom = 0.361511
+[node name="FriendEthnicity" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
+anchor_left = 0.0282193
+anchor_top = 0.136573
+anchor_right = 0.498542
+anchor_bottom = 0.253635
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 7 )
-text = "Na Alergie"
+text = "Ethnicity"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FriendProfession" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
+anchor_left = 0.0282193
+anchor_top = 0.253635
+anchor_right = 0.498542
+anchor_bottom = 0.370697
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Profession"
 valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
@@ -716,10 +456,10 @@ __meta__ = {
 }
 
 [node name="PurchasePriceLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-anchor_left = 0.0342466
-anchor_top = 0.305266
-anchor_right = 0.291096
-anchor_bottom = 0.444155
+anchor_left = 0.0267214
+anchor_top = 0.367699
+anchor_right = 0.283571
+anchor_bottom = 0.506588
 margin_left = -0.0342312
 margin_top = 0.610542
 margin_right = -0.0342255
@@ -734,9 +474,9 @@ __meta__ = {
 
 [node name="PurchasePriceValue" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
 anchor_left = 0.719225
-anchor_top = 0.308684
+anchor_top = 0.371117
 anchor_right = 0.993151
-anchor_bottom = 0.431963
+anchor_bottom = 0.494396
 margin_left = -0.719147
 margin_top = 0.617371
 margin_right = -0.719147
@@ -802,123 +542,9 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="CustomItem" type="Control" parent="PurchaseWindowBackground/PurchaseWindow"]
-visible = false
-anchor_right = 1.00198
-anchor_bottom = 0.995238
-margin_right = 3.05176e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="CustomItemName" type="TextEdit" parent="PurchaseWindowBackground/PurchaseWindow/CustomItem"]
-anchor_left = 0.0342466
-anchor_top = 0.0200833
-anchor_right = 0.979452
-anchor_bottom = 0.184754
-margin_left = -2.36309
-margin_top = 1.60518
-margin_right = -1.58389
-margin_bottom = 122.773
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 6 )
-custom_styles/read_only = SubResource( 43 )
-custom_styles/focus = SubResource( 43 )
-custom_styles/normal = SubResource( 43 )
-custom_styles/completion = SubResource( 43 )
-
-[node name="PurchaseBuyButton" parent="PurchaseWindowBackground/PurchaseWindow/CustomItem" instance=ExtResource( 13 )]
-unique_name_in_owner = false
-anchor_left = 0.560509
-anchor_top = 0.86244
-anchor_right = 0.976671
-anchor_bottom = 0.970773
-custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 27 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 29 )
-custom_styles/normal = SubResource( 18 )
-text = "buy_button"
-
-[node name="PurchaseCancelButton" parent="PurchaseWindowBackground/PurchaseWindow/CustomItem" instance=ExtResource( 13 )]
-unique_name_in_owner = false
-anchor_left = 0.0295857
-anchor_top = 0.86244
-anchor_right = 0.445748
-anchor_bottom = 0.970773
-custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 27 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 29 )
-custom_styles/normal = SubResource( 18 )
-text = "cancel_button"
-
-[node name="CustomItemPriceLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/CustomItem"]
-anchor_left = 0.0295857
-anchor_top = 0.684261
-anchor_right = 0.38575
-anchor_bottom = 0.82315
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 38 )
-text = "price_label"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="CustomItemPrice" type="SpinBox" parent="PurchaseWindowBackground/PurchaseWindow/CustomItem"]
-anchor_left = 0.459564
-anchor_top = 0.69378
-anchor_right = 0.976328
-anchor_bottom = 0.818182
-theme = ExtResource( 15 )
-align = 1
-
-[node name="HSeparator" type="HSeparator" parent="PurchaseWindowBackground/PurchaseWindow/CustomItem"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.0295857
-anchor_top = 0.638756
-anchor_right = 0.976328
-anchor_bottom = 0.741627
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="CustomItemCategory" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/CustomItem"]
-anchor_left = 0.0295857
-anchor_top = 0.511962
-anchor_right = 0.976328
-anchor_bottom = 0.655502
-theme = ExtResource( 15 )
-custom_colors/font_color_disabled = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color_focus = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color_hover = Color( 0, 0.792157, 0.0862745, 1 )
-custom_colors/font_color_pressed = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 35 )
-custom_styles/hover = SubResource( 36 )
-custom_styles/pressed = SubResource( 36 )
-custom_styles/focus = SubResource( 36 )
-custom_styles/disabled = SubResource( 36 )
-custom_styles/normal = SubResource( 36 )
-align = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[connection signal="pressed" from="SelectButton" to="." method="_on_SelectButton_pressed"]
-[connection signal="pressed" from="EquipmentButton" to="." method="_on_EquipmentButton_pressed"]
-[connection signal="item_selected" from="PurchaseTab/Filtering/CategoryFilter" to="." method="_on_CategoryFilter_item_selected"]
-[connection signal="text_changed" from="PurchaseTab/Filtering/FilterEditbox" to="." method="_on_FilterEditbox_text_changed"]
 [connection signal="pressed" from="PurchaseTab/Headers/NameButton" to="." method="_on_NameButton_pressed"]
 [connection signal="pressed" from="PurchaseTab/Headers/PriceButton" to="." method="_on_PriceButton_pressed"]
 [connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/PurchaseBuyButton" to="." method="_on_PurchaseBuyButton_pressed"]
 [connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/PurchaseCancelButton" to="." method="_on_PurchaseCancelButton_pressed"]
 [connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/PurchaseMinus" to="." method="_on_PurchaseMinus_pressed"]
 [connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/PurchasePlus" to="." method="_on_PurchasePlus_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/CustomItem/PurchaseCancelButton" to="." method="_on_PurchaseCancelButton_pressed"]
