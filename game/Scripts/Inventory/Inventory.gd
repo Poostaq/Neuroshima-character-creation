@@ -2,8 +2,8 @@ extends Control
 
 var step_name = "DUMMY STEP"
 var equipment_list = []
-var purchasable_item = preload("res://Scenes/InventoryAndFriends/PurchaseItem.tscn")
-var equipment_item = preload("res://Scenes/InventoryAndFriends/Item.tscn")
+var purchasable_item = preload("res://Scenes/Inventory/PurchaseItem.tscn")
+var equipment_item = preload("res://Scenes/Inventory/Item.tscn")
 onready var available_items_list = $"%AvailableItemsList"
 onready var filter_editbox = $"%FilterEditbox"
 onready var category_filter = $"%CategoryFilter"
@@ -40,7 +40,7 @@ onready var balance_amount_label = $"%BalanceAmountLabel"
 var purchased_item_data: EquipmentItem
 
 func _ready():
-	if get_tree().current_scene.name == "InventoryAndFriends":
+	if get_tree().current_scene.name == "Inventory":
 		load_step()	
 	CharacterStats.player_currency = 150
 	balance_amount_label.text = str(CharacterStats.player_currency)
