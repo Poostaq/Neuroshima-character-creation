@@ -21,7 +21,7 @@ margin_bottom = 8.0
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
 [sub_resource type="DynamicFont" id=2]
-size = 32
+size = 24
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 10 )
@@ -189,14 +189,10 @@ __meta__ = {
 }
 
 [node name="Minus" type="Button" parent="."]
-anchor_left = 2.8202
-anchor_top = 0.140016
-anchor_right = 2.96983
-anchor_bottom = 1.7413
-margin_left = -2864.27
-margin_top = -0.000349998
-margin_right = -3033.76
-margin_bottom = -40.0645
+anchor_left = 0.774294
+anchor_top = 0.140009
+anchor_right = 0.802859
+anchor_bottom = 0.94001
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 6 )
@@ -207,14 +203,10 @@ __meta__ = {
 }
 
 [node name="Plus" type="Button" parent="."]
-anchor_left = 3.1882
-anchor_top = 0.353556
-anchor_right = 3.33782
-anchor_bottom = 1.95484
-margin_left = -3318.49
-margin_top = -11.6774
-margin_right = -3487.96
-margin_bottom = -51.7415
+anchor_left = 0.817851
+anchor_top = 0.120008
+anchor_right = 0.846421
+anchor_bottom = 0.92001
 custom_styles/hover = SubResource( 9 )
 custom_styles/pressed = SubResource( 10 )
 custom_styles/focus = SubResource( 11 )
