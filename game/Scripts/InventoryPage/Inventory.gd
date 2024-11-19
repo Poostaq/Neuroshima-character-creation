@@ -1,6 +1,6 @@
 extends Control
 
-var step_name = "DUMMY STEP"
+var step_name = "INVENTORY STEP"
 var equipment_list = []
 var purchasable_item = preload("res://Scenes/Inventory/PurchaseItem.tscn")
 var equipment_item = preload("res://Scenes/Inventory/Item.tscn")

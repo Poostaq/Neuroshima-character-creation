@@ -9,13 +9,16 @@
 [ext_resource path="res://UI_Elements/minusButtonActive.png" type="Texture" id=7]
 [ext_resource path="res://THEME.tres" type="Theme" id=8]
 [ext_resource path="res://UI_Elements/panel_stylebox.tres" type="StyleBox" id=9]
-[ext_resource path="res://UI_Elements/WindowWithBorder.png" type="Texture" id=10]
+[ext_resource path="res://UI_Elements/arrowLeftActive.png" type="Texture" id=10]
 [ext_resource path="res://UI_Elements/originDescriptionBox.png" type="Texture" id=11]
 [ext_resource path="res://UI_Elements/RadioButtonOn.png" type="Texture" id=12]
 [ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=13]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=14]
 [ext_resource path="res://UI_Elements/Radio button off.png" type="Texture" id=15]
-[ext_resource path="res://Scenes/Inventory/PurchasedEquipmentItem.gd" type="Script" id=16]
+[ext_resource path="res://UI_Elements/arrowRightActive.png" type="Texture" id=17]
+[ext_resource path="res://UI_Elements/SkillBoxBorderwithBackground.png" type="Texture" id=18]
+[ext_resource path="res://Scenes/FriendsPage/FriendElement.tscn" type="PackedScene" id=19]
+[ext_resource path="res://Scenes/FriendsPage/Friends.gd" type="Script" id=20]
 
 [sub_resource type="DynamicFont" id=1]
 size = 48
@@ -31,41 +34,14 @@ margin_right = 6.31675
 margin_top = 3.96128
 margin_bottom = 4.93945
 
-[sub_resource type="DynamicFont" id=37]
-size = 36
-outline_size = 2
+[sub_resource type="DynamicFont" id=76]
+size = 48
+outline_size = 5
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
 
-[sub_resource type="StyleBoxTexture" id=39]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-margin_left = 3.0
-margin_right = 3.0
-margin_top = 3.0
-margin_bottom = 3.0
-modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
-
-[sub_resource type="StyleBoxTexture" id=27]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=28]
-
-[sub_resource type="StyleBoxTexture" id=40]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-margin_left = 6.0
-margin_right = 7.0
-margin_top = 7.0
-margin_bottom = 7.0
-modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
-
-[sub_resource type="ButtonGroup" id=34]
-
-[sub_resource type="DynamicFont" id=22]
-size = 36
+[sub_resource type="DynamicFont" id=44]
+size = 28
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
@@ -79,7 +55,16 @@ margin_top = 7.0
 margin_bottom = 8.0
 modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
 
-[sub_resource type="StyleBoxTexture" id=29]
+[sub_resource type="StyleBoxTexture" id=32]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 8.0
+margin_right = 6.0
+margin_top = 9.0
+margin_bottom = 8.0
+modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=45]
 
 [sub_resource type="StyleBoxTexture" id=18]
 texture = ExtResource( 6 )
@@ -90,11 +75,73 @@ margin_top = 7.0
 margin_bottom = 5.0
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
+[sub_resource type="StyleBoxTexture" id=64]
+texture = ExtResource( 18 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 4.74081
+margin_right = 4.34927
+margin_top = 5.17463
+margin_bottom = 4.78309
+
 [sub_resource type="DynamicFont" id=6]
-size = 24
+size = 26
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
+
+[sub_resource type="StyleBoxTexture" id=66]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 50, 50 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+modulate_color = Color( 2, 2, 2, 1 )
+
+[sub_resource type="StyleBoxTexture" id=67]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxEmpty" id=70]
+
+[sub_resource type="StyleBoxTexture" id=68]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=69]
+texture = ExtResource( 10 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=71]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 50, 50 )
+margin_left = 5.0
+margin_right = 5.0
+margin_top = 5.0
+margin_bottom = 5.0
+expand_margin_left = 5.0
+expand_margin_right = 5.0
+expand_margin_top = 5.0
+expand_margin_bottom = 5.0
+modulate_color = Color( 2, 2, 2, 1 )
+
+[sub_resource type="StyleBoxTexture" id=72]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxEmpty" id=73]
+
+[sub_resource type="StyleBoxTexture" id=74]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=75]
+texture = ExtResource( 17 )
+region_rect = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="StyleBoxTexture" id=43]
 texture = ExtResource( 6 )
@@ -106,7 +153,7 @@ margin_bottom = 6.6342
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
 [sub_resource type="DynamicFont" id=7]
-size = 20
+size = 26
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
@@ -114,97 +161,47 @@ font_data = ExtResource( 14 )
 [sub_resource type="StyleBoxTexture" id=36]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 470, 200 )
-margin_left = 7.0
-margin_right = 7.0
-margin_top = 9.0
-margin_bottom = 7.0
+margin_left = 3.94871
+margin_right = 4.35852
+margin_top = 4.84911
+margin_bottom = 4.2261
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
 [sub_resource type="DynamicFont" id=8]
-size = 24
+size = 26
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
+
+[sub_resource type="StyleBoxTexture" id=65]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 9.0
+margin_right = 12.0
+margin_top = 9.33081
+margin_bottom = 11.0
 
 [sub_resource type="StyleBoxEmpty" id=46]
 
 [sub_resource type="StyleBoxEmpty" id=47]
 
-[sub_resource type="DynamicFont" id=21]
-size = 28
-outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 14 )
-
-[sub_resource type="StyleBoxTexture" id=31]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
-
-[sub_resource type="StyleBoxTexture" id=32]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-margin_left = 8.0
-margin_right = 6.0
-margin_top = 9.0
-margin_bottom = 8.0
-modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
-
-[sub_resource type="DynamicFont" id=38]
-size = 36
-outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 14 )
-
-[sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 50, 50 )
-
-[sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 4 )
-region_rect = Rect2( 0, 0, 50, 50 )
-
-[sub_resource type="StyleBoxEmpty" id=11]
-
-[sub_resource type="StyleBoxTexture" id=12]
-texture = ExtResource( 5 )
-region_rect = Rect2( 0, 0, 50, 50 )
-
-[sub_resource type="StyleBoxTexture" id=13]
-texture = ExtResource( 7 )
-region_rect = Rect2( 0, 0, 50, 50 )
-modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
-
-[sub_resource type="StyleBoxTexture" id=14]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 50, 50 )
-
-[sub_resource type="StyleBoxTexture" id=15]
-texture = ExtResource( 3 )
-region_rect = Rect2( 0, 0, 50, 50 )
-
-[sub_resource type="StyleBoxEmpty" id=16]
-
-[sub_resource type="StyleBoxTexture" id=41]
-texture = ExtResource( 2 )
-region_rect = Rect2( 0, 0, 50, 50 )
-
-[sub_resource type="StyleBoxTexture" id=42]
-texture = ExtResource( 1 )
-region_rect = Rect2( 0, 0, 50, 50 )
-modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
-
 [sub_resource type="StyleBoxTexture" id=30]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 470, 200 )
-margin_left = 7.0
-margin_right = 7.0
-margin_top = 8.0
-margin_bottom = 8.0
+margin_left = 5.17463
+margin_right = 4.56618
+margin_top = 4.95772
+margin_bottom = 4.34927
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=62]
 size = 20
+outline_size = 1
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 28
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
@@ -248,7 +245,7 @@ region_rect = Rect2( 0, 0, 50, 50 )
 modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
 
 [sub_resource type="DynamicFont" id=56]
-size = 20
+size = 28
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
@@ -270,22 +267,38 @@ modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
 [sub_resource type="StyleBoxTexture" id=61]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 4.0
+margin_right = 4.3839
+margin_top = 4.0
+margin_bottom = 4.33521
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
-[sub_resource type="DynamicFont" id=44]
+[sub_resource type="DynamicFont" id=63]
 size = 28
 outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 14 )
 
-[sub_resource type="StyleBoxEmpty" id=45]
+[sub_resource type="DynamicFont" id=21]
+size = 28
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 14 )
 
-[node name="FriendsStep" type="Control"]
+[sub_resource type="StyleBoxTexture" id=31]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=28]
+
+[node name="AquaintancesStep" type="Control"]
 unique_name_in_owner = true
 anchor_left = 0.0104167
 anchor_top = 0.0185185
 anchor_right = 0.979167
 anchor_bottom = 0.890741
+script = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -328,7 +341,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="PurchaseTab" type="Panel" parent="."]
+[node name="PurchasePanel" type="Panel" parent="."]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_left = 0.123118
 anchor_top = 0.197452
@@ -340,7 +353,7 @@ margin_right = 1.00024
 margin_bottom = -1.00031
 custom_styles/panel = SubResource( 23 )
 
-[node name="Headers" type="Control" parent="PurchaseTab"]
+[node name="Headers" type="Control" parent="PurchasePanel"]
 anchor_left = 0.0111654
 anchor_top = -0.0025896
 anchor_right = 0.988137
@@ -351,39 +364,20 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="NameButton" parent="PurchaseTab/Headers" instance=ExtResource( 13 )]
-anchor_left = -0.00714286
-anchor_top = 0.0702086
-anchor_right = 0.775
-anchor_bottom = 1.01802
-custom_fonts/font = SubResource( 37 )
-custom_styles/hover = SubResource( 39 )
-custom_styles/pressed = SubResource( 27 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 40 )
-custom_styles/normal = SubResource( 40 )
-group = SubResource( 34 )
-text = "name_sorting"
-icon_align = 2
-expand_icon = true
+[node name="Label" type="Label" parent="PurchasePanel/Headers"]
+anchor_right = 1.00214
+anchor_bottom = 1.08823
+margin_right = 0.00012207
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 76 )
+text = "aquaintances_label"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="PriceButton" parent="PurchaseTab/Headers" instance=ExtResource( 13 )]
-anchor_left = 0.778571
-anchor_top = 0.0702085
-anchor_right = 1.00714
-anchor_bottom = 1.01802
-custom_fonts/font = SubResource( 22 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 27 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 29 )
-custom_styles/normal = SubResource( 18 )
-group = SubResource( 34 )
-text = "price_sorting"
-icon_align = 2
-expand_icon = true
-
-[node name="FriendsListPanel" type="Panel" parent="PurchaseTab"]
+[node name="FriendsListPanel" type="Panel" parent="PurchasePanel"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_left = 0.000697837
 anchor_top = 0.1
@@ -395,21 +389,49 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ScrollContainer" type="ScrollContainer" parent="PurchaseTab/FriendsListPanel"]
+[node name="ScrollContainer" type="ScrollContainer" parent="PurchasePanel/FriendsListPanel"]
 anchor_left = 0.00488827
 anchor_top = 0.0125899
 anchor_right = 0.993017
 anchor_bottom = 0.978417
+margin_top = -0.591709
+margin_right = -0.000366211
+margin_bottom = 2.01465
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FriendsList" type="GridContainer" parent="PurchaseTab/FriendsListPanel/ScrollContainer"]
+[node name="FriendsList" type="GridContainer" parent="PurchasePanel/FriendsListPanel/ScrollContainer"]
+margin_right = 1415.0
+margin_bottom = 40.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
+
+[node name="FriendElement" parent="PurchasePanel/FriendsListPanel/ScrollContainer/FriendsList" instance=ExtResource( 19 )]
+visible = false
+
+[node name="AddFriendButton" type="Button" parent="PurchasePanel/FriendsListPanel/ScrollContainer/FriendsList"]
+unique_name_in_owner = true
+margin_right = 1415.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 1415, 40 )
+custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_hover = Color( 0, 0.717647, 0.0392157, 1 )
+custom_colors/font_color_pressed = Color( 0, 0.717647, 0.0392157, 1 )
+custom_fonts/font = SubResource( 44 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 32 )
+custom_styles/focus = SubResource( 45 )
+custom_styles/disabled = SubResource( 32 )
+custom_styles/normal = SubResource( 18 )
+text = "ADD FRIEND"
 
 [node name="PurchaseWindowBackground" type="ColorRect" parent="."]
+unique_name_in_owner = true
+visible = false
 anchor_left = 0.1
 anchor_top = 0.089172
 anchor_right = 0.913978
@@ -419,42 +441,153 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="PurchaseWindow" type="TextureRect" parent="PurchaseWindowBackground"]
-anchor_left = 0.161823
-anchor_top = 0.23301
-anchor_right = 0.862616
-anchor_bottom = 0.85801
-texture = ExtResource( 10 )
+[node name="PurchaseWindow" type="Panel" parent="PurchaseWindowBackground"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+anchor_left = 0.301849
+anchor_top = 0.229369
+anchor_right = 0.716645
+anchor_bottom = 0.917476
+margin_left = 3.00012
+margin_top = 1.00003
+margin_right = 5.00012
+margin_bottom = 6.0
+custom_styles/panel = SubResource( 64 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StepNameLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.0047619
+anchor_top = 0.0034965
+anchor_right = 0.995238
+anchor_bottom = 0.0909091
+rect_min_size = Vector2( 260, 45 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "basic_info_label"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StepOneIndicator" type="TextureRect" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.425397
+anchor_top = 0.0874125
+anchor_right = 0.463492
+anchor_bottom = 0.139336
+margin_left = 3.05176e-05
+margin_right = -3.99997
+margin_bottom = -9.70001
+texture = ExtResource( 12 )
 expand = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="RegularItem" type="Control" parent="PurchaseWindowBackground/PurchaseWindow"]
-anchor_right = 1.00198
-anchor_bottom = 0.995238
+[node name="StepTwoIndicator" type="TextureRect" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.463492
+anchor_top = 0.0874125
+anchor_right = 0.501587
+anchor_bottom = 0.139336
+margin_right = -4.0
+margin_bottom = -9.70001
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="StepThreeIndicator" type="TextureRect" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.501587
+anchor_top = 0.0874125
+anchor_right = 0.539682
+anchor_bottom = 0.139336
+margin_left = 3.05176e-05
+margin_right = -3.99997
+margin_bottom = -9.70001
+texture = ExtResource( 15 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PreviousStep" type="Button" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.0507937
+anchor_top = 0.0227273
+anchor_right = 0.160317
+anchor_bottom = 0.125874
+margin_left = -2.00002
+margin_top = -2.00001
+margin_right = -6.00002
+margin_bottom = 3.99998
+custom_styles/hover = SubResource( 66 )
+custom_styles/pressed = SubResource( 67 )
+custom_styles/focus = SubResource( 70 )
+custom_styles/disabled = SubResource( 68 )
+custom_styles/normal = SubResource( 69 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="NextStep" type="Button" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.84127
+anchor_top = 0.0194056
+anchor_right = 0.944444
+anchor_bottom = 0.133042
+custom_styles/hover = SubResource( 71 )
+custom_styles/pressed = SubResource( 72 )
+custom_styles/focus = SubResource( 73 )
+custom_styles/disabled = SubResource( 74 )
+custom_styles/normal = SubResource( 75 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="HSeparator2" type="HSeparator" parent="PurchaseWindowBackground/PurchaseWindow"]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.014103
+anchor_top = 0.0284956
+anchor_right = 0.985334
+anchor_bottom = 0.1319
+margin_left = -1.62125e-05
+margin_top = 39.9081
+margin_bottom = 39.9081
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="BasicInfoStep" type="Control" parent="PurchaseWindowBackground/PurchaseWindow"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+anchor_top = 0.0788462
+anchor_right = 0.997017
+anchor_bottom = 0.844661
+margin_right = 1.87915
+margin_bottom = 0.776489
 rect_pivot_offset = Vector2( 530, 114 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="GridContainer" type="GridContainer" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-anchor_left = 0.0141097
-anchor_top = 0.0253635
-anchor_right = 0.991439
-anchor_bottom = 0.259488
+[node name="GridContainer" type="GridContainer" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep"]
+anchor_left = 0.0428571
+anchor_top = 0.11622
+anchor_right = 0.993651
+anchor_bottom = 0.701879
 custom_constants/vseparation = 5
 custom_constants/hseparation = 5
-columns = 4
+columns = 2
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FriendName" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_top = 3.0
-margin_right = 250.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 250, 30 )
+[node name="FriendNameLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+margin_right = 260.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 260, 45 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 6 )
 text = "Name"
@@ -463,22 +596,24 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FriendNameInput" type="LineEdit" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_left = 255.0
-margin_right = 491.0
-margin_bottom = 37.2684
+[node name="FriendNameInput" type="LineEdit" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+margin_left = 265.0
+margin_right = 575.0
+margin_bottom = 45.0
+rect_min_size = Vector2( 310, 0 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 6 )
 custom_styles/read_only = SubResource( 43 )
 custom_styles/focus = SubResource( 43 )
 custom_styles/normal = SubResource( 43 )
-text = "Input Name"
+placeholder_text = "Input Name"
+placeholder_alpha = 0.405
 
-[node name="FriendEthnicity" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_left = 496.0
-margin_top = 8.0
-margin_right = 677.0
-margin_bottom = 28.0
+[node name="FriendEthnicityLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+margin_top = 50.0
+margin_right = 260.0
+margin_bottom = 95.0
+rect_min_size = Vector2( 0, 45 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Ethnicity"
@@ -487,10 +622,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FriendEthnicityOptionButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_left = 682.0
-margin_right = 847.0
-margin_bottom = 37.0
+[node name="FriendEthnicityOptionButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+unique_name_in_owner = true
+margin_left = 265.0
+margin_top = 50.0
+margin_right = 575.0
+margin_bottom = 95.0
 theme = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 7 )
@@ -501,10 +638,11 @@ custom_styles/disabled = SubResource( 36 )
 custom_styles/normal = SubResource( 36 )
 text = "Ethnicity name"
 
-[node name="FriendProfession" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_top = 50.0
-margin_right = 250.0
-margin_bottom = 70.0
+[node name="FriendProfessionLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+margin_top = 100.0
+margin_right = 260.0
+margin_bottom = 145.0
+rect_min_size = Vector2( 0, 45 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Profession"
@@ -513,11 +651,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FriendProfessionOptionButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_left = 255.0
-margin_top = 42.0
-margin_right = 491.0
-margin_bottom = 78.0
+[node name="FriendProfessionOptionButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+unique_name_in_owner = true
+margin_left = 265.0
+margin_top = 100.0
+margin_right = 575.0
+margin_bottom = 145.0
 theme = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 7 )
@@ -528,11 +667,11 @@ custom_styles/disabled = SubResource( 36 )
 custom_styles/normal = SubResource( 36 )
 text = "Profession Name"
 
-[node name="FriendConnectionLevel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_left = 496.0
-margin_top = 48.0
-margin_right = 677.0
-margin_bottom = 72.0
+[node name="FriendConnectionLevelLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+margin_top = 150.0
+margin_right = 260.0
+margin_bottom = 195.0
+rect_min_size = Vector2( 0, 45 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 8 )
 text = "Connection level"
@@ -541,11 +680,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FriendProfessionOptionButton2" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_left = 682.0
-margin_top = 42.0
-margin_right = 847.0
-margin_bottom = 78.0
+[node name="FriendConnectionLevelButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+unique_name_in_owner = true
+margin_left = 265.0
+margin_top = 150.0
+margin_right = 575.0
+margin_bottom = 195.0
 theme = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 7 )
@@ -554,25 +694,52 @@ custom_styles/pressed = SubResource( 36 )
 custom_styles/focus = SubResource( 36 )
 custom_styles/disabled = SubResource( 36 )
 custom_styles/normal = SubResource( 36 )
+text = "aquaintance_level"
+items = [ "aquaintance_level", null, false, 0, null, "friend_level", null, false, 1, null, "friend_for_life_level", null, false, 2, null ]
+selected = 0
 
-[node name="FriendAreaInformation" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-visible = false
-margin_top = 177.0
-margin_right = 250.0
-margin_bottom = 228.0
+[node name="FriendReputationLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+margin_top = 200.0
+margin_right = 260.0
+margin_bottom = 245.0
+rect_min_size = Vector2( 260, 45 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 8 )
-text = "Area Information Broker"
+custom_fonts/font = SubResource( 6 )
+text = "Reputation"
 valign = 1
-autowrap = true
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FriendAreaInformationCheckbox" type="CheckButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_top = 83.0
-margin_right = 250.0
-margin_bottom = 115.0
+[node name="Reputation" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer"]
+self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
+margin_left = 265.0
+margin_top = 200.0
+margin_right = 575.0
+margin_bottom = 245.0
+custom_styles/panel = SubResource( 65 )
+
+[node name="ReputationSpinBox" type="SpinBox" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/Reputation"]
+unique_name_in_owner = true
+anchor_left = 0.016129
+anchor_right = 0.987097
+anchor_bottom = 1.0
+theme = ExtResource( 8 )
+max_value = 20.0
+step = 10.0
+align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FriendAreaInformationCheckbox" type="CheckButton" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep"]
+unique_name_in_owner = true
+anchor_left = 0.0349206
+anchor_top = 0.697874
+anchor_right = 0.565079
+anchor_bottom = 0.806965
+margin_right = -3.05176e-05
+margin_bottom = -2.87155
 custom_colors/font_color_disabled = Color( 0, 0.792157, 0.0862745, 1 )
 custom_colors/font_color_focus = Color( 0, 0.792157, 0.0862745, 1 )
 custom_colors/font_color_hover_pressed = Color( 0, 0.792157, 0.0862745, 1 )
@@ -583,29 +750,19 @@ custom_fonts/font = SubResource( 8 )
 custom_icons/off = ExtResource( 15 )
 custom_icons/on = ExtResource( 12 )
 custom_styles/focus = SubResource( 46 )
-pressed = true
-text = "Area Information"
+text = "Area Information Broker"
 icon_align = 1
-
-[node name="FriendSeasonedFighter" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-visible = false
-margin_left = 305.0
-margin_top = 181.0
-margin_right = 523.0
-margin_bottom = 205.0
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 8 )
-text = "Seasoned Fighter"
-valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="FriendSeasonedFighterCheckbox" type="CheckButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/GridContainer"]
-margin_left = 255.0
-margin_top = 83.0
-margin_right = 491.0
-margin_bottom = 115.0
+[node name="FriendSeasonedFighterCheckbox" type="CheckButton" parent="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep"]
+unique_name_in_owner = true
+anchor_left = 0.0349204
+anchor_top = 0.781867
+anchor_right = 0.563492
+anchor_bottom = 0.85914
+margin_bottom = 11.091
 custom_colors/font_color_disabled = Color( 0, 0.792157, 0.0862745, 1 )
 custom_colors/font_color_focus = Color( 0, 0.792157, 0.0862745, 1 )
 custom_colors/font_color_hover_pressed = Color( 0, 0.792157, 0.0862745, 1 )
@@ -618,254 +775,78 @@ custom_icons/off = ExtResource( 15 )
 custom_icons/on = ExtResource( 12 )
 custom_styles/focus = SubResource( 47 )
 text = "Seasoned Fighter"
-align = 1
 icon_align = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
 
-[node name="PurchaseBuyButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem" instance=ExtResource( 13 )]
-anchor_left = 0.561617
-anchor_top = 0.858333
-anchor_right = 0.977779
-anchor_bottom = 0.966666
-margin_left = -0.561615
-margin_top = 1.71667
-margin_right = -0.561615
-margin_bottom = 1.71667
-custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 31 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 31 )
-custom_styles/normal = SubResource( 18 )
-text = "add_button"
-
-[node name="PurchaseCancelButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem" instance=ExtResource( 13 )]
-anchor_left = 0.0505051
-anchor_top = 0.858333
-anchor_right = 0.466667
-anchor_bottom = 0.966666
-margin_left = -0.0504837
-margin_top = 1.71667
-margin_right = -0.0504913
-margin_bottom = 1.71667
-custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 32 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 32 )
-custom_styles/normal = SubResource( 18 )
-text = "cancel_button"
-
-[node name="PurchaseAmountLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
+[node name="ItemsStep" type="Control" parent="PurchaseWindowBackground/PurchaseWindow"]
 visible = false
-anchor_left = 0.0342466
-anchor_top = 0.73153
-anchor_right = 0.390411
-anchor_bottom = 0.870419
-margin_left = -0.0342312
-margin_top = 1.05725
-margin_right = -0.0342255
-margin_bottom = 1.05725
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 38 )
-text = "Amount:"
-valign = 1
+anchor_right = 0.995223
+anchor_bottom = 0.996117
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="PurchaseAmountValue" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-visible = false
-anchor_left = 0.458904
-anchor_top = 0.738775
-anchor_right = 0.64726
-anchor_bottom = 0.862232
-margin_left = -0.458878
-margin_top = 1.07175
-margin_right = -0.458862
-margin_bottom = 1.07175
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 8 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="PurchaseMinus" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-visible = false
-anchor_left = 0.710924
-anchor_top = 0.745572
-anchor_right = 0.799681
-anchor_bottom = 0.853228
-custom_styles/hover = SubResource( 9 )
-custom_styles/pressed = SubResource( 10 )
-custom_styles/focus = SubResource( 11 )
-custom_styles/disabled = SubResource( 12 )
-custom_styles/normal = SubResource( 13 )
-disabled = true
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="PurchasePlus" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-visible = false
-anchor_left = 0.849079
-anchor_top = 0.745573
-anchor_right = 0.937836
-anchor_bottom = 0.853229
-custom_styles/hover = SubResource( 14 )
-custom_styles/pressed = SubResource( 15 )
-custom_styles/focus = SubResource( 16 )
-custom_styles/disabled = SubResource( 41 )
-custom_styles/normal = SubResource( 42 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="PurchaseSumLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-anchor_left = 0.711159
-anchor_top = 0.715373
-anchor_right = 0.846612
-anchor_bottom = 0.853897
-margin_left = -0.0342312
-margin_top = 1.33737
-margin_right = -0.0342407
-margin_bottom = 1.33737
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 8 )
-text = "Sum to pay:"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="PurchaseSumValue" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-anchor_left = 0.820918
-anchor_top = 0.725088
-anchor_right = 0.993056
-anchor_bottom = 0.848004
-margin_left = -0.719147
-margin_top = 1.35803
-margin_right = -0.719147
-margin_bottom = 1.35803
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 8 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="HSeparator" type="HSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.0445205
-anchor_top = 0.66296
-anchor_right = 0.976027
-anchor_bottom = 0.765841
-margin_left = -0.0444889
-margin_top = 0.888916
-margin_right = -0.0444946
-margin_bottom = 0.888916
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VSeparator2" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.489135
-anchor_top = 0.333627
-anchor_right = 0.503245
-anchor_bottom = 0.700423
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="FriendName" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-anchor_left = 0.0150503
-anchor_top = 0.24388
-anchor_right = 0.0150503
-anchor_bottom = 0.24388
-margin_top = 3.0
-margin_right = 250.0
-margin_bottom = 33.0
-rect_min_size = Vector2( 250, 30 )
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Items"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="FriendName2" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
-anchor_left = 0.505126
-anchor_top = 0.251684
-anchor_right = 0.740287
-anchor_bottom = 0.310215
-rect_min_size = Vector2( 250, 30 )
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Skills"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Panel" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
+[node name="Panel" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_left = 6.0
-margin_top = 163.0
-margin_right = 519.0
-margin_bottom = 355.0
+anchor_left = 0.00956951
+anchor_top = 0.145671
+anchor_right = 0.995229
+anchor_bottom = 0.765209
+margin_left = -1.0
+margin_top = 2.0
+margin_right = 1.0
+margin_bottom = 4.0
 custom_styles/panel = ExtResource( 9 )
-
-[node name="ScrollContainer" type="ScrollContainer" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel"]
-anchor_left = 0.0192308
-anchor_top = 0.0677083
-anchor_right = 0.996154
-anchor_bottom = 0.96875
-margin_right = -7.00006
-margin_bottom = -3.99998
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="GridContainer2" type="GridContainer" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer"]
-margin_right = 490.0
-margin_bottom = 85.0
+[node name="ScrollContainer" type="ScrollContainer" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel"]
+anchor_left = 0.0163934
+anchor_top = 0.0104603
+anchor_right = 0.991803
+anchor_bottom = 0.738494
+margin_left = -5.16393
+margin_top = 1.28661
+margin_right = 0.0819702
+margin_bottom = 87.8347
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="GridContainer2" type="GridContainer" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer"]
+margin_right = 608.0
+margin_bottom = 125.0
 custom_constants/vseparation = 5
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Item" type="Control" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2"]
-margin_right = 490.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 490, 40 )
-script = ExtResource( 16 )
+[node name="Item" type="Control" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2"]
+margin_right = 608.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 608, 80 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ItemFrame" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
+[node name="ItemFrame" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
 anchor_right = 1.0
 anchor_bottom = 1.0
-rect_min_size = Vector2( 4, 40 )
+rect_min_size = Vector2( 4, 80 )
 custom_styles/panel = SubResource( 30 )
 
-[node name="FriendEthnicityOptionButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
-anchor_left = 0.00599988
-anchor_top = 0.0499954
-anchor_right = 0.458
-anchor_bottom = 0.949995
+[node name="ItemListOptionButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
+anchor_left = 0.00597015
+anchor_top = 0.05
+anchor_right = 0.728358
+anchor_bottom = 0.5
+margin_bottom = -4.0
 theme = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 62 )
 custom_styles/hover = SubResource( 36 )
 custom_styles/pressed = SubResource( 36 )
 custom_styles/focus = SubResource( 36 )
@@ -876,25 +857,11 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VSeparator4" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.458
-anchor_top = 0.124991
-anchor_right = 0.472285
-anchor_bottom = 0.924991
-margin_left = 2.0
-margin_top = -0.999817
-margin_right = 2.00006
-margin_bottom = -0.999817
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ItemValueLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
-anchor_left = 0.472
-anchor_top = 0.0249957
-anchor_right = 0.562
-anchor_bottom = 1.025
+[node name="ValueLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
+anchor_left = 0.89208
+anchor_top = 0.0499996
+anchor_right = 0.981876
+anchor_bottom = 0.45
 rect_pivot_offset = Vector2( -1765, -464 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -905,22 +872,41 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VSeparator" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.56
-anchor_top = 0.0999954
-anchor_right = 0.574285
-anchor_bottom = 0.899995
-margin_right = 6.10352e-05
+[node name="ItemValue" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
+anchor_left = 0.758209
+anchor_top = 0.0499996
+anchor_right = 0.889552
+anchor_bottom = 0.45
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Value:"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ItemAmountLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
-anchor_left = 0.57
-anchor_top = 0.0499954
-anchor_right = 0.678
-anchor_bottom = 0.999995
+[node name="AmountLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
+anchor_left = 0.0101704
+anchor_top = 0.55
+anchor_right = 0.19226
+anchor_bottom = 0.925
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Amount:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemAmount" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
+anchor_left = 0.191526
+anchor_top = 0.5625
+anchor_right = 0.264995
+anchor_bottom = 0.9375
 rect_pivot_offset = Vector2( -1765, -464 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -931,12 +917,12 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VSeparator2" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
+[node name="VSeparator2" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
 modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.67
-anchor_top = 0.149991
-anchor_right = 0.684285
-anchor_bottom = 0.949991
+anchor_left = 0.264408
+anchor_top = 0.612497
+anchor_right = 0.278692
+anchor_bottom = 0.937497
 margin_left = 2.00012
 margin_top = -0.999817
 margin_right = 2.00012
@@ -945,15 +931,11 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Minus" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
-anchor_left = 3.57751
-anchor_top = 0.300011
-anchor_right = 3.72714
-anchor_bottom = 1.9013
-margin_left = -1412.1
-margin_top = -0.000452042
-margin_right = -1466.92
-margin_bottom = -44.0518
+[node name="Minus" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
+anchor_left = 0.291526
+anchor_top = 0.6125
+anchor_right = 0.333899
+anchor_bottom = 0.925
 custom_styles/hover = SubResource( 4 )
 custom_styles/pressed = SubResource( 5 )
 custom_styles/focus = SubResource( 48 )
@@ -963,15 +945,13 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Plus" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
-anchor_left = 4.02351
-anchor_top = 0.653551
-anchor_right = 4.217
-anchor_bottom = 2.25484
-margin_left = -1610.1
-margin_top = -14.1421
-margin_right = -1684.91
-margin_bottom = -58.1934
+[node name="Plus" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
+anchor_left = 0.352543
+anchor_top = 0.6125
+anchor_right = 0.394916
+anchor_bottom = 0.925
+margin_left = -1.52588e-05
+margin_right = -1.52588e-05
 rect_min_size = Vector2( 20, 20 )
 custom_styles/hover = SubResource( 51 )
 custom_styles/pressed = SubResource( 52 )
@@ -982,26 +962,26 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VSeparator3" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item"]
+[node name="VSeparator3" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item"]
 modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.789572
-anchor_top = 0.100009
-anchor_right = 0.803858
-anchor_bottom = 0.900009
-margin_left = -0.786011
-margin_top = 0.99964
-margin_right = -0.786011
-margin_bottom = 0.999641
+anchor_left = 0.400001
+anchor_top = 0.612497
+anchor_right = 0.414287
+anchor_bottom = 0.937497
+margin_left = 2.00012
+margin_top = -0.999817
+margin_right = 2.00012
+margin_bottom = -0.999817
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SellButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item" instance=ExtResource( 13 )]
+[node name="SellButton" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item" instance=ExtResource( 13 )]
 unique_name_in_owner = false
-anchor_left = 0.796001
-anchor_top = 0.075003
-anchor_right = 0.992001
-anchor_bottom = 0.875003
+anchor_left = 0.728815
+anchor_top = 0.475001
+anchor_right = 0.986442
+anchor_bottom = 0.929191
 custom_fonts/font = SubResource( 56 )
 custom_styles/hover = SubResource( 57 )
 custom_styles/pressed = SubResource( 58 )
@@ -1012,11 +992,11 @@ toggle_mode = false
 text = "sell_button"
 clip_text = true
 
-[node name="Button" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2"]
-margin_top = 45.0
-margin_right = 490.0
-margin_bottom = 85.0
-rect_min_size = Vector2( 490, 30 )
+[node name="Button" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2"]
+margin_top = 85.0
+margin_right = 608.0
+margin_bottom = 125.0
+rect_min_size = Vector2( 300, 40 )
 custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
@@ -1030,53 +1010,73 @@ custom_styles/disabled = SubResource( 32 )
 custom_styles/normal = SubResource( 18 )
 text = "ADD ITEM"
 
-[node name="Panel2" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem"]
+[node name="SkillsStep" type="Control" parent="PurchaseWindowBackground/PurchaseWindow"]
+visible = false
+anchor_right = 0.998411
+anchor_bottom = 0.993007
+margin_right = 1.0
+margin_bottom = 2.0
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="Panel2" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-margin_left = 531.0
-margin_top = 209.0
-margin_right = 1051.0
-margin_bottom = 359.0
+anchor_left = 0.00793651
+anchor_top = 0.149123
+anchor_right = 0.992063
+anchor_bottom = 0.77193
 custom_styles/panel = ExtResource( 9 )
-
-[node name="ScrollContainer2" type="ScrollContainer" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2"]
-anchor_left = 0.0153846
-anchor_top = 0.0533333
-anchor_right = 0.980769
-anchor_bottom = 0.96
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="GridContainer2" type="GridContainer" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2"]
-margin_right = 500.0
-margin_bottom = 84.0
+[node name="ScrollContainer2" type="ScrollContainer" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2"]
+anchor_left = -0.0370959
+anchor_top = 0.00563371
+anchor_right = 1.00111
+anchor_bottom = 0.774884
+margin_left = 27.0
+margin_top = 4.0
+margin_right = -7.0
+margin_bottom = 67.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="Item" type="Control" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2"]
-margin_right = 500.0
-margin_bottom = 40.0
-rect_min_size = Vector2( 500, 40 )
-script = ExtResource( 16 )
+[node name="GridContainer2" type="GridContainer" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2"]
+margin_right = 608.0
+margin_bottom = 124.0
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ItemFrame" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
+[node name="Item" type="Control" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2"]
+margin_right = 608.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 608, 80 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemFrame" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item"]
 anchor_right = 1.0
 anchor_bottom = 1.0
 rect_min_size = Vector2( 4, 40 )
 custom_styles/panel = SubResource( 30 )
 
-[node name="FriendEthnicityOptionButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-anchor_left = 0.00599988
-anchor_top = 0.0499954
-anchor_right = 0.458
-anchor_bottom = 0.949995
+[node name="FriendEthnicityOptionButton" type="OptionButton" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item"]
+anchor_left = 0.00491745
+anchor_top = 0.0253948
+anchor_right = 0.710509
+anchor_bottom = 0.462895
+margin_left = 0.0101929
+margin_top = -0.0315857
+margin_right = 1.01022
+margin_bottom = -0.0315857
 theme = ExtResource( 8 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 7 )
+custom_fonts/font = SubResource( 63 )
 custom_styles/hover = SubResource( 36 )
 custom_styles/pressed = SubResource( 36 )
 custom_styles/focus = SubResource( 36 )
@@ -1087,25 +1087,57 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VSeparator4" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.458
-anchor_top = 0.124991
-anchor_right = 0.472285
-anchor_bottom = 0.924991
-margin_left = 2.0
-margin_top = -0.999817
-margin_right = 2.00006
-margin_bottom = -0.999817
+[node name="FriendEthnicityOptionButton2" type="SpinBox" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item"]
+anchor_left = 0.840444
+anchor_top = 0.0378949
+anchor_right = 0.984041
+anchor_bottom = 0.488835
+margin_left = 0.0102539
+margin_top = -1.03159
+margin_right = 0.0102539
+margin_bottom = -0.0315857
+theme = ExtResource( 8 )
+min_value = 4.0
+max_value = 8.0
+step = 4.0
+value = 4.0
+align = 1
+
+[node name="ItemAmountLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item"]
+anchor_left = 0.0203709
+anchor_top = 0.5
+anchor_right = 0.132213
+anchor_bottom = 0.9625
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Cost:"
+align = 1
+valign = 1
 __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ItemValueLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-anchor_left = 0.472
-anchor_top = 0.0249957
-anchor_right = 0.562
-anchor_bottom = 1.025
+[node name="ItemAmountLabel3" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item"]
+anchor_left = 0.717105
+anchor_top = 0.025
+anchor_right = 0.858553
+anchor_bottom = 0.4875
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Level:"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemAmountLabel2" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item"]
+anchor_left = 0.136371
+anchor_top = 0.5
+anchor_right = 0.240371
+anchor_bottom = 0.9625
 rect_pivot_offset = Vector2( -1765, -464 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 3 )
@@ -1116,103 +1148,16 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="VSeparator" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.56
-anchor_top = 0.0999954
-anchor_right = 0.574285
-anchor_bottom = 0.899995
-margin_right = 6.10352e-05
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="ItemAmountLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-anchor_left = 0.57
-anchor_top = 0.0499954
-anchor_right = 0.678
-anchor_bottom = 0.999995
-rect_pivot_offset = Vector2( -1765, -464 )
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 3 )
-text = "123"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VSeparator2" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.67
-anchor_top = 0.149991
-anchor_right = 0.684285
-anchor_bottom = 0.949991
-margin_left = 2.00012
-margin_top = -0.999817
-margin_right = 2.00012
-margin_bottom = -0.999817
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Minus" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-anchor_left = 3.5122
-anchor_top = 0.300011
-anchor_right = 3.66183
-anchor_bottom = 1.9013
-margin_left = -1412.1
-margin_top = -0.000452042
-margin_right = -1466.92
-margin_bottom = -44.0518
-custom_styles/hover = SubResource( 4 )
-custom_styles/pressed = SubResource( 5 )
-custom_styles/focus = SubResource( 48 )
-custom_styles/disabled = SubResource( 49 )
-custom_styles/normal = SubResource( 50 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="Plus" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-anchor_left = 3.9582
-anchor_top = 0.628551
-anchor_right = 4.14782
-anchor_bottom = 2.22984
-margin_left = -1610.1
-margin_top = -14.1421
-margin_right = -1684.91
-margin_bottom = -58.1934
-rect_min_size = Vector2( 20, 20 )
-custom_styles/hover = SubResource( 51 )
-custom_styles/pressed = SubResource( 52 )
-custom_styles/focus = SubResource( 53 )
-custom_styles/disabled = SubResource( 54 )
-custom_styles/normal = SubResource( 55 )
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="VSeparator3" type="VSeparator" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.789572
-anchor_top = 0.100009
-anchor_right = 0.803858
-anchor_bottom = 0.900009
-margin_left = -0.786011
-margin_top = 0.99964
-margin_right = -0.786011
-margin_bottom = 0.999641
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="SellButton" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item" instance=ExtResource( 13 )]
+[node name="SellButton" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item" instance=ExtResource( 13 )]
 unique_name_in_owner = false
-anchor_left = 0.796001
-anchor_top = 0.075003
-anchor_right = 0.992001
-anchor_bottom = 0.875003
+anchor_left = 0.717105
+anchor_top = 0.5
+anchor_right = 0.995066
+anchor_bottom = 0.9625
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
 custom_fonts/font = SubResource( 56 )
 custom_styles/hover = SubResource( 57 )
 custom_styles/pressed = SubResource( 58 )
@@ -1223,11 +1168,11 @@ toggle_mode = false
 text = "sell_button"
 clip_text = true
 
-[node name="Button2" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2"]
-margin_top = 44.0
-margin_right = 500.0
-margin_bottom = 84.0
-rect_min_size = Vector2( 500, 30 )
+[node name="Button2" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2"]
+margin_top = 84.0
+margin_right = 608.0
+margin_bottom = 124.0
+rect_min_size = Vector2( 390, 30 )
 custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
@@ -1241,15 +1186,97 @@ custom_styles/disabled = SubResource( 32 )
 custom_styles/normal = SubResource( 18 )
 text = "ADD SKILL"
 
-[connection signal="pressed" from="PurchaseTab/Headers/NameButton" to="." method="_on_NameButton_pressed"]
-[connection signal="pressed" from="PurchaseTab/Headers/PriceButton" to="." method="_on_PriceButton_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/PurchaseBuyButton" to="." method="_on_PurchaseBuyButton_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/PurchaseCancelButton" to="." method="_on_PurchaseCancelButton_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/PurchaseMinus" to="." method="_on_PurchaseMinus_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/PurchasePlus" to="." method="_on_PurchasePlus_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item/Minus" to="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item" method="_on_Minus_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item/Plus" to="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item" method="_on_Plus_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item/SellButton" to="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel/ScrollContainer/GridContainer2/Item" method="_on_SellButton_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item/Minus" to="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item" method="_on_Minus_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item/Plus" to="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item" method="_on_Plus_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item/SellButton" to="PurchaseWindowBackground/PurchaseWindow/RegularItem/Panel2/ScrollContainer2/GridContainer2/Item" method="_on_SellButton_pressed"]
+[node name="HSeparator" type="HSeparator" parent="PurchaseWindowBackground/PurchaseWindow"]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.0141736
+anchor_top = 0.861143
+anchor_right = 0.985405
+anchor_bottom = 0.964549
+margin_left = -0.0444937
+margin_top = -66.4641
+margin_right = -0.0444946
+margin_bottom = -66.4641
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PurchaseSumLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.650794
+anchor_top = 0.775524
+anchor_right = 0.879365
+anchor_bottom = 0.875525
+margin_left = 3.05176e-05
+margin_right = 6.10352e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Sum to pay:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PurchaseSumValue" type="Label" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.819048
+anchor_top = 0.775524
+anchor_right = 0.990476
+anchor_bottom = 0.877447
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FriendHireButton" parent="PurchaseWindowBackground/PurchaseWindow" instance=ExtResource( 13 )]
+anchor_left = 0.555556
+anchor_top = 0.865385
+anchor_right = 0.971717
+anchor_bottom = 0.97028
+margin_left = -3.05176e-05
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 28 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 18 )
+text = "hire_button"
+
+[node name="FriendCancelButton" parent="PurchaseWindowBackground/PurchaseWindow" instance=ExtResource( 13 )]
+anchor_left = 0.047619
+anchor_top = 0.865385
+anchor_right = 0.460317
+anchor_bottom = 0.97028
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 32 )
+custom_styles/focus = SubResource( 28 )
+custom_styles/disabled = SubResource( 32 )
+custom_styles/normal = SubResource( 18 )
+text = "cancel_button"
+
+[connection signal="pressed" from="PurchasePanel/FriendsListPanel/ScrollContainer/FriendsList/AddFriendButton" to="." method="_on_AddFriendButton_pressed"]
+[connection signal="text_changed" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/FriendNameInput" to="." method="_on_FriendNameInput_text_changed"]
+[connection signal="item_selected" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/FriendEthnicityOptionButton" to="." method="_on_FriendEthnicityOptionButton_item_selected"]
+[connection signal="item_selected" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/FriendProfessionOptionButton" to="." method="_on_FriendProfessionOptionButton_item_selected"]
+[connection signal="item_selected" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/FriendConnectionLevelButton" to="." method="_on_FriendConnectionLevelButton_item_selected"]
+[connection signal="value_changed" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/Reputation/ReputationSpinBox" to="." method="_on_ReputationSpinBox_value_changed"]
+[connection signal="toggled" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/FriendAreaInformationCheckbox" to="." method="_on_FriendAreaInformationCheckbox_toggled"]
+[connection signal="toggled" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/FriendSeasonedFighterCheckbox" to="." method="_on_FriendSeasonedFighterCheckbox_toggled"]
+[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item/Minus" to="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item" method="_on_Minus_pressed"]
+[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item/Plus" to="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item" method="_on_Plus_pressed"]
+[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item/SellButton" to="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/GridContainer2/Item" method="_on_SellButton_pressed"]
+[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item/SellButton" to="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel2/ScrollContainer2/GridContainer2/Item" method="_on_SellButton_pressed"]
+[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/FriendHireButton" to="." method="_on_PurchaseBuyButton_pressed"]
+[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/FriendCancelButton" to="." method="_on_PurchaseCancelButton_pressed"]

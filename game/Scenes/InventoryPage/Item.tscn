@@ -1,18 +1,18 @@
 [gd_scene load_steps=30 format=2]
 
-[ext_resource path="res://UI_Elements/plusButtonActive.png" type="Texture" id=1]
-[ext_resource path="res://UI_Elements/minusButtonInactive.png" type="Texture" id=2]
-[ext_resource path="res://UI_Elements/plusButtonPressed.png" type="Texture" id=3]
-[ext_resource path="res://UI_Elements/plusButton.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=1]
+[ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=2]
+[ext_resource path="res://UI_Elements/minusButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://UI_Elements/plusButtonPressed.png" type="Texture" id=4]
 [ext_resource path="res://UI_Elements/minusButtonActive.png" type="Texture" id=5]
-[ext_resource path="res://UI_Elements/minusButtonPressed.png" type="Texture" id=6]
-[ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=7]
-[ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Scenes/Inventory/PurchasedEquipmentItem.gd" type="Script" id=9]
+[ext_resource path="res://UI_Elements/plusButtonActive.png" type="Texture" id=6]
+[ext_resource path="res://UI_Elements/minusButtonInactive.png" type="Texture" id=7]
+[ext_resource path="res://UI_Elements/plusButton.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/InventoryPage/PurchasedEquipmentItem.gd" type="Script" id=9]
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=10]
 
 [sub_resource type="StyleBoxTexture" id=30]
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 470, 200 )
 margin_left = 7.0
 margin_right = 7.0
@@ -37,13 +37,13 @@ texture = ExtResource( 5 )
 region_rect = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 6 )
+texture = ExtResource( 3 )
 region_rect = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="StyleBoxEmpty" id=6]
 
 [sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 2 )
+texture = ExtResource( 7 )
 region_rect = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="StyleBoxTexture" id=8]
@@ -52,21 +52,21 @@ region_rect = Rect2( 0, 0, 50, 50 )
 modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
 
 [sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 1 )
+texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 3 )
+texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="StyleBoxEmpty" id=11]
 
 [sub_resource type="StyleBoxTexture" id=12]
-texture = ExtResource( 4 )
+texture = ExtResource( 8 )
 region_rect = Rect2( 0, 0, 50, 50 )
 
 [sub_resource type="StyleBoxTexture" id=13]
-texture = ExtResource( 1 )
+texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 50, 50 )
 modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
 
@@ -77,12 +77,12 @@ outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 10 )
 
 [sub_resource type="StyleBoxTexture" id=17]
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 470, 200 )
 modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
 
 [sub_resource type="StyleBoxTexture" id=27]
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 470, 200 )
 modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
 
@@ -91,7 +91,7 @@ modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
 [sub_resource type="StyleBoxTexture" id=29]
 
 [sub_resource type="StyleBoxTexture" id=18]
-texture = ExtResource( 7 )
+texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 470, 200 )
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
@@ -226,7 +226,7 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SellButton" parent="." instance=ExtResource( 8 )]
+[node name="SellButton" parent="." instance=ExtResource( 1 )]
 anchor_left = 0.865715
 anchor_top = 0.0800024
 anchor_right = 0.991429

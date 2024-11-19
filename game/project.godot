@@ -15,6 +15,11 @@ _global_script_classes=[ {
 "path": "res://Scripts/Helpers/EquipmentItem.gd"
 }, {
 "base": "Reference",
+"class": "Friend",
+"language": "GDScript",
+"path": "res://Scripts/Helpers/Friend.gd"
+}, {
+"base": "Reference",
 "class": "SkillData",
 "language": "GDScript",
 "path": "res://Scripts/Helpers/SkillData.gd"
@@ -36,6 +41,7 @@ _global_script_classes=[ {
 } ]
 _global_script_class_icons={
 "EquipmentItem": "",
+"Friend": "",
 "SkillData": "",
 "SkillPack": "",
 "SpecialRule": "",

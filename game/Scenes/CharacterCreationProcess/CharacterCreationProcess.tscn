@@ -27,12 +27,13 @@
 [ext_resource path="res://UI_Elements/MainMenu/help_on_4.png" type="Texture" id=25]
 [ext_resource path="res://UI_Elements/MainMenu/help_off_4.png" type="Texture" id=26]
 [ext_resource path="res://Scenes/TricksPage/TricksStep.tscn" type="PackedScene" id=27]
-[ext_resource path="res://Scenes/Inventory/Inventory.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/InventoryPage/Inventory.tscn" type="PackedScene" id=28]
 [ext_resource path="res://Scenes/DiseasePage/DiseaseStep.tscn" type="PackedScene" id=29]
 [ext_resource path="res://Scenes/FormPage/FormStep.tscn" type="PackedScene" id=30]
 [ext_resource path="res://UI_Elements/originBox.png" type="Texture" id=31]
 [ext_resource path="res://Fonts/Bold_45_colored.tres" type="DynamicFont" id=32]
 [ext_resource path="res://Scenes/FriendsPage/Friends.tscn" type="PackedScene" id=33]
+
 
 [sub_resource type="ButtonGroup" id=2]
 

@@ -1845,4 +1845,11 @@ one_piece,1 sztuka,1 piece
 portion,porcja,portion
 custom_item,Indywidualny przedmiot,Custom Item
 price_label,Cena:,Price:
+hire_button,Zwerbuj,Hire
 sell_button,Sprzedaj Paczkę,Sell
+aquaintance_level,Znajomy,Aquaintance
+friend_level,Przyjaciel,Friend
+friend_for_life_level,Przyjaciel na śmierć i życie,Friend for life
+basic_info_label,Podstawowe Informacje,Basic Information
+step_number_label,Krok:,Step:
+aquaintances_label,Znajomości,Aquaintances

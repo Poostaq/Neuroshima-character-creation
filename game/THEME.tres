@@ -9,7 +9,8 @@
 [ext_resource path="res://UI_Elements/WindowWithBorder.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=5]
-outline_size = 1
+size = 24
+outline_size = 2
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 1 )
 
@@ -78,17 +79,17 @@ LineEdit/colors/clear_button_color_pressed = Color( 0, 0.792157, 0.0862745, 1 )
 LineEdit/colors/cursor_color = Color( 0, 0.792157, 0.0862745, 1 )
 LineEdit/colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 LineEdit/colors/font_color_selected = Color( 0, 0, 0, 1 )
-LineEdit/colors/font_color_uneditable = Color( 0.88, 0.88, 0.88, 0.5 )
+LineEdit/colors/font_color_uneditable = Color( 0, 0.568627, 0.141176, 0.501961 )
 LineEdit/colors/selection_color = Color( 0, 0.258824, 0.027451, 1 )
 LineEdit/fonts/font = SubResource( 5 )
 LineEdit/styles/focus = SubResource( 8 )
 LineEdit/styles/normal = SubResource( 9 )
 LineEdit/styles/read_only = SubResource( 8 )
-OptionButton/colors/font_color = Color( 0.88, 0.88, 0.88, 1 )
-OptionButton/colors/font_color_disabled = Color( 0.9, 0.9, 0.9, 0.2 )
-OptionButton/colors/font_color_focus = Color( 0.94, 0.94, 0.94, 1 )
-OptionButton/colors/font_color_hover = Color( 0.94, 0.94, 0.94, 1 )
-OptionButton/colors/font_color_pressed = Color( 1, 1, 1, 1 )
+OptionButton/colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
+OptionButton/colors/font_color_disabled = Color( 0.901961, 0.901961, 0.901961, 0.2 )
+OptionButton/colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
+OptionButton/colors/font_color_hover = Color( 0, 0.717647, 0.0392157, 1 )
+OptionButton/colors/font_color_pressed = Color( 0, 0.717647, 0.0392157, 1 )
 OptionButton/constants/arrow_margin = 2
 OptionButton/constants/hseparation = 2
 OptionButton/icons/arrow = null
