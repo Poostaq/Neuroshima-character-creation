@@ -40,7 +40,7 @@ func _on_Minus_pressed():
 		
 
 func _on_Plus_pressed():
-	if CharacterStats.player_currency > int(item_value_label.text):
+	if CharacterStats.player_currency >= int(item_value_label.text):
 		CharacterStats.player_currency -= int(item_value_label.text)
 		item_amount += 1
 		set_item_amount()

@@ -2,8 +2,8 @@ extends Control
 
 var step_name = "INVENTORY STEP"
 var equipment_list = []
-var purchasable_item = preload("res://Scenes/Inventory/PurchaseItem.tscn")
-var equipment_item = preload("res://Scenes/Inventory/Item.tscn")
+var purchasable_item = preload("res://Scenes/InventoryPage/PurchaseItem.tscn")
+var equipment_item = preload("res://Scenes/InventoryPage/Item.tscn")
 onready var available_items_list = $"%AvailableItemsList"
 onready var filter_editbox = $"%FilterEditbox"
 onready var category_filter = $"%CategoryFilter"

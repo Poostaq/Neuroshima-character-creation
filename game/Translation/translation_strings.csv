@@ -1607,7 +1607,8 @@ weapon_accessory_group,Akcesoria do broni,Weapons Accessories
 electronics_group,Elektronika,Electronics 
 vehicle_group,Pojazdy,Vehicle
 food_livestock_group,Żywność i zwierzęta,Food and Livestock
-alcohol,Alkohol,Alcohol
+alcohol_moonshine,Alkohol,Alcohol
+alcohol_brand,Alkohol,Alcohol
 cigarette,Papieros,Cigarette
 chewing_tobacco,Tytoń do żucia,Chewing Tobacco
 oh_three_eight,0.38,0.38
