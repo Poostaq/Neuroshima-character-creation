@@ -5,12 +5,11 @@
 [ext_resource path="res://UI_Elements/sliderBase.png" type="Texture" id=3]
 [ext_resource path="res://UI_Elements/SkillBoxBorderwithBackground.png" type="Texture" id=4]
 [ext_resource path="res://UI_Elements/RadioButtonOn.png" type="Texture" id=5]
-[ext_resource path="res://UI_Elements/Radio button off.png" type="Texture" id=6]
 [ext_resource path="res://UI_Elements/WindowWithBorder.png" type="Texture" id=7]
 
 [sub_resource type="DynamicFont" id=5]
-size = 24
-outline_size = 2
+size = 20
+outline_size = 1
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 1 )
 
@@ -28,6 +27,10 @@ margin_bottom = 9.04649
 outline_size = 1
 outline_color = Color( 0, 0.262745, 0.00784314, 1 )
 font_data = ExtResource( 1 )
+
+[sub_resource type="StreamTexture" id=10]
+flags = 4
+load_path = "res://.import/Radio button off.png-0e2a32c262c411c12cc5faf4a0ac63d8.stex"
 
 [sub_resource type="StyleBoxTexture" id=7]
 texture = ExtResource( 4 )
@@ -109,7 +112,7 @@ PopupMenu/fonts/font = SubResource( 6 )
 PopupMenu/fonts/font_separator = SubResource( 5 )
 PopupMenu/icons/checked = null
 PopupMenu/icons/radio_checked = ExtResource( 5 )
-PopupMenu/icons/radio_unchecked = ExtResource( 6 )
+PopupMenu/icons/radio_unchecked = SubResource( 10 )
 PopupMenu/icons/submenu = null
 PopupMenu/icons/unchecked = null
 PopupMenu/styles/hover = null

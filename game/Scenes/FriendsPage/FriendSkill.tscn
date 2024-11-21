@@ -1,0 +1,181 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=2]
+[ext_resource path="res://THEME.tres" type="Theme" id=3]
+[ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=4]
+
+[sub_resource type="StyleBoxTexture" id=30]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 5.17463
+margin_right = 4.56618
+margin_top = 4.95772
+margin_bottom = 4.34927
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[sub_resource type="DynamicFont" id=63]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=36]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 3.94871
+margin_right = 4.35852
+margin_top = 4.84911
+margin_bottom = 4.2261
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=56]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=57]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxTexture" id=58]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=59]
+
+[sub_resource type="StyleBoxTexture" id=60]
+
+[sub_resource type="StyleBoxTexture" id=61]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 4.0
+margin_right = 4.3839
+margin_top = 4.0
+margin_bottom = 4.33521
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[node name="Item" type="Control"]
+margin_right = 608.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 608, 80 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemFrame" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 4, 80 )
+custom_styles/panel = SubResource( 30 )
+
+[node name="FriendEthnicityOptionButton" type="OptionButton" parent="."]
+anchor_left = 0.00491835
+anchor_top = 0.0503944
+anchor_right = 0.993405
+anchor_bottom = 0.462894
+margin_left = 0.0101929
+margin_top = -0.0315857
+margin_right = 1.01022
+margin_bottom = -0.0315857
+theme = ExtResource( 3 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 63 )
+custom_styles/hover = SubResource( 36 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/focus = SubResource( 36 )
+custom_styles/disabled = SubResource( 36 )
+custom_styles/normal = SubResource( 36 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FriendEthnicityOptionButton2" type="SpinBox" parent="."]
+anchor_left = 0.840444
+anchor_top = 0.0378949
+anchor_right = 0.984041
+anchor_bottom = 0.488835
+margin_left = -431.99
+margin_top = 37.9684
+margin_right = -431.99
+margin_bottom = 38.9684
+theme = ExtResource( 3 )
+min_value = 4.0
+max_value = 8.0
+step = 4.0
+value = 4.0
+align = 1
+
+[node name="ItemAmountLabel" type="Label" parent="."]
+anchor_left = 0.507213
+anchor_top = 0.525
+anchor_right = 0.619055
+anchor_bottom = 0.9875
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Cost:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemAmountLabel3" type="Label" parent="."]
+anchor_left = 0.717105
+anchor_top = 0.025
+anchor_right = 0.858553
+anchor_bottom = 0.4875
+margin_left = -424.0
+margin_top = 40.0
+margin_right = -424.0
+margin_bottom = 40.0
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Level:"
+valign = 1
+
+[node name="ItemAmountLabel2" type="Label" parent="."]
+anchor_left = 0.623213
+anchor_top = 0.525
+anchor_right = 0.727213
+anchor_bottom = 0.9875
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "123"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SellButton" parent="." instance=ExtResource( 4 )]
+anchor_left = 0.731908
+anchor_top = 0.5
+anchor_right = 0.995066
+anchor_bottom = 0.95
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_fonts/font = SubResource( 56 )
+custom_styles/hover = SubResource( 57 )
+custom_styles/pressed = SubResource( 58 )
+custom_styles/focus = SubResource( 59 )
+custom_styles/disabled = SubResource( 60 )
+custom_styles/normal = SubResource( 61 )
+text = "sell_button"
+clip_text = true
+
+[connection signal="pressed" from="SellButton" to="." method="_on_SellButton_pressed"]

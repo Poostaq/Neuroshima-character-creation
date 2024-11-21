@@ -1,0 +1,285 @@
+[gd_scene load_steps=31 format=2]
+
+[ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=2]
+[ext_resource path="res://UI_Elements/minusButtonPressed.png" type="Texture" id=3]
+[ext_resource path="res://UI_Elements/plusButton.png" type="Texture" id=4]
+[ext_resource path="res://UI_Elements/minusButtonActive.png" type="Texture" id=5]
+[ext_resource path="res://UI_Elements/plusButtonActive.png" type="Texture" id=6]
+[ext_resource path="res://UI_Elements/minusButtonInactive.png" type="Texture" id=7]
+[ext_resource path="res://UI_Elements/plusButtonPressed.png" type="Texture" id=8]
+[ext_resource path="res://THEME.tres" type="Theme" id=9]
+[ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=10]
+
+[sub_resource type="StyleBoxTexture" id=30]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 5.17463
+margin_right = 4.56618
+margin_top = 4.95772
+margin_bottom = 4.34927
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[sub_resource type="DynamicFont" id=62]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=36]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 3.94871
+margin_right = 4.35852
+margin_top = 4.84911
+margin_bottom = 4.2261
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 20
+outline_size = 1
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxEmpty" id=48]
+
+[sub_resource type="StyleBoxTexture" id=49]
+texture = ExtResource( 7 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=50]
+texture = ExtResource( 5 )
+region_rect = Rect2( 0, 0, 50, 50 )
+modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
+
+[sub_resource type="StyleBoxTexture" id=51]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=52]
+texture = ExtResource( 8 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxEmpty" id=53]
+
+[sub_resource type="StyleBoxTexture" id=54]
+texture = ExtResource( 4 )
+region_rect = Rect2( 0, 0, 50, 50 )
+
+[sub_resource type="StyleBoxTexture" id=55]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 50, 50 )
+modulate_color = Color( 0.556863, 0.556863, 0.556863, 1 )
+
+[sub_resource type="DynamicFont" id=56]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=57]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.937255, 0.0823529, 1 )
+
+[sub_resource type="StyleBoxTexture" id=58]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=59]
+
+[sub_resource type="StyleBoxTexture" id=60]
+
+[sub_resource type="StyleBoxTexture" id=61]
+texture = ExtResource( 2 )
+region_rect = Rect2( 0, 0, 470, 200 )
+margin_left = 4.0
+margin_right = 4.3839
+margin_top = 4.0
+margin_bottom = 4.33521
+modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
+
+[node name="Item" type="Control"]
+margin_right = 608.0
+margin_bottom = 80.0
+rect_min_size = Vector2( 608, 80 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemFrame" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_min_size = Vector2( 4, 80 )
+custom_styles/panel = SubResource( 30 )
+
+[node name="ItemListOptionButton" type="OptionButton" parent="."]
+anchor_left = 0.00493421
+anchor_top = 0.05
+anchor_right = 0.995066
+anchor_bottom = 0.4625
+theme = ExtResource( 9 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 62 )
+custom_styles/hover = SubResource( 36 )
+custom_styles/pressed = SubResource( 36 )
+custom_styles/focus = SubResource( 36 )
+custom_styles/disabled = SubResource( 36 )
+custom_styles/normal = SubResource( 36 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ValueLabel" type="Label" parent="."]
+anchor_left = 0.14208
+anchor_top = 0.55
+anchor_right = 0.231876
+anchor_bottom = 0.95
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "123"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="ItemValue" type="Label" parent="."]
+anchor_left = 0.00820903
+anchor_top = 0.55
+anchor_right = 0.139552
+anchor_bottom = 0.95
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Value:"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VSeparator4" type="VSeparator" parent="."]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.264408
+anchor_top = 0.612497
+anchor_right = 0.278692
+anchor_bottom = 0.937497
+margin_left = 2.00014
+margin_top = -0.999817
+margin_right = 2.00015
+margin_bottom = -0.999817
+
+[node name="AmountLabel" type="Label" parent="."]
+anchor_left = 0.0101704
+anchor_top = 0.55
+anchor_right = 0.19226
+anchor_bottom = 0.925
+margin_left = 184.0
+margin_right = 184.0
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Amount:"
+align = 1
+valign = 1
+
+[node name="ItemAmount" type="Label" parent="."]
+anchor_left = 0.191526
+anchor_top = 0.5625
+anchor_right = 0.264995
+anchor_bottom = 0.9375
+margin_left = 184.0
+margin_right = 184.0
+rect_pivot_offset = Vector2( -1765, -464 )
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "123"
+align = 1
+valign = 1
+
+[node name="VSeparator2" type="VSeparator" parent="."]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.264408
+anchor_top = 0.612497
+anchor_right = 0.278692
+anchor_bottom = 0.937497
+margin_left = 186.0
+margin_top = -0.999817
+margin_right = 186.0
+margin_bottom = -0.999817
+
+[node name="Minus" type="Button" parent="."]
+anchor_left = 0.294815
+anchor_top = 0.6375
+anchor_right = 0.337188
+anchor_bottom = 0.95
+margin_left = 184.0
+margin_right = 178.237
+margin_bottom = -5.0
+custom_styles/hover = SubResource( 4 )
+custom_styles/pressed = SubResource( 5 )
+custom_styles/focus = SubResource( 48 )
+custom_styles/disabled = SubResource( 49 )
+custom_styles/normal = SubResource( 50 )
+
+[node name="Plus" type="Button" parent="."]
+anchor_left = 0.355832
+anchor_top = 0.6375
+anchor_right = 0.398206
+anchor_bottom = 0.95
+margin_left = 184.0
+margin_right = 178.237
+margin_bottom = -5.0
+rect_min_size = Vector2( 0, 20 )
+custom_styles/hover = SubResource( 51 )
+custom_styles/pressed = SubResource( 52 )
+custom_styles/focus = SubResource( 53 )
+custom_styles/disabled = SubResource( 54 )
+custom_styles/normal = SubResource( 55 )
+
+[node name="VSeparator3" type="VSeparator" parent="."]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.400001
+anchor_top = 0.612497
+anchor_right = 0.414287
+anchor_bottom = 0.937497
+margin_left = 186.0
+margin_top = -0.999817
+margin_right = 186.0
+margin_bottom = -0.999817
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SellButton" parent="." instance=ExtResource( 10 )]
+anchor_left = 0.731908
+anchor_top = 0.5
+anchor_right = 0.995066
+anchor_bottom = 0.95
+margin_left = 0.0
+margin_top = 0.0
+margin_right = 0.0
+margin_bottom = 0.0
+custom_fonts/font = SubResource( 56 )
+custom_styles/hover = SubResource( 57 )
+custom_styles/pressed = SubResource( 58 )
+custom_styles/focus = SubResource( 59 )
+custom_styles/disabled = SubResource( 60 )
+custom_styles/normal = SubResource( 61 )
+text = "sell_button"
+clip_text = true
+
+[connection signal="pressed" from="Minus" to="." method="_on_Minus_pressed"]
+[connection signal="pressed" from="Plus" to="." method="_on_Plus_pressed"]
+[connection signal="pressed" from="SellButton" to="." method="_on_SellButton_pressed"]
