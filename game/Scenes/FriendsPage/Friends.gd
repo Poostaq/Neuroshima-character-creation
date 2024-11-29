@@ -173,9 +173,11 @@ func _on_NextStep_pressed():
 
 func _on_AddItem_pressed():
 	var new_item = template_friend_item.instance()
+	var item_list = DatabaseOperations.get_equipment_data()
 	item_grid.add_child(new_item)
 	item_grid.remove_child(add_item_button)
 	item_grid.add_child(add_item_button)
+	new_item.fill_option_button(item_list)
 
 
 func _on_AddSkill_pressed():

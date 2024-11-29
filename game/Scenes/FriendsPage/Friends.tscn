@@ -139,6 +139,25 @@ region_rect = Rect2( 0, 0, 50, 50 )
 texture = ExtResource( 17 )
 region_rect = Rect2( 0, 0, 50, 50 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 26
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="DynamicFont" id=21]
+size = 28
+outline_size = 2
+outline_color = Color( 0, 0.262745, 0.00784314, 1 )
+font_data = ExtResource( 14 )
+
+[sub_resource type="StyleBoxTexture" id=31]
+texture = ExtResource( 6 )
+region_rect = Rect2( 0, 0, 470, 200 )
+modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
+
+[sub_resource type="StyleBoxEmpty" id=28]
+
 [sub_resource type="StyleBoxTexture" id=43]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 470, 200 )
@@ -163,12 +182,6 @@ margin_top = 4.84911
 margin_bottom = 4.2261
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
-[sub_resource type="DynamicFont" id=8]
-size = 26
-outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 14 )
-
 [sub_resource type="StyleBoxTexture" id=65]
 texture = ExtResource( 6 )
 region_rect = Rect2( 0, 0, 470, 200 )
@@ -180,19 +193,6 @@ margin_bottom = 11.0
 [sub_resource type="StyleBoxEmpty" id=46]
 
 [sub_resource type="StyleBoxEmpty" id=47]
-
-[sub_resource type="DynamicFont" id=21]
-size = 28
-outline_size = 2
-outline_color = Color( 0, 0.262745, 0.00784314, 1 )
-font_data = ExtResource( 14 )
-
-[sub_resource type="StyleBoxTexture" id=31]
-texture = ExtResource( 6 )
-region_rect = Rect2( 0, 0, 470, 200 )
-modulate_color = Color( 0, 0.0823529, 0.00784314, 1 )
-
-[sub_resource type="StyleBoxEmpty" id=28]
 
 [node name="AquaintancesStep" type="Control"]
 unique_name_in_owner = true
@@ -461,6 +461,85 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
+[node name="HSeparator" type="HSeparator" parent="PurchaseWindowBackground/PurchaseWindow"]
+modulate = Color( 0, 0.792157, 0.0862745, 1 )
+anchor_left = 0.014103
+anchor_top = 0.750192
+anchor_right = 0.985334
+anchor_bottom = 0.853598
+margin_left = -1.52588e-05
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PurchaseSumLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.650794
+anchor_top = 0.782517
+anchor_right = 0.879365
+anchor_bottom = 0.882518
+margin_left = 3.05176e-05
+margin_right = 6.10352e-05
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "Sum to pay:"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="PurchaseSumValue" type="Label" parent="PurchaseWindowBackground/PurchaseWindow"]
+anchor_left = 0.819048
+anchor_top = 0.782517
+anchor_right = 0.990476
+anchor_bottom = 0.88444
+custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
+custom_fonts/font = SubResource( 8 )
+text = "0"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="FriendHireButton" parent="PurchaseWindowBackground/PurchaseWindow" instance=ExtResource( 13 )]
+anchor_left = 0.555556
+anchor_top = 0.865385
+anchor_right = 0.971717
+anchor_bottom = 0.97028
+margin_left = -3.05176e-05
+margin_top = -3.05176e-05
+margin_right = 0.0
+margin_bottom = -6.10352e-05
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 31 )
+custom_styles/focus = SubResource( 28 )
+custom_styles/disabled = SubResource( 31 )
+custom_styles/normal = SubResource( 18 )
+toggle_mode = false
+text = "hire_button"
+
+[node name="FriendCancelButton" parent="PurchaseWindowBackground/PurchaseWindow" instance=ExtResource( 13 )]
+anchor_left = 0.047619
+anchor_top = 0.865385
+anchor_right = 0.460317
+anchor_bottom = 0.97028
+margin_left = -1.71661e-05
+margin_top = -3.05176e-05
+margin_right = -3.05176e-05
+margin_bottom = -6.10352e-05
+custom_fonts/font = SubResource( 21 )
+custom_styles/hover = SubResource( 17 )
+custom_styles/pressed = SubResource( 32 )
+custom_styles/focus = SubResource( 28 )
+custom_styles/disabled = SubResource( 32 )
+custom_styles/normal = SubResource( 18 )
+toggle_mode = false
+text = "cancel_button"
+
 [node name="BasicInfoStep" type="Control" parent="PurchaseWindowBackground/PurchaseWindow"]
 unique_name_in_owner = true
 visible = false
@@ -688,7 +767,7 @@ __meta__ = {
 unique_name_in_owner = true
 anchor_top = 0.153846
 anchor_right = 0.995237
-anchor_bottom = 0.996504
+anchor_bottom = 0.802448
 margin_top = -3.0
 margin_right = 3.0
 __meta__ = {
@@ -697,14 +776,8 @@ __meta__ = {
 
 [node name="Panel" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
-anchor_left = 0.00956938
-anchor_top = -0.00622407
-anchor_right = 0.995215
-anchor_bottom = 0.76556
-margin_left = -6.02871
-margin_top = 3.01867
-margin_right = 3.01434
-margin_bottom = 3.70334
+anchor_right = 1.0
+anchor_bottom = 1.0
 custom_styles/panel = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -719,23 +792,27 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="ItemGrid" type="GridContainer" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer"]
+[node name="ItemGrid" type="VBoxContainer" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer"]
 unique_name_in_owner = true
 margin_right = 619.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Item" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/ItemGrid" instance=ExtResource( 2 )]
 visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
 margin_right = 619.0
+margin_bottom = 80.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="AddItem" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/ItemGrid"]
 unique_name_in_owner = true
 margin_right = 619.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 619, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
@@ -751,9 +828,10 @@ text = "ADD ITEM"
 
 [node name="SkillsStep" type="Control" parent="PurchaseWindowBackground/PurchaseWindow"]
 unique_name_in_owner = true
+visible = false
 anchor_top = 0.15035
 anchor_right = 0.998411
-anchor_bottom = 0.993007
+anchor_bottom = 0.802448
 margin_top = -1.0
 margin_right = 1.0
 margin_bottom = 2.0
@@ -764,7 +842,7 @@ __meta__ = {
 [node name="Panel" type="Panel" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep"]
 self_modulate = Color( 0, 0.262745, 0.00784314, 1 )
 anchor_right = 1.0
-anchor_bottom = 0.773196
+anchor_bottom = 0.994667
 custom_styles/panel = ExtResource( 9 )
 __meta__ = {
 "_edit_use_anchors_": true
@@ -781,23 +859,24 @@ __meta__ = {
 "_edit_use_anchors_": true
 }
 
-[node name="SkillGrid" type="GridContainer" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel/ScrollContainer2"]
+[node name="SkillGrid" type="VBoxContainer" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel/ScrollContainer2"]
 unique_name_in_owner = true
 margin_right = 619.0
 margin_bottom = 40.0
-__meta__ = {
-"_edit_use_anchors_": true
-}
 
 [node name="Item" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel/ScrollContainer2/SkillGrid" instance=ExtResource( 1 )]
 visible = false
 margin_right = 619.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
 
 [node name="AddSkill" type="Button" parent="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel/ScrollContainer2/SkillGrid"]
 unique_name_in_owner = true
 margin_right = 619.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 619, 40 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
 custom_colors/font_color_disabled = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color_focus = Color( 0, 0.717647, 0.0392157, 1 )
 custom_colors/font_color = Color( 0, 0.717647, 0.0392157, 1 )
@@ -811,87 +890,11 @@ custom_styles/disabled = SubResource( 32 )
 custom_styles/normal = SubResource( 18 )
 text = "ADD SKILL"
 
-[node name="HSeparator" type="HSeparator" parent="PurchaseWindowBackground/PurchaseWindow"]
-modulate = Color( 0, 0.792157, 0.0862745, 1 )
-anchor_left = 0.014103
-anchor_top = 0.750192
-anchor_right = 0.985334
-anchor_bottom = 0.853598
-size_flags_horizontal = 3
-size_flags_vertical = 3
-size_flags_stretch_ratio = 0.3
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="PurchaseSumLabel" type="Label" parent="PurchaseWindowBackground/PurchaseWindow"]
-anchor_left = 0.650794
-anchor_top = 0.775524
-anchor_right = 0.879365
-anchor_bottom = 0.875525
-margin_left = 3.05176e-05
-margin_right = 6.10352e-05
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 8 )
-text = "Sum to pay:"
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="PurchaseSumValue" type="Label" parent="PurchaseWindowBackground/PurchaseWindow"]
-anchor_left = 0.819048
-anchor_top = 0.775524
-anchor_right = 0.990476
-anchor_bottom = 0.877447
-custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
-custom_fonts/font = SubResource( 8 )
-text = "0"
-align = 1
-valign = 1
-__meta__ = {
-"_edit_use_anchors_": true
-}
-
-[node name="FriendHireButton" parent="PurchaseWindowBackground/PurchaseWindow" instance=ExtResource( 13 )]
-anchor_left = 0.555556
-anchor_top = 0.865385
-anchor_right = 0.971717
-anchor_bottom = 0.97028
-margin_left = -3.05176e-05
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
-custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 31 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 31 )
-custom_styles/normal = SubResource( 18 )
-toggle_mode = false
-text = "hire_button"
-
-[node name="FriendCancelButton" parent="PurchaseWindowBackground/PurchaseWindow" instance=ExtResource( 13 )]
-anchor_left = 0.047619
-anchor_top = 0.865385
-anchor_right = 0.460317
-anchor_bottom = 0.97028
-margin_left = 0.0
-margin_top = 0.0
-margin_right = 0.0
-margin_bottom = 0.0
-custom_fonts/font = SubResource( 21 )
-custom_styles/hover = SubResource( 17 )
-custom_styles/pressed = SubResource( 32 )
-custom_styles/focus = SubResource( 28 )
-custom_styles/disabled = SubResource( 32 )
-custom_styles/normal = SubResource( 18 )
-toggle_mode = false
-text = "cancel_button"
-
 [connection signal="pressed" from="PurchasePanel/FriendsListPanel/ScrollContainer/FriendsList/AddFriendButton" to="." method="_on_AddFriendButton_pressed"]
 [connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/PreviousStep" to="." method="_on_PreviousStep_pressed"]
 [connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/NextStep" to="." method="_on_NextStep_pressed"]
+[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/FriendHireButton" to="." method="_on_FriendHireButton_pressed"]
+[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/FriendCancelButton" to="." method="_on_FriendCancelButton_pressed"]
 [connection signal="text_changed" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/FriendNameInput" to="." method="_on_FriendNameInput_text_changed"]
 [connection signal="item_selected" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/FriendEthnicityOptionButton" to="." method="_on_FriendEthnicityOptionButton_item_selected"]
 [connection signal="item_selected" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/GridContainer/FriendProfessionOptionButton" to="." method="_on_FriendProfessionOptionButton_item_selected"]
@@ -901,5 +904,3 @@ text = "cancel_button"
 [connection signal="toggled" from="PurchaseWindowBackground/PurchaseWindow/BasicInfoStep/FriendSeasonedFighterCheckbox" to="." method="_on_FriendSeasonedFighterCheckbox_toggled"]
 [connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/ItemsStep/Panel/ScrollContainer/ItemGrid/AddItem" to="." method="_on_AddItem_pressed"]
 [connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/SkillsStep/Panel/ScrollContainer2/SkillGrid/AddSkill" to="." method="_on_AddSkill_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/FriendHireButton" to="." method="_on_FriendHireButton_pressed"]
-[connection signal="pressed" from="PurchaseWindowBackground/PurchaseWindow/FriendCancelButton" to="." method="_on_FriendCancelButton_pressed"]

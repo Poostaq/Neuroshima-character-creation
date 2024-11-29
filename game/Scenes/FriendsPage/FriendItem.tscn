@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://Fonts/Gruppo-Regular.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://UI_Elements/SkillBoxBorder.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://UI_Elements/plusButtonPressed.png" type="Texture" id=8]
 [ext_resource path="res://THEME.tres" type="Theme" id=9]
 [ext_resource path="res://Scenes/NewItemButton.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/FriendsPage/FriendItem.gd" type="Script" id=11]
 
 [sub_resource type="StyleBoxTexture" id=30]
 texture = ExtResource( 2 )
@@ -109,9 +110,10 @@ margin_bottom = 4.33521
 modulate_color = Color( 0, 0.262745, 0.00784314, 1 )
 
 [node name="Item" type="Control"]
-margin_right = 608.0
-margin_bottom = 80.0
+anchor_right = 0.316667
+anchor_bottom = 0.0740741
 rect_min_size = Vector2( 608, 80 )
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": true
 }
@@ -123,10 +125,12 @@ rect_min_size = Vector2( 4, 80 )
 custom_styles/panel = SubResource( 30 )
 
 [node name="ItemListOptionButton" type="OptionButton" parent="."]
+unique_name_in_owner = true
 anchor_left = 0.00493421
 anchor_top = 0.05
 anchor_right = 0.995066
-anchor_bottom = 0.4625
+anchor_bottom = 0.41344
+rect_min_size = Vector2( 600, 0 )
 theme = ExtResource( 9 )
 custom_colors/font_color = Color( 0, 0.792157, 0.0862745, 1 )
 custom_fonts/font = SubResource( 62 )
